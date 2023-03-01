@@ -1,0 +1,23 @@
+<view class="container">
+<form bindsubmit="addUser">
+  <view class="con">
+    <view>头像</view>
+    <view style="display: flex;align-items: center;height: auto;width: auto;">
+      <button style="background: none;border: none;" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar" wx:if="{{!hasAvatar}}">点击选择头像</button>
+      <view class="btn">
+        <button class="button-avatar" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+          <!-- <image class="new-userinfo-avatar" wx:if='{{cndUrl}}' src="{{avatar}}" mode="cover" /> -->
+        </button>
+        <image class="new-userinfo-avatar" wx:if='{{cndUrl}}' src="{{avatar}}" mode="cover" />
+      </view>
+    </view>
+  </view>
+  <view class="con">
+    <view>昵称</view>
+    <input type="nickname" value="{{nickName}}" name="nickName" placeholder="请输入昵称" placeholder-style="color: gray;font-size: 32rpx;" bindinput="getNickname"/>
+  </view>
+
+  <button class="confirm" formType="submit">确认</button>
+</form>
+
+</view>

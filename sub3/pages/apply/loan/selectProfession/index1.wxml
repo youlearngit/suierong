@@ -1,0 +1,12 @@
+<page-container bind:clickoverlay="cancel" show="{{showFlag}}" custom-style="height:80%;width:100%">
+ <view class="top">
+    <text class="select-text">请选择职业</text>
+    <button class="cancel" type="default"  plain="true" bindtouchend="cancel">取 消</button>
+ </view>
+  <view class="content">
+    <view class="items" wx:for="{{propArray}}" wx:for-item='item' wx:key="key" bindtap="select" data-dataset="{{item}}">
+      <text class="item">{{item.name}}</text>
+      <text class="icon">></text>
+  </view>
+</view>
+</page-container>

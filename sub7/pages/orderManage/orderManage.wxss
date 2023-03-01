@@ -1,0 +1,367 @@
+page,
+view,
+text,
+swiper,
+swiper-item,
+image,
+navigator {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.display {
+  display: flex;
+}
+.containerbig{
+  width:100%;
+  height:100vh;
+  position:relative;
+}
+.containerbig_bg{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+.container_content {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding: 40rpx 30rpx;
+}
+
+.container_bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.searchbox {
+  width: 100%;
+  height: 68rpx;
+  background: rgba(255, 255, 255, 0.51);
+  border: 1rpx solid #D2DDFF;
+  border-radius: 34rpx;
+  padding: 12rpx 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  margin-bottom: 30rpx;
+  position:relative;
+}
+
+.searchbox input {
+  font-size: 28rpx;
+  color: #4B4B4B;
+  width:500rpx;
+}
+
+.searchbox .icon-delete1 {
+  font-size: 32rpx;
+  color: #C3C4D0;
+}
+
+.searchbox_img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.downfilterlist{
+  width: 93%;
+  background: #fff;
+  border: 1rpx solid #D2DDFF;
+  border-top: 0;
+  position: absolute;
+  left: 26rpx;
+  top: 66rpx;
+  z-index: 1;
+  /* height: 385rpx; */
+  overflow: auto;
+}
+.downfilterlist>view{
+  padding: 10px;
+  border-bottom: 1px solid #D2DDFF;
+}
+.downfilterlist>view:last-child{
+  border-bottom:none;
+}
+.placeholderStyle {
+  color: #A6C2D7;
+}
+
+.top_container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: #7C8BA4;
+  padding: 0 30rpx;
+  margin-bottom: 40rpx;
+}
+
+.top_container>view.active {
+  color: #3580EE;
+  position: relative;
+}
+
+.top_container>view.active:before {
+  position: absolute;
+  content: '';
+  width: 50rpx;
+  height: 6rpx;
+  background: #3580EE;
+  border-radius: 7rpx;
+  bottom: -15rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.functionbox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.row1 {
+  font-size: 24rpx;
+  color: #3580EE;
+  display: flex;
+  align-items: center;
+}
+
+.row1bg {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 12rpx;
+}
+
+.box {
+  margin-top: 20rpx;
+  /* height:880rpx;
+    overflow: auto; */
+}
+
+.box_content {
+  width: 100%;
+  height: 307rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx 30rpx 30rpx 30rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+.boxcell {
+  width: 100rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 0rpx;
+  text-align: center;
+}
+
+.morebg {
+  width: 6rpx;
+  height: 27.5rpx;
+}
+
+.row2 {
+  font-size: 32rpx;
+  color: #1C294F;
+}
+
+.styletext {
+  width: 104rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 6rpx;
+  margin-left: 18rpx;
+}
+
+.styletext.green {
+  background: #e2f9f4;
+  color: #44D7B6;
+}
+
+.styletext.orange {
+  background: #fff4dc;
+  color: #FF7200;
+}
+
+.styletext.pink {
+  background: #ffe4e4;
+  color: #FF7979;
+}
+
+.row3 {
+  font-size: 24rpx;
+  color: #B1B2BD;
+  margin: 10rpx 0 20rpx 0;
+}
+
+.row4 {
+  width: 100%;
+  height: 148rpx;
+  position: relative;
+  z-index: 0;
+  padding: 30rpx 28rpx;
+}
+
+.row4bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.row4_1 {
+  justify-content: space-between;
+  margin-bottom: 14rpx;
+}
+
+.row4_1_1 {
+  display: flex;
+  align-items: center;
+}
+
+.row4_1_2 {
+  font-size: 28rpx;
+  color: #23305C;
+}
+
+.row4_1_1>text {
+  font-size: 26rpx;
+  color: #1F3172;
+  opacity: 0.5;
+}
+
+.row4_1_1bg {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 14rpx;
+}
+
+.addbox {
+  position: fixed;
+  bottom: 140rpx;
+  right: 40rpx;
+}
+
+.addboxbg {
+  font-size: 80rpx;
+  color:#3189ff;
+}
+
+.function2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image1 {
+  width: 116rpx;
+  height: 46rpx;
+  background-size: 100% 100%;
+}
+
+.groupbox {
+  display: flex;
+}
+
+.groupbox>view {
+  width: 119rpx;
+  height: 307rpx;
+  color: #fff;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.editor {
+  background: #3189FF;
+}
+
+.image2 {
+  width: 32rpx;
+  height: 32rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 100rpx;
+  margin-bottom: 15rpx;
+
+}
+
+.delete {
+  background: #FF7979;
+  border-radius: 0px 16rpx 16rpx 0px;
+}
+
+radio .wx-radio-input {
+  border-radius: 50%;
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 110rpx;
+  margin-right: 20rpx;
+  background: transparent;
+  border: 1px solid #b8bdcb;
+}
+
+/* 选中后的样式 （可根据需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%;
+  width: 55rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  text-align: center;
+  font-size: 34rpx;
+  /* 对勾大小 */
+  color: #fff;
+  /* 对勾颜色 */
+  background: #3189ff;
+  border-color: #3189ff;
+  margin-top: -1px;
+}
+
+.nodata {
+  width: 440rpx;
+  height: 260rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nodatabg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.nodatabg:before {
+  position: absolute;
+  content: '暂无相关数据';
+  bottom: 0;
+  left: 33%;
+  font-size: 24rpx;
+  color: #cccccc;
+}
+
+.nodata1 {
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  padding: 0 40rpx;
+  font-size:30rpx;
+}
+
+.leftslow {
+  width: 200rpx;
+  height: 1rpx;
+  background: #d2d2d2;
+  margin-top: 20rpx;
+}

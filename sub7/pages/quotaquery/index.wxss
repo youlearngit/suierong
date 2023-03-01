@@ -1,0 +1,278 @@
+/* sub1/pages/quotaquery/index.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+body{
+  background-color: #F2F6FF 100%;
+}
+.titleLogo{
+  width: 100%;
+}
+
+.qty_body{
+  width: 100%;
+	position: absolute;
+	top: 113rpx;
+}
+.title{
+  width: 300rpx;
+  height: 88rpx;
+  float: left;
+  margin-left: 40rpx;
+  font: 73rpx HYYakuHei-GEW;
+  color: #FFF;
+  padding-top: 15rpx;
+  box-sizing: border-box;
+}
+.bottom_line{
+  width: 100%;
+  height: 4rpx;
+  margin-top: 31rpx;
+  float: left;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+}
+.line{
+  width: 100%;
+}
+.card{
+  width: 100%;
+	position: absolute;
+  top: 330rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  box-sizing: border-box;
+}
+.qt_card{
+  width: 100%;
+  height: 600rpx;
+  float: left;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+}
+.card_bg{
+  width: 100%;
+  height: 600rpx;
+  /* box-shadow: 0 4px 16px 1px rgba(79,145,255,0.20); */
+}
+.cbody{
+  width: calc( 100% - 60rpx );
+  height: 600rpx;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 30rpx;
+  padding:10rpx 30rpx;
+  box-sizing: border-box;
+}
+.item{
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 52rpx;
+}
+
+.perfectBox {
+  width: 100%;
+  height: auto;
+  float: left;
+  display: block;
+}
+
+.perfect_box {
+  margin-top: 30rpx;
+}
+
+.perfect_countbox {
+  font-family: PingFangSC-Semibold;
+  font-size: 30rpx;
+  color: #000;
+  letter-spacing: 0;
+  display: flex;
+}
+
+.perfect_text {
+  color: #507AFF;
+  font-size: 32rpx;
+}
+
+.perfect_title {
+  margin-left: 36rpx;
+}
+
+.perfect_input {
+  width: calc( 100% - 55rpx );
+  margin: auto;
+  margin-top: 10rpx;
+  margin-left: 55rpx;
+  font-size: 33rpx;
+  color: #031126;
+  border-bottom: 1px solid #97979730;
+  padding-bottom: 10rpx;
+}
+.textinput{
+  opacity: 0.19;
+}
+
+.jianjie{
+  color: #031126;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  opacity: 0.39;
+}
+.btn{
+  width: calc( 100% - 50rpx);
+  height: 120rpx;
+  display: flex;
+  position: absolute;
+  top: 1030rpx;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  background: none;
+}
+.btn_search{
+  width: 530rpx;
+  height: 88rpx;
+  background-image: linear-gradient(180deg, #507AFF 0%, #3D66E9 100%);
+  box-shadow: 0 15rpx 22rpx 0 rgba(80,136,255,0.42);
+  border-radius: 44rpx;
+  margin: 0 auto;
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium;
+}
+
+.balance_title{
+  width: 100%;
+  height: 40rpx;
+  float: left;
+  text-align: center;
+  margin-top: 80rpx;
+}
+.balance_nums{
+  width: 100%;
+  height: 103rpx;
+  float: left;
+  text-align: center;
+  margin-top: 27rpx;
+  font: 70rpx SourceHanSansSC-Heavy;
+  color: #3E415C;
+}
+
+.balance_det{
+  width: calc( 100% - 60rpx );
+  height: auto;
+  text-align: center;
+  padding: 22rpx 30rpx;
+  background: rgba(80,144,255,0.06);
+  font: 30rpx SourceHanSansSC-Heavy;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  display: flex;
+  position: absolute;
+  left: 30rpx;
+  bottom: 50rpx;
+}
+
+.btitle{
+  width: 260rpx;
+  height: 40rpx;
+  margin: 0 auto;
+  
+}
+.titlelogo{
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  box-sizing: border-box;
+  float: left;
+}
+.balance_bg{
+  width: 27rpx;
+  height: 28rpx;
+  margin-top: 8rpx;
+  margin-right: 5rpx;
+  float: right;
+}
+.balance_title .titles{
+  width: 220rpx;
+  height: 40rpx;
+  float: left;
+  color: #3E415C;
+  font: 28rpx PingFangSC-Regular;
+}
+.details{
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.bank_title{
+  width: 100%;
+  line-height: 42rpx;
+  text-align: left;
+  height: 42rpx;
+  height: auto;
+  color: #3E415C;
+  opacity: 0.44;
+  float: left;
+}
+.bank_name{
+  width: 100%;
+  line-height: 42rpx;
+  text-align: left;
+  height: auto;
+  color: #3E415C;
+  min-height: 42rpx;
+  margin-top: 10rpx;
+  float: left;
+}
+
+.item_t2{
+  width: 100%;
+  height: auto;
+  float: left;
+  margin-top: 32rpx;
+}
+.bank_tubiao{
+  width: 100%;
+  height: 48rpx;
+  float: left;
+}
+.bank_icon{
+  width: 174rpx;
+  height: 48rpx;
+  float: right;
+}
+.hello{
+  width: 100%;
+  height: 77rpx;
+  line-height: 77rpx;
+  font: 55rpx PingFangSC-Semibold;
+  color: #3E415C;
+  margin-top: 55rpx;
+  float: left;
+}
+.bak_line{
+  width: 100%;
+  height: 13rpx;
+  margin-top: 22rpx;
+  float: left;
+}
+.line_icon{
+  width: 75rpx;
+  height: 13rpx;
+  float: left;
+}
+
+.bank_back{
+  width: 100%;
+  height: 63rpx;
+  line-height: 63rpx;
+  text-align: center;
+  margin-top: 80rpx;
+  float: left;
+  font: 45rpx PingFangSC-Medium;
+  color: #3E415C;
+}

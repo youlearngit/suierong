@@ -1,0 +1,84 @@
+<!--pages/screenwed/screenwed.wxml我的筛选条件-->
+<view class="mycountend">
+  <view class="mybeiht">
+    <view class="mysxtj">
+      <title class="mybesotj">筛选条件</title>
+      <title class="myhfmor" bindtap="reset">恢复默认</title>
+    </view>
+    <!-- 发布时间 -->
+    <view class="myfbsj" style="margin-top: 25rpx;">
+      <view class="myonews">
+        <view class="mybuentu"></view>
+        <view class="myb_dt">时间区间</view>
+
+      </view>
+      <view class="myenbus">
+        <view class="minibbsj">
+          <picker mode="date" bindchange="bindStartChange">
+            <view style="font-size: 26rpx;" wx:if="{{startTime==''}}">请选择开始时间</view>
+
+            <view class="weui-input" wx:ele>{{startTime}}</view>
+
+          </picker>
+          <image class="myinage" src="../../static/images/select_date.png"></image>
+        </view>
+        <view class="minicount">—</view>
+        <view class="minibbsj">
+          <picker mode="date" bindchange="bindEndChange">
+
+            <view style="font-size: 26rpx;" wx:if="{{endTime==''}}">请选择结束时间</view>
+
+            <view class="weui-input" wx:ele>{{endTime}}</view>
+
+
+          </picker>
+          <image class="myinage" src="../../static/images/select_date.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 投资规模 -->
+    <view class="myfbsj">
+      <view class="myonews">
+        <view class="mybuentu"></view>资金需求规模
+      </view>
+
+      <view class="myenbus">
+
+
+        <view style="display: flex;align-items: center;">
+          <input class="tzgm" type="number" placeholder="请输入资金规模" placeholder-style="text-align:center;font-size:26rpx;color:#BFC1CF" bindinput="getInvestAmtDown" value="{{INVEST_AMT_DOWN}}" />
+          <view style="font-size: 26rpx;color: #444a6b;margin-left: 18rpx;">万元</view>
+        </view>
+
+
+
+        <view class="minicount">—</view>
+
+
+        <view style="display: flex;align-items: center;">
+          <input class="tzgm" type="number" placeholder="请输入资金规模" placeholder-style="text-align:center;font-size:26rpx;color:#BFC1CF" bindinput="getInvestAmtUp" value="{{INVEST_AMT_UP}}" />
+          <view style="font-size: 26rpx;color: #444a6b;margin-left: 18rpx;">万元</view>
+        </view>
+
+
+      </view>
+    </view>
+    <!-- 类别 -->
+    <view class="mycplb">
+      <view class="myonews">
+        <view class="mybuentu"></view>资金需求类型
+      </view>
+      <view class="myziczqh">
+        <view wx:for="{{category}}" wx:key="index" id="{{index}}" class="mybueeton" class="{{item.ischecked == true ? 'mybueeton active' : 'mybueeton'}}" bindtap="selectCategory" data-index="{{index}}">{{item.text}}
+          <image src="../../static/images/check.png" wx:if="{{item.ischecked == true}}" class="check"></image>
+        </view>
+      </view>
+    </view>
+
+   
+
+
+    <button class="confirm" bindtap="confirm">确定</button>
+  </view>
+</view>

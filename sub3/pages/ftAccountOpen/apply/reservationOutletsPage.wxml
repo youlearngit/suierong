@@ -1,0 +1,99 @@
+<view class="body" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/pub_background.png);">
+  <form bindsubmit="submitForm" report-submit='true'>
+    <view> 
+      <view class="com06_txt">预约受理网点</view>
+      <view class="shop_choose" bindtap="showWd">
+        <!-- <image class="acc_loc" width="28rpx" height="36rpx" src="{{preffixUrl+'static/wechat/img/ftKaihu/positioning.png'}}" mode="aspectFit"></image> -->
+        <view class="shop_txt">
+          {{ fieldValue != "" ? fieldValue : "请点击选择预约网点" }}
+        </view>
+        <!-- <van-image src="{{(preffixUrl+'static/wechat/img/ftKaihu/arrow-right.png')}}" width="20rpx" height="20rpx"  custom-class="acc_arw"/> -->
+    </view>
+    <view class="van-con1">
+      <van-field
+        model:value="{{recommNo}}"
+        name="recommNo"
+        label="推荐人工号"
+        label-class="label-style"
+        input-class="input-style"
+        disabled="{{isCreate == '2'}}"
+        placeholder="请输入推荐人工号"
+        type="number"
+        label-width="100"
+        input-align="right"
+        maxlength="8"
+      />
+    </view>
+    <view class="con06_tip">
+      <view>单位经营状态</view>
+      <view class="con06_tip2">选填</view>
+    </view>
+    <view class="van-con">
+      <van-field
+        model:value="{{cyrs}}"
+        name="cyrs"
+        label-class="label-style"
+        input-class="input-style"
+        disabled="{{isCreate == '2'}}"
+        label="从业人数"
+        placeholder="请输入从业人数"
+        input-align="right"
+        type="number"
+      >
+        <view slot="button">人</view>
+      </van-field>
+      <van-field
+        model:value="{{zyyw}}"
+        name="zyyw"
+        label-class="label-style"
+        input-class="input-style"
+        disabled="{{isCreate == '2'}}"
+        label="主营业务(简要填写)"
+        input-align="right"
+        label-width="70"
+        autosize
+        type="textarea"
+        placeholder="请输入主营业务"
+      />
+
+      <van-field
+        model:value="{{lastYearYysr}}"
+        disabled="{{isCreate == '2'}}"
+        bind:input="checkMoney"
+        data-id="yysr"
+        name="lastYearYysr"
+        label-class="label-style"
+        input-class="input-style"
+        label="上年营业收入"
+        input-align="right"
+        type="digit"
+        placeholder="请输入上年营业收入"
+        >
+        <view slot="button">万元</view>
+      </van-field>
+      <van-field
+        model:value="{{lastYearLrsp}}"
+        disabled="{{isCreate == '2'}}"
+        bind:input="checkMoney"
+        data-id="lrsp"
+        label-class="label-style"
+        input-class="input-style"
+        name="lastYearLrsp"
+        label="上年利润水平"
+        type="number"
+        input-align="right"
+        border="{{false}}"
+        placeholder="请输入上年营业收入">
+        <view slot="button">万元</view>
+      </van-field>
+     
+    </view>
+    <button class="btn" formType="submit" wx:if="{{isCreate != '2'}}">下一步</button>
+    <van-popup show="{{showShop}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;" close-on-click-overlay bind:click-overlay="onPopupEvent1">
+      <van-picker columns="{{ columns }}" bind:change="onChangeWd" show-toolbar bind:cancel="onCancel" bind:confirm="confirmWd" title="网点选择" />
+    </van-popup>
+  </view>
+  </form>
+</view>
+
+<van-toast id="van-toast" />

@@ -1,0 +1,19 @@
+<!--sub6/pages/toolkit/talents.wxml-->
+<view class="talents">
+    <view class="bg">
+        <image src="{{cndUrl}}/static/wechat/img/gjx/rczc.jpg"></image>
+    </view>
+    
+    <view class="back" bindtap="getBace">
+        <image src="{{cndUrl}}/static/wechat/img/gjx/fhsyy.png"></image>
+    </view>
+    <!-- /sub3/pages/bbx/home -->
+    <navigator  url="/sub3/pages/bbx/home"  class="ljsp"  hover-class="none">
+        <image src="{{cndUrl}}/static/wechat/img/gjx/jrrcbbx.png"></image>
+    </navigator>
+    <!-- 人才专员 悬浮按钮 -->
+	<navigator url="/sub3/pages/bbx/staff_list?location={{location_json}}" hover-class="none">
+		<image class="float_talent_btn" src="{{cndUrl}}talent_float_btn.png" mode="widthFix"></image>
+	</navigator>
+</view>
+

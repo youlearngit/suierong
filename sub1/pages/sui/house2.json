@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+		"van-checkbox": "/sub1/static/vant-weapp/checkbox/index",
+		"van-checkbox-group": "/sub1/static/vant-weapp/checkbox-group/index"
+	},
+	"navigationBarBackgroundColor": "#ffffff",
+	"navigationBarTitleText": "房产信息",
+	"navigationBarTextStyle": "black"
+}

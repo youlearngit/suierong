@@ -1,0 +1,123 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-item active">历史授权</view>
+  <!-- <navigator class="swiper-tab-item" url="auth_list" open-type='redirect'>我的申请</navigator> -->
+  
+</view>
+
+<view class="authList">
+  <!-- <navigator class="history" hover-class='none' url='auth_list_authed'>
+    <icon type="waiting" size="22rpx" color="#0066b3" /> 历史授权
+  </navigator> -->
+  <block wx:for="{{pageList}}" wx:key="key"  wx:for-index="indexnum">
+    <block wx:if="{{item.eId}}">
+      <block wx:if="{{item.showState=='2'}}">
+        <view class="a1">
+          <view class="a11">
+            <view class="a111">订单编号 {{item.orderNo}}</view>
+            <view class="a112">申请日期 {{item.applyDate}}</view>
+          </view>
+          <view class="a12">
+            <view class="res">
+              <view class="res1">人工审批中</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{item.showState=='3'}}">
+        <view class="a1">
+          <view class="a11">
+            <view class="a111">订单编号 {{item.orderNo}}</view>
+            <view class="a112">申请日期 {{item.applyDate}}</view>
+          </view>
+          <view class="a12">
+            <view class="ress">
+              <view class="res3">
+                <text class="res31">约</text>
+                {{item.applyAmount }}
+                <text class="res31">万元</text>
+              </view>
+              <view class="res4">
+                <view class="res21">额度期限 12个月</view>
+                <view class="res21">借款参考年化利率 {{item.attr3}}%</view>
+              </view>
+            </view>
+            <view style="font-size: 25rpx;text-align: center;">利率仅供参考，以放款日与本行签约确定的利率为准。</view>
+            <view class="bt1" catch:tap="confirm" data-item="{{item}}">确认结果, 立即签约</view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{item.showState=='5'}}">
+        <view class="a1">
+          <view class="a11">
+            <view class="a111">订单编号 {{item.orderNo}}</view>
+            <view class="a112">申请日期 {{item.applyDate}}</view>
+          </view>
+          <view class="a12">
+            <view class="res">
+              <view class="res1">审批未通过</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{item.showState=='12'}}">
+        <view class="a1">
+          <view class="a11">
+            <view class="a111">订单编号 {{item.orderNo}}</view>
+            <view class="a112">申请日期 {{item.applyDate}}</view>
+          </view>
+          <view class="a12">
+            <view class="res">
+              <view class="res1">受理中</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{item.showState=='17'}}">
+        <view class="a1">
+          <view class="a11">
+            <view class="a111">订单编号 {{item.orderNo}}</view>
+            <view class="a112">申请日期 {{item.applyDate}}</view>
+          </view>
+          <view class="a12">
+            <view class="res">
+              <view class="res1">
+                  <view class="">
+                    预审批通过<text class="res11">{{item.applyAmount}}</text>万元
+                  </view>
+                  <view class="">
+                      额度期限<text class="res11">12个月</text>
+                  </view>
+                  <view class="">
+                    借款参考年化利率<text class="res11">{{item.attr3}}%</text>
+                  </view>
+              </view>
+              <view class="res2">
+                  <view class="res21">已确认</view>
+                  <image src="{{preffixUrl}}/static/wechat/img/sui/snew-25.png" mode="widthFix" style="width:32rpx"></image>
+              </view>
+          </view>
+          </view>
+        </view>
+      </block>
+    </block>
+    <block wx:else>
+      <navigator class="authCon" url="auth_det_auth?order_state={{item.orderNo}}&authorizeStatus={{item.authorizeStatus}}&socialCreditCode={{item.socialCreditCode}}&prowId={{item.prowId}}&authDate={{item.authorizeTime}}&enterpriseName={{item.companyName}}&applyAmount={{item.applyAmount}}">
+        <view class="indexnum">{{indexnum+1}}</view>
+        <h1>{{item.companyName}}</h1>
+        <view class="p">订单编号：{{item.orderNo}}</view>
+        <view class="pd">授权日期：{{item.authorizeTime}}</view>
+        <view  class="authStatus">
+          <text class="f20">申请金额</text>
+          <text class="b">{{item.applyAmount}}</text>
+          <text class="f20">万元</text>
+        </view>
+      </navigator>
+    </block>
+  </block>
+
+
+  <view class="nodata">
+    <text>{{pageTips}}</text>
+  </view>
+
+</view>

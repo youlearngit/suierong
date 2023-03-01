@@ -1,0 +1,168 @@
+/* sub3/pages/ftAccountOpen/apply/reservationOutletsPage.wxss */
+page{
+  overflow-x:hidden;
+  background-color: #ffffff;
+}
+
+.body{
+  z-index: -2;
+  background-size:180% 100%;
+  background-repeat: no-repeat;
+  padding-top: 80rpx;
+  background-color: #ffffff;
+}
+
+.shop_txt {
+  max-width: 70%;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pop_border {
+  background: #bac5e2;
+  border-radius: 5rpx;
+  width: 100rpx;
+  margin-left: 43.3%;
+  height: 10rpx;
+  margin-top: 22rpx;
+  margin-bottom: 36rpx;
+}
+.pop_left_txt {
+  font-family: SourceHanSansCN-Medium;
+  font-size: 30rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+  margin-left: 18rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.pop_left_search {
+  border: 0;
+  font-family: SourceHanSansCN-Medium;
+  font-size: 30rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+  margin-left: 18rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.van-con {
+  width: 80%;
+  margin-left: 8%;
+  background-image: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+  box-shadow: 0 2rpx 24rpx 0 rgba(156, 187, 255, 0.16);
+  border-radius: 16rpx;
+  padding: 30rpx 14rpx;
+}
+.van-con1 {
+  width: 84% !important;
+  margin-left: 8% !important;
+  height: 108rpx !important;
+  margin-top: 30rpx !important;
+  box-shadow: 0 2rpx 24rpx 0 rgba(156, 187, 255, 0.16) !important;
+  border-radius: 16rpx !important;
+}
+.pop_left {
+  background-image: linear-gradient(-10deg, #af6d30 0%, #ffd7b1 100%);
+  width: 12rpx;
+  height: 44rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.acc_arw {
+  margin-left: 16rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.acc_loc {
+  margin: 0rpx 20rpx 0rpx 0rpx ;
+  display: inline-block;
+  vertical-align: middle;
+}
+.submit {
+  border: 0;
+
+  background: #1677ff;
+  border-radius: 43rpx;
+  margin: 0rpx 0 100rpx 0;
+  width: 60%;
+  margin-left: 20%;
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+  color: #ffffff;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+}
+.com06_txt {
+  font-family: SourceHanSansCN-Medium;
+  font-size: 32rpx;
+  color: #ffffff;
+  letter-spacing: 0;
+  margin: 30rpx 0 32rpx 60rpx;
+}
+.bgn {
+  position: fixed;
+  top: 0;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.shop_choose {
+  background-image: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+  box-shadow: 0 2rpx 18rpx 0 rgba(156, 187, 255, 0.56);
+  border-radius: 16rpx;
+  padding: 37rpx 0;
+  width: 84%;
+  margin-left: 8%;
+  text-align: center;
+
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+}
+.con06_tip {
+  margin: 85rpx 0 20rpx 60rpx;
+  opacity: 0.7;
+  font-family: SourceHanSansCN-Medium;
+  font-size: 30rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+  display: flex;
+  align-items: baseline;
+}
+.con06_tip2 {
+  opacity: 0.25;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 24rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+  margin-left: 10rpx;
+}
+.label-style{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+  color: #1C294F;
+  letter-spacing: 0;
+}
+.input-style{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+  color: #1C294F;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+/* 下一步按钮 */
+.btn{
+  margin: 60rpx 0 30rpx 160rpx;
+  width: 440rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  background-image: linear-gradient(0deg, #1677FF 0%, #7CB2FF 100%);
+  border-radius: 43rpx;
+}

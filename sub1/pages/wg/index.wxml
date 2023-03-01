@@ -1,0 +1,33 @@
+<view class="content">
+    <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/bg_wg2.jpg" mode="widthFix" style="width:100%"></image>
+</view>
+<view class="apply">
+    <view class="btn1" bind:tap="getCoupon" style="background-color:{{couponNum.length<2?'#F1592F':'#999999'}}">
+        立即领取
+    </view>
+    <view class="btn1" style="background-color:#C5D54C" bind:tap="showCoupon">我的优惠券</view>
+</view>
+<van-popup show="{{ showPopUp}}" bind:close="closePopUp">
+    <view class="popup">
+        <view class="popup-title">我的券码</view>
+        <view class="code-list" wx:for="{{couponNum}}" wx:key="{{item.CODE}}">
+            <view class="popup-content">{{item.CODE}}</view>
+            <view class="btn-copy" bind:tap="copyCoupon" data-code='{{item.CODE}}'>复制</view>
+        </view>
+        <image class="btn-cancel" bind:tap="closePopUp" src="{{cndUrl}}/static/wechat/img/award/award-16.png" mode="widthFix"></image>
+        <view class="tips1">
+            <p class="">通过“江苏银行信用卡”微信公众号</p>
+            <p class="triangle"></p>
+            <p class="">底部”最热福利“</p>
+            <p class="triangle"></p>
+            <p class="">”卫岗奶券“即可进入”卫岗天天订“商城优惠订奶</p>
+        </view>
+        <view class="tips2">
+            <view>优惠券使用细则：</view>
+            <view>1、活动期间关注”江苏银行信用卡“公众号即可获取一张优惠券，仅限在”卫岗天天订“微信公众号——”我要订购“消费时即可使用，不找零、不折现、不挂失；</view>
+            <view>2、消费券数量有限，领完即止，一笔订单只能使用一张优惠券，优惠券只能在有效期内使用，过期作废；</view>
+            <view>3、商品配送范围详见”卫岗天天订“商城；</view>
+            <view>4、使用优惠券的订单在退款后，该笔订单中在有效期内的优惠券科再次使用；</view>
+        </view>
+    </view>
+</van-popup>

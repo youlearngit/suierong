@@ -1,0 +1,34 @@
+<view class="" style='width:100%;padding:108rpx 0;text-align:center;' wx:if="{{bindStatus}}">
+    <image class="icon-success" src="{{cndUrl}}/static/wechat/img/rec/rec_icon_succeed.png" mode="widthFix" style="" lazy-load="false" binderror="" bindload=""></image>
+    <view class="title-success">绑定成功！</view>
+    <view class="desc-success">恭喜您已绑定{{shareInfo.REAL_NAME||shareInfo.NICK_NAME}}为您的产品推荐官</view>
+    <!-- <navigator url='/pages/shop/index2' open-type="switchTab" class="btnc" style="width:457rpx">
+        立即查看
+    </navigator> -->
+</view>
+<view style="width:100%;padding:155rpx 0" wx:else>
+    <image class='bg' wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/res_bg_top2.png" mode="widthFix" style="width:100%"></image>
+    <view class="rec-box" wx:if="{{loading}}">
+        <view class="title">
+            优秀的
+            <text class="ta" selectable="false" space="false" decode="false">TA</text>
+        </view>
+        <view class="title">想成为您的推荐官</view>
+        <view class="user">
+            <view class="avatar">
+                <image class="" src="{{shareInfo.PHOTO}}" mode="widthFix" style="width:100%;border-radius: 50%;" lazy-load="false" binderror="" bindload=""></image>
+            </view>
+            <view class="detail">
+                <view class="nickName">
+                    <view class="nick-title">微信昵称</view>
+                    <view class="nick-name">{{shareInfo.NICK_NAME}}</view>
+                </view>
+                <view class="nickName" style="margin: 15rpx 0 0;" wx:if="{{shareInfo.REAL_NAME}}">
+                    <view class="nick-title">真实姓名</view>
+                    <view class="nick-name">{{shareInfo.REAL_NAME}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="btnc" bindtap="addRecommendInfo">确认绑定</view>
+    </view>
+</view>

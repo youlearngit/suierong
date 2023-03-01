@@ -1,0 +1,13 @@
+/* sub2/pages/billDisCount/apply.wxss */
+
+@import './confirm.wxss';
+.queding {
+    bottom: 5%;
+    width: 100%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+.queding:active {
+    background-color: #4093ff !important;
+}

@@ -1,0 +1,28 @@
+<wxs src="./utils.wxs" module="utils" />
+<view>
+	<image class="home_bg" src="{{preffixUrl}}element_collection_head.png" mode="widthFix"></image>
+	
+	<view class="content">
+		
+		<view class="c_h1" style="text-align: center;">综合信息查询使用授权书</view>
+
+		<view class="c_h2">借款期限及本息偿还方式：</view>
+		<view class="c_p">3.如您未按贷款约定及时还款，本行将向金融信用信息基础数据库报送您的逾期记录。如您的借款逾期，本行有权自行或依法委托第三方机构进行贷款催收。</view>
+		<view class="c_p">4.如您有任何疑问,可咨询江苏银行客服，<text class="c_b">客服电话95319</text>。</view>
+		<view class="c_p">5.请您妥善保管您的个人信息，勿将账户信息、证件号码及密码信息等透露、告知他人，提高风险防范意识，防范金融诈骗。</view>
+
+		<view class="c_h3" style="text-align: right;">xxx股份有限公司</view>
+		<view class="c_h3" style="text-align: right;">本人已阅读并同意以上条款。</view>
+		<view class="c_h3" style="display: flex; align-items: center; justify-content: flex-end;">
+			客户：
+			<view class="watermark" style="background-image: url({{preffixUrl}}watermark.png); background-size: 100% 100%;">
+				王一博
+			</view>
+		</view>
+		<view class="c_h3" style="text-align: right;">日期：{{time_now}}</view>
+
+	</view>
+
+	<view class="btn_agree">我已阅读并同意{{read_sec>0?'（'+read_sec+'S）':''}}</view>
+
+</view>

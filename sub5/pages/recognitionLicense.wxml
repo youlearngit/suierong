@@ -1,0 +1,48 @@
+<!--sub4/pages/recognitionLicense.wxml-->
+<!--sub4/pages/identityCard.wxml-->
+<view class="identityCard">
+    <view class="contont">
+        <view class="header">
+            <view class="headline">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/bt.png"></image>
+            </view>
+            <view class="title">请上传营业执照</view>
+        </view>
+        <view class="uploading">
+            <!-- 营业执照图片上传容器 -->
+            
+            <!-- identityCardContrary -->
+            <view class="uploading_item">
+                <view class="item_image" wx:if="{{!licenseImage}}"bindtap="uploading"  data-type="back">
+                    <image src="{{preffixUrl}}/static/wechat/img/mer/yezz.png" alt=""/>
+                </view>
+                <view class="item_image" wx:if="{{licenseImage}}">
+                    <image src="{{licenseImage}}" alt=""/>
+                </view>
+                <view class="item_title">
+                    上传营业执照
+                </view>
+            </view>
+        </view>
+        <view class="hint">
+            <view class="hint_head">
+                <view class="head_image">
+                    <image src="{{preffixUrl}}/static/wechat/img/mer/wxts.png"></image>
+                </view>
+                <view class="head_title">
+                    温馨提示
+                </view>
+            </view>
+            <view class="hint_contont">
+                您拍摄的证件照片将作为实名认证审核的影像资料，请拍摄时确保证件<text>边框完整，字体清晰，亮度均匀。</text>
+            </view>
+        </view>
+    </view>
+    <view class="button">
+        <van-button disabled="{{disabled}}" class="vanButton" bindtap="toBack" round type="info">确认提交</van-button>
+    </view>
+    <view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+        <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+    </view>
+</view>
+

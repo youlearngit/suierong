@@ -1,0 +1,14 @@
+{
+	"usingComponents": {
+		"cu-custom": "/component/cu-custom/cu-custom",
+        "van-popup": "/sub1/static/vant-weapp/popup/index",
+        "product-box": "/sub1/component/product-box/index",
+        "my-login": "/component/login/index",
+        "my-poster": "/sub1/component/poster/index"
+
+	},
+	"navigationBarBackgroundColor": "#FFFFFF",
+	"navigationBarTextStyle": "white",
+	"enablePullDownRefresh": false,
+	"navigationStyle": "custom"
+}

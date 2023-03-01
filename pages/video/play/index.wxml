@@ -1,0 +1,34 @@
+<view class="container" style="z-index:100;background-image: url({{cndUrl}}/static/wechat/img/sui/video_bg.png)" >
+  <!-- <image mode="widthFix" src="{{cndUrl}}/static/wechat/img/sui/video_bg.png"></image> -->
+  <view class="diyNav1" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+      <view wx:if="{{fromShare}}" class="backIndex" bindtap='prePage'>
+        <image mode="widthFix"src="/pages/public/img/ico_ind.png"></image>
+      </view>
+      <view wx:else class="backPage1" bindtap='prePage'>
+        <image mode="widthFix"src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="topTit">江苏银行随e融</view>
+  </view>
+
+  <view class="cont">
+    <view class="cTit">
+      <image src="{{cndUrl}}/static/wechat/img/sui/play_zssj.png"></image>
+      {{videoName}}
+    </view>
+    <!-- 视频 -->
+    <view class="detail">
+      <video id="myVideo" preload='auto' custom-cache="{{false}}" objectFit="cover"
+            bindfullscreenchange="bindfullscreenchange" 
+            bindtimeupdate="videoUpdate"
+            initial-time="{{playProcess}}" 
+            class='box-w block' id="myVideo0" src="{{videoSrc}}" 
+            poster="" 
+            auto-pause-if-navigate="true"
+            controls catchloadedmetadata="bindloadedmetadata" catchpause="bindpause" catchended="bindended" catchplay="bindplay"></video>
+    </view>
+    <view class="cTit" style="margin-top: 40rpx;height: auto;">{{desc}}</view>
+
+  </view>
+
+
+</view>

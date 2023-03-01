@@ -1,0 +1,45 @@
+<wxs src="../../utils/indexOf.wxs" module="tools"/>
+<view class="date-background" hidden="{{flag}}">
+    <!-- 蒙层 -->
+    <view class='date-gray-background' bindtap='hiddeDatePicker'></view>
+    <!-- 弹窗内容 -->
+    <view class='date-container' >
+            <view class='date-confirm'>
+                <view bindtap='hiddeDatePicker' class="cancel">取消</view>
+                <view wx:if="{{disable == false}}" class="confirm">确定</view>
+                <view bindtap='confirm' wx:if="{{disable == true}}" class="confirm">确定</view>
+            </view>
+            <!-- style="visibility:{{ isSearch ? 'visible':'hidden'}}" -->
+            <view class="search">
+                <input 
+                    type="text" 
+                    placeholder="{{ placeHolderWord }}" 
+                    value="{{searchValue}}" 
+                    bindinput="searchContent"
+                />
+                <view class="imgs">
+                    <image src="{{imgUrl}}" mode="widthFix"></image>
+                </view>
+            </view>
+            <picker-view 
+                indicator-class="indicator" 
+                value="{{setValues}}" 
+                bindchange="bindChange" 
+                class="picker_show"
+            >
+                <picker-view-column>
+                    <view 
+                        wx:for="{{items}}" 
+                        wx:for-item="list"
+                        wx:key="id" 
+                        class="wxs1"
+                    >
+                        <view wx:for="{{tools.fn1(list.name)}}" wx:for-item="item" wx:key="item" >
+                            <text class="{{tools.fn(arr, item).indexOf ? 'active' : ''}}">{{item}}</text>
+                        </view>
+                        <!-- <view>{{list.name}}</view> -->
+                    </view>
+                </picker-view-column>
+            </picker-view>
+    </view>
+</view>

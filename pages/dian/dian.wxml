@@ -1,0 +1,113 @@
+<view class="warp">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+  <image class="warpBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/dian_ind.jpg"></image>
+  <image class="warpBg2" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/dian_ind2.jpg"></image>
+  <view class="info">
+    <view class="dl d1">
+      <view class="dt">易办理</view>
+      <view class="dd">正常用电、交费满两年以上即可申请办理，简单便捷</view>
+    </view>
+    <view class="dl d2">
+      <view class="dt">免担保</view>
+      <view class="dd">用电、交费记录作为贷款依据，无担保纯信用</view>
+    </view>
+    <view class="dl d3">
+      <view class="dt">审批快</view>
+      <view class="dd">系统自动审批，实现秒级处理</view>
+    </view>
+    <view class="dl d4">
+      <view class="dt">期限长</view>
+      <view class="dd">授信额度最长12个月，单笔支用最长6个月</view>
+    </view>
+    <view class="dl d5">
+      <view class="dt">额度高</view>
+      <view class="dd">纯信用方式下，贷款额度最高可达200万元</view>
+    </view>
+    <view class="dl d6">
+      <view class="dt">费用省</view>
+      <view class="dd">网络提款，时间随还按日计息，节约财务成本</view>
+    </view>
+
+
+  </view>
+  <view class='biappan'>
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/dian_ybp.png"></image>
+    <view class="topText">最高额度(元)</view>
+    <view class="tese">
+      <text>易办理</text>
+      <text>额度高</text>
+      <text>费用省</text>
+    </view>
+    <view class="tax">可享最低
+      <em>4.55%</em>优惠利率</view>
+    <view class="tax"  style="top: 290rpx;opacity: 0.45;font-size: 23rpx;">
+        按单利率计算
+    </view>
+    <view class='circleBar' wx:if="{{edushow}}">
+      <view class="wrap">
+        <view class="top">
+          <canvas class="cir" canvas-id="canvasArc"></canvas>
+          <view class="centerWord">{{resultComment}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+<view class="btn-area">
+  <navigator url="dian_det" class="dianDet">
+    产品详情
+  </navigator>
+</view>
+<view class='fbuttom'>
+  <view class="btn" bindtap='showShare'>分
+    <text>\t\t\t\t\t\t</text>享</view>
+  <view bindtap="apli" class="btn blu">立即申请</view>
+</view>
+
+
+<view class="{{shareBox}}">
+
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+      </button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+<view style='position:fixed;bottom:0;left:0;width:100%;height:50%;background:#fff;z-index:0;'></view>
+
+
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>

@@ -1,0 +1,33 @@
+
+<view class="container">
+  <image class="bg" src="{{cdnMer}}/bg_apply.png" mode="widthFix"></image>
+
+  <view class="form_upload">
+    <view>
+      <image src="{{cdnMer}}/icon_titler.png" mode="heightFix"></image>
+      请上传您的中国第二代居民身份证
+    </view>
+    <view>
+      <view bindtap="chooseImage" data-type="front">
+        <image src="{{front || cdnMer+'/idcard_upren.png'}}" mode="scaleToFill"></image>
+        <view>上传身份证人像面</view>
+      </view>
+      <view bindtap="chooseImage" data-type="back">
+        <image src="{{back || cdnMer+'/idcard_upguo.png'}}" mode="scaleToFill"></image>
+        <view>上传身份证国徽面</view>
+      </view>
+    </view>
+    <view>
+      <view>
+        <image src="{{cdnMer}}/icon_tip.png" mode="widthFix"></image>
+        温馨提示
+      </view>
+      <view>您拍摄的证件照片将作为实名认证审核的影像资料，请拍摄时确保证件<text>边框完整，字体清晰，亮度均匀。</text></view>
+    </view>
+  </view>
+
+  <button class="btn_submit" bindtap="submit">确认提交</button>
+  
+</view>
+
+<van-toast id="van-toast" />

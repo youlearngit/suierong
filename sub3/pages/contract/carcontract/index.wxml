@@ -1,0 +1,65 @@
+<!--个人汽车消费贷借款合同列表-->
+<view class="contract-background-img">
+  <image class="contract-top-img"  src="{{preffixUrl}}/static/wechat/img/carloans/topbar.png" mode="widthFix"></image>
+
+  <!-- 合同状态 -->
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">待签约</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已签约</view>
+  </view>
+  
+  <!-- 返回车贷首页 -->
+  <view class="go-home" bindtap="goHome">
+      <image class="contract-car-home-img"  src="{{preffixUrl}}/static/wechat/img/carloans/car-home.png" mode="widthFix"></image>
+      <view class="go-home-name">首页</view>
+  </view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px;" bindchange="bindChange">
+    <!-- 待签约 -->
+    <swiper-item>
+        <view class="carcontract-list-card" wx:for="{{resultItems}}"  data-item='{{item}}' wx:if="{{item.guarContSigningStatus!='1'}}" bindtap="searchDetail">
+          <view class="card-transno">借款合同编号 {{item.contNo}}</view>
+          <view class="card-applytime">合同签约状态 {{item.contSigningStatus == '2' ? '无需电签': item.contSigningStatus == '1' ? '已签约' : '待签约'}}</view>
+          <image class="item-top-right-img image-common-size" src="{{preffixUrl}}/static/wechat/img/carloans/continue-apply.png"></image>
+          <view class="card-content" style="background-image: url('{{preffixUrl}}/static/wechat/img/carloans/wati-sign-card-back.png')">
+            <view class="card-content-left">
+              <view class="card-content-label">申请产品</view>
+              <view class="card-content-value">{{item.prdName}}</view>
+            </view>
+            <text class="card-content-center"></text>
+            <view class="card-content-right">
+              <view class="card-content-label">借款人姓名</view>
+              <view class="card-content-value">{{item.cusName}}</view>
+            </view>
+          </view>
+        </view>
+         <!-- 暂无数据 -->
+         <view wx:if="{{nonexistentList == 0 }}">
+            <view class="b4041">您还没有签约记录哦</view>
+        </view>
+    </swiper-item>
+    <!-- 已签约 -->
+    <swiper-item>
+      <view class="carcontract-list-card-has" style="background-image: url('{{preffixUrl}}/static/wechat/img/carloans/has-contract-card.png')" wx:for="{{resultItems}}"  data-item='{{item}}' wx:if="{{item.guarContSigningStatus=='1'}}" bindtap="searchDetail">
+          <text class="card-top-label">已签约</text>
+          <view class="card-transno">借款合同编号 {{item.contNo}}</view>
+          <view class="card-applytime">合同签约状态 {{item.contSigningStatus == '2' ? '无需电签': item.contSigningStatus == '1' ? '已签约' : '待签约'}}</view>
+          <view class="card-content" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/wati-sign-card-back.png)">
+            <view class="card-content-left">
+              <view class="card-content-label">申请产品</view>
+              <view class="card-content-value">{{item.prdName}}</view>
+            </view>
+            <view class="card-content-right">
+              <view class="card-content-label">借款人姓名</view>
+              <view class="card-content-value">{{item.cusName}}</view>
+            </view>
+          </view>
+        </view>
+         <!-- 暂无数据 -->
+         <view wx:if="{{exitsList == 0 }}">
+            <view class="b4041">您还没有签约记录哦</view>
+        </view>
+    </swiper-item>
+</swiper>
+
+</view>

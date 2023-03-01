@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-toast": "/sub3/static/vant-weapp/toast/index"
+  },
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "预约开户"
+}

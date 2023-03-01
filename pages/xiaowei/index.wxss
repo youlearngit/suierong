@@ -1,0 +1,55 @@
+image{
+    width: 100vw;height: 130vh;
+}
+.container{
+    position: relative;
+}
+.btnArr{
+    /* position: absolute; */
+    position: fixed;
+    background: rgba(0, 0, 0, 0);
+    /* bottom: 3vw; */
+}
+.share{
+    margin: 0;padding: 0;
+    width: 28vw;
+    height: 10.5vw;
+    left: 5vw;
+    bottom: 2.5vw;
+    position:fixed;
+}
+.apply{
+    margin: 0;padding: 0;
+    position: fixed;
+    width: 62vw;
+    height: 12.5vw;
+    right: 2.9vw;
+    bottom: 1.7vw;
+}
+
+
+.tools{position:absolute;left:0;bottom:40rpx;width:100%;text-align:center;}
+.tools .tb{display:inline-block;width:80rpx;height:120rpx;margin:0 30rpx;font-size:26rpx;text-align:center;color:#fff;}
+.tools .tb image{display:block;width:80rpx;height:80rpx;border-radius:80rpx;overflow:hidden;}
+.shareToAPP button{background:none;border:0;outline:0;padding:0;}
+.saveTxt{width:160rpx;text-align:center;margin-left:-40rpx;}
+.shengcheng{width:600rpx;height:973rpx;position:fixed;top:50rpx;left:50%;top:50%;margin-left:-40%;margin-top:-70%;z-index:10}
+
+.shareBox{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
+.shareBox.on{z-index:1000;background:rgba(0,0,0,.8);}
+
+.dianDL{position:relative;display:block;width:80%;margin:40rpx auto;margin-bottom:80rpx;padding:40rpx 26rpx;line-height:1.6;font-size:26rpx;color:#333;border-radius:10rpx;background:#cfe5f5;}
+.dianDt{position:absolute;top:-40rpx;left:10%;width:80%;height:40rpx;line-height:40rpx;padding:15rpx 0 25rpx;font-size:32rpx;color: #fff;text-align:center;vertical-align:middle;}
+.dianDt text{display:inline-block;position:relative;height:40rpx;z-index:10;}
+.dianDt .span{width:40rpx;height:40rpx;border-radius:40rpx;margin-right:80rpx;color:#ff6606;background:#fff;}
+.dianDtBg{position:absolute;top:0;left:0;width:100%;height:70rpx;z-index:1;}
+.dianDL .p{display:block;margin-bottom:10rpx;text-indent:2em;text-align:justify;}
+
+.tedian{margin:20rpx;overflow:hidden;}
+.tedian .p{text-indent:0;}
+.tdImg{float:left;width:90rpx;height:78rpx;margin-right:20rpx;}
+.dianDd h2{display:block;font-size:30rpx;font-weight:700;color:#333;}
+.dzcp{float:left;width:440rpx;font-size:26rpx;color:#777;text-align:justify;}
+
+.backtoIndex{position:fixed;right:0;bottom:120rpx;width:80rpx;height:80rpx;line-height:80rpx;text-align:center;font-size:22rpx;padding:0;border-radius:80rpx;color:#fff;background:#0066b3;z-index:100;}
+

@@ -1,0 +1,99 @@
+<view class="wrap">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="ncd1">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/fhts/sq.jpg"></image>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 简 介</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">为纳入《宿迁市区科技型中小企业扶持名录》内的科技型中小企业发放的用于支持其生产经营过程中所需资金的贷款业务，由财政部门提供70%的风险补偿。</text>
+    </view>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">服 务 对 象</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">经认定的科技型中小企业、高新技术企业、民营科技企业，具有国家认定的发明专利、省级相关部门认定的高新技术产品等。</text>
+    </view>
+  </view>
+  <view class="dianDL" style="margin-bottom:150rpx;">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">联 系 方 式</text>
+    </view>
+    <view class="dianDd">
+      <view class="tips">* 点击下方电话，可以一键拨号哦！</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0527-81001942'>
+        <span>宿迁分行小企业金融部</span>0527-81001942</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0527-84490308'>
+        <span>宿豫支行</span>0527-84490308</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0527-84392105'>
+        <span>宿城支行</span>0527-84392105</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0527-84921096'>
+        <span>洋河支行</span>0527-84921096</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0527-81008083'>
+        <span>开发区支行</span>0527-81008083</view>
+
+      <view class="p" bindtap='callGetPhone' data-getPhone='0527-81001109'>
+        <span>城中支行</span>0527-81001109</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0527-81001926'>
+        <span>分行营业部</span>0527-81001926</view>
+    </view>
+  </view>
+
+</view>
+
+
+
+<view class='fbuttom'>
+    <view class="btn" bindtap='showShare'>分<text>\t\t\t\t\t\t</text>享</view>
+</view>
+
+<view class="{{shareBox}}">
+
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+  
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image></button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+
+<my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>

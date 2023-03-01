@@ -1,0 +1,73 @@
+@import '/assets/styles/weui.wxss';
+@import '/assets/styles/skyvow.wxss';
+@import '../dian/apli.wxss';
+
+
+page{background:#fff;}
+.dianApplicateBanner{width:100%;height:376rpx;}
+.button-hover{background:#0066b3;color:#fff;}
+.weui-btn{background:#0066b3;color:#fff;}
+.sliderMoney{margin:15px 10px 15px 0;width:80%;}
+.weui-cell{padding:12px 15px;}
+.weui-cell:before {border-top:1rpx #f2f2f2 solid;}
+.formtag{width:80%;margin:0 auto;padding-right:20rpx;font-size:30rpx;border-radius:10rpx;}
+
+.zhezao{position:fixed;top:0;overflow:hidden;width:100%;height:100%;background:rgba(0,0,0,.4);z-index:1000;}
+.t_w{position:absolute;display:block;bottom:0;left:0;width:100%;height:700rpx;background-color:#fff;overflow:hidden;}
+
+
+.txtsurebg{position:absolute;right:0;top:0;display:inline-block;width:100rpx;height:50rpx;background-color:#0066b3;text-align:center;}
+.txtsurename{color:#fff;font-size:30rpx}
+
+
+.scrollBox{width:99%;height:580rpx;margin-top:80rpx;overflow-y:scroll;}
+.scrollText{padding:15rpx 30rpx;font-size:28rpx;line-height:1.6;color:#333;}
+.scrollText text{display:block;text-indent:56rpx;margin-bottom:20rpx;}
+.weui-select{border-right:0;}
+.weui-label{padding-left:35rpx;color:#0066b3;}
+.weui-label.cGray{color:#999;}
+
+.section{margin:20rpx 30rpx 0;border-radius:20rpx;}
+.weui-cells__title{margin-top:20px;color:#0066b3;font-size:16px;font-weight:700;padding:20rpx 0;margin:0;}
+.weui-cells__title image{width:62rpx;height:57rpx;vertical-align:-webkit-baseline}
+
+.button-sp-area{margin:20px 40rpx;width:auto;}
+.ocrBox{height:auto;}
+.picID{display:block;width:450rpx;height:313rpx;margin:0 auto;}
+.imgFlex{position:relative;width:450rpx;height:313rpx;margin:0 auto;}
+.coverView{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.2);color:#333;text-align:center;}
+.coverView button{position:absolute;bottom:0;display:inline-block;width:180rpx;height:60rpx;line-height:60rpx;margin-top:253rpx;color:#fff;font-size:26rpx;border-radius:40rpx;}
+.coverView .b1{left:0;background:linear-gradient(to left, rgba(78,178,236,1), rgba(0,105,179,1));}
+.coverView .b2{right:0;background:linear-gradient(to left, rgba(241,187,1,1), rgba(234,150,3,1));}
+.tips{display:block;width:100%;font-size:24rpx;color:#999;text-align:center;}
+.diy{position:relative;text-align:right;}
+/* .diy::before{position:absolute;bottom:-25rpx;right:0;display:inline-block;width:50rpx;height:40rpx;text-align:center;font-size:22rpx;content:"点我"} */
+.diy image{display:block;float:right;margin:5rpx 13rpx;clear:both;}
+.diy .changeBtn{float:right;display:block;width:100%;height:25rpx;line-height:25rpx;font-size:22rpx;color:#999;}
+.change{text-decoration:underline;color:#0066b3;}
+
+.rule{font-size:26rpx;color:#666;}
+
+.page{position:relative;}
+.bg1{position:absolute;top:0;left:0;width:100%;height:335rpx;z-index:-1;}
+.bg2{position:absolute;bottom:0;left:0;width:100%;height:868rpx;z-index:-1;}
+.bg3{position:absolute;bottom:-20rpx;left:0;width:100%;height:199rpx;z-index:-1;}
+.banner{display:block;}
+.weui-cells{font-size:16px;background:none;}
+.codeBtn{padding:10rpx 15rpx;font-size:26rpx;}
+
+.btn{display:inline-block;width:300rpx;height:100rpx;margin:0 25rpx;border-radius:10rpx;text-align:center;line-height:100rpx;color:#fff;font-size:40rpx;border:none;background:rgba(234,150,3,.7);overflow:hidden;transition:all 900ms ease-in;animation-iteration-count:infinite;animation-timing-function:linear;animation-name:orbit;animation-duration:3s;}
+
+.sliderValue{font-size:46rpx;font-weight:700;color:#0066b3;font-style:italic;}
+
+
+
+
+.page{text-align:center;}
+.sucICO{display:inline-block;width:200rpx;height:195rpx;margin:20rpx auto;}
+.weui-cell__bd{text-align:right}
+.tips{display:block;width:100%;text-align:center;font-size:34rpx;color:#333;margin-bottom:50rpx;}
+
+.weui-cell__hd{width:300rpx;text-align:left;}
+.tips{color:#0168b7;margin-top:10rpx;}
+.btn{display:block;font-size:30rpx;margin:40rpx auto;line-height:80rpx;height:80rpx;width:300rpx;}

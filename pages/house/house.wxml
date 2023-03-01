@@ -1,0 +1,298 @@
+<view class="flexWrap">
+    <view class="flexHead">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/house/banner.jpg"></image>
+    </view>
+    <view class="flexBox">
+        <form bindsubmit="submitForm" report-submit='true' class="houseForm">
+            <view class="weui-cells weui-cells_after-title">
+                <view class="weui-cell">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">地区</view>
+                    </view>
+                    <!-- <view class="weui-cell__bd" bindtap='chosecity'>
+            <input disabled="disabled" name="cityID" id="cityID" value="{{ cityName }}" class="weui-input" placeholder="请选择房产所在城市" />
+          </view> -->
+                    <view class="weui-cell__bd" style="text-align:right;">
+                        <picker class="picker" mode="multiSelector" disabled="{{isDisabled}}" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                            <view class="picker">
+                                <input name="cityID" disabled='disabled' id="cityID" value="{{cityName}}" class="weui-input" style="display:inline-block;" type="text" placeholder="请选择房产所在地区" />
+                                <!-- <input name="city" disabled='disabled' id="city" value="{{cityName}}" class="weui-input" style="width:50%;display:inline-block;" type="text" placeholder="" /> -->
+                            </view>
+                        </picker>
+                    </view>
+                    <!-- <view class="weui-cell__ft" bindtap='chosecity'>
+						<image class="ico_local" src="/pages/public/img/ico_local.jpg"></image>选择城市
+					</view> -->
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">住宅</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="housekey" id="housekey" class="weui-input" placeholder="请录入2-10个住宅关键字" bindinput="getInput" value="{{serkey}}" />
+                    </view>
+                    <view class="weui-cell__ft">
+                        <button type="default" class="serBtn" bindtap="searchkey" hover-class="other-button-hover">
+                            查询
+                        </button>
+                    </view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">位置</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input disabled="disabled" name="posi" id="posi" value="{{ house.housekey }}" class="weui-input" placeholder="请点击查询选择" />
+                    </view>
+                    <view class="weui-cell__ft"></view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">楼栋</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="build" id="build" bindtap='location' value="{{house.buildname}}" class="weui-input" placeholder="{{buildPlaceholder}}" bindinput="buildInput" disabled="{{hasBuilding}}" />
+                    </view>
+                    <view class="weui-cell__ft"></view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">单元</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="danyuan" id="danyuan" bindtap='danyuan' value="{{house.danyuanname}}" class="weui-input" placeholder="{{unitPlaceholder}}" bindinput="unitInput" disabled="{{hasUnit}}" />
+                    </view>
+                    <view class="weui-cell__ft"></view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">房号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="room" id="room" bindtap='room' value="{{house.house}}" class="weui-input" placeholder="{{roomPlaceholder}}" bindinput="roomInput" disabled="{{hasRoom}}" />
+                    </view>
+                    <view class="weui-cell__ft"></view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label" style="width: 220rpx;">所在楼层</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="currentFloor" value="{{house.currentFloor}}" type='number' class="weui-input" placeholder="请输入所在楼层" bindinput="currentFloorInput" />
+                    </view>
+                    <view class="weui-cell__ft"></view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label" style="width: 220rpx;">总楼层</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="totalFloor" value="{{house.totalFloor}}" type='number' class="weui-input" placeholder="请输入总楼层" bindinput="totalFloorInput" />
+                    </view>
+                    <view class="weui-cell__ft"></view>
+                </view>
+                <view class="weui-cell">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">面积</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="squre" id="squre" type='digit' value="{{area}}" class="weui-input" bindblur="getInput3" placeholder="请录入面积" />
+                    </view>
+                    <view class="weui-cell__ft" style="margin-left:20rpx">平米</view>
+                </view>
+                <view class="weui-cell">
+                    <view class="a">
+                        <view class="weui-label" style="width: 220rpx;">房产类型</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker bindchange="pickHouseType" range="{{houseTypeList}}" range-key="name">
+                            <input disabled='disabled' name='houseType' class="weui-input" style="float:right" value="{{houseTypeList[houseType].name}}" placeholder="请选择房产类型" placeholder-class="placeholder1" />
+                        </picker>
+                    </view>
+                    <view class="b"></view>
+                </view>
+                <view class="weui-cell">
+                    <view class="a">
+                        <view class="weui-label" style="width: 220rpx;">完整地址</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <textarea class="k4" cursor-spacing="100" name="detailAddress" value="{{cityName+(house.danyuanname==='无单元'?house.housekey+house.buildname+house.house:house.housekey+house.buildname+house.danyuanname+house.house)}}" placeholder="" placeholder-class="placeholder2"></textarea>
+                    </view>
+                    <view class="b"></view>
+                </view>
+                <!-- <view class="weui-cell" hidden="{{keyhidden3}}">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">楼层</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="floor" id="floor" type='number' value="{{floor1}}" bindblur="getInput1" style="width:80rpx;display:inline-block;vertical-align:middle;" max="50" min='1' class="weui-input" placeholder="您的" />
+                        <text style="margin-right:100rpx;">楼层</text>
+                        <input name="totalfloor" id="totalfloor" type='number' value="{{allfloor1}}" max="50" min='1' bindblur="getInput2" style="width:60rpx;display:inline-block;vertical-align:middle;" class="weui-input" placeholder="总" />
+                        楼层
+                    </view>
+                    <view class="weui-cell__ft"></view>
+                </view> -->
+                <view class="weui-cell">
+                    <view class="weui-cell__hd"></view>
+                    <view class="weui-cell__bd"></view>
+                    <view class="weui-cell__ft">
+                        <navigator class="history" wx:if="{{show1 == true}}" hover-class='none' url='list'>
+                            <icon type="waiting" size="22rpx" color="#0066b3" />
+                            历史评估
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+            <button type="default" class="formBtn" hover-class="other-button-hover" formType="submit">
+                在线估价
+            </button>
+        </form>
+    </view>
+</view>
+<!-- 关键字搜索结果页、选取值 -->
+<view hidden="{{keyhidden}}" class="coverBox">
+    <view class='beback' bindtap="beback">
+        <em></em>
+        <text>返回</text>
+    </view>
+    <view class="h1">请选择您的住宅地址</view>
+    <scroll-view scroll-y class="coverList">
+        <view class="single" data-id="{{item.houseDataId}}" data-villageid="{{item.estateName}}" bindtap='ed0161' wx:for="{{buildlist}}" wx:key="key">
+            {{item.estateName}}
+        </view>
+    </scroll-view>
+</view>
+<!-- 楼栋 -->
+<view hidden="{{keyhidden1}}" class="coverBox">
+    <view class='beback' bindtap="beback">
+        <em></em>
+        <text>返回</text>
+    </view>
+    <view class="h1">请选择您的楼栋</view>
+    <scroll-view scroll-y class="coverList">
+        <view class="single" data-id="{{item.buildingId}}" data-villageid="{{item.buildingNo}}" bindtap='ed0162' wx:for="{{buildlist1}}" wx:key="key">
+            {{item.buildingNo}}
+        </view>
+        <view class="single" bindtap="noHouse">查无此楼栋</view>
+    </scroll-view>
+</view>
+<!-- 单元 -->
+<view hidden="{{keyhidden2}}" class="coverBox">
+    <view class='beback' bindtap="beback">
+        <em></em>
+        <text>返回</text>
+    </view>
+    <view class="h1">请选择您的单元</view>
+    <scroll-view scroll-y class="coverList">
+        <view class="single" data-id="{{item.houseUnitId}}" data-villageid="{{item.houseUnitName}}" bindtap='ed0163' wx:for="{{danyuanlist}}" wx:key="key">
+            {{item.houseUnitName}}
+        </view>
+        <view class="single" bindtap="noDanyuan">查无此单元</view>
+    </scroll-view>
+</view>
+<!-- 房号 -->
+<view hidden="{{keyhidden3}}" class="coverBox">
+    <view class='beback' bindtap="beback">
+        <em></em>
+        <text>返回</text>
+    </view>
+    <view class="h1">请选择您的房号</view>
+    <scroll-view scroll-y class="coverList">
+        <view class="single" data-id="{{item.gfa}}" data-index='{{index}}' data-villageid="{{item.roomName}}" bindtap='ed0164' wx:for="{{buildlist2}}" wx:key="key">
+            {{item.roomName}}
+        </view>
+        <view class="single" bindtap="noRoom">查无此房号</view>
+    </scroll-view>
+</view>
+<!-- LBS定位、选取、传city ID -->
+<view hidden="{{cityhidden}}" class="cityBox">
+    <view class="closeCity" bindtap='closeCity'>确定</view>
+    <view class="titleBefore">当前定位</view>
+    <view class="GPSCity">{{cityName}}</view>
+    <view class="titleBefore">江苏省</view>
+    <view class="cities">
+        <view class="weui-cell">
+            <view class="weui-cell__bd" data-citycode="320100" data-city="南京" bindtap='bindcity'>
+                南京
+            </view>
+            <view class="weui-cell__bd" data-citycode="320200" data-city="无锡" bindtap='bindcity'>
+                无锡
+            </view>
+            <view class="weui-cell__bd" data-citycode="320300" data-city="徐州" bindtap='bindcity'>
+                徐州
+            </view>
+            <view class="weui-cell__bd" data-citycode="320400" data-city="常州" bindtap='bindcity'>
+                常州
+            </view>
+            <view class="weui-cell__bd" data-citycode="320500" data-city="苏州" bindtap='bindcity'>
+                苏州
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd" data-citycode="320600" data-city="南通" bindtap='bindcity'>
+                南通
+            </view>
+            <view class="weui-cell__bd" data-citycode="320700" data-city="连云港" bindtap='bindcity'>
+                连云港
+            </view>
+            <view class="weui-cell__bd" data-citycode="320800" data-city="淮安" bindtap='bindcity'>
+                淮安
+            </view>
+            <view class="weui-cell__bd" data-citycode="320900" data-city="盐城" bindtap='bindcity'>
+                盐城
+            </view>
+            <view class="weui-cell__bd" data-citycode="321000" data-city="扬州" bindtap='bindcity'>
+                扬州
+            </view>
+        </view>
+        <view class="weui-cell">
+            <view class="weui-cell__bd" data-citycode="321100" data-city="镇江" bindtap='bindcity'>
+                镇江
+            </view>
+            <view class="weui-cell__bd" data-citycode="321200" data-city="泰州" bindtap='bindcity'>
+                泰州
+            </view>
+            <view class="weui-cell__bd" data-citycode="321300" data-city="宿迁" bindtap='bindcity'>
+                宿迁
+            </view>
+            <view class="weui-cell__bd"></view>
+            <view class="weui-cell__bd"></view>
+        </view>
+    </view>
+    <view class="titleBefore">北京市</view>
+    <view class="cities">
+        <view class="weui-cell">
+            <view class="weui-cell__hd"></view>
+            <view class="weui-cell__bd" data-citycode="110100" data-city="北京" bindtap='bindcity'>
+                北京
+            </view>
+        </view>
+    </view>
+    <view class="titleBefore">上海市</view>
+    <view class="cities">
+        <view class="weui-cell">
+            <view class="weui-cell__hd"></view>
+            <view class="weui-cell__bd" data-citycode="310100" data-city="上海" bindtap='bindcity'>
+                上海
+            </view>
+        </view>
+    </view>
+    <view class="titleBefore">广东省</view>
+    <view class="cities">
+        <view class="weui-cell">
+            <view class="weui-cell__hd"></view>
+            <view class="weui-cell__bd" data-citycode="440300" data-city="深圳" bindtap='bindcity'>
+                深圳
+            </view>
+        </view>
+    </view>
+    <view class="titleBefore">浙江省</view>
+    <view class="cities">
+        <view class="weui-cell">
+            <view class="weui-cell__hd"></view>
+            <view class="weui-cell__bd" data-citycode="330100" data-city="杭州" bindtap='bindcity'>
+                杭州
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,22 @@
+<view class="title1">个人信息</view>
+<form class="" bindsubmit="submit" bindreset="">
+    <view class="c1">
+        <view class="c2">姓名</view>
+        <input class="c3" value="{{ customer.REAL_NAME}}" name="userName" type="text" placeholder="请输入姓名" placeholder-class="input-placeholder" bindconfirm="" disabled="{{readonly}}"></input>
+    </view>
+    <view class="c1">
+        <view class="c2">身份证号码</view>
+        <input class="c3" value="{{ customer.ID_CARD}}" name="idCard" type="idcard" placeholder="请输入身份证号码" placeholder-class="input-placeholder" bindconfirm="" disabled="{{readonly}}" maxlength="18"></input>
+    </view>
+    <block wx:if="{{readonly}}">
+        <!-- <navigator class="btn blu" open-type="navigateBack">返 回</navigator> -->
+        <div style="display:flex;margin-top: 40rpx;">
+            <navigator open-type="navigateBack" class="button-new2" style="width:35%">返 回</navigator>
+            <div bind:tap="editCustomerInfo" class="button-new1" style="width:35%">修 改</div>
+        </div>
+    </block>
+    <block wx:else>
+        <!-- <button class="btn blu" formType="submit">确 定</button> -->
+        <button class="button-new3" formType="submit">确认提交</button>
+    </block>
+</form>

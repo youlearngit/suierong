@@ -1,0 +1,93 @@
+/* 海报 */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+.imagePathBox {
+	width: 100%;
+	height: 100vh;
+	position: relative;
+}
+
+.shengcheng {
+
+	width: 90%;
+	z-index: 9999;
+	position: absolute;
+	left: 5%;
+	overflow: hidden;
+	/* top: 38%;
+    transform: translateY(-40%); */
+	margin-left: 0;
+	margin-top: 0;
+}
+
+.shareBox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -99;
+	overflow: hidden;
+}
+
+.shareBox.on {
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.tools {
+	position: absolute;
+	left: 0;
+	bottom: 30rpx;
+	width: 100%;
+	text-align: center;
+	z-index: 9999;
+}
+
+.tools .tb {
+	display: inline-block;
+	width: 80rpx;
+	height: 120rpx;
+	margin: 0 30rpx;
+	font-size: 26rpx;
+	text-align: center;
+	color: #fff;
+}
+
+.tools .tb image {
+	display: block;
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 80rpx;
+	overflow: hidden;
+	margin: auto;
+}
+
+.shareToAPP button {
+	background: none;
+	border: 0;
+	outline: 0;
+	padding: 0;
+}
+
+.saveTxt {
+	width: 160rpx;
+	text-align: center;
+	margin-left: -40rpx;
+}
+
+.myswiper {
+	height: 1000rpx;
+}
+
+.card-swiper {
+    margin-top: 70rpx;
+	height: 1230rpx !important;
+}
+
+.card-swiper swiper-item{
+    padding: 0;
+}

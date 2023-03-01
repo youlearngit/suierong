@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-image": "/sub3/static/vant/weapp/image/index",
+    "van-divider": "/sub3/static/vant/weapp/divider/index"
+  }
+}

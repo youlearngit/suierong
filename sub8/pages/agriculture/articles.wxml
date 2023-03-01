@@ -1,0 +1,166 @@
+<wxs src="./utils.wxs" module="utils" />
+<view class="plane">
+  <image class="bg" src="{{preffixUrl}}bg_policy_list.png" mode="widthFix" />
+
+  <view class="head" wx:if="{{search}}">
+		<image src="{{preffixUrl}}icon_34_label.png" mode="widthFix" />
+		<view class="head-search">{{search}}</view>
+		<view class="head-tip">共{{articles.length}}项政策</view>
+	</view>
+
+	<view class="search">
+		<image class="search-icon" src="{{preffixUrl}}icon_32_search.png" mode="widthFix"/>
+        <input type="text" confirm-type="search" placeholder-class="search-placeholder" placeholder="请输入您想搜索的关键字" model:value="{{keywords}}" bindconfirm="onSearchEvent" />
+		<view class="search-btn" bind:tap="onSearchEvent"><image src="{{preffixUrl}}icon_right_bigw.png" mode="widthFix"/></view>
+	</view>
+
+	<view class="recommend" wx:if="{{is_recommend}}">
+		<image src="{{preffixUrl}}policy_defect.png" />
+		<view wx:if="{{search_type=='word'}}">很抱歉，没有查到有关的政策哦</view>
+		<view wx:else>很抱歉，没有查到该标签有关的政策哦</view>
+		<view>您还可以查看以下推荐政策</view>
+	</view>
+
+  <view class="go-filter" data-event="get_filter" bind:tap="onFilterEvent">
+		<image src="{{preffixUrl}}icon_32_filter_blue.png" mode="widthFix" />筛选
+	</view>
+
+  <view wx:if="{{!is_recommend}}" wx:for="{{articles}}" wx:index="index" wx:item="item" wx:key="{{item.ID}}">
+    <view class="article" hover-class="none" bindtap="getArticle" data-ID="{{item.ID}}" url="/sub8/pages/article?ID={{item.ID}}">
+      <view class="article-loc">
+        <view  wx:if="{{item.POLICY_LEVEL == 0}}">国家级</view>
+        <view wx:if="{{item.POLICY_LEVEL == 1}}">省级</view>
+        <view wx:if="{{item.POLICY_LEVEL == 2}}">市级</view>
+        <view  wx:if="{{item.POLICY_LEVEL == 3}}">区县级政策</view>
+        <!-- <view wx:if="{{item.POLICY_CATEGORY == 3004}}">贷款政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3005}}">担保政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3006}}">保险政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3007}}">农机补贴</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3008}}">其他补贴</view> -->
+        <image src="{{preffixUrl}}angle_mark1.png" mode="widthFix" />
+      </view>
+      <view class="article-title">
+        <!-- <block wx:if="{{search_type=='word'}}">
+					<text wx:for="{{item.POLICY_NAME}}" wx:for-item="w" wx:key="index" class="{{utils.idxOf(search,w)>-1?'keyword':''}}">{{w}}</text>
+				</block> -->
+        <text class="{{utils.idxOf(search,w)>-1?'keyword':''}}"> {{item.POLICY_NAME}} </text>
+      </view>
+      <!-- <view class="article-subtitle">{{item.MANAGEDEPT}}</view> -->
+      <view class="article-details">
+        <view class="article-detail">
+          <view style="font-size: 30rpx; color: #000000;" wx:if="{{item.POLICY_LEVEL == 0}}">国家级</view>
+          <view style="font-size: 30rpx; color: #000000;" wx:if="{{item.POLICY_LEVEL == 1}}">省级</view>
+          <view style="font-size: 30rpx; color: #000000;" wx:if="{{item.POLICY_LEVEL == 2}}">市级</view>
+         
+          <view>级别</view>
+        </view>
+        <view class="article-splitline"></view>
+        <view class="article-detail">
+          <view wx:if="{{item.POLICY_CATEGORY == 3000}}">国家级政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3001}}">省级政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3002}}">市级政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3003}}">区县级政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3004}}">贷款政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3005}}">担保政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3006}}">保险政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3007}}">农机补贴</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3008}}">其他补贴</view>
+          <view>政策类型</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:for="{{articles}}" wx:index="index" wx:item="item" wx:key="{{item.ID}}" wx:if="{{is_recommend && item.IS_RECOMMEND == 1}}">
+    <view class="article" hover-class="none" bindtap="getArticle" data-ID="{{item.ID}}" url="/sub8/pages/article?ID={{item.ID}}">
+      <view class="article-loc">
+        <view  wx:if="{{item.POLICY_LEVEL == 0}}">国家级</view>
+        <view wx:if="{{item.POLICY_LEVEL == 1}}">省级</view>
+        <view wx:if="{{item.POLICY_LEVEL == 2}}">市级</view>
+        <view  wx:if="{{item.POLICY_LEVEL == 3}}">区县级政策</view>
+        <!-- <view wx:if="{{item.POLICY_CATEGORY == 3004}}">贷款政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3005}}">担保政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3006}}">保险政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3007}}">农机补贴</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3008}}">其他补贴</view> -->
+        <image src="{{preffixUrl}}angle_mark1.png" mode="widthFix" />
+      </view>
+      <view class="article-title">
+        <!-- <block wx:if="{{search_type=='word'}}">
+					<text wx:for="{{item.POLICY_NAME}}" wx:for-item="w" wx:key="index" class="{{utils.idxOf(search,w)>-1?'keyword':''}}">{{w}}</text>
+				</block> -->
+        <text class="{{utils.idxOf(search,w)>-1?'keyword':''}}"> {{item.POLICY_NAME}} </text>
+      </view>
+      <!-- <view class="article-subtitle">{{item.MANAGEDEPT}}</view> -->
+      <view class="article-details">
+        <view class="article-detail">
+          <view style="font-size: 30rpx; color: #000000;" wx:if="{{item.POLICY_LEVEL == 0}}">国家级</view>
+          <view style="font-size: 30rpx; color: #000000;" wx:if="{{item.POLICY_LEVEL == 1}}">省级</view>
+          <view style="font-size: 30rpx; color: #000000;" wx:if="{{item.POLICY_LEVEL == 2}}">市级</view>
+         
+          <view>级别</view>
+        </view>
+        <view class="article-splitline"></view>
+        <view class="article-detail">
+          <view wx:if="{{item.POLICY_CATEGORY == 3000}}">国家级政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3001}}">省级政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3002}}">市级政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3003}}">区县级政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3004}}">贷款政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3005}}">担保政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3006}}">保险政策</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3007}}">农机补贴</view>
+        <view wx:if="{{item.POLICY_CATEGORY == 3008}}">其他补贴</view>
+          <view>政策类型</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-popup show="{{filter.show}}" position="top" custom-style="border-radius: 0 0 30rpx 30rpx;" close-on-click-overlay bind:click-overlay="onFilterEvent">
+  <view class="filter-body">
+    <view class="filter-head">
+      <view>筛选条件</view>
+      <view class="filter-reset" data-event="{{filter.reset_event}}" bind:tap="onFilterEvent">恢复默认</view>
+    </view>
+    <view wx:for="{{filter.items}}" wx:key="key" wx:index="index" wx:item="item">
+      <view class="filter-title">
+        <view class="filter-title-icon"></view>{{item.title}}
+      </view>
+      <view class="filter-opt filter-checkbox" wx:if="{{item.type=='checkbox'}}">
+        <view wx:for="{{item.items}}" wx:key="k" wx:for-index="idx" wx:for-item="v" class="{{utils.inArr(item.value,idx)?'activity':''}}" data-event="{{item.event}}" bind:tap="onFilterEvent" data-key="{{index}}" data-val="{{idx}}">
+          {{v}}
+          <image wx:if="{{utils.inArr(item.value,idx)}}" src="{{preffixUrl}}check_checked.png" mode="widthFix" />
+        </view>
+      </view>
+      <view class="filter-opt filter-daterange" wx:elif="{{item.type=='daterange'}}">
+        <view class="filter-opt-text">{{item.text}}</view>
+        <view class="filter-daterange-date" wx:for="{{[0,1]}}" wx:key="k" wx:for-index="idx" wx:for-item="v">
+          <view wx:if="{{idx>0}}" class="filter-daterange-splitline"></view>
+          <input bindinput="onFilterEvent" data-event="{{item.event}}" data-key="{{index}}" data-idx="{{idx}}" placeholder="请选择时间" placeholder-class="input-placeholder" value="{{item.value[idx]}}" bind:tap="onDatePickerEvent" disabled="true" />
+          <image wx:if="{{item.value[idx]}}" src="{{preffixUrl}}icon_38_date_checked.png" mode="widthFix" />
+          <image wx:else src="{{preffixUrl}}icon_38_date_uncheck.png" mode="widthFix" />
+        </view>
+      </view>
+      <view class="filter-opt filter-picker-multi" wx:if="{{item.type=='picker_multis'}}">
+				<view class="filter-opt-text">{{item.text}}</view>
+				<picker mode="multiSelector" bindchange="onMultiPickerChanges" bindcolumnchange="onMultiPickerColumnChange" value="{{item.value.indexs}}" range="{{item.value.ranges}}" range-key="text" data-type="{{index}}">
+					<input value="{{item.value.value}}" disabled="true" placeholder="请选择"/>
+				</picker>
+			</view>
+      <view class="filter-opt filter-picker-multi" wx:if="{{item.type=='picker_multi'}}">
+        <view class="filter-opt-text">{{item.text}}</view>
+        <picker mode="multiSelector" bindchange="onMultiPickerChange" bindcolumnchange="onMultiPickerColumnChange" value="{{item.value.indexs}}" range="{{item.value.ranges}}" range-key="text" data-type="{{index}}">
+          <input value="{{item.value.value.length>0?item.value.value[0]+item.value.value[1]+item.value.value[2]:''}}" disabled="true" placeholder="请选择" />
+        </picker>
+      </view>
+    </view>
+    <view class="filter-confirm" data-event="{{filter.event}}" bind:tap="onFilterEvent">确定</view>
+  </view>
+</van-popup>
+
+<van-popup show="{{date_picker.show}}" position="bottom" custom-style="border-radius: 30rpx 30rpx 0 0;" close-on-click-overlay bind:click-overlay="onDatePickerEvent">
+  <view>
+    <van-datetime-picker type="date" value="{{date_picker.value}}" bind:confirm="onDatePickerEvent" bind:cancel="onDatePickerEvent" />
+  </view>
+</van-popup>

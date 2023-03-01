@@ -1,0 +1,69 @@
+<!-- sub2/pages/photovoltaicLoan/index.wxml -->
+<view class="photovoltaic" style="background-image: url({{cdnUrl}}/static/wechat/img/photovoltaicLoan/background.png);">
+	<view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+		<view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+			<image src="/pages/public/img/ico_ind.png" />
+		</view>
+		<view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+			<view class="backPage" bindtap='prePage'>
+				<image src="/pages/public/img/ico_back.png" />
+			</view>
+			<view class="backIndex" bindtap='indexpage'>
+				<image src="/pages/public/img/ico_ind.png" />
+			</view>
+		</view>
+	</view>
+	<view class="photovoltaic_search">
+				<view class="btns" bindtap="historySearch">
+						<image 
+							class="photovoltaic_search_img"
+							wx:if="{{cdnUrl}}"
+							src="{{cdnUrl}}/static/wechat/img/photovoltaicLoan/search.png"
+							mode="widthFix"
+							lazy-load="{{true}}"/>
+						<text>{{btn_title}}</text>
+				</view>
+	</view>
+	<view class="photovoltaic_title">{{title}}</view>
+	<view
+	 class="list"
+	 wx:for="{{listData}}"
+	 wx:for-item="list"
+	 wx:key="id"
+	 style="background-image: url({{cdnUrl}}/static/wechat/img/photovoltaicLoan/list.png);"
+	>
+		<view class="list_title">{{list.list_title}}</view>
+		<view
+		 class="list_content"
+		 wx:for="{{list.list_content}}"
+		 wx:for-item="item"
+		 wx:key="id"
+		>
+			<view class="content" wx:if="{{item.title}}">
+				<view class="img">
+					<image
+					 class="triangle"
+					 wx:if="{{cdnUrl}}"
+					 src="{{cdnUrl}}/static/wechat/img/photovoltaicLoan/triangle.png"
+					 mode="widthFix"
+					 lazy-load="{{true}}"
+					/>
+				</view>
+				<view class="{{!item.content ? 'cont1' : 'cont'}}">{{item.title}}</view>
+			</view>
+			<view class="content" wx:if="{{item.content}}">
+				<view class="cont1 spec">{{item.content}}</view>
+			</view>
+		</view>
+	</view>
+	<view style="height:160rpx" />
+</view>
+<view class="bottom_btn">
+	<button open-type="share" class="share-btn">
+		<image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/photovoltaicLoan/share.png" mode="widthFix" />
+		<view class="share_text">分享</view>
+	</button>
+	<button class="btn1" bindtap="registInfo">登记信息</button>
+</view>
+<my-login loginFlag="{{loginFlag}}" />
+

@@ -1,0 +1,65 @@
+<!-- sub2/pages/billDisCount/confirm.wxml -->
+<view class="page">
+    <view class="weui-msg">
+        <view>
+            <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/remoteIcon.png" mode="widthFix" style="width:300rpx;margin: 21px 45px 21px 0;"></image>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title" style="font-size:35rpx;font-weight: 700;" wx:if="{{fr}}">资料上传成功！</view>
+            <view class="weui-msg__title" style="font-size:28rpx;text-align:left;padding:0 10%;text-indent:15px;" wx:else>尊敬的{{upInParam.frName}},您的企业({{upInParam.partyName}})正在江苏银行申请银票贴现额度，请您阅读和确认贴现业务合作协议。为确保您对该业务充分知晓和授权，系统将进行人脸识别操作以确认您的身份，感谢您的配合！</view>
+
+        </view>
+    </view>
+    <view style="width:90%;margin:auto;">
+        <!-- <i-panel title="贴现合作协议" i-class="kk"> -->
+            <i-cell-group>
+                <i-cell i-class="cc" bindtap="showDetail" data-id="1" title="请您阅读《江苏银行电子商业汇票贴现业务合作协议》" is-link></i-cell>
+            </i-cell-group>
+        <!-- </i-panel> -->
+    </view>
+    
+    <view style="width:100%;margin:30rpx 0;display: flex;justify-content: center;align-items: center;">
+        <checkbox-group bindchange="handleChange" style="float:left;">        
+            <checkbox value="isChecked" checked="{{isCheck}}" />
+        </checkbox-group>
+        <text style="color:#A6A6A6;font-size:24rpx;margin-left:5rpx;font-family: PingFangSC-Medium;">我已阅读合作协议，同意在江苏银行开办票据贴现业务</text>
+    </view>
+
+    <text class="shouquantxt">授权提示:\n  您的业务申请以及电子协议签约需要经过您企业的法定代表人授权，我们将通过人脸识别的方式核实法定代表人的身份，您可选择现场授权或者转发链接的方式由法人远程授权，感谢您的配合！
+</text>
+    <view class="bottom1"  wx:if="{{fr}}">
+        <button bindtap="showShare" >远程授权</button>
+    </view>
+     <view class="bottom"  wx:if="{{!fr}}">
+        <button bindtap="navTo" >授权</button>
+    </view>
+
+    <view class="bottom" wx:if="{{platform&&fr}}">
+        <button bindtap="navTo">现场授权</button>
+    </view>
+</view>
+
+<view class="{{shareBox}}">
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width:750px;height:600px;position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'><image wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/ico_shareWX.jpg"></image></button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+<view style='position:fixed;top:-50%;left:0;width:100%;height:200%;background:#fff;z-index:-1;'></view>

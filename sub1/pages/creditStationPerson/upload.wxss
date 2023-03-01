@@ -1,0 +1,110 @@
+@import './index.wxss';
+@import '/assets/styles/colorui/main.wxss';
+@import '/assets/styles/colorui/animation.wxss';
+@import '/assets/styles/colorui/icon.wxss';
+@import '/assets/styles/weui.wxss';
+
+.bg {
+  z-index: auto;
+}
+
+.field-input {
+  width: 690rpx;
+  min-height: 900rpx;
+  margin: 0 auto;
+  position: relative;
+  border: none;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.tips {
+  width: 630rpx;
+  height: auto;
+  background: #f7fbff;
+  padding: 20rpx;
+  border: 1rpx solid #d2ddff;
+  border-radius: 10rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #7c8ba4;
+  /* position: absolute;
+  bottom: 30rpx;
+  left: 30rpx; */
+  margin: 30rpx auto;
+}
+.tips image {
+  width: 25.5rpx;
+  margin-right: 8rpx;
+}
+
+.title {
+  font-family: SourceHanSansCN-Medium;
+  font-size: 30rpx;
+  color: #1c294f;
+  position: relative;
+  height: 44rpx;
+  line-height: 44rpx;
+  padding: 0 30rpx;
+  margin: 40rpx 0 30rpx;
+}
+.title::before {
+  content: ' ';
+  position: absolute;
+  height: 44rpx;
+  width: 12rpx;
+  background-image: linear-gradient(-10deg, #af6d30 0%, #ffd7b1 100%);
+  left: 0;
+}
+
+.idCard-uploader {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.idCard image {
+  width: 100%;
+  height: 130rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0rpx 8rpx 80rpx 0 #eaecf0;
+  text-align: center;
+  border-radius: 8rpx;
+}
+.idCard {
+  width: 220rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 24rpx;
+  color: #7c8ba4;
+  letter-spacing: 0;
+}
+.talent-uploader {
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.pic {
+  position: relative;
+  margin: 0 14rpx 10rpx 0;
+}
+.pic image {
+  border-radius: 8rpx;
+}
+.delete-btn {
+  width: 30rpx;
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+}
+
+.btn-disabled {
+  opacity: 0.3;
+  background-image: linear-gradient(2deg, #507aff 0%, #6495ff 100%);
+  color: #ffffff;
+}
+
+.tips-box {
+}
+

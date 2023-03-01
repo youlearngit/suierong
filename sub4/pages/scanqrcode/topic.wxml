@@ -1,0 +1,62 @@
+<view class="num">
+  <view class="mybg">
+    <image src="{{preffixUrl}}answer.png" class="mybg"></image>
+  </view>
+  <view class="mydtk" wx:if="{{like}}">
+    <image src="{{preffixUrl}}card.png" class="myedt"></image>
+  </view>
+ 
+  <view class="mydtk"  wx:if="{{!like}}">
+    <image src="{{preffixUrl}}card.png" class="myeddut"></image>
+  </view>
+</view>
+
+<view class="mybuin" wx:if="{{like}}">
+  <view class="centent" wx:for="{{detail}}" wx:key="index" wx:if="{{index == number}}">
+    <view class="centent-title">
+      <view class="mytit">{{index+1}}</view>
+      <view class="mynio"> /5</view>{{item.title}}
+    </view> 
+     
+    <view class="group-radio {{currentCampus==index?'active':''}}" bindtap="radioChange" wx:for="{{item.array}}" wx:for-item="cell" data-index="{{index}}" data-id="{{item.id}}" wx:key="index" checked="{{cell.usname}}" data-usname="{{cell.usname}}">
+      <text>{{cell.name}}</text>
+    </view>
+  </view>
+
+  <view class="bottom" wx:if="{{number != detail.length}}">
+    <view bindtap="previous" wx:if="{{number != 0}}" class="bgso">上一题</view> 
+    <view class="week" bindtap="nextstep" style="{{number == 0?'margin:0 30%;':''}}" >{{number!=4? nextcontent:tijiao}}</view>
+    <!-- <view class="submission-center" wx:if="{{number ==4}}"bindtap="subsic">答完了提交</view> -->
+  </view>
+  <view class="mygold">
+    <image src="{{preffixUrl}}gold.png" class="mygopr"></image>
+  </view>
+
+</view>
+
+<!-- <view class="mymedal" wx:if="{{!like}}">
+  <view class="myfs">您的分数</view>
+  <image src="{{preffixUrl}}medal.png" class="mydal"></image>
+  <view class="mygoos">
+    <image src="{{preffixUrl}}gold.png" class="mygopr"></image>
+  </view>
+  <view class="minisubaret" bindtap="extrat">
+    <image src="./aredub/subaret.png" class="subaret"></image>
+    提取苏银豆
+  </view>
+  <view class="myjpfs">{{answer}}</view>
+  <view class="mydin">
+    <view class="bgso" bindtap="correct">查看正确答案</view>
+    <view class="week">邀请好友</view>
+  </view>
+</view> -->
+<!-- <view></view> -->
+<!-- <view class="minibbvu" bindtap="close" wx:if="{{!gainent}}">
+  <view class="popu"><image src="./aredub/popup.png" class="popup"></image></view>
+  <view class="mysyd">
+    <view class="sydyyd">您已获得苏银豆</view>
+    <view class="minisl">{{dou || 0}}</view>
+    <view class="minisfer"><image src="./aredub/sfter.png" class="sfter"></image></view>
+    <view class="miniljhq" bindtap="immwdiately">立即提取</view>
+  </view>
+</view> -->

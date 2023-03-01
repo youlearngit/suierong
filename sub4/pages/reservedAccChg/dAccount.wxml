@@ -1,0 +1,58 @@
+<!--sub3/pages/reservedAccChg/dAccount.wxml-->
+<!--sub3/pages/reservedAccChg/person.wxml-->
+<!--sub3/pages/reservedAccChg/company.wxml-->
+<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_bgn3.png" mode="widthFix" class="bgn">
+</image>
+<view class="title1">
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+    class="rac_rect1" />
+  <view class="title2">对账信息</view>
+</view>
+<form bindsubmit="submitForm" report-submit='true'>
+
+<view class="title3" style="display: block;    width: 88%;padding-bottom: 0;">
+  <!-- <van-cell-group custom-class='vanCell8' border="{{ false }}">
+    <van-field value="{{ info.dzlxrName}}" clearable label="对账联系人 " placeholder="请输入" input-align="right" name='dzlxrName'
+      title-width='200' />
+  </van-cell-group>
+  <van-cell-group custom-class='vanCell8' border="{{ false }}">
+    <van-field value="{{ info.dzlxrPhone }}" clearable label="对账联系电话" placeholder="请输入" input-align="right" name='dzlxrPhone'
+      title-width='200' />
+  </van-cell-group> -->
+
+  <view class="com_title"  style="margin-left: 30rpx;">
+  <view>对账联系人</view>
+  <input placeholder="请输入" style="text-align: right;" value="{{info.dzlxrName}}" name='dzlxrName'/>
+
+  </view>
+  <view class="bor" style="margin-top: 0;margin-left: 30rpx;"></view>
+
+  <view class="com_title"  style="margin-left: 30rpx;">
+  <view>对账联系电话</view>
+  <input placeholder="请输入" style="text-align: right;" value="{{info.dzlxrPhone}}" name='dzlxrPhone'/>
+
+  </view>
+  <view class="bor" style="margin-top: 0;margin-left: 30rpx;"></view>
+
+  <view class="title5" style="margin-top: 30rpx;margin-left: 30rpx;color: #031126;">对账联系地址</view>
+
+
+  <view class="title6" style="margin-left: 30rpx;">
+    <input placeholder="请输入" class="inpu1"  name='dzlxrAddress'  value="{{info.dzlxrAddress}}"/>
+  </view>
+  <view class="bor" style="margin-bottom: 10rpx;margin-left: 30rpx;"></view>
+
+  <!-- <van-cell-group custom-class='vanCell8' border="{{ false }}">
+    <van-field value="{{ info.dzlxrCode }}" clearable label="对账地址邮编"   border="{{ false }}" placeholder="请输入" input-align="right"
+      title-width='200' name='dzlxrCode' />
+  </van-cell-group> -->
+  <view class="com_title" style="margin-left: 30rpx;">
+  <view>对账地址邮编</view>
+  <input placeholder="请输入" style="text-align: right;" value="{{info.dzlxrCode}}" name='dzlxrCode'/>
+
+  </view>
+</view>
+
+
+<button class="nexts" formType="submit">立即预约</button>
+</form>

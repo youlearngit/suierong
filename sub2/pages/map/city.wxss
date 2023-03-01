@@ -1,0 +1,7 @@
+.cityBox{position:fixed;width:100%;height:100%;top:0;left:0;background:#f7f7f7;z-index:1000;}
+.closeCity{position:absolute;top:85rpx;right:10rpx;width:150rpx;height:70rpx;line-height:70rpx;text-align:center;background:#0066b2;border-radius:10rpx;color:#fff;font-size:36rpx;}
+.GPSCity{height:100rpx;line-height:100rpx;background:#fff;font-size:32rpx;color:#e4250c;text-indent:1em;}
+.cities{background:#fff;}
+.titleBefore{font-size:26rpx;color:#999;text-indent:1em;line-height:1.6;padding:20rpx 0 10rpx;}
+.ico_local{width:20rpx;height:25rpx;margin-right:5rpx;}
+@import '/assets/styles/weui.wxss';

@@ -1,0 +1,22 @@
+<!-- sub1/pages/sui/house2.wxml -->
+<view class="a1">完善以下信息可享更高额度，更优惠利率</view>
+<navigator url="house?type=sui" class="a2">
+    <view class="a21">住宅抵押丨增加抵押房产</view>
+    <image class='a22' wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+</navigator>
+<van-checkbox-group value="{{ result }}" bind:change="chooseHouse">
+    <view class="a2" wx:for="{{houseInfo}}">
+        <van-checkbox name="{{index}}">
+            <view class="hname">{{item.ADDRESS}}</view>
+            <view class="hprice">估价    {{item.gujia}}万</view>
+        </van-checkbox>
+    </view>
+</van-checkbox-group>
+<view class="tip" wx:if="{{houseInfo}}" hover-class="none" hover-stop-propagation="false">
+    温馨提示: 请确保您添加的房产信息可用于本次贷款授权抵押,最终可贷金额以正式审批金额为准。
+</view>
+<view class="a3" bind:tap="addHouse" wx:if="{{result.length>0}}">提交审批</view>
+<view class="a3" style="opacity:0.3;" wx:else>提交审批</view>
+<view class="" style="height:60rpx" hover-class="none" hover-stop-propagation="false">
+    
+</view>

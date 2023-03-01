@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "single-dropdown-select": "../loan/selectProfession/index1",
+    "van-popup": "/sub3/static/vant/weapp/popup/index",
+    "van-picker": "/sub3/static/vant/weapp/picker/index"
+	},
+  "navigationBarTitleText": "填写个人信息"
+  }

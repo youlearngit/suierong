@@ -1,0 +1,38 @@
+<cu-custom isCustom="{{true}}"  backPageSize="{{backPageSize}}">
+    <view slot="content">贷款申请</view>
+</cu-custom>
+<view class="body-background-img" style="background-image: url({{bgUrl}});background-color: #ffffff;">
+  <view class="top">
+      <text class="top-title">{{title}}</text>
+      <view>
+        <view class="top-label">
+        <image class="f2-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/car-home-gou.png" mode="aspectFit"></image>
+       <view class="f2-1-text">{{title1}}</view>
+      </view>
+      <view class="top-label">
+        <image class="f2-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/car-home-gou.png" mode="aspectFit"></image>
+       <view class="f2-1-text">{{title2}}</view>
+      </view>
+      <view class="top-label">
+        <image class="f2-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/car-home-gou.png" mode="aspectFit"></image>
+       <view class="f2-1-text">{{title3}}</view>
+      </view>
+      </view>
+  </view>
+  <view class="content-1">
+    <!-- 成功的信息 -->
+    <view wx:if="{{status=='1'}}" class="content-body">
+      <image class="content-img" src="{{preffixUrl}}/static/wechat/img/carloans/apply-commint.png"/>
+      <view class="content-title">申请已提交！</view>
+      <view class="content-text">初审结果会在5分钟内发送到您的手机上，请注意查收</view>
+      <view class="content-search-prompt">您可以到<text style="color: #6681EA;">“订单详情”</text>查看初审结果，初审通过的，我行会为您分配一名经办客户经理。</view>
+    </view>
+    <!-- 失败的信息 -->
+    <view wx:if="{{status=='0'}}" class="content-body">
+      <image class="content-img" src="{{preffixUrl}}/static/wechat/img/carloans/apply-commint-fail.png"/>
+      <view class="content-title">很抱歉，申请提交失败！</view>
+      <view class="content-error-text">{{errorMsg}}</view>
+    </view>
+  </view>
+  <button class="btn-submit" bindtap="toResultPage" >查看我的订单</button>
+</view>

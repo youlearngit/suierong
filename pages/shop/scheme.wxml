@@ -1,0 +1,72 @@
+<view class="topPic">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_611.png"></image>
+</view>
+<navigator url="/sub6/pages/specialNew/index" class="list" hover-class="none">
+    <image class="listImg" style="width: 200rpx;margin-left: 450rpx;" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/specialNew/icon.jpg"></image>
+    <view class="tit">专精特新</view>
+    <view class="content">企业专项服务方案专区</view>
+</navigator>
+<navigator url="/sub3/pages/bbx/home" class="list" hover-class="none">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/bbx/baibaoxiang.png"></image>
+    <view class="tit">人才服务百宝箱</view>
+    <view class="content">人才政策 e点即知</view>
+</navigator>
+<view class="list" bindtap="toKingSley">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_613.png"></image>
+    <view class="tit">烟草零售商户服务方案</view>
+    <view class="content">烟草零售商户服务方案</view>
+</view>
+<navigator url="/sub1/pages/invite/index"  class="list" wx:if="{{isEmployee}}">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_617.png"></image>
+    <view class="tit">零售业务转介</view>
+    <view class="content">公私联动 全员营销</view>
+</navigator>
+<navigator  class="list" bindtap="getCode">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_616.png"></image>
+    <view class="tit">薪税管家</view>
+    <view class="content">一站式企业薪税管家服务</view>
+</navigator>
+<navigator url="/sub8/pages/agriculture/index" class="list" hover-class="none">
+    <view class="agricultureImg">
+     <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/bbx/zssnch.png"></image>
+        
+    </view>
+    <view class="tit">掌上三农</view>
+    <view class="content">服务随行 融旺乡村</view>
+</navigator>
+<navigator url="/sub3/pages/upgrade/index" class="list" hover-class="none">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_612.png"></image>
+    <view class="tit">随e贷线上化升级</view>
+    <view class="content">为您提供便捷的融资体验</view>
+</navigator>
+<navigator url="/sub1/pages/warehousing/index"  class="list">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/banner_warehouse.png"></image>
+    <view class="tit">仓储冷链贷</view>
+    <view class="content">“农产品产地冷藏保鲜设施建设”专项贷款</view>
+</navigator>
+<view class="list" bindtap="toTrade">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_91.png"></image>
+    <view class="tit">自贸业务专属解决方案</view>
+    <view class="content">自贸金融综合服务专家</view>
+</view>
+<view class="list" bindtap="toCross" style="background-color: #fff;overflow: hidden;">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/zm/44.png" style="height: 172rpx;width:233rpx;float: right;margin-right: 27rpx;"></image>
+    <view class="tit" style="float: left;margin-top: 43rpx;">跨境e点通</view>
+    <view class="content" style="float: left;margin-top: 25rpx;">中小外贸企业专属服务方案</view>
+</view>
+<!-- <view class="list" bindtap="nothing">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_612.png"></image>
+    <view class="tit">公司融资解决方案</view>
+    <view class="content">为您公司融资问题提供帮助</view>
+</view> -->
+<view class="list" bindtap="nothing">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_614.png"></image>
+    <view class="tit">科创企业特色融资</view>
+    <view class="content">科创企业特色融资解决办法</view>
+</view>
+<view class="list" bindtap="nothing">
+    <image class="listImg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_615.png"></image>
+    <view class="tit">三农企业特色融资</view>
+    <view class="content">三农企业融资解决方案</view>
+</view>
+

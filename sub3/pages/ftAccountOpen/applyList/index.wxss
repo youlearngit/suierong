@@ -1,0 +1,106 @@
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+page{
+  overflow:scroll;
+  background-color: #ffffff;
+}
+/*无数据样式*/
+.has-data-img{
+  margin: 260rpx 0rpx 40rpx 250rpx;
+  height: 241rpx; 
+  width: 250rpx;
+  background-size: 100%;
+}
+.has-data-title-1{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+  color: #7C8BA4;
+  letter-spacing: 0;
+  margin-left: 249rpx;
+  margin-bottom: 335rpx;
+}
+.has-data-apply-btn{
+  width: 444rpx;
+  height: 86rpx;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+  color: #FFFFFF;
+  background-image: linear-gradient(0deg, #1677FF 0%, #7CB2FF 100%);
+  border-radius: 43rpx;
+  padding-top: 19rpx;
+  margin-left: 153rpx;
+}
+
+/*有数据样式*/
+.has-body{
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-size:100% 100%;
+  padding-top: 62rpx;
+  padding-left: 43rpx;
+}
+.card{
+  width: 670rpx;
+  background-size:100% 160%;
+  border-radius: 20rpx;
+  padding: 22rpx 0rpx 15rpx 27rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4px 12px 0 rgba(110,137,245,0.33);
+}
+.jump{
+  width: 36rpx;
+  height: 36rpx;
+  background-size:100% 100%;
+  float: right;
+  margin-right: 27rpx;
+  margin-top: 10rpx;
+}
+.card-title{
+  margin-top: 10rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+  color: #1677FF;
+  margin-bottom: 70rpx;
+}
+.card-label{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #7C8BA4;
+  letter-spacing: 0;
+  margin-bottom: 20rpx;
+}
+.card-value{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #1C294F;
+  letter-spacing: 0;
+  margin-left: 20rpx;
+}
+.float-buttom{
+  padding-top:30rpx;
+  width: 125rpx;
+  height: 125rpx;
+  background-color: #7CB2FF;
+  border-radius: 100rpx;
+  position:fixed;
+  left: 80%;
+  top: 85%;
+  z-index: 1;
+}
+.add-apply{
+  width: 36rpx;
+  height: 35rpx;
+  background-size:100% 100%;
+  margin-left: 44rpx;
+}
+.add-title{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  margin-left: 15rpx;
+}

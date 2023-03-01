@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "my-login": "/component/login/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "苏州征信申请",
+  "enablePullDownRefresh": false
+}

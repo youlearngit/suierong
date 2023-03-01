@@ -1,0 +1,48 @@
+<view class="num">
+    <view class="mybg">
+    <!-- mode="widthFix" -->
+        <image src="{{preffixUrl}}answer.png" class="mybg" ></image>
+    </view>
+    <view class="mydtk">
+        <image src="{{preffixUrl}}card.png" class="myedt"></image>
+    </view>
+    <view class="mymedal" wx:if="{{!like}}">
+        <view class="myfs">您的分数</view>
+        <image src="{{preffixUrl}}medal.png" class="mydal"></image>
+        <view class="mygoos">
+            <image src="{{preffixUrl}}gold.png" class="mygopr"></image>
+        </view>
+        <!-- wx:if="{{tqyc}}" -->
+        <view class="minisubaret" bindtap="extrat" >
+            <image src="{{preffixUrl}}subaret.png" class="subaret"></image>
+            提取苏银豆
+        </view>
+        <view class="myjpfs">{{answerdd || SCORE}}</view>
+        <view class="mydin">
+            <view class="active" bindtap="correct">查看正确答案</view>
+            <button class="week" data-name="shareBtn" open-type="share">邀请好友</button>
+        </view>
+    </view>
+<view class="minibbvu" bindtap="close" wx:if="{{!gainent}}">
+    <view class="popu">
+        <image src="{{preffixUrl}}popup.png" class="popup"></image>
+    </view>
+    <view class="mysyd">
+        <view class="sydyyd">您已获得苏银豆</view>
+        <view class="minisl">{{dou || 0 || fandou}}</view>
+        <view class="minisfer">
+            <image src="{{preffixUrl}}sfter.png" class="sfter"></image>
+        </view>
+        <view class="miniljhq" bindtap="immwdiately">立即提取</view>
+    </view>
+</view>
+</view>
+<!-- <view>
+    <view class="big">
+        <view class="mybg">
+            <image src="{{preffixUrl}}answer.png" class="mybg_img" ></image>
+        </view>
+    </view>
+    <view class="mask"></view>
+
+</view> -->

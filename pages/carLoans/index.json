@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "my-login": "/component/login/index"
+    },
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "江苏银行个人e按揭贷款",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "dark"
+}

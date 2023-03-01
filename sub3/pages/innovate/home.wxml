@@ -1,0 +1,13 @@
+<wxs src="./utils.wxs" module="utils" />
+<view>
+	<image class="home_bg" src="{{preffixUrl}}home_bg.png" mode="widthFix"></image>
+
+	<view class="home_btns">
+
+		<navigator class="home_btn home_btn_apply" hover-class="none" url="/sub3/pages/innovate/apply">立即申请</navigator>
+
+		<navigator class="home_btn home_btn_mine" hover-class="none" url="/sub3/pages/innovate/orders">我的订单</navigator>
+		
+	</view>
+
+</view>

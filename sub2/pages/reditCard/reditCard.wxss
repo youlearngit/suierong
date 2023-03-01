@@ -1,0 +1,172 @@
+/* 轮播 */
+
+.content {
+  background-color:white;
+}
+
+/* 轮播图片 */
+
+.imgCarousel {
+  width: 100%;
+  height: 330rpx;
+}
+
+/* 程序功能 */
+
+.business {
+  display: flex;
+  width: 96%;
+  margin: auto;
+  margin-top: 35rpx;
+  text-align: center;
+}
+
+.business_item {
+  height: 30%;
+  width: 30%;
+  text-align: center;
+  display: inline-block;
+  margin: auto;
+}
+
+/* 图片外到view */
+
+
+/* 图片大小 */
+
+.business_item_img image {
+  height: 8vh;
+  width: 7.2vh;
+}
+
+/* 字体 */
+
+.business_item_text {
+  font-size: 25rpx;
+}
+
+/* 卡片权益 */
+
+.cardRights {
+  text-align: center;
+  margin-top: 60rpx;
+  margin-bottom: 10rpx;
+}
+
+.cardRights image {
+  width: 210rpx;
+}
+
+/* 卡片展示区域 */
+
+.cardList {
+  display: flex;
+  width: 96%;
+  margin: auto;
+}
+
+.cardList_item {
+  margin: auto;
+  overflow: hidden;
+}
+
+.cardList_item_img image {
+  width: 240rpx;
+  height: 18vh;
+}
+
+.cardList_item_text {
+  text-align: center;
+  font-size: 30rpx;
+}
+
+/* 热门卡种 */
+
+.hotCards {
+  width: 96%;
+  margin-left: 300rpx;
+  margin: auto;
+  margin-top: 30rpx;
+}
+
+.hotCardsIcon {
+  text-align: center;
+}
+
+.hotCardsTitle {
+  width: 96%;
+  text-align: center;
+}
+
+/* 图片 */
+
+.hotCardsTitle image {
+  width: 220rpx;
+  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+}
+
+/* 文字 */
+
+.hostcardsText {
+  margin-left: 4vh;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hostCardsList {
+  text-align: center;
+}
+
+.hotCardsIcon image {
+  margin-top: 30rpx;
+  width: 210rpx;
+}
+
+.hotCardsItem {
+  margin: auto;
+  margin-bottom: 10rpx;
+  width: 98%;
+}
+
+.hotCardsItem image {
+  text-align: center;
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+.itemDescibe {
+  margin-left: 21vh;
+  margin-top: 2rpx;
+}
+
+.describe {
+  margin-top: 30rpx;
+  width: 99%;
+}
+
+.itemDescibeTitle .name {
+  width: 100%;
+  font-size: 27rpx;
+  padding-top: 9rpx;
+}
+
+.itemDescibeTitle image {
+  float: right;
+  width: 120rpx;
+  margin-right: 10rpx;
+  margin: 5rpx;
+}
+
+.itemDescibe .describe1 {
+  color: #8f9091;
+  font-size: 23rpx;
+  margin-top: 6rpx;
+}
+
+.itemDescibe .describe2 {
+  color: #8f9091;
+  font-size: 25rpx;
+  margin-top: 0rpx;
+}

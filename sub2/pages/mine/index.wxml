@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="head">
+  <image class="bg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/mine_head.jpg"></image>
+  <view class="userinfo">
+    <view wx:if="{{!hasUserInfo && canIUse}}" class="userinfoBox">
+      <image class="userinfo-avatar" wx:if='{{preffixUrl}}'src="{{preffixUrl}}/static/wechat/img/no_avator.png" mode="cover"></image>
+      <button class="getUserbtn" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    </view>  
+    <view wx:else class="userinfoBox">
+      <image bindtap="bindViewTap" class="userinfo-avatar" wx:if='{{preffixUrl}}'src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="mine_path">
+  <navigator url='setinfo' class="path">
+    <image wx:if='{{preffixUrl}}'src="{{preffixUrl}}/static/wechat/img/mine_ico_userinfo.png"></image>
+    <view class="tc">个人信息</view>
+  </navigator>
+  <navigator url='list' class="path">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/mine_ico_record.png"></image>
+    <view class="tc">排号预约</view>
+  </navigator>
+  <navigator url='' class="path">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/mine_ico_rule.png"></image>
+    <view class="tc">关于规则</view>
+  </navigator>
+</view>

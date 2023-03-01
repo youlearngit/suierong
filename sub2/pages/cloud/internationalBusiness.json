@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-button": "/sub2/dist/button/index",
+    "i-steps": "/sub2/dist/steps/index",
+    "i-step": "/sub2/dist/step/index"
+  },
+  "disableScroll": true
+}

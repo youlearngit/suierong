@@ -1,0 +1,2 @@
+@import "auth_det.wxss";
+.userName text{background:rgba(234,150,3,1);color:#fff;padding:5rpx 10rpx;margin-left:20rpx;}

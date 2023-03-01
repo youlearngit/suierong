@@ -1,0 +1,32 @@
+<view class='banner'>
+  <image class="dianApplicateBanner" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/common/ked_bannerBig.jpg"></image>
+</view>
+
+<view class="page" style='padding-bottom:100rpx;'>
+  <!-- <image class="bg1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen1.jpg"></image> -->
+  <image class="bg2" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen2.jpg"></image>
+
+  <icon type="cancel" size="30" color='#0168b7' />
+  <text class="stateIco bgNow">审批不通过</text>
+  <view class="formtag">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        错误码：
+      </view>
+      <view class="weui-cell__bd">
+        <!-- {{amount}} -->0001
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        错误原因：
+      </view>
+      <view class="weui-cell__bd">
+      决策审批失败
+        <!-- {{term}} -->
+      </view>
+    </view>
+  </view>
+  <navigator class="btn" hover-class='none' open-type="switchTab" url='/pages/shop/index2'>返回主页</navigator>
+</view>
+  <image class="bg3" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_wei1.png"></image>

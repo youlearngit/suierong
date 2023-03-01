@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-toast": "/sub2/dist/toast/index",
+    "my-login": "/component/login/index"
+  }
+}

@@ -1,0 +1,54 @@
+<view style="width:90%;margin:auto">
+  <view class="formInfo" style="margin:auto">
+    <form bindsubmit="submitForm" report-submit='true' style="font-size:31rpx">
+      <view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">企业名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入企业名称" name="enterprise_name" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">姓名</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入姓名"  name="customer_name" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input" style="height:100rpx">
+          <view class="weui-cell__hd">
+            <view class="weui-label">
+              <text>手机号</text>
+            </view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" style="" placeholder="请输入手机号" bindinput="phoneInput" name="customer_tel" maxlength="11" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input" style="height:100rpx;display:flex">
+          <view class="weui-cell__hd">
+            <view class="weui-label">
+              <text>验证码</text>
+            </view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" style="width:230rpx;" bindinput="msgInput" placeholder="请输入验证码" name="credit_code" maxlength="6" />
+          </view>
+          <view class="msgbtn">
+            <i-button bind:click="getMsgCode" inline type="primary" disabled="{{disabled}}">
+              {{codeMessage}}
+            </i-button>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input"></view>
+      </view>
+      <view class="bottom">
+        <button formType="submit">确认</button>
+      </view>
+    </form>
+  </view>
+  <i-toast id="toast" />
+</view>

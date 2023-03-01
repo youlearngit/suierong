@@ -1,0 +1,94 @@
+<canvas canvas-id='share' style='width:750px;height:1216px;position:fixed;top:9999px'  hidden='{{canvasHidden}}'></canvas> 
+<view class="container">
+    <image wx:if="{{preffixUrl}}" class="bg"  style="width:100%" src="{{preffixUrl}}/static/wechat/img/sui/bg@2x.png"></image>
+    <!-- 底部信息start -->
+    <image wx:if="{{preffixUrl}}" class="imgBottom"  style="width:100%" src="{{preffixUrl}}/static/wechat/img/sui/introduceDi@2x .png"></image>
+    <!-- 个人经营贷/对公授信 -->
+    <view class="grjyd" style="font-size:{{type == 2 ? '36rpx':'30rpx'}}"><text style="font-family: 'SourceHanSansSC-Medium';">{{yewuType}}</text></view>
+    <!-- 详情 -->
+    <view class="fathe">
+      <block wx:if="{{ type == 3 }}"><!--个人对公授信-->
+        <!--借款人姓名-->
+         <text class="bus_name">借款人:{{information.borrwo_name}}</text>
+         <!--经营实体名称-->
+         <view wx:if="{{information.business_name}}" class="sqlx" style="margin-bottom: 8rpx;">
+           <text class="jystmc">经营实体:{{information.business_name}}</text> 
+         </view>
+         <view class="line"></view>
+         <view class="sqlx"><!--授权公司-->
+           <image src="{{preffixUrl}}/static/wechat/img/sui/type@2x.png"></image>
+           <view style="width: 2vw;"></view>
+           <text>授权公司:{{information.auth_enter_name}}</text>
+         </view>
+         <view class="sqlx"><!--授权人姓名-->
+           <image src="{{preffixUrl}}/static/wechat/img/sui/auth@2x.png"></image>
+           <view style="width: 2vw;"></view>
+           <text>法人:{{information.authName}}</text>
+         </view>
+     </block>
+      <block wx:if="{{type == 2 }}"><!--对公授信-->
+         <text class="bus_name2">借款企业:{{information.business_name}}</text><!--借款企业-->
+         <view class="line"></view>
+         <view class="sqlx"><!--授权主体类型-->
+           <!-- <image src="{{preffixUrl}}/static/wechat/img/sui/type@2x.png"></image> -->
+           <view>
+              <text class="bus_name2">授权企业:{{information.auth_enter_name}}</text>
+           </view>
+           <!-- <text>{{information.auth_enterprise_type != '' &&  information.auth_enterprise_type != 'undefined' ? information.auth_enterprise_type : '法人'}}</text> -->
+         </view>
+         <view class="sqlx"><!--授权人姓名-->
+           <image src="{{preffixUrl}}/static/wechat/img/sui/auth@2x.png"></image>
+           <view style="width: 2vw;"></view>
+           <text style="font-size: 28rpx;">授权人:{{information.authName}}</text>
+         </view>
+     </block>
+     <block wx:if="{{type == 1}}"><!--个人经营贷-->
+          <block wx:if="{{information.business_type == 3}}"><!--对公授信-->
+              <text class="bus_name">{{information.business_name}}</text><!--借款企业-->
+              <view class="line"></view>
+              <view class="sqlx"><!--授权主体类型-->
+                <image src="{{preffixUrl}}/static/wechat/img/sui/type@2x.png"></image>
+                <view style="width: 2vw;"></view>
+                <text>{{information.auth_enterprise_type}}</text>
+              </view>
+              <view class="sqlx"><!--授权人姓名-->
+                <image src="{{preffixUrl}}/static/wechat/img/sui/auth@2x.png"></image>
+                <view style="width: 2vw;"></view>
+                <text>{{information.authName}}</text>
+              </view>
+          </block>
+          <block wx:if="{{information.business_type == 2}}"><!--个人经营贷-->
+              <text class="bus_name">{{information.borrwo_name}}</text><!--借款人姓名-->
+              <view class="sqlx" style="margin-bottom: 8rpx;"><!--经营实体名称-->
+                <!-- <image src="{{preffixUrl}}static/wechat/img/sui/buiness@2x.png"></image> -->
+                <!-- <view style="width: 2vw;"></view> -->
+                <text class="jystmc">{{information.business_name}}</text>
+              </view>
+              <view class="line"></view>
+              <view class="sqlx"><!--授权人类型-->
+                <image src="{{preffixUrl}}/static/wechat/img/sui/type@2x.png"></image>
+                <view style="width: 2vw;"></view>
+                <text>{{information.auth_type}}</text>
+              </view>
+              <!-- <view class="sqlx">经营实体名称 -->
+                <!-- <image src="{{preffixUrl}}static/wechat/img/sui/buiness@2x.png"></image>
+                <view style="width: 2vw;"></view>
+                <text class="jystmc">{{information.business_name}}</text>
+              </view> -->
+              <view class="sqlx"><!--授权人姓名-->
+                <image src="{{preffixUrl}}/static/wechat/img/sui/auth@2x.png"></image>
+                <view style="width: 2vw;"></view>
+                <text>{{information.authName}}</text>
+              </view>
+          </block>
+     </block>
+    </view>
+    <!-- 二维码 -->
+    <image class="qrcode" wx:if="{{qrcodeUrl}}" src="{{qrcodeUrl}}"></image>
+    <!-- <image class="qrcode" src="wxfile://tmp_fe0266891f6417437441db17a3b54ce9" ></image> -->
+    <!-- 底部信息end -->
+
+     <view class="bottom">
+      <button  wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" >保存图片</button>
+    </view>
+</view>

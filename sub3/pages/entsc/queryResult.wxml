@@ -1,0 +1,16 @@
+
+<view class="a11">
+  <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-001.png" mode="widthFix" style="width:245rpx;"></image>
+</view>
+<view class="a12" >
+  <view class="a121">
+  总计有{{num}}名客户进行企业类型查询
+  </view>
+  <view class="a121">
+    您是第{{numOrder}}位类型为<text class="a121-1">{{type}}</text>的企业客户
+  </view>
+  <view class="button">
+    <view class="buttonLeft" bindtap="onshow">政策查询</view>
+    <navigator url="/sub3/pages/" class="buttonRight" bindtap="buttonRight">优惠估算</navigator>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<scroll-view scroll-x="true" class="scrollX" scroll-left="{{scrollLeft}}" scroll-with-animation>
+<view class="tabs">
+  <view class="tab-item" 
+  		wx:for="{{tabList}}" 
+  		wx:key="index"
+  		data-index="{{index}}"
+  		data-value="{{item}}"
+  		bindtap="changeTab">
+    <view class="tab-text {{currentIndex == index ? 'active' : ''}}">{{item.name}}<text wx:if="{{index<tabList.length-1}}" style="position: absolute;right: -20rpx;bottom: 5rpx;">·</text>
+      <view class="line" wx:if="{{currentIndex == index}}" ></view>
+    </view>
+  </view>
+  
+</view>
+</scroll-view>

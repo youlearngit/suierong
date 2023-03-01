@@ -1,0 +1,32 @@
+<view class="wrap">
+<view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+  
+  <view class="ncd1">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/nj-ncd-1.jpg"></image>
+  </view>
+  <view class="ncd2">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/nj-ncd-2.jpg"></image>
+  </view>
+  <view class="ncd3">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/nj-ncd-3.jpg"></image>
+  </view>
+  <view class="contact">
+    <view class="bg">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/contact.png"></image>
+    </view>
+    <view class="phone" bindtap='callGetPhone' data-getPhone='{{callGetPhone}}'>业务联系人：<text>{{callGetPhone}}</text></view>
+
+  </view>
+</view>

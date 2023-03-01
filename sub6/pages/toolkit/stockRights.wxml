@@ -1,0 +1,13 @@
+<!--sub6/pages/toolkit/stockRights.wxml-->
+<view class="stockRights">
+    <view class="bg">
+        <image src="{{cndUrl}}/static/wechat/img/gjx/gprz.jpg"></image>
+    </view>
+    <view class="back" bindtap="getBace">
+        <image src="{{cndUrl}}/static/wechat/img/gjx/fhsyy.png"></image>
+    </view>
+    <!-- 人才专员 悬浮按钮 -->
+	<navigator url="/sub3/pages/bbx/staff_list?RCtype=1&location={{location_json}}" hover-class="none">
+		<image class="float_talent_btn" src="{{preffixUrl}}fwzy.png" mode="widthFix"></image>
+	</navigator>
+</view>

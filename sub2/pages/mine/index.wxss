@@ -1,0 +1,32 @@
+page{height:100%;background:#f2f2f2;}
+.head{position:relative;height:310rpx;}
+.head .bg{position:absolute;top:0;left:0;width:750rpx;height:310rpx;z-index:-1;}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  display:block;
+  width: 128rpx;
+  height: 128rpx;
+  margin:20rpx auto;
+  border-radius: 50%;
+  background:#f2f2f2;
+}
+
+.userinfo-nickname {
+  color: #fff;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.getUserbtn{font-size:22rpx;line-height:40rpx;color:#0068b6;}
+.userinfoBox{height:208rpx;margin-top:51rpx;text-align:center;}
+.mine_path{width:90%;margin:60rpx auto;background:#fff;border-radius:20rpx;padding:30rpx 0;}
+.mine_path .path{display:inline-block;width:33.33%;padding:40rpx 0;}
+.mine_path .path image{display:block;width:90rpx;height:90rpx;margin:0 auto;}
+.mine_path .path .tc{text-align:center;margin-top:15rpx;font-size:26rpx;}

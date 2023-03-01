@@ -1,0 +1,19 @@
+.wrap{position:relative;z-index:100;background:#fff;}
+image{width:100%;height:100%;}
+.bg{width:750rpx;height:685rpx;}
+
+.tedian{margin-top:50rpx;}
+.tedian .dl{width:80%;margin:30rpx auto;}
+.tedian .dt{display:inline-block;width:100rpx;height:85rpx;margin-right:20rpx;vertical-align:top;}
+.tedian .dd{display:inline-block;width:480rpx;}
+.tedian .h2{color:#0068b7;font-size:30rpx;font-weight:500;}
+.tedian .p{font-size:24rpx;}
+
+
+.dianDL{position:relative;display:block;width:80%;margin:60rpx auto;margin-bottom:80rpx;padding:40rpx 26rpx;line-height:1.6;font-size:26rpx;color:#333;border-radius:10rpx;background:#cfe5f5;}
+.dianDt{position:absolute;top:-40rpx;left:10%;width:80%;height:40rpx;line-height:40rpx;padding:15rpx 0 25rpx;font-size:32rpx;color: #fff;text-align:center;vertical-align:middle;}
+.dianDt text{display:inline-block;position:relative;height:40rpx;z-index:10;}
+.dianDt .span{width:40rpx;height:40rpx;border-radius:40rpx;margin-right:80rpx;color:#ff6606;background:#fff;}
+.dianDtBg{position:absolute;top:0;left:0;width:100%;height:70rpx;z-index:1;}
+.dianDL .p{display:block;margin-bottom:10rpx;text-indent:2em;text-align:justify;}
+

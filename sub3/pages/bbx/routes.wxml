@@ -1,0 +1,27 @@
+<view class="flex-style">
+	<view class="flex-item {{cindex=='0' ? 'active' : ''}}" data-id="0" bindtouchstart="changeType">驾车</view>
+	<view class="flex-item {{cindex=='1' ? 'active' : ''}}" data-id="1" bindtouchstart="changeType">步行</view>
+	<!-- <view class="flex-item {{cindex=='2' ? 'active' : ''}}" data-id="2" bindtouchstart="changeType">公交</view> -->
+	<view class="flex-item {{cindex=='3' ? 'active' : ''}}" data-id="3" bindtouchstart="changeType">骑行</view>
+</view>
+
+<block wx:if="{{cindex==2}}">
+	<view class="bus_box" wx:for="{{transits}}" wx:for-item="i" wx:key="key1" >
+		<text class="bus_item" wx:for="{{i.transport}}" wx:for-item="j" wx:key="key2">
+			{{j}}
+		</text>
+	</view>
+</block>
+<block>
+	<view class="map_box">
+		<map id="navi_map" longitude="{{center.longitude}}" latitude="{{center.latitude}}" 
+			show-location="true"
+			include-points="{{points}}"
+			markers="{{markers}}" polyline="{{polyline}}" ></map>
+	</view>
+	<view class="text_box">
+		<view class="text">{{name}}</view>
+		<view class="blu">{{desc}}（距您约{{distance}}）</view>
+		<view class="detail_button2" bindtouchstart="nav">导航</view>
+	</view>
+</block>

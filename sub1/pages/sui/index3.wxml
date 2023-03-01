@@ -1,0 +1,224 @@
+<view class="a1">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_117.png" mode="widthFix" />
+</view>
+<view class="a99" wx:if="{{productCode==='A'}}">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_title_AM023.png" mode="widthFix" />
+</view>
+<view class="a99" wx:else>
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_115.png" mode="widthFix" />
+</view>
+<view class="a3">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-1001.png" />
+    <view class="a3b1">企业经营贷款，首贷户专享，最高可贷</view>
+    <view class="a3b2">
+        <text class="a3b2c1">{{productCode==='A'?"200":"1000"}}</text>
+        <text class="a3b2c2">万元</text>
+    </view>
+    <view class="a3b3">
+        <view class="flex">
+            <view class="flex-sub   margin-xs ">
+                <view class="a3b3c1" style="margin: -10rpx 0 0;">
+                    <view class="a3b3c1d1">最低年利率</view>
+                    <view class="a3b3c1d2">4.35%</view>
+                    <view class="a3b3c1d1" style='margin: 5rpx 0;font-size: 22rpx;'>按单利计算</view>
+                </view>
+            </view>
+            <view class="splite1"></view>
+            <view class="flex-sub  margin-xs ">
+                <view class="a3b3c2">
+                    <view class="a3b3c2d1">贷款1万元每日还息</view>
+                    <view class="a3b3c2d2">
+                        1.2
+                        <text class="a3b3c2d3">元</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="a3b4">
+        <view class="flex">
+            <view class="flex-sub  margin-xs ">
+                <view class="a3b4a1">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_110.png" mode="widthFix"></image>
+                </view>
+                <view class="a3b4a2">线上申请</view>
+            </view>
+            <view class="flex-sub  margin-xs ">
+                <view class="a3b4a1">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_19.png" mode="widthFix"></image>
+                </view>
+                <view class="a3b4a2">秒速审批</view>
+            </view>
+            <view class="flex-sub  margin-xs ">
+                <view class="a3b4a1">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_12.png" mode="widthFix"></image>
+                </view>
+                <view class="a3b4a2">循环额度</view>
+            </view>
+            <view class="flex-sub  margin-xs ">
+                <view class="a3b4a1">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_116.png" mode="widthFix"></image>
+                </view>
+                <view class="a3b4a2">随借随还</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="flow" hover-class="none" hover-stop-propagation="false">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/complain/flow.png" mode="widthFix" style="width:100%"></image>
+</view>
+<!-- <view class="a4">
+    <view class="flex">
+        <view class="flex-sub">
+            <view class="a4b1">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_14.png" mode="widthFix"></image>
+            </view>
+            <view class="a3b4a2">身份认证</view>
+        </view>
+        <view class="flex-sub">
+            <view class="a4b2">最快1分钟</view>
+            <view class="a4b3">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_17.png" mode="widthFix"></image>
+            </view>
+        </view>
+        <view class="flex-sub">
+            <view class="a4b1">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_15.png" mode="widthFix"></image>
+            </view>
+            <view class="a3b4a2">智能审核</view>
+        </view>
+        <view class="flex-sub">
+            <view class="a4b2">最快3秒</view>
+            <view class="a4b3">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_17.png" mode="widthFix"></image>
+            </view>
+        </view>
+        <view class="flex-sub">
+            <view class="a4b1">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_16.png" mode="widthFix"></image>
+            </view>
+            <view class="a3b4a2">循环额度</view>
+        </view>
+    </view>
+</view> -->
+<view class="a5"></view>
+<navigator url="desc" class="a6" bindtap="toDesc">
+    如何提高我的额度
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_13.png" mode="widthFix"></image>
+</navigator>
+<view class="tip99" hover-class="none" hover-stop-propagation="false">我行未与任何中介机构或个人合作。</view>
+<view class="tip99" hover-class="none" hover-stop-propagation="false">
+    如您遇到以提高通过率、提高额度、降低利率、加快办理进度等为名义，向您收取费用的情况，请
+    <span style="color:#4586e6 ;" bindtap="showComplain"> 点击此处举报。</span>
+</view>
+
+<view style="height:180rpx"></view>
+<view class="a9">
+    <view class="flex">
+        <block wx:if="{{showApply}}" style="">
+            <view class="a9b1" bindtap="showShare">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_11.png" mode="widthFix"></image>
+                分享
+            </view>
+            <view bindtap="getAmount" class="a9b2">获取额度</view>
+        </block>
+        <block wx:else>
+            <view class="a9b2" bindtap="showShare">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_11.png" mode="widthFix" style='    width: 30rpx;'></image>
+                分享
+            </view>
+        </block>
+    </view>
+</view>
+<canvas style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+<my-poster shareBox="{{shareBox}}" hidePoster="{{hidePoster}}" imagePath="{{imagePath}}"></my-poster>
+<my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>
+<!-- <view class="a14" bind:tap="showPopup">推荐有礼</view> -->
+<van-popup show="{{ show }}" bind:close="onClose">
+    <view class="a2">
+        <view class="a21">活动说明</view>
+        <scroll-view class="a22" scroll-x="false" scroll-y="false" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="" bindscroll="">
+            <view class="a221">
+                <view class="a222">一重礼（分享有礼）</view>
+                <view class="a223">1.活动时间：即日起至2020年12月31日。</view>
+                <view class="a223">
+                    2.活动内容：本次活动共奖励10,000,000苏银豆，先到先得。每分享“经营随e贷”产品给一位好友并查看，即可获得100苏银豆。每人每天最高可获得1000苏银豆，分享活动期内最高可获得10,000苏银豆。
+                </view>
+                <view class="a223">3.温馨提示：若您的好友优先查看了其它推荐人的分享，您将无法获得该笔分享奖励。</view>
+            </view>
+            <view class="a221">
+                <view class="a222">二重礼（申请有奖）</view>
+                <view class="a223">1.活动时间：即日起至2020年12月31日。</view>
+                <view class="a223">
+                    2.活动内容：每分享“经营随e贷”产品给一位好友成功提交业务申请，即可获得5000苏银豆，若业务审批通过可获得30,000苏银豆奖励。活动期间，您通过转介最多可获得175,000苏银豆奖励。活动奖励有限，先到先得，奖完为止。
+                </view>
+                <view class="a223">
+                    3.温馨提示：您邀请的客户需近一年内未在我行办理小微贷款业务才可以获得奖励。若您是我行小微企业客户，邀请自己申请不予奖励。
+                </view>
+                <view class="a223" wx:if="{{isEmp}}">4.员工：我行员工转介活动规则详见行内发文。</view>
+            </view>
+        </scroll-view>
+        <view class="a23">
+            <view class="a231" bind:tap="onClose">我知道了</view>
+        </view>
+    </view>
+</van-popup>
+<van-popup show="{{ showTips }}" bind:close="onClose">
+    <view class="a2">
+        <view class="a21" style="text-align:center">温馨提示</view>
+        <scroll-view class="a22" scroll-x="false" scroll-y="false" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="" bindscroll="">
+            <view class="a221">
+                <view class="a223">（一）本业务除双方约定的贷款利息外<text class="a223-1">无其他任何形式的附加费用</text>。</view>
+                <view class="a223">
+                    （二）请您从<text class="a223-1">官方渠道</text>自主申请我行贷款产品。我行<text class="a223-1">未与任何中介机构或个人合作</text>，<text class="a223-1">未授权任何中介机构或个人</text>向客户代为提供咨询、受理、办理业务，委托收取中介费、手续费、佣金等各类费用。
+                </view>
+                <view class="a223">（三）请您<text class="a223-1">加强个人相关信息保护</text>，切勿轻易泄露，维护好自己的信用记录。</view>
+                <view class="a223">
+                    （四）本贷款资金仅用于企业经营性支出，<text class="a223-1">不得违规</text>流入房市，不得违规用于股票、债券、期货、金融衍生品和资产管理产品等投资、固定资产、股本权益性投资及法律法规禁止的其他用途。
+                </view>
+                <view class="a223">（五）如您对业务有任何疑问，欢迎致电江苏银行客服热线<text class="a223-1">95319</text>进行咨询，或登录江苏银行官方网站进行查询办理。</view>
+            </view>
+            <view class="a221" style="text-align:right">江苏银行股份有限公司</view>
+        </scroll-view>
+        <view class="a23">
+            <view class="a231" bind:tap="getApplyInfo">确认</view>
+        </view>
+    </view>
+</van-popup>
+<van-popup show="{{ showPosterBox }}" bind:close="closePopUp" position="bottom">
+    <view class="t1">欢迎体验,感谢分享。</view>
+    <view class="t4">海报模版</view>
+    <scroll-view scroll-y style="max-height:60vh">
+        <view class="t5">
+            <block wx:for="{{posterImgs}}">
+                <view class="t51" wx:if="{{index!='0'}}" bind:tap="choosePoster" data-id="{{index}}">
+                    <image class="t54" src="{{cardInfo.PHOTO2}}" mode="widthFix" style="width:100%"></image>
+                    <image src="{{item.img}}" mode="widthFix" style="width:100%"></image>
+                    <view class="t53 {{posterIdselected==index?'t531':''}}" hover-class="none" hover-stop-propagation="false">
+                        {{item.title}}
+                    </view>
+                    <image wx:if="{{posterIdselected==index&&cndUrl}}" class="t52" src="{{cndUrl}}/static/wechat/img/sui/sui-1076.png" mode="widthFix"></image>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+    <view class="t6" wx:if="{{posterIdselected==-1}}" style="opacity: 0.5;">请选择模版</view>
+    <view class="t6" bind:tap="createPoster" wx:if="{{posterIdselected!=-1&&imagePath!=''}}">
+        分享海报
+    </view>
+    <view class="t6" hover-class="none" hover-stop-propagation="false" wx:if="{{posterIdselected!=-1&&imagePath==''}}">
+        <image src="{{cndUrl}}/static/wechat/img/sui/loading.gif" mode="widthFix" style="width:40rpx;margin:0 10rpx"></image>
+        请稍等
+    </view>
+    <view style="height:30rpx"></view>
+</van-popup>
+<van-popup show="{{ showComplain }}" bind:close="closePopUp" position="center">
+    <view class="complain">
+        <image class="complain-bg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/complain/popup@2x.png" mode="widthFix"></image>
+        <div class="complain-phone">025-58587992</div>
+        <!-- <image class="complain-btn__cancel2" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_13.png" mode="widthFix" bindtap='closePopUp' hidden="{{!showComplain}}" style=""></image> -->
+        <div class="complain-btn__call" style="left:60rpx" bindtap='complain' data-type='call'></div>
+        <div class="complain-btn__chat" style="right:60rpx" bindtap='complain' data-type='chat'></div>
+    </view>
+</van-popup>
+<image class="complain-btn__cancel" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/complain/icon@2x.png" mode="widthFix" bindtap='closePopUp' hidden="{{!showComplain}}" style="transition-duration: 300ms;transition-property: opacity;transition-timing-function: ease;"></image>

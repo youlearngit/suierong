@@ -1,0 +1,21 @@
+@import '/sub2/static/weui.wxss';
+
+.repayLists {
+  width: 94%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.repayListsItem {
+  height: 15vh;
+}
+
+.repayLists image {
+  height: 8.5vh;
+  width: 8.5vh;
+}
+.repayImg {
+  margin-top: 7vh;
+  height: 15vh;
+  width: 98%;
+}

@@ -1,0 +1,47 @@
+
+
+.bg {
+    width: 50%;
+}
+
+.search {
+    border-radius: 10rpx;
+    background-color: white;
+    width: 250rpx;
+    height: 250rpx;
+    position: absolute;
+    bottom: 7%;
+    right: 10%;
+    text-align: center;
+}
+
+.search image {
+    width: 50%;
+}
+
+.apply {
+    border-radius: 10rpx;
+    background-color: white;
+    width: 250rpx;
+    height: 250rpx;
+    position: absolute;
+    bottom: 7%;
+    left: 10%;
+    text-align: center;
+    z-index: 1;
+}
+
+.apply image {
+    width: 50%;
+}
+
+.title {
+    margin-top: 10rpx;
+    font-size: 30rpx;
+    line-height: 0rpx;
+}
+
+.buss {
+    position: relative; 
+    top: 18%; 
+}

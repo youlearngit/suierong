@@ -1,0 +1,22 @@
+<!--sub6/pages/specialNew/selectServer.wxml-->
+<!-- 功能介绍详情页 -->
+<page>
+  <view class="container" style="background: url('{{cndUrl}}/static/wechat/img/specialNew/{{showInfo.background_image}}')  0 0 / 100% 100%; height: {{showInfo.height}};padding-top: {{showInfo.padding_top}};">
+     <!-- 我要申请 -->
+    <view class="apply" wx:if="{{showInfo.hasApply && showInfo.id == 3}}" data-id="1" style="top: {{showInfo.apply_height2}};" bindtap="openOverlay"></view>
+    <view class="apply" wx:if="{{showInfo.hasApply}}" data-id="0" style="top: {{showInfo.apply_height}};" bindtap="openOverlay"></view>
+    <!-- 返回上一级 -->
+    <view class="returnPage" style="top: {{showInfo.return_height}};"  bindtap="returnPage"></view>
+    <!-- 弹窗选择app功能页面入口 -->
+    <van-action-sheet
+      show="{{ show }}"
+      actions="{{ showInfo.urls[urlItemIndex] }}"
+      bind:close="onClose"
+      bind:select="toPage"
+    />
+  </view>
+  <!-- 人才专员 悬浮按钮 -->
+  <navigator url="/sub3/pages/bbx/staff_list?RCtype=1&location={{location_json}}" hover-class="none">
+    <image class="float_talent_btn" src="{{cndUrl}}/static/wechat/img/gjx/fwzy.png" mode="widthFix"></image>
+  </navigator>
+</page>

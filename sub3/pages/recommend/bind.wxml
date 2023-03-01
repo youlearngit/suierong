@@ -1,0 +1,20 @@
+<!--sub1/pages/recommendationInvitation.wxml-->
+<view class="tjg">
+  <view style="color: #EF5247;">{{shareInfo.REAL_NAME||shareInfo.NICK_NAME}}</view>
+  <view>想邀请您成为Ta的推荐官</view>
+
+</view>
+
+<view class="information">
+  <view class="avatar">
+    <image class="" src="{{shareInfo.PHOTO}}" mode="widthFix" style="width:100%;border-radius: 50%;" lazy-load="false" binderror="" bindload=""></image>
+  </view>
+<view>{{clerkInfo.USERNAME}}</view>
+<view style="font-size: 28rpx;">
+<text>{{clerkInfo.POSITION}}</text><text>｜</text><text>{{clerkInfo.ORG}}</text>
+</view>
+</view>
+
+<view class="ljyq" bindtap="addRecommendInfo">
+<image src="../../static/images/join.png" mode="widthFix" style="width: 504rpx;height: 90rpx;"></image>
+</view>

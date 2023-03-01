@@ -1,0 +1,29 @@
+<view class="a2b2" hover-class="none" hover-stop-propagation="false">
+    <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-list menu">
+            <view class="cu-item ">
+                <view class="content3" >地址</view>
+                <view class="content4" >{{ house_info.ALIAS }}</view>
+            </view>
+            <view class="cu-item ">
+                <view class="content3">建筑面积</view>
+                <view class="content4">{{ house_info.AREA }}平米</view>
+            </view>
+            <view class="cu-item ">
+                <view class="content3">估价</view>
+                <view class="content4">{{ house_info.GUJIA}}万</view>
+            </view>
+            <view class="cu-item ">
+                <view class="content3">预计可贷</view>
+                <view class="content4">{{ house_info.KEDAI}}万</view>
+            </view>
+            <view class="cu-item ">
+                <view class="content3">状态</view>
+                <view class="action arrow">
+                    <view class="appr">已评估</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="amountC" hover-class="none" hover-stop-propagation="false" bindtap="deleteHouse" data-id="{{house_info.ID}}">删除</view>

@@ -1,0 +1,40 @@
+<form bindsubmit="submitForm" report-submit='true'>
+  <view class="weui-cells__title">完善个人信息</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>证件类型</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        二代身份证
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>证件号码</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+       
+        <input value='{{id_card}}' hidden="{{hiddenCard}}" name="idCard" id="idCard" type='idCard' maxlength="18" placeholder='请输入证件号码'></input>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>姓名</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+     
+        <input value='{{real_name}}' hidden="{{hiddenName}}" name="name" id="name" type='name' placeholder='请输入姓名'></input>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>手机号</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        {{tel}}
+        <button hidden="{{hiddenPhone}}" wx:if='{{tel==""}}' class="getphone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取微信手机号</button>
+      </view>
+    </view>
+  </view>
+  <view class="btnarea">
+    <button class="weui-btn weui-btn_primary" formType="submit">确 定</button>
+  </view>
+
+</form>

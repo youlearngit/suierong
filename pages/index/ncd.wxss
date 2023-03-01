@@ -1,0 +1,9 @@
+.ncd1{width:100%;height:888rpx;}
+.ncd2{width:100%;height:266rpx;}
+.ncd3{width:100%;height:842rpx;}
+.ncd1 image,.ncd2 image,.ncd3 image,.contact .bg image{width:100%;height:100%;}
+.contact{position:absolute;bottom:80rpx;left:40rpx;height:80rpx;}
+.contact .bg{float:left;width:80rpx;height:80rpx;margin-right:20rpx;}
+.phone{font-size:30rpx;color:#0066b3;width:600rpx;line-height:80rpx;}
+.phone text{color:#0066b3;}
+.wrap{position:relative;}

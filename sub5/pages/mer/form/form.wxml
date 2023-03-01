@@ -1,0 +1,151 @@
+<import src="../templates/step_header" />
+<import src="../templates/step_imgs" />
+
+<page-container show="{{container_show}}" position="bottom" overlay="{{false}}" class="page_container" bind:beforeleave="preStep">
+</page-container>
+
+<view class="container">
+  <image class="bg" src="{{cdnMer}}/bg_apply.png" mode="widthFix"></image>
+
+  <template is="step_header" data="{{step,cdnMer}}"></template>
+
+  <block wx:if="{{step=='1'}}">
+    <view class="form_submit">
+      <van-cell-group border="{{false}}">
+        <van-field label="申请人姓名" model:value="{{appl_name}}" placeholder="请输入姓名" input-align="right" required center >
+          <view slot="right-icon" class="right_icon"><image bindtap="goIdcard" src="{{cdnMer}}/icon_photo.png" mode="widthFix"></image></view>
+        </van-field>
+        <van-field label="申请人手机号码" model:value="{{appl_phone}}" placeholder="请输入手机号码" input-align="right" required center title-width="200rpx" />
+        <van-field label="申请人身份证号" model:value="{{appl_idcard}}" placeholder="请输入身份证号" input-align="right" required center title-width="200rpx" />
+        <!-- <van-cell title="证件有效期" required center bind:click="showPicker" data-event="appl_idcard_edate" is-link>{{appl_idcard_edate||'请选择'}}</van-cell> -->
+        <van-cell title="是否为法人申请" required center >
+          <van-radio-group slot="right-icon" value="{{appl_is_legal}}" direction="horizontal" bind:change="onChangeRadio" data-event="appl_is_legal">
+            <van-radio name="1" checked-color="#415FCD" icon-size="29rpx">是</van-radio>
+            <van-radio name="0" checked-color="#415FCD" icon-size="29rpx">否</van-radio>
+          </van-radio-group>
+        </van-cell>
+        <block wx:if="{{appl_is_legal=='0'}}">
+          <van-cell title="公司职务" required center bind:click="showPicker" data-event="appl_job" is-link>{{appl_job||'请选择'}}</van-cell>
+          <van-field label="法人手机号" model:value="{{legal_phone}}" placeholder="请输入" input-align="right" required center />
+        </block>
+      </van-cell-group>
+      <button class="btn_submit" bindtap="formSubmit">提交</button>
+    </view>
+  </block>
+
+  <block wx:if="{{step=='2'}}">
+    <view class="form_submit">
+      <van-cell-group border="{{false}}">
+        <view class="input_search">
+          <van-field label="企业名称" model:value="{{corp_name}}" placeholder="请输入企业名称" bind:input="searchCorp" input-align="right" required center >
+            <view slot="right-icon" class="right_icon"><image bindtap="goLicense" src="{{cdnMer}}/icon_photo.png" mode="widthFix"></image></view>
+          </van-field>
+          <scroll-view scroll-y wx:if="{{search_corps.length>0}}">
+            <view wx:for="{{search_corps}}" wx:key="index" bindtap="selectCorp" data-item="{{item}}">{{item}}</view>
+          </scroll-view>
+        </view>
+        <van-field label="统一社会信用代码" model:value="{{corp_credit}}" placeholder="请输入统一社会信用代码" input-align="right" required center title-width="230rpx" />
+        <van-field label="法定代表人" model:value="{{corp_legal_name}}" placeholder="请输入法定代表人" input-align="right" required center />
+        <van-cell title="成立日期" required center bind:click="showPicker" data-event="corp_date" is-link>{{corp_date||'请选择'}}</van-cell>
+        <van-cell title="企业所在区域" required center bind:click="showPicker" data-event="corp_region" is-link>{{corp_region||'请选择'}}</van-cell>
+        <van-cell title="经营地址" required center border="{{false}}"></van-cell>
+        <textarea model:value="{{ corp_addr }}" class="input_textarea"></textarea>
+      </van-cell-group>
+      <button class="btn_submit" bindtap="formSubmit">立即办理</button>
+    </view>
+  </block>
+
+  <block wx:if="{{step=='3'}}">
+    <view class="form_submit">
+      <van-cell-group border="{{false}}">
+        <van-field model:value="{{blockchain}}" placeholder="请输入授权码" input-align="right" required center title-width="310rpx" maxlength="6">
+          <view slot="label" class="label_icon">外管区块链平台授权码<image src="{{cdnMer}}/icon_qa.png" mode="widthFix" bindtap="showDialog"></image></view>
+        </van-field>
+        <block wx:if="{{corp_region_val[0].code=='310000' || corp_region_val[0].code=='320000'}}">
+          <van-cell title="选择税务授权方式" required center title-width="240rpx">
+            <van-radio-group value="{{tax_sqnum}}" bind:change="onChangeRadio" data-event="tax_sqnum" direction="horizontal" class="radios">
+              <van-radio name="0" use-icon-slot custom-class="{{tax_sqnum=='0'?'checked':''}}">线上授权<view slot="icon"></view></van-radio>
+              <van-radio name="1" use-icon-slot custom-class="{{tax_sqnum=='1'?'checked':''}}">官网授权<view slot="icon"></view></van-radio>
+            </van-radio-group>
+          </van-cell>
+        </block>
+        <van-cell title="税务授权" required center is-link="{{tax_state=='1'?false:true}}" bind:click="goTax">{{tax_state=='1'?'已授权':'请授权'}}</van-cell>
+        <van-cell title="是否存在中信保在保保单" required center >
+          <van-radio-group slot="right-icon" value="{{is_sinosure}}" direction="horizontal" bind:change="onChangeRadio" data-event="is_sinosure">
+            <van-radio name="1" checked-color="#415FCD" icon-size="29rpx">是</van-radio>
+            <van-radio name="0" checked-color="#415FCD" icon-size="29rpx">否</van-radio>
+          </van-radio-group>
+        </van-cell>
+        <block wx:if="{{is_sinosure=='1'}}">
+          <view class="sinosure">
+            <view class="btn_add" bindtap="sinosureAdd">新增 +</view>
+            <block wx:for="{{sinosures}}" wx:key="index">
+              <van-field value="{{sinosures[index]}}" placeholder="请输入保单编号" required center maxlength="9" bind:input="sinosureInput" data-idx="{{index}}">
+                <van-icon slot="button" name="clear" color="#5C6CFF" size="50rpx" bind:click="sinosureDel" data-idx="{{index}}"/>
+              </van-field>
+            </block>
+          </view>
+        </block>
+      </van-cell-group>
+      <button class="btn_submit" bindtap="formSubmit">{{appl_is_legal=='1'?'提交':'提交法人确认'}}</button>
+    </view>
+  </block>
+
+  <template is="step_imgs" data="{{step,cdnMer}}"></template>
+
+</view>
+
+<van-popup show="{{picker_show}}" position="bottom" bind:close="showPicker">
+  <block wx:if="{{picker_event=='appl_job'}}">
+    <van-picker show-toolbar title="公司职务" columns="{{appl_job_columns}}" default-index="{{appl_job_idx}}" bind:cancel="showPicker" bind:confirm="onConfirmPicker" data-event="appl_job" />
+  </block>
+  <block wx:if="{{picker_event=='corp_region'}}">
+    <van-area title="企业所在区域" area-list="{{corp_region_columns}}" value="{{corp_region_val}}" bind:cancel="showPicker" bind:confirm="onConfirmPicker" data-event="corp_region" />
+  </block>
+  <block wx:if="{{picker_event=='corp_date'}}">
+    <van-datetime-picker type="date" min-date="{{corp_date_range[0]}}" max-date="{{corp_date_range[1]}}" value="{{corp_date_val}}" bind:cancel="showPicker" bind:confirm="onConfirmPicker" data-event="corp_date" />
+  </block>
+  <block wx:if="{{picker_event=='appl_idcard_edate'}}">
+    <van-datetime-picker type="date" min-date="{{appl_idcard_edate_range[0]}}" max-date="{{appl_idcard_edate_range[1]}}" value="{{appl_idcard_edate_val}}" bind:cancel="showPicker" bind:confirm="onConfirmPicker" data-event="appl_idcard_edate" />
+  </block>
+</van-popup>
+<van-popup show="{{dialog_show}}" custom-class="form_dialog" closeable round bind:close="showDialog">
+  <view class="form_upload">
+    <view>
+        <image src="{{cdnMer}}/icon_titler.png" mode="heightFix"></image>
+        <view bindtap="clipboard" data-event="http://zwfw.safe.gov.cn/asone/WelcomeServlet">
+          <text decode>请企业操作员登录ASone平台(http://
+          zwfw.safe.gov.cn/asone/WelcomeServlet
+          )，为江苏银行总行新增授权，生成查询码。</text>
+        </view>
+    </view>
+    <view>
+      <image src="{{cdnMer}}/yl.jpg" mode="widthFix"></image>
+    </view>
+    <view>
+      <view>如无此页面，请联系分行，联系号码：{{city_contact}}</view>
+    </view>
+  </view>
+</van-popup>
+<van-popup show="{{tax_show}}" round position="bottom" custom-class="tax" bind:close="showTax">
+  <image src="{{cdnMer}}/sulc.png" mode="widthFix"></image>
+</van-popup>
+<van-popup show="{{agreement_show}}" round position="bottom" custom-style="height: 50%" bind:close="showAgreement">
+  <view class="agreement">
+    <view>相关协议</view>
+    <view>
+      <block wx:for="{{agreements}}" wx:key="index">
+        <view bindtap="goAgreement" data-idx="{{index}}">
+          <image src="{{cdnMer}}/pdf.png"></image>{{item.name}}
+        </view>
+      </block>
+    </view>
+    <button class="btn_submit" disabled="{{agreement_check?false:true}}" bindtap="formSubmit">确认授权</button>
+    <view>
+      <van-checkbox value="{{agreement_check}}" bind:change="onChangeRadio" data-event="agreement_check" custom-class="ckb" label-class="ckb">我已阅读并同意相关协议</van-checkbox>
+    </view>
+  </view>
+</van-popup>
+
+<van-dialog id="van-dialog" confirm-button-color="#415FCD" />
+<van-toast id="van-toast" />

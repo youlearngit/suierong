@@ -1,0 +1,164 @@
+
+<view bindtap="backToSelect">
+  <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCalculateBg.png" style="width: 100%;" mode="widthFix" class="enterpriseScaleCalculateBg"></image>
+  <view class="enterpriseScaleCalculateTitle">
+    <view class="enterpriseScaleCalculateTitleLeft">查看您已选择的降费项目</view>
+    <view class="enterpriseScaleCalculateTitleRight">当前已选{{number}}项</view>
+  </view>
+</view>
+<view class="enterpriseScaleCalculateContent">
+  <view class="enterpriseScaleCalculateTips">
+    <view class="titletips">您可选择您企业适用的降费政策，估算企业受惠额度</view>
+    <view class="enterpriseScaleCalculateTipsLine">
+      <view class="pointer"></view>
+      <view>温馨提示：请输入以下数据来估算贵单位一年内享受多少减费优惠(预计不办理的业务不用填写)。本估算仅作参考，不作为收费或办理业务依据。</view>
+    </view>
+  </view>
+  <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCalculateCard.png" style="width: 100%;" mode="widthFix"></image>
+  <!-- 银行账户 -->
+  <view class="content" wx:if="{{l ||m ||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+    <view class="contentTitle">
+      <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleLineDecoration.png" style="width:8rpx; height: 42rpx;" mode="widthFix" class="enterpriseScaleLineDecoration"></image>
+      银行账户
+    </view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{l||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">单位结算账户数（现有数＋预计一年内新开立数）</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入户数" style="text-align:center;" value="{{accounta}}" bindblur="bindAccountA" />户</view>
+    </view>
+    <view class="border" wx:if="{{l&&m||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}" ></view>
+    <view class="enterpriseScaleCalculateContentLine"  wx:if="{{m||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">除现有开户行外，预计一年内在几家银行新开立账户</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入家数"style="text-align:center;"  value="{{accountb}}" bindblur="bindAccountB" />家</view>
+    </view>
+  </view>
+    <image  src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCalculateCard.png" style="width: 100%;" mode="widthFix"  wx:if="{{l||m||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}"></image>
+<!-- 人民币转账汇款 -->
+  <view class="content" wx:if="{{i||j||k||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+    <view class="contentTitle">
+      <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleLineDecoration.png" style="width:8rpx; height: 42rpx;" mode="widthFix" class="enterpriseScaleLineDecoration"></image>
+      人民币转账汇款
+    </view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{i||j||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">1万以内对公跨行转账汇款</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;"  value="{{remittancea}}" bindblur="bindRemittanceA" />笔</view>
+    </view>
+    <view class="border"  wx:if="{{i&&j||i&&k||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}"></view>
+    <view class="enterpriseScaleCalculateContentLine"  wx:if="{{i||j||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">1-10万对公跨行转账汇款</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;"  value="{{remittanceb}}" bindblur="bindRemittanceB" />笔</view>
+    </view>
+    <view class="border"  wx:if="{{j&&k||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}"></view>
+    <view class="enterpriseScaleCalculateContentLine"  wx:if="{{k||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">1万以内对公本行转账汇款</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;"  value="{{remittancec}}" bindblur="bindRemittanceC" />笔</view>
+    </view>
+    <view class="border"  wx:if="{{k||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}"></view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{k||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft" >1-10万对公本行转账汇款</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;"  value="{{remittanced}}" bindblur="bindRemittanceD" />笔</view>
+    </view>
+  </view>
+    <image wx:if="{{i||j||k||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}" src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCalculateCard.png" style="width: 100%;" mode="widthFix"></image>
+  <!-- 电子银行 -->
+  <view class="content" wx:if="{{f||g||h||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+    <view class="contentTitle">
+      <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleLineDecoration.png" style="width:8rpx; height: 42rpx;" mode="widthFix" class="enterpriseScaleLineDecoration"></image>
+      电子银行
+    </view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{f||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">网银、手机银行、电话银行（现有数+预计一年内新开通数）</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入个数" style="text-align:center;"  value="{{electronica}}" bindblur="bindElectronicA" />个</view>
+    </view>
+    <view class="border" wx:if="{{f&&g||f&&h||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}"></view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{g||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">现有U盾等安全认证工具数量</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入个数" style="text-align:center;"  value="{{electronicb}}" bindblur="bindElectronicB" />个</view>
+      
+    </view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{g||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">预计一年内新办理U盾等安全认证工具数量</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入个数" style="text-align:center;"  value="{{electronicc}}" bindblur="bindElectronicC" />个</view>
+    </view>
+    <view class="border" wx:if="{{g&&h||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}"></view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{h&&g===0||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">预计一年内新办理U盾等安全认证工具数量</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入个数" style="text-align:center;"  value="{{electronicd}}" bindblur="bindElectronicD" />个</view>
+    </view>
+  </view>
+  <image wx:if="{{f||g||h||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}" src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCalculateCard.png" style="width: 100%;" mode="widthFix"></image>
+  <!-- 支付账户 -->
+  <view class="content" wx:if="{{d||e||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+    <view class="contentTitle">
+      <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleLineDecoration.png" style="width:8rpx; height: 42rpx;" mode="widthFix" class="enterpriseScaleLineDecoration"></image>
+      支付账户
+    </view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{d||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">支付机构网络特约商户交易金额</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入金额" style="text-align:center;"  value="{{paymenta}}" bindblur="bindPaymentA" />元</view>
+    </view>
+    <view class="border" wx:if="{{d&&e||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}"></view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{e||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">采用收款码收款的支付账户余额提现金额</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入金额" style="text-align:center;" value="{{paymentb}}" bindblur="bindPaymentB"  />元</view>
+    </view>
+  </view>
+  <image wx:if="{{d||e||enterpriseScale=='小微型企业'&&showList||enterpriseScale=='个体工商户'&&showList}}" src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCalculateCard.png" style="width: 100%;" mode="widthFix"></image>
+  <!-- 银行卡刷卡 -->
+  <view class="content"  wx:if="{{a||b||enterpriseScale&&showList}}">
+    <view class="contentTitle">
+      <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleLineDecoration.png" style="width:8rpx; height: 42rpx;" mode="widthFix" class="enterpriseScaleLineDecoration"></image>
+      银行卡刷卡
+    </view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{a||enterpriseScale&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">标准类商户线下银行卡收单金额</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入金额" style="text-align:center;"  value="{{carta}}" bindblur="bindCartA" />元</view>
+    </view>
+    <view class="border" wx:if="{{a&&b||enterpriseScale&&showList}}"></view>
+    <view class="enterpriseScaleCalculateContentLine" wx:if="{{b||enterpriseScale&&showList}}">
+      <view class="enterpriseScaleCalculateContentLineLeft">优惠类商户线下银行卡收单金额</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入金额" style="text-align:center;"  value="{{cartb}}" bindblur="bindCartB"  />元</view>
+    </view>
+  </view>
+  <image  wx:if="{{a||b||enterpriseScale&&showList}}"  src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCalculateCard.png" style="width: 100%;" mode="widthFix"></image>
+  <!-- 票据 -->
+  <view class="content lastLine" wx:if="{{c||enterpriseScale&&showList}}">
+    <view class="contentTitle">
+      <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleLineDecoration.png" style="width:8rpx; height: 42rpx;" mode="widthFix" class="enterpriseScaleLineDecoration"></image>
+      票据
+    </view>
+    <view class="enterpriseScaleCalculateContentLine">
+      <view class="enterpriseScaleCalculateContentLineLeft">办理支票</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;" value="{{billa}}" bindblur="bindBillA"  />笔</view>
+    </view>
+    <view class="border"></view>
+    <view class="enterpriseScaleCalculateContentLine">
+      <view class="enterpriseScaleCalculateContentLineLeft">支票挂失</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;" value="{{billb}}" bindblur="bindBillB"  />笔</view>
+    </view>
+    <view class="border"></view>
+    <view class="enterpriseScaleCalculateContentLine">
+      <view class="enterpriseScaleCalculateContentLineLeft">办理本票</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;" value="{{billc}}" bindblur="bindBillC"  />笔</view>
+    </view>
+    <view class="border"></view>
+    <view class="enterpriseScaleCalculateContentLine">
+      <view class="enterpriseScaleCalculateContentLineLeft">本票挂失</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;" value="{{billd}}" bindblur="bindBillD"  />笔</view>
+    </view>
+    <view class="border"></view>
+    <view class="enterpriseScaleCalculateContentLine">
+      <view class="enterpriseScaleCalculateContentLineLeft">办理银行汇票</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;" value="{{bille}}" bindblur="bindBillE"  />笔</view>
+    </view>
+    <view class="border"></view>
+    <view class="enterpriseScaleCalculateContentLine">
+      <view class="enterpriseScaleCalculateContentLineLeft">银行汇票挂失</view>
+      <view class="enterpriseScaleCalculateContentLineRight"><input type="text" placeholder="请输入笔数" style="text-align:center;" value="{{billf}}" bindblur="bindBillF"   />笔</view>
+    </view>
+  </view>
+  <view class="bottom"></view>
+  
+  <view class="bottomContainer" bindtap="queryConfirm">
+    <view class="enterpriseScaleCalculateBtn " >优惠估算</view>
+  </view>
+</view>

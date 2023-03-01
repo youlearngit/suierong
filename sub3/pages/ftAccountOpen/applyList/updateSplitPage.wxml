@@ -1,0 +1,6 @@
+<!-- 查看、修改 分页栏 -->
+
+<text>sub3/pages/ftAccountOpen/applyList/updateSplitPage.wxml</text>
+
+
+<van-toast id="van-toast" />

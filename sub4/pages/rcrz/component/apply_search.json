@@ -1,0 +1,6 @@
+{
+	"component": true,
+	"usingComponents": {
+		"van-field": "/sub4/static/vant/weapp/field/index"
+	}
+}

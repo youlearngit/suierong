@@ -1,0 +1,50 @@
+
+<view class="panel">
+
+	<image class="bg" src="{{preffixUrl}}undertaking_consult_bg1.png" mode="widthFix"></image>
+
+	<view class="title">
+		<view>创业咨询</view>
+		<view>便捷沟通，您的专业咨询顾问</view>
+	</view>
+
+	<block wx:for="{{[list,list_other]}}" wx:key="index" wx:for-item="list">
+		<block wx:if="{{list.length>0}}">
+			<view class="staffs-title">
+				<block wx:if="{{index==0}}">
+					根据您所在地区为您推荐：
+				</block>
+				<block wx:else>
+					您也可咨询以下创业专家：
+				</block>
+			</view>
+
+			<view class="staff" wx:for="{{list}}" wx:key="index">
+				<image class="staff-bg" src="{{preffixUrl}}tutor_bg1.png" mode="widthFix"></image>
+				<view class="staff-body">
+					<view class="staff-inline">
+						<van-image custom-class="staff-avatar" src="{{item.HEAD?item.HEAD:(preffixUrl+'avatar_default.png')}}" fit="widthFix" round />
+						<view>
+							<view class="staff-name">
+								<view>{{item.STAFFNAME}}</view>
+								<view class="staff-job">
+									<view>{{item.WORKUNIT}}</view>
+									<view wx:if="{{item.JOB}}">{{item.JOB}}</view>
+								</view>
+							</view>
+							<view class="staff-tags">
+								<view wx:if="{{item.LABEL1}}">{{item.LABEL1}}</view>
+								<view wx:if="{{item.LABEL2}}">{{item.LABEL2}}</view>
+								<view wx:if="{{item.LABEL3}}">{{item.LABEL3}}</view>
+							</view>
+						</view>
+					</view>
+					<van-divider customStyle="margin:20rpx 0 0 0;color:#E2E2E2;" />
+					<view class="staff-remark">{{item.RESUME}}</view>
+					<image class="staff-phone" src="{{preffixUrl}}tutor_mobilephone.png" mode="widthFix" bindtap="phoneCall" data-phone="{{item.TEL}}"></image>
+				</view>
+			</view>
+		</block>
+	</block>
+
+</view>

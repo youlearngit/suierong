@@ -1,0 +1,45 @@
+<view class="warpBg">
+  <image wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/temp/mine/s1_bg.jpg'></image>
+</view>
+
+
+<view class="infoBox">
+  <form bindsubmit="submitForm" report-submit='true'>
+    <view class="section">
+      <view class="weui-cells">
+        
+        
+        
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">手机号</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="tel" id="tel" bindblur='blur' value="{{ form.tel }}" bindinput="getPhoneValue" maxlength="11" class="weui-input" type="number" placeholder="请输入手机号" />
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">验证码</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="verycode" id="verycode" placeholder='请输入验证码' type='number' maxlength='6' bindinput='getCodeValue' value='{{form.verycode}}' />
+          </view>
+          <view class="weui-cell__ft">
+            <button class='codeBtn' bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
+          </view>
+        </view>
+
+        <view class="button-sp-area">
+        <button class="btn blu" formType="submit">提 交</button>
+      </view>
+
+      
+      </view>
+    </view>
+
+
+  </form>
+</view>

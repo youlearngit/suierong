@@ -1,0 +1,54 @@
+<page>
+  <!-- 背景图 -->
+  <view style="background-image:url({{cndUrl}}/static/wechat/img/ysdMarketing/ysd-marjeting-background1.png);" class="container">
+    <!-- 排名标签 -->
+    <view style="position: absolute;margin-left: 680rpx;">
+      <image class="rank-img" mode="widthFix" src="{{cndUrl}}/static/wechat/img/ysdMarketing/ysd-marjeting-ranking.png"></image>
+      <text class="rank-text" wx:if="{{queryResult.length == 0}}"> 0 </text>
+      <text class="rank-text" wx:if="{{queryResult.length > 0}}"> {{queryResult[0].ALL_ORDER}} </text>
+    </view>
+    <view class="body">
+      <!-- 成员列表 -->
+      <view class="data-list"  style="background-image:url({{cndUrl}}/static/wechat/img/ysdMarketing/ysd-marjeting-five.png);">
+          <image class="data-title-angle" src="{{cndUrl}}/static/wechat/img/ysdMarketing/ysd-marjeting-angle.png"/>
+          <image class="data-title-line" src="{{cndUrl}}/static/wechat/img/ysdMarketing/ysd-marjeting-line.png"/>
+          <span class="data-title-flag">
+            {{queryResult.length == 0 ? '暂无数据': queryResult.length <5 ? '成功建组': '成功建团'}}
+          </span>
+        <view class="data-title"> {{queryResult.length == 0 ? '暂无数据':queryResult.length <5 ? '三人成组': '五人成团'}}</view>
+        <view class="data-info" wx:if="{{queryResult.length > 0}}">
+          <van-row>
+            <van-col class="{{item.ORDER_STATE != 7 ? 'ORDER_STATE35' : ''}}" span="4" offset="{{index%5 == 0 ? 2:0}}" wx:for="{{queryResult}}" wx:for-item="item" wx:key="index">
+              <view wx:if="{{!item.over}}">
+                  <!-- 客户名称 -->
+                  <view class="customer-name">{{item.CUSTOMER_NAME}}</view> 
+                  <!-- 是否团长标签 -->
+                  <view wx:if="{{index == 0 && queryResult.length >= 5}}" class="top-flag">团长</view>
+                  <!-- 签约状态 -->
+                  <view class="customer-state">{{ item.ORDER_STATE == 7 ? '已签约' : '待签约'}}</view>
+                  <view style="margin-top: -40rpx;">{{queryResult.length < 5 ?'300利息券':'500利息券'}}</view>
+                  <!-- 分享次数 -->
+                  <view class="share-count">转介{{item.CUSTOMER_SHARECOUNT}}次</view> 
+              </view>
+              <view wx:if="{{item.over}}">
+                <view class="customer-name1">+</view>
+              </view>
+            </van-col>
+          </van-row>
+        </view>
+      </view>
+      <!-- 规则文案 -->
+      <view class="text-content" style="background-image:url({{cndUrl}}/static/wechat/img/ysdMarketing/ysd-marjeting-rules.png);">
+            <view class="text-content-title">
+                活动规则
+            </view>
+            <view class="text-content-text">
+              <text decode='true'>
+                &nbsp;&nbsp;&nbsp;&nbsp;“三人成组、五人成团”是指依托MGM转介模式，通过发展网格区域内烟草片区客户经理或烟草自律互助小组组长等营销关键人为推荐官，实现烟商贷业务批量营销办理，提升营销拓客效率。
+                &nbsp;&nbsp;&nbsp;&nbsp;活动期内同一客户经理名下客户成功办理烟商贷业务，三个客户成组，五个或以上客户成团（成组成团信息可通过随e融小程序查询）。
+              </text>
+            </view>
+      </view>
+    </view>
+  </view>
+</page>

@@ -1,0 +1,224 @@
+<view class='banner'>
+    <image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/credit/zx_title.png" style="width:100%"></image>
+</view>
+<view style="width:90%;margin:auto">
+    <view class="formInfo" style="margin:auto">
+        <view class="title" wx:if="{{business_type==3?false:true}}">借款人信息</view>
+        <view class="title" wx:if="{{business_type==3}}">请输入借款企业信息</view>
+        <form bindsubmit="submitForm" report-submit='true'>
+        <view wx:if="{{business_type==3}}">
+          <button class="qy_ent_info_btn" wx:if="{{enterpriseFrIndex == '1'}}" bindtap="ed0079">查询企业</button>
+
+          <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__hd">
+            <view class="weui-label">企业类型</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker  id="enterpriseFrType"  bindchange="bindPickerChange" value="{{index}}" range="{{enterpriseFrType}}">
+              <view class="picker">
+                <input class="weui-select weui-select_in-select-after" placeholder="请选择企业类型" disabled="disabled" name="enterpriseFrType" value="{{enterpriseFrIndex=='0'?'法人企业':'非法人企业'}}" />
+              </view>
+            </picker>
+          </view>
+        </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">企业名称</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入企业名称" bindblur="getCode" bindinput='getInput' name="enterprise_name" value="{{enterprise_name}}" />
+                    </view>
+                    <view class="weui-cell__ft">
+                        <!-- <button type="default" class="serBtn" bindtap="searchkey"  wx:if="{{enterpriseFrIndex=='0'}}" style="color:white;background-color:#0066b3;" hover-class="other-button-hover">
+                            查询
+                        </button> -->
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:110rpx">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">
+                            <text>统一社会\n信用代码</text>
+                        </view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="统一社会信用代码" name="credit_code" value="{{credit_code}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">工商登记号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入工商登记号" name="registration_no" value="{{registration_no}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">组织机构代码</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入组织机构代码" name="enterprise_code" value="{{enterprise_code}}" />
+                    </view>
+                </view>
+                <!-- UI用来显示最后一条横线 -->
+                <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+            </view>
+            <!-- 关键字搜索结果页、选取值 -->
+            <view class="coverBox" hidden="{{coverHidden}}" style="{{business_type==2?'top: 59%;':''}}">
+                <view class='beback' bindtap="beback">
+                    <em></em>
+                    <text>返回</text>
+                </view>
+                <view class="h1">请选择您的公司</view>
+                <scroll-view scroll-y class="coverList">
+                    <view class="single" data-name="{{item.entNames}}" bindtap='ed0161' wx:for="{{selectComList}}" wx:key="key">
+                        {{item.entNames}}
+                    </view>
+                </scroll-view>
+            </view>
+            <!-- business_type 为1或2时的通用行 -->
+            <view wx:if="{{business_type==3?false:true}}">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">借款人姓名</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入姓名" name="borrow_name" maxlength="6" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">证件类型</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker bindchange="pickChange" id="borrow_cert_type" data-type="borrow_cert_type" value="{{index}}" range="{{borrow_cert_type_array}}">
+                            <view class="picker">
+                                <input class="weui-select weui-select_in-select-after" name="borrow_cert_type" value="{{borrow_cert_type_array[borrow_cert_type]}}" disabled="disabled" placeholder="请选择证件类型" />
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">证件号码</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入证件号码" name="borrow_cert_no" type="idcard" />
+                    </view>
+                </view>
+                 <view class="weui-cell weui-cell_input" wx:if="{{business_type==2}}">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">授权人与借款人是否同一人</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <radio-group class="radio-group" bindchange="bindChange" id="is_same_person" name="is_same_person" style="margin:auto">
+                            <label class="radio" wx:for="{{items}}" wx:key="index" style="margin:auto">
+                                <radio value="{{item.name}}" class="weui-input" checked="{{item.checked}}" style="margin:auto" data-type="is_same_person" />
+                                {{item.value}}
+                            </label>
+                        </radio-group>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+            </view>
+            <!-- business_type2时 -->
+            <view wx:if="{{business_type==2}}">
+                <!-- <view class="weui-cell weui-cell_input" style="height:0rpx"></view> -->
+                <view class="title">关联经营实体</view>
+                <view class="qy">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label">企业名称</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" placeholder="请输入企业名称" bindblur="getCode" bindinput='getInput' name="enterprise_name" value="{{enterprise_name}}" />
+                        </view>
+                        <view class="weui-cell__ft">
+                            <!-- <button type="default" class="serBtn" bindtap="searchkey" style="color:white;background-color:#0066b3;" hover-class="other-button-hover">
+                                查询
+                            </button> -->
+                        </view>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:110rpx">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">
+                            <text>统一社会\n信用代码</text>
+                        </view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="统一社会信用代码" name="credit_code" value="{{credit_code}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">工商登记号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入工商登记号" name="registration_no" value="{{registration_no}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">组织机构代码</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入组织机构代码" name="enterprise_code" value="{{enterprise_code}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:60rpx"></view>
+                <view class="bottom2" style="margin-bottom:5%">
+                    <button formType="submit">下一步</button>
+                </view>
+                <view style="height:60rpx"></view>
+            </view>
+            <!-- business_type===1时 -->
+            <view wx:if="{{business_type==1}}">
+                <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">业务类型</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker bindchange="pickChangeyewu" range-key="name" value="{{ywlxIndex}}" range="{{yewulxtype_array}}">
+                            <view class="picker">
+                                <input class="weui-select weui-select_in-select-after" name="borrow_type" value="{{yewulxtype_array[ywlxIndex].name}}" disabled="disabled" placeholder="请选择业务类型" />
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <!-- ywlxIndex -->
+                <view class="weui-cell weui-cell_input" wx:if="{{ywlxIndex==3}}">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">贷款品种</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker bindchange="pickChange" value="{{index}}" id="borrow_typeExtra" range="{{borTypeList}}" data-type="borrow_typeExtra">
+                            <view class="picker">
+                                <input class="weui-select weui-select_in-select-after" disabled='disabled' value="{{borTypeList[borType]}}" placeholder="请选择贷款品种" name="borrow_typeExtra" />
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">授权人与借款人是否同一人</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <radio-group class="radio-group" bindchange="bindChange" id="is_same_person" name="is_same_person" style="margin:auto">
+                            <label class="radio" wx:for="{{items}}" wx:key="index" style="margin:auto">
+                                <radio value="{{item.name}}" class="weui-input" checked="{{item.checked}}" style="margin:auto" data-type="is_same_person" />
+                                {{item.value}}
+                            </label>
+                        </radio-group>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+            </view>
+            <view class="bottom" hidden="{{business_type==2?true:false}}">
+                <button formType="submit">下一步</button>
+            </view>
+        </form>
+    </view>
+    <i-toast id="toast" />
+</view>

@@ -1,0 +1,121 @@
+<view class="authList">
+  <view class="formtag">
+    <view class="weui-cells__title">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_dksqxx.png"></image>
+      <text>申请信息</text>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        订单号：
+      </view>
+      <view class="weui-cell__bd">
+        {{orderNo}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        企业名称：
+      </view>
+      <view class="weui-cell__bd">
+         {{enterprise_name}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        申请金额：
+      </view>
+      <view class="weui-cell__bd">
+       {{apply_amount}}万元
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input" wx:if="{{apply_term}}">
+      <view class="weui-cell__hd">
+        申请期限：
+      </view>
+      <view class="weui-cell__bd">
+         {{apply_term}}个月
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input" wx:if="{{vouch_type}}">
+      <view class="weui-cell__hd">
+        担保方式：
+      </view>
+      <view wx:if="{{vouch_type==20010010}}"  class="weui-cell__bd">住宅抵押</view>
+      <view wx:if="{{vouch_type==20010020}}"  class="weui-cell__bd">商铺抵押</view>
+      <view wx:if="{{vouch_type==20010050}}"  class="weui-cell__bd">厂房抵押</view>
+      <view wx:if="{{vouch_type==10020}}"  class="weui-cell__bd">担保公司担保</view>
+      <view wx:if="{{vouch_type==10030}}"  class="weui-cell__bd">一般企事业担保</view>
+      <view wx:if="{{vouch_type==5}}"  class="weui-cell__bd">信用</view>
+      <view wx:if="{{vouch_type==10060}}"  class="weui-cell__bd">其他</view>
+    </view>
+    <view class="weui-cell weui-cell_input" wx:if="{{purpose}}">
+      <view class="weui-cell__hd">
+        借款用途：
+      </view>
+      <view wx:if="{{purpose==0}}" class="weui-cell__bd">经营周转</view>
+      <view wx:if="{{purpose==1}}" class="weui-cell__bd">购货</view>
+      <view wx:if="{{purpose==2}}" class="weui-cell__bd">其他经营用途</view>
+    </view>
+  </view>
+  <!-- <view class="rules" bindtap='ss'>业务规则</view> -->
+
+  <!-- 申请人看到信息 -->
+  <view class="authProgress" hidden="{{apliman_flag}}">
+    <view class="tip">
+      <icon type="waiting" color='#0066b3' size="20" /> 授权进度{{sum}}/{{num}}人</view>
+    <view class="authUser"  >
+      <view class="userHead">
+        <image wx:if='{{preffixUrl && !applicantImg}}' src="{{preffixUrl}}static/wechat/img/no_avator.png"></image>
+        <image wx:if='{{applicantImg}}' src="{{applicantImg}}"></image>
+      </view>
+      <view class="userinfo">
+        <view class="userName">{{applicantName}}
+          <text>申请人</text>
+        </view>
+        <view class="userTime">{{applyDate}}</view>
+      </view>
+      <view class="authLink">
+        <view class="authStat">
+          <icon type="success" size="28" color="#0066b3" />
+          <text>\n发起申请</text>
+        </view>
+      </view>
+    </view>
+    <view class="authUser" wx:for="{{list1}}" wx:key="key">
+      <view class="userHead">
+        <image wx:if='{{preffixUrl&&!item.photo}}' src="{{preffixUrl}}static/wechat/img/no_avator.png"></image>
+        <image wx:if='{{item.photo}}' src="{{item.photo}}"></image>
+      </view>
+      <view class="userinfo">
+        <view class="userName">{{item.authorizerName}}
+          <text  wx:if="{{item.authorizerType==0}}">法定代表人</text>
+          <text  wx:if="{{item.authorizerType==1}}">法人配偶</text>
+          <text  wx:if="{{item.authorizerType==2}}">企业股东</text>
+          <text  wx:if="{{item.authorizerType==3}}">其他</text>
+          <text  wx:if="{{item.authorizerType==4}}">实际控制人</text>
+          <text  wx:if="{{item.authorizerType==5}}">实际控制人配偶</text>
+          <text  wx:if="{{item.authorizerType==6}}">企业股东配偶</text>
+          <text  wx:if="{{item.authorizerType==7}}">第三方抵押人</text>
+        </view>
+        <view class="userTime">{{item.authorizeTime}}</view>
+      </view>
+      <view class="authLink">
+        <view class="authStat" wx:if="{{item.authorizeStatus==1}}">
+          <image class="authed" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/mine/ico_auth.png"></image>
+          <!-- <icon type="success" size="30" color="#2bb000" /> -->
+          <!-- <text>\n已授权</text> -->
+        </view>
+        <button  class="shareTo" wx:if="{{item.authorizeStatus==0}}" open-type='share' data-id='{{item.authorizerCard}}'>
+          <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/share_to.png"></image>
+        </button>
+      </view>
+    </view>
+
+  </view>
+    <view class="btnview" hover-class="none" hover-stop-propagation="false">
+   <navigator class="btn" url="/sub3/pages/addAuthorizer/index?orderNo={{orderNo}}&resvFld1={{resvFld1}}">添加授权人</navigator>
+        
+    </view>
+
+  
+</view>

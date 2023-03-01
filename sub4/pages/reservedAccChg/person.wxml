@@ -1,0 +1,453 @@
+<!--sub3/pages/reservedAccChg/person.wxml-->
+<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_bgn3.png" mode="widthFix" class="bgn">
+</image>
+<view class="title1">
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+    class="rac_rect1" />
+  <view class="title2">存款人上级法人或主管</view>
+</view>
+
+<form bindsubmit="submitForm" report-submit='true'>
+
+  <view class="title3" style="display: block;">
+
+    <view class="title5" style="margin-left: 30rpx;">上级机构名称</view>
+
+    <view class="title6" style="margin-left: 30rpx;">
+      <input placeholder="请输入" class="inpu1" value="{{info.companyName}}" name='companyName' />
+    </view>
+    <view class="bor" style="margin-bottom: 30rpx;margin-left: 30rpx;"></view>
+
+    <view class="title5" style="margin-left: 30rpx;">上级部门代码证</view>
+
+
+    <view class="title6" style="margin-left: 30rpx;">
+      <input placeholder="请输入" class="inpu1" value="{{info.leadCompanyNo}}" name='leadCompanyNo' />
+    </view>
+  </view>
+
+  <view class="title1" style="padding-top: 40rpx;">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+      class="rac_rect1" />
+    <view class="title2" style="color: #3E415C;">自然人基本信息</view>
+
+  </view>
+
+  <view class="com_con">
+
+    <view class="com_title">
+      <view>法定代表人姓名</view>
+      <input placeholder="请输入姓名" style="text-align: right;" value="{{info.legalName}}" name='legalName' />
+
+    </view>
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <van-cell title="法定代表人证件类型" is-link value="{{info.legalCertTypeTxt}}" clickable bind:click='click1'
+      custom-class='valueCell11' border="{{ false }}" data-name="legalCertType" />
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="com_title">
+      <view>法定代表人证件号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.legalCertNo}}" name='legalCertNo' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="title5" style="margin-top: 30rpx;">证件有效期 <van-radio-group value="{{ info.reserve9Radio }}"
+        bind:change="clickreserve9" direction="horizontal">
+        <van-radio name="99991231">长期</van-radio>
+        <van-radio name="2">有效期</van-radio>
+      </van-radio-group>
+    </view>
+    <view class="title8">
+
+      <view class="title6" style="  width: 40%;">
+        <input placeholder="请输入" class="inpu1" disabled bindtap="clickDate1" value="{{info.date}}" data-name='date' />
+        <view style="opacity: 0.4;font-size: 28rpx;margin-right: 9rpx;">起</view>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/com_arrow.png" mode="widthFix"
+          style="width: 12rpx;">
+        </image>
+      </view>
+      至
+      <!-- dateSel -->
+      <view class="title6" style="margin-right:30rpx;width: 40%;"
+        bindtap="{{info.reserve9=='99991231'?'':'clickDate1'}}" data-name='reserve9'>
+        <input placeholder="请输入" class="inpu1" disabled value="{{info.reserve9}}" data-name='reserve9' />
+        <view style="opacity: 0.4;font-size: 28rpx;margin-right: 9rpx;">止</view>
+
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/com_arrow.png" mode="widthFix"
+          style="width: 12rpx;">
+        </image>
+      </view>
+
+    </view>
+    <view class="bor" style="margin-bottom: 10rpx;"></view>
+    <view class="com_title">
+      <view>法定代表人电话</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.legalPhoneNo}}" name='legalPhoneNo' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+    <view class="com_title">
+      <view>财务主管</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.financeMaster}}" name='financeMaster' />
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+    <view class="com_title">
+      <view>财务主管电话</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.financeTel}}" name='financeTel' />
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+    <view class="com_title">
+      <view>财务主管证件号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.financeZjhm}}" name='financeZjhm' />
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+    <van-cell title="财务主管证件类型" is-link value="{{info.financeZjzlTxt}}" clickable bind:click='click1'
+      custom-class='valueCell11' border="{{ false }}" data-name="financeZjzl" />
+
+  </view>
+
+
+  <view class="title1" style="padding-top: 40rpx;display: flex;justify-content: space-between;align-items: center;">
+
+    <view style="display: flex;justify-content: space-around;align-items: center;">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+        class="rac_rect1" />
+      <view class="title2" style="color: #3E415C;">联系人信息</view>
+    </view>
+    <!-- <view class="acc_same" bindtap="same1Pop">
+      {{ onConfirm1Index === "" ? "填写" : onConfirm1Index}}
+    </view> -->
+  </view>
+  <view class="com_con" wx:if="{{onConfirm1Index=='其他'||onConfirm1Index==''}}">
+
+    <view class="com_title">
+      <view>姓名</view>
+      <input placeholder="请输入姓名" style="text-align: right;" value="{{info.contactName}}" name='contactName' />
+    </view>
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <van-cell title="证件类型" is-link value="{{info.contactZjlxTxt}}" clickable bind:click='click1'
+      custom-class='valueCell11' border="{{ false }}" data-name="contactZjlx" />
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="com_title">
+      <view>证件号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.contactZjhm}}" name='contactZjhm' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="title5" style="margin-top: 30rpx;">证件有效期 <van-radio-group value="{{ info.contactzjyxqendRadio }}"
+        bind:change="clickContact" direction="horizontal">
+        <van-radio name="99991231">长期</van-radio>
+        <van-radio name="2">有效期</van-radio>
+      </van-radio-group>
+    </view>
+    <view class="title8">
+      <view class="title6" style="  width: 40%;">
+        <input placeholder="请输入" class="inpu1" disabled bindtap="clickDate1" value="{{info.contactzjyxq}}"
+          data-name='contactzjyxq' />
+        <view style="opacity: 0.4;font-size: 28rpx;margin-right: 9rpx;">起</view>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/com_arrow.png" mode="widthFix"
+          style="width: 12rpx;">
+        </image>
+      </view>
+      至
+      <view class="title6" style="margin-right:30rpx;width: 40%;"
+        bindtap="{{info.contactzjyxqend=='99991231'?'':'clickDate1'}}" data-name='contactzjyxqend'>
+        <input placeholder="请输入" class="inpu1" disabled value="{{info.contactzjyxqend}}" data-name='contactzjyxqend' />
+        <view style="opacity: 0.4;font-size: 28rpx;margin-right: 9rpx;">止</view>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/com_arrow.png" mode="widthFix"
+          style="width: 12rpx;">
+        </image>
+      </view>
+
+    </view>
+    <view class="bor" style="margin-bottom: 10rpx;"></view>
+    <view class="com_title">
+      <view>电话号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.contactPhoneNo}}" name='contactPhoneNo' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="com_title">
+      <view>手机号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.contactMobileNo}}" name='contactMobileNo' />
+
+    </view>
+
+  </view>
+
+  <view class="title1" style="padding-top: 40rpx;display: flex;justify-content: space-between;align-items: center;">
+
+    <view style="display: flex;justify-content: space-around;align-items: center;">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+        class="rac_rect1" />
+      <view class="title2" style="color: #3E415C;">大额查证联系人1</view>
+    </view>
+    <!-- <view class="acc_same" bindtap="same2Pop">
+     {{ onConfirm2Index === "" ? "填写" : onConfirm2Index}}
+   </view> -->
+  </view>
+  <view class="com_con" wx:if="{{onConfirm2Index=='其他'||onConfirm2Index==''}}">
+    <!-- <view class="title1" style="padding-top: 40rpx;">
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+    class="rac_rect1" />
+  <view class="title2" style="color: #3E415C;">大额查证联系人1</view>
+</view>
+
+<view class="com_con"> -->
+
+    <view class="com_title">
+      <view>姓名</view>
+      <input placeholder="请输入姓名" style="text-align: right;" value="{{info.deczlxrxm1}}" name='deczlxrxm1' />
+
+    </view>
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+
+
+    <van-cell title="证件类型" is-link value="{{info.zjzl1Txt}}" clickable bind:click='click2' custom-class='valueCell11'
+      border="{{ false }}" data-name="zjzl1" />
+    <!-- <input  style="display: none;"   value="{{info.zjzl1}}" name='zjzl1'/> -->
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="com_title">
+      <view>证件号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.zjh1}}" name='zjh1' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+
+    <view class="title5" style="margin-top: 30rpx;">证件有效期 <van-radio-group value="{{ info.zjyxq1Radio }}"
+        bind:change="clickLarge1" direction="horizontal">
+        <van-radio name="99991231">长期</van-radio>
+        <van-radio name="2">有效期</van-radio>
+      </van-radio-group>
+    </view>
+    <view class="title8" bindtap="{{info.zjyxq1=='99991231'?'':'clickDate1'}}" data-name="zjyxq1">
+
+      <view class="title6" style="  width: 92%;">
+        <input placeholder="请输入" class="inpu1" value="{{info.zjyxq1}}" data-name="zjyxq1" disabled />
+        <view style="opacity: 0.4;font-size: 28rpx;margin-right: 9rpx;"></view>
+
+      </view>
+    </view>
+    <view class="bor" style="margin-bottom: 10rpx;"></view>
+
+
+    <view class="com_title">
+      <view>手机号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.lxdh1}}" name='lxdh1' />
+
+    </view>
+
+  </view>
+
+  <view class="title1" style="padding-top: 40rpx;">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+      class="rac_rect1" />
+    <view class="title2" style="color: #3E415C;">大额查证联系人2</view>
+  </view>
+
+  <view class="com_con">
+
+    <view class="com_title">
+      <view>姓名</view>
+      <input placeholder="请输入姓名" style="text-align: right;" value="{{info.deczlxrxm2}}" name='deczlxrxm2' />
+
+    </view>
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+
+
+    <van-cell title="证件类型" is-link value="{{info.zjzl2Txt}}" clickable bind:click='click2' custom-class='valueCell11'
+      border="{{ false }}" data-name="zjzl2" />
+    <!-- <input  style="display: none;"   value="{{info.zjzl2}}" name='zjzl2'/> -->
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="com_title">
+      <view>证件号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.zjh2}}" name='zjh2' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="title5" style="margin-top: 30rpx;">证件有效期 <van-radio-group value="{{ info.zjyxq2Radio }}"
+        bind:change="clickLarge2" direction="horizontal">
+        <van-radio name="99991231">长期</van-radio>
+        <van-radio name="2">有效期</van-radio>
+      </van-radio-group>
+    </view>
+    <view class="title8" bindtap="{{info.zjyxq2=='99991231'?'':'clickDate1'}}" data-name="zjyxq2">
+
+      <view class="title6" style="  width: 92%;">
+        <input placeholder="请输入" class="inpu1" value="{{info.zjyxq2}}" data-name="zjyxq2" disabled />
+        <view style="opacity: 0.4;font-size: 28rpx;margin-right: 9rpx;"></view>
+
+      </view>
+    </view>
+    <view class="bor" style="margin-bottom: 10rpx;"></view>
+
+
+    <view class="com_title">
+      <view>手机号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.lxdh2}}" name='lxdh2' />
+
+    </view>
+
+  </view>
+
+
+  <!-- <view class="title1" style="padding-top: 40rpx;">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+      class="rac_rect1" />
+    <view class="title2" style="color: #3E415C;">大额查证联系人3</view>
+  </view>
+
+  <view class="com_con">
+
+    <view class="com_title">
+      <view>姓名</view>
+      <input placeholder="请输入姓名" style="text-align: right;" value="{{info.deczlxrxm3}}" name='deczlxrxm3' />
+
+    </view>
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+
+
+    <van-cell title="证件类型" is-link value="{{info.zjzl3Txt}}" clickable bind:click='click2' custom-class='valueCell11'
+      border="{{ false }}" data-name="zjzl3" />
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="com_title">
+      <view>证件号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.zjh3}}" name='zjh2' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="title5" style="margin-top: 30rpx;">证件有效期 <van-radio-group value="{{ info.zjyxq3Radio }}"
+        bind:change="clickLarge3" direction="horizontal">
+        <van-radio name="99991231">长期</van-radio>
+        <van-radio name="2">有效期</van-radio>
+      </van-radio-group>
+    </view>
+    <view class="title8" bindtap="{{info.zjyxq3=='99991231'?'':'clickDate1'}}" data-name="zjyxq3">
+
+      <view class="title6" style="  width: 92%;">
+        <input placeholder="请输入" class="inpu1" value="{{info.zjyxq3}}" data-name="zjyxq3" disabled />
+        <view style="opacity: 0.4;font-size: 28rpx;margin-right: 9rpx;"></view>
+
+      </view>
+    </view>
+    <view class="bor" style="margin-bottom: 10rpx;"></view>
+
+
+    <view class="com_title">
+      <view>手机号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.lxdh3}}" name='lxdh3' />
+
+    </view>
+
+  </view> -->
+
+  <!-- <view class="title1" style="padding-top: 40rpx;">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+      class="rac_rect1" />
+    <view class="title2" style="color: #3E415C;">大额查证联系人4</view>
+  </view>
+
+  <view class="com_con">
+
+    <view class="com_title">
+      <view>姓名</view>
+      <input placeholder="请输入姓名" style="text-align: right;" value="{{info.deczlxrxm4}}" name='deczlxrxm4' />
+
+    </view>
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+
+
+    <van-cell title="证件类型" is-link value="{{info.zjzl4Txt}}" clickable bind:click='click2' custom-class='valueCell11'
+      border="{{ false }}" data-name="zjzl4" />
+
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="com_title">
+      <view>证件号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.zjh4}}" name='zjh4' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="title5" style="margin-top: 30rpx;">证件有效期 <van-radio-group value="{{ info.zjyxq4Radio }}"
+        bind:change="clickLarge4" direction="horizontal">
+        <van-radio name="99991231">长期</van-radio>
+        <van-radio name="2">有效期</van-radio>
+      </van-radio-group>
+    </view>
+    <view class="title8" bindtap="{{info.zjyxq4=='99991231'?'':'clickDate1'}}" data-name="zjyxq4">
+
+      <view class="title6" style="  width: 92%;">
+        <input placeholder="请输入" class="inpu1" value="{{info.zjyxq4}}" data-name="zjyxq4" disabled />
+        <view style="opacity: 0.4;font-size: 28rpx;margin-right: 9rpx;"></view>
+
+      </view>
+    </view>
+    <view class="bor" style="margin-bottom: 10rpx;"></view>
+
+
+    <view class="com_title">
+      <view>手机号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.lxdh4}}" name='lxdh4' />
+
+    </view>
+
+  </view> -->
+  <button class="next" formType="submit">下一步</button>
+</form>
+
+<van-popup show="{{idCardSelShow}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent1">
+  <van-picker columns="{{ cardTypeList }}" show-toolbar bind:cancel="onCancel" bind:confirm="confirmIdCard"
+    title="证件种类选择" />
+</van-popup>
+
+<van-popup show="{{idCardSelShow1}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent1">
+  <van-picker columns="{{ cardTypeList1 }}" show-toolbar bind:cancel="onCancel" bind:confirm="confirmIdCard"
+    title="证件种类选择" />
+</van-popup>
+<van-popup show="{{dateSelShow}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent2">
+  <van-datetime-picker type="date" value="{{ currentDate }}" bind:input="onInput" min-date="{{ minDate }}"
+    max-date="{{maxDate}}" formatter="{{ formatter }}" bind:cancel="onCancel2" bind:confirm="confirm2" />
+</van-popup>
+
+<van-popup show="{{same1Pop}}" round position="bottom">
+  <van-picker title="请选择" show-toolbar columns="{{columns1}}" bind:cancel="cancelPop" bind:confirm="onConfirmPop" />
+
+
+</van-popup>
+
+<van-popup show="{{same2Pop}}" round position="bottom">
+  <van-picker title="请选择" show-toolbar columns="{{columns2}}" bind:cancel="cancel2Pop" bind:confirm="onConfirm2Pop" />
+
+
+</van-popup>

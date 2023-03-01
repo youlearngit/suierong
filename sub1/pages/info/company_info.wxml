@@ -1,0 +1,218 @@
+<view class="a2">
+  <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+    <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+      <view class="cu-list menu">
+        <view class="cu-item ">
+          <view class="content">
+            <view class="view-grey">企业名称</view>
+          </view>
+          <input name="orgName" id="orgName" value="{{ form.orgName }}" bindblur='blur' bindinput="getOrgName" class="bTxt" type="text" placeholder="请输入企业名称" />
+          <!-- <image class='addBtn' id="yyzz" src="/assets/images/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="creatPhoto"/> -->
+        </view>
+
+      </view>
+    </view>
+    
+  </view>
+
+  <block  wx:if="{{showNon1}}">
+    <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view wx:for="{{companylist}}" class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-list menu">
+          <view class="cu-item arrow" bindtap="company_detail" data-orgname="{{item.info.eNTNAME}}">
+            <view class="content2">
+            {{item.info.eNTNAME}} 
+            </view>
+            <view class="action" >
+              <!-- <view class="appr" >
+                已认证
+              </view> -->
+            </view>
+          </view>
+          <!-- <view class="cu-item ">
+            <view class="content3">
+              统一码
+            </view>
+            <view class="content4">
+            {{item.info.cREDITCODE}} 
+            </view>
+          </view> -->
+          <!-- <view class="cu-item ">
+            <view class="content3">
+              法定代表人
+            </view>
+            <view class="content4">
+              {{item.info.rYNAME}} 
+                
+            </view>
+          </view> -->
+          <!-- <view class="cu-item ">
+            <view class="content3">
+              地址
+            </view>
+            <view class="content4" >
+              {{item.info.rYNAME}} 
+            </view>
+          </view> -->
+        </view>
+      </view>
+    </view>
+    <!-- <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-list menu">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">统一码</view>
+            </view>
+            <input name="orgID" id="orgID" value="{{ form.orgID }}" bindblur='blur' class="aTxt" type="text"  />
+          </view>
+        </view>
+      </view>
+    </view> -->
+    <!-- <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-list menu">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">法定代表人</view>
+            </view>
+            <input name="pName" id="pName" value="{{ form.name }}" bindblur='blur' class="aTxt" type="text" placeholder="" />
+          </view>
+        </view>
+      </view>
+    </view> -->
+    <!-- <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-list menu">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">地址</view>
+            </view>
+            <input name="orgAddress" id="orgAddress" value="{{ form.orgAddress }}" bindblur='blur' class="aTxt" type="text" placeholder="" />
+          </view>
+        </view>
+      </view>
+    </view> -->
+    <!-- <button bindtap="saveBusiness" class="amountC" role="button" aria-disabled="false">
+      确认提交
+    </button> -->
+    <button bindtap="getBusInfo" class="amountC" role="button" aria-disabled="false">
+      查询企业信息
+    </button>
+  </block>
+  <block wx:else>
+    
+  </block>
+
+
+</view>
+
+
+<!-- <view class="{{pagescroll}}">
+  
+  <view class="page__bd">
+    <form bindsubmit="submitForm" report-submit='true'>
+      
+
+
+
+
+      <view class="section pr">
+        <view class="weui-cells__title">
+          <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_qyxx.png"></image>
+          <text>企业信息</text> </view>
+        <view class="weui-cells weui-cells_after-title" hidden="{{flag_org_diy}}">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">统一信用代码</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input name="orgID" id="orgID" value="{{ form.orgID }}" bindblur='blurCity' class="weui-input" type="orgID" maxlength='18' placeholder="请输入统一社会信用代码" />
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">企业名称</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input name="orgName" id="orgName" value="{{ form.orgName }}" bindblur='blur' class="weui-input" type="text" placeholder="请输入企业名称" />
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">企业所在地</view>
+            </view>
+            <view class="weui-cell__bd">
+              <picker class="picker" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                <view class="weui-select weui-select_in-select-after">
+                  <input name="province" disabled='disabled' id="province" value="{{provinceName}}" class="weui-input" style="width:50%;display:inline-block;" type="text" placeholder="请点击选择" />
+                  <input name="city" disabled='disabled' id="city" value="{{cityName}}" class="weui-input" style="width:50%;display:inline-block;" type="text" placeholder="" />
+
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+              <view class="weui-label">企业地址</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input name="orgAddress" id="orgAddress" value="{{ form.orgAddress }}" class="weui-input" bindblur='blur' type="text" placeholder="请输入企业地址" />
+            </view>
+          </view>
+
+          <view class="diy">
+            <image bindtap="change_org_ocr" style="width:60rpx;height:60rpx;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_ipone.png"></image>
+            <view class="changeBtn">拍照模式</view>
+          </view>
+        </view>
+        <view class="ocrBox" hidden="{{flag_org_ocr}}">
+          <view class="imgFlex">
+            <image bindtap="creatPhoto"  class="picID" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_yyzz.png"></image>
+          </view>
+          <view class="diy">
+            <image bindtap="change_org" style="width:60rpx;height:60rpx;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_sxms.png"></image>
+            <view class="changeBtn">手工模式</view>
+          </view>
+        </view>
+        <view wx:if='{{falg1}}'>
+          <picker class="mp" bindtap="businesCard" bindchange="pickBC" value="{{bcindex}}" range="{{busiCardList}}">
+            <image width="70%" mode="widthFix" lazy-load="true" src="{{preffixUrl}}/static/wechat/img/ico_mine_mp.png"></image>
+          </picker>
+        </view>
+      </view>
+      <view class="button-sp-area">
+        <button class="btn" formType="submit">提 交 申 请</button>
+      </view>
+    </form>
+  </view>
+</view> -->
+
+
+
+
+
+
+
+
+
+<view wx:if="{{v==1}}">
+  <view class="camerabox" hidden="{{camera_flag}}">
+    <camera hidden="{{camera_flag}}" class="camera" mode="normal" device-position="back" flash="off" binderror="error">
+      <cover-view class="controls">
+        <cover-image class="img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/{{takephoto.coverImg}}" />
+      </cover-view>
+      <cover-view class="noticeTXT">{{takephoto.noticeTxt}}</cover-view>
+      <cover-view class="operat">
+        <cover-image class="clickBtn" id="{{takephoto.id}}" bindtap="takePhoto" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_take.png" />
+        <cover-image class="reTake" bindtap="reTake" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_cancel.png" />
+      </cover-view>
+    </camera>
+  </view>
+</view>
+
+<view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+  <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+  <canvas canvas-id="attendCanvasId2" style="width:{{canvasWidth2}}px;height:{{canvasHeight2}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+</view>

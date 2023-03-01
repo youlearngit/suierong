@@ -1,0 +1,102 @@
+<view class="a2">
+  <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+    <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+      <view class="cu-list menu">
+        <view class="cu-item ">
+          <view class="content">
+            <view class="view-grey">企业名称</view>
+          </view>
+          <input name="orgName" id="orgName" value="{{ companyName }}" bindblur='blur' bindinput="getOrgName" class="aTxt" type="text" disabled='disabled' style="min-width: 500rpx;"/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+    <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+      <view class="cu-list menu">
+        <view class="cu-item ">
+          <view class="content">
+            <view class="view-grey">统一码</view>
+          </view>
+          <input name="orgID" id="orgID" value="{{ companyCode }}" bindblur='blur' class="aTxt" type="text" disabled='disabled' style="min-width: 500rpx;"/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+    <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+      <view class="cu-list menu">
+        <view class="cu-item ">
+          <view class="content">
+            <view class="view-grey">法定代表人</view>
+          </view>
+          <input name="pName" id="pName" value="{{ name }}" bindblur='blur' class="aTxt" type="text" disabled='disabled' />
+        </view>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{isNJ}}">
+    <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-list menu">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">企业所在地</view>
+            </view>
+            <!-- <input name="orgAddress" id="orgAddress" value="江苏南京" bindblur='blur' class="aTxt" type="text" /> -->
+            <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+              <view class="picker">
+                当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+              </view>
+            </picker> -->
+            <picker bindchange="bindPickerChange" value="0" range="{{array}}" >
+            <input class="picker" placeholder="请选择" value="{{array[index]}}" style="text-align:right"  disabled='disabled'> </input>
+              <!-- <view class="picker">
+              
+                {{array[index]}}
+              </view> -->
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-list menu">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">企业所在地</view>
+            </view>
+            <input name="orgAddress" id="orgAddress" value="{{ companyAddress }}" bindblur='blur' class="aTxt" type="text" disabled='disabled'/>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <button bindtap="addCompany" class="amountC" role="button" aria-disabled="false">
+      添加企业信息
+  </button>
+</view>
+
+
+<view wx:if="{{v==1}}">
+  <view class="camerabox" hidden="{{camera_flag}}">
+    <camera hidden="{{camera_flag}}" class="camera" mode="normal" device-position="back" flash="off" binderror="error">
+      <cover-view class="controls">
+        <cover-image class="img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/{{takephoto.coverImg}}" />
+      </cover-view>
+      <cover-view class="noticeTXT">{{takephoto.noticeTxt}}</cover-view>
+      <cover-view class="operat">
+        <cover-image class="clickBtn" id="{{takephoto.id}}" bindtap="takePhoto" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_take.png" />
+        <cover-image class="reTake" bindtap="reTake" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_cancel.png" />
+      </cover-view>
+    </camera>
+  </view>
+</view>
+
+<view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+  <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+  <canvas canvas-id="attendCanvasId2" style="width:{{canvasWidth2}}px;height:{{canvasHeight2}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+</view>

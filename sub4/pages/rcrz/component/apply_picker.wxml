@@ -1,0 +1,14 @@
+<view class="apply_picker">
+	<text>{{label}}</text>
+	<picker mode="{{mode}}" 
+		bindchange="bindchange" value="{{mode=='region'?region_value:idx}}" 
+		range="{{range}}" range-key="{{range_key}}"
+		fields="{{fields}}" start="{{start}}" end="{{end}}"
+		disabled="{{disabled}}"
+		>
+		<view class="input">
+			<input placeholder="{{placeholder}}" value="{{value}}" disabled />
+			<image src="{{preffixUrl}}apply_icon_entry.png" mode="widthFix"></image>
+		</view>
+	</picker>
+</view>

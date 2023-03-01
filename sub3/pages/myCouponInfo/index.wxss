@@ -1,0 +1,48 @@
+/* sub3/pages/myCouponInfo/index.wxss */
+
+.cell {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40rpx;
+}
+
+.title1 {
+    margin-top: 70rpx;
+    width: 100%;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 30rpx;
+    text-align: center;
+}
+
+.title2 {
+    margin-top: 30rpx;
+    width: 100%;
+    text-align: center;
+    font-family: '';
+    font-size: 70rpx;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 70rpx;
+}
+
+.label {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-left: 30rpx;
+}
+
+.label2 {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 30px;
+    margin-right: 30rpx;
+}

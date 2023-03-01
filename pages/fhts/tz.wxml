@@ -1,0 +1,103 @@
+<view class="wrap">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="ncd1">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/fhts/tz.jpg"></image>
+    <view style="opacity: 0.6;font-size: 11px;position: absolute;bottom: 25px;left: 205px;color: #505987;"> 按单利计算</view>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 简 介</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">江苏银行与泰州市政府合作，向泰州市区的中小微企业提供的贷款服务。</text>
+    </view>
+  </view>
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 特 点</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">1.额度高：单户贷款额度最高可达1000万元；</text>
+      <text class="p">2.费率低：贷款利率最高不超过5.655%（按单利计算），担保费率控制在年化0.8%以内；</text>
+      <text class="p">3.服务广：满足广大中小微企业的融资需求。</text>
+    </view>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">服 务 对 象</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">泰州市区（含海陵区、高港区、姜堰区、医药高新区）范围内具有成长性的中小微企业、“三农”和“创业创新”主体。</text>
+    </view>
+  </view>
+  <view class="dianDL" style="margin-bottom:150rpx;">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">联 系 方 式</text>
+    </view>
+    <view class="dianDd">
+      <view class="tips">* 点击下方电话，可以一键拨号哦！</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0523-86392872'><span>泰州分行</span>0523-86392872</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0523-86392015'><span>分行营业部</span>0523-86392015</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0523-86390657'><span>海陵支行</span>0523-86390657</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0523-88766560'><span>姜堰支行</span>0523-88766560</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0523-86965319'><span>高港支行</span>0523-86965319</view>
+    </view>
+  </view>
+
+</view>
+
+
+
+
+<view class='fbuttom'>
+    <view class="btn" bindtap='showShare'>分<text>\t\t\t\t\t\t</text>享</view>
+    <view bindtap="apli" class="btn blu">立即申请</view>
+</view>
+
+<view class="{{shareBox}}">
+
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+  
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image></button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+<view style='position:fixed;top:-50%;left:0;width:100%;height:200%;background:#fff;z-index:-1;'></view>
+<my-login loginFlag="{{loginFlag}}" ></my-login>

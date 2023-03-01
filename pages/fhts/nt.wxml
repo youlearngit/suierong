@@ -1,0 +1,119 @@
+<view class="wrap">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="ncd1">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/fhts/nt.jpg"></image>
+    <view style="opacity: 0.6;font-size: 11px;position: absolute;bottom: 25px;left: 205px;color: #505987;"> 按单利计算</view>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 简 介</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">江苏银行与南通市科技局合作，向纳入“南通市科技型中小企业库”的科技型企业提供的贷款服务。</text>
+    </view>
+  </view>
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 特 点</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">1.利率优惠：4.35 % 至 4.785 %，按单利计算；</text>
+      <text class="p">2.担保灵活：房产抵押、保证担保均可；</text>
+      <text class="p">3.额度最高可达1000万元。</text>
+
+    </view>
+  </view>
+
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">服 务 对 象</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">1.注册地为南通市区并具有独立法人地位、具有较强创新性与较高技术水平的科技型中小微企业；</text>
+      <text class="p">2.“南通市科技型中小企业库”入库企业。</text>
+    </view>
+  </view>
+  <view class="dianDL" style="margin-bottom:150rpx;">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">联 系 方 式</text>
+    </view>
+
+    <view class="dianDd">
+      <view class="tips">* 点击下方电话，可以一键拨号哦！</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85129621'><span>南通分行</span>0513-85129621</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85798678'><span>分行营业部</span>0513-85798678</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85602262'><span>港闸支行</span>0513-85602262</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85537067'><span>崇川支行</span>0513-85537067</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-83596806'><span>开发区支行</span>0513-83596806</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-55881336'><span>北城支行</span>0513-55881336</view>
+        
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85511055'><span>静海支行</span>0513-85511055</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85108186'><span>工农支行</span>0513-85108186</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85511090'><span>城区支行</span>0513-85511090</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85537734'><span>跃龙科技支行</span>0513-85537734</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85100807'><span>新桥支行</span>0513-85100807</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-82108800'><span>海门支行</span>0513-82108800</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-86127201'><span>通州支行</span>0513-86127201</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-83128397'><span>启东支行</span>0513-83128397</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-88665021'><span>海安支行</span>0513-88665021</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-87631686'><span>如皋支行</span>0513-87631686</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-84159559'><span>如东支行</span>0513-84159559</view>
+    </view>
+  </view>
+
+</view>
+
+
+
+<view class='fbuttom'>
+    <view class="btn" bindtap='showShare'>分<text>\t\t\t\t\t\t</text>享</view>
+    <view bindtap="apli" class="btn blu">立即申请</view>
+</view>
+
+<view class="{{shareBox}}">
+
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+  
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image></button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+<view style='position:fixed;top:-50%;left:0;width:100%;height:200%;background:#fff;z-index:-1;'></view>
+<my-login loginFlag="{{loginFlag}}" ></my-login>

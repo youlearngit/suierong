@@ -1,0 +1,70 @@
+<view class="container_content">
+  <image class="container_bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/bg2_dd.png"></image>
+  <view class="text1" wx:if="{{info==1}}">修改订单详情</view>
+  <view class="text1" wx:else>{{shType==0?'填写订单信息':'订单信息详情'}}</view>
+  <view class="box">
+    <image wx:if="{{shType!=0&&preffixUrl}}" bindtap="editorEvent" data-message="editor" class="boxinnerimg" src="{{preffixUrl}}/static/wechat/img/order/sh_editorimg.png"></image>
+    <view class="row {{shType==0?'':'styleChange'}}">订单号</view>
+    <view class="row1 {{shType==0?'':'noborder'}}">
+      <input class="{{shType==0?'row1input':'inputChange'}}" disabled="{{shType==0?'':true}}" placeholder="请输入订单号" placeholder-class="placeholderStyle" maxlength="20" value="{{listvalue.orderNo}}" data-name="orderNo" bindblur="funInput" bindinput="inputonly"/>
+    </view>
+    <view class="row {{shType==0?'':'styleChange'}}">订单金额(元)<text class="icontext">*</text></view>
+    <view class="row1 {{shType==0?'':'noborder'}}">
+      <input class="row1input" type="text" disabled="{{shType==0?'':true}}" placeholder="请输入大于0的订单金额" placeholder-class="placeholderStyle" value="{{listvalue.orderMoney}}" data-name="orderMoney" bindblur="funInput" bindinput="inputIimit" maxlength="200"/>
+    </view>
+    <view class="row {{shType==0?'':'styleChange'}}">商品信息<text class="rowtext">丨选填</text></view>
+    <view class="row1 {{shType==0?'':'noborder'}}">
+    <textarea class="textareaStyle" disabled="{{shType1==0?'':true}}" placeholder="请输入商品信息" value="{{listvalue.remark}}" data-name="remark" bindblur="funInput" bindtap="{{shType1==2?'uneditor':''}}"></textarea>
+    </view>
+    <view class="row {{shType==0?'':'styleChange'}}">付款商户</view>
+    <view class="row1 timebox {{shType==0?'':'noborder'}}">
+      <input class="row1input widthinput" type="text" disabled="{{shType1==0?'':true}}" placeholder="请输入商户名称" placeholder-class="placeholderStyle" maxlength="20" value="{{listvalue.customerName}}" data-name="customerName" bindblur="funInput"  bindtap="{{shType1==2?'uneditor':'bindEvent'}}" bindinput="getValue" style="{{inputMarBot?'margin-bottom:200rpx':''}}"/>
+      <view class="timeright" style="width:22rpx;height:22rpx;">
+            <image class="timeicon" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/search_img.png"></image>
+      </view>
+      <view class="downfilterlist" wx:if="{{downsearch}}" style="height:{{height}}">
+        <block wx:if="{{allList.length>0}}">
+            <view wx:for="{{allList}}" wx:key="index" bindtap="jumpcustomerName" data-item="{{item}}">{{item.customerName}}</view>
+        </block>
+            <view wx:else>暂无此商户</view>
+        </view>
+    </view>
+     <view class="row {{shType==0?'':'styleChange'}}">营销人员</view>
+    <view class="row1 {{shType==0?'':'noborder'}}">
+      <input class="row1input" type="text" disabled="{{shType1==0?'':true}}" placeholder="请输入姓名" placeholder-class="placeholderStyle" style="width:180rpx;" value="{{listvalue.seller}}" data-name="seller" bindblur="funInput" bindtap="{{shType1==2?'uneditor':''}}"/> <text class="text2">|</text>
+      <input class="row1input" type="number" disabled="{{shType1==0?'':true}}" placeholder="请输入手机号码" placeholder-class="placeholderStyle" maxlength="11" value="{{listvalue.sellerPhone}}" data-name="sellerPhone" bindblur="funInput" bindtap="{{shType1==2?'uneditor':''}}"/>
+    </view>
+    <view class="row {{shType==0?'':'styleChange'}}">应收时间</view>
+     <view class="row1 timebox {{shType==0?'':'noborder'}}">
+        <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+            <input type="text" placeholder-class="placeholderStyle" placeholder="请选择时间" disabled="true" value="{{listvalue.collectionTime}}"/>
+        </picker>
+        <view class="timeright">
+            <image class="timeicon" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/time_icon.png"></image>
+        </view>
+        <view wx:if="{{shType1==2}}" class="outbox" bindtap="{{shType1==2?'uneditor':''}}"></view>
+    </view>
+    <view class="row {{shType==0?'':'styleChange'}}">订单状态</view>
+    <view class="orderstatus">
+        <view class="orderstatusbox" bindtap="changeOrderStatus" data-status="0">
+            <image wx:if="{{orderStatus!='0'}}" class="statusimg" src="{{preffixUrl}}/static/wechat/img/order/yfk_img.png"></image>
+            <image wx:else class="statusimg" src="{{preffixUrl}}/static/wechat/img/order/yfk_img1.png"></image>
+        </view>
+        <view class="orderstatusbox" bindtap="changeOrderStatus" data-status="1">
+            <image wx:if="{{orderStatus!='1'}}" class="statusimg" src="{{preffixUrl}}/static/wechat/img/order/wfk_img.png"></image>
+            <image wx:else class="statusimg" src="{{preffixUrl}}/static/wechat/img/order/wfk_img1.png"></image>
+        </view>
+        <view class="orderstatusbox" bindtap="changeOrderStatus" data-status="2">
+            <image wx:if="{{orderStatus!='2'}}" class="statusimg" src="{{preffixUrl}}/static/wechat/img/order/qk_img.png"></image>
+            <image wx:else class="statusimg" src="{{preffixUrl}}/static/wechat/img/order/qk_img1.png"></image>
+        </view>
+    </view>
+    <textarea wx:if="{{orderStatus=='0'}}" class="textareaStyle" disabled="{{shType==0?'':true}}" placeholder="请输入已付款备注" value="{{listvalue.collectRemark}}" data-name="collectRemark" bindblur="funInput" style="margin-top:20rpx;" maxlength="200"></textarea>
+    <!-- 不可修改遮挡框 -->
+    <view wx:if="{{shType!=0}}" class="orderstatus_shadow"></view>
+  </view>
+  <view class="bottombox" wx:if="{{shType==0}}">
+    <view bindtap="cancle">取消</view>
+    <view bindtap="sureAdd">{{info==0?'确认新增':'确认修改'}}</view>
+  </view>
+</view>

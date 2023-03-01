@@ -1,0 +1,122 @@
+/* pages/creditInfo/authList.wxss */
+
+@import "/assets/styles/weui.wxss";
+page {
+    background-color: white;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+    border-color: #0066b3 !important;
+    background: #0066b3!important;
+  
+   
+}
+
+.bottom button {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 90%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+.add {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    height: 80rpx;
+    bottom: 16%;
+    background-color: white;
+    color: #16a8fa;
+    text-align: center;
+    border: 1rpx solid #16a8fa;
+    border-radius: 5px;
+    margin: auto;
+    display: table;
+}
+
+.add text {
+    padding: 10rpx;
+    margin: auto;
+    font-size: 33rpx;
+    color: #16a8fa;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.title {
+    margin: auto;
+    font-size: 34rpx;
+    margin-top: 30rpx;
+    font-weight: bold;
+    color: #0066b3;
+}
+
+.label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* width: 33%; */
+    flex: 1;
+    text-align: left;
+    line-height: 24px;
+    font-size: 32rpx;
+    padding: 10rpx 0 10rpx;
+    /* color: #0066b3; */
+}
+.label2 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* width: 33%; */
+  flex: 1;
+  text-align: left;
+  line-height: 24px;
+  font-size: 26rpx;
+  padding: 10rpx 0 10rpx;
+  /* color: #0066b3; */
+}
+
+.label1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* width: 33%; */
+    flex: 1;
+    text-align: left;
+    line-height: 1.2;
+    font-size: 26rpx;
+    padding: 10rpx 0 10rpx;
+}
+
+.weui-cell:before {
+    left: 0;
+}
+
+.weui-cell {
+    padding: 20rpx 15rpx;
+}
+
+.i-cell-ft {
+    position: relative;
+    text-align: right;
+    color: #495060;
+}
+
+
+/* .i-cell-ft {
+    padding-right: 13px;
+  } */
+
+.i-cell-ft::after {
+    content: " ";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    right: 2px;
+    border-width: 2px 2px 0 0;
+    border-color: #dddee1;
+    border-style: solid;
+    transform: translateY(-50%) matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+}

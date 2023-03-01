@@ -1,0 +1,14 @@
+<!--sub2/pages/crossBorderE/platform.wxml-->
+
+
+<view class="v1">
+   <image class="m1" wx:if="{{preffixUrl}}" style="width:100%;vertical-align:bottom;height:100vh;" src="{{preffixUrl}}/static/wechat/img/zm/zm_53.png"></image>
+ </view>
+<view class="v2">
+  <view class="v21" bindtap="toCloud">
+     <image class="m21" wx:if="{{preffixUrl}}" style="width:286rpx;height:59rpx;"  src="{{preffixUrl}}/static/wechat/img/zm/zm_53_01.png"></image>
+  </view>
+  <view class="v21" bindtap="toDesc">
+     <image class="m21" wx:if="{{preffixUrl}}" style="width:286rpx;height:59rpx;" src="{{preffixUrl}}/static/wechat/img/zm/zm_53_02.png"></image>
+  </view>
+</view>

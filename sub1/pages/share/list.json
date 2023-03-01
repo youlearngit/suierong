@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"van-divider": "/sub1/static/vant-weapp/popup/index"
+	},
+	"enablePullDownRefresh": false
+}

@@ -1,0 +1,54 @@
+<view class="body" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/pub_background.png);">
+  <view class="card"  >
+    <!-- 卡片上半部分 -->
+    <view class="card-top">
+      <view class="result-success-img" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/result_success.png);"></view>
+      <view class="reulst-success-text1">预约成功</view>
+      <view class="reulst-success-text2">预约编号{{yybh}}</view>
+    </view>
+    <!-- 卡片分割图 -->
+    <view class="card-split" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/card_split_line.png);"></view>
+    <!-- 卡片下半部分 -->
+      <!-- FTE开户结果样式 -->
+    <view class="card-foot" wx:if="{{accountType == 'FTE'}}">
+      <view class="info-background">
+        <view class="info-title">恭喜您，成功预约我行对FTE账户。</view>
+        <view class="info-text-bord">
+          <view class="info-text">请您于7日内携带以下资料：</view>
+          <view class="info-text">·营业执照正本 <text class="info-text-sub">（或上级主管部门的营业执照正本）</text></view>
+          <view class="info-text">·主管部门批文或证明文件</view>
+          <view class="info-text">·基本存款账户信息或开户许可证<text class="info-text-sub">（如有）</text></view>
+          <view class="info-text">·身份证原件<text class="info-text-sub">（法定代表人、财务负责人、授权经办人、大额查证人）</text></view>
+          <view class="info-text">·公司章程原件、企业公章、法人章、财务章</view>
+          <view class="info-text">·前来{{yywd}}网点<text class="info-text-sub">（具体地址）</text>办理开户业务。</view>
+          <text>\n</text>
+        </view>
+      </view>
+    </view>
+      <!-- FTN开户结果样式 -->
+    <view class="card-foot" wx:if="{{accountType == 'FTN'}}">
+      <scroll-view  class="info-background" scroll-y="true" enhanced="true" show-scrollbar="true">
+        <view class="info-title">恭喜您，成功预约我行对FTN账户。</view>
+        <view class="info-text-bord">
+          <view class="info-text">请您于7日内携带以下资料：</view>
+          <view class="info-text">·商业登记条例 <text class="info-text-sub">（或注册证明文件）</text></view>
+          <view class="info-text">·公司注册证书</view>
+          <view class="info-text">·基本存款账户信息或开户许可证<text class="info-text-sub">（如有）</text></view>
+          <view class="info-text">·身份证原件<text class="info-text-sub">（法定代表人、财务负责人、授权经办人、大额查证人）</text></view>
+          <view class="info-text">·特殊机构代码赋码通知书<text class="info-text-sub">（银行联）</text></view>
+          <view class="info-text">·周年申报表<text class="info-text-sub">（如有）</text></view>
+          <view class="info-text">·公司章程原件</view>
+          <view class="info-text">·10%以上股东资料</view>
+          <view class="info-text">·ODI业务登记凭证<text class="info-text-sub">（如有）</text></view>
+          <view class="info-text">·受益人证件复印件</view>
+          <view class="info-text">·股权结构图<text class="info-text-sub">（如有）</text></view>
+          <view class="info-text">·董事在职证明<text class="info-text-sub">（如有）</text></view>
+          <view class="info-text">·第三方查册原件、企业公章、法人章、财务章</view>
+          <view class="info-text">·前来{{yywd}}网点<text class="info-text-sub">（具体地址）</text>办理开户业务。</view>
+          <text>\n</text>
+        </view>
+      </scroll-view >
+    </view>
+  </view>
+  <view class="btn" bindtap="submit">完成</view>
+</view>

@@ -1,0 +1,71 @@
+<view class='banner'>
+    <image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/credit/zx_title.png" style="width:100%"></image>
+</view>
+<view style="width:90%;margin:auto">
+    <view class="formInfo" style="margin:auto">
+        <view class="title">请输入借款企业信息</view>
+        <form bindsubmit="submitForm" report-submit='true'>
+          <view>
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">借款企业名称</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="请输入企业名称" bindblur="getCode" bindinput='getInput' name="enterprise_name" value="{{enterprise_name}}" />
+                  </view>
+                  <view class="weui-cell__ft">
+                      <!-- <button type="default" class="serBtn" bindtap="searchkey"  wx:if="{{enterpriseFrIndex=='0'}}" style="color:white;background-color:#0066b3;" hover-class="other-button-hover">
+                          查询
+                      </button> -->
+                  </view>
+              </view>
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">
+                          <text>统一机构代码</text>
+                      </view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="统一社会信用代码" name="credit_code" value="{{credit_code}}" />
+                  </view>
+              </view>
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">工商登记号</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="请输入工商登记号" name="registration_no" value="{{registration_no}}" />
+                  </view>
+              </view>
+              <view class="weui-cell weui-cell_input">
+                  <view class="weui-cell__hd">
+                      <view class="weui-label">组织机构代码</view>
+                  </view>
+                  <view class="weui-cell__bd">
+                      <input class="weui-input" placeholder="请输入组织机构代码" name="enterprise_code" value="{{enterprise_code}}" />
+                  </view>
+              </view>
+              <!-- UI用来显示最后一条横线 -->
+              <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+          </view>
+
+          <!-- 公司模糊查询搜索结果页、选取值 -->
+          <view class="coverBox" hidden="{{coverHidden}}" style="{{business_type==2?'top: 59%;':''}}">
+              <view class='beback' bindtap="beback">
+                  <em></em>
+                  <text>返回</text>
+              </view>
+              <view class="h1">请选择您的公司</view>
+              <scroll-view scroll-y class="coverList">
+                  <view class="single" data-name="{{item.entNames}}" bindtap='ed0161' wx:for="{{selectComList}}" wx:key="key">
+                      {{item.entNames}}
+                  </view>
+              </scroll-view>
+          </view>
+          <view class="bottom">
+              <button formType="submit">下一步</button>
+          </view>
+        </form>
+    </view>
+    <i-toast id="toast" />
+</view>

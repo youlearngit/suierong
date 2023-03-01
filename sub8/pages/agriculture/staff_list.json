@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-image": "/sub8/static/vant/weapp/image/index",
+    "van-popup": "/sub8/static/vant/weapp/popup/index",
+    "van-tree-select": "/sub8/static/vant/weapp/tree-select/index",
+    "van-picker": "/sub8/static/vant/weapp/picker/index"
+  }
+}

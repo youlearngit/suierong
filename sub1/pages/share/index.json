@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"van-popup": "/sub1/static/vant-weapp/popup/index",
+		"my-poster": "/sub1/component/poster/index",
+		"my-login": "/component/login/index"
+	},
+	"enablePullDownRefresh": false
+}

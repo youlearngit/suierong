@@ -1,0 +1,12 @@
+<!--sub1/pages/recommendationInvitation.wxml-->
+<view class="rule">
+  推荐官邀好友完成签约，行员可另获得3000苏银豆/户,还有小组激励奖等您拿！
+</view>
+
+
+<view class="ljyq">
+<button open-type='share' class="shareToAPP">
+<image src="../../static/images/immediateInvitation.png" mode="widthFix" style="width: 504rpx;height: 90rpx;"></image>
+</button>
+</view>
+

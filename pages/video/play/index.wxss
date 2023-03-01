@@ -1,0 +1,48 @@
+image{
+  /* width: 100vw;height: 100vh; */
+}
+.container{
+  position: relative;
+  height: 100%;width: 100vw;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.diyNav1{position:fixed;z-index:10;width: 100vw;padding-left: 20rpx;display: flex; align-items: center;}
+.topTit{
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  text-align: center;
+  margin-left: 190rpx;
+}
+.backPage1 image{display:block;width:20rpx;height:36rpx;outline:none;border:0;padding:0;margin:0;}
+.backPage1{display:inline-block;height:16px;line-height:16px;margin:5px 0;padding:3px 10px 3px 15px;width:15rpx;overflow:hidden;}
+
+.cont{
+  position: absolute;top: 380rpx;
+  width: 690rpx;height: auto;
+  margin: 0 auto;
+}
+.cTit{
+  display: flex;
+  align-items: center;
+  font-family: SourceHanSansSC-Bold;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: justify;
+  font-weight: 500;
+}
+.cTit image{
+  width: 18rpx;height: 22rpx;
+  margin-right: 17rpx;
+}
+.detail{
+  position: relative;
+  width: 690rpx;height: 390rpx;
+  border-radius: 12px;
+  margin-top: 40rpx;
+}
+video{
+  width: 100%;height: 100%;
+  border-radius: 12px;
+}

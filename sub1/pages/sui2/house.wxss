@@ -1,0 +1,120 @@
+@import "/assets/styles/weui.wxss";
+
+page {
+	background-color: #f1f1f1;
+}
+
+.history {
+	text-decoration: underline;
+	margin-top: 10rpx;
+	vertical-align: middle;
+}
+
+.history icon {
+	margin-right: 10rpx;
+}
+
+.weui-cell {
+	justify-content: space-between;
+}
+
+.weui-input {
+	width: 350rpx;
+	padding: 0 30rpx;
+}
+
+.a1 {
+	/* padding: 40rpx 30rpx; */
+	width: 94%;
+	margin: 20rpx auto;
+	border-radius: 20rpx;
+}
+
+.a2 {
+	display: flex;
+	align-items: center;
+}
+
+.weui-cells_after-title {
+	margin-top: 0;
+	border-radius: 20rpx;
+	overflow: hidden;
+	background-color: white;
+}
+
+.houseForm .weui-cell {
+	padding: 0rpx 20rpx;
+}
+
+.houseForm .formBtn {
+	background-image: linear-gradient(0deg, #4586e6 0%, #5898f5 100%);
+	box-shadow: 0 6rpx 13rpx 0 rgba(69, 134, 229, 0.3);
+	border-radius: 50rpx;
+	font-family: PingFangSC-Medium;
+	font-size: 34rpx;
+	color: #ffffff;
+	letter-spacing: 0;
+	text-align: center;
+	line-height: 100rpx;
+	height: 100rpx;
+	width: 94%;
+	margin: 80rpx auto;
+}
+
+.houseForm .weui-label {
+	padding: 40rpx 30rpx;
+	font-family: PingFangSC-Medium;
+	font-size: 30rpx;
+	color: #333333;
+	letter-spacing: 0;
+	line-height: 30rpx;
+}
+
+.houseForm .serBtn {
+	background: #4586e6;
+	border-radius: 24rpx;
+	height: 48rpx;
+	width: 102rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 24rpx;
+	color: #ffffff;
+	letter-spacing: 0;
+	line-height: 48rpx;
+}
+
+.input-placeholder {
+	font-family: PingFangSC-Regular;
+	font-size: 30rpx;
+	color: #cccccc;
+	letter-spacing: 0;
+	text-align: right;
+	line-height: 30rpx;
+}
+
+.weui-input {
+	text-align: right;
+}
+
+.weui-cell:before {
+	content: " ";
+	position: absolute;
+	width: 90%;
+	left: 0;
+	top: 0;
+	height: 1px;
+	border-top: 1rpx solid #eeeeee;
+	color: #eeeeee;
+	margin: auto;
+}
+
+.k4 {
+    height: 110rpx;
+    /* margin: 5px 15px;wxcs_style_margin; */
+    /* background: #ffffff; */
+    border-radius: 10rpx;
+    padding: 20rpx;
+    font-size: 30rpx;
+    width: 76%;
+    margin: 10rpx 0rpx;
+    float: right;
+  }

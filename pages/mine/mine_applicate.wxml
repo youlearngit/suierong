@@ -1,0 +1,610 @@
+<page>
+    <view class="head">
+        <image class="headBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/mine_head.jpg"></image>
+        <view class="userinfo">
+            <view wx:if="{{!hasUserInfo && canIUse}}" class="userinfoBox">
+                <image class="userinfo-avatar" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/no_avator.png" mode="cover"></image>
+                <button class="getUserbtn" bindtap="getUserInfo">授权登录</button>
+            </view>
+            <view wx:else class="userinfoBox">
+                <image bindtap="bindViewTap" class="userinfo-avatar" wx:if='{{preffixUrl}}' src="{{userInfo.avatarUrl}}" mode="cover"></image>
+                <text class="nickname">您好, {{userInfo.nickName}}</text>
+            </view>
+            <!-- <view>
+                <view class="userinfo-avatar" hover-class="none" hover-stop-propagation="false">
+                    <open-data type="userAvatarUrl"></open-data>
+                </view>
+                <div class="nickname">
+                    您好,
+                    <open-data type="userNickName"></open-data>
+                </div>
+            </view> -->
+        </view>
+    </view>
+    <view class='listCon' wx:if='{{_apply!=""}}'>
+        <view class="listBox">
+            <view class="listBoxTime">
+                <view class='applTime'>订单号：{{_apply.ORDER_NO}}</view>
+                <view class='applTime'>
+                    日
+                    <em style="display:inline-block;width:27rpx;"></em>
+                    期：{{_apply.APPLY_DATE}}
+                </view>
+            </view>
+            <view class="listBoxBody" wx:if="{{_apply.APPLY_TYPE!='16'}}">
+                <view class="applName">
+                    <image class="appNameIco" wx:if='{{preffixUrl && _apply.APPLY_TYPE==1}}' src="{{preffixUrl}}/static/wechat/img/ico_dian.jpg"></image>
+                    <image class="appNameIco" wx:if='{{preffixUrl && _apply.APPLY_TYPE==2}}' src="{{preffixUrl}}/static/wechat/img/ico_rcd.jpg"></image>
+                    <text wx:if='{{_apply.APPLY_TYPE==3}}'>惠捷贷</text>
+                    <image class="appNameIco" wx:if='{{preffixUrl && _apply.APPLY_TYPE==4}}' src="{{preffixUrl}}/static/wechat/img/temp/ico_shuitext.jpg"></image>
+                    <text wx:if='{{_apply.APPLY_TYPE==5}}'>一般业务</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==6}}'>快e贷</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==7}}'>高企贷</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==8}}'>微e融</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==9}}'>苏州征信贷</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==10}}'>阳光贷</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==11}}'>人才e贷</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==12}}'>快易贷</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==13}}'>新农贷</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==14}}'>随e贷</text>
+                    <!-- 随e贷/烟商贷/快易贷 -->
+                    <text wx:if='{{_apply.APPLY_TYPE==18}}'>烟商贷</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==20}}'>村镇银行随e贷</text>
+                    <text wx:if='{{_apply.APPLY_TYPE==21}}'>出口贸e融</text>
+                </view>
+                <view class='applCon'>
+                    <block wx:if="{{_apply.APPLY_TYPE==14 || _apply.APPLY_TYPE==18 || _apply.APPLY_TYPE==20}}">
+                        <view class="amount">审批金额（万元）</view>
+                    </block>
+                    <block wx:else>
+                        <view wx:if='{{_apply.APPLY_TYPE==21&&_apply.SHOW_STATE!=2}}' class="amount">申请金额（元）</view>
+                        <view wx:else class="amount">申请金额（万元）</view>
+                    </block>
+                    <view class="applMoney" wx:if="{{_apply.SHOW_STATE!=2}}">
+                        {{_apply.APPLY_AMOUNT ? _apply.APPLY_AMOUNT : _apply.APPLY_AMOUNT}}
+                    </view>
+                </view>
+            </view>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==1 && _apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14&& _apply.APPLY_TYPE!=16&& _apply.APPLY_TYPE!=20}}'>
+                已提交
+            </span>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==2 && _apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14&& _apply.APPLY_TYPE!=16&& _apply.APPLY_TYPE!=20&& _apply.APPLY_TYPE!=21}}'>
+                受理中
+            </span>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==3 && _apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14&& _apply.APPLY_TYPE!=16&& _apply.APPLY_TYPE!=20}}'>
+                审批通过
+            </span>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==4 && _apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14&& _apply.APPLY_TYPE!=16&& _apply.APPLY_TYPE!=20&& _apply.APPLY_TYPE!=18 }}'>
+                订单失效
+            </span>
+            
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==1 && _apply.APPLY_TYPE<2}}'>
+                已提交
+            </span>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==2 && _apply.APPLY_TYPE<2}}'>
+                审批中
+            </span>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==3 && _apply.APPLY_TYPE<2}}'>
+                审批通过
+            </span>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==4 && _apply.APPLY_TYPE<2}}'>
+                订单关闭
+            </span>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==1 && _apply.APPLY_TYPE==16}}'>
+                受理中
+            </span>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==2 && _apply.APPLY_TYPE==16}}'>
+                认证通过
+            </span>
+            <span class="state s2" wx:if='{{_apply.SHOW_STATE==3 && _apply.APPLY_TYPE==16}}'>
+                认证不通过
+            </span>
+        </view>
+        <view class="listBox" wx:if="{{_apply.APPLY_TYPE==16}}">
+            <view class="apply-title" hover-class="none" hover-stop-propagation="false">订单详情</view>
+            <view style="padding: 20rpx;border-bottom: #ddd 1rpx solid;font-size: 30rpx;">
+
+                <view class='applTime2'>人才姓名：{{queryResult.PERSON_NAME2}}</view>
+                <view class='applTime2'>人才身份证：{{queryResult.CERT_NO2}}</view>
+                <view class='applTime2'>是否本人申请：{{queryResult.IS_SELF_FLAG}}</view>
+                <view class='applTime2'>公司名称：{{queryResult.COMPANY_NAME}}</view>
+                <view class='applTime2'>统一信用代码：{{queryResult.CREDIT_CODE}}</view>
+                <view class='applTime2' wx:if="{{queryResult.CAGT}}">人才大类：{{queryResult.CAGT}}</view>
+            </view>
+        </view>
+        <view class="appliState">
+            <view class="apply-title" hover-class="none" hover-stop-propagation="false">认证进度</view>
+            <view class="stateBox">
+                <view class='stateTxt'>
+                    <view wx:if="{{_apply.SHOW_STATE>=1&& _apply.APPLY_TYPE!=14&& _apply.APPLY_TYPE!=16}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step1.png"></image>
+                        </view>
+                        <text>已提交</text>
+                    </view>
+                    <view wx:if="{{_apply.SHOW_STATE>=1&& _apply.APPLY_TYPE==14}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step1.png"></image>
+                        </view>
+                        <text>已受理(额度测算中)</text>
+                    </view>
+                    <view wx:if="{{_apply.SHOW_STATE>=1&& _apply.APPLY_TYPE==16}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step1.png"></image>
+                        </view>
+                        <text>提交认证</text>
+                    </view>
+                    <text class='stateTime'>{{_apply.APPLY_DATE}}</text>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE>=1&& _apply.APPLY_TYPE==16}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step1.png"></image>
+                        </view>
+                        <text>受理中</text>
+                    </view>
+                    <text class='stateTime'>{{_apply.APPLY_DATE}}</text>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.APPLY_TYPE!='16'}}">
+                    <view wx:if="{{_apply.SHOW_STATE>=2 &&  _apply.APPLY_TYPE!=8&&_apply.APPLY_TYPE!=14&&_apply.APPLY_TYPE!=21}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step2.png"></image>
+                        </view>
+                        <text wx:if='{{_apply.APPLY_TYPE<2 }}'>审批中</text>
+                        <text wx:if='{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}'>受理中</text>
+                        <!-- <text wx:if='{{_apply.APPLY_TYPE==14}}'>已受理(额度测算中)</text> -->
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE<=1 && _apply.APPLY_TYPE ==4}}">
+                            {{queryResult.orderCreatetime}}
+                        </text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14 && _apply.APPLY_TYPE<4}}">
+                            {{queryResult.attribute11==null || queryResult.attribute11==''?queryResult.attribute10:queryResult.attribute11}}
+                        </text>
+                    </view>
+                    <!-- 快e贷的受理中灰色 -->
+                    <view wx:if="{{_apply.SHOW_STATE==1&& _apply.APPLY_TYPE==6}}" class='stateStep'>
+                        <view class="stateIco bgOld">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step2.png"></image>
+                        </view>
+                        <text wx:if='{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}'>受理中</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.APPLY_TYPE!='16'}}">
+                    <view wx:if="{{_apply.SHOW_STATE==3}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}static/wechat/img/ico_state_step2.png"></image>
+                        </view>
+                        <text wx:if="{{_apply.APPLY_TYPE!=14}}">审批通过</text>
+                        <text wx:if="{{_apply.APPLY_TYPE==14}}">已审批(额度待确认)</text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE<2 || _apply.APPLY_TYPE==4}}">
+                            {{queryResult.approveTime}}
+                        </text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}">
+                            {{queryResult.attribute12}}
+                        </text>
+                        <text wx:if="{{_apply.APPLY_TYPE==1}}" class='stateTime'>
+                            审批通过金额: {{queryResult.approveAmount/10000}} (万元)
+                        </text>
+                        <text wx:if="{{_apply.APPLY_TYPE==1}}" class='stateTime'>
+                            审批通过期限: {{queryResult.approveTerm}} (月)
+                        </text>
+                        <text wx:if="{{_apply.APPLY_TYPE==1}}" class='stateTime'>
+                            审批通过利率: {{queryResult.strikeRateYear}}% (年利率)
+                        </text>
+                    </view>
+                    <!-- 电e融 -->
+                    <view wx:elif="{{_apply.SHOW_STATE==4 && _apply.APPLY_TYPE==1}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text>审批不通过</text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.SHOW_STATE==4 && _apply.APPLY_TYPE==1}}">
+                            {{queryResult.approveTime}}
+                        </text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.SHOW_STATE==4 && _apply.APPLY_TYPE==1}}">
+                            {{queryResult.orderStatusStr}}
+                        </text>
+                    </view>
+                    <view wx:elif="{{_apply.SHOW_STATE==4 && _apply.APPLY_TYPE !=4 && _apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14 && _apply.APPLY_TYPE!=11 && _apply.APPLY_TYPE!=18}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text>订单失效</text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}">
+                            {{queryResult.attribute13}}
+                        </text>
+                    </view>
+                    <!-- 人才e贷审批失败 -->
+                    <view wx:elif="{{_apply.SHOW_STATE==4  && _apply.APPLY_TYPE==11}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text>审批失败</text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}">
+                            {{queryResult.attribute13}}
+                        </text>
+                    </view>
+                    <!-- 人才e贷审批订单失效 -->
+                    <view wx:elif="{{_apply.SHOW_STATE==5  && _apply.APPLY_TYPE==11}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text>订单失效</text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}">
+                            {{queryResult.attribute13}}
+                        </text>
+                    </view>
+                    <!-- 税e融 -->
+                    <view wx:elif="{{_apply.SHOW_STATE==4 && _apply.APPLY_TYPE==4}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text>审批失败</text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}">
+                            {{queryResult.attribute13}}
+                        </text>
+                    </view>
+                    <!-- 快e贷 -->
+                    <view wx:elif="{{_apply.SHOW_STATE==4 && _apply.APPLY_TYPE==6}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text>审批未通过</text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}">
+                            {{queryResult.attribute13}}
+                        </text>
+                    </view>
+                      <!-- 出口贸e融 -->
+                    <!-- <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==2&&_apply.SHOW_STATE==21}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgOld">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step3.png"></image>
+                        </view>
+                        <text style="color:#999;">已审批</text>
+                    </view>
+                </view> -->
+                    <view wx:elif="{{_apply.SHOW_STATE==5 && _apply.APPLY_TYPE==21}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text>订单失败</text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}">
+                            {{queryResult.attribute13}}
+                        </text>
+                    </view>
+                    <view wx:elif="{{_apply.SHOW_STATE==4 && _apply.APPLY_TYPE==21}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text> 订单失效</text>
+                        <text style='margin-top:-24rpx;' class='stateTime' wx:if="{{_apply.APPLY_TYPE>1&& _apply.APPLY_TYPE!=14}}">
+                            {{queryResult.attribute13}}
+                        </text>
+                    </view>
+                    <view wx:elif="{{_apply.SHOW_STATE==12 && _apply.APPLY_TYPE==21}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                          <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step2.png"></image>
+                        </view>
+                        <text>受理中</text>
+             
+                    </view>
+                    <view wx:elif="{{ _apply.SHOW_STATE==2 &&_apply.APPLY_TYPE==21}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                          <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step2.png"></image>
+                        </view>
+                        <text>人工审批中</text>
+             
+                    </view>
+                    <!-- 烟商贷审批失败 -->
+                    <view wx:elif="{{ _apply.SHOW_STATE==4  && _apply.APPLY_TYPE==18}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text>{{_apply.invalidText}}</text>
+                    </view>
+                    <!-- 微贷已受理 -->
+                    <view wx:elif="{{ _apply.APPLY_TYPE==8}}" class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step3.png"></image>
+                        </view>
+                        <text>已受理</text>
+                        <text class='stateTime'>{{_apply.APPLY_DATE}}</text>
+                    </view>
+                    <view wx:else class='stateStep'>
+                        <view class="stateIco bgOld" wx:if="{{ _apply.APPLY_TYPE!=14 &&  _apply.APPLY_TYPE!=20 && _apply.APPLY_TYPE!=21 }}">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step3.png"></image>
+                        </view>
+                        <text style="color:#999;" wx:if="{{ _apply.APPLY_TYPE!=14 &&  _apply.APPLY_TYPE!=20 && _apply.APPLY_TYPE!=21 }}">审批完成</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==5&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step2.png"></image>
+                        </view>
+                        <text style="">已审批(额度待确认)</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE!=4&&_apply.SHOW_STATE!=5&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgOld">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step3.png"></image>
+                        </view>
+                        <text style="color:#999;">已审批(额度已确认)</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==5&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step3.png"></image>
+                        </view>
+                        <text style="">已审批(额度已确认)</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==5&&_apply.APPLY_TYPE==20}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step3.png"></image>
+                        </view>
+                        <text style="">已审批(额度已确认)</text>
+                    </view>
+                </view>
+                <!-- 烟商贷 -->
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==5&&_apply.APPLY_TYPE==18}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step3.png"></image>
+                        </view>
+                        <text style="">已审批(额度已确认)</text>
+                    </view>
+                </view>
+                <!-- 烟商贷失败 -->
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==5&&_apply.APPLY_TYPE==18}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">准入不通过</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==6&&_apply.APPLY_TYPE==18}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">审批不通过(订单关闭)</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==7&&_apply.APPLY_TYPE==18}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">审批不通过(评分低)</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==12&&_apply.APPLY_TYPE==18}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">超期未确认(订单关闭)</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==8&&_apply.APPLY_TYPE==18}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">业务终结</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==9&&_apply.APPLY_TYPE==18}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">系统异常(订单关闭)</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==10&&_apply.APPLY_TYPE==18}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">人工关闭(网贷)</text>
+                    </view>
+                </view>
+                <!-- 随e贷错误 -->
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==5&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">准入失败</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==6&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">审批未通过</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==7&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">审批未通过</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==8&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">业务已终结!</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==9&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">系统异常,请稍后再试!</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==10&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">业务已终结!</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==12&&_apply.APPLY_TYPE==14}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">业务已终结!</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==2&&_apply.APPLY_TYPE==16}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step3.png"></image>
+                        </view>
+                        <text style="">认证通过</text>
+                    </view>
+                    <text class='stateTime'>{{_apply.ATTR1}}</text>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==3&&_apply.APPLY_TYPE==16}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">认证不通过</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE!=3&&_apply.SHOW_STATE!=2&&_apply.APPLY_TYPE==16}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgOld">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step3.png"></image>
+                        </view>
+                        <text style="color:#999;">认证通过</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view style="text-align:center;margin:50rpx;">
+            <navigator wx:if="{{_apply.APPLY_TYPE==4 && _apply.SHOW_STATE==3}}" class="btn" url='/pages/shui/submit_suc?amount={{queryResult.approveAmount/10000}}&term={{queryResult.approveTerm}}&date={{queryResult.approveTime}}&nianlvli={{queryResult.strikeRateYear}}'>
+                查看审批结果
+                <view class="arrow whi"></view>
+            </navigator>
+        </view>
+        <!-- 快e贷的查看审批结果 -->
+        <view style="text-align:center;margin:50rpx;">
+            <navigator wx:if="{{_apply.APPLY_TYPE==6 && _apply.SHOW_STATE==3}}" class="btn" url='/pages/ked/submit_suc?amount={{queryResult.approveAmount/10000}}&term={{queryResult.approveTerm}}&date={{queryResult.approveTime}}&nianlvli={{queryResult.strikeRateYear}}'>
+                查看审批结果
+                <view class="arrow whi"></view>
+            </navigator>
+        </view>
+        <!-- 人才e贷的查看审批结果 -->
+        <view style="text-align:center;margin:50rpx;">
+            <navigator wx:if="{{_apply.APPLY_TYPE==11 && _apply.SHOW_STATE==3}}" class="btn" url='/pages/personnel/submit_suc?amount={{queryResult.approveAmount/10000}}&term={{queryResult.approveTerm}}&date={{queryResult.approveTime}}&nianlvli={{queryResult.strikeRateYear}}'>
+                查看审批结果
+                <view class="arrow whi"></view>
+            </navigator>
+        </view>
+        <view style="text-align:center;margin:50rpx;">
+            <navigator wx:if="{{_apply.APPLY_TYPE==11 && _apply.SHOW_STATE==3}}" class="btn" url='/pages/personnel/submit_suc?amount={{queryResult.approveAmount/10000}}&term={{queryResult.approveTerm}}&date={{queryResult.approveTime}}&nianlvli={{queryResult.strikeRateYear}}'>
+                查看审批结果
+                <view class="arrow whi"></view>
+            </navigator>
+        </view>
+
+                <!-- 随e贷错误 -->
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==5&&_apply.APPLY_TYPE==20}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">准入失败</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==6&&_apply.APPLY_TYPE==20}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">审批未通过</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==7&&_apply.APPLY_TYPE==20}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">审批未通过</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==8&&_apply.APPLY_TYPE==20}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">业务已终结!</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==9&&_apply.APPLY_TYPE==20}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">系统异常,请稍后再试!</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==10&&_apply.APPLY_TYPE==20}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">业务已终结!</text>
+                    </view>
+                </view>
+                <view class='stateTxt' wx:if="{{_apply.SHOW_STATE==4&&_apply.ORDER_STATE==12&&_apply.APPLY_TYPE==20}}">
+                    <view class='stateStep'>
+                        <view class="stateIco bgNow">
+                            <image class="ico_state" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_state_step4.png"></image>
+                        </view>
+                        <text style="">业务已终结!</text>
+                    </view>
+                </view>
+
+        <view style="text-align:center;margin:50rpx;">
+            <view wx:if="{{_apply.APPLY_TYPE==14  && _apply.SHOW_STATE==3}}" class="btn" bindtap="confirmResult">
+                确认额度
+                <view class="arrow whi"></view>
+            </view>
+        </view>
+        <view style="text-align:center;margin:50rpx;">
+            <view wx:if="{{_apply.APPLY_TYPE==18  && _apply.SHOW_STATE==3}}" class="btn" bindtap="confirmResult1">
+                确认额度
+                <view class="arrow whi"></view>
+            </view>
+        </view>
+        <view style="text-align:center;margin:50rpx;">
+            <view wx:if="{{_apply.APPLY_TYPE==14  && _apply.SHOW_STATE==5}}" class="btn" bindtap="getResult">
+                查看审批结果
+                <view class="arrow whi"></view>
+            </view>
+        </view>
+        <view style="text-align:center;margin:50rpx;">
+            <navigator class="btn" style="background: #0168b7;" hover-class='none' open-type="switchTab" url='/pages/shop/index2'>
+                返回主页
+            </navigator>
+        </view>
+    </view>
+</page>

@@ -1,0 +1,51 @@
+<!-- 多级关联封装 -->
+<van-overlay show="{{show}}" z-index='1000'>
+  <view class="acc_model">
+    <view style="padding-bottom: 50rpx">
+      <view class="acc_tradeTip">
+        <image src="{{preffixUrl}}static/wechat/img/zm/acc_tradeType.png" class="acc_tradeType" />
+        <view class="acc_tradeTxt1">行业分类</view>
+      </view>
+      <view class="acc_tradeBorder"></view>
+      <scroll-view scroll-y style="height: 100vh;">
+        <view wx:for="{{tradeTypeList}}" wx:key="index" class="acc">
+          <view class="acc_types" catchtap="selectId1C" data-id="{{item.id}}" data-txt="{{item.txt}}">
+            <view class="acc_typesItem">{{ item.id }}</view>
+            <view class="acc_typesItem1">{{ item.txt }}</view>
+            <image src="{{preffixUrl}}/static/wechat/img/zm/industryDI.png" class="acc_typesItem2"
+              wx:if="{{selectId1 == item.id}}" />
+          </view>
+          <!-- <view wx:for="{{item.child}}" wx:for-item='item1' wx:for-index='index1' wx:key="index1">
+            <view class="{{selectId2 == item1.id? 'acc_typesItem3Select': 'acc_typesItem3'}}"
+              wx:if="{{selectId1 == item.id}}" catchtap="selectId2C" data-id="{{item1.id}}">
+              <image src="{{preffixUrl}}/static/wechat/img/zm/industryWA.png" class="acc_typesItem4"
+                wx:if="{{selectId2 == item1.id}}" />
+              <image src="{{preffixUrl}}/static/wechat/img/zm/industryPR.png" class="acc_typesItem6" wx:else />
+
+              <view class="{{  selectId2 == item1.id? 'acc_typesItem5Select': 'acc_typesItem5'}}">
+                {{ item1.txt }}
+              </view>
+            </view>
+            <view wx:for="{{item1.child}}" wx:for-item='item11' wx:for-index='index11' wx:key="index11">
+              <view class="acc_typesItem7" catchtap="selectId3C" wx:if="{{selectId2 == item1.id}}"
+                data-id="{{item11.id}}">
+                <image src="{{preffixUrl}}/static/wechat/img/zm/industryPA.png" class="acc_typesItem8"
+                  wx:if="selectId3 == item11.id" />
+
+                <image src="{{preffixUrl}}/static/wechat/img/zm/industryPR.png" class="acc_typesItem11" v-else />
+                <view class="acc_typesItem9">{{ item11.txt }}</view>
+              </view>
+              <view wx:for="{{item11.child}}" wx:for-item='item111' wx:for-index='index111' wx:key="index111">
+                <view class="{{selectId4 == item111.id? 'acc_typesItem10Select': 'acc_typesItem10'}}"
+                  catchtap="selectId4C" data-id="{{item111.id}}" data-txt="{{item111.txt}}"
+                  wx:if="{{selectId3 == item11.id}}">
+                  {{ item111.txt }}
+                </view>
+              </view>
+            </view>
+          </view> -->
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</van-overlay>

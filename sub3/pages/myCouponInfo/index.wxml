@@ -1,0 +1,16 @@
+<!-- sub3/pages/myCouponInfo/index.wxml -->
+<view class="title1">{{info.COUPON_TYPPE_txt}}</view>
+<view class="title2">{{info.COUPON_POINT*10000}}bp</view>
+<view style="background: #E3E7F0;height:1rpx;width:96%;margin-left:2%;margin-top:50rpx;"></view>
+<view class="cell">
+    <view class="label">到期日</view>
+    <view class="label2">{{info.ACTIVITY_END_DATE}}</view>
+</view>
+<view class="cell">
+    <view class="label">兑换日</view>
+    <view class="label2">{{info.GET_TIME}}</view>
+</view>
+<view class="cell">
+    <view class="label">适用产品</view>
+    <view class="label2">{{info.PRD_NAME}}</view>
+</view>

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-switch": "/sub4/static/vant/weapp/switch/index",
+    "van-image": "/sub4/static/vant/weapp/image/index",
+    "van-field": "/sub4/static/vant/weapp/field/index",
+    "van-cell-group":"/sub4/static/vant/weapp/cell-group/index",
+    "van-cell":"/sub4/static/vant/weapp/cell/index"
+
+  }
+}

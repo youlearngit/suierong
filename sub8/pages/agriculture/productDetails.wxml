@@ -1,0 +1,15 @@
+<!--sub6/pages/agriculture/productDetails.wxml-->
+<view class="ProductDetails">
+  <image class="bg" src="{{cndUrl}}/static/wechat/img/zssn/cpxqbg.png" mode="widthFix" />
+  <view class="ProductDetailsBox">
+    <view class="NAME">
+      <view>{{productList.NAME}}</view>
+      <view class="xy">
+        <image src="{{cndUrl}}/static/wechat/img/zssn/xy.png"></image>
+      </view>
+     </view>
+    <view class="DETAIL">
+      <Parser class="c-content" html="{{productList.DETAIL}}" space="nbsp"></Parser>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+<!--sub6/pages/toolkit/clipNeck.wxml-->
+<view class="clipNeck">
+  <view class="clipNeckImg">
+  <image src="{{cndUrl}}/static/wechat/img/gjx/kbz.jpg"></image>
+
+  </view>
+  <view class="bg2">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/hightech_bg2.jpg"></image>
+
+    <view class="sec s1">
+      <view class="h2">期限多样</view>
+      <view class="p">根据“卡脖子”项目研发、产业化周期或订单合同期限灵活确定</view>
+    </view>
+    <view class="sec s2">
+      <view class="h2">利率优惠</view>
+      <view class="p">享受低于市场平均价格的优惠利率，节约企业融资成本</view>
+    </view>
+    <view class="sec s3">
+      <view class="h2">担保灵活</view>
+      <view class="p">产业链配套支持类。为“卡脖子”领域企业提供重要原辅材料、重要设备和技术支持等相关配套服务的市场主体</view>
+    </view>
+    <!-- <view class="sec s4">
+      <view class="h2">易办理</view>
+      <view class="p">线上快速申请，线下专人对接。</view>
+    </view> -->
+
+    <view class="proInfo">“卡脖子专项贷”是江苏银行向从事或服务“卡脖子”领域技术攻关、成果转化的科创企业或人才个人发放的，专项用于“卡脖子”项目相关研发、生产活动的贷款业务。</view>
+    <view class="pronewed"> 政府立项支持类。近三年内，主导或参与研发的技术项目被市级以上政府主管部门列入“卡脖子”工程的市场主体；知名创投支持类。近两年内，获得知名创投机构股权投资的“卡脖子”领域技术项目或市场主体；</view>
+  </view>
+  <view class='fbuttom'>
+    <view class=" btn " bindtap='showShare'>分
+      <text>\t\t\t\t\t\t</text>享</view>
+    <view class="btn blu" bindtap='getAmount'>立即申请</view>
+  </view>
+  <view class="{{shareBox}} ">
+    <view class='imagePathBox'>
+      <image src="{{imagePath}}" class='shengcheng'></image>
+    </view>
+    <view hidden="{{maskHidden}} " class="mask "></view>
+    <view class="canvas-box ">
+      <canvas style="width:750px;height:1216px;position:fixed;top:9999px " canvas-id="mycanvas" />
+    </view>
+
+    <view class="tools">
+      <view class="tb cancel" bindtap='showHide'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+        <block>取消</block>
+      </view>
+      <view class="tb shareToAPP">
+        <button open-type='share'>
+          <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+        </button>
+        <block>转发</block>
+      </view>
+      <view class="tb savePic" bindtap='baocun'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+        <view class="saveTxt">朋友圈</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="contont">
+   <view class="box">
+    <View class="title">产品简介：</View>
+    <view class="value">
+      “卡脖子专项贷”是江苏银行向从事或服务“卡脖子”领域技术攻关、成果转化的科创企业或人才个人发放的，专项用于“卡脖子”项目相关研发、生产活动的贷款业务。
+    </view>
+   </view>
+   <view class="box">
+    <View class="title">产品特点：</View>
+    <view class="value">
+      1.期限多样：根据“卡脖子”项目研发、产业化周期或订单合同期限灵活确定，最长不超过3年；
+    </view>
+    <view class="value">
+      2.利率优惠：享受低于市场平均价格的优惠利率，节约企业融资成本；
+    </view>
+    <view class="value">
+      3.担保灵活：优质企业可办理纯信用贷款，也可采用保证、房产抵押、政府风险补偿等方式办理。
+    </view>
+   </view>
+   <view class="box">
+    <View class="title">服务客户：</View>
+    <view class="value">
+      1.政府立项支持类。近三年内，主导或参与研发的技术项目被市级以上政府主管部门列入“卡脖子”工程的市场主体；
+    </view>
+    <view class="value">
+      2.知名创投支持类。近两年内，获得知名创投机构股权投资的“卡脖子”领域技术项目或市场主体；
+    </view>
+    <view class="value">
+      3.产业链配套支持类。为“卡脖子”领域企业提供重要原辅材料、重要设备和技术支持等相关配套服务的市场主体。
+    </view>
+   </view>
+  </view> -->
+  <my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>
+</view>

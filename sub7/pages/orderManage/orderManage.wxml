@@ -1,0 +1,121 @@
+<view class="containerbig">
+    <image class="containerbig_bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/background.png"></image>
+    <view style="padding:40rpx 30rpx 20rpx 30rpx;">
+        <view class="searchbox">
+            <view style="display:flex;flex:1;align-items: center;">
+                <image class="searchbox_img" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/search_img1.png"></image>
+                <input type="text" placeholder="搜索商户名称" placeholder-class="placeholderStyle" bindinput="getValue" value="{{search}}" />
+            </view>
+            <view class="iconfont icon-delete1" wx:if="{{search}}" bindtap="clear_input"></view>
+            <view class="downfilterlist" wx:if="{{downsearch}}" style="height:{{height}}">
+                <block wx:if="{{filterList.length>0}}">
+                    <view wx:for="{{filterList}}" wx:key="index" bindtap="jumpcustomerName" data-item="{{item}}">{{item.customerName}}</view>
+                </block>
+                <view wx:else>暂无此订单</view>
+            </view>
+        </view>
+    </view>
+    <view class="container_content">
+        <image class="container_bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/order_img1.png"></image>
+        <view class="top_container" wx:if="{{!search}}">
+            <view class="{{order=='4'?'active':''}}" bindtap="changeOrder" data-order="4">全部订单</view>
+            <view class="{{order=='0'?'active':''}}" bindtap="changeOrder" data-order="0">已收订单</view>
+            <view class="{{order=='1'?'active':''}}" bindtap="changeOrder" data-order="1">未收订单</view>
+            <view class="{{order=='2'?'active':''}}" bindtap="changeOrder" data-order="2">欠款订单</view>
+        </view>
+        <block wx:if="{{list.length>0}}">
+            <block wx:if="{{!search}}">
+                <view class="functionbox" wx:if="{{!function2}}">
+                    <!-- <view class="row1">
+            <image class="row1bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/sx_img.png"></image>
+            筛选
+        </view> -->
+                    <view class="row1" bindtap="manager">
+                        <image class="row1bg" style="width:28rpx;height:28rpx;" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/plgl_img.png"></image>
+                        批量管理
+                    </view>
+                </view>
+                <view class="function2" wx:if="{{function2}}">
+                    <image class="image1" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/delete_img.png" bindtap="deleteEvent" data-value="all"></image>
+                    <image class="image1" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/success_img.png" bindtap="complete"></image>
+                </view>
+            </block>
+            <view class="box">
+                <!-- 列表循环 -->
+                <scroll-view scroll-y lower-threshold="100" bindscrolltolower="scrollToLower" style="height: calc(100vh - 350rpx);" scroll-top="{{myScrollTop}}">
+                    <van-swipe-cell id="swipe-cell{{index}}" right-width="{{ 120 }}" left-width="{{leftWidth}}" async-close bind:close="onClose" bind:open="onOpen" wx:for="{{list}}" wx:key="index">
+                        <view slot="left">
+                            <view catchtap='checkedTap' data-index="{{index}}">
+                                <radio checked="{{item.checked}}"></radio>
+                            </view>
+                        </view>
+                        <van-cell-group>
+                            <view class="box_content">
+                                <view catchtap="{{isopen==0?'swipeOpen':'swipeClose'}}" data-index="{{index}}" class="boxcell">
+                                    <image class="morebg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/moreicon.png"></image>
+                                </view>
+                                <block wx:if="{{order=='4'}}">
+                                    <view class="row2" wx:if="{{item.orderStatus=='0'}}">{{item.customerName}}<text class="styletext green">已付款</text></view>
+                                    <view class="row2" wx:if="{{item.orderStatus=='1'}}">{{item.customerName}}<text class="styletext orange">未付款</text></view>
+                                    <view class="row2" wx:if="{{item.orderStatus=='2'}}">{{item.customerName}}<text class="styletext pink">欠款</text></view>
+                                </block>
+                                <block wx:else>
+                                    <view class="row2" wx:if="{{item.orderStatus=='0'}}">{{item.customerName}}<text class="styletext green">已付款</text></view>
+                                    <view class="row2" wx:if="{{item.orderStatus=='1'}}">{{item.customerName}}<text class="styletext orange">未付款</text></view>
+                                    <view class="row2" wx:if="{{item.orderStatus=='2'}}">{{item.customerName}}<text class="styletext pink">欠款</text></view>
+                                </block>
+                                <view class="row3">订单号 {{item.orderNo}}</view>
+                                <view class="row4">
+                                    <image class="row4bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/order_img.png"></image>
+                                    <view class="display row4_1">
+                                        <view class="row4_1_1">
+                                            <image class="row4_1_1bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/ddje_img.png"></image>
+                                            <text>订单金额(元)</text>
+                                        </view>
+                                        <view class="row4_1_2">{{item.orderMoney}}</view>
+                                    </view>
+                                    <view class="display row4_1">
+                                        <view class="row4_1_1">
+                                            <image class="row4_1_1bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/yssh_img.png"></image>
+                                            <text>应收时间</text>
+                                        </view>
+                                        <view class="row4_1_2">{{item.collectionTime}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </van-cell-group>
+                        <view slot="right" class="groupbox">
+                            <view class="editor" catchtap="jumpUserPage" data-index="{{index}}" data-msg="1" data-listvalue="{{item}}">
+                                <image class="image2" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/editorIcon.png"></image>编辑
+                            </view>
+                            <view class="delete" bindtap="deleteEvent" data-listvalue="{{item}}" data-index="{{index}}" data-value="one">
+                                <image class="image2" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/deleteIcon.png"></image>删除
+                            </view>
+                        </view>
+                    </van-swipe-cell>
+
+                    <page wx:if="{{!search}}">
+                        <view class="nodata1">
+                            <view class="leftslow"></view>
+                            <text>{{pageTips}}</text>
+                            <view class="leftslow"></view>
+                        </view>
+                    </page>
+                </scroll-view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="nodata">
+                <image class="nodatabg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/noDatas.png"></image>
+            </view>
+        </block>
+    </view>
+</view>
+
+<view class="addbox" bindtap="jumpUserPage" data-msg="0">
+    <!-- <image class="addboxbg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/addOrder_img.png"></image> -->
+    <view class="addboxbg iconfont icon-jiahao"></view>
+</view>
+<van-dialog id="van-dialog" />
+<import src="../../template/tabbar.wxml"/> 
+ <template is="tabBar" data="{{tabBar}}"/>

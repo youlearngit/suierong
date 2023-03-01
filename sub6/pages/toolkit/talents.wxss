@@ -1,0 +1,31 @@
+/* sub6/pages/toolkit/talents.wxss */
+.talents{
+    width: 100%;
+    height: 165%;
+}
+.bg {
+    width: 100%;
+    height: 100%;
+}
+image{
+    width: 100%;
+    height: 100%;
+}
+.back{
+    width: 100%;
+    height: 100rpx;
+}
+.ljsp{
+    width: 393rpx;
+    height: 70rpx;
+    margin: 0 auto;
+    position: relative;
+    top: -262rpx;
+}
+.float_talent_btn {
+	position: fixed;
+	top: 820rpx;
+	right: 0;
+	width: 196rpx;
+	height: 196rpx;
+}

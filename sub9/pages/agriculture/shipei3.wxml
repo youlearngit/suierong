@@ -1,0 +1,223 @@
+<wxs src="./utils.wxs" module="utils" />
+<view>
+  <image class="bg" src="{{cndUrls}}/static/wechat/img/zssn/xqpzbg.png" />
+
+  <scroll-view class="records" scroll-y="true" scroll-into-view="{{toView}}">
+
+    <!-- <view class="time">{{time_now}}</view> -->
+
+    <view class="record other">
+      <view class="record-content" style="display: block;">
+        <view>Hi，欢迎使用江苏银行掌上三农。</view>
+        <view>苏苏会根据您的回答推荐内容哦～</view>
+      </view>
+      <!-- <view class="record-href" bind:tap="next" wx:if="{{questions_way.length==0}}">
+				开始适配<image src="{{preffixUrl}}icon_30_right.png" mode="widthFix"/>
+			</view> -->
+    </view>
+
+    <view class="{{item.questionName}}" wx:for="{{records}}" wx:key="key" wx:index="index" wx:item="item">
+      <view class="scroll-tip">- 滑动查看已回答的问题 -</view>
+      <view class="record other radio">
+        <image class="radio-bg" src="{{cndUrls}}/static/wechat/img/zssn/zssnxzk.png" mode="widthFix" />
+        <view class="radio-idx">
+          <image src="{{cndUrls}}/static/wechat/img/zssn/zssnzs.png" mode="widthFix" />
+          <view>{{index+1}}/{{records.length}}</view>
+        </view>
+        <view class="radio-panel">
+          <view class="radio-head">
+            <image class="popup-icon" src="{{cndUrls}}/static/wechat/img/zssn/xzkjb.png" mode="widthFix" />
+            {{item.title}}
+          </view>
+          <view class="radio-body">
+            <view wx:if="{{item.type == 'radio'}}" wx:for="{{item.items}}" wx:key="_key" wx:for-index="_index" wx:for-item="_item" bind:tap="radio_check" data-check="{{index}}" data-type="{{item.type}}" data-question="{{item.questionName}}" data-answer="{{_item.type}}" data-index="{{_index}}" class="radio-btn {{_item.trueOrfalse?'radio-active':''}}">
+              {{_item.name}}
+              <image wx:if="{{_item.trueOrfalse}}" src="{{cndUrls}}/static/wechat/img/zssn/zssnxz.png" mode="widthFix" />
+            </view>
+            <view wx:if="{{item.type != 'radio'}}" wx:for="{{item.itemss}}" wx:key="_key" wx:for-index="_index" wx:for-item="_item" bind:tap="radio_check" data-check="{{index}}" data-type="{{item.type}}" data-question="{{item.questionName}}" data-answer="{{_item.type}}" data-index="{{_index}}" class="radio-btn {{_item.trueOrfalse?'radio-active':''}}">
+              {{_item.name}}
+              <image wx:if="{{_item.trueOrfalse}}" src="{{cndUrls}}/static/wechat/img/zssn/zssnxz.png" mode="widthFix" />
+            </view>
+          </view>
+          <view class="radio-bottom">
+            <block wx:if="{{index==records.length-1 }}">
+              <view bind:tap="radio_confirm" wx:if="{{!overTrue}}" data-question="{{item.questionName}}" class="radio-bottom-btn {{item.radioTrue?'radio-bottom-btn-activity':''}}">确定</view>
+              <view bind:tap="radio_confirms" wx:else data-index="{{index}}" data-type="{{item.type}}" data-question="{{item.questionName}}" class="radio-bottom-btn-reset">重新选择</view>
+            </block>
+            <block wx:else>
+              <view bind:tap="radio_confirms" data-index="{{index}}" data-type="{{item.type}}" data-question="{{item.questionName}}" class="radio-bottom-btn-reset">重新选择</view>
+            </block>
+          </view>
+        </view>
+      </view>
+      
+
+      
+
+      <block wx:if="{{item.type=='finish'}}">
+        <view class="record other" wx:if="{{talent_staffs.length>0}}">
+          <view class="record-content">为您推荐以下人才服务专员：</view>
+        </view>
+        <view class="staff" wx:for="{{talent_staffs}}" wx:key="index">
+          <image wx:if="{{item.TYPE==1}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer_g.png" mode="widthFix" />
+          <image wx:elif="{{item.TYPE==2}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer.png" mode="widthFix" />
+          <image wx:elif="{{item.TYPE==3}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer_r.png" mode="widthFix" />
+          <view class="staff-body">
+            <view class="staff-inline">
+              <van-image custom-class="staff-avatar" src="{{item.HEAD?item.HEAD:(preffixUrl+'avatar_default.png')}}" fit="widthFix" round />
+              <view>
+                <view class="staff-inline staff-name">
+                  <view class="staff-sname">{{item.STAFFNAME}}</view>
+                  <view class="staff-job">
+                    <view>{{item.WORKUNIT}}</view>
+                    <view wx:if="{{item.JOB}}">{{item.JOB}}</view>
+                  </view>
+                </view>
+                <view class="staff-inline staff-tags">
+                  <view wx:if="{{item.LABEL1}}">{{item.LABEL1}}</view>
+                  <view wx:if="{{item.LABEL2}}">{{item.LABEL2}}</view>
+                  <view wx:if="{{item.LABEL3}}">{{item.LABEL3}}</view>
+                </view>
+              </view>
+            </view>
+            <view class="staff-remark">{{item.RESUME}}</view>
+            <image class="staff-phone" src="{{preffixUrl}}contact_information.png" mode="widthFix" bindtap="phoneCall" data-phone="{{item.TEL}}" />
+          </view>
+        </view>
+        <view class="record other">
+          <view bindtap="finishGo">
+            <image class="only-img" src="{{preffixUrl}}card_adapt_complete.png" mode="widthFix"></image>
+          </view>
+        </view>
+      </block>
+
+    </view>
+    <view wx:if="{{overTrue}}">
+      <view class="record other" wx:if="{{talent_staffs.length>0}}">
+        <view class="record-content">为您推荐以下服务专员：</view>
+      </view>
+      <view class="staff" wx:for="{{talent_staffs}}" wx:key="index">
+        <view class="card" bindtap="getPhone" data-phone="{{item.PHONE}}">
+          <image class="card-bg" src="{{cndUrl}}/static/wechat/img/zssn/znwt.png" mode="widthFix" />
+          <view class="card-body">
+            <view class="card-inline">
+              <van-image wx:if="{{item.SEX == '男'}}" custom-class="card-avatar" src="{{item.HEAD?item.HEAD:(preffixUrl+'avatar_default.png')}}" fit="widthFix" round />
+              <van-image wx:if="{{item.SEX == '女'}}" custom-class="card-avatar" src="{{cndUrl}}/static/wechat/img/zssn/txn.png" fit="widthFix" round />
+              <view>
+                <view class="card-name">
+                  <view class="card-staffname">{{item.PERSONNAME}}</view>
+                  <view class="card-job">
+                    <view>{{item.SHOWNAME}}</view>
+                    <view wx:if="{{item.JOBNAME}}">{{item.JOBNAME}}</view>
+                  </view>
+                </view>
+                <view class="card-inline card-tags">
+                  <view>三农金融</view>
+                  <view>普惠金融</view>
+                </view>
+              </view>
+
+            </view>
+            <image class="lxfs" src="{{cndUrl}}/static/wechat/img/zssn/lxdh.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="record other" style="margin-bottom: 141rpx;">
+        <view bindtap="finishGo">
+        <view class="recommend" wx:if="{{!show1}}">
+            <view>很抱歉，没有查到相关内容哦
+            </view>
+            <view>您还可以查看以下推荐内容</view>
+          </view>
+          <image class="only-img" src="{{cndUrls}}/static/wechat/img/zssn/xqspjg1.png" mode="widthFix"></image>
+        </view>
+      
+      </view>
+    </view>
+    <view wx:if="{{wordTrue}}">
+      <view class="record own">
+        <view class="record-content">
+          {{words}}
+        </view>
+      </view>
+
+      <view class="record other" wx:if="{{searchListTrue}}" style="    margin-bottom: 150rpx;">
+        <view class="articles">
+          <image class="articles-bg" src="{{cndUrls}}/static/wechat/img/zssn/sstk.png" mode="scaleToFill" />
+          <view class="articles-title">
+            <view class="icon"></view>为您推荐以下{{listNum}}项优质内容
+          </view>
+          <view class="articles-plane" wx:for="{{searchList}}" wx:key="k" wx:item="item">
+            <navigator class="article" wx:if="{{item.POLICY_NAME}}" hover-class="none" url="/sub8/pages/agriculture/article?ID={{item.ID}}">
+              {{item.POLICY_NAME}}
+              <view class="article-time">{{item.RELEASE_TIME}}</view>
+            </navigator>
+            <navigator class="article" hover-class="none" wx:if="{{item.NAME}}" url="/sub8/pages/agriculture/productDetails?ID={{item.ID}}">
+              {{ item.NAME }}
+              <view class="article-time">{{item.RELEASE_TIME}}</view>
+            </navigator>
+            <navigator class="article" hover-class="none" wx:if="{{item.TITLE}}" url="/sub8/pages/agriculture/report?ID={{item.ID}}">
+              {{item.TITLE}}
+              <view class="article-time">{{item.RELEASE_TIME}}</view>
+            </navigator>
+          </view>
+        </view>
+        <!-- <view class="record-content" wx:else>
+						{{item.text}}
+					</view> -->
+      </view>
+    </view>
+    <view class="record-into" id="record-into"></view>
+
+  </scroll-view>
+  <!-- <view class="bottomTop">
+    <view wx:for="{{getTypeList}}" wx:item="item" class="getTypeList" bindtap="getTypeUrl" data-url="{{item.url}}">
+      <image class="getImage" wx:if="{{item.tj}}" src="{{cndUrl}}/static/wechat/img/zssn/tjb.png" mode="" />
+      <view class="getName">
+        {{item.name}}
+      </view>
+    </view>
+  </view> -->
+  <!-- <view class="bottom">
+    <view class="tips">
+      <view wx:for="{{tips_arr}}" wx:key="k" wx:item="item">
+        {{item.title}}
+      </view>
+    </view>
+    <input confirm-type="send" placeholder-class="input-placeholder" placeholder="请输入内容…" model:value="{{word}}" bindconfirm="onInputEvent" />
+    
+  </view> -->
+
+</view>
+
+<van-popup show="{{popup.show}}" position="bottom" custom-style="border-radius: 30rpx 30rpx 0 0;" close-on-click-overlay data-event="2" data-questionName="{{popup.items.questionName}}" data-title="{{popup.items.title}}" bind:click-overlay="onPopupEvent">
+  <view class="popup-head">
+    <image src="{{cndUrls}}/static/wechat/img/zssn/xzkjb.png" mode="widthFix"></image>
+    <view>{{popup.items.title}}</view>
+    <view>(可多选)</view>
+    <image src="{{preffixUrl}}icon_32_close.png" mode="widthFix" data-event="2" data-title="{{popup.items.title}}" data-questionName="{{popup.items.questionName}}" bindtap="onPopupEvent"></image>
+  </view>
+  <view class="popup-body">
+    <block wx:for="{{popup.items.items}}" wx:key="key" wx:index="index" wx:item="item">
+      <view data-action="set_item" data-event="1" data-index="{{index}}" data-title="{{popup.items.title}}" bindtap="onPopupEvent">
+        <block wx:if="{{index%2 == 0}}">
+          <image src="{{cndUrls}}/static/wechat/img/zssn/xqspcheng3.png" mode="widthFix"></image>
+        </block>
+        <block wx:else>
+          <image src="{{cndUrls}}/static/wechat/img/zssn/xqsplan3.png" mode="widthFix"></image>
+        </block>
+        <span>{{item.name}}</span>
+        <image src="{{cndUrls}}/static/wechat/img/zssn/xqspxz.png" wx:if="{{item.trueOrfalse}}"></image>
+      </view>
+    </block>
+  </view>
+  <view class="popup-bottom" wx:if="{{popup.items.radioTrue}}">
+    <button data-event="2" data-action="set_items" data-title="{{popup.items.title}}" data-questionName="{{popup.items.questionName}}" bindtap="onPopupEvent">完成</button>
+  </view>
+</van-popup>
+
+<van-popup show="{{date_picker.show}}" position="bottom" custom-style="border-radius: 30rpx 30rpx 0 0;" close-on-click-overlay bind:click-overlay="onDatePickerEvent">
+  <view>
+    <van-datetime-picker type="date" value="{{date_picker.value}}" bind:confirm="onDatePickerEvent" bind:cancel="onDatePickerEvent" min-date="{{date_picker.min_date}}" max-date="{{date_picker.max_date}}" />
+  </view>
+</van-popup>

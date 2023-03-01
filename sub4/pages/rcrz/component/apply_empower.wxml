@@ -1,0 +1,16 @@
+<view class="apply_empower">
+	<block wx:if="{{ checked == '1' }}">
+		<button bindtap="bindtap">
+			<text>{{btn[1]}}</text>
+			<image src="{{preffixUrl}}apply_icon_triangle.png" mode="widthFix"></image>
+		</button>
+		<image class="img" src="{{preffixUrl}}apply_empower_checked.png" mode="widthFix"></image>
+	</block>
+	<block wx:else>
+		<button bindtap="bindtap" open-type="{{open_type}}">
+			<text>{{btn[0]}}</text>
+			<image src="{{preffixUrl}}apply_icon_triangle.png" mode="widthFix"></image>
+		</button>
+		<image class="img" src="{{preffixUrl}}apply_empower_unchecked.png" mode="widthFix"></image>
+	</block>
+</view>

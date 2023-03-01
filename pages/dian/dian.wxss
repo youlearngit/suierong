@@ -1,0 +1,48 @@
+.warp{position:relative;width:100%;z-index:1;}
+.warp .warpBg{display:block;width:100%;height:990rpx;}
+.warp .warpBg2{display:block;width:100%;height:1176rpx;}
+.biappan{position:absolute;left:104rpx;top:480rpx;width:543rpx;height:407rpx;}
+.biappan image{width:100%;height:100%;}
+.numBox{position:absolute;top:120rpx;width:100%;font-size:60rpx;color:#329ee5;text-align:center;font-weight:900;z-index:10;}
+.btn-area{position:fixed;top:200rpx;right:0;z-index:100;}
+.btnJs{display:block;width:200rpx;height:80rpx;}
+.fbuttom{position:fixed;bottom:0;left:0;width:100%;height:100rpx;text-align:center;overflow:hidden;z-index:11;}
+.btn{display:inline-block;width:300rpx;height:100rpx;margin:0 25rpx;border-radius:10rpx;text-align:center;line-height:100rpx;color:#fff;font-size:40rpx;border:none;background:linear-gradient(to left, rgba(240,168,0,0.3), rgba(234,150,3,1));overflow:hidden;}
+.btn.blu{background:linear-gradient(to left, rgba(64,157,233,0.3), rgba(0,104,183,1));}
+
+
+
+.cir{width:436rpx; height:436rpx;margin-top:4rpx;}
+.circleBar {position:absolute;top:0;left:0;width: 100%;height:auto;overflow: hidden;z-index:10;}
+.cir {position:relative;display:inline-block;background:none;border-radius: 100%;z-index:1;}
+.top {text-align: center;}
+.centerWord {width: 100%;position: absolute;top:130rpx;left: 0;text-align: center;color: #329ee5;font-size:65rpx;font-weight:900;}
+.info{position:absolute;top:990rpx;left:0;width:100%;height:auto;}
+.info .dl{position:absolute;width:60%;left:33%;font-size:28rpx;color:#666666;}
+.info .dt{font-size:32rpx;color:#0b5596;}
+.info .dl.d1{top:0;}
+.info .dl.d2{top:166rpx;}
+.info .dl.d3{top:332rpx;}
+.info .dl.d4{top:508rpx;}
+.info .dl.d5{top:674rpx;}
+.info .dl.d6{top:850rpx;}
+.topText{position:absolute;top:70rpx;left:0;width:100%;text-align:center;font-size:30rpx;color:#329ee5;}
+.tese{display:flex;justify-content:center;align-items:center;text-align:center;position:absolute;bottom:20rpx;width:100%;color:#fff;font-size:38rpx;}
+.tese text{width:33%;}
+.tax{z-index:99;position:absolute;top:230rpx;left:0;width:100%;text-align:center;font-size:26rpx;color:#333;}
+.tax em{font-size:40rpx;color:#ff8908;font-weight:900;}
+.dianDet{display:block;width:200rpx;height:70rpx;margin-bottom:20rpx;background:linear-gradient(to right, rgba(241,187,0,.8), rgba(234,155,2,1));overflow:hidden;border-top-left-radius:70rpx; border-bottom-left-radius:70rpx;color:#fff;text-align:center;font-size:30rpx;line-height:70rpx;}
+
+.shareBox{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
+.shareBox.on{z-index:1000;background:rgba(0,0,0,.8);}
+.tools{position:absolute;left:0;bottom:20rpx;width:100%;text-align:center;}
+.tools .tb{display:inline-block;width:80rpx;height:120rpx;margin:0 30rpx;font-size:26rpx;text-align:center;color:#fff;}
+.tools .tb image{display:block;width:80rpx;height:80rpx;border-radius:80rpx;overflow:hidden;}
+.shareToAPP button{background:none;border:0;outline:0;padding:0;}
+.saveTxt{width:160rpx;text-align:center;margin-left:-40rpx;}
+.shengcheng{width:600rpx;height:973rpx;position:fixed;top:50rpx;left:50%;top:50%;margin-left:-40%;margin-top:-70%;z-index:10}
+
+.backtoIndex{position:fixed;right:0;bottom:120rpx;width:80rpx;height:80rpx;line-height:80rpx;text-align:center;font-size:22rpx;padding:0;border-radius:80rpx;color:#fff;background:#0066b3;z-index:100;}
+
+.businesscard{position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(255,255,255,0.3);z-index:1000;}
+.busiPicker{position:absolute;top:40%;left:10%;height:30%;width:80%;border-radius:10rpx;box-shadow:0 0 15rpx #329ee5;background:#fff;}

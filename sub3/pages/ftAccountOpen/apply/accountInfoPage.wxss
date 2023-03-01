@@ -1,0 +1,158 @@
+/* sub3/pages/ftAccountOpen/apply/accountInfoPage.wxss */
+page{
+  overflow-x:hidden;
+  background-color: #ffffff;
+}
+.body{
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-size:180% 100%;
+  background-repeat: no-repeat;
+  padding-top: 80rpx;
+  padding-left: 50rpx;
+  background-color: #ffffff;
+  text-align: center;
+}
+.account-info-title{
+  margin-top: 50rpx;
+}
+.title{
+  font-family: SourceHanSansCN-Medium;
+  font-size: 34rpx;
+  text-align: left;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  margin-bottom: 18rpx;
+}
+.account-info{
+  margin-top: 50rpx;
+}
+.info-center{
+  width: 650rpx;
+  line-height: 110rpx;
+  text-align: left;
+  padding-bottom: 20rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #1C294F;
+  letter-spacing: 0;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+  box-shadow: 0 2px 24px 0 rgba(156,187,255,0.56);
+}
+.info-margin-buttom{
+  border-radius: 25rpx;
+  margin-top: 20rpx;
+}
+.label-style{
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  font-family: SourceHanSansCN-Regular !important;
+  font-size: 28rpx !important;
+  color: #1C294F !important;
+  letter-spacing: 0 !important;
+}
+.label-style-1{
+  width: 300rpx;
+  font-family: SourceHanSansCN-Regular !important;
+  font-size: 28rpx !important;
+  color: #1C294F !important;
+  letter-spacing: 0 !important;
+}
+.weui-input{
+  width: 600rpx !important;
+  height: 80rpx !important;
+  background: #F7FBFF !important;
+  border: 1rpx solid #D2DDFF !important;
+  border-radius: 10rpx;
+  padding-left: 20rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+}
+.weui-input-3{
+  width: 600rpx !important;
+  height: 80rpx !important;
+  margin-left: -30rpx;
+  background: #F7FBFF !important;
+  border: 1rpx solid #D2DDFF !important;
+  border-radius: 10rpx;
+  padding-left: 20rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+}
+.weui-label{
+  width: 50rpx;
+  margin-right: 0rpx;
+  height: 80rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+
+.info-margin-line-height{
+  height: 50rpx !important;
+  line-height: 50rpx !important;
+}
+.info-margin-line-height-2{
+  padding: 25rpx 0 ;
+  height: 50rpx !important;
+  line-height: 50rpx !important;
+}
+.select-type{
+  width: 210rpx;
+}
+.update-go{
+  width: 12rpx;
+  height: 20rpx;
+  background-size: 100% 100%;
+  margin: -33rpx 0rpx 0rpx 220rpx;
+}
+.update-go-2{
+  width: 12rpx;
+  height: 20rpx;
+  background-size: 100% 100%;
+  margin: -33rpx 0rpx 0rpx 220rpx;
+}
+.label-input-style{
+  white-space:nowrap;
+  margin-top: 20rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #1C294F !important;
+  letter-spacing: 0;
+}
+.weui-input-1{
+  height: 31rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx !important;
+}
+.weui-input-2{
+  width: 600rpx !important;
+  height: 80rpx !important;
+  border-radius: 10rpx;
+  padding-left: 20rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+}
+.label-xt{
+  opacity: 0.25;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 24rpx;
+  color: #1C294F;
+  letter-spacing: 0;
+}
+
+/* 下一步按钮 */
+.btn{
+  margin: 60rpx 0 30rpx -70rpx;
+  width: 440rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  background-image: linear-gradient(0deg, #1677FF 0%, #7CB2FF 100%);
+  border-radius: 43px;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 34rpx;
+}

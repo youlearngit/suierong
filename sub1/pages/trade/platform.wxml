@@ -1,0 +1,16 @@
+
+
+ <view class="v1">
+  <!-- <image class="m1" src="/assets/images/zm_28.png" mode="widthFix"></image> -->
+   <image class="m1" wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/img/zm/zm_28.png"></image>
+ </view>
+<view class="v2">
+  <view class="v21" bindtap="toCloud">
+    <!-- <image class="m21" src="/assets/images/zm_26.png" mode="widthFix"></image> -->
+     <image class="m21" wx:if="{{preffixUrl}}" mode="widthFix"  src="{{preffixUrl}}/static/wechat/img/zm/zm_26.png"></image>
+  </view>
+  <view class="v21" bindtap="toDesc">
+    <!-- <image class="m22" src="/assets/images/zm_27.png" mode="widthFix"></image> -->
+     <image class="m22" wx:if="{{preffixUrl}}" mode="widthFix"  src="{{preffixUrl}}/static/wechat/img/zm/zm_27.png"></image>
+  </view>
+</view>

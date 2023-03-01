@@ -1,0 +1,35 @@
+<!-- sub2/pages/billDisCount/index.wxml -->
+<view  class="title">电子银行承兑汇票贴现额度申请</view>
+<view class="item" style="{{index!=0?'margin-top:2%;':'margin-top:1%;'}}" bindtap='into' data-id="1">
+    <view class="item-title">贴现额度申请</view>
+    <image class="item-nav" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_76.png" />
+</view>
+<view class="item" style="{{index!=0?'margin-top:2%;':'margin-top:1%;'}}" bindtap='into' data-id="2">
+    <view class="item-title">申请进度查询</view>
+    <image class="item-nav" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_76.png" />
+</view>
+<view class="item" style="{{index!=0?'margin-top:2%;':'margin-top:1%;'}}" bindtap='into' data-id="3">
+    <view class="item-title">贴现额度查询</view>
+    <image class="item-nav" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_76.png" />
+</view>
+
+<view class="card">
+    <view style="display:flex;flex-dirction:row;width:92%;margin-left:4%;padding-bottom:10rpx;align-items: center;padding-top:32rpx;">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_74.png" class="tip-img"></image>
+        <view class="tip">提示</view>
+    </view>
+    <view class="tip-con">
+        <view class="tip1">
+            1、申请办理贴现业务需先在江苏银行开立结算账户。
+        </view>
+        <view class="tip1">2、若您在我行还没有贴现额度，可以点击贴现额度申请菜单进行申请。若您在我行已存在有效的贴现额度，则不支持重复申请。您可在贴现额度申请菜单中完成企业信息注册，即可随时查看您的额度情况。</view>
+        <view class="tip1">
+            3、您可随时通过申请进度查询菜单查看您额度申请情况。
+        </view>
+        <view class="tip1">4、额度申请成功后，您可通过我行或者他行网上银行发起贴现。</view>
+        <view class="tip1">
+            5、若您在办理业务过程中有任何疑问，可致电您所在地区分行电话进行咨询。
+        </view>
+        
+    </view>
+</view>

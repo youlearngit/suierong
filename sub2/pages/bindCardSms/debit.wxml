@@ -1,0 +1,42 @@
+<!-- sub2/pages/bindCardSms/index.wxml -->
+<text class="content-tip" wx:if="{{list.length!=0}}" style="{{tip}}">选择要添加的银行卡</text>
+<view  wx:if="{{list.length!=0}}" style="width: 100%;margin-top: 48px;">
+    <block wx:for="{{list}}" wx:key="{{index}}"   >
+        <view class='item-1'>
+        <view class="item" catchtap="bindCard" data-id="{{index}}" style="{{(index==0?'border-top:0.5px solid rgba(0,0,0,0.10);':'')+(index==(list.length-1)?'border-bottom:0.5px solid rgba(0,0,0,0.10);':'')}}">
+           
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico-ind.png" class='img'></image>
+          <text class="item-21">江苏银行 {{item.flag}}</text>
+            <text class="item-22">**** **** **** {{item.CARD_NOSub}}</text>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/arrow.png" class="arr_img"></image>
+   
+
+            <view class="border" wx:if="{{index!=0}}"></view>
+        </view>
+    </view>
+    </block>
+            <view class="tip1m" wx:if="{{show&&list.length!=0}}" style="margin-bottom:{{bottomHeight}}">
+        <view>
+            <text class="tips1">已阅读并同意</text>
+            <text class="tips2" bindtap="open" style="{{tip}}">《用户协议》</text>
+        </view>
+        <view class="tips">本服务由江苏银行提供</view>
+    </view>
+</view>
+    <view class="tip1" wx:if="{{!show && list.length!=0}}" style="bottom:{{bottomHeight}}">
+      <van-checkbox-group value="{{ checkResult }}" bind:change="onChange">
+        <van-checkbox name="a" custom-class="checkbox-margin-right" ></van-checkbox> 
+        <view class="tips1">
+              <text>已阅读并同意</text>
+              <text class="tips2" bindtap="open" style="{{tip}}">《用户协议》</text>
+        </view>
+       <view class="checkbox-margin-top">
+        <van-checkbox name="b" custom-class="checkbox-margin-right"/>
+        <view class="tips1" style="margin-top: 10px;margin-left: 30px;">
+          <text>我同意江苏银行将</text><text class="tips2-2">姓名、卡号、手机号、证件信息</text>
+          <text>发送至财付通支付科技有限公司（联系方式详见该支付机构官方网站），用于开通快捷支付服务及快捷支付业务办理。</text>
+        </view>
+       </view>
+    </van-checkbox-group>
+    <view class="tips">本服务由江苏银行提供</view>
+</view>

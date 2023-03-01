@@ -1,0 +1,122 @@
+/* sub1/pages/account/index.wxss */
+
+page {
+    background-image: linear-gradient(180deg, rgba(249, 252, 255, 0) 5%, #f8fbff 17%, #f0f8ff 100%);
+    height: auto;
+}
+.container {
+	width: 100%;
+}
+.bg1 {
+	width: 100%;
+	position: absolute;
+	top: 0rpx;
+}
+
+.acc-form {
+	width: 630rpx;
+	margin: 130rpx auto;
+	background: #ffffff;
+	border: 1rpx solid #eff3ff;
+	box-shadow: 0 4rpx 16rpx 1rpx rgba(79, 145, 255, 0.2);
+	padding: 30rpx;
+	border-radius: 20rpx;
+	position: relative;
+}
+.search {
+	width: 444rpx;
+	height: 86rpx;
+	background-image: linear-gradient(2deg, #507aff 0%, #6495ff 100%);
+	border-radius: 43px;
+	margin: 80rpx auto 30rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.search .icon {
+    width: 25.3rpx;
+    padding: 0 10rpx;
+}
+
+.search .content {
+	line-height: 86rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 34rpx;
+	color: #ffffff;
+	text-align: center;
+}
+
+.filed {
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 25rpx 0;
+	border-bottom: 1rpx solid #eeeeee;
+}
+.desc {
+	position: absolute;
+    padding: 5rpx 10rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #ffffff;
+    opacity: 0.6;
+    background: #202840;
+    left: 0;
+    top: 80rpx;
+    border-radius: 5rpx;
+}
+.title {
+	font-family: PingFangSC-Regular;
+	font-size: 28rpx;
+	color: #1c294f;
+	display: flex;
+	align-items: center;
+}
+.title .icon {
+	width: 22.5rpx;
+	padding: 0 10rpx;
+}
+
+.placeholder {
+	opacity: 0.6;
+	font-family: PingFangSC-Regular;
+	font-size: 28rpx;
+	color: #b0b7cd;
+	text-align: right;
+}
+.action {
+	width: 40%;
+	display: flex;
+	justify-content: space-between;
+}
+.raido-group {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+radio {
+	font-size: 40rpx;
+	color: #1c294f;
+	transform: scale(0.7);
+}
+
+.arrow:after {
+	content: " ";
+	display: inline-block;
+	height: 6px;
+	width: 6px;
+	border-width: 2px 2px 0 0;
+	border-color: #c8c8cd;
+	border-style: solid;
+	-webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+	transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+	position: relative;
+	top: -2px;
+	position: absolute;
+	top: 50%;
+	margin-top: -4px;
+	right: 2px;
+}

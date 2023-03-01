@@ -1,0 +1,85 @@
+/* pages/search/search.wxss */
+body {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.mycountend {
+  width: 100%;
+  height: 100vh;
+  background: #BBBCBF;
+}
+
+.mybeiht {
+  width: 100%;
+  background: #fff;
+  border-bottom-left-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+
+.searchImg {
+  width: 100%;
+}
+
+/*  */
+.searchBox {
+
+  margin: 0 30rpx;
+
+}
+
+.search_input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.inputBox {
+  width: 540rpx;
+  height: 60rpx;
+  margin: auto;
+  background: #f2f2fa;
+  border-radius: 30rpx;
+  padding-left: 76rpx;
+
+  opacity: 0.7;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 24rpx;
+  letter-spacing: 0;
+  
+
+}
+
+.comfirm_search {
+  width: 124rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #4663dc;
+  border-radius: 30rpx;
+  color: #fff;
+  text-align: center;
+  margin-left: 26rpx;
+}
+
+.search {
+  width: 30rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 16.5rpx;
+}
+
+/* 搜索内容 */
+.searchCountBox {
+  margin: 30rpx;
+}
+
+.keyword {
+  color: #444a6b;
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+}

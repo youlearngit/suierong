@@ -1,0 +1,4 @@
+@import "house.wxss";
+
+.resCon{width:100%;padding:30rpx;background:#f2f2f2;}
+page{background:#f2f2f2;}

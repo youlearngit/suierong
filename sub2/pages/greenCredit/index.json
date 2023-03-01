@@ -1,0 +1,15 @@
+{
+    "usingComponents": {
+        "van-field": "/sub2/static/vant-weapp/field/index",
+        "van-radio": "/sub2/static/vant-weapp/radio/index",
+        "van-radio-group": "/sub2/static/vant-weapp/radio-group/index",
+        "van-popup": "/sub2/static/vant-weapp/popup/index",
+        "van-picker": "/sub2/static/vant-weapp/picker/index",
+        "van-search": "/sub2/static/vant-weapp/search/index",
+        "my-picker": "../../components/myPicker/index"
+    },
+    "navigationBarTitleText": "绿色信贷智能认定",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+}

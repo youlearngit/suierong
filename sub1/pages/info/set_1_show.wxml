@@ -1,0 +1,17 @@
+<view class="a2">
+    <view class="a2b2">
+        <view class="cu-list menu">
+            <view class="cu-item">
+                <view class="content">
+                    <view class="view-grey">手机号</view>
+                </view>
+                <input name="orgName" id="orgName" value="{{ form.tel }}" bindblur='blur' bindinput="getOrgName" class="aTxt" type="text" disabled='disabled' />
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{edit}}">
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber3" class="amountC">
+            修改手机号
+        </button>
+    </block>
+</view>

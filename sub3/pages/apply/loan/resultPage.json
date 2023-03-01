@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "cu-custom": "/component/cu-custom/cu-custom-car"
+  },
+  "navigationBarTitleText": "贷款申请",
+  "navigationStyle": "custom"
+  }

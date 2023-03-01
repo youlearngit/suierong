@@ -1,0 +1,60 @@
+page {
+    background-color: white;
+}
+
+@import './book.wxss';
+.bottom button {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    width: 90%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+
+/* .bottom {
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+    z-index: 10000;
+} */
+
+.bottoms button {
+    position: fixed;
+    bottom: 1%;
+    left: 5%;
+    width: 90%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+.bottoms {
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+    z-index: 10000;
+}
+
+checkbox .wx-checkbox-input {
+    width: 30rpx;
+    /* 背景的宽 */
+    height: 30rpx;
+    border: 1rpx solid #999;
+    /* 背景的高 */
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    color: #16a8fa;
+    border: 1rpx solid #999;
+    background: #ffffff;
+    /* 对勾颜色 白色 */
+}
+
+.i-panel-title {
+    font-size: 16rpx;
+}
+
+.cc {
+    margin-left: 20rpx
+}

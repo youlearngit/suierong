@@ -1,0 +1,50 @@
+
+<view class="enterpriseScaleHomepageContentContainer">
+	<image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleBackground2.png" style="width: 100%;"  mode="widthFix" class="enterpriseScaleBg" ></image>
+	<view class="title_sub">帮助小微企业和个体工商户“不出门”进行企业类型判断、了解降费政策、估算优惠幅度，选择适合自身的降费项目，降低成本，提高业务办理针对性和效率。</view>
+	<view class="enterpriseScaleHomepageContents" style="position: absolute; left: 0rpx; top: 401rpx">
+		<view class="enterpriseScaleHomepageContent">
+			<view>
+			
+				<view class="enterpriseScaleSearch" bindtap="First" >
+					<image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleSearchOne.png" mode="widthFix" class="enterpriseScaleSearchImg"></image>
+					<view>
+						<view class="enterpriseScaleSearchTitle">企业类型查询</view>
+						<view class="enterpriseScaleSearchTips">一键查询，快速了解你的企业类型</view>
+					</view>
+				</view>
+
+				<view class="border"></view>
+
+				<view class="enterpriseScaleSearch" bindtap="Second">
+					<image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleSearchTwo.png" mode="widthFix" class="enterpriseScaleSearchImg"></image>
+					<view>
+						<view class="enterpriseScaleSearchTitle">政策查询</view>
+						<view class="enterpriseScaleSearchTips">一键点击，快速了解当前降费政策</view>
+					</view>
+				</view>
+
+				<view class="border"></view>
+
+				<view class="enterpriseScaleSearch" bindtap="Third">
+					<image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleSearchThree.png" mode="widthFix" class="enterpriseScaleSearchImg"></image>
+					<view>
+						<view  class="enterpriseScaleSearchTitle">优惠估算</view>
+						<view class="enterpriseScaleSearchTips">一键计算，快速估算企业受惠额度</view>
+					</view>
+				</view>
+
+				<view class="border"></view>
+
+				<view class="enterpriseScaleSearch" bindtap="Four">
+					<image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleSearchFour.png" mode="widthFix" class="enterpriseScaleSearchImg"></image>
+					<view>
+						<view  class="enterpriseScaleSearchTitle">政策宣传</view>
+						<view class="enterpriseScaleSearchTips">一键触达，快速感知降费政策温度</view>
+					</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,24 @@
+<view class="bg">
+    <image class="bg1" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/shop-bg1.png" mode="widthFix" />
+    <image class="bg2" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/shop-logo1.png" mode="widthFix" lazy-load="false" />
+</view>
+<view class="head2">{{productDesc.type}} - {{productDesc.name}}</view>
+<view class="acont">
+    <view class="head1">产品简介</view>
+    <view class="text1">
+        <view wx:for="{{productDesc.desc1}}">{{item}}</view>
+    </view>
+    <view class="head1">{{title}}</view>
+    <view class="text1">
+        <view wx:for="{{productDesc.desc2}}">{{item}}</view>
+    </view>
+    <view class="" style="height:90rpx" />
+</view>
+<view class='abottom'>
+    <view class="cu-bar bg-white tabbar border shop">
+        <view class="action text-orange" bindtap='talk'>分享</view>
+        <view class="asplite" />
+        <button class="action" bindtap='openPhoneDialog' >致电</button>
+        <view class="bg-red submit" bindtap='apli'>立即办理</view>
+    </view>
+</view>

@@ -1,0 +1,11 @@
+<view class="a1" hover-class="none" hover-stop-propagation="false">
+    <view class="a2">
+        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_123.png" mode="widthFix"></image>
+    </view>
+    <view class="a3">提交成功</view>
+    <view class="a4">正在进行额度审核</view>
+    <view class="a5">审批结果稍后将在消息中提示您</view>
+</view>
+<navigator class="a6" target="" url="/pages/shop/index2" hover-class="none" open-type="reLaunch">
+    确定
+</navigator>

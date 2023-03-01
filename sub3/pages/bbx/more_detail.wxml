@@ -1,0 +1,61 @@
+<view wx:if="{{code=='1'}}" class="code1">
+  <image src="{{pic}}" mode="widthFix" />
+
+</view>
+
+<view>
+
+  <!-- <image class="bg" src="{{preffixUrl}}talent_finance_20220120.jpg" mode="widthFix"></image> -->
+  <!-- <image class="apply_btn_20220120" src="{{preffixUrl}}talent_finance_apply.png" mode="widthFix" bindtap="apply"></image> -->
+
+  <!-- <image class="bg" src="{{preffixUrl}}talent_finance_0820.jpg" mode="widthFix"></image> -->
+  <!-- <image class="apply_btn_0820" src="{{preffixUrl}}talent_finance_apply.png" mode="widthFix" bindtap="apply"></image> -->
+  <!-- <image class="bg" src="../../../assets/images/tabbar/talent_finance_20220511.png" mode="widthFix"></image> -->
+  <view class="bg" style="background-image: url({{preffixUrls}}/static/wechat/img/bbx/talent_finance_20220511.jpg);">
+
+
+    <view class="lxfs">
+      <view class="title1">人才金融服务专员联系方式</view>
+      <view class="info_tel">
+        <view class="info_list info_spec">
+          <view class="line1">分行</view>
+          <view class="line1">联系人</view>
+          <view class="line2">手机</view>
+        </view>
+        <view class="info_list" wx:for="{{lxfsList}}" wx:key="index">
+          <view class="line1">{{item.branch}}</view>
+          <view class="line1">{{item.contacts}}</view>
+          <view class="line2">{{item.phone}}</view>
+        </view>
+      </view>
+      <view class="card" wx:if="{{empInfo.name}}">
+        <image wx:if="{{preffixUrl&&empInfo.type=='政策'}}" src="{{preffixUrls}}/static/wechat/img/talent/card_zc.png" mode="widthFix" class="card__bg"></image>
+        <image wx:if="{{preffixUrls&&empInfo.type=='金融'}}" src="{{preffixUrls}}/static/wechat/img/talent/card_jr.png" mode="widthFix" class="card__bg"></image>
+        <image wx:if='{{preffixUrls&&empInfo.phone}}' bindtap="call" src="{{preffixUrls}}/static/wechat/img/talent/icon_call.png" mode="widthFix" class="icon-call"></image>
+        <view class="card-head">
+          <image wx:if='{{preffixUrls&&empInfo.avatar}}' src="{{empInfo.avatar}}" mode="widthFix" class="card-head__avatar"></image>
+          <view class="card-head__info">
+            <view class="info-detail">
+              <view class="info-name">{{empInfo.name}}</view>
+              <view class="info-position">
+                <view class="" hover-class="none" hover-stop-propagation="false">
+                  {{empInfo.org}}
+                </view>
+                <view class="" hover-class="none" hover-stop-propagation="false">
+                  {{empInfo.position}}
+                </view>
+              </view>
+            </view>
+            <view class="info-tag">
+              <view class="info-tag__item" wx:for="{{empInfo.tags}}" wx:key="index">{{item}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="card-desc">{{empInfo.desc}}</view>
+      </view>
+    </view>
+
+
+  </view>
+
+</view>

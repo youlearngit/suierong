@@ -1,0 +1,90 @@
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+page {
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.home-background-img {
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-size:100% 100%;
+  padding-top: 122rpx;
+  padding-left: 50rpx;
+}
+.home-open-back-1{
+  width: 335rpx;
+  height: 546rpx;
+  background-size: 100%;
+  padding-top: 331rpx;
+  float:left; 
+  margin:20rpx 0rpx 0rpx -20rpx;
+}
+.home-open-back-2{
+  width: 335rpx;
+  height: 546rpx;
+  background-size: 100%;
+  padding-top: 351rpx;
+  height: 566rpx;
+  float:right;
+  margin-right: 30rpx;
+}
+.title-1{
+  font-family: SourceHanSansCN-Bold;
+  font-size: 50rpx;
+  color: #1D67C3;
+  letter-spacing: 1.25px;
+  margin-bottom: 32rpx;
+}
+.title-2{
+  opacity: 0.8;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 32rpx;
+  color: #1C66C2;
+  letter-spacing: 1.14rpx;
+  margin-bottom: 24rpx;
+}
+.title-3{
+  margin-bottom: 75rpx;
+}
+.span-border{
+  background: rgba(185,216,255,0.12);
+  border: 1px solid rgba(35,104,191,0.70);
+  border-radius: 5rpx;
+  opacity: 0.8;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 24rpx;
+  color: #1C66C2;
+  letter-spacing: 0;
+  text-align: center;
+  margin-right: 12rpx;
+  padding: 0rpx 11rpx;
+}
+.open-title-1{
+  opacity: 0.5;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 26rpx;
+  letter-spacing: 1.5rpx;
+  text-align: center;
+  margin-bottom: 26rpx;
+}
+.open-title-2{
+  font-family: SourceHanSansCN-Medium;
+  font-size: 32rpx;
+  letter-spacing: 1rpx;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.open-title-3{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 22rpx;
+  color: #FFFFFF;
+  letter-spacing: 1rpx;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size:96% 100%;
+  margin-left: 14rpx;
+}

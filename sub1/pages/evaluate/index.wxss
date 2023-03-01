@@ -1,0 +1,294 @@
+.pingjia-apply {
+  position: relative;
+  width: 690rpx;
+  height: 431rpx;
+  margin: 20rpx auto;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  -moz-background-size: 100%;
+}
+
+.pingjia-apply-amount {
+  display: flex;
+  padding-top: 89rpx;
+}
+
+.pingjia-apply-num {
+  padding-left: 55rpx;
+  padding-right: 30rpx;
+  display: flex;
+  align-items: baseline;
+  font-family: DINAlternate-Bold;
+  font-size: 120rpx;
+  color: #ffffff;
+  letter-spacing: 0;
+}
+
+.pingjia-apply-num view:nth-child(2) {
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+}
+
+.pingjia-apply-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #a1c3ff;
+  letter-spacing: 0;
+}
+
+.pingjia {
+  position: relative;
+  box-sizing: border-box;
+  width: 690rpx;
+  margin: 10rpx auto;
+  padding: 30rpx;
+  background: #ffffff;
+  box-shadow: 0 2rpx 7rpx 0 rgba(195, 207, 232, 0.5);
+  border-radius: 22rpx;
+}
+
+.pingjia-bg-cardhead {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.pingjia-downup {
+  position: absolute;
+  top: 10rpx;
+  height: 50rpx;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pingjia-downup image {
+  width: 20rpx;
+}
+
+.pingjia1 {
+  margin-top: 40rpx;
+}
+
+.pingjia-title1 {
+  margin-top: 40rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+  text-align: justify;
+  line-height: 40rpx;
+}
+
+.pingjia-stars {
+  margin: 28rpx 0;
+  display: flex;
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: #333333;
+  text-align: justify;
+  line-height: 40rpx;
+}
+
+.pingjia-star {
+  padding: 0 14rpx;
+}
+
+.pingjia-star:nth-of-type(1) {
+  padding-left: 30rpx;
+}
+
+.pingjia-star image {
+  width: 39rpx;
+}
+
+.pingjia-title2 {
+  margin-top: 60rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 26rpx;
+  color: #333333;
+  letter-spacing: 0;
+}
+
+.pingjia-radio {
+  font-size: 26rpx;
+  padding: 10rpx 0;
+  display: flex;
+  align-items: baseline;
+}
+
+.pingjia-radio image {
+  margin-right: 31rpx;
+  width: 25rpx;
+}
+
+.pingjia3 {
+  text-align: center;
+}
+
+.pingjia3-title1 {
+  font-family: SourceHanSansSC-Medium;
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 40rpx;
+}
+
+.pingjia3-title2 {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 0;
+  line-height: 40rpx;
+}
+
+.pingjia3-title2 text {
+  color: #1677ff;
+}
+
+.pingjia-btns {
+  margin-top: 50rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.pingjia-btn {
+  width: 202rpx;
+  height: 60rpx;
+  border: 2rpx solid #cccccc;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: SourceHanSansSC-Medium;
+  font-size: 26rpx;
+  color: #999999;
+  letter-spacing: 0;
+  line-height: 34rpx;
+}
+
+.pingjia-btn2 {
+  width: 392rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  background: #507AFF;
+  border-radius: 42rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.pingjia-btn-act {
+  border: 2rpx solid #1677ff;
+  color: #1677ff;
+}
+
+.pingjia-btn image {
+  width: 33rpx;
+  margin-right: 13rpx;
+}
+
+/* 评价头部 */
+
+.order {
+  width: 690rpx;
+  padding: 30rpx 20rpx;
+  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: -2px 4px 12px -2px rgba(156, 187, 255, 0.31);
+  margin: 33rpx auto;
+}
+
+.o-number {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 26rpx;
+  color: #333333;
+}
+
+.o-date-apply {
+  opacity: 0.4;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 24rpx;
+  color: #2c3750;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.d-money {
+  font-family: DINAlternate-Bold;
+  font-size: 80rpx;
+  color: #507aff;
+  letter-spacing: 0;
+}
+
+.d-money-unit {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 34rpx;
+  color: #303a53;
+  letter-spacing: 0;
+}
+
+.d-limit {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+}
+
+.d-limit-month {
+  color: #507AFF;
+}
+
+.progress {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+
+.progress-title {
+  font-family: SourceHanSansSC-Medium;
+  font-size: 28rpx;
+  color: #333333;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+
+.progress-desc {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #2C3750;
+  margin-top: 12rpx;
+  line-height: 34rpx;
+}
+
+.progress-time {
+  opacity: 0.4;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 22rpx;
+  color: #2C3750;
+  letter-spacing: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  width: 100%;
+  border-bottom: 1rpx dashed #B3BEE5;
+  margin: 30rpx 0;
+}

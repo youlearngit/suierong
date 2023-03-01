@@ -1,0 +1,186 @@
+{
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "useStaticServer": true,
+    "ignoreUploadUnusedFiles": true
+  },
+  "compileType": "miniprogram",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "sub1/pages/sui/review",
+          "pathName": "sub1/pages/sui/review",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/mine",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "trade",
+          "pathName": "sub1/pages/trade/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "sz",
+          "pathName": "sub1/pages/sz/apli",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "sub1/pages/sui/index",
+          "pathName": "sub1/pages/sui/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 20,
+          "name": "pages/mine/set_1",
+          "pathName": "pages/mine/set_1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 21,
+          "name": "pages/mine/author",
+          "pathName": "pages/mine/author",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "sub2/pages/reditCard/reditCard",
+          "pathName": "sub2/pages/creditInfo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "sub1/pages/sui/review",
+          "pathName": "sub1/pages/sui/review",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "sub1/pages/auth/index",
+          "pathName": "sub1/pages/auth/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "sub1/pages/info/identify",
+          "pathName": "sub1/pages/info/identify",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/auth_det1",
+          "pathName": "pages/mine/auth_det1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 27,
+          "name": "sub1/pages/shop/index",
+          "pathName": "sub1/pages/shop/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "sub1/pages/share/index",
+          "pathName": "sub1/pages/share/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "sub2/pages/videoContact/index",
+          "pathName": "sub2/pages/videoContact/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 15,
+          "name": "sub3/pages/recommend/index",
+          "pathName": "sub3/pages/recommend/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "appid": "wx49af818df3d44d95"
+}

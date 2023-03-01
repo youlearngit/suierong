@@ -1,0 +1,65 @@
+<!-- sub3/pages/creditStation/index.wxml -->
+<view class="a2">
+    <view class="a2b1" hover-class="none">
+        <view class="a2b1c1" hover-class="none" />
+        <view class="a2b1c2" hover-class="none">完善以下信息可享更高额度，更优惠利率</view>
+    </view>
+
+    <view class="a2b2" hover-class="none">
+        <view class="a2b3" hover-class="none">
+            <view class="cu-list menu" bindtap="{{state=='已认证'?'':'renzheng'}}">
+                <view class="cu-item arrow">
+                    <view class="content" style="padding: 30rpx 0;">人才信息认证</view>
+                    <view class="action">{{state}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="a2b2" hover-class="none">
+        <view class="a2b2c2" hover-class="none">
+            <view class="cu-list menu" bindtap="house">
+                <view class="cu-item " style="padding: 30rpx;">
+                    <view class="content" style="display: flex;flex-direction: row;">
+                        <view class="view-grey">住宅抵押</view>
+                        <view class="view1">丨增加抵押房产</view>
+                    </view>
+                    <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <block wx:for="{{houseList}}" wx:key="{{index}}">
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu" bindtap="houseInfo" data-index="{{index}}">
+                    <view class="cu-item " style="padding: 30rpx;">
+                        <view class="content" style="display: flex;flex-direction: row;">
+                            <view class="view-grey" style="font-size: 26rpx;color: #041733;opacity: 0.6;">
+                                {{item.ADDRESS}}
+                            </view>
+                        </view>
+                        <view class="action" style="font-size: 26rpx;color: #041733;opacity: 0.6;">
+                            编辑
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="a2">
+    <view class="a2b1" hover-class="none">
+        <view class="a2b1c1" hover-class="none" />
+        <view class="a2b1c2" hover-class="none">提交人工审核最高可申请1000万元</view>
+    </view>
+    <view class="a2b2" hover-class="none">
+        <view class="a2b3" hover-class="none">
+            <view class="cu-list menu" bindtap="review">
+                <view class="cu-item arrow" style="padding: 30rpx;">
+                    <view class="content">提交人工审核</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="submit">提交审核</view>

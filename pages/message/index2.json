@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+      "cu-custom": "/component/cu-custom/cu-custom",
+  "van-notice-bar": "/assets/styles/vant-weapp/notice-bar/index"
+
+  },
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText":"苏银公告",
+  "navigationBarBackgroundColor":"#EBEDF2"
+}

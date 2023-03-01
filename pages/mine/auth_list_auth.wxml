@@ -1,0 +1,37 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-item active">我的授权</view>
+  <navigator class="swiper-tab-item" url="auth_list" open-type='redirect'>我的申请</navigator>
+  
+</view>
+
+<view class="authList" style='padding-top:110rpx;'>
+  <navigator class="rules" hover-class='none' url='auth_list_authed'>
+    <icon type="waiting" size="26rpx" color="#fff" /> 历史授权
+  </navigator>
+
+  <view class="authCon" bind:tap="getDetailInfo" wx:for="{{pageList}}" data-data="{{item}}" wx:key="key"  wx:for-index="indexnum"  url="auth_det1?orderNo={{item.orderNo}}&applicantIdcard1={{applicantIdCard}}&socialCreditCode={{item.socialCreditCode}}&&name={{applicateName}}&prowId={{item.prowId}}&authorizeStatus={{item.authorizeStatus}}&enterprise_name={{item.companyName}}&apply_amount={{item.applyAmount}}&authorizerType={{item.authorizerType}}&specialProductCode={{item.specialProductCode}}&resvFld2={{item.resvFld2}}">
+    <view class="indexnum">{{indexnum+1}}</view>
+    <view class="h1">{{item.companyName}}</view>
+    <view class="p">订单编号：{{item.orderNo}}</view>
+    <!-- <view class="pd">申请日期：{{item.APPLY_DATE}}</view> -->
+      <view  class="authStatus" style="margin-top:20rpx">
+      <text class="f20">申请金额</text>
+      <text class="b">{{item.applyAmount}}</text>
+      <text class="f20">万元</text>
+    </view>
+    <!-- <view class="indexnum">{{indexnum+1}}</view>
+    <view class="h1">{{item.companyName}}</view>
+    <view class="p">订单编号：{{item.ORDER_NO}}</view>
+    <view class="pd">申请日期：{{item.APPLY_DATE}}</view>
+      <view  class="authStatus">
+      <text class="f20">申请金额</text>
+      <text class="b">{{item.APPLY_AMOUNT}}</text>
+      <text class="f20">万元</text>
+    </view> -->
+
+  </view>
+  <view class="nodata">
+    <text>{{pageTips}}</text>
+  </view>
+
+</view>

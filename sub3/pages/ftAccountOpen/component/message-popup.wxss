@@ -1,0 +1,50 @@
+/* sub3/pages/ftAccountOpen/component/message-.wxss */
+.tipHeader {
+  margin: 40rpx 0 30rpx 0;
+  text-align: center;
+}
+.acc_tip1 {
+  margin: 0rpx 8rpx 0 0;
+  vertical-align: middle;
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+}
+.tipHeaderTxt {
+  font-family: SourceHanSansCN-Medium;
+  font-size: 30rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+  text-align: center;
+  display: inline;
+  height: 32rpx;
+  line-height: 32rpx;
+  vertical-align: middle;
+}
+.tipConfirm {
+  font-family: SourceHanSansCN-Regular;
+  font-size: 34rpx;
+  color: #ffffff;
+  background-image: linear-gradient(0deg, #1677ff 0%, #7cb2ff 100%);
+  border-radius: 34rpx;
+  width: 304rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+  text-align: center;
+  margin: 30rpx 170rpx;
+}
+.tipBorder {
+  border-top: 1rpx solid #e5e6ea;
+  width: 100%;
+  text-align: center;
+}
+.tipTxt {
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+  text-align: justify;
+  line-height: 42rpx;
+  padding: 20rpx 30rpx 40rpx 30rpx;
+  width: 590rpx;
+  text-indent: 56rpx;
+}

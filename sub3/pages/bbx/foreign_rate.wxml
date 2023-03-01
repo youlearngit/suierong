@@ -1,0 +1,15 @@
+
+<view>
+
+	<image class="bg" src="{{preffixUrl}}foreign_rate_0806.jpg" mode="widthFix"></image>
+
+	<image class="apply-btn" src="{{preffixUrl}}foreign_rate_apply.png" mode="widthFix" bindtap="apply"></image>
+
+	<navigator class="bottom" url="/sub2/pages/ecCalculator/index" hover-class="none">
+		<view class="bottom-icon">
+			<image src="{{preffixUrl}}icon_ecCalculator.png" mode="widthFix"></image>
+			汇率计算器
+		</view>
+	</navigator>
+
+</view>

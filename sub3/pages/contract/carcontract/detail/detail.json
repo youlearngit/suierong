@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "enablePullDownRefresh": false,
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "签约记录",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  
+  "backgroundTextStyle": "dark"
+}

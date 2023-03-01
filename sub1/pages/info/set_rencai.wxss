@@ -1,0 +1,214 @@
+.content {
+  width: 100%;
+}
+.bg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.bg1 {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.card {
+  width: 690rpx;
+  height: 286rpx;
+  margin: 30rpx auto 0;
+  position: relative;
+  padding: 59rpx 40rpx 29rpx;
+  box-sizing: border-box;
+}
+.card__bg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.card_spec {
+    width: 100%;
+    height: 220rpx;
+}
+
+.spec_title {
+    margin-top: 65rpx;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.text1 {
+    font-family: SourceHanSansSC-Regular;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+.text2 {
+    font-family: SourceHanSansSC-Bold;
+    font-size: 36rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    font-weight: 700;
+}
+
+.showNon {
+    display: block;
+}
+
+.showNon1 {
+    display: none;
+}
+
+.mark {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.mark_bg{
+  width: 215rpx;
+}
+.talent-btn {
+  position: relative;
+  width: 432rpx;
+  margin: 64rpx auto 0;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 500;
+}
+
+.btn__bg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.card-desc {
+  width: 100%;
+  min-height: 95rpx;
+  opacity: 0.82;
+  background: #e7edff;
+  border-radius: 6rpx;
+  box-sizing: border-box;
+  padding: 13rpx 20rpx 8rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #5d6f9f;
+  letter-spacing: 0;
+  text-align: justify;
+  font-weight: 400;
+  margin-top: 10rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+}
+.card-head__avatar {
+  width: 110rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+  flex-shrink: 0;
+}
+.card-head__info {
+  width: 490rpx;
+}
+
+.info-detail {
+  display: flex;
+  align-items: center;
+}
+.info-tag {
+  display: flex;
+  margin-top: 15rpx;
+}
+.info-tag__item {
+  margin-right: 10rpx;
+  padding: 7rpx;
+  background: #f1f4ff;
+  border-radius: 6rpx;
+  font-family: SourceHanSansSC-Normal;
+  font-size: 24rpx;
+  color: #4773fe;
+  letter-spacing: 0;
+  text-align: left;
+  font-weight: 400;
+}
+.info-name {
+  font-family: SourceHanSansSC-Medium;
+  font-size: 30rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+  text-align: left;
+  line-height: 30rpx;
+  font-weight: 500;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+.info-position {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 24rpx;
+  color: #5d6f9f;
+  letter-spacing: 0;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.icon-call {
+  width: 38rpx;
+  top: 25rpx;
+  right: 25rpx;
+  position: absolute;
+}
+
+.talent-info {
+    box-sizing: border-box;
+    width: 690rpx;
+    background: #ffffff;
+    margin: 223rpx auto 0;
+    /* border: 1rpx solid #eff3ff; */
+  box-shadow: 0 4rpx 16rpx 1rpx rgba(79, 145, 255, 0.2);
+  border-radius: 16rpx;
+}
+.talent-info__item {
+    border-bottom: 1rpx solid #E5E6EA;
+    padding: 0 0 20rpx;
+    margin-left: 30rpx;
+}
+.talent-info__item:last-child {
+    border-bottom: none;
+}
+.title {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 24rpx;
+  color: #515c93;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-bottom: 10rpx;
+}
+.value {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #1c294f;
+  letter-spacing: 0;
+  font-weight: 400;
+}

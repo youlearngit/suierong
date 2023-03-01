@@ -1,0 +1,476 @@
+<view style="width:90%;margin:auto;margin-bottom:60rpx;">
+    <view class="formInfo" style="margin:auto">
+        <view class="title" wx:if="{{ business_type!=3 && authType == 1 ? true : false }}">借款人信息</view>
+        <view class="title" wx:if="{{ business_type==3 || authType == 2 }}">借款企业信息</view>
+        <view class="title" wx:if="{{ business_type==3 || authType == 3 }}">借款人信息</view>
+        <!--个人 对公授权类型展示内容 -->
+        <view wx:if="{{authType == 3}}">
+            <view class="weui-cell weui-cell_input">
+                      <view class="weui-cell__hd">
+                          <view class="weui-label">借款人姓名</view>
+                      </view>
+                      <view class="weui-cell__bd">
+                          <input class="weui-input" disabled="true" value="{{busData.BORROW_NAME}}" />
+                      </view>
+            </view>
+            <view class="weui-cell weui-cell_input ">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">证件类型</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{borrow_cert_type_array[busData.BORROW_CERT_TYPE]}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">证件号码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{busData.BORROW_CERT_NO}}" />
+                </view>
+            </view>
+            <view class="title">经营实体信息</view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">经营实体名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{busData.ENTERPRISE_NAME}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input" style="height:110rpx">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">
+                        <text>统一社会\n信用代码</text>
+                    </view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{busData.CREDIT_CODE}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">工商登记号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{busData.REGISTRATION_NO}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">组织机构代码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{busData.ENTERPRISE_CODE}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+        </view>
+
+        <!-- 对公授权类型展示内容 -->
+        <view wx:if="{{authType == 2}}">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">企业名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{busData.ENTERPRISE_NAME}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input" style="height:110rpx">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">
+                        <text>统一社会\n信用代码</text>
+                    </view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{busData.CREDIT_CODE}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">工商登记号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{busData.REGISTRATION_NO}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">组织机构代码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{busData.ENTERPRISE_CODE}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+        </view>
+       
+        <!-- 个人授权类型展示内容 -->
+        <view wx:if="{{authType == 1}}">
+            <!-- business_type3时 -->
+            <view wx:if="{{business_type==3}}">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">企业名称</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{busData.ENTERPRISE_NAME}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:110rpx">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">
+                            <text>统一社会\n信用代码</text>
+                        </view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{busData.CREDIT_CODE}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">工商登记号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{busData.REGISTRATION_NO}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">组织机构代码</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{busData.ENTERPRISE_CODE}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+            </view>
+            <!-- business_type 为1或2时的通用 -->
+            <view wx:if="{{business_type==3?false:true}}">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">借款人姓名</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{busData.BORROW_NAME}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input ">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">证件类型</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{borrow_cert_type_array[busData.BORROW_CERT_TYPE]}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">证件号码</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{busData.BORROW_CERT_NO}}" />
+                    </view>
+                </view>
+            </view>
+            <!-- business_type2时 -->
+            <view wx:if="{{business_type==2}}">
+                <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+                <!-- <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">是否有担保人</view>
+                    </view>
+                    <view class="weui-cell__hd">
+                        <radio-group class="radio-group" style="margin:20rpx">
+                            <radio checked="{{busData.IS_HAVE_GUARANTOR==0?true:false}}" disabled="true" style="margin:auto;margin-left:40rpx">是</radio>
+                            <radio checked="{{busData.IS_HAVE_GUARANTOR==1?true:false}}" disabled="true" style="margin:auto;margin-left:80rpx">否</radio>
+                        </radio-group>
+                    </view>
+
+                </view> -->
+                <view class="title">借款实体企业信息</view>
+                <view class="qy">
+                    <view class="weui-cell weui-cell_input">
+                        <view class="weui-cell__hd">
+                            <view class="weui-label">企业名称</view>
+                        </view>
+                        <view class="weui-cell__bd">
+                            <input class="weui-input" disabled="true" value="{{busData.ENTERPRISE_NAME}}" />
+                        </view>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:110rpx">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">
+                            <text>统一社会\n信用代码</text>
+                        </view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{busData.CREDIT_CODE}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">工商登记号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{busData.REGISTRATION_NO}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">组织机构代码</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{busData.ENTERPRISE_CODE}}" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:60rpx"></view>
+            </view>
+            <!-- business_type1时 -->
+            <view wx:if="{{business_type==1}}">
+                <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label" style="color: #0066b3;">授权人与借款人是否同一人</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <label wx:if="{{busData.IS_SAME_PERSON==0?true:false}}">
+                            <radio checked="{{busData.IS_SAME_PERSON==0?true:false}}" disabled="true" style="margin:auto;"></radio>
+                            是
+                        </label>
+                        <label wx:else>
+                            <radio checked="{{busData.IS_SAME_PERSON==1?true:false}}" disabled="true" style="margin:auto"></radio>
+                            否
+                        </label>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+                <!-- <view>
+                    <radio-group class="radio-group" style="margin:auto">
+                        <radio checked="{{busData.IS_SAME_PERSON==0?true:false}}" disabled="true" style="margin:auto;">是</radio>
+                        <radio checked="{{busData.IS_SAME_PERSON==1?true:false}}" disabled="true" style="margin:auto">否</radio>
+                    </radio-group>
+                </view> -->
+            </view>
+        </view>
+        
+    </view>
+    <view class="title" wx:if="{{business_type!=3 && authType == 1?true:false}}">授权人信息</view>
+    <view class="title" wx:if="{{business_type==3 || authType == 2 || authType == 3  }}">授权主体信息</view>
+    <view wx:if="{{authData.length==0}}">
+        <i-load-more tip="暂无数据" loading="{{ false }}" />
+    </view>
+     <!-- 个人授权类型展示内容 -->
+    <view wx:if="{{authType == 1}}">
+        <view wx:for="{{authData}}" wx:key="index" style="margin-bottom:60rpx">
+          <view class="weui-cells__title">
+              <text style="font-size:33rpx;font-weight: bold; color: #0066b3;">授权人{{(item.IS_PUSH)=='1'?'(已失效)':''}}</text>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">授权人姓名</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{item.AUTH_NAME}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input ">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">证件类型</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{borrow_cert_type_array[item.AUTH_CERT_TYPE]}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">证件号码</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{item.AUTH_CERT_NO}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input" wx:if="{{item.AUTH_PHONE}}">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">手机号码</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{item.AUTH_PHONE}}" />
+              </view>
+          </view>
+          <view wx:if="{{business_type==3}}" class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">授权主体类型</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{auth_enterprise_type_array[item.AUTH_ENTERPRISE_TYPE]}}" />
+              </view>
+          </view>
+          <view wx:if="{{business_type==1}}" class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">授权人类型</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{auth_type_array[item.AUTH_TYPE]}}" />
+              </view>
+          </view>
+          <view wx:if="{{business_type==2}}" class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">授权人类型</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{auth_type_array2[item.AUTH_TYPE]}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">状态</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{busStatus[item.STATUS]}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">授权时间</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{item.AUTH_TIME}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">授权码</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <view class="picker" disabled="true" bindtap="getCode" data-authid="{{item.ID}}" data-createtime="{{item.QR_CODE_DATE}}"
+                      data-push="{{item.IS_PUSH}}" data-avatarUrl="{{item.QR_CODE?item.QR_CODE:''}}" data-authName="{{item.AUTH_NAME}}">
+                      <input class="weui-select weui-select_in-select-after" value="{{}}" disabled="disabled" />
+                  </view>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input"></view>
+        </view>
+    </view>
+     <!-- 对公授权类型展示内容 -->
+     <view wx:if="{{authType != 1}}">
+        <view wx:for="{{authData}}" wx:key="index" style="margin-bottom:60rpx">
+            <view class="weui-cells__title">
+              <text style="font-size:33rpx;font-weight: bold; color: #0066b3;">企业信息</text>
+            </view>
+            <view class="qy">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">企业名称</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" disabled="true" value="{{item.AUTH_ENTER_NAME}}" />
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input" style="height:110rpx">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">
+                        <text>统一社会\n信用代码</text>
+                    </view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{item.AUTH_ENTER_CODE}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">工商登记号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{item.AUTH_ENTER_NO}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">组织机构代码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{item.AUTH_ENTER_ORGNO}}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">是否向第三方提供信用报告信息</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{item.EMPOWER == '1' ? '是' : '否'  }}" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input" wx:if="{{item.EMPOWER == '1' }}">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">第三方名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" disabled="true" value="{{item.EMPOWER_COMPANY}}" />
+                </view>
+            </view>
+          <view class="weui-cell weui-cell_input" style="height:60rpx"></view>
+          <view class="weui-cells__title">
+              <text style="font-size:33rpx;font-weight: bold; color: #0066b3;">授权人{{(item.IS_PUSH)=='1'?'(已失效)':''}}</text>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">授权人姓名</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{item.BOR_PER_NAME}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input ">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">证件类型</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{borrow_cert_type_array[item.BOR_PER_TYPE]}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">证件号码</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{item.BOR_PER_CODE}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">状态</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{busStatus[item.STATUS]}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">授权时间</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <input class="weui-input" disabled="true" value="{{item.AUTH_TIME}}" />
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                  <view class="weui-label">授权码</view>
+              </view>
+              <view class="weui-cell__bd">
+                  <view class="picker" disabled="true" bindtap="getCode" data-authid="{{item.ID}}" data-createtime="{{item.QR_CODE_DATE}}"
+                      data-push="{{item.IS_PUSH}}" data-avatarUrl="{{item.QR_CODE?item.QR_CODE:''}}" data-authName="{{item.BOR_PER_NAME}}">
+                      <input class="weui-select weui-select_in-select-after" value="{{}}" disabled="disabled" />
+                  </view>
+              </view>
+          </view>
+          <view class="weui-cell weui-cell_input"></view>
+        </view>
+     </view>
+</view>
+<view class='del' bindtap='del' wx:if="{{show=='3'}}">{{business_type==2 && authType ==1 ?'失效':'删除'}}</view>
+<view style="height:60rpx"></view>
+<i-toast id="toast" />
+

@@ -1,0 +1,56 @@
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+.ms-content-box {
+  width: 420rpx;
+  height: 500rpx;
+  right:  -10rpx;
+  background-color: #ffffff;
+  position:absolute;
+  z-index: 10;
+  border: 2rpx solid #8BA2FD;
+}
+.top{
+  border-bottom: 1rpx solid #cfd0db;
+}
+.select-text{
+  width: 180rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  text-align: center;
+  float: left;
+  margin-top: -25rpx;
+  margin-left: 300rpx;
+  color: #a9b1aa;
+}
+.cancel{
+  width: 200rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #49d45c !important;
+  margin-top: 20rpx;
+  margin-right: -20rpx;
+  margin-bottom: 20rpx;
+  border: 1rpx solid #ffffff !important;
+}
+.content{
+  text-align: left;
+  height: 90%;
+  width: 90%;
+  margin-left: 5%;
+  overflow: scroll;
+}
+.items{
+  border-bottom: 1rpx solid #ebe8e8;
+}
+.item{
+  height: 100rpx;
+}
+.icon{
+  float: right;
+  margin-right: 30rpx;
+  color: #a9b1aa !important;
+}

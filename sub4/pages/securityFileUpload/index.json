@@ -1,0 +1,19 @@
+{
+	"usingComponents": {
+    "my-login": "/component/login/index",
+    "vant-button": "../../static/vant/weapp/button/index",
+    "vant-uploader": "../../static/vant/weapp/uploader/index",
+    "vant-icon": "../../static/vant/weapp/icon/index",
+    "vant-loading": "../../static/vant/weapp/loading/index",
+    "vant-overlay":"../../static/vant/weapp/overlay/index",
+    "vant-circle":"../../static/vant/weapp/circle/index",
+    "vant-row":"../../static/vant/weapp/row/index",
+    "vant-col":"../../static/vant/weapp/col/index"
+	},
+	"enablePullDownRefresh": false,
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundTextStyle": "dark",
+  "navigationStyle":"custom"
+}

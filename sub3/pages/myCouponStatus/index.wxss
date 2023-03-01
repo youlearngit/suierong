@@ -1,0 +1,70 @@
+/* sub3/pages/myCouponStatus/index.wxss */
+
+page {
+    background: #f4f6f6;
+}
+
+.status {
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #333333;
+    text-align: center;
+    line-height: 32rpx;
+    margin-top: 30rpx;
+}
+
+.statsu-img {
+    width: 120rpx;
+    height: 120rpx;
+    margin-top: 130rpx;
+}
+
+.content {
+    background: #FFFFFF;
+    border-radius: 15rpx;
+    margin-top: 20rpx;
+    height: 420rpx;
+    width: 92%;
+    margin-left: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav {
+    width: 92%;
+    height: 110rpx;
+    background: #FFFFFF;
+    border-radius: 15rpx;
+    margin-top: 20rpx;
+    margin-left: 4%;
+    position: relative;
+}
+
+.nav-img {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    left: 30rpx;
+    top: 30rpx;
+}
+
+.nav-txt {
+    position: absolute;
+    left: 100rpx;
+    top: 40rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #2F2F2F;
+    letter-spacing: 0;
+    line-height: 30rpx;
+}
+
+.nav-img1 {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    /* right: 30rpx; */
+    left: 85.9%;
+    top: 40rpx;
+}

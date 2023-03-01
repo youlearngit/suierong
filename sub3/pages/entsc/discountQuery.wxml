@@ -1,0 +1,248 @@
+
+<view class="a2" >
+  <view class="a21">
+    为贯彻落实党中央、国务院关于金融支持小微企业发展战略部署，进一步引导支付行业向实体经济让利，人民银行会同相关部委推出多项减费让利政策并于2021年9月30日正式实施。另外，中国支付清算协会、中国银行业协会也发出降费倡议，多家银行和支付机构积极响应。
+  </view>
+  <!-- 银行账户 -->
+  <view wx:if="{{type == '小微型企业'|| type == '个体工商户'|| type == ''}}">
+    <view class="a22" bindtap="account">
+      <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-002.png" mode="widthFix" style="width:8rpx;"></image>
+      <view class="a22-text">银行账户</view>
+      <image src="{{cndUrl}}/static/wechat/img/entsc/{{account?'enterpriseScaleClose':'enterpriseScaleOpen'}}.png" style="width: 24rpx;margin-left: 10rpx;" mode="widthFix"></image>
+    </view>
+    <view wx:if="{{account}}">
+      <view class="{{l?'a23-s':'a23'}}" bindtap="list6a">
+      <view class="{{l?'a231-s':'a231'}}">
+        <view class="{{l?'a231-icon-s':'a231-icon'}}">
+          <image wx:if="{{cndUrl&&l}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+        </view>
+        <text class="{{l?'a231-text-s':'a231-text'}}" >鼓励对小微企业和个体工商户免收全部单位结算账户管理费和年费</text>
+      </view>
+      <view class="{{l?'a232-s':'a232'}}">
+        <view class="{{l?'a232-icon-s':'a232-icon'}}"></view>
+        <view class="{{l?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+      </view>
+    </view>
+    <view class="{{m?'a23-s':'a23'}}" bindtap="list6b">
+      <view class="{{m?'a231-s':'a231'}}">
+        <view class="{{m?'a231-icon-s':'a231-icon'}}">
+          <image wx:if="{{cndUrl&&m}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+        </view>
+        <text class="{{m?'a231-text-s':'a231-text'}}" >*鼓励为小微企业和个体工商户在同一银行开立的首个（或指定一个）单位结算账户开户手续费实行优惠，优惠后价格不高于现行**公示价格5折</text>
+      </view>
+      <view class="{{m?'a232-s':'a232'}}">
+        <view class="{{m?'a232-icon-s':'a232-icon'}}"></view>
+        <view class="{{m?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+      </view>
+    </view>
+    </view>
+  </view>
+  <!-- 人民币转账汇款 -->
+  <view wx:if="{{type == '小微型企业'|| type == '个体工商户'|| type == ''}}">
+    <view class="a22" bindtap="remittance">
+      <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-002.png" mode="widthFix" style="width:8rpx;"></image>
+      <view class="a22-text">人民币转账汇款</view>
+      <image src="{{cndUrl}}/static/wechat/img/entsc/{{remittance?'enterpriseScaleClose':'enterpriseScaleOpen'}}.png" style="width: 24rpx;margin-left: 10rpx;" mode="widthFix"></image>
+    </view>
+    <view wx:if="{{remittance}}">
+      <view class="{{i?'a23-s':'a23'}}"  bindtap="list5a">
+        <view class="{{i?'a231-s':'a231'}}">
+          <view class="{{i?'a231-icon-s':'a231-icon'}}">
+            <image wx:if="{{cndUrl&&i}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+          </view>
+          <text class="{{i?'a231-text-s':'a231-text'}}" >*鼓励对通过网上银行、手机银行、ATM等渠道进行的单笔10万元（含，下同）以内的小微企业和个体工商户对公跨行转账汇款业务实行优惠，优惠后价格不高于现行**公示价格9折</text>
+        </view>
+        <view class="{{i?'a232-s':'a232'}}">
+          <view class="{{i?'a232-icon-s':'a232-icon'}}"></view>
+          <view class="{{i?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+        </view>
+      </view>
+      <view class="{{j?'a23-s':'a23'}}"  bindtap="list5b">
+          <view class="{{j?'a231-s':'a231'}}">
+            <view class="{{j?'a231-icon-s':'a231-icon'}}">
+              <image wx:if="{{cndUrl&&j}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+            </view>
+            <text class="{{j?'a231-text-s':'a231-text'}}" > 对小微企业和个体工商户通过柜台渠道进行单笔10万元（含，下同）以下的对公跨行转账汇款业务，按照不高于现行**政府指导价标准的9折实行优惠</text>
+          </view>
+          <view class="{{j?'a232-s':'a232'}}">
+            <view class="{{j?'a232-icon-s':'a232-icon'}}"></view>
+            <view class="{{j?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+          </view>
+      </view>
+      <view class="{{k?'a23-s':'a23'}}"  bindtap="list5c">
+          <view class="{{k?'a231-s':'a231'}}">
+            <view class="{{k?'a231-icon-s':'a231-icon'}}">
+              <image wx:if="{{cndUrl&&k}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+            </view>
+            <text class="{{k?'a231-text-s':'a231-text'}}" >*鼓励对小微企业和个体工商户柜台、网上银行、手机银行、ATM等渠道单笔10万元以内对公本行转账免收汇款手续费</text>
+          </view>
+          <view class="{{k?'a232-s':'a232'}}">
+            <view class="{{k?'a232-icon-s':'a232-icon'}}"></view>
+            <view class="{{k?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+          </view>
+      </view>
+    </view>
+  </view>
+  <!-- 电子银行 -->
+  <view wx:if="{{type == '小微型企业'|| type == '个体工商户'|| type == ''}}">
+    <view class="a22" bindtap="electronic">
+      <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-002.png" mode="widthFix" style="width:8rpx;"></image>
+      <view class="a22-text">电子银行</view>
+      <image src="{{cndUrl}}/static/wechat/img/entsc/{{electronic?'enterpriseScaleClose':'enterpriseScaleOpen'}}.png" style="width: 24rpx;margin-left: 10rpx;" mode="widthFix"></image>
+    </view>
+    <view wx:if="{{electronic}}">
+      <view class="{{f?'a23-s':'a23'}}"  bindtap="list4a">
+        <view class="{{f?'a231-s':'a231'}}">
+          <view class="{{f?'a231-icon-s':'a231-icon'}}">
+            <image wx:if="{{cndUrl&&f}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+          </view>
+          <text class="{{f?'a231-text-s':'a231-text'}}" >*鼓励对小微企业和个体工商户网上银行、手机银行、电话银行的年费和管理费实行免收或不高于现行**公示价格5折优惠</text>
+        </view>
+        <view class="{{f?'a232-s':'a232'}}">
+          <view class="{{f?'a232-icon-s':'a232-icon'}}"></view>
+          <view class="{{f?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+        </view>
+    </view>
+    <view class="{{g?'a23-s':'a23'}}"  bindtap="list4b">
+        <view class="{{g?'a231-s':'a231'}}">
+          <view class="{{g?'a231-icon-s':'a231-icon'}}">
+            <image wx:if="{{cndUrl&&g}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+          </view>
+          <text class="{{g?'a231-text-s':'a231-text'}}" >*鼓励对小微企业和个体工商户安全认证工具的年费和管理费实行免收或不高于现行**公示价格5折优惠</text>
+        </view>
+        <view class="{{g?'a232-s':'a232'}}">
+          <view class="{{g?'a232-icon-s':'a232-icon'}}"></view>
+          <view class="{{g?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+        </view>
+    </view>
+    <view class="{{h?'a23-s':'a23'}}"  bindtap="list4c">
+        <view class="{{h?'a231-s':'a231'}}">
+          <view class="{{h?'a231-icon-s':'a231-icon'}}">
+            <image wx:if="{{cndUrl&&h}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+          </view>
+          <text class="{{h?'a231-text-s':'a231-text'}}" >*鼓励免收小微企业和个体工商户安全认证工具工本费，至少按照不高于成本价收取</text>
+        </view>
+        <view class="{{h?'a232-s':'a232'}}">
+          <view class="{{h?'a232-icon-s':'a232-icon'}}"></view>
+          <view class="{{h?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+        </view>
+    </view>
+    </view>
+  </view>
+  
+  <!-- 票据 -->
+  <view class="a22" wx:if="{{type == '小微型企业'|| type == '个体工商户'|| type == '大中型企业'|| type == ''}}" bindtap="payment">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-002.png" mode="widthFix" style="width:8rpx;"></image>
+    <view class="a22-text">票据</view>
+    <image src="{{cndUrl}}/static/wechat/img/entsc/{{payment?'enterpriseScaleClose':'enterpriseScaleOpen'}}.png" style="width: 24rpx;margin-left: 10rpx;" mode="widthFix"></image>
+  </view>
+  <view wx:if="{{payment}}">
+      <view class="{{c?'a23-s':'a23'}}"  bindtap="list2" wx:if="{{type == '小微型企业'|| type == '个体工商户'|| type == '大中型企业'|| type == ''}}">
+        <view class="{{c?'a231-s':'a231'}}">
+          <view class="{{c?'a231-icon-s':'a231-icon'}}">
+            <image wx:if="{{cndUrl&&c}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+          </view>
+          <text class="{{c?'a231-text-s':'a231-text'}}" >取消支票工本费、挂失费，以及本票和银行汇票的手续费、工本费、挂失费</text>
+        </view>
+        <view class="{{c?'a232-s':'a232'}}">
+          <view class="{{c?'a232-icon-s':'a232-icon'}}"></view>
+          <view class="{{c?'a232-text-s':'a232-text'}}">自2021年9月30日起长期</view>
+        </view>
+      </view>
+  </view>
+<!-- 支付账户 -->
+  <view wx:if="{{type == '个体工商户'|| type == '小微型企业'|| type == ''}}">
+    <view class="a22" bindtap="cart">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-002.png" mode="widthFix" style="width:8rpx;"></image>
+    <view class="a22-text">支付账户</view>
+    <image src="{{cndUrl}}/static/wechat/img/entsc/{{cart?'enterpriseScaleClose':'enterpriseScaleOpen'}}.png" style="width: 24rpx;margin-left: 10rpx;" mode="widthFix"></image>
+  </view>
+  <view wx:if="{{cart}}">
+      <view class="{{d?'a23-s':'a23'}}"  bindtap="list3a">
+        <view class="{{d?'a231-s':'a231'}}">
+          <view class="{{d?'a231-icon-s':'a231-icon'}}">
+            <image wx:if="{{cndUrl&&d}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+          </view>
+          <text class="{{d?'a231-text-s':'a231-text'}}" >*鼓励对小微企业和个体工商户、有经营行为的个人等网络支付商户服务费实行不高于现行**标准9折优惠</text>
+        </view>
+        <view class="{{d?'a232-s':'a232'}}">
+          <view class="{{d?'a232-icon-s':'a232-icon'}}"></view>
+          <view class="{{d?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+        </view>
+      </view>
+      <view class="{{e?'a23-s':'a23'}}"  bindtap="list3b">
+        <view class="{{e?'a231-s':'a231'}}">
+          <view class="{{e?'a231-icon-s':'a231-icon'}}">
+            <image wx:if="{{cndUrl&&e}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+          </view>
+          <text class="{{e?'a231-text-s':'a231-text'}}" >*鼓励对采用收款码收款的小微企业和个体工商户、有经营行为的个人免收支付账户提现手续费</text>
+        </view>
+        <view class="{{e?'a232-s':'a232'}}">
+          <view class="{{e?'a232-icon-s':'a232-icon'}}"></view>
+          <view class="{{e?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+        </view>
+      </view>
+  </view>
+  </view>
+<!-- 银行卡刷卡 -->
+<view class="a22" wx:if="{{type == '小微型企业'|| type == '个体工商户'|| type == '大中型企业'|| type == ''}}" bindtap="bill">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-002.png" mode="widthFix" style="width:8rpx;"></image>
+    <view class="a22-text">银行卡刷卡</view>
+    <image src="{{cndUrl}}/static/wechat/img/entsc/{{bill?'enterpriseScaleClose':'enterpriseScaleOpen'}}.png" style="width: 24rpx;margin-left: 10rpx;" mode="widthFix"></image>
+</view>
+<view wx:if="{{bill}}">
+  <view wx:if="{{type == '小微型企业'|| type == '个体工商户'|| type == '大中型企业'|| type == ''}}">
+    <view class="{{a?'a23-s':'a23'}}" bindtap="list1a">
+      <view class="{{a?'a231-s':'a231'}}">
+        <view class="{{a?'a231-icon-s':'a231-icon'}}">
+          <image wx:if="{{cndUrl&&a}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+        </view>
+        <text class="{{a?'a231-text-s':'a231-text'}}" >对标准类商户借记卡发卡行服务费、网络服务费在政府指导价基础上实行9折优惠、封顶值维持不变</text>
+      </view>
+      <view class="{{a?'a232-s':'a232'}}">
+        <view class="{{a?'a232-icon-s':'a232-icon'}}"></view>
+        <view class="{{a?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+      </view>
+    </view>
+    <view class="{{b?'a23-s':'a23'}}" bindtap="list1b">
+      <view class="{{b?'a231-s':'a231'}}">
+        <view class="{{b?'a231-icon-s':'a231-icon'}}">
+          <image wx:if="{{cndUrl&&b}}" src="{{cndUrl}}/static/wechat/img/entsc/sui-company-003.png" mode="widthFix" style="width:25rpx;"></image>
+        </view>
+        <text class="{{b?'a231-text-s':'a231-text'}}" >对优惠类商户发卡行服务费、网络服务费继续在现行**政府指导价基础上实行7.8折优惠</text>
+      </view>
+      <view class="{{b?'a232-s':'a232'}}">
+        <view class="{{b?'a232-icon-s':'a232-icon'}}"></view>
+        <view class="{{b?'a232-text-s':'a232-text'}}">自2021年9月30日起三年</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="a31" >您可以选择预计要办理的业务进行优惠估算</view>
+<view style="display: flex;justify-content: center;" wx:if="{{type===''}}">优惠估算前请先确定您的企业类型</view>
+<view class="header" wx:if="{{type==''}}">
+  <view class="headeritem headeritema">
+    <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleunknown.png" style="width:134rpx;" mode="widthFix"></image>
+    <view class="headercenter">我不清楚企业类型</view>
+    <view class="headerbottom" bindtap="queryEnterpriseScale">立即查询</view>
+  </view>
+  <view class="headeritem">
+    <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleunknown.png" style="width:134rpx;" mode="widthFix"></image>
+    <view class="headercenter">我知道企业类型</view>
+    <view class="headerbottom" bindtap="selectEnterpriseScale">立即选择</view>
+  </view>
+</view>
+ 
+</view>
+<view class="a3" >
+  <view class="a33333">
+    <view class="a32">
+      <view class="a32text" bindtap="return">返回</view>
+    </view>
+    <view class="a32">
+      <view class="a32text" bindtap="doCount">优惠估算</view>
+    </view>
+  </view>
+  <view class="bottomTips" wx:if="{{type == '小微型企业'|| type == '个体工商户'|| type == '大中型企业'|| type == ''}}">“*”出自《中国支付清算协会 中国银行业协会关于降低小微企业和个体工商户支付手续费的倡议书》；非“*”出自中国人民银行等四部委《关于降低小微企业和个体工商户支付手续费的通知》</view>
+  <view class="bottomTips" >**降费文件和相关倡议出台时间在2021年9月30日前，此处“现行”价格或收费标准指降费文件或倡议书出台时间点对应的价格或收费标准，下同。</view>
+</view>

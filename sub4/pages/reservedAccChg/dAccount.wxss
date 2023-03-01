@@ -1,0 +1,29 @@
+/* sub3/pages/reservedAccChg/dAccount.wxss */
+@import './person.wxss';
+.nexts{
+  position: fixed;
+  bottom: 117rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  width: 60%;
+  background: #6D7CFF;
+box-shadow: 0 8px 16px 0 #9CABFF;
+border-radius: 43rpx;
+font-family: SourceHanSansSC-Normal;
+font-size: 34rpx;
+color: #FFFFFF;
+text-align: center;
+font-weight: 400;
+height: 86rpx;
+line-height: 86rpx;
+
+}
+.van-field__label 
+{
+  font-size: 28rpx !important;
+
+  color: #031126 !important;
+
+}

@@ -1,0 +1,104 @@
+<view class="containerbox">
+  <image class="containerbg" src="{{preffixUrl}}msgitem_img.png" mode="widthFix"></image>
+  <view class="textboxone">
+    <!-- 政策/活动名称 -->
+    <view>{{list.EVENTNAME}}</view>
+    <!-- 级别 -->
+    <view>{{list.CLASSIFICATION}}</view>
+  </view>
+  <view class="bottombox">
+    <view class="bottomContainer">
+      <image class="bottomContainerbg" src="{{preffixUrl}}content_img.png"></image>
+      <!-- 申报时间 -->
+      <view wx:if="{{list.EVENTTIME || list.EVENTTIME != '' }}">
+        <view class="box1">
+          <image class="box1img" src="{{preffixUrl}}arrowhead.png"></image>
+          申报时间
+        </view>
+        <view class="box1_text">{{list.EVENTTIME}}</view>
+      </view>
+      <!-- 申报对象 -->
+      <view wx:if="{{list.REPORT || list.REPORT != '' }}">
+        <view class="box1">
+          <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+          申报对象
+        </view>
+        <view class="box1_text">
+          <rich-text  class="c-content" nodes="{{list.REPORT}}"></rich-text>
+        </view>
+      </view>
+      <!-- 支持政策 -->
+      <view wx:if="{{list.SUPPORTPOLICY || list.SUPPORTPOLICY != '' }}">
+        <view class="box1">
+          <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+          支持政策
+        </view>
+        <view class="box1_text">
+          <rich-text class="c-content" nodes="{{list.SUPPORTPOLICY}}"></rich-text>
+        </view>
+      </view>
+      <!-- 活动内容 -->
+      <view wx:if="{{list.ACTIVITYCONTENT || list.ACTIVITYCONTENT != '' }}">
+        <view class="box1">
+          <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+          活动内容
+        </view>
+        <view class="box1_text">
+          <rich-text class="c-content" nodes=" {{list.ACTIVITYCONTENT}}"></rich-text>
+          <!-- {{list.ACTIVITYCONTENT}} -->
+        </view>
+      </view>
+      <!-- 截止时间 -->
+      <view wx:if="{{list.ENDTIME || list.ENDTIME != '' }}">
+        <view class="box1">
+          <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+          截止时间
+        </view>
+        <view class="box1_text">{{list.ENDTIME}}</view>
+      </view>
+      <!-- 申报地址 -->
+      <view wx:if="{{list.DECLARATIONADDRESS || list.DECLARATIONADDRESS != '' }}">
+        <view class="box1">
+          <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+          申报地址
+        </view>
+        <view class="box1_text">
+          <rich-text class="c-content" nodes="{{list.DECLARATIONADDRESS}}"></rich-text>
+
+        </view>
+      </view>
+      <!-- 咨询部门 -->
+      <view wx:if="{{list.CONSULTINGDEP || list.CONSULTINGDEP != '' }}">
+        <view class="box1">
+          <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+          咨询部门
+        </view>
+        <view class="box1_text">
+          <rich-text class="c-content" nodes="{{list.CONSULTINGDEP}}"></rich-text>
+        </view>
+      </view>
+      <!-- 咨询电话 -->
+      <view wx:if="{{list.CONSULTINGPHONE || list.CONSULTINGPHONE != '' }}">
+        <view class="box1">
+          <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+          咨询电话
+        </view>
+        <view class="box1_text" bindtap="phoneCall" data-phone="{{list.CONSULTINGPHONE}}">
+          <rich-text class="c-content" nodes="{{list.CONSULTINGPHONE}}"></rich-text>
+        </view>
+      </view>
+      <!-- 活动链接 -->
+      <view wx:if="{{list.EVENTNAME === '苏州国际精英创业周'}}">
+        <view class="box1">
+          <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+          活动链接
+        </view>
+        <view class="box1_text">
+          <image class="box1img2" src="{{preffixUrl}}listFour.png" show-menu-by-longpress="{{true}}"></image>
+          <view class="box1count2">(长按识别二维码)</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

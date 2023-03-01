@@ -1,0 +1,24 @@
+
+<template name="step_imgs">
+  <view class="step_imgs">
+    <block wx:if="{{step<1||step>3}}">
+    
+    </block>
+    <block wx:else>
+      <view bindtap="goStep" data-step="1">
+        <image wx:if="{{step=='1'}}" src="{{cdnMer}}/step1.png" mode="widthFix"></image>
+        <image wx:else src="{{cdnMer}}/step1u.png" mode="widthFix"></image>
+      </view>
+      <view bindtap="goStep" data-step="2">
+        <image wx:if="{{step=='2'}}" src="{{cdnMer}}/step2.png" mode="widthFix"></image>
+        <image wx:else src="{{cdnMer}}/step2u.png" mode="widthFix"></image>
+      </view>
+      <view bindtap="goStep" data-step="3">
+        <image wx:if="{{step=='3'}}" src="{{cdnMer}}/jkedhqxxz.png" mode="widthFix"></image>
+        <image wx:else src="{{cdnMer}}/jkedhqx.png" mode="widthFix"></image>
+        <!-- <image wx:if="{{step=='3'}}" src="{{cdnMer}}/step3.png" mode="widthFix"></image>
+        <image wx:else src="{{cdnMer}}/step3u.png" mode="widthFix"></image> -->
+      </view>
+    </block>
+  </view>
+</template>

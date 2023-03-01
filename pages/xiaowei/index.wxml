@@ -1,0 +1,62 @@
+<view class="container" style="z-index:100">
+    <!-- <image mode="widthFix"src="../../assets/images/小微贷@2x.png"></image> -->
+    <image mode="widthFix"src="{{cndUrl}}/static/wechat/img/sui/xiaowei@2x.png"></image>
+    <block class="">
+        <!-- <view bindtap="showShare" class="btnArr"> -->
+          <image mode="widthFix"bindtap="showShare" class="share" src="{{cndUrl}}/static/wechat/img/sui/xiaoweiShareBtn@3x.png"></image>
+        <!-- </view> -->
+        <!-- <view bindtap="apli" class="btnArr"> -->
+          <image mode="widthFix"bindtap="apli" class="apply" src="{{cndUrl}}/static/wechat/img/sui/xiaoweiApplyBtn@3x.png"></image>
+        <!-- </view> -->
+<!-- 顶部导航start -->
+<view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image mode="widthFix"src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image mode="widthFix"src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image mode="widthFix"src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+<!-- 顶部导航end -->
+    </block>
+</view>
+
+
+
+<view class="{{shareBox}}" >
+
+<view class='imagePathBox'>
+  <image mode="widthFix"src="{{imagePath}}" class='shengcheng'></image>
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+  <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+</view>
+
+<view class="tools">
+  <view class="tb cancel" bindtap='showHide'>
+    <image mode="widthFix"wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+    <block>取消</block>
+  </view>
+  <view class="tb shareToAPP">
+    <button open-type='share'><image mode="widthFix"wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image></button>
+    <block>转发</block>
+  </view>
+  <view class="tb savePic" bindtap='baocun'>
+    <image mode="widthFix"wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+    <view class="saveTxt">朋友圈</view>
+  </view>
+</view>
+</view>
+
+
+<view style='position:fixed;bottom:0;left:0;width:100%;height:50%;background:#fff;z-index:0;'></view>
+
+
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>

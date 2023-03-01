@@ -1,0 +1,238 @@
+/* pages/carLoans/index.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+page {
+  background-color: white;
+  height: 65%;
+}
+
+/* f1 start*/
+.f1 image {
+	width: 100%;
+	position: absolute;
+	top: 0;
+  z-index: -1;
+  margin-top: -58px;
+}
+/* f1 end*/
+
+
+
+/* f3 start */
+
+.f3 {
+    height: 100%;
+    width: 100%;
+    /* margin-top: -240rpx; */
+    /* padding-top: 35rpx; */
+    border-radius: 50rpx 0px 0px 0px;
+    background-color: #ffffff;
+}
+
+.f3-1 {
+    width: 100%;
+    height: 260rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50rpx 0px 0px 0px;
+}
+
+.middle_bg {
+    width: 95%;
+    margin: 0 2.5%;
+    height: 180rpx;
+}
+
+.middle_bg image {
+    width: 100%;
+}
+
+.f3-1-1-img {
+    position: relative;
+    width: 688rpx;
+    height: 181rpx;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.f3-1-1-text {
+    margin: 40rpx 0 10rpx 44rpx;
+    font-size: 26rpx;
+    color: #4F5E8A;
+    font-family: SourceHanSansSC-Regular;
+    letter-spacing: 0.4px;
+}
+
+.f3-1-2-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.f3-1-2-text {
+    margin-left: 44rpx;
+    font-family: SourceHanSansSC-Medium;
+    letter-spacing: 0;
+    font-size: 28rpx;
+    color: #52618c;
+}
+
+.f3-1-2-img {
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 15rpx;
+}
+.f3-2{
+  margin-top: -20rpx;
+  font-size: 34rpx;
+  margin-left: 34rpx;
+}
+.f3-3{
+  width: 100%;
+  height: 340rpx;
+  padding: 0rpx 20rpx;
+}
+.f3-3-1{
+  width: 48%;
+  margin-top: 20rpx;
+  height: 180rpx;
+  float: left;
+  border-radius: 50rpx;
+}
+.f3-3-1-img{
+  width: 100%;
+  height: 100%;
+}
+.f3-3-1-text{
+  position: relative;
+  top: -140rpx;
+  left: 40rpx;
+  font-size: 30rpx;
+  font-weight: 400;
+}
+.f3-3-1-text::after {
+  content: '';
+  width: 120rpx;
+  height: 0.1px;
+  display: block;
+  margin-top: -24rpx;
+}
+.f3-3-board-1::after {
+  border-bottom: 20rpx solid #fcd3aa;
+}
+.f3-3-board-2::after {
+  border-bottom: 20rpx solid #aabcf3;
+}
+.f3-3-board-3::after {
+  border-bottom: 20rpx solid #aedafe;
+}
+.f3-3-board-4::after {
+  border-bottom: 20rpx solid #bfd0ed;
+}
+.f3-4{
+  width: 100%;
+  height: 100rpx;
+}
+.f3-4-1-img{
+  width: 92%;
+  height: 100%;
+  margin-left: 30rpx;
+}
+.f3-4-2-img{
+  width: 29rpx;
+  height: 32rpx;
+  top: -36rpx;
+  left: -660rpx;
+}
+.f3-4-1-text{
+  font-weight: 500;
+  font-size: 30rpx;
+  position: relative;
+  top: -85rpx;
+  left: 100rpx;
+}
+.f3-4-2-text{
+  position: relative;
+  top: -80rpx;
+  float: right;
+  right: 60rpx;
+  color: #8b97b8;
+  font-size: 24rpx;  
+}
+/* f3 end */
+
+
+/* 弹窗样式 */
+.mask_layer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    background-color: rgba(2, 1, 1, 0.4);
+    opacity: 0.5;
+    overflow: hidden;
+    backdrop-filter: blur(100rpx);
+}
+.modal_box {
+  width: 550rpx;
+  height: 566rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 1001;
+  background: #fafafa;
+  margin: -300rpx 12% 0 12%;
+  border-radius: 26rpx;
+}
+.card-img {
+  width: 252rpx;
+  height: 239rpx;
+  top: 34rpx;
+  left: 150rpx;
+  z-index: -1;
+}
+.card-content {
+  text-align: center;
+}
+.card-content-title{
+  font-family: SourceHanSansSC-Medium;
+  font-size: 34rpx;
+}
+.card-content-modalMsg {
+  text-align: center;
+  font-size: 28rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-weight: 400;
+  margin-top: 8rpx;
+  display: block;
+}
+.card-btn {
+  width: 100%;
+  margin: 45rpx 0rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.popClose {
+  width: 320rpx;
+  height: 68rpx;
+  padding: 13rpx;
+  margin: 0rpx auto;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular;
+  color: #ffffff;
+  background-color:#3D5FE9;
+  border-left: 2rpx solid #d0d0d0;
+  text-align: center;
+  border-radius: 50rpx;
+}

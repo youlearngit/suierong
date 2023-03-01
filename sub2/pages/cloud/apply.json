@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-button": "/sub2/dist/button/index",
+    "i-checkbox-group": "/sub2/dist/checkbox-group/index",
+    "i-checkbox": "/sub2/dist/checkbox/index",
+    "i-toast": "/sub2/dist/toast/index"
+  },
+  "disableScroll": true
+}

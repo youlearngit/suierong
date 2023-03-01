@@ -1,0 +1,172 @@
+<view class="a1">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/bg.png" mode="widthFix" />
+</view>
+<view class="a99">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/tile.png" mode="widthFix" />
+</view>
+<view class="head-title" hover-class="none" hover-stop-propagation="false">——仓储冷链建设专享——</view>
+<view class="plan" hover-class="none" hover-stop-propagation="false">
+    <image class="plan-bg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/bg_head.png" mode="widthFix" />
+    <view class="plan-title" hover-class="none" hover-stop-propagation="false">产品方案</view>
+    <view class="plan-desc" hover-class="none" hover-stop-propagation="false">
+        为支持农产品产地冷藏保鲜设施建设，江苏银行推出 “经营随e贷（仓储冷链建设专享）”产品，满足新型农业经营主体建设冷藏保鲜设施的资金需求。
+    </view>
+</view>
+<view class="type" hover-class="none" hover-stop-propagation="false">
+    <view class="type-item" hover-class="none" hover-stop-propagation="false">
+        <view class="type-item-bg" hover-class="none" hover-stop-propagation="false">
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/bg_title.png" mode="widthFix" style="widhth:100%"></image>
+            特点一 额度高
+        </view>
+        <image class="type-item-desc1" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/icon_purse.png" mode="widthFix"></image>
+        <view class="type-item-desc2" hover-class="none" hover-stop-propagation="false">额度最高</view>
+        <view class="type-item-desc3" hover-class="none" hover-stop-propagation="false">
+            200<span class="type-item-desc31">万元</span>
+        </view>
+    </view>
+    <view class="type-item" hover-class="none" hover-stop-propagation="false">
+        <view class="type-item-bg" hover-class="none" hover-stop-propagation="false">
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/bg_title.png" mode="widthFix" style="widhth:100%"></image>
+            特点二 担保活
+        </view>
+        <image class="type-item-desc1" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/icon_medal.png" mode="widthFix" style="width:53rpx"></image>
+        <view class="type-item-desc4" hover-class="none" hover-stop-propagation="false">
+            信用·保证·抵押
+        </view>
+    </view>
+    <view style="display: flex;align-items: center;" class="type-item" hover-class="none" hover-stop-propagation="false">
+        <view class="type-item-bg" hover-class="none" hover-stop-propagation="false">
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/bg_title.png" mode="widthFix" style="widhth:100%"></image>
+            特点三 费率低
+        </view>
+<view style="display: none;">
+        <view class="type-item-desc5" hover-class="none" hover-stop-propagation="false">
+            年利率最低
+            <span style="font-family: Impact;font-size: 42rpx;color: #2C3750;">3.85</span>%
+        </view>
+        <view class="type-item-desc6" hover-class="none" hover-stop-propagation="false">
+            按日计息，额度不用不要钱
+        </view>
+        <view class="type-item-desc6" hover-class="none" hover-stop-propagation="false">
+            贷款1万元日息仅
+            <span style="color: #2C3750;">1.05元</span>
+        </view>
+</view>
+<view style="border: none;color: #2C3750;" class="type-item-desc5" hover-class="none" hover-stop-propagation="false">可享优惠利率,以实际用款为准</view>
+        <image class="type-item-desc8" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/icon_low.png" mode="widthFix"></image>
+    </view>
+    <view class="type-item" hover-class="none" hover-stop-propagation="false">
+        <view class="type-item-bg" hover-class="none" hover-stop-propagation="false">
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/bg_title.png" mode="widthFix" style="widhth:100%"></image>
+            特点四 操作简
+        </view>
+        <view class="type-item-desc7" hover-class="none" hover-stop-propagation="false">
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/icon_step1.png" mode="widthFix" style="widhth:100%"></image>
+            在线申请
+        </view>
+        <view class="type-item-desc7" hover-class="none" hover-stop-propagation="false">
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/icon_step2.png" mode="widthFix" style="widhth:100%"></image>
+            在线用款
+        </view>
+        <view class="type-item-desc7" hover-class="none" hover-stop-propagation="false">
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/icon_step3.png" mode="widthFix" style="widhth:100%"></image>
+            随借随还
+        </view>
+        <image class="type-item-desc8" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/icon_easy.png" mode="widthFix"></image>
+    </view>
+</view>
+<view class="footer-desc" hover-class="none" hover-stop-propagation="false">
+    <view class="footer-desc-title" hover-class="none" hover-stop-propagation="false">申请条件</view>
+    <view>申请人为纳入农业主管部门仓储冷链设施建设立项或给予补贴的农业经营主体或其负责人。</view>
+</view>
+<view class="a9">
+    <view class="flex">
+        <view class="a9b1" bindtap="showShare">
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/warehousing/icon_share.png" mode="widthFix"></image>
+            分享
+        </view>
+        <view bindtap="getAmount" class="a9b2">立即申请</view>
+    </view>
+</view>
+<canvas style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+<my-poster shareBox="{{shareBox}}" hidePoster="{{hidePoster}}" imagePath="{{imagePath}}"></my-poster>
+<my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>
+<!-- <view class="a14" bind:tap="showPopup">推荐有礼</view> -->
+<van-popup show="{{ show }}" bind:close="onClose">
+    <view class="a2">
+        <view class="a21">活动说明</view>
+        <scroll-view class="a22" scroll-x="false" scroll-y="false" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="" bindscroll="">
+            <view class="a221">
+                <view class="a222">一重礼（分享有礼）</view>
+                <view class="a223">1.活动时间：即日起至2020年12月31日。</view>
+                <view class="a223">
+                    2.活动内容：本次活动共奖励10,000,000苏银豆，先到先得。每分享“经营随e贷”产品给一位好友并查看，即可获得100苏银豆。每人每天最高可获得1000苏银豆，分享活动期内最高可获得10,000苏银豆。
+                </view>
+                <view class="a223">3.温馨提示：若您的好友优先查看了其它推荐人的分享，您将无法获得该笔分享奖励。</view>
+            </view>
+            <view class="a221">
+                <view class="a222">二重礼（申请有奖）</view>
+                <view class="a223">1.活动时间：即日起至2020年12月31日。</view>
+                <view class="a223">
+                    2.活动内容：每分享“经营随e贷”产品给一位好友成功提交业务申请，即可获得5000苏银豆，若业务审批通过可获得30,000苏银豆奖励。活动期间，您通过转介最多可获得175,000苏银豆奖励。活动奖励有限，先到先得，奖完为止。
+                </view>
+                <view class="a223">
+                    3.温馨提示：您邀请的客户需近一年内未在我行办理小微贷款业务才可以获得奖励。若您是我行小微企业客户，邀请自己申请不予奖励。
+                </view>
+                <view class="a223" wx:if="{{isEmp}}">4.员工：我行员工转介活动规则详见行内发文。</view>
+            </view>
+        </scroll-view>
+        <view class="a23">
+            <view class="a231" bind:tap="onClose">我知道了</view>
+        </view>
+    </view>
+</van-popup>
+<van-popup show="{{ showTips }}" bind:close="onClose">
+    <view class="a2">
+        <view class="a21" style="text-align:center">温馨提示</view>
+        <scroll-view class="a22" scroll-x="false" scroll-y="false" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="" bindscroll="">
+            <view class="a221">
+                <view class="a223">（一）本业务除双方约定的贷款利息外，无其他任何形式的附加费用。</view>
+                <view class="a223">
+                    （二）请您从官方渠道自主申请我行贷款产品。我行未与任何中介机构或个人合作，未授权任何中介机构或个人向客户代为提供咨询、受理、办理业务，委托收取中介费、手续费、佣金等各类费用。
+                </view>
+                <view class="a223">（三）请您加强个人相关信息保护，切勿轻易泄露，维护好自己的信用记录。</view>
+                <view class="a223">
+                    （四）本贷款资金仅用于企业经营性支出，不得违规流入房市，不得违规用于股票、债券、期货、金融衍生品和资产管理产品等投资、固定资产、股本权益性投资及法律法规禁止的其他用途。
+                </view>
+                <view class="a223">（五）如您对业务有任何疑问，欢迎致电江苏银行客服热线95319进行咨询，或登录江苏银行官方网站进行查询办理。</view>
+            </view>
+            <view class="a221" style="text-align:right">江苏银行股份有限公司</view>
+        </scroll-view>
+        <view class="a23">
+            <view class="a231" bind:tap="getApplyInfo">确认</view>
+        </view>
+    </view>
+</van-popup>
+<van-popup show="{{ showPosterBox }}" bind:close="closePopUp" position="bottom">
+    <view class="t1">欢迎体验,感谢分享。</view>
+    <view class="t4">海报模版</view>
+    <scroll-view scroll-y style="max-height:60vh">
+        <view class="t5">
+            <block wx:for="{{posterImgs}}">
+                <view class="t51" wx:if="{{index!='0'}}" bind:tap="choosePoster" data-id="{{index}}">
+                    <image class="t54" src="{{cardInfo.PHOTO2}}" mode="widthFix" style="width:100%"></image>
+                    <image src="{{item.img}}" mode="widthFix" style="width:100%"></image>
+                    <view class="t53 {{posterIdselected==index?'t531':''}}" hover-class="none" hover-stop-propagation="false">
+                        {{item.title}}
+                    </view>
+                    <image wx:if="{{posterIdselected==index&&cndUrl}}" class="t52" src="{{cndUrl}}/static/wechat/img/sui/sui-1076.png" mode="widthFix"></image>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+    <view class="t6" wx:if="{{posterIdselected==-1}}" style="opacity: 0.5;">请选择模版</view>
+    <view class="t6" bind:tap="createPoster" wx:if="{{posterIdselected!=-1&&imagePath!=''}}">
+        分享海报
+    </view>
+    <view class="t6" hover-class="none" hover-stop-propagation="false" wx:if="{{posterIdselected!=-1&&imagePath==''}}">
+        <image src="{{cndUrl}}/static/wechat/img/sui/loading.gif" mode="widthFix" style="width:40rpx;margin:0 10rpx"></image>
+        请稍等
+    </view>
+    <view style="height:30rpx"></view>
+</van-popup>

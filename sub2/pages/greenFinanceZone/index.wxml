@@ -1,0 +1,41 @@
+<!-- sub2/pages/greenFinanceZone/index.wxml -->
+<view class="greenFinanceZone" style="background-image: url({{greenFinanceUrl}}greenFinance_bg.png);">
+    <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+        <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+            <image src="/pages/public/img/ico_ind.png"></image>
+        </view>
+        <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+            <view class="backPage" bindtap='prePage'>
+                <image src="/pages/public/img/ico_back.png"></image>
+            </view>
+            <view class="backIndex" bindtap='indexpage'>
+                <image src="/pages/public/img/ico_ind.png"></image>
+            </view>
+        </view>
+    </view>
+    <!-- <view></view> -->
+    <view class="empty_div"></view>
+    <view class="greenFinanceZone_title">
+        <view class="title1">{{title1}}</view> 
+        <view class="title2">{{title2}}</view>  
+    </view>
+    <view class="item_list">
+        <view 
+            wx:for="{{datas}}" 
+            wx:for-item="item" 
+            wx:key="id"
+            style="background-image: url({{greenFinanceUrl}}{{item.bg_url}});"
+            data-id="{{item.id}}"
+            bindtap="jumpUrl"
+        >
+            <view class="item_title">
+                <view class="item_title1" style="color:{{item.color}}">{{item.title}}</view>
+                <view class="item_title2">{{item.small_title}}</view>
+                 <view class="image">
+                    <image src="{{greenFinanceUrl}}{{item.image_url}}" mode="widthFix" lazy-load="{{true}}" />
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+

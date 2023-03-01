@@ -1,0 +1,54 @@
+
+
+<view>
+  <view class="weui-cells__title">跨境e查询</view>
+  
+  <view class="weui-cells weui-cells_after-title" style="width:94%;margin:auto;border-radius: 5px;">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="searchJshpj">
+      <view class="weui-cell__hd">
+      </view>
+      <view class="weui-cell__bd" style="font-size:35rpx">结售汇牌价查询</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    
+  </view>
+  
+  <view class="weui-cells weui-cells_after-title" style="width:94%;margin:auto;border-radius: 5px;">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="searchHrhk">
+      <view class="weui-cell__hd">
+      </view>
+      <view class="weui-cell__bd" style="font-size:35rpx">汇入汇款查询</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title" style="width:94%;margin:auto;border-radius: 5px;">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="searchHchk">
+      <view class="weui-cell__hd">
+      </view>
+      <view class="weui-cell__bd" style="font-size:35rpx">汇出汇款查询</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title" style="width:94%;margin:auto;border-radius: 5px;">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="searchZhxx">
+      <view class="weui-cell__hd">
+      </view>
+      <view class="weui-cell__bd" style="font-size:35rpx">账户信息查询</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title" style="width:94%;margin:auto;border-radius: 5px;">
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="searchJckyw">
+      <view class="weui-cell__hd">
+      </view>
+      <view class="weui-cell__bd" style="font-size:35rpx">进出口业务查询</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+</view>
+  <i-toast id="toast" />
+  <my-login loginFlag="{{loginFlag}}" ></my-login>
+

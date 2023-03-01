@@ -1,0 +1,12 @@
+<!-- sub3/pages/myCouponStatus/index.wxml -->
+<view class="content">
+    <image class="statsu-img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_78.png" />
+    <view class="status">兑换成功</view>
+</view>
+<navigator url="../myCoupon/index">
+    <view class="nav">
+        <image class="nav-img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_75.png" />
+        <view class="nav-txt">我的优惠券</view>
+        <image class="nav-img1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_76.png" />
+    </view>
+</navigator>

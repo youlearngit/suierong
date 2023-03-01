@@ -1,0 +1,48 @@
+<!-- sub3/pages/myCouponConvert/index.wxml -->
+<view class="col">
+    <view class="item" data-ac='AC2020092100000021' bind:tap="check" style="{{select=='AC2020092100000021'?'border:1px solid #4586E6;':''}}">
+        <image class="convert-img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_80.png" />
+        <image class="convert-coin" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_83.png" />
+        <image class="convert-img1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_77.png" />
+        <image class="convert-img1" wx:if="{{preffixUrl  &&select=='AC2020092100000021'}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_79.png" />
+        <view class="convert-txt">3000</view>
+    </view>
+    <view class="item" data-ac='AC2020092100000022' bind:tap="check" style="margin-left:14rpx;{{select=='AC2020092100000022'?'border: 1px solid #4586E6;':''}}">
+        <image class="convert-img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_81.png" />
+        <image class="convert-coin" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_83.png" />
+        <image class="convert-img1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_77.png" />
+        <image class="convert-img1" wx:if="{{preffixUrl  &&select=='AC2020092100000022'}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_79.png" />
+        <view class="convert-txt">6000</view>
+    </view>
+</view>
+<view class="item" data-ac='AC2020092100000023' bind:tap="check" style="{{select=='AC2020092100000023'?'border: 1px solid #4586E6;':''}}">
+    <image class="convert-img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_82.png" />
+    <image class="convert-coin" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_83.png" />
+    <image class="convert-img1" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_77.png" />
+    <image class="convert-img1" wx:if="{{preffixUrl  &&select=='AC2020092100000023'}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_79.png" />
+    <view class="convert-txt">11000</view>
+</view>
+<view class="bottom" hover-class="none" hover-stop-propagation="false">
+    <navigator class="comfirm" url="/sub3/pages/myCoupon/index" hover-class="none">我的优惠券</navigator>
+    <view class="comfirm" bind:tap="convert">立即兑换</view>
+</view>
+<view class="a4">
+    <view class="a5">利率优惠券兑换提示：</view>
+    <view class="a6">
+        1. 目前仅适用
+        <text class="font-bold">消费“随e贷”</text>
+        产品。
+    </view>
+    <view class="a6">
+        2. 建议您在
+        <text class="font-bold">消费“随e贷”</text>
+        申请成功后进行兑换。
+    </view>
+    <view class="a6">3. 兑换后不能再兑回苏银豆，请在兑换前确认您的交易。</view>
+    <view class="a6">4. 有效期为兑换日起30天。</view>
+    <view class="a6">
+        5. 需在江苏银行
+        <text class="font-bold">手机银行app-消费“随e贷”</text>
+        借款时使用。
+    </view>
+</view>

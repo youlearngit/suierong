@@ -1,0 +1,21 @@
+<!-- sub2/pages/billDisCount/status.wxml -->
+<block wx:if="{{state==3||state==4}}">
+    <view class="container">
+        <icon type="success" size="80"></icon>
+        <text class="tips" style="margin-top: 15rpx; font-size: 24rpx;width: 80%;">
+           您的贴现额度申请已提交成功，请耐心等待审批结果。您可通过申请进度查询菜单及时查看申请进展。
+        </text>
+    </view>
+    <button style="margin-top: 30rpx;width: 80%;" bindtap="update">确定</button>
+</block>
+<block wx:else>
+    <view class="container">
+        <icon type="warn" size="80"></icon>
+        <text class="tips" style="margin-top: 15rpx;">正在进行</text>
+        <text class="tips" style="width:75%;text-align:center;margin-top: 15rpx;">
+            很抱歉，您的申请正在进行中，如有疑问，请通过电话联系客户经理。
+        </text>
+    </view>
+        <button style="margin-top: 30rpx;width: 80%;" bindtap="back" >返回</button>
+
+</block>

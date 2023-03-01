@@ -1,0 +1,21 @@
+
+<view>
+	<image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCResultBgTop.png" style="width: 100%;" mode="widthFix" class="enterpriseScaleCResultBgTop"></image>
+	<view class="enterpriseScaleCResultTitle">
+		<image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCResultSuccess.png" style="width: 96rpx;" mode="widthFix" class="enterpriseScaleCResultSuccess"></image>
+		<view>估算成功！</view>
+	</view>
+	<view class="content">
+		<view class="contentTop">总计有{{count}}名客户进行降费优惠估算，你是第{{countOrder}}个类型为 <text class="aaa">{{enterpriseScale}}</text> 型的企业客户，目前估算的总优惠金额为：</view>
+		<view class="contentBottom">
+		<view class="contentBottomLeft" wx:if="{{result_start===result_end}}">{{result_start}}</view>
+		<view class="contentBottomLeft" wx:else="">{{result_start}}~{{result_end}}</view>
+		<view class="contentBottomRight">元*</view>
+		</view>
+		<image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCResultBg.png"  style="width:658rpx;" mode="widthFix" class="enterpriseScaleCResultBg"></image>
+		
+		<view class="tip">*本结果为根据行业代表性银行或支付机构收费标准估算出的区间值，仅供参考，不作为收费或客户办理业务依据，客户享受优惠幅度以实际办理业务为准。部分银行或支付机构在2021年9月30日前已降费或收费标准在行业平均水平范围之外的，其客户在2021年9月30日后享受优惠值可能与本估算值存在差异。</view>
+		<image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleCResultBgBottom.png"  style="width:658rpx;" mode="widthFix" class="enterpriseScaleCResultBgBottom" ></image>
+	</view>
+	<view class="confirmBtn" bindtap="confirmBtn">完成</view>
+</view>

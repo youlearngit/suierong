@@ -1,0 +1,72 @@
+<view>
+	<image class="bg" src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleVideoBg.png" mode="widthFix"></image>
+	<view class="title">小微查-政策宣传</view>
+	<view class="title_sub">一键触达，快速感知降费政策温度</view>
+	<view class="video">
+		<video src="{{cndUrl}}/static/wechat/img/entsc/policy.mp4" object-fit="fill" controls="{{true}}" autoplay="{{false}}"
+			loop="{{true}}"></video>
+	</view>
+</view>
+
+<view style="background-color: white;padding-bottom: 20rpx;">
+	<view class="item" bindtap="navArticle" data-url="/static/wechat/img/entsc/entscImg11.jpg">
+	<view class="itemLeft">
+		<view class="itemLeft1">央行等四部委关于小微企业和个体工商户支付手续费减费让利新政于9月30日起实行</view>
+		<view class="itemLeft2">中国人民银行</view>
+	</view>
+
+	<image class="entscImg1" src="{{cndUrl}}/static/wechat/img/entsc/entscImg1.jpg"></image>
+
+</view>
+<view class="bor"></view>
+
+
+<!-- <view class="item" bindtap="navArticle" data-url="static/wechat/img/entsc/entscImg44.jpg">
+	<view class="itemLeft">
+		<view class="itemLeft1">降费惠企 支付利民① | 一百秒带你了解降低支付手续费政策</view>
+		<view class="itemLeft2">中国人民银行南京分行</view>
+
+	</view>
+
+	<image class="entscImg1" src="{{cndUrl}}/static/wechat/img/entsc/entscImg4.png"></image>
+
+</view>
+<view class="bor"></view> -->
+<view class="item" bindtap="navArticle" data-url="/static/wechat/img/entsc/entscImg33.jpg">
+	<view class="itemLeft">
+		<view class="itemLeft1">支付手续费降费新政首日 江苏首批小微企业和个体户喜获政策大礼包</view>
+		<view class="itemLeft2">中国人民银行南京分行</view>
+
+	</view>
+
+	<image class="entscImg1" src="{{cndUrl}}/static/wechat/img/entsc/entscImg3.jpg"></image>
+</view>
+<view class="bor"></view>
+
+
+<view class="item" bindtap="navArticle" data-url="/static/wechat/img/entsc/entscImg22.jpg">
+	<view class="itemLeft">
+		<view class="itemLeft1">降费惠企 支付利民② | 人民银行南京分行践行“我为群众办实事” 积极推进降费让利政策落地实施</view>
+		<view class="itemLeft2">中国人民银行南京分行</view>
+
+	</view>
+
+	<image class="entscImg1" src="{{cndUrl}}/static/wechat/img/entsc/entscImg2.jpg"></image>
+
+</view>
+<view class="bor" style="height: 2rpx;"></view>
+
+
+<view class="item" bindtap="navArticle" data-url="/static/wechat/img/entsc/entscImg55.jpg">
+	<view class="itemLeft">
+		<view class="itemLeft1">支付西游记 | 第一回：花果山酒店喜开张 孙大圣开户龙马行</view>
+		<view class="itemLeft2">中国人民银行南京分行</view>
+
+	</view>
+
+	<image class="entscImg1" src="{{cndUrl}}/static/wechat/img/entsc/entscImg5.jpg"></image>
+
+</view>
+<view class="bor"></view>
+
+</view>

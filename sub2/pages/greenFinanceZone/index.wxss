@@ -1,0 +1,83 @@
+/* sub2/pages/greenFinanceZone/index.wxss */
+
+.greenFinanceZone {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    z-index: 1;
+}
+
+.empty_div {
+    width: 100%;
+    height: 370rpx;
+}
+
+.greenFinanceZone_title {
+    padding-left: 50rpx;
+    margin-bottom: 220rpx;
+}
+
+.title1 {
+    font-family: SourceHanSansCN-Bold;
+    font-size: 46rpx;
+    color: #FFFFFF;
+    letter-spacing: 1.15rpx;
+    text-shadow: 0 2rpx 0 rgba(0, 120, 169, 0.27);
+}
+
+.title2 {
+    opacity: 0.7;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0.88rpx;
+}
+
+.item_list {
+    width: 92%;
+    margin: 4%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item_list>view {
+    height: 232rpx;
+    width: calc(100%/2);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.item_title {
+    margin: 10%;
+}
+
+.item_title1 {
+    font-family: SourceHanSansCN-Medium;
+    font-size: 30rpx;
+    color: #0C4396;
+    letter-spacing: 0;
+}
+
+.item_title2 {
+    font-family: SourceHanSansCN-Regular;
+    font-size: 26rpx;
+    color: #8D94B4;
+    letter-spacing: 0;
+}
+
+.image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-top: 10rpx;
+}
+
+.image image {
+    width: 30rpx;
+    height: 30rpx;
+}

@@ -1,0 +1,107 @@
+<!--sub2/pages/newYearBless/index.wxml-->
+<scroll-view class="home" scroll-y="{{isScroll}}" scroll-into-view="{{intoView}}" scroll-with-animation="true" style="height: 100vh;">
+
+  
+<view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='home'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+        <view class="backPage" bindtap='prePage'>
+            <image src="/pages/public/img/ico_back.png"></image>
+        </view>
+        <view class="backIndex" bindtap='home'>
+            <image src="/pages/public/img/ico_ind.png"></image>
+        </view>
+    </view>
+</view>
+<image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/sheep_bg.jpg" mode="widthFix" class="a1" />
+<input class="input1" placeholder="请输入" maxlength="7" bindinput="zhufu" bindfocus="bindfocus" bindblur="closeblur" />
+<input class="input2" placeholder="请输入" maxlength="7" bindinput="zhufuRen"bindfocus="bindfocus" bindblur="closeblur"  />
+<image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/bless_create.png" mode="widthFix" class="a2"
+    bindtap="create" />
+<view class="preview_list">
+    <view class="preview_item" bindtap="preview" data-id="1">
+        <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/sheep_preview1.png" mode="widthFix"
+            class="preview_img" />
+
+        <view>阖家团圆</view>
+    </view>
+    <view class="preview_item" bindtap="preview" data-id="2">
+
+        <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/sheep_preview2.png" mode="widthFix"
+            class="preview_img" />
+        <view>万象更新</view>
+
+    </view>
+
+    <view class="preview_item" bindtap="preview" data-id="4">
+
+        <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/sheep_preview4.png" mode="widthFix"
+            class="preview_img" />
+        <view>喜气盈门</view>
+    </view>
+
+    <view class="preview_item2">
+
+
+
+    </view>
+    <view class="preview_item1" bindtap="preview" data-id="3" style="margin-left: 80rpx;">
+
+        <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/sheep_preview3.png" mode="widthFix"
+            class="preview_img1" />
+        <view>大展宏兔</view>
+    </view>
+
+    <view class="preview_item1" bindtap="preview" data-id="5" style="margin-right: 40rpx;">
+
+        <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/sheep_preview5.png" mode="widthFix"
+            class="preview_img1" />
+        <view>鸿运当头</view>
+    </view>
+    <view class="preview_item2">
+
+
+
+    </view>
+</view>
+<view class="preview_canvas">
+
+    <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/bless_border.png" 
+        class="preview_border"></image>
+    <image src="{{imagePath}}" class='preview_imgTodo' wx:if="{{imagePath!=''}}" ></image>
+
+</view>
+<view class="{{shareBox}}">
+
+    <view class='imagePathBox'>
+        <image src="{{imagePath}}" class='shengcheng'></image>
+    </view>
+    <view hidden="{{maskHidden}}" class="mask"></view>
+    <view class="canvas-box">
+        <canvas
+            style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white"
+            canvas-id="mycanvas" />
+    </view>
+
+    <view class="tools">
+      <view class="tb cancel" bindtap='showHide'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+        <view class="saveTxt">取消</view>
+      </view>
+      <!-- <view class="tb shareToAPP">
+        <button open-type='share'>
+          <image wx:if='{{preffixUrl}}' src="width: 100%;height: 100%;" src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+        </button>
+        <view class="saveTxt">转发</view>
+      </view> -->
+      <view class="tb savePic" bindtap='baocun'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+        <view class="saveTxt">朋友圈</view>
+      </view>
+    </view>
+ 
+</view>
+<my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>
+</scroll-view>

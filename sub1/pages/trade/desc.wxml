@@ -1,0 +1,168 @@
+<view class="showBox">
+    <block wx:if="{{productId == 4}}">
+        <!-- <image class="f1" src="/assets/images/zm_15.png" mode="widthFix"></image> -->
+        <image class="f1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_15.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <view class="f2">
+            <view class="f21">主要产品</view>
+            <view class="f22">
+                <view class="f221">全球资金结算</view>
+                <view class="f222">江苏银行可为企业客户提供全线上、高效便捷的跨境资金结算服务，SWIFT GPI更能实时了解业务进度；</view>
+            </view>
+            <view class="f22">
+                <view class="f221">离岸外汇交易</view>
+                <view class="f222">江苏银行可为企业客户提供全线上的离岸外汇交易服务，帮助企业高效应对汇率波动风险；</view>
+            </view>
+            <view class="f22">
+                <view class="f221">跨境电商</view>
+                <view class="f222">江苏银行可为跨境电商等外贸新业态提供高效快捷的本外币资金结算服务；</view>
+            </view>
+            <view class="f22">
+                <view class="f221">海外贷款</view>
+                <view class="f222">江苏银行可为“走出去”企业提供海外流动资金贷款、项目贷款、并购贷款和银团贷款，积极支持企业参与“一带一路”项目建设；</view>
+            </view>
+            <view class="f22">
+                <view class="f221">海外债券</view>
+                <view class="f222">江苏银行可为企业在境外发行债券，提供包括债券投资、备证担保和海外资金管理等综合金融服务；</view>
+            </view>
+            <view class="f22">
+                <view class="f221">政策咨询</view>
+                <view class="f222">江苏银行可为企业提供包括外汇监管政策、境外项目投资以及国外法律法规等的业务咨询工作</view>
+            </view>
+            <view style="height:50rpx"></view>
+        </view>
+    </block>
+    <block wx:if="{{productId == 1}}">
+        <image class="f1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_22.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <view class="f2">
+            <view class="f21">政策优势</view>
+            <view class="f23">
+                <view class="f231">优势一</view>
+                <view class="f232">自贸区汇款支持与境外账户之间自由汇划；</view>
+                <view class="f231">优势二</view>
+                <view class="f232">自贸区结售汇可享受离岸CNH牌价;</view>
+                <view class="f231">优势三</view>
+                <view class="f232">自贸区支持发放离岸贷款，服务企业“走出去”和“一带一路”项目建设。</view>
+            </view>
+            <view class="f21">主要政策法规</view>
+            <view class="f23">
+                <view class="f232" bindtap="viewRules" data-id="sh1">
+                    1. 《中国（上海）自由贸易试验区分账核算业务实施细则（试行）》
+                </view>
+                <view class="f232" bindtap="viewRules" data-id="sh2">
+                    2. 《中国（上海）自由贸易试验区临港新片区总体方案》
+                </view>
+                <view class="f232" bindtap="viewRules" data-id="sh3">
+                    3. 《关于进一步加快推进上海国际金融中心建设和金融支持长三角一体化发展的意见》
+                </view>
+            </view>
+            <view class="f21">适用对象</view>
+            <view class="f23">
+                <view class="f232">境外企业、上海自贸片区内注册的企业。</view>
+            </view>
+            <view class="f21">江苏银行上海分行服务网点</view>
+            <view class="f23">
+                <view class="f231">上海分行营业部</view>
+                <view class="f232">地址：上海市浦东新区世纪大道1128号</view>
+                <text class="f232" decode="{{true}}">电话：021-61046809&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系人：祝经理
+                </text>
+            </view>
+            <view style="height:50rpx"></view>
+        </view>
+    </block>
+    <block wx:if="{{productId == 3}}">
+        <image class="f1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_23.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <view class="f2">
+            <view class="f21">政策优势</view>
+            <view class="f23">
+                <view class="f231">优势一</view>
+                <view class="f232">支持贸易投资便利化试点，进一步简化跨境人民币业务办理流程；</view>
+                <view class="f231">优势二</view>
+                <view class="f232">支持资本项目收支便利化试点，简化资本金结汇和支付管理方式;</view>
+                <view class="f231">优势三</view>
+                <view class="f232">支持跨境贷款发展创新，可向港澳地区的机构或项目发放跨境贷款;</view>
+                <view class="f231">优势四</view>
+                <view class="f232">支持私募股权基金跨境投资试点，开展QDLP和QDIE等业务试点。</view>
+            </view>
+            <view class="f21">主要政策法规</view>
+            <view class="f23">
+                <view class="f232" bindtap="viewRules" data-id="ga1">1.《粤港澳大湾区发展规划纲要》</view>
+                <view class="f232" bindtap="viewRules" data-id="ga2">2.《关于金融支持粤港澳大湾区建设的意见》</view>
+            </view>
+            <view class="f21">江苏银行深圳分行服务网点</view>
+            <view class="f23">
+                <view class="f231">深圳分行营业部</view>
+                <view class="f232">地址：深圳市南山区兰香一街海王星辰总部大厦</view>
+                <text class="f232" decode="{{true}}">电话：0755-22669128&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </text>
+            </view>
+            <view style="height:50rpx"></view>
+        </view>
+    </block>
+    <block wx:if="{{productId == 2}}">
+        <image class="f1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_24.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+        <view class="f2">
+            <view class="f21">政策优势</view>
+            <view class="f23">
+                <view class="f231">优势一</view>
+                <view class="f232">支持区内企业人民币资本项目收入使用便利化；</view>
+                <view class="f231">优势二</view>
+                <view class="f232">支持向区内企业境外项目提供人民币融资；向区内企业的境外关联公司或长期合作企业提供跨境人民币融资;</view>
+                <view class="f231">优势三</view>
+                <view class="f232">支持为区内企业NRA账户办理结汇业务。</view>
+            </view>
+            <view class="f21">主要政策法规</view>
+            <view class="f23">
+                <view class="f232" bindtap="viewRules" data-id="js1">1.《中国（江苏）自由贸易试验区总体方案》</view>
+                <!-- <view class="f232" bindtap="viewRules" data-id="js2">
+                    2.《关于金融支持中国（江苏）自由贸易试验区建设的指导意见》
+                </view> -->
+                <view class="f232" bindtap="viewRules" data-id="js2">
+                    2.《进一步推进中国（江苏）自由贸易试验区外汇管理改革试点实施细则》
+                </view>
+                <view class="f232" bindtap="viewRules" data-id="js3">
+                    3.《关于进一步推动中国（江苏）自由贸易试验区跨境人民币工作的通知》
+                </view>
+            </view>
+            <view class="f21">适用对象</view>
+            <view class="f23">
+                <view class="f232">境外企业、江苏自贸区内注册的企业。</view>
+            </view>
+            <view class="f21">江苏银行南京分行服务网点</view>
+            <view class="f23">
+                <view class="f231">南京浦口支行</view>
+                <view class="f232">地址：南京市浦口区江浦街道珠泉西路5号</view>
+                <text class="f232" decode="{{true}}">电话：025-58588430&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </text>
+            </view>
+            <view style="height:50rpx"></view>
+        </view>
+    </block>
+    <view class="f4">
+        <view class="f41" style="margin-right:30rpx" bind:tap="showShare">点击分享</view>
+        <view class="f41" bindtap="register" bindtap="register">立即注册</view>
+    </view>
+</view>
+<view class="{{shareBox}}">
+    <view class='imagePathBox' hidden="{{hidePoster}}">
+        <image src="{{imagePath}}" class='shengcheng' mode="widthFix" />
+    </view>
+    <view class="canvas-box">
+        <canvas style="width: {{posterBoxWidth}}rpx;height: {{posterBoxHeight}}rpx;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+    </view>
+    <view class="tools" hidden="{{hidePoster}}">
+        <view class="tb cancel" bindtap='showHide'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg" />
+            <block>取消</block>
+        </view>
+        <view class="tb shareToAPP">
+            <button open-type='share'>
+                <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg" />
+            </button>
+            <block>转发</block>
+        </view>
+        <view class="tb savePic" bindtap='baocun'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg" />
+            <view class="saveTxt">朋友圈</view>
+        </view>
+    </view>
+</view>

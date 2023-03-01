@@ -1,0 +1,7 @@
+{
+    "usingComponents": {},
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "绿色金融",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+}

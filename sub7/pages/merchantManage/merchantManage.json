@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-swipe-cell": "../../static/vant-weapp/swipe-cell/index",
+    "van-cell": "../../static/vant-weapp/cell/index",
+    "van-cell-group": "../../static/vant-weapp/cell-group/index",
+    "van-button": "../../static/vant-weapp/button/index",
+    "van-dialog": "../../static/vant-weapp/dialog/index"
+  },
+  "navigationBarTitleText": "商户管理"
+}

@@ -1,0 +1,9 @@
+page{background:#f2f2f2;}
+.poi{padding:40rpx 30rpx;background:#fff;}
+.poi .p{font-size:26rpx;color:#888;}
+.otherPoi{color:#f1bb00;font-size:26rpx;}
+.weui-cell__hd{width:180rpx;}
+.form{margin-top:30rpx;background:#fff;}
+.btnarea{width:80%;margin:30rpx auto;}
+.getphone{right:20rpx; height:40rpx;line-height:40rpx;border-radius:40rpx;text-align:center;padding:0 20rpx;font-size:20rpx;background:#0068b6;color:#fff;}
+@import '/assets/styles/weui.wxss';

@@ -1,0 +1,12 @@
+<view class='banner'>
+  <image class="dianApplicateBanner" style='height:360rpx;' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/register/banner_ebank.jpg"></image>
+</view>
+
+<view class="page">
+  <image class="sucICO" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/register/trans-success.png"></image>
+  <text class="tips">注册成功</text>
+
+</view>
+<view style="text-align:center;">
+  <navigator class="btn" hover-class='none' open-type="switchTab" url='/pages/shop/index2'>返回主页</navigator>
+</view>

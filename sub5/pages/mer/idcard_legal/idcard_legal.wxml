@@ -1,0 +1,60 @@
+
+<view class="container">
+  <image class="bg" src="{{cdnMer}}/bg_apply.png" mode="widthFix"></image>
+
+  <view class="form_upload">
+    <view>
+      <image src="{{cdnMer}}/icon_titler.png" mode="heightFix"></image>
+      请上传您的中国第二代居民身份证
+    </view>
+    <view>
+      <view bindtap="chooseImage" data-type="front">
+        <image src="{{front || cdnMer+'/idcard_upren.png'}}" mode="scaleToFill"></image>
+        <view>上传身份证人像面</view>
+      </view>
+      <view bindtap="chooseImage" data-type="back">
+        <image src="{{back || cdnMer+'/idcard_upguo.png'}}" mode="scaleToFill"></image>
+        <view>上传身份证国徽面</view>
+      </view>
+    </view>
+    <view>
+      <view>
+        <image src="{{cdnMer}}/icon_tip.png" mode="widthFix"></image>
+        温馨提示
+      </view>
+      <view>您拍摄的证件照片将作为实名认证审核的影像资料，请拍摄时确保证件<text>边框完整，字体清晰，亮度均匀。</text></view>
+    </view>
+    <view>
+      <van-cell-group border="{{false}}">
+        <van-field label="业务品种" value="{{business_name}}" input-align="right" center readonly />
+        <van-field label="姓名" model:value="{{u_name}}" placeholder="请输入" input-align="right" required center />
+        <van-field label="身份证号" model:value="{{u_idcard}}" placeholder="请输入" input-align="right" required center />
+        <van-field label="企业名称" model:value="{{corp_name}}" placeholder="请输入" input-align="right" required center />
+        <van-field label="统一社会信用代码" model:value="{{corp_credit}}" placeholder="请输入" input-align="right" required center title-width="230rpx" />
+      </van-cell-group>
+    </view>
+  </view>
+
+  <button class="btn_submit" bindtap="checkAgreements">查看授权书</button>
+  
+</view>
+
+<van-popup show="{{agreement_show}}" round position="bottom" custom-style="height: 50%" bind:close="showAgreement">
+  <view class="agreement">
+    <view>相关协议</view>
+    <view>
+      <block wx:for="{{agreements}}" wx:key="index">
+        <view bindtap="goAgreement" data-idx="{{index}}">
+          <image src="{{cdnMer}}/pdf.png"></image>{{item.name}}
+        </view>
+      </block>
+    </view>
+    <button class="btn_submit" disabled="{{agreement_check?false:true}}" bindtap="formSubmit">确认授权</button>
+    <view>
+      <van-checkbox value="{{agreement_check}}" bind:change="onChangeRadio" data-event="agreement_check" custom-class="ckb" label-class="ckb">我已阅读并同意相关协议</van-checkbox>
+    </view>
+  </view>
+</van-popup>
+
+<van-dialog id="van-dialog" confirm-button-color="#415FCD" />
+<van-toast id="van-toast" />

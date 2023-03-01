@@ -1,0 +1,11 @@
+
+<view style='position:relative;width:100%;height:100%;overflow:hidden;'>
+<image style="position:fixed;bottom:0;left:0;width:100%;height:578rpx;z-index:0;"wx:if='{{preffixUrl}}'
+src="{{preffixUrl}}/static/wechat/img/feedback_bg.jpg"></image>
+
+<image style="display:block;width:300rpx;height:366rpx;margin:150rpx auto;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/feedback_suc.png"></image>
+
+<view style="text-align:center;color:#fff;">
+<navigator url='/pages/dian/dian'><button class="weui-btn" style='width:50%;background:rgba(234,150,3,.7);'>返回首页</button>></navigator>
+</view>
+</view>

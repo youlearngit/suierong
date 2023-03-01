@@ -1,0 +1,37 @@
+<view>
+
+	<image class="bg" src="{{preffixUrl}}talent_zu_0811.jpg" mode="widthFix"></image>
+
+	<view class="cards">
+		<view class="card" wx:for="{{list}}" wx:key="index">
+			<image wx:if="{{item.TYPE==1}}" class="card-bg" src="{{preffixUrl}}talent_policy_servicer_g.png" mode="widthFix" />
+			<image wx:elif="{{item.TYPE==2}}" class="card-bg" src="{{preffixUrl}}talent_policy_servicer.png" mode="widthFix" />
+			<image wx:elif="{{item.TYPE==3}}" class="card-bg" src="{{preffixUrl}}talent_policy_servicer_r.png" mode="widthFix" />
+			<!-- 1 人才金融服务专员 金标 talent_policy_servicer_g -->
+			<!-- 2 人才政策服务专员 银标 talent_policy_servicer -->
+			<!-- 3 创业导师 红标 talent_policy_servicer_r -->
+			<view class="card-body">
+				<view class="card-inline">
+					<van-image custom-class="card-avatar" src="{{item.HEAD?item.HEAD:(preffixUrl+'avatar_default.png')}}" fit="widthFix" round />
+					<view>
+						<view class="card-inline card-name">
+							<view class="card-staffname">{{item.STAFFNAME}}</view>
+							<view class="card-job">
+								<view>{{item.WORKUNIT}}</view>
+								<view wx:if="{{item.JOB}}">{{item.JOB}}</view>
+							</view>
+						</view>
+						<view class="card-inline card-tags">
+							<view wx:if="{{item.LABEL1}}">{{item.LABEL1}}</view>
+							<view wx:if="{{item.LABEL2}}">{{item.LABEL2}}</view>
+							<view wx:if="{{item.LABEL3}}">{{item.LABEL3}}</view>
+						</view>
+					</view>
+				</view>
+				<view class="card-remark">{{item.RESUME}}</view>
+				<image class="card-contact" src="{{preffixUrl}}contact_information.png" mode="widthFix" bindtap="phoneCall" data-phone="{{item.TEL}}" />
+			</view>
+		</view>
+	</view>
+
+</view>

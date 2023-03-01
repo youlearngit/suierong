@@ -1,0 +1,11 @@
+{
+	"usingComponents": {
+		"cu-custom": "/component/cu-custom/cu-custom",
+		"van-notice-bar": "/assets/styles/vant-weapp/notice-bar/index",
+		"my-login": "/component/login/index"
+	},
+	"enablePullDownRefresh": false,
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "消息",
+	"navigationBarBackgroundColor": "#FFFFFF"
+}

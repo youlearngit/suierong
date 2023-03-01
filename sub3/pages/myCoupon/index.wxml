@@ -1,0 +1,14 @@
+<!-- sub3/pages/myCoupon/index.wxml -->
+<block wx:for="{{couponList}}" wx:key="{{index}}"  >
+    <view class="item" style="{{index!=0?'margin-top:2%;':'margin-top:1%;'}}" bindtap="click" data-index="{{index}}" wx:if="{{item.CHANNEL_NO==''}}" >
+        <view class="item-title">利率优惠券</view>
+        <view class="item-title1">{{item.COUPON_POINT*10000}}bp</view>
+        <view class="item-date">到期日 {{item.ACTIVITY_END_DATE}}</view>
+        <view class="{{item.STATUS=='00'?'item-status':'item-status-invalid'}}">{{item.STATUS_txt}}</view>
+        <image class="item-nav" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_76.png" />
+    </view>
+</block>
+<view class="d" wx:if="{{couponList.length==0}}" >
+        <image class="item-none" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_84.png" />
+</view>
+

@@ -1,0 +1,13 @@
+<!--sub3/pages/innovate/empower_res.wxml-->
+<wxs src="./utils.wxs" module="utils" />
+<view>
+	<block wx:if="{{img_type=='fail'}}">
+		<image class="img" src="{{preffixUrl}}empower_res_fail.png" mode="widthFix"></image>
+	</block>
+	<block wx:else>
+		<image class="img" src="{{preffixUrl}}empower_res_suc.png" mode="widthFix"></image>
+	</block>
+	<view class="title">{{title}}</view>
+	<view class="tip">{{tip}}</view>
+	<view class="btn" bindtap="btnConfirm">{{btn_title}}</view>
+</view>

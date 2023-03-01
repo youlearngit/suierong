@@ -1,0 +1,110 @@
+<view class="s1">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2037.png" mode="widthFix" style="width:100%;"></image>
+    <view class="s11">
+        <view class="s11title">{{desc.title}}</view>
+        <view class="s11desc">
+            产品介绍：{{desc.desc}}
+            <!-- <text class="s11more">查看更多></text> -->
+        </view>
+        <!-- <view class="s11more">查看更多></view> -->
+    </view>
+    <image class="s1img2" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2038.png" mode="widthFix" style="height:300rpx;width:690rpx"></image>
+</view>
+<view style="height:195rpx"></view>
+<block wx:if='{{preview}}'>
+    <view class="s2">
+        <view class="s21">
+            <view class="s21icon"></view>
+            <view class="s21title">产品优势</view>
+        </view>
+        <view class="line"></view>
+        <text class="s22">{{desc.advantage}}</text>
+        <view class="s2more" bindtap="spread">
+            <view class="s2moretext">展开</view>
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2039.png" class="s2moreicon1" mode="widthFix" style="width:20rpx;" />
+        </view>
+    </view>
+</block>
+<block wx:else>
+    <view class="s2">
+        <view class="s21">
+            <view class="s21icon"></view>
+            <view class="s21title">产品优势</view>
+        </view>
+        <view class="line"></view>
+        <text class="s22m">{{desc.advantage}}</text>
+        <view class="s2more" bindtap="spread">
+            <view class="s2moretext">收起</view>
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2039.png" class="s2moreicon2" mode="widthFix" style="width:20rpx;" />
+        </view>
+    </view>
+</block>
+<view class="s3">
+    <view class="s21">
+        <view class="s21icon"></view>
+        <view class="s21title">适用对象</view>
+    </view>
+    <view class="line"></view>
+    <text class="s22" style="-webkit-line-clamp:999;">{{desc.target}}</text>
+</view>
+<view class="s3">
+    <view class="s21">
+        <view class="s21icon"></view>
+        <view class="s21title">{{desc.stepstitle||'办理流程'}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="s31">
+        <view class="s311" wx:for="{{desc.steps}}">
+            <image class="s3111" src="{{cndUrl}}/static/wechat/img/sui/sui-2040.png" mode="widthFix" style="width:20rpx"></image>
+            <view class="s3112">
+                <view class="s31121">第{{index+1}}步</view>
+                <view class="s31122">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="s3" wx:if="{{desc.steps2.length>0}}">
+    <view class="s21">
+        <view class="s21icon"></view>
+        <view class="s21title">{{desc.steps2title||'办理流程'}}</view>
+    </view>
+    <view class="line"></view>
+    <view class="s31">
+        <view class="s311" wx:for="{{desc.steps2}}">
+            <image wx:if="{{cndUrl}}" class="s3111" src="{{cndUrl}}/static/wechat/img/sui/sui-2040.png" mode="widthFix" style="width:20rpx"></image>
+            <view class="s3112">
+                <view class="s31121">第{{index+1}}步</view>
+                <view class="s31122">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="s3" wx:if="{{desc.material!=''}}">
+    <view class="s21">
+        <view class="s21icon"></view>
+        <view class="s21title">办理材料</view>
+    </view>
+    <view class="line"></view>
+    <view class="s22">办理材料信息介绍办理材料信息介绍办理材料信息介绍办理材料信息介绍办理材料信息介绍…</view>
+</view>
+<view class="s4">
+    <view class="s41">
+        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2049.png" mode="widthFix" style="width:690rpx"></image>
+        <view class="s411">
+            <view class="s411left" wx:if="{{casecode == 'BO002' }}" bind:tap="developing_">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2041.png" mode="widthFix" style="width:38rpx"></image>
+                <view class="s4text1">额度查询</view>
+            </view>
+            <view class="s411left" wx:if="{{ casecode != 'BO002'}}" bind:tap="developing">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2041.png" mode="widthFix" style="width:38rpx"></image>
+                <view class="s4text1">预约办理</view>
+            </view>
+
+            <button open-type="share"  class="s411left share-btn">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2042.png" mode="widthFix" style="width:38rpx"></image>
+                <view class="s4text2">分享</view>
+            </button>
+        </view>
+    </view>
+</view>

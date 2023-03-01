@@ -1,0 +1,129 @@
+<view class="a2">
+    <view class="title1" cndUrl>身份信息</view>
+    <block wx:if="{{showNon4}}">
+        <view class="a2b2" cndUrl>
+            <view class="a2b2c2" cndUrl>
+                <view class="cu-list menu">
+                    <view class="cu-item">
+                        <view class="content">
+                            <view class="view-grey">手机号</view>
+                        </view>
+                        <view>{{mobile}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 未完成 -->
+    <block wx:else>
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">手机号</view>
+                        </view>
+                        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="mobbtn" style="background-color: #fff; margin-top: 15rpx;padding-right:0rpx;">
+                            <image class='addBtn' wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                        </button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 已完成 -->
+    <block wx:if="{{showNon1}}">
+        <view class="a2b2" cndUrl>
+            <view class="a2b2c2" cndUrl>
+                <navigator class="cu-list menu" url="../info/user_info?type=0&custinfo={{customerInfo2}}&dept=120026">
+                    <view class="cu-item arrow">
+                        <view class="content">
+                            <view class="view-grey">个人信息</view>
+                        </view>
+                        <view class="action">
+                            <view class="appr">已录入</view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </block>
+    <!-- 未完成 -->
+    <block wx:else>
+        <view class="a2b2" cndUrl>
+            <view class="a2b2c2" cndUrl>
+                <view class="cu-list menu" bind:tap="toUserinfo">
+                    <view class="cu-item arrow">
+                        <view class="content">个人信息</view>
+                        <view class="action">去认证</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 已完成 -->
+    <block wx:if="{{showNon3}}">
+        <view class="a2b2" cndUrl>
+            <view class="a2b2c2" cndUrl>
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">人脸识别</view>
+                        </view>
+                        <view class="action">
+                            <view class="appr" style="margin-right: 58rpx">已认证</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 未完成 -->
+    <block wx:else>
+        <view class="a2b2" cndUrl>
+            <view class="a2b2c2" cndUrl>
+                <view class="cu-list menu" bind:tap="set_3">
+                    <view class="cu-item arrow">
+                        <view class="content">人脸识别</view>
+                        <view class="action">去认证</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<!-- 已完成 -->
+<block wx:if="{{showNon2}}">
+    <view class="a2b2" cndUrl>
+        <view class="a2b2c2" cndUrl>
+            <view class="cu-list menu" bindtap="identifyDetail">
+                <view class="cu-item arrow">
+                    <view class="content">
+                        <view class="view-grey">证件拍照</view>
+                    </view>
+                    <view class="action">
+                        <view class="appr">已上传</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>
+<!-- 未完成 -->
+<block wx:else>
+    <view class="a2b2" cndUrl>
+        <view class="a2b2c2" cndUrl>
+            <view class="cu-list menu" bind:tap="set_2">
+                <view class="cu-item arrow">
+                    <view class="content">证件拍照</view>
+                    <view class="action">去认证</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>
+<!-- <view class="apply-foot">
+    <view class="apply-btn" bindtap="toApplyLoanPage">
+      <text class="apply-btn-text">下一步</text>
+    </view>
+</view> -->

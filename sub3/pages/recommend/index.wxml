@@ -1,0 +1,545 @@
+<view class="" wx:if="{{customerInfo.USERID}}" style='padding-top:298rpx'>
+    <image wx:if='{{cndUrl}}' class="bg-top" src="{{cndUrl}}/static/wechat/img/rec/rec_bg_top.png" mode="widthFix" style="width:100%;"></image>
+    <navigator url="/sub1/pages/sui/index?type=share" class="btn-invite">立即分享</navigator>
+    <view class="user-box">
+        <view class="rule" bindtap='showTips'>规则</view>
+        <view class="extract2" bindtap='showBeanBox'>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/icon_right_blue.png" mode="widthFix" style="width:10rpx;margin-right:10rpx;transform:rotate(180deg);"></image>
+            立即提取
+        </view>
+        <navigator url="/sub3/pages/myCouponConvert/index" class="extract">
+            兑换优惠券
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/icon_right_blue.png" mode="widthFix" style="width:10rpx;margin-left:10rpx"></image>
+        </navigator>
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/watermark_bean.png" mode="widthFix" class=' watermark-bean'></image>
+        <view class="user-info">
+            <view class="avatar">
+                <image wx:if='{{cndUrl}}' src="{{(customerInfo.PHOTO||customerInfo.AVATAR_URL)?preffixUrl+'adviser/getAvatar?picId='+(customerInfo.PHOTO||customerInfo.AVATAR_URL):preffixUrl+'static/wechat/img/no_avator.png'}}" mode="widthFix" style="width:100%;border-radius:50%;"></image>
+            </view>
+            <view class="detail">
+                <view class="name">{{customerInfo.USERNAME}}</view>
+                <view class="position">
+                    {{customerInfo.TEXT1?customerInfo.TEXT1+' | '+customerInfo.POSITION:""}}
+                </view>
+            </view>
+        </view>
+        <view class="a12">
+            <view class="a121">
+                <view class="a1211">{{customerInfo.AMT_BEAN||'0'}}</view>
+                <view class="a1212">
+                    <image class="a12122" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_beans_yellow.png" mode="widthFix"></image>
+                    <view class="a12121">累计获得苏银豆</view>
+                    <image class="" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_right_grey.png" mode="widthFix" style="width:10rpx"></image>
+                </view>
+            </view>
+            <view class="a121">
+                <view class="a1211">
+                    <view style="width:100%">{{customerInfo.RMNG_BEAN||'0'}}</view>
+                </view>
+                <view class="a1212">
+                    <image class="a12122" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_beans_blue.png" mode="widthFix"></image>
+                    <view class="a12121">可提取苏银豆</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="showCalendar" style="display: inline-block;">
+        <view class="calendar-box">
+            <image class="" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_calendar.png" mode="widthFix" style="width:26rpx"></image>
+            <view class="" style="margin: 0 14rpx 0 14.8rpx;">{{calendarTitle}}</view>
+            <image class="" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_right.png" mode="widthFix" style="width:14rpx"></image>
+        </view>
+    </view>
+    <view class="content021">
+        <image class="watermark-calendar" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_histogram.png" mode="widthFix"></image>
+        <view class="content021_tip">单位丨新客户户数</view>
+        <view class="content021_title1">
+            <view class="content021_title">
+                <text class="content021_title2 content021_title4">数据\n统计</text>
+                <view class="content021_title2 content021_title3">分享</view>
+                <view class="content021_title2 content021_title3">申请</view>
+                <text class="content021_title2 content021_title3">审批\n通过</text>
+                <view class="content021_title2 content021_title3">签约</view>
+                <view class="content021_title2  content021_title3">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_bean_silver.png" mode="widthFix" style="width:24rpx;margin: 4rpx;"></image>
+                    <view>奖励</view>
+                </view>
+            </view>
+            <view class="content021_title5">
+                <view class="content021_title2 content021_title6">总计</view>
+                <view class="content021_title2 content021_title3">
+                    {{totalShareList[0].SHARECOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title3">
+                    {{totalShareList[0].ALLCOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title3">
+                    {{totalShareList[0].APVCOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title3">
+                    {{totalShareList[0].SIGNCOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title3" style="background: #F1F6FF;height: 100%;">
+                    {{totalShareList[0].TOTALNUM||0}}
+                </view>
+            </view>
+        </view>
+        <view class="content021_tipp">
+            <view class="content021_tipp1"></view>
+            我的营销
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_arrow_bottom.png" mode="widthFix" style="width:16rpx;margin-left:10rpx;"></image>
+        </view>
+        <view class="content021_title1" style="min-height:76rpx;margin-top:20rpx;height:auto;padding-bottom:24rpx;">
+            <view class="content021_title55">
+                <view class="content021_title2 content021_title6" style="flex-direction: row;justify-content: flex-start;line-height: 40rpx;">
+                    <image wx:if='{{cndUrl}}' src="{{(customerInfo.PHOTO||customerInfo.AVATAR_URL)?preffixUrl+'adviser/getAvatar?picId='+(customerInfo.PHOTO||customerInfo.AVATAR_URL):preffixUrl+'static/wechat/img/no_avator.png'}}" mode="widthFix" style="width:40rpx;margin-right:8rpx;margin-left:20rpx;border-radius:50%"></image>
+                    本人
+                </view>
+                <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="2" data-index="0" data-selected="1" style="color:{{mineShareList[0].selected==='1'?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].SHARECOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="2" data-index="0" data-selected="2" style="color:{{mineShareList[0].selected==='2'?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].ALLCOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="2" data-index="0" data-selected="3" style="color:{{mineShareList[0].selected==='3'?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].APVCOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="2" data-index="0" data-selected="4" style="color:{{mineShareList[0].selected==='4'?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].SIGNCOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title33" style="color:{{false==4?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].TOTALNUM||0}}
+                </view>
+            </view>
+            <view class="content021_title5" style="height: auto;width:100%;">
+                <view class="content021_title2 content021_title6" style="flex-direction: row;justify-content: flex-start;"></view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl&&mineShareList[0].selected==='1'}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr"></image>
+                </view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl&&mineShareList[0].selected==='2'}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr"></image>
+                </view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl&&mineShareList[0].selected==='3'}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr"></image>
+                </view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl&&mineShareList[0].selected==='4'}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr"></image>
+                </view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{false}}"></image>
+                </view>
+            </view>
+            <scroll-view scroll-y="true" class="scroll" wx:if="{{mineShareList[0].showDetail}}" bindscrolltolower="bindscrolltolower" data-sharetype='2' data-index='0' data-selected='{{mineShareList[0].selected}}'>
+                <view wx:if="{{mineShareList[0].selected==='1'}}">
+                    <block wx:for="{{mineShareList[0]['detailList'+ mineShareList[0].selected]}}">
+                        <view class="content021_scrollTitle6" style='height:94rpx;'>
+                            <image src="{{item.PHOTO}}" mode="widthFix" style="width:50rpx;vertical-align: middle;border-radius: 50%;"></image>
+                            <view class="content021_scrollTitle1" style="color: #3E415C;margin-left: 20rpx;">
+                                {{item.NICK_NAME}}
+                            </view>
+                            <view style="margin-left:74rpx;flex: 1;position: absolute;right: 59rpx;">
+                                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_time.png" mode="widthFix" style="width:20rpx;"></image>
+                                <view class="content021_scrollTitle3">{{item.CREATE_DATE}}</view>
+                            </view>
+                            <view class="" style="position: absolute;right: 250rpx;display: flex;align-items: center;">
+                                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix" style="width:30rpx;"></image>
+                                <view class="" style="margin: 0 8rpx" hover-class="none" hover-stop-propagation="false">
+                                    {{item.ALL_NUM||0}}
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                <view wx:else>
+                    <block wx:for="{{mineShareList[0]['detailList'+ mineShareList[0].selected]}}">
+                        <view style="border-bottom:1rpx solid #EBEBEB;padding-bottom:13.5rpx;">
+                            <view class="content021_scrollTitle5" style="{{index!=0?'margin-top: 13.5rpx;':''}}">
+                                <image wx:if="{{cndUrl&&item.CUSTOMER_TYPE==1}}" src="{{cndUrl}}/static/wechat/img/rec/icon_old.png" mode="widthFix" style="width:84rpx;vertical-align: middle;"></image>
+                                <image wx:if="{{cndUrl&&item.CUSTOMER_TYPE==0}}" src="{{cndUrl}}/static/wechat/img/rec/icon_new.png" mode="widthFix" style="width:84rpx;vertical-align: middle;"></image>
+                                <view class="content021_scrollTitle1" style="width: 65%;">
+                                    {{item.COMPANY_NAME}}
+                                </view>
+                                <view class="" style="margin: 0 10rpx;display: flex;align-items: center;">
+                                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix" style="width:30rpx;"></image>
+                                    <view class="" style="margin: 0 8rpx" hover-class="none" hover-stop-propagation="false">
+                                        {{item.ALL_NUM||0}}
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="content021_scrollTitle4">{{item.ORDER_NO}}</view>
+                            <view class="content021_status">
+                                <view style="margin-left:20rpx;display:flex;align-items: center;">
+                                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_apply.png" mode="widthFix" style="width:21rpx;"></image>
+                                    <view class="content021_scrollTitle2" style="color: #FF7800;">
+                                        {{item.SHOW_STATE}}
+                                    </view>
+                                </view>
+                                <view style="display:flex;align-items: center;">
+                                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_limit.png" mode="widthFix" style="width:20rpx;"></image>
+                                    <view class="content021_scrollTitle3">
+                                        {{item.APPLY_AMOUNT||0}}万元
+                                    </view>
+                                </view>
+                                <view style="display:flex;align-items: center;">
+                                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_time.png" mode="widthFix" style="width:20rpx;"></image>
+                                    <view class="content021_scrollTitle3">{{item.APPLY_DATE}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </view>
+        <!-- 推荐官营销 -->
+        <view class="content021_tipp">
+            <view class="content021_tipp1"></view>
+            推荐官营销
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_arrow_bottom.png" mode="widthFix" style="width:16rpx;margin-left:10rpx;"></image>
+        </view>
+        <scroll-view scroll-y="true" class="scroll2" bindscrolltolower="bindscrolltolower" data-sharetype='33' data-index='99' data-selected='99'>
+            <block wx:for="{{recShareList}}" wx:key>
+                <view class="content021_title1" style="min-height:76rpx;margin-top:20rpx;height:auto;padding-bottom:24rpx;">
+                    <view class="content021_title55">
+                        <view class="content021_title2 content021_title6" style="flex-direction: row;justify-content: flex-start;line-height: 40rpx;">
+                            <image src="{{item.PHOTO}}" mode="widthFix" style="width:40rpx;margin-right:8rpx;margin-left:20rpx;border-radius:50%"></image>
+                            <view>{{item.REAL_NAME}}</view>
+                        </view>
+                        <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="3" data-index="{{index}}" data-selected="1" style="color:{{item.selected==='1'?'#3C5CD5':'#1C294F;'}}">
+                            {{item.SHARECOUNT||0}}
+                        </view>
+                        <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="3" data-index="{{index}}" data-selected="2" style="color:{{item.selected==='2'?'#3C5CD5':'#1C294F;'}}">
+                            {{item.ALLCOUNT||0}}
+                        </view>
+                        <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="3" data-index="{{index}}" data-selected="3" style="color:{{item.selected==='3'?'#3C5CD5':'#1C294F;'}}">
+                            {{item.APVCOUNT||0}}
+                        </view>
+                        <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="3" data-index="{{index}}" data-selected="4" style="color:{{item.selected==='4'?'#3C5CD5':'#1C294F;'}}">
+                            {{item.SIGNCOUNT||0}}
+                        </view>
+                        <view class="content021_title2 content021_title33" style="color:{{false?'#3C5CD5':'#1C294F;'}}">
+                            {{item.TOTALNUM||0}}
+                        </view>
+                    </view>
+                    <view class="content021_title5" style="height: auto;width:100%;">
+                        <view class="content021_title2 content021_title6" style="flex-direction: row;justify-content: flex-start;"></view>
+                        <view class="content021_title2 content021_title3">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{item.selected==='1'}}"></image>
+                        </view>
+                        <view class="content021_title2 content021_title3">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{item.selected==='2'}}"></image>
+                        </view>
+                        <view class="content021_title2 content021_title3">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{item.selected==='3'}}"></image>
+                        </view>
+                        <view class="content021_title2 content021_title3">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{item.selected==='4'}}"></image>
+                        </view>
+                        <view class="content021_title2 content021_title3">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{false}}"></image>
+                        </view>
+                    </view>
+                    <scroll-view scroll-y="true" class="scroll" wx:if="{{item.showDetail}}" bindscrolltolower="bindscrolltolower" data-sharetype='3' data-index='{{index}}' data-selected='{{item.selected}}'>
+                        <view wx:if="{{item.selected==='1'}}">
+                            <block wx:for="{{item['detailList'+ item.selected]}}">
+                                <view class="content021_scrollTitle6" style='height:94rpx;'>
+                                    <image src="{{item.PHOTO}}" mode="widthFix" style="width:50rpx;vertical-align: middle;border-radius: 50%;"></image>
+                                    <view class="content021_scrollTitle1" style="color: #3E415C;margin-left: 20rpx;">
+                                        {{item.NICK_NAME}}
+                                    </view>
+                                    <view style="margin-left:74rpx;flex: 1;position: absolute;right: 59rpx;">
+                                        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_time.png" mode="widthFix" style="width:20rpx;"></image>
+                                        <view class="content021_scrollTitle3">
+                                            {{item.CREATE_DATE}}
+                                        </view>
+                                    </view>
+                                    <view class="" style="position: absolute;right: 250rpx;display: flex;align-items: center;">
+                                        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix" style="width:30rpx;"></image>
+                                        <view class="" style="margin: 0 8rpx" hover-class="none" hover-stop-propagation="false">
+                                            {{item.ALL_NUM||0}}
+                                        </view>
+                                    </view>
+                                </view>
+                            </block>
+                        </view>
+                        <view wx:else>
+                            <block wx:for="{{item['detailList'+ item.selected]}}">
+                                <view style="border-bottom:1rpx solid #EBEBEB;padding-bottom:13.5rpx;">
+                                    <view class="content021_scrollTitle5" style="{{index!=0?'margin-top: 13.5rpx;':''}}">
+                                        <image wx:if="{{cndUrl&&item.CUSTOMER_TYPE==1}}" src="{{cndUrl}}/static/wechat/img/rec/icon_old.png" mode="widthFix" style="width:84rpx;vertical-align: middle;"></image>
+                                        <image wx:if="{{cndUrl&&item.CUSTOMER_TYPE==0}}" src="{{cndUrl}}/static/wechat/img/rec/icon_new.png" mode="widthFix" style="width:84rpx;vertical-align: middle;"></image>
+                                        <view class="content021_scrollTitle1" style="width: 65%;">
+                                            {{item.COMPANY_NAME}}
+                                        </view>
+                                        <!-- <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_arrow_right.png" mode="widthFix" style="width:10rpx;margin-left:196rpx;"></image> -->
+                                        <view class="" style="margin: 0 10rpx;display: flex;align-items: center;">
+                                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix" style="width:30rpx;"></image>
+                                            <view class="" style="margin: 0 8rpx" hover-class="none" hover-stop-propagation="false">
+                                                {{item.ALL_NUM||0}}
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="content021_scrollTitle4">{{item.ORDER_NO}}</view>
+                                    <view class="content021_status">
+                                        <view style="margin-left:20rpx;display:flex;align-items: center;">
+                                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_apply.png" mode="widthFix" style="width:21rpx;"></image>
+                                            <view class="content021_scrollTitle2" style="color: #FF7800;">
+                                                {{item.SHOW_STATE}}
+                                            </view>
+                                        </view>
+                                        <view style="display:flex;align-items: center;">
+                                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_limit.png" mode="widthFix" style="width:20rpx;"></image>
+                                            <view class="content021_scrollTitle3">
+                                                {{item.APPLY_AMOUNT||0}}万元
+                                            </view>
+                                        </view>
+                                        <view style="display:flex;align-items: center;">
+                                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_time.png" mode="widthFix" style="width:20rpx;"></image>
+                                            <view class="content021_scrollTitle3">
+                                                {{item.APPLY_DATE}}
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </block>
+                        </view>
+                    </scroll-view>
+                </view>
+            </block>
+        </scroll-view>
+    </view>
+</view>
+<view class="myswiper" wx:else>
+    <swiper class="card-swiper square-dot" style="height: 250rpx;" indicator-dots="true" circular="true" autoplay interval="50000" duration="500" indicator-color="#8799a3" indicator-active-color="#3C5CD5 " bindchange="cardSwiper">
+        <swiper-item style='' class="{{cardCur==0?'cur':''}}">
+            <navigator url="/sub1/pages/sui/index?type=share" class='swiper-item' hover-class="none" style="width:100%">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/rec_banner1.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='' class="{{cardCur==1?'cur':''}}">
+            <view class='swiper-item' style="width:100%;" hover-class="none" bindtap="showPoster">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/rec_banner2.png" mode="widthFix" style="width:100%;"></image>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="user-box2">
+        <view class="rule2" bindtap='showTips'>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/icon_rules.png" mode="widthFix" style="width:24rpx;margin: 0 6rpx"></image>
+            规则
+        </view>
+        <view class="extract2" style="right: 0;" bindtap='showBeanBox'>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/icon_right_blue.png" mode="widthFix" style="width:10rpx;margin-right:10rpx;transform:rotate(180deg);"></image>
+            立即提取
+        </view>
+        <navigator url="/sub3/pages/myCouponConvert/index" class="extract">
+            兑换优惠券
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/icon_right_blue.png" mode="widthFix" style="width:10rpx;margin-left:10rpx"></image>
+        </navigator>
+        <view class="user-info">
+            <view class="avatar">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view class="detail" style='display: flex;align-items: center;'>
+                <view class="name">{{customerInfo.REAL_NAME||customerInfo.NICK_NAME}}</view>
+            </view>
+        </view>
+        <view class="a12" style="padding:14rpx;margin:-7rpx auto 10rpx; background: #ffffff;border: 1rpx solid #eaeaea;border-radius: 8rpx;">
+            <view class="a121">
+                <view class="a1211">{{customerInfo.AMT_BEAN||'0'}}</view>
+                <view class="a1212">
+                    <image class="a12122" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_beans_yellow.png" mode="widthFix"></image>
+                    <view class="a12121">累计获得苏银豆</view>
+                    <image class="" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_right_grey.png" mode="widthFix" style="width:10rpx"></image>
+                </view>
+            </view>
+            <view class="divider"></view>
+            <view class="a121">
+                <view class="a1211">
+                    <view style="width:100%">{{customerInfo.RMNG_BEAN||'0'}}</view>
+                </view>
+                <view class="a1212">
+                    <image class="a12122" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_beans_blue.png" mode="widthFix"></image>
+                    <view class="a12121">可提取苏银豆</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="showCalendar" style="display: inline-block;">
+        <view class="calendar-box" style="margin: 18rpx 0 20rpx 30rpx;">
+            <image class="" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_calendar.png" mode="widthFix" style="width:26rpx"></image>
+            <view class="" style="margin: 0 14rpx 0 14.8rpx;">{{calendarTitle}}</view>
+            <image class="" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_right.png" mode="widthFix" style="width:14rpx"></image>
+        </view>
+    </view>
+    <view class="content021">
+        <image class="watermark-calendar" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_histogram.png" mode="widthFix"></image>
+        <view class="content021_tip">单位丨新客户户数</view>
+        <view class="content021_title1" style="min-height:76rpx;margin-top:20rpx;height:auto;padding-bottom:24rpx;">
+            <view class="content021_title">
+                <text class="content021_title2 content021_title4">数据\n统计</text>
+                <view class="content021_title2 content021_title3">分享</view>
+                <view class="content021_title2 content021_title3">申请</view>
+                <text class="content021_title2 content021_title3">审批\n通过</text>
+                <view class="content021_title2 content021_title3">签约</view>
+                <view class="content021_title2  content021_title3">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_bean_silver.png" mode="widthFix" style="width:24rpx;margin: 4rpx;"></image>
+                    <view>奖励</view>
+                </view>
+            </view>
+            <view class="content021_title55">
+                <view class="content021_title2 content021_title6" style="flex-direction: row;justify-content: flex-start;line-height: 40rpx;">
+                    <image wx:if='{{cndUrl}}' src="{{(customerInfo.PHOTO||customerInfo.AVATAR_URL)?preffixUrl+'adviser/getAvatar?picId='+(customerInfo.PHOTO||customerInfo.AVATAR_URL):preffixUrl+'static/wechat/img/no_avator.png'}}" mode="widthFix" style="width:40rpx;margin-right:8rpx;margin-left:20rpx;border-radius:50%"></image>
+                    本人
+                </view>
+                <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="4" data-index="0" data-selected="1" style="color:{{mineShareList[0].selected==='1'?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].SHARECOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="4" data-index="0" data-selected="2" style="color:{{mineShareList[0].selected==='2'?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].ALLCOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="4" data-index="0" data-selected="3" style="color:{{mineShareList[0].selected==='3'?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].APVCOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title33" catchtap="showDetail" data-sharetype="4" data-index="0" data-selected="4" style="color:{{mineShareList[0].selected==='4'?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].SIGNCOUNT||0}}
+                </view>
+                <view class="content021_title2 content021_title33" style="color:{{false?'#3C5CD5':'#1C294F;'}}">
+                    {{mineShareList[0].TOTALNUM||0}}
+                </view>
+            </view>
+            <view class="content021_title5" style="height: auto;width:100%;">
+                <view class="content021_title2 content021_title6" style="flex-direction: row;justify-content: flex-start;"></view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{mineShareList[0].selected==='1'}}"></image>
+                </view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{mineShareList[0].selected==='2'}}"></image>
+                </view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{mineShareList[0].selected==='3'}}"></image>
+                </view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{mineShareList[0].selected==='4'}}"></image>
+                </view>
+                <view class="content021_title2 content021_title3">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_triangle.png" mode="widthFix" class="arr" wx:if="{{false}}"></image>
+                </view>
+            </view>
+            <scroll-view scroll-y="true" class="scroll" wx:if="{{mineShareList[0].showDetail}}" bindscrolltolower="bindscrolltolower" data-sharetype='4' data-index='0' data-selected='{{mineShareList[0].selected}}'>
+                <view wx:if="{{mineShareList[0].selected==='1'}}">
+                    <block wx:for="{{mineShareList[0]['detailList'+ mineShareList[0].selected]}}">
+                        <view class="content021_scrollTitle6" style='height:94rpx;'>
+                            <image src="{{item.PHOTO}}" mode="widthFix" style="width:50rpx;vertical-align: middle;border-radius: 50%;"></image>
+                            <view class="content021_scrollTitle1" style="color: #3E415C;margin-left: 20rpx;">
+                                {{item.NICK_NAME}}
+                            </view>
+                            <view style="margin-left:74rpx;flex: 1;position: absolute;right: 59rpx;">
+                                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_time.png" mode="widthFix" style="width:20rpx;"></image>
+                                <view class="content021_scrollTitle3">{{item.CREATE_DATE}}</view>
+                            </view>
+                            <view class="" style="position: absolute;right: 250rpx;display: flex;align-items: center;">
+                                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix" style="width:30rpx;"></image>
+                                <view class="" style="margin: 0 8rpx" hover-class="none" hover-stop-propagation="false">
+                                    {{item.ALL_NUM||0||0}}
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                <view wx:else>
+                    <block wx:for="{{mineShareList[0]['detailList'+ mineShareList[0].selected]}}">
+                        <view style="border-bottom:1rpx solid #EBEBEB;padding-bottom:13.5rpx;">
+                            <view class="content021_scrollTitle5" style="{{index!=0?'margin-top: 13.5rpx;':''}}">
+                                <image wx:if="{{cndUrl&&item.CUSTOMER_TYPE==1}}" src="{{cndUrl}}/static/wechat/img/rec/icon_old.png" mode="widthFix" style="width:84rpx;vertical-align: middle;"></image>
+                                <image wx:if="{{cndUrl&&item.CUSTOMER_TYPE==0}}" src="{{cndUrl}}/static/wechat/img/rec/icon_new.png" mode="widthFix" style="width:84rpx;vertical-align: middle;"></image>
+                                <view class="content021_scrollTitle1" style="width: 65%;">
+                                    {{item.COMPANY_NAME}}
+                                </view>
+                                <view class="" style="margin: 0 10rpx;display: flex;align-items: center;">
+                                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix" style="width:30rpx;"></image>
+                                    <view class="" style="margin: 0 8rpx" hover-class="none" hover-stop-propagation="false">
+                                        {{item.ALL_NUM||0}}
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="content021_scrollTitle4">{{item.ORDER_NO}}</view>
+                            <view class="content021_status">
+                                <view style="margin-left:20rpx;display:flex;align-items: center;">
+                                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_apply.png" mode="widthFix" style="width:21rpx;"></image>
+                                    <view class="content021_scrollTitle2" style="color: #FF7800;">
+                                        {{item.SHOW_STATE}}
+                                    </view>
+                                </view>
+                                <view style="display:flex;align-items: center;">
+                                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_limit.png" mode="widthFix" style="width:20rpx;"></image>
+                                    <view class="content021_scrollTitle3">
+                                        {{item.APPLY_AMOUNT||0}}万元
+                                    </view>
+                                </view>
+                                <view style="display:flex;align-items: center;">
+                                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_time.png" mode="widthFix" style="width:20rpx;"></image>
+                                    <view class="content021_scrollTitle3">{{item.APPLY_DATE}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <van-popup show="{{ showPoster }}" bind:close="onClose" position="center" round custom-style="border-radius: 20rpx;">
+        <view class="rec-poster" style="background: url('{{cndUrl}}/static/wechat/img/rec/rec_poster.png') no-repeat 0 0 / 100% 100%;">
+            <view class="rec-btn-poster" bind:tap="generateCardPoster">
+                <image class="" src="{{cndUrl}}/static/wechat/img/rec/icon_save.png" mode="widthFix" style="width:100%"></image>
+            </view>
+            <view class="rec-btn-cancel" bind:tap="onClose">
+                <image class="" src="{{cndUrl}}/static/wechat/img/rec/icon_cancel.png" mode="widthFix" style="width:100%"></image>
+            </view>
+             <view class="qrcode" bind:tap="onClose">
+                <image class="" src="{{qrcodeUrl}}" mode="widthFix" style="width:100%"></image>
+            </view>
+        </view>
+    </van-popup>
+    <canvas style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+</view>
+<van-popup show="{{ showBeanBox }}" bind:close="onClose" class="extract-box" custom-style="border-radius: 16rpx;">
+    <view class="c1">
+        <view class="c21">
+            <view class="c211">提取苏银豆</view>
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-16.png" mode="widthFix" bind:tap="onClose"></image>
+        </view>
+        <view class="c22" wx:if="{{!submit}}">
+            <input class="c221" type="number" placeholder="请输入需要提取的苏银豆数量" bindinput="numInput" value="{{beansNum}}" placeholder-class="input-placeholder" />
+        </view>
+        <view class="c23" wx:else>
+            <view>{{getBeanDesc1}}</view>
+            <view>积分余额：{{getBeanDesc2}}</view>
+        </view>
+        <view class="extract-btn" bindtap="getBeans" wx:if="{{!submit}}">确认</view>
+        <view class="extract-btn" bindtap="onClose" wx:else>我知道了</view>
+    </view>
+</van-popup>
+<van-popup show="{{ showTips }}" bind:close="onClose" custom-style='border-radius: 30rpx'>
+    <view class="a2">
+        <view class="a21" style="text-align:center">活动规则</view>
+        <view class="a22" scroll-x="false" scroll-y="false" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="" bindscroll="">
+            <view class="a221">
+                <view class="a223">
+                    1.在微信中搜索小程序“江苏银行随e融”，进入首页选择经营随e贷或点击个人中心“推荐有礼”页面，点击“分享”，即可邀请好友参与申请。
+                </view>
+                <view class="a223">
+                    2.每推荐一位新客户申请江苏银行经营随e贷，首次申请成功后，您可获得价值30元苏银豆；若成功签约，您可另获得价值100元苏银豆；若首次支用当天累计借款金额大于授信额度的30%，您可另获得价值30元苏银豆，若连续支用满30日，您可再获得价值100元苏银豆。推荐越多奖励越多，先到先得！
+                </view>
+                <view class="a223">（1）苏银豆兑换礼品可至江苏银行手机银行或直销银行APP,海量好礼等着您。</view>
+                <view class="a223">（2）新客户指未在江苏银行办理过经营随e贷业务的客户。</view>
+                <view class="a223">活动时间：即日起至2023年12月31日。</view>
+                <view class="a223">江苏银行有权在法律允许的范围内对本次活动予以解释。</view>
+            </view>
+        </view>
+        <view class="a23">
+            <view class="a231" bind:tap="onClose">确认</view>
+        </view>
+    </view>
+</van-popup>
+<view class="" wx:if="{{showCalendarBox}}">
+    <van-calendar show="{{ showCalendar }}" bind:close="onClose" bind:confirm="confirmDate" color="#3C5CD5 " type="range" default-date="{{ defaultDate }}" min-date="{{ minDate }}" title="选择日期" />
+</view>

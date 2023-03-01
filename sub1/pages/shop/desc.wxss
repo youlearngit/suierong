@@ -1,0 +1,90 @@
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+.box {
+    margin: 20rpx 0;
+}
+
+.box view.cu-bar {
+    margin-top: 20rpx;
+}
+
+.head2 {
+    font-size: 40rpx;
+    color: white;
+    position: absolute;
+    left: 60rpx;
+    top: 117rpx;
+}
+
+.abottom {
+    height: 100rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 1px 1px 6rpx rgb(195, 197, 204);
+}
+
+.bg {
+    width: 100%;
+}
+.bg1 {
+    width: 100%;
+    z-index: -1;
+}
+
+.bg2 {
+    width: 60%;
+    position: fixed;
+    bottom: 100rpx;
+    right: 0;
+    z-index: -1;
+}
+
+.submit {
+    background-color: #dda649;
+    color: white;
+    font-size: 30rpx;
+    box-shadow: 1px 1px 6rpx rgb(195, 197, 204);
+}
+.cu-bar.tabbar.shop .action {
+    width: 180rpx;
+    font-size: 30rpx;
+    color: #353b50;
+}
+
+button {
+    background-color: white;
+    color: #3c4767;
+}
+
+.asplite {
+    width: 5rpx;
+    height: 40rpx;
+    background-color: #b2bbd4;
+}
+
+.acont {
+    border-radius: 30rpx;
+    padding: 20rpx 60rpx;
+}
+
+.atop {
+    height: 300rpx;
+}
+
+.head1 {
+    margin: auto;
+    font-size: 36rpx;
+    color: #353b50;
+    margin-top: 20rpx;
+    font-weight: bold;
+}
+.text1 {
+    margin: auto;
+    color: #a6abb8;
+    font-size: 28rpx;
+    margin-top: 30rpx;
+    line-height: 45rpx;
+}

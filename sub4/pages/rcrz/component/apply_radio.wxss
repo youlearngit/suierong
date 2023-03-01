@@ -1,0 +1,15 @@
+.apply_radio van-radio {
+	margin-right: 128rpx;
+}
+.apply_radio image {
+	width: 30rpx;
+	height: 30rpx;
+}
+.apply_radio text{
+	font-family: SourceHanSansCN-Regular;
+	font-size: 28rpx;
+	color: #999999;
+}
+.apply_radio .checked text{
+	color: #1C294F;
+}

@@ -1,0 +1,44 @@
+/* sub2/pages/crossBorderE/platform.wxss */
+.v1{
+  height: 100%;
+  width: 100%;
+}
+
+.m1{
+  /* height: 375rpx;
+  width: 724rpx; */
+  height: 100%;
+  width: 100%;
+  background-size:100% 100%;
+}
+
+.m21{
+  height: 60%;
+  width: 60%;
+}
+
+.m22{
+  height: 60%;
+  width: 60%;
+  /* padding-left: 10%; */
+}
+.v2{
+  position: absolute;
+  width: 100%;
+  bottom: 6%;
+  display: flex;
+  height: 200rpx;
+  /* margin-top: -500rpx; */
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.v21{
+  display: flex;
+  height: 200rpx;
+  width: 400rpx;
+  align-items: center;
+  justify-content: center;
+}
+

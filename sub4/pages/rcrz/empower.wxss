@@ -1,0 +1,40 @@
+page {
+    background-color: white;
+}
+@import './book.wxss';
+.bottoms {
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+    z-index: 10000;
+    font-size: 30rpx;
+    color: #A6A6A6;
+}
+.bottoms button {
+    position: fixed;
+    bottom: 1%;
+    left: 5%;
+    width: 90%;
+    background-color: #16a8fa;
+    color: white;
+}
+.bottoms .ckb {
+    width: 80%;
+    margin: 30rpx 9%;
+    position: fixed;
+    bottom: 7%;
+    left: 5%;
+}
+.bottoms .ckb checkbox-group {
+    float:left;
+}
+checkbox .wx-checkbox-input {
+    width: 30rpx;
+    height: 30rpx;
+    border: 1rpx solid #999;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+    color: #16a8fa;
+    border: 1rpx solid #999;
+    background: #ffffff;
+}

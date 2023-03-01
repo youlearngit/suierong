@@ -1,0 +1,213 @@
+<!--sub4/pages/fillInInformation.wxml   "navigationStyle":"custom"-->
+<view class="fillInInformation">
+    <van-nav-bar title="借款申请" left-arrow bind:click-left="onClickLeft" />
+    <view class="fillInInformation_box">
+        <view class="header" wx:if="{{procedure == 1}}">
+            <view class="header_image">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/1.png" />
+            </view>
+            <view class="header_title">
+                <view class="title">请进行身份认证</view>
+                <view class="contont">为保障您的信息安全，我们需要认证您的身份</view>
+            </view>
+        </view>
+        <view class="header" wx:if="{{procedure == 2}}">
+            <view class="header_image">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/2.png" />
+            </view>
+            <view class="header_title">
+                <view class="title">请录入企业信息</view>
+                <view class="contont">请进行企业资质认证</view>
+            </view>
+        </view>
+        <view class="header" wx:if="{{procedure == 3}}">
+            <view class="header_image">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/3.png" />
+            </view>
+            <view class="header_title">
+                <view class="title">请确认授权</view>
+                <view class="contont">填写您的授权信息</view>
+            </view>
+        </view>
+        <view class="information" wx:if="{{procedure == 1}}">
+            <van-cell-group>
+                <van-field model:value="{{ faName }}" label="法人姓名" placeholder="请输入法人姓名" input-align="right" required adjust-position right-icon="" cursor-spacing="50">
+                    <view slot="right-icon" class="right_icon">
+                        <view class="fen">|</view>
+                        <view class="icon" bindtap="twegetIsCord">
+                            <image src="{{preffixUrl}}/static/wechat/img/mer/pzp.png"></image>
+                        </view>
+                    </view>
+                </van-field>
+                <van-field model:value="{{ faPhone }}" label="法人手机号" placeholder="请输入法人手机号" type="digit" maxlength="11" bind:blur="watchPhone" input-align="right" error-message-align="right" required cursor-spacing="50" adjust-position />
+                <van-field model:value="{{ faCard }}" label="法人身份证号" maxlength="18" placeholder="请输入法人身份证号" type="idcard" input-align="right" error-message-align="right" required cursor-spacing="50" adjust-position />
+                <van-field label-class="label" model:value="{{ duties }}" label="公司职务" placeholder="请输入公司职务" input-align="right" readonly error-message-align="right" cursor-spacing="50" adjust-position />
+            </van-cell-group>
+            <button class="button_submit" bindtap="getSubmit" ctype="info">提交</button>
+        </view>
+        <view>
+            
+        </view>
+        <view class="information" wx:if="{{procedure == 2}}">
+            <van-cell-group>
+                <van-field model:value="{{ enterpriseName }}" adjust-position label="企业名称" placeholder="请输入企业名称" bind:input="watchEnterpriseName" input-class=" margin-left: 131rpx !important;" input-align="right" required cursor-spacing="50">
+                    <view slot="right-icon" class="right_icon">
+                        <view class="fen">|</view>
+                        <view class="icon" bindtap="getTweRecognition">
+                            <image src="{{preffixUrl}}/static/wechat/img/mer/pzp.png"></image>
+                        </view>
+                    </view>
+                </van-field>
+                <!-- readonly -->
+                <van-field model:value="{{ creditCode }}" label="统一社会信用代码" placeholder="请输入统一社会信用代码" input-align="right" maxlength="18" readonly title-width="200" error-message-align="right" required cursor-spacing="50" adjust-position />
+                <van-field model:value="{{ faName }}" readonly label="法定代表人" placeholder="请输入法定代表人" input-align="right" error-message-align="right" required cursor-spacing="50" required adjust-position />
+                <!--  bindtap="timePopup" -->
+                <van-field model:value="{{ enterpriseDate }}" label="成立日期" readonly placeholder="请输入成立日期" input-align="right" error-message-align="right" required cursor-spacing="50" adjust-position />
+                <view class="section field-index--van-field van-cell van-cell--required">
+                    <view class="section__title van-cell__title" style="    margin-left: -16rpx;"><text style="font-size: 14px;color: #f44;">*</text>企业所在区域</view>
+                    <view class="van-field__body van-field__body--text van-field__body--ios">
+                    
+                        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                            <view class="picker" wx:if="{{region.length == 0}}">
+                                请选择省市地区
+                            </view>
+                            <view class="picker" wx:else>
+                                {{region[0]}}/{{region[1]}}/{{region[2]}}
+                            </view>
+                            
+                        </picker>
+                    </view>
+                </view>
+                <van-field label-class="label" label="经营地址" required input-align="right" readonly="{{readonly}}" error-message-align="right" cursor-spacing="50" adjust-position readonly>
+                </van-field>
+                <textarea cols="2" model:value="{{ businessAddress }}" class="field_input"></textarea>
+            </van-cell-group>
+            <button class="button_submit" ctype="info" bindtap="getSubmittwe">立即办理</button>
+            <!--  -->
+            <view class="entNAmeList" wx:if="{{entNameShow}}">
+                <view class="entNAmeItem" wx:for="{{entNamesList}}" wx:for-item="item" bindtap="selectEntName" data-item="{{item.entNames}}" wx:key="item.index">
+                    {{item.entNames}}
+                </view>
+            </view>
+        </view>
+        <view class="information" wx:if="{{procedure == 3}}">
+            <van-cell-group>
+                <van-field model:value="{{ authorizationCode }}" placeholder="请输入授权码" maxlength="6"  input-class="fieldInput" input-align="right" required adjust-position cursor-spacing="50">
+                    <view slot="label" class="field_label" bindtap="showPopup">
+                        <view class="lael_code">外管区块链平台授权码</view>
+                        <view class="label_image" bindtap="showPopup">
+                            <image src="{{preffixUrl}}/static/wechat/img/mer/wh.png"></image>
+                        </view>
+                    </view>
+
+                </van-field>
+                <view class="openClosebox" wx:if="{{province=='31'||province=='32'}}">
+                  <view class="text1"><text>选择税务授权方式</text></view>
+                  <view class="switchrow">
+                    <view class="switchtab" style="width:290rpx">
+                      <view class="switchNums {{sqnum == 0?'currentNum':''}}" bindtap="switchChange1" data-index="0" style="width:146rpx;">{{selectOpen1[0]}}</view>
+                      <view class="switchNums {{sqnum == 1?'currentNum':''}}" bindtap="switchChange1" data-index="1" style="width:146rpx;">{{selectOpen1[1]}}</view>
+                    </view>
+                  </view>
+                </view>
+                <van-field model:value="{{ authorizationStatus }}" label="税务授权" placeholder="请授权" input-align="right" title-width="200" error-message-align="right" required cursor-spacing="50" adjust-position readonly bindtap="validateTax">
+                    <view slot="right-icon" class="administration_icon">
+                        <image src="{{preffixUrl}}/static/wechat/img/mer/xjt.png"></image>
+                    </view>
+                </van-field>
+                <view class="openClosebox">
+                  <view class="text1"><text>是否存在中信保在保保单</text></view>
+                  <view class="switchrow">
+                    <view class="switchtab" >
+                      <view class="switchNums {{_num == 0?'currentNum':''}}"   bindtap="switchChange" data-index="0">{{selectOpen[0]}}</view>
+                      <view class="switchNums {{_num == 1?'currentNum':''}}"  bindtap="switchChange" data-index="1">{{selectOpen[1]}}</view>
+                    </view>
+                  </view>
+                </view>
+                <block wx:if="{{_num==1}}">
+                  <view class="add" bindtap="addBH">新增 +</view>
+                  <view class="bdcontent" wx:for="{{bhList}}" wx:key="index">
+                  <view class="inputbox">
+                    <input placeholder="请输入保单编号" data-id="{{index}}" maxlength="9" value="{{bhList[index].bhValue}}" bindinput="addValue"/>
+                  </view>
+                  <van-icon name="clear" color="#5c6cff" size="50rpx" data-id="{{index}}" bind:click="delBH"/>
+                </view>
+              </block>
+            </van-cell-group>
+
+            <button class="button_submit" bindtap="getAgreement" ctype="info">查看相关协议并授权</button>
+        </view>
+        <view class="flowPath">
+            <view class="flow_one_xz" wx:if="{{procedure == 1}}">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/sfyzxz.png"></image>
+            </view>
+            <view class="flow_one_xz" wx:if="{{procedure != 1}}">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/sfyzxx.png"></image>
+            </view>
+            <view class="flow_one_xz" wx:if="{{procedure == 2}}">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/txqyxxxz.png"></image>
+            </view>
+            <view class="flow_one_xz" wx:if="{{procedure != 2}}">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/txqyxx.png"></image>
+            </view>
+            <view class="flow_one_xz" wx:if="{{procedure == 3}}">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/jkedhqxxz.png"></image>
+            </view>
+            <view class="flow_one_xz" wx:if="{{procedure != 3}}">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/jkedhqx.png"></image>
+            </view>
+        </view>
+        <van-popup closeable show="{{ show }}" custom-style="background: none;" round close-icon-position="top-left" bind:close="onClose">
+            <view class="hink_popup">
+                <view class="popup_header">
+                    <view class="popup_header_image">
+                        <image src="{{preffixUrl}}/static/wechat/img/mer/bt.png"></image>
+                    </view>
+                    <view class="popup_header_title " bindtap="getPage">
+                        <view class="title_item" bindtap="getPage">请企业操作员登录ASone平台(<text href="http://zwfw.safe.gov.cn/asone/WelcomeServlet">http://</text></view>
+                        <text href="http://zwfw.safe.gov.cn/asone/WelcomeServlet">zwfw.safe.gov.cn/asone/WelcomeServlet</text>
+                        <view class="title_item">)，为江苏银行总行新增授权，生成查询码。</view>
+                        <!-- <text>请企业操作员登录ASone平台(</text> <text></text><text></text> <text>)，为江苏银行总行新增授权，生成查询码。</text> -->
+                    </view>
+                </view>
+                <view class="popup_image">
+                    <image src="{{preffixUrl}}/static/wechat/img/mer/yl.jpg"></image>
+                </view>
+                <view class="hink_list">
+                    如无此页面请联系分行发起《出口微贷区块链开通申请表》，分行号码为{{landline}}
+                </view>
+            </view>
+        </van-popup>
+        <van-popup show="{{ agreementShow }}" round position="bottom" custom-style="height: 50%" bind:close="onCloseAgreement">
+            <view class="agreement">
+                <view class="agreement_kuai"></view>
+                <view class="agreement_label">相关协议</view>
+                <view class="agreement_list">
+                    <view class="list_item" wx:for="{{agreementList}}" wx:for-item="item" wx:key="item.index" bindtap="toAgreement" data-type="{{item.type}}">
+                        <view class="list_image">
+                            <image src="{{preffixUrl}}/static/wechat/img/mer/pdf.png"></image>
+                        </view>
+                        <view class="list_name">{{ item.name }}</view>
+                    </view>
+                </view>
+
+                <view class="agreement_button">
+                    <button class="button_submit signButton" bindtap="getSign" ctype="info" disabled="{{unDisabled}}">确认授权</button>
+                </view>
+                <view class="checkbox">
+                    <van-checkbox value="{{ checked }}" bind:change="onChange" icon-size="15px" style="font-size:26rpx;color: #666666;">我已阅读并同意相关协议</van-checkbox>
+                </view>
+            </view>
+        </van-popup>
+        <van-popup show="{{ timeShow }}" position="bottom " bind:close="onClose"bind:cancel="onClose">
+            <van-datetime-picker type="date" value="{{ currentDate }}" bind:confirm="onInput"  bind:click-overlay="onClose" min-date="{{ minDate }}" formatter="{{ formatter }}" />
+        </van-popup>
+        <van-popup show="{{ taxShow }}" round  position="bottom" custom-style="height: 80%;" bind:close="onCloseTax">
+          <view class="taxImage">
+            <image src="{{preffixUrl}}/static/wechat/img/mer/sulc.png"></image>
+          </view>
+        </van-popup>
+    </view>
+
+
+</view>

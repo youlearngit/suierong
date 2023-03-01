@@ -1,0 +1,15 @@
+<view class="cu-custom" style="height:{{StatusBar+40}}px;">
+    <view class="cu-bar fixed" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;color:white">
+    
+        <view>
+            <view class="action" wx:if="{{isCustom}}" style="width:100rpx;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)">
+                <text class="cuIcon-back" bindtap="BackPage" />
+                <!-- <text class="cuIcon-homefill" bindtap="toHome" /> -->
+            </view>
+        </view>
+        <view class="content" style="top:{{StatusBar}}px">
+            <slot name="content" />
+        </view>
+        <slot name="right" />
+    </view>
+</view>

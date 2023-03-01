@@ -1,0 +1,137 @@
+/* sub4/pages/agreement.wxss */
+.agreement{
+    background: #F2F7FF;
+    width: 100%;
+    overflow-x: hidden;
+}
+.button{
+    background: rgba(255,255,255,0.94);
+    box-shadow: 0 0 27px 0 rgba(7,102,255,0.07);
+    width: 100%;
+    height: 80rpx;
+    position: fixed;
+    bottom: 0;
+    padding: 28rpx 30rpx;
+}
+.van-button{
+    background: #415FCD !important;
+    width: 690rpx;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(65,95,205,0.33);
+    border-radius: 42rpx;
+    
+}
+.pdf{
+    width: 690rpx;
+    margin: 0 auto;
+    height: 1263rpx;
+    overflow-x: hidden;
+    padding-bottom: 150rpx;
+}
+image{
+    width: 100%;
+    height: 100%;
+    margin-top: 40rpx;
+}
+.title{
+    font-size: 50rpx;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 16rpx;
+    
+}
+.titletwe{
+    font-size: 36rpx;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 8rpx; 
+}
+.ts{
+    font-size: 40rpx;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 6rpx;
+}
+.jsyh{
+    font-size: 32rpx;
+    letter-spacing: 3rpx;
+    margin-bottom: 10rpx;
+}
+.contont{
+    font-size: 32rpx;
+    text-indent:64rpx;
+    line-height: 56rpx;
+    margin-bottom: 20rpx;
+}
+.zhong{
+    font-weight: 600;
+    text-decoration:underline;
+}
+.userInfo{
+    width: 100%;
+    overflow:hidden;
+}
+.userContont{
+    width:575rpx;
+    float: right;
+    font-size: 29rpx;
+    margin-bottom: 20rpx;
+    letter-spacing: 6rpx;
+}
+image{
+    width: 100%;
+    height: 100%;
+}
+.htmb{
+    width: 100%;
+    height: 100%;
+}
+.custName{
+    position: relative;
+    top:-1077rpx;
+    left: 160rpx;
+    font-size: 24rpx;
+    z-index: 100;
+}
+.creditCode{
+    position: relative;
+    top:-1037rpx;
+    left: 210rpx;
+    font-size: 24rpx;
+    z-index: 100;
+}
+.custName2{
+    position: relative;
+    top:-469rpx;
+    left: 298rpx;
+    font-size: 24rpx;
+    z-index: 100;
+}
+.year{
+    position: relative;
+    top:-459rpx;
+    left: 294rpx;
+    font-size: 24rpx;
+    z-index: 100;
+}
+.month{
+    position: relative;
+    top:-489rpx;
+    left: 500rpx;
+    font-size: 24rpx;
+    z-index: 100;
+}
+.day{
+    position: relative;
+    top:-519rpx;
+    left: 557rpx;
+    font-size: 24rpx;
+    z-index: 100;
+}
+.bottomtext{
+  margin-top: 20rpx;
+  font-weight: 600;
+}
+.fontweight{
+  font-weight:bold;
+}

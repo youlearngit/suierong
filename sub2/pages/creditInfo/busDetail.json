@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"i-checkbox-group": "../../dist/checkbox-group/index",
+		"i-checkbox": "../../dist/checkbox/index",
+		"i-divider": "../../dist/divider/index",
+		"i-load-more": "../../dist/load-more/index"
+	}
+}

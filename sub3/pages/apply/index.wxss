@@ -1,0 +1,268 @@
+/* pages/carLoans/apply/index.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+page {
+  overflow: hidden;
+  background: #ffffff;
+}
+/* 头部提示 start*/
+.apply-background-img{
+  width: 100%;
+	position: absolute;
+	top: -100rpx;
+  z-index: -1;
+}
+.apply-prompt{
+  width: 460rpx;
+  height: 132rpx;
+  opacity: 0.9;
+  font-family: SourceHanSansSC-Medium;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: justify;
+  line-height: 44rpx;
+  margin-top: 170rpx;
+  margin-left: 60rpx;
+}
+/* 头部提示 start*/
+
+/* card 样式制作 start*/
+
+.apply-card {
+    width: 690rpx;
+    min-height: 300rpx;
+    background-color: #ffffff;
+    border-radius: 30rpx 30rpx 0rpx 0rpx;
+    margin: 60rpx auto 0;
+}
+
+.apply-card-1 {
+    width: 690rpx;
+    background-image: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+    box-shadow: 0 2rpx 24rpx 0 rgba(156, 187, 255, 0.41);
+    border-radius: 18rpx;
+    padding-bottom: 30rpx;
+}
+.img-board-1{
+  width: 690rpx;
+  height: 349rpx;
+}
+.img-board-2{
+  width: 750rpx;
+  height: 84rpx;
+  top: -80rpx;
+}
+
+.apply-card-body1 {
+    width: 92%;
+    margin: 0 4%;
+    padding: 30rpx 0 30rpx;
+    min-height: 300rpx;
+}
+
+.apply-card-body1-top-info-img1 {
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.apply-card-body1-top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.apply-card-body1-top-info-conten {
+    width: 70%;
+    margin-left: 30rpx;
+}
+
+.apply-card-body1-top-info-conten-name {
+    font-family: SourceHanSansSC-Medium;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333333;
+    letter-spacing: 0;
+}
+.apply-card-body1-top-info-conten-tel{
+  opacity: 0.6;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 26rpx;
+  color: #333333;
+  text-align: justify;
+}
+.apply-card-body1-top-info-img2{
+  width: 60rpx;
+  height: 60rpx;
+  float: right;
+  margin-top: 20rpx;
+}
+.apply-card-body1-title1{
+  font-size: 36rpx;
+  font-family: SourceHanSansSC-Medium;
+  color: #ffffff;
+}
+.apply-card-body1-title2{
+  font-size: 26rpx;
+  font-weight: 100;
+  font-family: SourceHanSansSC-Medium;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 20rpx;
+}
+.apply-card-body1-info{
+  width: 80%;
+  height: 60rpx;
+  margin-top: 10rpx;
+  float: left;
+  font-size: 26rpx;
+  font-family: SourceHanSansSC-Medium;
+  color: #333333;
+  clear: both;
+}
+.apply-card-body1-info2{
+  width: 100%;
+}
+.body1-info-img{
+  top: 10rpx;
+  width: 38rpx;
+  height: 38rpx;
+}
+.apply-card-body2{
+  position: relative;
+  top: -130rpx;
+  left: 36rpx;
+}
+.img-board-3{
+  width: 26rpx;
+  height: 26rpx;
+}
+.apply-card-body2-text1{
+  position: relative;
+  margin-left: 10rpx;
+  color: #999999;
+  font-size: 26rpx;
+  font-family: SourceHanSansSC-Regular;
+  top: -3rpx;
+}
+/* card 样式制作 end*/
+
+/* 产品内容 start*/
+.apply-content{
+  background: #fefeff;
+  height: 49%;
+  padding: 20rpx 40rpx 0rpx 30rpx;
+}
+.apply-content-text{
+  font-size: 32rpx;
+  font-weight: 500;
+  font-family: SourceHanSansSC-Medium;
+}
+.apply-content-body{
+  width: 690rpx;
+  height: 100%;
+  margin-top: 10px;
+  background-color: #f6f9fe;
+}
+.apply-content-body-1{
+  height: 90rpx;
+  padding: 10rpx 20rpx 0rpx 20rpx;
+}
+.apply-content-body-1::after {
+    content: '';
+    width: 98%;
+    height: 70rpx;
+    display: block;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(124, 124, 124, 0.2);
+  }
+.apply-content-body-tag{
+  font-family: SourceHanSansSC-Regular;
+  font-size: 100%;
+  color: #a3acc5;
+  letter-spacing: 0.4px;
+  margin: 4px;
+  width: 27%;
+  float: left;
+}
+.apply-content-body-tag-img{
+  width: 35rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+  top: 6rpx;
+  z-index: -4rpx;
+}
+.apply-content-body-2{
+  overflow: scroll;
+  padding: 0px 10px;
+  height: 580rpx;
+}
+
+/* 产品内容 ent*/
+
+/* 申请购买二手车按钮 start*/
+.apply-foot{
+  height: 174rpx;
+  width: 750rpx;
+  padding: 35rpx 50rpx 29rpx 50rpx;
+}
+
+.apply-btn {
+    width: 650rpx;
+    height: 80rpx;
+    text-align: center;
+    background: linear-gradient(to bottom, #8BA2FD, #3D5FE9);
+    border-radius: 50rpx;
+    margin: 20rpx auto;
+}
+.apply-btn-text{
+  line-height: 80rpx;
+  color: #ffffff;
+  font-size: 30rpx;
+  font-family: SourceHanSansSC-Regular;
+}
+/* 申请购买二手车 end*/
+
+.tips {
+    width: 92%;
+    margin: 60rpx auto 0;
+    background: #F7FBFF;
+    border: 1rpx solid #D2DDFF;
+    border-radius: 10rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 24rpx;
+    color: #7C8BA4;
+    letter-spacing: 0;
+    text-align: justify;
+    padding: 20rpx;
+}
+
+.hover {
+    color: #3D5FE9;
+    font-family: SourceHanSansSC-Medium;
+    font-size: 24rpx;
+    letter-spacing: 0;
+    text-align: justify;
+    border-bottom: 1rpx solid #3D5FE9;
+}
+
+.tips_title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 8rpx;
+}
+
+.tips_img {
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 10rpx;
+}
+
+.tels {
+    opacity: 0.6;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 26rpx;
+    color: #333333;
+    text-align: justify;
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-popup":"/sub6/static/vant/weapp/popup/index",
+    "van-overlay":"/sub6/static/vant/weapp/overlay/index",
+    "van-action-sheet": "/sub6/static/vant/weapp/action-sheet/index"
+  }
+}

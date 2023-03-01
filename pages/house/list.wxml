@@ -1,0 +1,18 @@
+<view class="flexWrap">
+  <view class="flexHead">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/house/banner.jpg"></image>
+  </view>
+  <view class="flexBox">
+    <view class="resCon"  >
+      <view class="pinguInfo" wx:for="{{list1}}"  wx:key="key">
+        <view class="piName">{{item.buildingname}}</view>
+        <view class="piAddress">{{item.dizhi}}{{item.area}}平米 </view>
+        <view class="price">
+          <text>估价：{{item.gujia}}万</text>
+          预计可贷：{{item.kedai}}万         
+        </view>
+        <view class="time">{{item.shijian}}月{{item.shijian1}}日评估</view>
+      </view>
+    </view>
+  </view>
+</view>

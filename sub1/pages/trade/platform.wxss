@@ -1,0 +1,46 @@
+/* sub1/pages/trade/platform.wxss */
+page {
+  
+}
+
+.v1{
+  height: 100%;
+  width: 100%;
+}
+
+.m1{
+  /* height: 375rpx;
+  width: 724rpx; */
+  height: 100%;
+  width: 100%;
+  background-size:100% 100%;
+}
+
+.m21{
+  height: 60%;
+  width: 60%;
+  padding-left: 30%;
+}
+
+.m22{
+  height: 60%;
+  width: 60%;
+  /* padding-left: 10%; */
+}
+.v2{
+  position: absolute;
+  top:1000rpx;
+  display: flex;
+  height: 200rpx;
+  /* margin-top: -500rpx; */
+  align-items: center;
+  justify-content: center;
+}
+
+.v21{
+  height: 200rpx;
+  width: 400rpx;
+  align-items: center;
+  justify-content: center;
+}
+

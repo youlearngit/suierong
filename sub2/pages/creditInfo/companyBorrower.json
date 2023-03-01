@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "van-radio": "../../static/vant-weapp/radio/index",
+        "van-radio-group": "../../static/vant-weapp/radio-group/index",
+        "i-toast": "/sub2/dist/toast/index"
+
+    }
+}

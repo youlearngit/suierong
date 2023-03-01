@@ -1,0 +1,86 @@
+@import "/assets/styles/weui.wxss";
+
+page {
+    background-color: white;
+}
+
+.bottom button {
+    /* position: absolute;
+    bottom: 5%;
+    left: 5%; */
+    width: 90%;
+    background-color: #2d8cf0;
+    color: white;
+}
+
+.desc {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    font-size: 21rpx;
+    background-color: #edf7fe;
+    padding: 5rpx;
+    border-radius: 10rpx;
+}
+
+.msgbtn button {
+    /* position: absolute;
+  top: 10%;
+  right: 10%; */
+    padding-left: 20rpx;
+    width: 200rpx;
+}
+.msgbtn {
+    margin-left: 30rpx;
+}
+
+.msgInp {
+    height: 80rpx;
+    padding-top: 30rpx;
+    /* text-align: center; */
+    border-bottom: 1px solid #dbdbdb;
+    font-size: 33rpx;
+    padding-left: 60rpx;
+}
+
+.weui-cell {
+    height: 100rpx;
+}
+
+.weui-select {
+    border-right: 0rpx solid #d9d9d9;
+}
+
+.title {
+    margin: auto;
+    font-size: 36rpx;
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
+    font-weight: bold;
+}
+
+.weui-label {
+    font-size: 33rpx;
+    width: 80px;
+}
+
+.ocrBox {
+    margin: auto;
+    height: auto;
+}
+
+.imgFlex {
+    display: flex;
+}
+
+.imgFlex image {
+    margin: auto;
+}
+
+.picID {
+    width: 70%;
+}
+
+.weui-input {
+    text-align: left;
+}

@@ -1,0 +1,92 @@
+page {
+    background-color: white;
+}
+
+.bottom button {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 90%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+.desc {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    font-size: 21rpx;
+    background-color: #edf7fe;
+    padding: 5rpx;
+    border-radius: 10rpx;
+}
+
+.msgbtn button {
+    width: 200rpx;
+}
+
+.msgInp {
+    height:80rpx;
+	padding-top: 30rpx;
+    text-align: center;
+    border-bottom: 1px solid #dbdbdb;
+	font-size: 40rpx;
+	
+}
+.msgInp2 {
+  height:80rpx;
+  padding-top: 30rpx;
+  text-align: left;
+  border-bottom: 1px solid #dbdbdb;
+font-size: 40rpx;
+}
+
+.weui-cell {
+    height: 100rpx;
+}
+
+.weui-select {
+    border-right: 0rpx solid #d9d9d9;
+}
+
+.title {
+    margin: auto;
+    font-size: 36rpx;
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
+    font-weight: bold;
+}
+
+.weui-label {
+    width: 130px;
+}
+
+.ocrBox {
+    margin: auto;
+    height: auto;
+}
+
+.imgFlex {
+    display: flex;
+}
+
+.imgFlex image {
+    margin: auto;
+}
+
+.picID {
+    width: 70%;
+}
+.phone-input {
+  float: left;
+  color: red;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+  font-size: 32rpx;
+}
+.weui-cell__bd {
+  letter-spacing: 3rpx;
+}
+.weui-cell {
+  height: 100rpx;
+}

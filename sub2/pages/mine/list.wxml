@@ -1,0 +1,51 @@
+<view class="weui-cells__title" >当前排队预约</view>
+
+<view class="book"    wx:for="{{allList}}" wx:key="index">
+  <block>
+  <navigator class="dl weui-flex" url="det?param={{param}}&index={{index}}" hover-class="none" >
+    <view class="dt weui-flex__item" style="height:120rpx">
+      <view class="">大额现金预约取款 |
+        <span style="color:#999;">{{item.gsbz==1?'对私业务':'对公业务'}}</span>
+      </view>
+      <view class="addr">
+        <image wx:if='{{preffixUrl}}'src="{{preffixUrl}}/static/wechat/img/ico_adr_gray.png"></image>{{item.remark1}}</view>
+        <view class="addr">
+         操作时间：{{item.yyrq}}</view>
+    </view>
+    <view class="dd" style="height:80rpx">
+      <view class="gray" wx:if="{{item.sjzt==2}}">已办理</view>
+      <view class="gray" wx:if="{{item.sjzt==1}}">已取消</view>
+      <view class="p" wx:else>{{item.qkrq}}</view>
+    </view>
+  </navigator>
+  <view class="sawtooth-bor"></view>
+</block>
+</view>
+
+<!-- <view class="weui-cells__title mt30">历史记录</view>
+<view wx:if="{{hisList.length<1}}"> 
+      <view class="nodata">
+        <text>暂无数据</text>
+      </view>
+</view>
+<view class="book"    wx:for="{{hisList}}" wx:key="index">
+  <navigator class="dl weui-flex" hover-class="none" >
+    <view class="dt weui-flex__item" style="height:80rpx">
+      <view class="">大额现金预约取款 |
+        <span style="color:#999;">{{item.gsbz==1?'对私业务':'对公业务'}}</span>
+      </view>
+      <view class="addr">
+        <image wx:if='{{preffixUrl}}'src="{{preffixUrl}}/static/wechat/img/ico_adr_gray.png"></image>{{item.remark1}}
+      </view>
+    </view>
+    <view class="dd" style="height:80rpx">
+      <view class="gray" wx:if="{{item.sjzt==2}}">已办理</view>
+      <view class="gray" wx:if="{{item.sjzt==1}}">已取消</view>
+    </view>
+  </navigator>
+
+  <view class="sawtooth-bor"></view>
+  </view> -->
+  <view class="addmore" bindtap='pagger' >{{more?"加载更多":'暂无更多'}}
+    <span class="arrow-down"  wx:if='{{more == "查看更多"}}'></span>
+  </view>

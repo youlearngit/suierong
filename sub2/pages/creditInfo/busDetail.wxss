@@ -1,0 +1,104 @@
+@import "/assets/styles/weui.wxss";
+page {
+    background-color: white;
+}
+
+.bottom button {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 90%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+.i-cell-desc {
+    padding: 10rpx;
+}
+
+.bottom2 button {
+    background-color: #16a8fa;
+    color: white;
+}
+
+.del:active {
+    background-color: #16a8fa !important;
+}
+
+.del {
+    z-index: 1000;
+    background-color: #4093ff;
+    color: white;
+    position: fixed;
+    bottom: 20rpx;
+    left: 20%;
+    width: 60%;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 39rpx;
+    font-size: 40rpx;
+}
+
+.line {
+    background-color: #16a8fa;
+    width: 100%;
+    height: 3rpx;
+    margin: 30rpx;
+}
+
+.radio-group {
+    display: flex;
+}
+
+.weui-select {
+    border-right: 0rpx solid #D9D9D9;
+}
+
+
+/* 自定义 radio 样式 */
+
+radio {
+    width: 70rpx;
+}
+
+radio .wx-radio-input {
+    border-radius: 50%;
+    /* width: 85rpx;
+height: 45rpx; */
+}
+
+
+/* 选中后的样式 （可根据设计稿需求自己修改） */
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+    border-radius: 50%;
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    font-size: 25rpx;
+    /* 对勾大小 26rpx */
+    color: #fff;
+    /* 对勾颜色 */
+    background: #2facff;
+    border-color: #2facff;
+}
+
+.title {
+    margin: auto;
+    font-size: 34rpx;
+    margin-top: 40rpx;
+    margin-bottom: 30rpx;
+    font-weight: bold;
+    color: #0066b3;
+}
+
+.weui-label {
+    color: #0066b3;
+}
+
+.qy .weui-cell weui-cell_input::before {
+    border-top: 0rpx
+}

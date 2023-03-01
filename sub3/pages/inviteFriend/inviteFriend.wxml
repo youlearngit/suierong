@@ -1,0 +1,20 @@
+<!--sub1/pages/recommendationInvitation.wxml-->
+<view class="tjg">
+  <view>恭喜您成功成为</view>
+  <view style="color: #EF5247;">{{NICK_NAME}}的推荐官</view>
+  <view>快快分享好友立享福利吧</view>
+
+</view>
+
+
+
+<view class="rule">
+  <view>每户最高可获得</view>
+<view>26000苏银豆和500元利息券</view>
+</view>
+
+<navigator url="/sub1/pages/sui/index?type=share">
+<view class="ljyq">
+<image src="../../static/images/share.png" mode="widthFix" style="width: 504rpx;height: 90rpx;"></image>
+</view>
+</navigator>

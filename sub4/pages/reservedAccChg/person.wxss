@@ -1,0 +1,38 @@
+/* sub3/pages/reservedAccChg/person.wxss */
+@import './company.wxss';
+
+.vanCell7{
+  margin-left: -4%;
+  margin-bottom: 0;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+.acc_same {
+  background: #f9ece0;
+  border-radius: 23.5rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 26rpx;
+  color: #dea36a;
+  letter-spacing: 0;
+  text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
+  margin-right: 30rpx;
+  padding: 7rpx 24rpx;
+}
+.title5{
+  display: flex;
+    justify-content: space-between;
+}
+.title8{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.com_con {
+  padding-bottom: 0;
+}
+.inpu1{
+  width: 69%;
+}

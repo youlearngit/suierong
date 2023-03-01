@@ -1,0 +1,531 @@
+<view class="zhezao">
+  <view class="t_w">
+    <view class="scrollBox">
+        <!-- 个人授权 -->
+        <view wx:if="{{authType == '1'}}">
+          <view class="propose" wx:if="{{id==5}}">
+            <h2>
+              <text style="font-weight: 700;">授 权 书\n(适用于个人经营贷及对公授信业务相关自然人)</text>
+            </h2>
+            <view>江苏银行：</view>
+            <view class="p">
+              因
+              <span class="null"></span>
+              本人/
+              <span class="squre"></span>
+              <em class="underline">{{borrowerInfo.ENTERPRISE_NAME}}</em>
+          
+              办理
+              <!-- <em class="underline">短期流动资金贷款</em> -->
+              授信业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：
+            </view>
+            <!-- 对公 0-1-2 -->
+            <block wx:if="{{business_type==3&&(authInfo.AUTH_ENTERPRISE_TYPE==0||authInfo.AUTH_ENTERPRISE_TYPE==1||authInfo.AUTH_ENTERPRISE_TYPE==2)}}">
+              <view class="p">
+                （1）
+                <span class="null"></span>
+                贷款审批；
+              </view>
+              <view class="p">
+                （2）
+                <span class="null"></span>
+                担保资格审查；
+              </view>
+              <view class="p">
+                （3）
+                <span class="squre"></span>
+                法人代表、负责人、高管等资信审查；
+              </view>
+              <view class="p">
+                （4）
+                <span class="null"></span>
+                资信审查；
+              </view>
+              <view class="p">
+                （5）
+                <span class="null"></span>
+                贷后管理；
+              </view>
+              <view class="p">
+                （6）
+                <span class="null"></span>
+                <em class="underline">/</em>
+                。
+              </view>
+            </block>
+            <!-- 对公 3 -->
+            <block wx:if="{{business_type==3&&authInfo.AUTH_ENTERPRISE_TYPE==3}}">
+              <view class="p">
+                （1）
+                <span class="null"></span>
+                贷款审批；
+              </view>
+              <view class="p">
+                （2）
+                <span class="squre"></span>
+                担保资格审查；
+              </view>
+              <view class="p">
+                （3）
+                <span class="null"></span>
+                法人代表、负责人、高管等资信审查；
+              </view>
+              <view class="p">
+                （4）
+                <span class="null"></span>
+                资信审查；
+              </view>
+              <view class="p">
+                （5）
+                <span class="null"></span>
+                贷后管理；
+              </view>
+              <view class="p">
+                （6）
+                <span class="null"></span>
+                <em class="underline">/</em>
+                。
+              </view>
+            </block>
+            <!-- 对公 4-5-6 -->
+            <block wx:if="{{business_type==3&&(authInfo.AUTH_ENTERPRISE_TYPE==4)}}">
+              <view class="p">
+                （1）
+                <span class="null"></span>
+                贷款审批；
+              </view>
+              <view class="p">
+                （2）
+                <span class="null"></span>
+                担保资格审查；
+              </view>
+              <view class="p">
+                （3）
+                <span class="null"></span>
+                法人代表、负责人、高管等资信审查；
+              </view>
+              <view class="p">
+                （4）
+                <span class="squre"></span>
+                资信审查；
+              </view>
+              <view class="p">
+                （5）
+                <span class="null"></span>
+                贷后管理；
+              </view>
+              <view class="p">
+                （6）
+                <span class="null"></span>
+                <em class="underline">/</em>
+                。
+              </view>
+            </block>
+            <view class="p">
+              <em class="underline" style="font-weight: 700;">
+                本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。
+              </em>
+            </view>
+            <view class="p">
+              本人不可撤销地授权贵行向
+              <em class="underline">/</em>
+              提供贵行从信用信息基础数据库依法取得的本人征信信息，用于授信业务审查审批。
+            </view>
+            <view class="p">
+              授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。
+            </view>
+            <!-- <view class="p">
+              <em class="underline">如本笔业务涉及公积金住房委托贷款且公积金管理中心有审批需要，本人授权贵行将本人信用报告提供给公积金管理中心。</em>
+            </view> -->
+            <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+            <view class="p">
+              本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。
+            </view>
+            <view class="p">特此授权。</view>
+            <view class="fr">
+              <view class="p">授权人：{{authInfo.AUTH_NAME}}</view>
+              <view class="p">身份证件类型：第二代身份证</view>
+              <view class="p">证件号码：{{authInfo.AUTH_CERT_NO}}</view>
+              <view class="p">授权日期：{{curDate}}</view>
+            </view>
+          </view>
+          <view class="propose" wx:if="{{id==2}}">
+            <h2>
+              <text style="font-weight: 700;">江苏银行综合信息查询使用授权书\n（适用于自然人）</text>
+            </h2>
+            <view>授权人：</view>
+            <view>客户姓名：{{authInfo.AUTH_NAME}}</view>
+            <view>身份证号码：{{authInfo.AUTH_CERT_NO}}</view>
+            <view class="p" style="margin-top:20rpx">
+              一、因办理信贷业务的需要，本人不可撤销地授权
+              <em class="underline">江苏银行股份有限公司</em>
+              （以下简称“贵行”），通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：
+            </view>
+            <view class="p">（一）公积金信息：本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。</view>
+            <view class="p">（二）税务信息：本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。</view>
+            <view class="p">
+              （三）其他信息
+              本人[资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息]（根据实际使用选填）等个人信息；与融资相关的交易信息及经本人授权的其他信息。按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。
+            </view>
+            <view class="p">本授权书用于办理涉及本人的以下信贷业务：</view>
+            <view class="p">1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；</view>
+            <view class="p">2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；</view>
+            <view class="p">3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况。</view>
+            <view class="p"  style="font-weight: 700;">
+              三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。
+            </view>
+            <view class="p" style="font-weight: 700;">
+              四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。
+            </view>
+            <view class="p">五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。</view>
+            <view class="fr">
+              <view class="p">授权人：{{authInfo.AUTH_NAME}}</view>
+              <!-- <view class="p">身份证件类型：第二代身份证</view>
+              <view class="p">证件号码：{{authInfo.AUTH_CERT_NO}}</view> -->
+              <view class="p">授权日期：{{curDate}}</view>
+            </view>
+          </view>
+          <!-- 经营贷 -->
+          <view class="propose" wx:if="{{id==3}}">
+            <h2>
+              <text style="font-weight: 700;">授 权 书</text>
+            </h2>
+            <h2>
+              <text style="font-weight: 700;">(适用于个人经营贷及对公授信业务相关自然人)</text>
+            </h2>
+            <view>江苏银行：</view>
+            <view class="p">
+              因
+              <span class="{{authInfo.AUTH_TYPE==0?'squre':'null'}}"></span>
+              本人/
+              <span class="{{authInfo.AUTH_TYPE==0?'null':'squre'}}"></span>
+              <em class="underline" wx:if="{{authInfo.AUTH_TYPE!=0}}">{{borrowerInfo.BORROW_NAME}}</em>
+              <em class="underline" wx:else>/</em>
+              办理
+              授信业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：
+            </view>
+            <block wx:if="{{business_type==2&&(authInfo.AUTH_TYPE==0||authInfo.AUTH_TYPE==1)}}">
+              <view class="p">
+                （1）
+                <span class="squre"></span>
+                审核授信申请；
+              </view>
+              <view class="p">
+                （2）
+                <span class="null"></span>
+                担保资格审查；
+              </view>
+              <view class="p">
+                （3）
+                <span class="null"></span>
+                法人代表、负责人、高管等关联人资信审查；
+              </view>
+              <view class="p">
+                （4）
+                <span class="squre"></span>
+                贷后管理；
+              </view>
+              <view class="p">
+                （5）
+                <span class="null"></span>
+                异议核查；
+              </view>
+              <view class="p">
+                （6）
+                <span class="null"></span>
+                <em class="underline">/</em>
+                。
+              </view>
+            </block>
+            <block wx:if="{{business_type==2&&authInfo.AUTH_TYPE==2}}">
+              <view class="p">
+                （1）
+                <span class="null"></span>
+                审核授信申请；
+              </view>
+              <view class="p">
+                （2）
+                <span class="squre"></span>
+                担保资格审查；
+              </view>
+              <view class="p">
+                （3）
+                <span class="null"></span>
+                法人代表、负责人、高管等关联人资信审查；
+              </view>
+              <view class="p">
+                （4）
+                <span class="squre"></span>
+                贷后管理；
+              </view>
+              <view class="p">
+                （5）
+                <span class="null"></span>
+                异议核查；
+              </view>
+              <view class="p">
+                （6）
+                <span class="null"></span>
+                <em class="underline">/</em>
+                。
+              </view>
+            </block>
+            <block wx:if="{{business_type==2&&(authInfo.AUTH_TYPE==3||authInfo.AUTH_TYPE==4)}}">
+              <view class="p">
+                （1）
+                <span class="null"></span>
+                审核授信申请；
+              </view>
+              <view class="p">
+                （2）
+                <span class="null"></span>
+                担保资格审查；
+              </view>
+              <view class="p">
+                （3）
+                <span class="squre"></span>
+                法人代表、负责人、高管等关联人资信审查；
+              </view>
+              <view class="p">
+                （4）
+                <span class="squre"></span>
+                贷后管理；
+              </view>
+              <view class="p">
+                （5）
+                <span class="null"></span>
+                异议核查；
+              </view>
+              <view class="p">
+                （6）
+                <span class="null"></span>
+                <em class="underline">/</em>
+                。
+              </view>
+            </block>
+            <view class="p">
+              <em class="underline" style="font-weight: 700;">
+                本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。
+              </em>
+            </view>
+            <view class="p">
+              本人不可撤销地授权贵行向
+              <em class="underline">/</em>
+              提供贵行从信用信息基础数据库依法取得的本人征信信息，用于授信业务审查审批。
+            </view>
+            <view class="p">
+              授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。
+            </view>
+            <!-- <view class="p">
+              <em class="underline">如本笔业务涉及公积金住房委托贷款且公积金管理中心有审批需要，本人授权贵行将本人信用报告提供给公积金管理中心。</em>
+            </view> -->
+            <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+            <view class="p">
+              本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。
+            </view>
+            <view class="p">特此授权。</view>
+            <view class="fr">
+              <view class="p">授权人：{{authInfo.AUTH_NAME}}</view>
+              <view class="p">身份证件类型：第二代身份证</view>
+              <view class="p">证件号码：{{authInfo.AUTH_CERT_NO}}</view>
+              <view class="p">授权日期：{{curDate}}</view>
+            </view>
+          </view>
+          <!-- 个人零售 -->
+          <view class="propose" wx:if="{{id==4}}">
+            <h2>
+              <text style="font-weight: 700;">《授权书》\n(适用于自然人)</text>
+            </h2>
+            <view>江苏银行：</view>
+            <view class="p">
+              因
+              <span class="{{borrowerInfo.IS_SAME_PERSON==0?'squre':'null'}}"></span>
+              本人/
+              <span class="{{borrowerInfo.IS_SAME_PERSON==0?'null':'squre'}}"></span>
+              <em class="underline">{{borrowerInfo.IS_SAME_PERSON==0?'':authInfo.AUTH_NAME}}</em>
+              办理
+              <em class="underline">{{borrow_typeName}}</em>
+              业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：
+            </view>
+          <block wx:if="{{business_type==1&&(authInfo.AUTH_TYPE==0)}}">
+              <view class="p">
+                （1）
+                <span class="squre"></span>
+                贷款审批；
+              </view>
+              <view class="p">
+                （2）
+                <span class="null"></span>
+                额度审批；
+              </view>
+              <view class="p">
+                （3）
+                <span class="null"></span>
+                担保资格审查；
+              </view>
+              <view class="p">
+                （4）
+                <span class="null"></span>
+                资信审查；
+              </view>
+              <view class="p">
+                （5）
+                <span class="null"></span>
+                客户准入资格审查；
+              </view>
+              <view class="p">
+                （6）
+                <span class="squre"></span>
+                贷后管理；
+              </view>
+              <view class="p">
+                （7）
+                <span class="null"></span>
+                异议核查；
+              </view>
+              <view class="p">
+                （8）
+                <span class="null"></span>
+                <em class="underline">/</em>
+                。
+              </view>
+            </block>
+            <block wx:if="{{business_type==1&&(authInfo.AUTH_TYPE==1||authInfo.AUTH_TYPE==2)}}">
+              <view class="p">
+                （1）
+                <span class="null"></span>
+                贷款审批；
+              </view>
+              <view class="p">
+                （2）
+                <span class="null"></span>
+                额度审批；
+              </view>
+              <view class="p">
+                （3）
+                <span class="squre"></span>
+                担保资格审查；
+              </view>
+              <view class="p">
+                （4）
+                <span class="null"></span>
+                资信审查；
+              </view>
+              <view class="p">
+                （5）
+                <span class="null"></span>
+                客户准入资格审查；
+              </view>
+              <view class="p">
+                （6）
+                <span class="squre"></span>
+                贷后管理；
+              </view>
+              <view class="p">
+                （7）
+                <span class="null"></span>
+                异议核查；
+              </view>
+              <view class="p">
+                （8）
+                <span class="null"></span>
+                <em class="underline">/</em>
+                。
+              </view>
+            </block>
+            <view class="p">
+              <em class="underline" style="font-weight: 700;">
+                本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。
+              </em>
+            </view>
+            <view class="p">
+              授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。
+            </view>
+            <view class="p">
+              <em class="underline">如本笔业务涉及公积金住房委托贷款且公积金管理中心有审批需要，本人授权贵行将本人信用报告提供给公积金管理中心。</em>
+            </view>
+            <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+            <view class="p">
+              本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。
+            </view>
+            <view class="p">特此授权。</view>
+            <view class="fr">
+              <view class="p">授权人：{{authInfo.AUTH_NAME}}</view>
+              <view class="p">身份证件类型：第二代身份证</view>
+              <view class="p">证件号码：{{authInfo.AUTH_CERT_NO}}</view>
+              <view class="p">授权日期：{{curDate}}</view>
+            </view>
+            <view class="p" style="float: right;">特别提示：为保护您的合法权益，以上空白处请填写完整。</view>
+          </view>
+        </view>
+        <!-- 对公企业授权 -->
+        <view wx:if="{{authType == '2'}}">
+        <!-- 适用于法人及其他经济组织 -->
+        <view class="propose">
+            <h2>
+              <text style="font-weight: 700;">授权书\n(适用于法人及其他经济组织)</text>
+            </h2>
+            <view>江苏银行：</view>
+            <view class="p">
+              因  <span class="{{business_type== '1'?'squre':'null'}}"></span>本单位/
+              <span class="{{business_type!= '1'?'squre':'null'}}"></span>
+              <em class="underline" wx:if="{{business_type != '1' }}">{{borrowerInfo.ENTERPRISE_NAME}}</em>
+              <em wx:if="{{borrowerInfo.BUSINESS == '1' }}">/</em>
+              办理授信业务的需要，本单位不可撤销地授权贵行在下列
+              <em class="underline" wx:if="{{business_type == '1'}}">（1）（2）（4）</em>
+              <em class="underline" wx:if="{{business_type == '2'}}">（3）（4）</em>
+              <em class="underline" wx:if="{{business_type == '3'}}">（5）</em>
+              项涉及到本单位时，可以向金融信用信息基础数据库查询、打印、保存本单位信用报告：（1）审核授信申请（包括以本单位作为经营实体申请的个人经营贷业务）；（2）审批用信；（3）审核担保资格；（4）贷后风险管理（包括以本单位作为经营实体办理的个人经营贷业务）；（5）涉及本单位的关联人的授信/担保业务，需要查询本单位信用状况；（6）异议核查；（7）<em class="underline">/</em>。
+            </view>
+            <view class="p">本单位不可撤销地授权贵行将包括本单位的基本信息、授信业务、担保信息等相关信用信息向金融信用信息基础数据库报送。</view>
+            <view class="p">本单位不可撤销地授权贵行向 <em class="underline">{{authInfo.EMPOWER == '0' ? '/' : authInfo.EMPOWER_COMPANY }}</em>提供贵行从信用信息基础数据库依法取得的本单位征信信息，用于授信业务审查审批。</view>
+            <view class="p">授权期限：自本单位签署本授权书之日起至上述授信/担保业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，且不以本单位是否有借款余额作为前提条件。</view>
+            <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+            <view class="p">本单位知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本单位的授权书、信用报告等资料一律不退回。</view>       
+            <view class="p">特此授权。</view>
+            <view class="fr">
+              <view class="p">授权单位：{{authInfo.AUTH_ENTER_NAME}}</view>
+              <view class="p">法定代表人：{{authInfo.AUTH_NAME}}</view>
+              <view class="p">授权日期：{{curDate}}</view>
+            </view>
+            <view class="p" style="float: left;">（为保护贵公司的合法权益，以上空白处请填写完整）</view>
+          </view>
+        
+        </view>
+        <!-- 对公个人授权 -->
+        <view wx:if="{{authType == '3'}}">
+        <!-- 适用于法人及其他经济组织 -->
+          <view class="propose">
+              <h2>
+                <text style="font-weight: 700;">授权书\n(适用于法人及其他经济组织)</text>
+              </h2>
+              <view>江苏银行：</view>
+              <view class="p">
+                因  <span class="null"></span>本单位/
+                <span class="squre"></span>
+                <em class="underline">{{borrowerInfo.BORROW_NAME}}</em>
+                <em wx:if="{{borrowerInfo.BUSINESS == '1' }}">/</em>
+                办理授信业务的需要，本单位不可撤销地授权贵行在下列
+                <em class="underline" wx:if="{{business_type == '1'}}">（1）（2）（4）</em>
+                <em class="underline" wx:if="{{business_type == '2'}}">（3）（4）</em>
+                <em class="underline" wx:if="{{business_type == '3'}}">（5）</em>
+                项涉及到本单位时，可以向金融信用信息基础数据库查询、打印、保存本单位信用报告：（1）审核授信申请（包括以本单位作为经营实体申请的个人经营贷业务）；（2）审批用信；（3）审核担保资格；（4）贷后风险管理（包括以本单位作为经营实体办理的个人经营贷业务）；（5）涉及本单位的关联人的授信/担保业务，需要查询本单位信用状况；（6）异议核查；（7）<em class="underline">/</em>。
+              </view>
+              <view class="p">本单位不可撤销地授权贵行将包括本单位的基本信息、授信业务、担保信息等相关信用信息向金融信用信息基础数据库报送。</view>
+              <view class="p">本单位不可撤销地授权贵行向 <em class="underline">{{authInfo.EMPOWER == '0' ? '/' : authInfo.EMPOWER_COMPANY }}</em>提供贵行从信用信息基础数据库依法取得的本单位征信信息，用于授信业务审查审批。</view>
+              <view class="p">授权期限：自本单位签署本授权书之日起至上述授信/担保业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，且不以本单位是否有借款余额作为前提条件。</view>
+              <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+              <view class="p">本单位知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本单位的授权书、信用报告等资料一律不退回。</view>       
+              <view class="p">特此授权。</view>
+              <view class="fr">
+                <view class="p">授权单位：{{authInfo.AUTH_ENTER_NAME}}</view>
+                <view class="p">法定代表人：{{authInfo.AUTH_NAME}}</view>
+                <view class="p">授权日期：{{curDate}}</view>
+              </view>
+              <view class="p" style="float: left;">（为保护贵公司的合法权益，以上空白处请填写完整）</view>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>
+<i-toast id="toast" />

@@ -1,0 +1,74 @@
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+
+<image class="dianDetBanner" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/dian_det_banner.jpg"></image>
+
+
+<view class="dianDL">
+  <view class="dianDt">
+    <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/dian_title.png"></image>
+    <text class="span">1</text>
+    <text class="">产 品 简 介</text>
+
+  </view>
+  <view class="dianDd">
+    <text class="p">江苏银行与电力部门合作，为经营规范、用电正常的企业打造一款无须抵押担保的全线上信用贷款。</text><text class="p">借助互联网渠道，客户凭正常用电、交纳电费记录即可申请办理，在线获得贷款额度，实现“线上申请授权、网上数据推送、业务自动审批、在线自主用款”的“全线上”办理。</text>
+  </view>
+</view>
+<view class='detWarp'>
+  <image class="detWarpBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/dian_det_warp.jpg"></image>
+  <view class="dianDL" style='top:440rpx;'>
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/dian_title.png"></image>
+      <text class="span">2</text>
+      <text class="">服 务 对 象</text>
+
+    </view>
+    <view class="dianDd">
+      <text class="p">企业正常用电时间2年（含）以上，具有合法经营资质且经电力部门审核通过相关电表信息，无不良信用记录，在业务申请时，处于正常用电状态。</text>
+    </view>
+
+  </view>
+  <view class="dianStep">
+      <view class="s1">通过江苏银行“融惠e点通”小程序，进入“电e融”业务申请界面；</view>
+      <view class="s2">智能抓取信息、在线提供授权，系统将自动审批并给予贷款额度；</view>
+      <view class="s3">在线签署授信合同后，即可通过江苏银行网上银行交纳电费；</view>
+      <!--view class="s4">客户在线签订贷款合同后，即可通过国网商城使用贷款额度交纳电费，并通过江苏银行直销银行进行自主还款，随借随还。</view-->
+</view>
+<view class="solarsystem">
+  <view class="sun active">
+    <a href="#sun"></a>
+  </view>
+  <view class="mercury">
+    <a href="#mercury">
+      <span></span>
+    </a>
+  </view>
+  <view class="venus">
+    <a href="#venus">
+      <span></span>
+    </a>
+  </view>
+  <view class="earth active">
+    <a href="#earth">
+      <span></span>
+    </a>
+  </view>
+  <view class="mars">
+    <a href="#mars">
+      <span></span>
+    </a>
+  </view>
+</view>
+</view>

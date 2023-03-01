@@ -1,0 +1,163 @@
+
+<view class="s0" >
+    <view class="s02">
+        <image class="s02img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20017.png" mode="widthFix" style="width:25rpx"></image>
+        <input placeholder="搜索" type="text" class="s02input" />
+    </view>
+</view>
+
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<view class="s1" bind:tap="developing">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+           <view class="s1time">15:10</view>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>

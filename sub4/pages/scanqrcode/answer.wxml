@@ -1,0 +1,72 @@
+<!--sub4/pages/scanqrcode/answer.wxml-->
+<view class="myvlb">
+    <image src="{{preffixUrl}}jsyhlogo.png" class="myjsyh"></image>
+    <view class="mybui">
+        <view class="mysf">1.汇率风险管理的意义不包括</view>
+        <view class="myjy">
+          <view>降低经营成本以及利润的不确定性</view>
+        </view>
+        <view class="myjy">
+          <view>减少对会计报表和关键财务指标冲击</view>
+        </view>
+        <view class="myjy">
+            <view style="background: pink;">帮助企业实现资产增值</view>
+        </view>
+        <view class="myjy">
+          <view>平滑和保护企业现金流</view>
+        </view>
+    </view>
+
+    <view class="mybui">
+        <view class="mysf">2.套期保值会计核算方法包括</view>
+        <view class="myjy">
+          <view>公允价值套期</view>
+        </view>
+        <view class="myjy">
+          <view>现金流量套期</view>
+        </view>
+        <view class="myjy">
+          <view>境外经营净投资套期</view>
+        </view>
+        <view class="myjy">
+            <view style="background: pink;">以上都是</view>
+        </view>
+    </view>
+
+    <view class="mybui">
+        <view class="mysf">3.银行与企业约定在未来某一日期或某一时间段（期限大于两个工作日）以约定价格、金额进行人民币与外币的兑换交易，是哪种产品</view>
+        <view class="myjy">
+          <view>即期结售汇</view>
+        </view>
+        <view class="myjy">
+          <view>挂单结售汇</view>
+        </view>
+        <view class="myjy">
+            <view style="background: pink;">远期结售汇</view>
+        </view>
+        <view class="myjy">
+          <view>外汇掉期</view>
+        </view>
+    </view>
+
+    <view class="mybui">
+        <view class="mysf">4.汇率风险中性，是指企业把汇率波动纳入日常的财务决策，聚焦主业，尽可能降低汇率波动对主营业务以及企业财务的负面影响，实现提升经营可预测性以及管理投资风险等主营业务目标</view>
+        <view class="myjy">
+            <view style="background: pink;">正确</view>
+        </view>
+        <view class="myjy">
+          <view>错误</view>
+        </view>
+    </view>
+
+    <view class="mybui">
+        <view class="mysf">5.企业初期制定套期保值方案，可设定简单易行的“固定保值”策略，即按照一定的百分比对风险敞口进行保值；积累经验后，可以选择“动态保值”，设置一定的套保比例区间，但区间不宜过宽，避免人为主观因素对保值产生过多干扰。</view>
+        <view class="myjy">
+            <view style="background: pink;">正确</view>
+        </view>
+        <view class="myjy">
+          <view>错误</view>
+        </view>
+    </view>
+</view>
+

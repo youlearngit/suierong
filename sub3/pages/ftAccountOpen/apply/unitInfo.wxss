@@ -1,0 +1,205 @@
+page{
+  overflow-x:hidden;
+  background-color: #ffffff;
+}
+.body{
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-size:180% 100%;
+  background-repeat: no-repeat;
+  padding-top: 80rpx;
+  padding-left: 50rpx;
+  background-color: #ffffff;
+  text-align: center;
+}
+.title{
+  font-family: SourceHanSansCN-Medium;
+  font-size: 34rpx;
+  text-align: left;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  margin-bottom: 18rpx;
+}
+.info-center-right{
+  float: right;
+  margin: 40rpx 42rpx 0 0 ;
+}
+.info-center-right-1{ 
+  margin-top: -30rpx !important;
+}
+.picture{
+  width: 44rpx;
+  height: 34rpx;
+  background-size: 100% 100%;
+}
+.go{
+  width: 12rpx;
+  height: 20rpx;
+  background-size: 100% 100%;
+  margin-left: 60rpx;
+  margin-top: -25rpx;
+  float: right;
+}
+/* 开户类型选择 */
+.info-center{
+  width: 650rpx;
+  line-height: 110rpx;
+  text-align: left;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #1C294F;
+  letter-spacing: 0;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+  box-shadow: 0 2px 24px 0 rgba(156,187,255,0.56);
+}
+.label-style{
+  margin-left: 30rpx !important;
+  font-family: SourceHanSansCN-Regular !important;
+  font-size: 28rpx !important;
+  color: #1C294F !important;
+  letter-spacing: 0 !important;
+}
+.label-style-1{
+  width: 300rpx;
+  font-family: SourceHanSansCN-Regular !important;
+  font-size: 28rpx !important;
+  color: #1C294F !important;
+  letter-spacing: 0 !important;
+}
+.info-margin-line-height{
+  height: 50rpx !important;
+  line-height: 50rpx !important;
+}
+.info-margin-line-height-2{
+  padding: 25rpx 0 ;
+  height: 50rpx !important;
+  line-height: 50rpx !important;
+}
+
+.label-input-style{
+  white-space:nowrap;
+  margin-top: 20rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #1C294F !important;
+  letter-spacing: 0;
+}
+radio {
+  transform:scale(0.6);
+  margin-right: 30rpx;
+}
+/* 单位信息 */
+.unit-info,.information-info{
+  margin-top: 50rpx;
+}
+.infomartion-prompt{
+  margin-top: 30rpx;
+  text-align: left;
+  opacity: 0.3;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 24rpx;
+  color: #1C294F;
+  letter-spacing: 0;
+  margin-bottom: -30rpx;
+}
+/* 上级机构信息 */
+.information-select-right{
+  float: right;
+  margin-right: 30rpx;
+}
+.info-foot{
+  width: 650rpx;
+  line-height: 130rpx;
+  text-align: left;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #1C294F;
+  letter-spacing: 0;
+  padding-bottom: 30rpx;
+}
+.line-split{
+  border: 0.6rpx solid #E5E6EA;
+  width: 600rpx;
+  margin-left: 30rpx;
+}
+.weui-input{
+  width: 600rpx !important;
+  height: 80rpx !important;
+  background: #F7FBFF !important;
+  border: 1rpx solid #D2DDFF !important;
+  border-radius: 10rpx;
+  padding-left: 20rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx !important;
+}
+.weui-input-1{
+  height: 31rpx !important;
+  width: 200rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx !important;
+}
+.weui-input-2{
+  width: 600rpx !important;
+  height: 80rpx !important;
+  border-radius: 10rpx;
+  padding-left: 20rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+}
+
+.input-float-right{
+  margin: 26rpx 30rpx 0 0;
+  width: 350rpx;
+  height: 85rpx;
+  line-height: 110rpx;
+  float: right;
+  text-align: right;
+}
+.select-type{
+  width: 220rpx;
+}
+.update-go{
+  width: 12rpx;
+  height: 20rpx;
+  background-size: 100% 100%;
+  margin: -33rpx 0 0 220rpx;
+}
+.update-go-2{
+  width: 12rpx;
+  height: 20rpx;
+  background-size: 100% 100%;
+  margin: -33rpx 0 0 220rpx;
+}
+
+.select-type {
+  width: 200rpx;
+}
+.info-margin-buttom{
+  border-radius: 25rpx;
+  margin-top: 20rpx;
+}
+.picker{
+  height: 70rpx !important;
+  padding-top: -30rpx !important;
+}
+.field{
+  position: relative !important;
+  height: 0rpx !important;
+  height: 100rpx !important;
+}
+/* 下一步按钮 */
+.btn{
+  margin: 60rpx 0 30rpx -70rpx;
+  width: 440rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  background-image: linear-gradient(0deg, #1677FF 0%, #7CB2FF 100%);
+  border-radius: 43px;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 34rpx;
+}
+
+

@@ -1,0 +1,45 @@
+<!-- sub1/pages/sui/desc.wxml -->
+<view class="a1">
+    <view class="b1">
+        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_119.png"mode="widthFix"></image>
+        
+        <view class="c1">Q1</view>
+    </view>
+    <view class="b2">我可以办理吗？</view>
+</view>
+<view class="b3">只要您提供的资料真实有效，信用良好，无需抵押、担保，即可在线申请。</view>
+<view class="a1">
+    <view class="b1">
+        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_119.png"mode="widthFix"></image>
+        <view class="c1">Q2</view>
+    </view>
+    <view class="b2">怎样提高我的额度？</view>
+</view>
+<view class="b3">您可以补充房产、缴税等信息，信息越完善额度越高；您如果还使用我行其它产品，利率更优惠。</view>
+<view class="a1">
+    <view class="b1">
+        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_119.png"mode="widthFix"></image>
+        <view class="c1">Q3</view>
+    </view>
+    <view class="b2">申请提高额度可以立即生效吗？</view>
+</view>
+<view class="b3">立即生效。</view>
+<view class="a1">
+    <view class="b1">
+        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_119.png"mode="widthFix"></image>
+        <view class="c1">Q4</view>
+    </view>
+    <view class="b2">提高额度会影响利率、期限吗?</view>
+</view>
+<view class="b3">我们会为您定制最适合的授信额度和优惠利率。</view>
+<view class="a1">
+    <view class="b1">
+        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_119.png"mode="widthFix"></image>
+        <view class="c1">Q5</view>
+    </view>
+    <view class="b2">申请提额不成功会影响原额度、利率吗?</view>
+</view>
+<view class="b3">不会。</view>
+<view class="a9">
+    <view class="a9b2" bindtap = 'toMine'>去完善信息提升额度</view>
+</view>

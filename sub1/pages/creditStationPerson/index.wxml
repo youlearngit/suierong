@@ -1,0 +1,104 @@
+<view class="talentContainer">
+    <view class="bg">
+        <image wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/talent/bg_top.png" mode="widthFix" style="width:100%" />
+    </view>
+    <view class="form">
+        <form bindsubmit="submitForm" report-submit='true'>
+            <cover-view class="title">人才基本信息</cover-view>
+            <view class="field-input self">
+                <van-field label="是否本人申请" disabled />
+                <van-radio-group value="{{IS_SELF_FLAG?'true':'false'}}" bind:change="isSelf" style="display:flex">
+                    <van-radio name="false">否</van-radio>
+                    <van-radio name="true">是</van-radio>
+                </van-radio-group>
+            </view>
+            <view class="field-input base-info">
+                <van-field label="人才姓名" input-align="right" name="PERSON_NAME" placeholder="请输入人才姓名" value="{{IS_SELF_FLAG?customer.REAL_NAME:''}}" readonly="{{IS_SELF_FLAG}}" />
+                <van-field label="证件号码" input-align="right" name="CERT_NO" placeholder="请输入证件号码" value="{{IS_SELF_FLAG?customer.ID_CARD:''}}" readonly="{{IS_SELF_FLAG}}" maxlength="18" />
+                <van-field label="联系号码" input-align="right" name="tel" placeholder="请输入联系电话" value="{{IS_SELF_FLAG?customer.TEL:''}}" readonly="{{IS_SELF_FLAG}}" />
+                <view style="width:100%;position:relative">
+                    <picker mode="multiSelector" bindchange="pickDegree" value="{{degreeIndex}}" range="{{degreeArray}}" range-key="name">
+                        <view class="action" />
+                    </picker>
+                    <van-field label="最高学历" input-align="right" name="degree" placeholder="请选择" value="{{degree}}" readonly is-link />
+                </view>
+                <view style="width:100%;position:relative">
+                    <picker mode="multiSelector" bindchange="pickProfession" value="{{professionIndex}}" range="{{professionArray}}" range-key="name">
+                        <view class="action" />
+                    </picker>
+                    <van-field label="职业" input-align="right" name="profession" placeholder="请选择" value="{{profession}}" readonly is-link />
+                </view>
+                <view style="display:flex;align-items:center">
+                    <van-field label="年收入（税前）" input-align="right" value="" placeholder="请输入数字" name="annualIncome" title-width="200rpx" maxlength="8" type="number" />
+                    <view class="unit">万元</view>
+                </view>
+                <van-field label="工作单位名称" class="hidden-title " disabled />
+                <view style="width:100%;position:relative">
+                    <van-field label="" input-align="left" class="enterprise" bindfocus="showBaseEnter" bindinput="searchEnter" value="{{enterpriseInfo.orgName}}" name="COMPANY_NAME" placeholder="请输入工作单位名称(可检索)" clearable adjust-position />
+                    <scroll-view scroll-y class="enter-list" wx:if="{{showBaseEnter}}">
+                        <view class="m1" wx:for="{{enterpriseCardInfo}}" bind:tap="chooseEnter" data-index="{{index}}">
+                            {{item.ORG_NAME}}
+                        </view>
+                    </scroll-view>
+                </view>
+                <van-field label="统一信用机构代码" class="hidden-title " disabled title-width="300rpx" />
+                <van-field input-align="left" class="enterprise" placeholder="统一信用机构代码将自动显示" name="CREDIT_CODE" value="{{enterpriseInfo.orgCode}}" bind:input= "editOrgCode" clearable />
+                <view style="width:100%;position:relative" bindtap="selectRegion" >
+                    <!-- <picker mode="multiSelector" bindchange="bindMultiPickerChange2" disabled="{{!enterpriseInfo.orgCode&&multiArray2.length>-1}}" bindcolumnchange="bindMultiPickerColumnChange2" value="{{multiIndex2}}" range="{{multiArray2}}" range-key="name">
+                        <view class="action" />
+                    </picker> -->
+                    <van-field label="工作地区" input-align="right" name="enterWorkStation" value="{{enterWorkStation}}" placeholder="请选择" readonly is-link />
+                </view>
+                <view style="width:100%;position:relative">
+                    <picker mode="multiSelector" bindchange="pickPosition" value="{{positionIndex}}" range="{{positionArray}}" range-key="name">
+                        <view class="action" />
+                    </picker>
+                    <van-field label="与企业关系" input-align="right" name="position" placeholder="请选择" value="{{position}}" readonly is-link />
+                </view>
+            </view>
+            <view class="title" style="color: #3E415C;margin-top:60rpx">人才计划信息</view>
+            <view class="field-input extra-info">
+                <view class="self">
+                    <van-field label="是否列入政府人才计划" disabled title-width="300rpx" />
+                    <van-radio-group value="{{isGovernmentTalent?'true':'false'}}" bind:change="judgeIsGovernmentTalent" style="display:flex">
+                        <van-radio name="false">否</van-radio>
+                        <van-radio name="true">是</van-radio>
+                    </van-radio-group>
+                </view>
+                <view wx:if="{{isGovernmentTalent}}">
+                    <view style="width:100%;position:relative">
+                        <picker bindchange="pickChange" id="SUPPORT_LEVEL" data-type="SUPPORT_LEVEL" value="{{index}}" range="{{SUPPORT_LEVEL}}">
+                            <view class="action" />
+                        </picker>
+                        <van-field label="人才等级" input-align="right" name="SUPPORT_LEVEL" placeholder="请选择" value="{{SUPPORT_LEVEL[SUPPORT_LEVELIndex]}}" readonly is-link />
+                    </view>
+                    <view style="width:100%;position:relative" bind:tap="pickChange1">
+                        <picker bindchange="pickChange1" id="RATE_AREA" data-type="RATE_AREA" value="{{index}}" range="{{RETE_AREAList}}" range-key="name" disabled="{{isDisable}}">
+                            <view class="action" />
+                        </picker>
+                        <van-field label="人才评定地区" input-align="right" name="RATE_AREA" value="{{RATE_AREA_NAME}}" placeholder="请选择" readonly is-link />
+                    </view>
+                    <view style="display:flex;align-items:center">
+                        <van-field label="人才计划名称" input-align="right" name="PLAN_NAME" model:value="{{PLAN_NAME}}" placeholder="搜索关键字或手动录入" adjust-position clearable />
+                        <icon class="search" style='margin-right: 30rpx;' type="search" size="18" catchtap="queryRencai" />
+                    </view>
+                    <view style="width:100%;position:relative">
+                        <picker mode="date" fields="year" start="1945" end="{{currentYear}}" bindchange="bindDateChange">
+                            <view class="action" />
+                        </picker>
+                        <van-field label="人才评定年份" input-align="right" name="RATE_YEAR" placeholder="请选择" value="{{RATE_YEAR}}" readonly is-link />
+                    </view>
+                </view>
+            </view>
+            <view class="title" style="color: #3E415C;margin-top:60rpx">影像资料录入</view>
+            <view class="field-input upload-image" bind:tap="uploadImage" hover-class="navigator-hover">
+                <van-field label="人才身份及资质证明材料" title-width="400rpx" disabled is-link />
+                <image class="camera" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/talent/icon_camera.png" mode="widthFix" />
+            </view>
+            <button class="btn-confirm" formType="submit">确认提交</button>
+        </form>
+    </view>
+</view>
+<van-popup show="{{ showRegionPicker }}" position="bottom" bind:close="onClose">
+    <van-picker show-toolbar columns="{{ multiArray3 }}" value-key='name' bind:cancel="onClose" bind:confirm="onConfirm" bind:change="onChange" />
+</van-popup>

@@ -1,0 +1,66 @@
+<view class="content">
+	<view class="carousel">
+		<view class="page-section">
+			<view class="page-section-demo">
+				<swiper class="carouselSwiper" previousMargin="0px" nextMargin="0px" indicator-dots="true" autoplay="true" interval="3000"
+				    circular="true">
+					<block wx:for="{{banners}}" wx:key="{{index}}">
+						<swiper-item>
+							<!-- <image class="imgCarousel" mode="scaleToFill" src="{{item.BANNER_PIC}}" bindtap="skipPic" data-skipurl="{{item.BANNER_CONTENT}}" /> -->
+							<image class="imgCarousel" mode="widthFix" style="width:100%" src="{{item.BANNER_PIC}}" bindtap="skipPic" data-skipurl="{{item.BANNER_CONTENT}}" />
+						</swiper-item>
+					</block>
+				</swiper>
+			</view>
+		</view>
+	</view>
+	<view class="business">
+		<view class="business_item" bindtap="skipWeb" data-skipurl="{{fastCardSkipUrl}}">
+			<view class="business_item_img">
+				<image wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/business1.png" />
+			</view>
+			<view class="business_item_text">我要办卡</view>
+		</view>
+		<navigator class="business_item" hover-class="none" target="" url="../repay/repay">
+			<view class="business_item_img">
+				<image wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/business3.png" />
+			</view>
+			<view class="business_item_text">快速还款</view>
+		</navigator>
+		<navigator class="business_item" hover-class="none" target="" url="/sub1/pages/wg/index">
+			<view class="business_item_img">
+				<image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/sui/icon_wg.png" />
+			</view>
+			<view class="business_item_text">优惠券领取</view>
+		</navigator>
+		<view class="business_item" bindtap="skipWeb" data-skipUrl="{{etcUrl}}">
+			<view class="business_item_img">
+				<image wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/etc.png" />
+			</view>
+			<view class="business_item_text">ETC申请</view>
+		</view>
+
+	</view>
+	<view/>
+	<view class="cardRights">
+		<image mode="widthFix" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/cardRightTitle.png" />
+	</view>
+	<view class="cardList">
+		<view class="cardList_item" wx:for="{{cardRights}}" wx:key="{{index}}" bindtap="skipPic" data-skipurl="{{item.RIGHT_CONTENT}}">
+			<view class="cardList_item_img">
+				<image mode="aspectFit" src="{{item.RIGHT_PIC}}" />
+			</view>
+		</view>
+	</view>
+	<view class="hotCardsIcon">
+		<image mode="widthFix" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/hotCardTitle.jpg" />
+	</view>
+	<view class="hotCards">
+		<view class="hostCardsList" wx:if="{{hotAct}}" wx:for="{{hotAct}}" wx:key="{{index}}">
+			<view class="hotCardsItem" bindtap="skipPic" data-skipurl="{{item.ACT_CONTENT}}">
+				<image mode="widthFix" src="{{item.ACT_PIC}}" />
+			</view>
+		</view>
+	</view>
+</view>
+

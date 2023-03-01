@@ -1,0 +1,34 @@
+<view class="container" style="z-index:100" >
+  <image class="imageTop" src="{{cndUrl}}/static/wechat/img/sui/video_bgTop.png"></image>
+  <image class="image" mode="widthFix" src="{{cndUrl}}/static/wechat/img/sui/video_bgBot.png"></image>
+  <!-- <image class="image" mode="widthFix" src="{{cndUrl}}/static/wechat/img/sui/video_bg.png"></image> -->
+  <view class="diyNav1" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+      <view wx:if="{{fromShare}}" class="backIndex" bindtap='prePage'>
+        <image mode="widthFix"src="/pages/public/img/ico_ind.png"></image>
+      </view>
+      <view wx:else class="backPage1" bindtap='prePage'>
+        <image mode="widthFix"src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="topTit">江苏银行随e融</view>
+  </view>
+
+  <view class="title">演示体验专区</view>
+  <view class="title1">为客户及客户经理提供企业网银、财资管家、薪税管家以及外汇管家等多个产品的操作演示，后续将持续扩大范围。</view>
+  <view class="videoList">
+    <block wx:for="{{videos1}}">
+    <view class="v00" bindtap="toPlay" data-id="{{item.id}}">
+      <image class="v01" src="{{item.bg}}"></image>
+      <!-- 进度 -->
+      <view class="v02">
+        <view class="v021">{{item.name}}</view>
+        <view class="progress-box">
+          <progress percent="{{item.process}}" color="#10AEFF" active stroke-width="3" />
+          <view wx:if="{{item.process>=100}}">已播完</view>
+          <view wx:else>已播{{item.process}}%</view>
+        </view>
+      </view>
+    </view>
+    </block>
+  </view>
+
+</view>

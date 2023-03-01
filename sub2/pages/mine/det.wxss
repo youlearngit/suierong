@@ -1,0 +1,10 @@
+@import "list.wxss";
+
+.wrap{padding:30rpx 0;}
+.wrap .line{position:relative;text-align:center;background:#fff;padding:60rpx 0;border-top-left-radius:20rpx;border-top-right-radius:20rpx;margin-bottom:0;}
+.sawtooth-bor{margin:0 30rpx;}
+.gray{color:#888;font-size:24rpx;}
+.cyello{color:#f1bb00;margin-top:40rpx;font-size:26rpx;}
+.go{width:90rpx;height:90rpx;margin:20rpx auto;}
+.go image{width:90rpx;height:90rpx;}
+.cancle{position:absolute;top:20rpx;right:20rpx;font-size:24rpx;color:#0068b6;}

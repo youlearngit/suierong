@@ -1,0 +1,15 @@
+@import "mine_list.wxss";
+page{background:#fff;}
+.authList{padding:30rpx;}
+.authCon{position:relative;padding:20rpx 40rpx;border-radius:10rpx;background:#fff;margin-bottom:30rpx;overflow:hidden;background:#f2f2f2;}
+.authCon .h1{font-size:32rpx;}
+.authCon .pd{font-size:24rpx;}
+.b{font-weight:600;}
+.authCon .p{font-size:24rpx;color:#999;}
+.authStatus{position:absolute;right:0;top:0;line-height:30rpx;padding:0 20rpx;margin-top:40rpx;border-left:#ccc 1rpx solid;color:#0066b3;font-size:40rpx;text-align:center;}
+.f20{display:block;font-size:18rpx;}
+.swiper-tab{padding-left:5%;height:70rpx;line-height:70rpx;padding-top:40rpx;color:#fff;font-size:16px;border-bottom:#0066b3 5rpx solid;background: linear-gradient(to bottom, #fff,#f2f2f2,#fff);}
+.swiper-tab-item{position:relative;display:inline-block;width:30%;height:70rpx;text-align:center;color:#434343;z-index:10;border-top-left-radius:10rpx;border-top-right-radius:10rpx;}
+.active{color:#fff;font-size:16px;font-weight:700;border:#0066b3 2rpx solid;background:#0066b3}
+.indexnum{position:absolute;top:-40rpx;left:-40rpx;width:80rpx;height:80rpx;background:rgba(234,150,3,1);border-radius:80rpx;color:#fff;text-indent:45rpx;line-height:120rpx;font-size:24rpx;}
+.userName text{background:rgba(234,150,3,1);color:#fff;padding:5rpx 10rpx;margin-left:20rpx;}

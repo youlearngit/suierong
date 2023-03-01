@@ -1,0 +1,74 @@
+
+page {
+	background-color: #143E7E;
+}
+.bg {
+	z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.title {
+	margin: 79rpx 0 0 42rpx;
+	font-family: STSongti-SC-Black;
+	font-size: 36rpx;
+	color: #FFFFFF;
+	letter-spacing: 0;
+	font-weight: 900;
+}
+.title_sub {
+	margin: 4rpx 0 0 42rpx;
+	font-family: STSongti-SC-Regular;
+	font-size: 26rpx;
+	color: #FFFFFF;
+	letter-spacing: 2rpx;
+	font-weight: 400;
+}
+.video {
+	margin: 80rpx auto;
+	text-align: center;
+}
+.video video {
+	width: 689rpx;
+    height: 390rpx;
+}
+.item{
+	padding: 24rpx 0;
+/* height: 183rpx; */
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: white;
+}
+.itemLeft{
+	margin-right: 40rpx;
+	width: 60%;
+}
+.entscImg1{
+	width: 180rpx;
+	height: 135rpx;
+}
+.itemLeft1{
+	font-family: PingFangSC-Regular;
+font-size: 30rpx;
+color: #333333;
+letter-spacing: 0;
+font-weight: 400;
+}
+.itemLeft2{
+	font-family: PingFangSC-Regular;
+	font-size: 24rpx;
+	color: #999999;
+	letter-spacing: 0;
+	line-height: 24rpx;
+	font-weight: 400;
+	margin-top: 27rpx;
+}
+.bor{
+	width: 92%;
+	margin-left: 4%;
+	height: 1rpx;
+	background-color: #E5E6EA;
+}

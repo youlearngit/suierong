@@ -1,0 +1,251 @@
+/* pages/carLoans/contract/carcontract/detail/detail-waiting.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+page {
+  background-color: white;
+  overflow: hidden;
+  background-image: linear-gradient(178deg, #95BAFF 0%, #FFFFFF 95%);
+}
+.contract-background-img{
+  width: 100%;
+  height: 100%;
+  background-size: 120%;
+  overflow: auto;
+  padding: 50rpx 32rpx 20rpx 32rpx;
+}
+
+.box {
+    width: 690rpx;
+    /* height: 1000rpx; */
+    background-image: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+    box-shadow: 0 2rpx 24rpx 0 rgba(156, 187, 255, 0.56);
+    border-radius: 18rpx;
+}
+.info{
+  height: 120rpx;
+  line-height: 120rpx;
+  margin: 0rpx 30rpx;
+  padding: 0rpx 15rpx;
+}
+.info2{
+  height: 124rpx;
+  line-height: 124rpx;
+  margin: 0rpx 45rpx;
+}
+/* .info::before{
+  content: '';
+  position:absolute;
+  bottom: auto;
+  right: auto;
+  height: 1rpx;
+  width: 600rpx;
+  margin: 124rpx 15rpx 0rpx 0rpx;
+  border-radius: 16rpx;
+  background-color: #E5E6EA ;
+} */
+.line-split{
+  border: 1rpx solid #E5E6EA;
+  width: 650rpx;
+  margin-left: 20rpx;
+}
+label{
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #7C8BA4;
+  letter-spacing: 0;
+}
+.info-text{
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 0;
+  float: right;
+}
+/* 按钮 */
+
+.foot {
+    width: 690rpx;
+    height: 120rpx;
+    margin-top: 40rpx;
+}
+button{
+  border-radius: 40rpx;
+  font-size: 30rpx;
+}
+.btn-cancel{
+  width: 229rpx;
+  height: 80rpx;
+  float: left;
+  border: 1rpx solid #3D5FE9;
+  color: #3D5FE9;
+}
+
+.btn-submit {
+    width: 90%;
+    height: 80rpx;
+    text-align: center;
+    background: linear-gradient(to bottom, #8BA2FD, #3D5FE9);
+    color: #FFFFFF;
+}
+.contaioner-top{
+  height: 8%;
+  background-color: #ffffff;
+  line-height: 120rpx;
+}
+.contaioner-top::before{
+  content: '';
+  position: absolute;
+  top: 110rpx;
+  left: 25rpx;
+  bottom: auto;
+  right: auto;
+  height: 1rpx;
+  width: 700rpx;
+  background-color: #E5E6EA;
+}
+.top-left{
+  font-family: SourceHanSansCN-Medium;
+  font-size: 34rpx;
+  color: #1C294F;
+  text-align: center;
+}
+.top-right{
+  position: relative;
+  top: -120rpx;
+  left: 660rpx;
+  width: 60rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #6580ED;
+  text-align: right;
+}
+.contaioner-content{
+  margin: 0px 25rpx;
+  height: 90%;
+  width: 93%;
+  overflow: scroll;
+}
+.contaioner-foot{
+  height: 154rpx;
+  width: 750rpx;
+  position: fixed;
+  background-color: #ffffff;
+  box-shadow:0px 0px 80rpx 10rpx #e1ebff;
+  top: 90%;
+  padding: 35rpx 50rpx 29rpx 50rpx;
+}
+.cont-btn-submit{
+  margin-bottom: 0rpx;
+  width: 80%;
+  height: 80rpx;
+  padding-top: 10rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+  background:linear-gradient(to bottom, #8BA2FD,#3D5FE9);
+  box-shadow: 0 4px 12px 0 rgba(110,137,245,0.33);
+  border-radius: 40rpx;
+}
+.btn-submit1{
+  width: 80%;
+  height: 70rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+  background:linear-gradient(to bottom, #8BA2FD,#3D5FE9);
+  box-shadow: 0 4px 12px 0 rgba(110,137,245,0.33);
+  border-radius: 40rpx;
+}
+.page-height{
+  padding: 0rpx 0rpx;
+}
+.version{
+  margin-top: 100rpx;
+  margin-right: 20rpx;
+  font-family:'Courier New', Courier, monospace;
+  float: right;
+}
+.title-img{
+  width: 700rpx;
+  height: 150rpx;
+  margin-top: 20rpx;
+}
+.title-big-strong{
+  font-family: 'SimHei';
+  font-weight: bold;
+  font-size: 80rpx;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.title-size-30{
+  text-align: center;
+  margin: 20rpx 0rpx 600rpx 0rpx;
+  font-weight: 400;
+  font-size: 30rpx;
+}
+.title-size-30-1{
+  text-align: left;
+  margin: 20rpx 0rpx 900rpx 0rpx;
+  font-weight: 400;
+  font-size: 28rpx;
+}
+.title-bottom{
+  text-align: center;
+  font-weight: 900;
+  font-size: 30rpx;
+}
+.split{
+  margin-top: 220rpx;
+  border: 8rpx solid;
+  height: 10rpx;
+}
+.title-clean{
+  margin-top: 50rpx;
+  text-align: center;
+  font-size: 30rpx;
+  clear: both;
+  font-weight: 600;
+}
+.cont-content{
+  line-height: 50rpx;
+  width: 100%;
+  height: 100%;
+  padding: 0rpx 20rpx ;
+  margin-bottom: 150rpx;
+}
+.text-center{
+  text-align: center;
+}
+.text-family{
+  font-family: FangSong;
+}
+.font-size-40{
+  font-size: 40rpx;
+}
+.font-size-30{
+  font-size: 30rpx;
+}
+.text-weight-border{
+  font-weight: 400;
+  border-bottom: 1rpx solid ;
+}
+.text-border{
+  width: 80%;
+  text-align: left;
+  text-decoration: underline
+}
+.smail-cont-text-content{
+  line-height: 40rpx;
+  text-align: left;
+  font-weight: 200;
+}
+.cont-qr-img{
+  width: 100rpx;
+  height:100rpx;
+  float: right;
+  margin-top: 100rpx;
+}

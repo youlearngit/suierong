@@ -1,0 +1,139 @@
+<view class="fs-title">
+
+  <view style="display: flex;align-items: center;justify-content: space-between;padding-top: 30rpx;padding-bottom: 20rpx;border-bottom: 1rpx solid #929cfc;position: relative;">
+    <view style="display: flex;align-items: center;">
+      <image src="../../static/images/published.png" mode="widthFix" style="width: 10rpx;height: 16rpx;"></image>
+      <view style="font-size: 26rpx;color: #fff;margin-left: 10rpx;">已发布96333</view>
+    </view>
+
+    <view style="display: flex;align-items: center;" bindtap="selectFundClass">
+      <view style="font-size: 26rpx;color: #fff;" wx:if="{{selectClass!==''}}">{{selectClass}}</view>
+
+      <view style="font-size: 26rpx;color: #fff;" wx:else>请选择资金类别</view>
+
+      <image src="../../static/images/choose.png" mode="widthFix" style="width: 20rpx;height: 12rpx;margin-left: 10rpx;"></image>
+
+    </view>
+
+    <view>
+
+    </view>
+
+    <view class="selectfund" wx:if="{{classStatus}}">
+      <view style="border-bottom: 1rpx solid #e7e7ef;padding-bottom: 20rpx;" bindtap="choosezjgg">资金供给</view>
+      <view bindtap="choosezjxq">资金需求</view>
+    </view>
+
+  </view>
+
+  <view style="color: #fff;font-size: 24rpx;width: 215rpx;height: 58rpx;line-height: 58rpx;background: rgba(255, 255, 255, 0.41);border-radius: 28rpx;margin-top: 20rpx;text-align: center;">
+    可响应10000
+  </view>
+
+
+</view>
+
+<view style="display: flex;align-items: center;margin: 30rpx 10rpx;justify-content: space-between;">
+  <view style="display: flex;align-items: center;">
+    <view class="fu-label" bindtap="goScreenwed">
+      <image src="../../static/images/filtrate.png" style="width: 20rpx;height: 20rpx;" mode="widthFix"></image>
+      <view style="font-size:24rpx;color:#4b5eae;margin-left: 10rpx;">筛选</view>
+
+    </view>
+
+   <scroll-view scroll-x="true" style="width: 20%;">
+   <view style="display: flex;">
+    <view class="fu-label" wx:for="{{selectCategory}}">
+      <view style="font-size:24rpx;color:#4b5eae;">{{item.text}}</view>
+      <image src="../../static/images/fu-close.png" style="width: 20rpx;height: 20rpx;margin-left: 10rpx;" mode="widthFix" data-index="{{index}}" catchtap="deleteCategory"></image>
+    </view>
+  </view>
+  </scroll-view>
+
+  <view bindtap="goSearch">
+    <image src="../../static/images/branch_search.png" style="width: 65rpx;height: 65rpx;margin-right: 30rpx;border-radius: 50%;" mode="widthFix"></image>
+  </view>
+
+  </view>
+
+  <!-- <view bindtap="goSearch" style="width: 100rpx;height: 100rpx;">
+    <image src="../../static/images/branch_search.png" style="width: 65rpx;height: 65rpx;margin-right: 30rpx;border-radius: 50%;" mode="widthFix"></image>
+  </view> -->
+
+</view>
+
+<view class="trust-company" wx:for="{{list}}">
+
+  <view style="display: flex;justify-content: space-between;align-items: center;padding-bottom: 25rpx;border-bottom: 1rpx solid #e7e7ef;">
+    <view style="display: flex;align-items: center;">
+      <image src="../../static/images/xtgs.png" mode="widthFix" style="width: 60rpx;height: 60rpx;"></image>
+      <view style="font-size: 28rpx;color: #444a6b;">{{item.ANSWER_BANK}}</view>
+    </view>
+
+
+    <image src="../../static/images/xiangying.png" mode="widthFix" style="width: 122rpx;height: 46rpx;"></image>
+  </view>
+
+  <view style="display: flex;justify-content: space-between;align-items: center;padding-top: 25rpx;">
+    <view style="color: #7e859b;font-size: 26rpx;">所在地</view>
+    <view style="color: #444a6b;font-size: 26rpx;">{{item.CUST_ADDR}}</view>
+  </view>
+
+  <view style="display: flex;justify-content: space-between;align-items: center;padding-top: 25rpx;">
+    <view style="color: #7e859b;font-size: 26rpx;">发布时间</view>
+    <view style="color: #444a6b;font-size: 26rpx;">{{item.CREATED_TS}}</view>
+  </view>
+
+  <view style="display: flex;justify-content: space-between;align-items: center;padding-top: 25rpx;">
+    <view style="color: #7e859b;font-size: 26rpx;">投资意向</view>
+    <view style="color: #4663dc;font-size: 26rpx;" bindtap="goDetail" data-MATCH_ID="{{item.MATCH_ID}}">查看详情></view>
+  </view>
+
+</view>
+<view class="load">{{loadtext}}</view>
+
+
+<dialog showDialog="{{ showDialog }}" top="20%" width="80%" bodyBg="#ffffff" bindclose="handleCloseDialog">
+  <view style="margin:30rpx;">
+    <view style="margin-top: 60rpx;font-size: 38rpx;color: #6284fc;">
+      投资意向
+    </view>
+
+    <view style="margin-top: 30rpx;">
+      <view style="display: flex;align-items: center;">
+        <image src="../../static/images/title_decoration.png" mode="widthFix" style="width: 10rpx;height: 34rpx;"></image>
+        <view style="font-size: 30rpx;color: #444a6b;margin-left: 16rpx;">公司介绍</view>
+      </view>
+
+      <view style="font-size:28rpx;color:#7e859b;margin-left: 20rpx;">
+        {{info.INVEST_DTL}}
+      </view>
+    </view>
+
+    <view style="margin-top: 30rpx;">
+      <view style="display: flex;align-items: center;">
+        <image src="../../static/images/title_decoration.png" mode="widthFix" style="width: 10rpx;height: 34rpx;"></image>
+        <view style="font-size: 30rpx;color: #444a6b;margin-left: 16rpx;">拟投资行业</view>
+      </view>
+
+      <view style="font-size:28rpx;color:#7e859b;margin-left: 20rpx;">
+        {{info.INVEST_INDUSTRY}}
+      </view>
+    </view>
+
+    <view style="margin-top: 30rpx;">
+      <view style="display: flex;align-items: center;">
+        <image src="../../static/images/title_decoration.png" mode="widthFix" style="width: 10rpx;height: 34rpx;"></image>
+        <view style="font-size: 30rpx;color: #444a6b;margin-left: 16rpx;">拟投资区域</view>
+      </view>
+
+      <view style="font-size:28rpx;color:#7e859b;margin-left: 20rpx;">
+        {{info.INVEST_AREA}}
+      </view>
+    </view>
+
+
+
+  </view>
+
+</dialog>

@@ -1,0 +1,22 @@
+<view class="home-background-img" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/home_background.png);">
+  <view class="title-1">
+    自贸区预约开户
+  </view>
+  <!-- <view class="title-2">
+    文字介绍文字介绍文字介绍
+  </view> -->
+  <view class="title-3">
+    <span class="span-border">线上预约</span><span class="span-border">便捷高效</span>
+  </view>
+  <view class="home-open-back-1" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/home_open_back1.png);" bindtap="toList" data-bookingstatus="0">
+    <view class="open-title-1" style="color: #1C66C2;">低门槛线上审批实时提额</view>
+    <view class="open-title-2" style="color: #1D67C3;">自贸区账户开立预约</view>
+    <view class="open-title-3" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/home_open_back1_1.png);">更省心，为您一键规划</view>
+  </view>
+  <view class="home-open-back-2" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/home_open_back2.png);" bindtap="toList" data-bookingstatus="1">
+    <view class="open-title-1" style="color: #E49D5D;">刷新速度稳居行业前列</view>
+    <view class="open-title-2" style="color: #A67344;">开户进度查询</view>
+    <view class="open-title-3" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/home_open_back2_2.png);">抢速度，融资先人一步</view>
+  </view>
+</view>
+<my-login loginFlag="{{loginFlag}}" bind:cancel="cancelLogin" bind:onAuthUser=""></my-login>

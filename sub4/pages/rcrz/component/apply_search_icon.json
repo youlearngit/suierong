@@ -1,0 +1,7 @@
+{
+	"component": true,
+	"usingComponents": {
+    "van-field": "/sub4/static/vant/weapp/field/index",
+    "van-icon": "/sub4/static/vant/weapp/icon/index"
+	}
+}

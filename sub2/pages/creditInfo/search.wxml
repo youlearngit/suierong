@@ -1,0 +1,114 @@
+<view class='banner'>
+	<image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/credit/zx_title.png"
+		style="width:100%"></image>
+</view>
+<view style="width:90%;margin:auto">
+	<view class="formInfo" style="width:100%;margin:auto">
+		<view class="title">授权信息查询</view>
+    <radio-group bindchange="authTypeRadioChange" style="margin-top:20rpx; font-size: 24rpx;">
+			<label class="radio" >
+				<radio value="1" checked="{{authTypeChecked=='1'}}" style="transform:scale(0.7);" />
+				个人征信授权
+			</label>
+      <label class="radio" style="margin-left:5rpx;position: static;">
+				<radio value="3" checked="{{authTypeChecked=='3'}}" style="transform:scale(0.7);" />
+        企业征信授权\n
+        <view style="position: absolute; margin-left: 290rpx; margin-top: -10rpx;">(个人授信)</view>
+			</label>
+			<label class="radio" style="margin-left:5rpx;position: static;">
+				<radio value="2" checked="{{authTypeChecked=='2'}}" style="transform:scale(0.7);" />
+				企业征信授权\n
+        <view style="position: absolute;margin-left: 500rpx; margin-top: -10rpx;">(企业授信)</view>
+			</label>
+		</radio-group>
+    
+		<radio-group bindchange="radioChange" style="margin-top:20rpx; font-size: 24rpx;">
+			<label class="radio">
+				<radio value="3" checked="{{checked=='3'}}" style="transform:scale(0.7);" />
+				流程中授权
+			</label>
+			<label class="radio" style="margin-left:30rpx;">
+				<radio value="1" checked="{{checked=='1'}}" style="transform:scale(0.7);" />
+				已完成授权
+			</label>
+			<label class="radio" style="margin-left:30rpx;" wx:if="{{authTypeChecked == '1'}}">
+				<radio value="2" checked="{{checked=='2'}}" style="transform:scale(0.7);" />
+				已失效授权
+			</label>
+		</radio-group>
+		<view wx:if="{{businessList.length==0}}" style="margin-top:50px;">
+			<i-load-more tip="暂无申请记录" loading="{{ false }}" />
+		</view>
+		<scroll-view scroll-y style="height:65vh;margin-top:30rpx;" bindscrolltolower='getBusList' wx:else>
+		
+      <view wx:if="{{authTypeChecked == '1'}}">
+      	<view class="weui-cell weui-cell_input" style="display:flex;flex-direction:row;">
+				<view class="label">贷款类型</view>
+				<view class="label">借款人</view>
+				<view class="label">授权人</view>
+				<view class="label">授权采集时间</view>
+        </view>
+        <block wx:for="{{businessList}}" wx:key="index">
+          <view class="weui-cell weui-cell_input" bindtap="getDetail" data-id="{{index}}"
+            style="display:flex;flex-direction:row;" data-setr="{{item.BUSINESS_TYPE}}">
+            <view class="label1" wx:if="{{item.BUSINESS_TYPE!=1}}">
+              {{business_type_arr[item.BUSINESS_TYPE]}}
+            </view>
+            <view class="label1" wx:else>{{item.name}}</view>
+            <view class="label1">
+              {{item.BORROW_NAME!=''?item.BORROW_NAME:item.ENTERPRISE_NAME}}
+            </view>
+            <view class="label1">{{item.AUTH_NAME}}</view>
+            <view class="label1">{{item.CREATED_TIME}}</view>
+            <view class="i-cell-ft" style="margin-left: 12rpx;"></view>
+          </view>
+        </block>
+      </view>
+      <view wx:if="{{authTypeChecked == '2'}}">
+      	<view class="weui-cell weui-cell_input" style="display:flex;flex-direction:c;">
+          <view class="label2">授权类型</view>
+          <view class="label2">借款企业</view>
+          <view class="label2">授权企业</view>
+          <view class="label2">授权人</view>
+          <view class="label2">授权采集时间</view>
+        </view>
+        <block wx:for="{{businessList}}" wx:key="index">
+          <view class="weui-cell weui-cell_input" bindtap="getDetail" data-id="{{index}}"
+            style="display:flex;flex-direction:row;" data-setr="{{item.BUSINESS_TYPE}}">
+            <view class="label1">
+              {{business_type_arr2[item.BUSINESS_TYPE]}}
+            </view>
+            <view class="label1">{{item.ENTERPRISE_NAME}}</view>
+            <view class="label1">{{item.AUTH_ENTER_NAME}}</view>
+            <view class="label1">{{item.BOR_PER_NAME}}</view>
+            <view class="label1">{{item.CREATED_TIME}}</view>
+            <view class="i-cell-ft" style="margin-left: 12rpx;"></view>
+          </view>
+        </block>
+      </view>
+      <view wx:if="{{authTypeChecked == '3'}}">
+      	<view class="weui-cell weui-cell_input" style="display:flex;flex-direction:c;">
+          <view class="label2">授权类型</view>
+          <view class="label2">借款人</view>
+          <view class="label2">授权企业</view>
+          <view class="label2">授权人</view>
+          <view class="label2">授权采集时间</view>
+        </view>
+        <block wx:for="{{businessList}}" wx:key="index">
+          <view class="weui-cell weui-cell_input" bindtap="getDetail" data-id="{{index}}"
+            style="display:flex;flex-direction:row;" data-setr="{{item.BUSINESS_TYPE}}">
+            <view class="label1">
+              {{business_type_arr3[item.BUSINESS_TYPE]}}
+            </view>
+            <view class="label1">{{item.BORROW_NAME}}</view>
+            <view class="label1">{{item.AUTH_ENTER_NAME}}</view>
+            <view class="label1">{{item.BOR_PER_NAME}}</view>
+            <view class="label1">{{item.CREATED_TIME}}</view>
+            <view class="i-cell-ft" style="margin-left: 12rpx;"></view>
+          </view>
+        </block>
+      </view>
+			<view class="weui-cell weui-cell_input"></view>
+		</scroll-view>
+	</view>
+</view>

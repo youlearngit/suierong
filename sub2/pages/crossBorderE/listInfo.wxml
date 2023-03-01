@@ -1,0 +1,257 @@
+<view class="bg2">
+	<view class="container1">
+
+		<block wx:if="{{index==31}}">
+			<image class="f1" wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/zm/zm_40.png"  mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+			<view class="ti" style="top: 79rpx;font-size: 50rpx;font-weight: 800;">跨境e结汇</view>
+			<view class="ti" style="top:156rpx;font-size:30rpx;">	网银挂单结汇</view>
+		
+			<view class="f2">
+					<view class="f21">业务简介</view>
+					<view class="f23">
+						
+							<view class="f232">江苏银行现已开通网银挂单结汇功能，客户可自主填写预期成交汇率，当汇率符合客户预期时，系统自动实时成交。</view>
+					</view>
+					<view class="f21">业务流程</view>
+					<view class="f23">
+							<view class="f232" bindtap="viewRules" data-id="sh1">
+								1.企业登录江苏银行网上银行/手机银行，选择“结汇”功能；
+							</view>
+							<view class="f232" bindtap="viewRules" data-id="sh2">
+								2.结汇方式选择“挂单结汇”，并设置委托成交汇率；
+							</view>
+							<view class="f232" bindtap="viewRules" data-id="sh3">
+								3.当汇率达到预期价格时，系统自动实时成交。
+							</view>
+					</view>
+					<view class="f21">适用对象</view>
+					<view class="f23">
+							<view class="f232">出口制造型企业、跨境供应链企业、外贸企业和自贸区企业等。</view>
+					</view>
+				
+					<view style="height:50rpx"></view>
+			</view>
+	</block>
+
+	<block wx:if="{{index==32}}">
+		<image class="f1" wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/zm/zm_40.png"  mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+		<view class="ti" style="top: 79rpx;font-size: 50rpx;font-weight: 800;">跨境e购汇</view>
+			<view class="ti" style="top:156rpx;font-size:30rpx;">	极速一键购汇</view>
+		<view class="f2">
+				<view class="f21">业务简介</view>
+				<view class="f23">
+					
+						<view class="f232">江苏银行现已推出网银实时购汇服务，通过智能前置审单技术，免除客户即期购汇落地审核的等待时间。</view>
+				</view>
+				<view class="f21">业务流程</view>
+				<view class="f23">
+						<view class="f232" bindtap="viewRules" data-id="sh1">
+							1.企业登录跨境e点通，提交购汇单据；
+						</view>
+						<view class="f232" bindtap="viewRules" data-id="sh2">
+							2.企业登录江苏银行网银结售汇模块，选择“跨境e购汇”功能；
+						</view>
+						<view class="f232" bindtap="viewRules" data-id="sh3">
+							3.录入跨境e点通编号，确认交易信息，选择立即成交。
+						</view>
+				</view>
+				<view class="f21">适用对象</view>
+				<view class="f23">
+						<view class="f232">进口制造型企业、跨境供应链企业、外贸企业和自贸区企业等。</view>
+				</view>
+			
+				<view style="height:50rpx"></view>
+		</view>
+</block>
+
+<block wx:if="{{index==33}}">
+	<image class="f1" wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/zm/zm_40.png"  mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+	<view class="ti" style="top: 79rpx;font-size: 50rpx;font-weight: 800;">跨境e远期</view>
+	<view class="ti" style="top:156rpx;font-size:30rpx;">	线上远期结售汇</view>
+	<view class="f2">
+			<view class="f21">业务简介</view>
+			<view class="f23">
+				
+					<view class="f232">江苏银行现已推出网银远期结售汇服务，帮助客户线上实时锁定远期汇率，规避汇率波动风险。</view>
+			</view>
+			<view class="f21">业务流程</view>
+			<view class="f23">
+					<view class="f232" bindtap="viewRules" data-id="sh1">
+						1.企业登录国际业务网银，选择远期结售汇功能；
+					</view>
+					<view class="f232" bindtap="viewRules" data-id="sh2">
+						2.企业发起远期结售汇申请，上传影像资料，待审核通过后成交。
+					</view>
+					
+			</view>
+			<view class="f21">适用对象</view>
+			<view class="f23">
+					<view class="f232">进出口制造型企业、跨境供应链企业、外贸企业和自贸区企业等。</view>
+			</view>
+		
+			<view style="height:50rpx"></view>
+	</view>
+</block>
+
+<block wx:if="{{index==34}}">
+	<image class="f1" wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/zm/zm_40.png"  mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+	<view class="ti" style="top: 79rpx;font-size: 50rpx;font-weight: 800;">跨境贸e池</view>
+	<view class="ti" style="top:156rpx;font-size:30rpx;">	线上贸易融资</view>
+	<view class="f2">
+			<view class="f21">业务简介</view>
+			<view class="f23">
+				
+					<view class="f232">江苏银行现已推出网银在线贸易融资功能，支持包括出口商贴、信保融资、信用证押汇和TT押汇等产品的线上融资、进度查询、自主还款及回执打印等。</view>
+			</view>
+			<view class="f21">业务流程</view>
+			<view class="f23">
+					<view class="f232" bindtap="viewRules" data-id="sh1">
+						1.企业登录江苏银行网银，选择跨境贸e池功能；
+					</view>
+					<view class="f232" bindtap="viewRules" data-id="sh2">
+						2.选择贸易融资品种，并在线提交融资申请，完成线上放款。
+					</view>
+					
+			</view>
+			<view class="f21">适用对象</view>
+			<view class="f23">
+					<view class="f232">进出口制造型企业、跨境供应链企业、外贸企业和自贸区企业等。</view>
+			</view>
+		
+			<view style="height:50rpx"></view>
+	</view>
+</block>
+		
+
+<block wx:if="{{index==35}}">
+	<image class="f1" wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/zm/zm_40.png"  mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+	<view class="ti" style="top: 79rpx;font-size: 50rpx;font-weight: 800;">跨境e收汇</view>
+	<view class="ti" style="top:156rpx;font-size:30rpx;">	线上自动收汇</view>
+	<view class="f2">
+			<view class="f21">业务简介</view>
+			<view class="f23">
+				
+					<view class="f232">江苏银行现已开通网银自动收汇功能，企业可全程线上自助办理经常项下境外收汇，业务办理快捷高效。</view>
+			</view>
+			<view class="f21">业务流程</view>
+			<view class="f23">
+					<view class="f232" bindtap="viewRules" data-id="sh1">
+						1.企业登录江苏银行网银，查询“待收汇”；
+					</view>
+					<view class="f232" bindtap="viewRules" data-id="sh2">
+						2.企业自主填报收支申报信息，点击“确认收汇”；
+					</view>
+					<view class="f232" bindtap="viewRules" data-id="sh2">
+						3.企业查询已收汇资金明细，打印电子回单凭证。
+					</view>
+			</view>
+			<view class="f21">适用对象</view>
+			<view class="f23">
+					<view class="f232">进出口制造型企业、跨境供应链企业、外贸企业和自贸区企业等。</view>
+			</view>
+		
+			<view style="height:50rpx"></view>
+	</view>
+</block>
+
+
+<block wx:if="{{index==36}}">
+	<image class="f1" wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/zm/zm_40.png"  mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+	<view class="ti" style="top: 79rpx;font-size: 50rpx;font-weight: 800;left:15rpx;">单一窗口跨境业务</view>
+	<view class="ti" style="top:156rpx;font-size:30rpx;left:15rpx;">	直联单一窗口办理跨境业务</view>
+	<view class="f2">
+			<view class="f21">业务简介</view>
+			<view class="f23">
+				
+					<view class="f232">江苏银行现已直联江苏省国际贸易单一窗口，企业在线授权办理跨境业务时一键带入企业电子关单信息，无需企业往来反复银行提交单据。</view>
+			</view>
+			<view class="f21">业务流程</view>
+			<view class="f23">
+					<view class="f232" bindtap="viewRules" data-id="sh1">
+						1.企业登录江苏省国际贸易单一窗口，选择签约江苏银行；
+					</view>
+					<view class="f232" bindtap="viewRules" data-id="sh2">
+						2.企业登录江苏银行网银，选择“单一窗口”功能；
+					</view>
+					<view class="f232" bindtap="viewRules" data-id="sh2">
+						3.企业通过单一窗口功能一键办理跨境业务。
+					</view>
+			</view>
+			<view class="f21">适用对象</view>
+			<view class="f23">
+					<view class="f232">进出口制造型企业、跨境供应链企业、外贸企业和自贸区客户等。</view>
+			</view>
+		
+			<view style="height:50rpx"></view>
+	</view>
+</block>
+
+<block wx:if="{{index==37}}">
+	<image class="f1" wx:if='{{preffixUrl1}}' src="{{preffixUrl1}}/static/wechat/img/zm/zm_40.png"  mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+	<view class="ti" style="top: 79rpx;font-size: 50rpx;font-weight: 800;left:15rpx;">国际业务微服务</view>
+	<view class="ti" style="top:156rpx;font-size:30rpx;left:15rpx;">	国际业务微信查询和业务办理</view>
+	<view class="f2">
+			<view class="f21">业务简介</view>
+			<view class="f23">
+				
+					<view class="f232">江苏银行现已在江苏银行微信公众号推出国际业务微服务功能，能够为企业提供跨境e点通业务办理，以及外汇账户明细、跨境汇款、结售汇牌价以及进出口等各项业务查询服务。</view>
+			</view>
+			<view class="f21">业务流程</view>
+			<view class="f23">
+					<view class="f232" bindtap="viewRules" data-id="sh1">
+						1.企业客户登录江苏银行网银签约“国际业务微服务”，
+					</view>
+					<view class="f232" bindtap="viewRules" data-id="sh2">
+						2.跨境e点通客户现已直接开通此项功能服务；
+					</view>
+					<view class="f232" bindtap="viewRules" data-id="sh2">
+						3.企业客户登录江苏银行微信公众号，选择“服务推荐”，登录“国际业务”。
+					</view>
+			</view>
+			<view class="f21">适用对象</view>
+			<view class="f23">
+					<view class="f232">进出口制造型企业、跨境供应链企业、外贸企业和自贸区企业等。</view>
+			</view>
+		
+			<view style="height:50rpx"></view>
+	</view>
+</block>
+		<view class="middle2" style="width:80%;display:flex;margin:auto">
+			<button class="box2" size="mini" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="showShare">
+				分享
+			</button>
+			<button class="box3" size="mini" bindtap="toApply">
+				立即注册
+
+			</button>
+		</view>
+	</view>
+	<view class="{{shareBox}}" wx:if='{{shareBox=="shareBox on"}}'>
+		<view class='imagePathBox'>
+			<image src="{{imagePath}}" mode="widthFix" class='shengcheng' />
+
+		</view>
+		<view hidden="{{maskHidden}}" class="mask" />
+		<view class="canvas-box">
+			<canvas style="width:1502rpx;height:2930rpx;position:fixed;top:9999px" canvas-id="mycanvas" />
+		</view>
+		<view class="tools">
+			<view class="tb cancel" bindtap='showHide'>
+				<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg" />
+				<block>取消</block>
+			</view>
+			<view class="tb shareToAPP">
+				<button open-type='share'>
+					<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg" />
+				</button>
+				<block>转发</block>
+			</view>
+			<view class="tb savePic" bindtap='baocun'>
+				<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg" />
+				<view class="saveTxt">朋友圈</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>

@@ -1,0 +1,72 @@
+/* sub3/pages/bbx/monthlyCalendar_listTwo.wxss */
+page,view{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+  }
+  page{
+    background:#c4d6ff;
+  }
+  .containerbox{
+    padding-top:94rpx;
+    padding-bottom:30rpx;
+  }
+  .containerbg{
+    width: 100%;
+    /* height:5.27rpx; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .textboxone{
+    /* margin-left:58rpx; */
+    text-align: center;
+  }
+  .textboxone>view:first-child{
+    font-family: SourceHanSansCN-Medium;
+    font-size: 42rpx;
+    color: #092C68;
+    margin-bottom:10rpx;
+    font-weight: 600;
+   /* margin-left: 220rpx; */
+  }
+  .textboxone>view:last-child{
+    opacity: 0.46;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 34rpx;
+    color: #3B407C;
+    /* margin-left: 310rpx; */
+  }
+  .bottombox{
+    padding:0 30rpx;
+    padding-top:40rpx;
+  }
+  .bottomContainer{
+    width:100%;
+    position:relative;
+    padding:68rpx 30rpx 0 38rpx;
+  }
+  .bottomContainerbg{
+    width:100%;
+    height:10.68rpx;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+  }
+  .box1{
+    font-family: SourceHanSansCN-Medium;
+    font-size: 28rpx;
+    color: #9094A7;
+    font-weight: 600;
+  }
+  .box1img{
+    width:21rpx;
+    height:25rpx;
+  }
+  .box1_text{
+    font-family: SourceHanSansCN-Regular;
+    font-size: 32rpx;
+    margin:18rpx 0 50rpx 26rpx;
+  }

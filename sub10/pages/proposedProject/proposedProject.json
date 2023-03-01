@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "tabs": "../../component/fund-supply-tab/fund-supply-tab",
+    "dialog": "../../component/dialog/index"
+  },
+  "navigationBarTitleText": "拟投项目",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black"
+
+}
+

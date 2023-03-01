@@ -1,0 +1,281 @@
+/* by .scss */
+.container .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.form_submit, .form_upload {
+  width: 690rpx;
+  border-radius: 20rpx;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+  box-shadow: 0 2rpx 24rpx 0 #b3cbff;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+
+.form_submit .label_icon, .form_upload .label_icon {
+  display: flex;
+  align-items: center;
+}
+
+.form_submit .label_icon image, .form_upload .label_icon image {
+  margin-left: 6rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.form_submit .right_icon, .form_upload .right_icon {
+  border-left: 1rpx solid #E3E7F0;
+  padding-left: 16rpx;
+}
+
+.form_submit .right_icon image, .form_upload .right_icon image {
+  width: 38rpx;
+  height: 28rpx;
+}
+
+.btn_submit {
+  background: #415FCD;
+  box-shadow: 0 4rpx 8rpx 0 #8094de;
+  border-radius: 42rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 30rpx;
+  width: 450rpx;
+  height: 80rpx;
+}
+
+.btn_submit[disabled] {
+  background: #a0afe6 !important;
+  color: #FFFFFF !important;
+}
+
+.form_upload {
+  margin: 50rpx auto;
+  font-size: 24rpx;
+  color: #7C8BAC;
+}
+
+.form_upload > view:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #2C3750;
+}
+
+.form_upload > view:nth-of-type(1) image {
+  width: 10rpx;
+  height: 47rpx;
+  margin-left: -30rpx;
+  margin-right: 30rpx;
+}
+
+.form_upload > view:nth-of-type(3) {
+  background: #F7FBFF;
+  border: 1rpx solid #D2DDFF;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-top: 40rpx;
+  line-height: 38rpx;
+}
+
+.form_upload > view:nth-of-type(3) image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 8rpx;
+}
+
+.form_upload > view:nth-of-type(3) > view:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+}
+
+.form_upload > view:nth-of-type(3) text {
+  color: #415FCD;
+}
+
+.form_dialog {
+  background: none !important;
+}
+
+.form_dialog .form_upload {
+  margin: 20rpx auto;
+}
+
+.agreement {
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #2C3750;
+}
+
+.agreement > view:nth-of-type(1) {
+  font-size: 34rpx;
+}
+
+.agreement > view:nth-of-type(2) {
+  margin: 40rpx auto;
+}
+
+.agreement > view:nth-of-type(2) > view {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 50rpx;
+}
+
+.agreement > view:nth-of-type(2) > view image {
+  width: 74rpx;
+  height: 78rpx;
+  margin-right: 10rpx;
+}
+
+.agreement .btn_submit {
+  width: 450rpx;
+}
+
+.agreement .btn_submit + view {
+  width: 380rpx;
+  margin: 30rpx auto;
+}
+
+.agreement .ckb {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.page_container {
+  width: 0;
+  height: 0;
+}
+
+.btn_submit {
+  margin: 30rpx auto;
+}
+
+.input_textarea {
+  background: #F7FBFF;
+  border-radius: 2rpx;
+  width: 590rpx;
+  margin: 0 auto;
+  height: 113rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+
+.input_search {
+  position: relative;
+}
+
+.input_search > scroll-view {
+  position: absolute;
+  top: 80rpx;
+  left: 220rpx;
+  width: 320rpx;
+  height: 300rpx;
+  z-index: 3;
+  background: #FFFFFF;
+  border: 1px solid #333;
+  font-size: 28rpx;
+}
+
+.input_search > scroll-view view {
+  padding: 10rpx;
+}
+
+.radios {
+  width: 300rpx;
+  margin: auto 0 auto auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F7F7Fb;
+  border-radius: 54rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.radios .van-radio--horizontal {
+  margin-right: 0 !important;
+}
+
+.radios van-radio .van-radio__label {
+  padding: 5rpx 18rpx !important;
+  color: #C1C1C1;
+}
+
+.radios .checked {
+  border-radius: 54rpx;
+  background: #415FCD;
+}
+
+.radios .checked .van-radio__label {
+  color: #FFFFFF;
+}
+
+.step_header {
+  margin: 60rpx auto 40rpx auto;
+  width: 690rpx;
+  font-size: 28rpx;
+  color: #b4bfd6;
+  display: flex;
+}
+
+.step_header > image:nth-of-type(1) {
+  width: 24rpx;
+  height: 60rpx;
+}
+
+.step_header > view:nth-of-type(1) {
+  padding-top: 20rpx;
+}
+
+.step_header text {
+  font-size: 36rpx;
+  color: #2C3750;
+}
+
+.step_imgs {
+  margin: 80rpx auto;
+  display: flex;
+  align-items: center;
+}
+
+.step_imgs image {
+  width: 232rpx;
+  height: 115rpx;
+}
+
+.form_dialog .form_upload > view:nth-of-type(2) image {
+  width: 100%;
+  height: 266rpx;
+  margin-top: 20rpx;
+  border: 1rpx solid #9CBBFF;
+}
+
+.tax {
+  height: 80%;
+}
+
+.tax image {
+  width: 100%;
+}
+
+.sinosure {
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+}
+
+.sinosure .btn_add {
+  background: #415FCD;
+  width: 120rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  color: #FFFFFF;
+}

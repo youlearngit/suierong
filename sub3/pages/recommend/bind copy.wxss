@@ -1,0 +1,91 @@
+.bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  .rec-box {
+    width: 84%;
+    margin: 0 auto;
+    padding: 72rpx 60rpx 100rpx;
+    background-image: linear-gradient(204deg, rgba(255, 255, 255, 0.83) 0%, #ffffff 21%);
+    box-shadow: 0 2rpx 22rpx 0 rgba(172, 186, 230, 0.49);
+    border-radius: 18rpx;
+    box-sizing: border-box;
+  }
+  
+  .btnc {
+    width: 457rpx;
+    height: 88rpx;
+    background: #3c5cd5;
+    border-radius: 48rpx;
+    line-height: 88rpx;
+    font-size: 30rpx;
+    color: #ffffff;
+    text-align: center;
+    margin: 154rpx auto 0;
+  }
+  .title {
+    font-size: 44rpx;
+    color: #1c294f;
+    font-family: SourceHanSansSC-Medium;
+  }
+  
+  .ta {
+    color: red;
+  }
+  .user {
+    margin: 125rpx 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+    margin: 0 30rpx 0 0;
+  }
+  
+  .nickName {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .nick-title {
+    opacity: 0.6;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 30rpx;
+    color: #1c294f;
+  }
+  
+  .nick-name {
+    font-family: SourceHanSansSC-Medium;
+    font-size: 30rpx;
+    color: #1c294f;
+    margin: 0 20rpx;
+  }
+  .icon-success {
+    width: 455rpx;
+    border-radius: 50%;
+    margin: 0 auto 60rpx;
+  }
+  .title-success {
+    font-family: SourceHanSansSC-Medium;
+    font-size: 46rpx;
+    color: #1c294f;
+    letter-spacing: 0;
+    text-align: center;
+    margin: 0 auto 16rpx;
+  }
+  .desc-success{
+      font-family: SourceHanSansSC-Normal;
+      font-size: 30rpx;
+      color: #1C294F;
+      letter-spacing: 0;
+      text-align: center;
+    margin: 0 auto 116rpx;
+  
+  }

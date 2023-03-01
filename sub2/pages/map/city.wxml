@@ -1,0 +1,57 @@
+<view class="cityBox">
+  <view class="closeCity" bindtap='closeCity'>确定</view>
+  <view class="titleBefore">当前定位: {{location}}</view>
+  <view class="GPSCity">{{result}}</view>
+    <view class="titleBefore">江苏省</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__bd" data-citycode="3201" data-city="南京" data-center="118.767413,32.041544" bindtap='bindcity'>南京</view>
+      <view class="weui-cell__bd" data-citycode="3202" data-city="无锡" data-center="120.301663,31.574729" bindtap='bindcity'>无锡</view>
+      <view class="weui-cell__bd" data-citycode="3203" data-city="徐州" data-center="117.184811,34.261792" bindtap='bindcity'>徐州</view>
+      <view class="weui-cell__bd" data-citycode="3204" data-city="常州" data-center="119.946973,31.772752"  bindtap='bindcity'>常州</view>
+      <view class="weui-cell__bd" data-citycode="3205" data-city="苏州" data-center="120.619585,31.299379" bindtap='bindcity'>苏州</view>
+    </view>
+    <view class="weui-cell">   
+      <view class="weui-cell__bd" data-citycode="3206" data-city="南通" data-center="120.864608,32.016212" bindtap='bindcity'>南通</view>
+      <view class="weui-cell__bd" data-citycode="3207" data-city="连云港" data-center="119.178821,34.600018" bindtap='bindcity'>连云港</view>
+      <view class="weui-cell__bd" data-citycode="3208" data-city="淮安" data-center="119.021265,33.597506" bindtap='bindcity'>淮安</view>
+      <view class="weui-cell__bd" data-citycode="3209" data-city="盐城" data-center="120.139998,33.377631" bindtap='bindcity'>盐城</view>
+      <view class="weui-cell__bd" data-citycode="3210" data-city="扬州" data-center="119.421003,32.393159" bindtap='bindcity'>扬州</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd" data-citycode="3211" data-city="镇江" data-center="119.452753,32.204402" bindtap='bindcity'>镇江</view>
+      <view class="weui-cell__bd" data-citycode="3212" data-city="泰州" data-center="119.915176,32.484882" bindtap='bindcity'>泰州</view>
+      <view class="weui-cell__bd" data-citycode="3213" data-city="宿迁" data-center="118.275162,33.963008" bindtap='bindcity'>宿迁</view>
+      <view class="weui-cell__bd"></view>
+      <view class="weui-cell__bd"></view>
+    </view>
+  </view>
+  <view class="titleBefore">北京市</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__hd"></view>
+      <view class="weui-cell__bd" data-citycode="1101" data-city="北京" data-center="116.405285,39.904989" bindtap='bindcity'>北京</view>
+    </view>
+  </view>
+  <view class="titleBefore">上海市</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__hd"></view>
+      <view class="weui-cell__bd" data-citycode="3101" data-city="上海" data-center="121.472644,31.231706" bindtap='bindcity'>上海</view>
+    </view>
+  </view>
+  <view class="titleBefore">广东省</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__hd"></view>
+      <view class="weui-cell__bd" data-citycode="4403" data-city="深圳" data-center="114.085947,22.547" bindtap='bindcity'>深圳</view>
+    </view>
+  </view>
+  <view class="titleBefore">浙江省</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__hd"></view>
+      <view class="weui-cell__bd" data-citycode="3301" data-city="杭州" data-center="120.153576,30.287459" bindtap='bindcity'>杭州</view>
+    </view>
+  </view>
+</view>

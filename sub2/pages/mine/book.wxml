@@ -1,0 +1,216 @@
+<view class="weui-cell weui-cell_access poi">
+  <view class='weui-cell__bd'>
+    <view class="h1">{{poi.bankname}}</view>
+    <view class="p">{{poi.bankaddress}}</view>
+  </view>
+  <view class='weui-cell__ft weui-cell__ft_in-access'>
+    <navigator url="../inputtips/input?page=2&data={{mkDatas}}" class="otherPoi">其他网点</navigator>
+  </view>
+</view>
+
+<form bindsubmit="submitForm" report-submit='true'>
+  <view class="weui-cells form">
+    <view class="weui-cell weui-cell_access">
+      <span style="color:red;width:25rpx;"></span>
+
+      <view class='weui-cell__hd' style="color:#999999 !important;">取款类型</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'>
+        <picker name="gsbz" bindchange="gsbzTypeChange" value="{{form.gsbz}}" range="{{ gsbzType}}" disabled>
+          {{gsbzType[form.gsbz]}}
+        </picker>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <span style="color:red;width:25rpx;"></span>
+      <view class='weui-cell__hd' style="color:#999999 !important;">取款人姓名</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        <input name="khmc" id="khmc" type='name' value='{{form.khmc}}' placeholder='请输入姓名' disabled></input>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <span style="color:red;width:25rpx;">*</span>
+
+      <view class='weui-cell__hd'>{{lbxzTitle}}</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'>
+        <picker name="lbxz" bindchange="lbxzTypeChange" range="{{lbxzType}}" range-key="name" value="{{lbxzIndex}}">
+          {{lbxzType[lbxzIndex].name}}
+        </picker>
+      </view>
+    </view>
+
+
+
+    <view class="weui-cell weui-cell_access" >
+      <span style="color:red;width:25rpx;"></span>
+
+      <view class='weui-cell__hd' style="color:#999999 !important;">证件类型</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'>
+        <picker name="zjlx" bindchange="zjlxTypeChange" range="{{zjlxType}}" range-key="name" value="{{zjlxIndex}}" disabled>
+          {{zjlxType[zjlxIndex].name}}
+        </picker>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access" wx:if="{{form.zjlx==99}}">
+      <span style="color:red;width:25rpx;">*</span>
+
+      <view class='weui-cell__hd'>其他证件</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        <input name="zjlxExtra" id="zjlxExtra"   value='{{zjlxExtra}}' placeholder='请输入其他证件'
+        ></input>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access" >
+      <span style="color:red;width:25rpx;"></span>
+
+      <view class='weui-cell__hd' style="color:#999999 !important;">证件号码</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        <input name="zjhm" id="zjhm" type='idCard' maxlength="18" value='{{zjhm}}' placeholder='请输入证件号码'
+          disabled></input>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_access">
+      <span style="color:red;width:25rpx;">*</span>
+
+      <view class='weui-cell__hd'>取款账号</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        <input name="qkzh" id="qkzh" type='qkzh' value='{{form.qkzh}}' placeholder='请输入取款账号'></input>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <span style="color:red;width:25rpx;">*</span>
+
+      <view class='weui-cell__hd'>预约金额</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        <input name="yyje" id="yyje" type='idCard' value='{{yyje}}' bindblur="test" placeholder='请输入预约金额'></input>
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_access">
+      <span style="color:red;width:25rpx;">*</span>
+
+      <view class='weui-cell__hd'>取款用途</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'>
+        <picker name="qkyt" bindchange="qkytTypeChanges" value="{{qkytIndex}}" range="{{ qkytTypes }}" range-key="name">
+          {{qkytTypes[qkytIndex].name}}
+        </picker>
+
+      </view>
+    </view>
+
+    <view class="weui-cell weui-cell_access" wx:if="{{form.qkyt==1299}}">
+      <span style="color:red;width:25rpx;">*</span>
+
+      <view class='weui-cell__hd'>其他用途</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        <input name="qkytExtra" id="qkytExtra"   value='{{qkytExtra}}' placeholder='请输入其他用途'
+        ></input>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <span style="color:red;width:25rpx;"></span>
+
+      <view class='weui-cell__hd' style="color:#999999 !important;">预约渠道</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'>
+        <picker name="yyqd" bindchange="yyqdTypeChanges" value="{{yyqdIndex}}" range="{{ yyqdTypes }}" range-key="name"
+          disabled>
+          {{yyqdTypes[yyqdIndex].name}}
+        </picker>
+
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <span style="color:red;width:25rpx;">*</span>
+
+      <view class='weui-cell__hd'>取款时间</view>
+      <view class='weui-cell__bd'>
+        <!-- <input name="qkrq" id="qkrq" disabled='disabled' value='{{form.booktime}}'></input> -->
+      </view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'>
+        <picker mode="date" value="{{form.booktime}}" name="qkrq" bindchange="bindDateChange" start="{{curDate}}"
+          end="{{endDate}}">
+          <!-- {{form.booktime}} -->
+          <!-- -->
+          <view class="picker">
+            {{form.booktime}}
+          </view>
+        </picker>
+        <!-- <button class="getphone" bindtap='showTimeModel'>选择时间</button> -->
+      </view>
+    </view>
+
+
+    <view class="weui-cell weui-cell_access">
+      <span style="color:red;width:25rpx;">*</span>
+
+      <view class='weui-cell__hd'>联系方式</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        {{tel}}
+        <button hidden="{{hiddenPhone}}" wx:if='{{tel==""}}' class="getphone" open-type="getPhoneNumber"
+          bindgetphonenumber="getPhoneNumber">获取微信手机号</button>
+      </view>
+    </view>
+  </view>
+  <view class="btnarea">
+    <button class="weui-btn weui-btn_primary" formType="submit" style="background: #0068b6;color:white;">确定</button>
+  </view>
+
+<view style="padding:0 15px;font-size:24rpx;color:grey;">
+<view>温馨提示：</view>
+<view style="margin-top: 10rpx;">1、预约条件：人民币20万（含）-100万元之间，100万元（含）以上建议您拨打网点电话办理预约。</view>
+<view style="margin-top: 8rpx;"> 2.请您至少提前1个工作日进行大额取现预约，当天15:00前预约，可申请T+1个工作日取现；当天15:00后预约，可申请T+2个工作日取现。</view>
+<view style="margin-top: 8rpx;">3、如您取款计划有变，请在取款前一个工作日15:00前取消预约；</view>
+<view style="margin-top: 8rpx;">4、本渠道暂不支持周末和节假日预约服务，建议您拨打网点电话办理预约。</view>
+
+
+</view>
+
+
+</form>
+
+
+
+<!--日期弹出框-->
+<view class="modal {{timeShow?'modal_show':'modal_hide'}}">
+  <!-- 点击弹出框外部关闭弹出框 -->
+  <view class='modal_cancel' bindtap='modelCancel'></view>
+
+  <!-- 弹出框主体 -->
+  <view class='modal_container'>
+    <!-- 头部显示 -->
+    <view class='modal_header'>
+      <view>预约时间</view>
+      <view class='header_tip'>{{yyDay}}天内的预约</view>
+    </view>
+    <!-- 日期 -->
+    <view class="time">
+      <scroll-view class="time_scroll" scroll-x="true">
+        <view data-index="{{index}}" bindtap="timeClick" class="scroll_item {{currentTab==index?'time_active':''}}"
+          wx:for="{{timeList}}" wx:key="{{index}}">
+          <view>{{item.name}}</view>
+          <view>{{item.date}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 时间段 -->
+    <view class='hour'>
+      <view bindtap="hourClick"
+        class="hour_item {{item.isShow?'':'hour_unactive'}} {{hourIndex==index?'hour_active':''}} "
+        wx:for="{{hourList}}" wx:key="{{index}}" data-index="{{index}}" data-isshow="{{item.isShow}}">{{item.hour}}
+      </view>
+    </view>
+  </view>
+</view>
+<i-toast id="toast" />

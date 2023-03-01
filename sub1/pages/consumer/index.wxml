@@ -1,0 +1,121 @@
+<view class="a1">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_117.png" mode="widthFix" />
+</view>
+<view class="a99">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_115.png" mode="widthFix" />
+</view>
+<view class="a3">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-1001.png" />
+    <view class="a3b1">个人消费贷款，最高可贷</view>
+    <view class="a3b2">
+        <text class="a3b2c1">30</text>
+        <text class="a3b2c2">万元</text>
+    </view>
+    <view class="a3b3" style="padding: 24rpx 30rpx;">借款年利率（单利）4.8%起</view>
+    <view class="a3b33">以实际审批为准</view>
+    <view class="a3b4" style="margin: 30rpx auto 0;">
+        <view class="flex">
+            <view class="flex-sub  margin-xs ">
+                <view class="a3b4a1">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_110.png" mode="widthFix"></image>
+                </view>
+                <view class="a3b4a2">线上申请</view>
+            </view>
+            <view class="flex-sub  margin-xs ">
+                <view class="a3b4a1">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_19.png" mode="widthFix"></image>
+                </view>
+                <view class="a3b4a2">快速审批</view>
+            </view>
+            <view class="flex-sub  margin-xs ">
+                <view class="a3b4a1">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_12.png" mode="widthFix"></image>
+                </view>
+                <view class="a3b4a2">用款便捷</view>
+            </view>
+            <view class="flex-sub  margin-xs ">
+                <view class="a3b4a1">
+                    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_116.png" mode="widthFix"></image>
+                </view>
+                <view class="a3b4a2">随借随还</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<view class="a5">
+    <image class="" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-1047.png" mode="widthFix"></image>
+</view>
+<view class="tip99" hover-class="none" hover-stop-propagation="false">本产品未与任何中介合作，不会向您收取额外费用。</view>
+
+<view style="height:170rpx"></view>
+<view class="a9">
+    <view class="flex">
+        <view class="a9b1" bindtap="showShare" hover-class="button-hover">
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_11.png" mode="widthFix"></image>
+            分享
+        </view>
+        <button class="a9b2" wx:if="{{!hasMobile}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hover-class="cu-btn button-hover">
+            立即测额
+        </button>
+        <view bindtap="apply" class="a9b2" wx:else="{{hasMobile}}" hover-class="cu-btn button-hover">
+            立即测额
+        </view>
+    </view>
+</view>
+<canvas style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+<my-poster shareBox="{{shareBox}}" hidePoster="{{hidePoster}}"  bind:cancel="cancelPoster" imagePath="{{imagePath}}"></my-poster>
+<my-login loginFlag="{{loginFlag}}" bind:onAuthUser="auth"></my-login>
+<view class="a14" bind:tap="showPopup">推荐有礼</view>
+<van-popup show="{{ show }}" bind:close="onClose">
+    <view class="a6">
+        <view class="a61">活动规则</view>
+        <scroll-view class="a62" scroll-x="false" scroll-y="false" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="" bindscroll="">
+            <view class="a621">
+                <view class="a622">活动时间</view>
+                <view class="a623">2020年7月18日至2021年12月31日。</view>
+            </view>
+            <view class="6221">
+                <view class="a622">活动内容</view>
+                <view class="a623">1、点击页面邀请好友，每新增1位好友点开链接即可获得100个苏银豆，最高可获得500个苏银豆。</view>
+                <view class="a623">2、通过您的邀请进入小程序，并成功获得随e贷额度的新客户，视作成功。</view>
+                <view class="a623">①您的好友可获得0.05%的利率折扣，在随e贷首次借款时即可直接使用。</view>
+                <view class="a623">
+                    ②您的好友可获得3000个苏银豆，苏银豆兑换礼品可至江苏银行手机银行或直销银行APP，海量礼品尽情挑选。（3000个苏银豆约等价值30元，视兑换而定）
+                </view>
+                <view class="a623">③新客户仅限未在江苏银行办理过随e贷、卡易贷、金e融等消费贷款的客户。</view>
+                <view class="a623">江苏银行有权在法律允许的范围内对本次活动予以解释。</view>
+            </view>
+        </scroll-view>
+        <view class="a63">
+            <view class="a631" bind:tap="onClose">我知道了</view>
+        </view>
+    </view>
+</van-popup>
+<van-popup show="{{ showPosterBox }}" bind:close="onClose" position="bottom">
+    <view class="t1">欢迎体验,感谢分享。</view>
+    <view class="t4">海报模版</view>
+  
+    <scroll-view scroll-y style="max-height:60vh">
+        <view class="t5">
+            <view class="t51" wx:for="{{posterImgs}}" bind:tap="choosePoster" data-id="{{index}}">
+                <image class="t54" src="{{cardInfo.PHOTO2}}" mode="widthFix" style="width:100%"></image>
+                <image src="{{item.img}}" mode="widthFix" style="width:100%"></image>
+                <view class="t53 {{posterIdselected==index?'t531':''}}" hover-class="none" hover-stop-propagation="false">
+                    {{item.title}}
+                </view>
+                <image wx:if="{{posterIdselected==index&&cndUrl}}" class="t52" src="{{cndUrl}}/static/wechat/img/sui/sui-1076.png" mode="widthFix"></image>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="t6" wx:if="{{posterIdselected==-1}}" style="opacity: 0.5;">请选择模版</view>
+    <view class="t6" bind:tap="createPoster" wx:if="{{posterIdselected!=-1&&imagePath!=''}}">
+        分享海报
+    </view>
+    <view class="t6" hover-class="none" hover-stop-propagation="false" wx:if="{{posterIdselected!=-1&&imagePath==''}}">
+        <image src="{{cndUrl}}/static/wechat/img/sui/loading.gif" mode="widthFix" style="width:40rpx;margin:0 10rpx"></image>
+        请稍等
+    </view>
+    <view style="height:30rpx"></view>
+</van-popup>

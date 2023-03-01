@@ -1,0 +1,4 @@
+<view class="water_top" style="pointer-events: none;">
+    <!-- <view class="water-text" wx:for="{{50}}">{{watermarkText}}</view> -->
+    <image class="water-text1"  wx:for="{{50}}" src="{{preffixUrl}}/static/wechat/img/sui/logo_small.png" mode=""/>
+</view>

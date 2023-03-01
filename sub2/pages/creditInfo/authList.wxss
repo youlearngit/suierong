@@ -1,0 +1,73 @@
+/* pages/creditInfo/authList.wxss */
+
+@import "/assets/styles/weui.wxss";
+
+
+page{
+	background-color: white;
+}
+.bottom button {
+    position: absolute;
+    bottom: 5%;
+	left: 5%;
+    width: 90%;
+    background-color: #16a8fa;
+	color: white;
+}
+.add {
+	position: absolute;
+	width: 90%;
+	left: 5%;
+    height:80rpx;
+	bottom: 16%;
+    background-color: white;
+	color:#16a8fa ;
+	text-align: center;
+    border: 1rpx solid #16a8fa;
+	border-radius: 5px;
+    margin: auto;
+    display: table;
+}
+.add text {
+    padding: 10rpx;
+    margin: auto;
+    font-size: 33rpx;
+    color: #16a8fa;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.list .listitem .i-cell-text{
+	font-size:  500rpx;
+}
+
+.list .i-cell-desc {
+	font-size: 26rpx;
+}
+
+.title {
+    margin: auto;
+    font-size: 34rpx;
+    margin-top: 30rpx;
+    font-weight: bold;
+  color: #0066b3;
+
+}
+
+.title_imp {
+    margin: auto;
+    font-size: 20rpx;
+    margin-top: 5rpx;
+    font-weight: bold;
+    color: red;
+
+}
+
+.i-swipeout-demo-item{
+    border-bottom:#333 solid 1px;
+}
+
+.i-cell-padding{
+    padding:2px !important;
+    font-size:20px;
+}

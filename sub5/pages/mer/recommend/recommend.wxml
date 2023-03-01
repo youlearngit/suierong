@@ -1,0 +1,196 @@
+
+<view class="container">
+  <image class="bg" src="{{cdnMer}}/rec_bg_top1.png" mode="widthFix"></image>
+
+  <block wx:if="{{title=='推荐有礼'}}">
+    <!-- <view class="card card0">
+      <image src="{{cdnMer}}/card_img.png" mode="widthFix"></image>
+      <view bindtap="onoff" data-event="show_rule">规则</view>
+      <view>
+        <van-image round image-class="avatar" src="{{avatar || cdn+'/static/wechat/img/no_avator.png'}}"></van-image>
+        <view>
+          <view>{{name}}</view>
+        </view>
+      </view>
+      <view>
+        <view>
+          <view>{{score_total}}</view>
+          <view><image src="{{cdn}}/static/wechat/img/rec/icon_beans_yellow.png" mode="widthFix"></image>累计获得苏银豆</view>
+        </view>
+        <view>
+          <view>{{score_surplus}}</view>
+          <view><image src="{{cdn}}/static/wechat/img/rec/icon_beans_blue.png" mode="widthFix"></image>可提取苏银豆</view>
+        </view>
+      </view>
+      <view bindtap="goSyd">权益兑换<van-icon name="arrow" /></view>
+    </view> -->
+    <view class="card card1">
+      <image src="{{cdnMer}}/card_img.png" mode="widthFix"></image>
+      <view bindtap="onoff" data-event="show_rule">规则</view>
+      <view>
+        <van-image round image-class="avatar" src="{{avatar || cdn+'/static/wechat/img/no_avator.png'}}"
+        />
+        <view>
+          <view>{{name}}</view>
+          <!-- <view>南京新街口分行丨客户经理</view> -->
+        </view>
+      </view>
+      <view>
+        <view>累计获得苏银豆</view>
+        <view>{{score_total}}<image src="{{cdnMer}}/icon_mrhref.png"></image></view>
+      </view>
+      <view bindtap="goSyd" class="on_off">
+        权益兑换<image src="{{cdnMer}}/icon_mrarrow.png"></image>
+      </view>
+    </view>
+    <view class="totaldata">
+      <image src="{{cdnMer}}/icon_histogram1.png"></image>
+      <view bindtap="onoff" data-event="show_daytype">
+        <image src="{{cdnMer}}/icon_mcalendar.png"></image>
+        <text>{{daytype_name}}</text>
+        <image src="{{cdnMer}}/icon_mrhref.png"></image>
+      </view>
+      <view>
+        <view>单位丨新客户户数</view>
+        <view class="table">
+          <view>
+            <!-- <image src="{{cdnMer}}/datasta_hbg.png" mode="heightFix"></image> -->
+            <view><text>数据\n统计</text></view>
+            <view>分享</view>
+            <view>申请成功</view>
+            <view>申请失败</view>
+            <view><image src="{{cdnMer}}/icon_msydou.png"></image>奖励</view>
+          </view>
+          <view>
+            <view>总计</view>
+            <view>{{total_share}}</view>
+            <view>{{total_share_suc}}</view>
+            <view>{{total_share_fail}}</view>
+            <view>{{score_total}}</view>
+          </view>
+        </view>
+        <view class="more" bindtap="onoff" data-event="show_detail">查看明细</view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{title=='权益兑换'}}">
+    <view class="card card2">
+      <image src="{{cdnMer}}/dhqy_img.png" mode="widthFix"></image>
+      <view>
+        <view>苏银豆余额</view>
+        <view>{{syd_score}}</view>
+      </view>
+      <view>兑换权益</view>
+      <view>
+        <block wx:for="{{syd_goods}}" wx:key="index">
+          <view bindtap="onSelectGoods" data-good="{{item}}">
+            <image src="{{item.src}}">
+              <view>{{item.price}}苏银豆</view>
+            </image>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="totaldata">
+      <image src="{{cdnMer}}/icon_histogram1.png"></image>
+      <view bindtap="onoff" data-event="show_daytype">
+        <image src="{{cdnMer}}/icon_mcalendar.png"></image>
+        <text>{{daytype_name}}</text>
+        <image src="{{cdnMer}}/icon_mrhref.png"></image>
+      </view>
+      <view>
+        <view>单位丨新客户户数</view>
+        <view class="table">
+          <view>
+            <!-- <image src="{{cdnMer}}/datasta_hbg.png" mode="heightFix"></image> -->
+            <view><text>奖励\n名称</text></view>
+            <view>奖励</view>
+            <view><image src="{{cdnMer}}/icon_msydou.png"></image>余额</view>
+          </view>
+          <block wx:if="{{syd_list.length>0}}">
+            <view wx:for="{{syd_list}}" wx:key="index">
+              <view>{{item.description}}</view>
+              <view>{{item.debitorcredit=='C'?'+':'-'}}{{item.pointsamount}}</view>
+              <view>{{item.pointsbalance}}</view>
+            </view>
+          </block>
+          <block wx:else>
+            <view>
+              <view></view>
+              <view>暂无数据</view>
+              <view></view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+
+</view>
+
+<van-popup show="{{show_rule}}" bind:close="onoff" data-event="show_rule" round>
+  <view class="popup">
+    <view>
+      <image src="{{cdnMer}}/icon_rightImg.png"></image>
+      活动规则
+    </view>
+    <view class="rule">
+      <view>
+        <view>1．微信搜索小程序“江苏银行随e融”，选择“出口贸e融”，点击“分享”，即可邀请好友参与申请。</view>
+        <view>2．每推荐一位客户申请“出口贸e融”，首次申请成功后，若未通过审批，您可获得价值50元苏银豆；若通过审批，您可获得价值100元苏银豆。</view>
+      </view>
+      <view>
+        <view>（1）同一客户仅统计首次申请时各阶段的奖励；</view>
+        <view>（2）苏银豆兑换礼品需先至江苏银行手机银行或天天理财APP开户，海量好礼等着您。</view>
+      </view>
+      <view>活动时间为2023年2月1日﹣2023年12月31日。</view>
+      <view>江苏银行有权在法律允许的范围内对本次活动予以解释。</view>
+    </view>
+    <button bindtap="onoff" data-event="show_rule">确认</button>
+  </view>
+</van-popup>
+
+<van-popup show="{{show_detail}}" bind:close="onoff" data-event="show_detail" round>
+  <view class="popup">
+    <view>
+      <image src="{{cdnMer}}/icon_rightImg.png"></image>
+      查看明细
+    </view>
+    <scroll-view scroll-y class="scroll_tb">
+      <view class="tb">
+        <view>
+          <view>企业名称</view>
+          <view>奖励苏银豆</view>
+          <view>时间</view>
+        </view>
+        <block wx:if="{{detail_list.length>0}}">
+          <view wx:for="{{detail_list}}" wx:key="index" class="tr">
+            <view>{{item.enterPriseName}}</view>
+            <view>{{item.awardNum}}</view>
+            <view>{{item.addTime}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="tr">
+            <view>暂无数据</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <button bindtap="onoff" data-event="show_detail">确认</button>
+  </view>
+</van-popup>
+
+<van-popup show="{{show_tip}}" bind:close="onoff" data-event="show_tip" round closeable close-icon="close">
+  <view class="tip">
+    <view>请至江苏银行手机银行或天天理财APP兑换好礼</view>
+  </view>
+</van-popup>
+
+<van-action-sheet show="{{show_daytype}}" actions="{{daytypes}}" bind:close="onoff" bind:cancel="onoff" data-event="show_daytype" bind:select="onSelectDaytype" cancel-text="取消" />
+
+<van-calendar show="{{show_calendar}}" bind:close="onoff" data-event="show_calendar" bind:confirm="confirmCalendar" color="#3C5CD5" type="range" min-date="{{calendar_range[0]}}" max-date="{{calendar_range[1]}}" title="选择日期" />
+
+<van-dialog id="van-dialog" confirm-button-color="#415FCD" />
+<van-toast id="van-toast" />

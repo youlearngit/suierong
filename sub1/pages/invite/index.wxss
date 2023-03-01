@@ -1,0 +1,262 @@
+/* sub1/pages/invite/index.wxss */
+.button_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: absolute;
+  top: 522rpx;
+  left: 160rpx;
+  }
+  .entub{
+    width: 200rpx;
+  }
+ 
+ .normal_button{
+   width: 330rpx;
+  opacity: 0.42;
+  font-family: SourceHanSansSC-Regular;
+  color: #D92727;
+  letter-spacing: 0;
+  z-index: 2;
+  }
+  
+  /* ��ťѡ�� */
+  .checked_button{
+  width: 330rpx;
+  font-family: SourceHanSansSC-Bold;
+  color: #D92727;
+  letter-spacing: 0;
+  font-weight: 600;
+  z-index: 2;
+  }
+.myinji{
+  position: absolute;
+  left: -1rpx;
+  top: 6rpx;
+}
+.mysubtag{
+  position: absolute;
+  left: 329rpx;
+  top: 6rpx;
+}
+.myabsui{
+  width: 120rpx;
+  height: 20rpx;
+}
+/* 77777777777777777777777777777777777777 */
+.content {
+  padding: 398rpx 0 0;
+}
+.bg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.field {
+  width: 566rpx;
+  margin: 0 auto;
+  padding: 30rpx 0;
+  top: 197rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1rpx rgba(154, 129, 86, 0.19);
+  position: relative;
+}
+.content .field:nth-of-type(2) {
+  border: none;
+}
+
+.enterprise .field {
+  width: auto;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+.enterprise .field:last-child {
+  border: none;
+}
+
+.enterprise .input-placeholder {
+  font-size: 28rpx;
+  color: #894f35;
+  opacity: 0.4;
+}
+
+.enterprise {
+  width: 590rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  margin: 0 auto;
+  opacity: 0.8;
+  background: rgba(229, 161, 107, 0.14);
+  border: 1rpx solid rgba(158, 66, 25, 0.13);
+  border-radius: 10rpx;
+}
+
+.enter-list {
+  width: 100%;
+  max-height: 340rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #041733;
+  line-height: 50rpx;
+  position: absolute;
+  box-shadow: 0rpx 5rpx 20rpx 0rpx rgba(0, 0, 0, 0.16);
+  z-index: 9;
+  background: white;
+  top: 90rpx;
+  padding: 10rpx 20rpx;
+  text-align: right;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background-color: #FFFDF7;
+}
+input {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 30rpx;
+}
+.enterprise input {
+  font-family: SourceHanSansSC-Medium;
+  font-size: 28rpx;
+  color: #894f35;
+}
+
+.label {
+  width: 224rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 30rpx;
+  color: #333333;
+  display: flex;
+  align-items: flex-end;
+}
+
+.enterprise .label {
+  font-size: 28rpx;
+  color: #894f35;
+}
+
+.label-tips {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 24rpx;
+  color: #bababa;
+  margin: 0 8rpx;
+}
+.input-placeholder {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 30rpx;
+  color: #bbbbbb;
+  letter-spacing: 0;
+  text-align: right;
+}
+.footer {
+  width: 100%;
+  position: absolute;
+  top: 1077rpx;
+}
+.content-btn {
+  width: 450rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-family: SourceHanSansSC-Medium;
+  font-size: 30rpx;
+  color: #d92727;
+  letter-spacing: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+.tips {
+  padding: 70rpx 0 0;
+  width: 500rpx;
+  height: 576rpx;
+  text-align: center;
+}
+.tips-icon--error {
+  width: 160rpx;
+  margin: 0 auto;
+}
+.tips-msg1 {
+  font-size: 34rpx;
+  color: #333333;
+  margin: 44rpx 0 0;
+}
+.tips-msg2 {
+  width: 440rpx;
+  font-size: 28rpx;
+  color: #333333;
+  /* margin: 16rpx auto 83rpx; */
+  margin: 50rpx auto 83rpx;
+}
+.tips-btn--confirm {
+  width: 388rpx;
+  height: 77rpx;
+  line-height: 77rpx;
+  font-size: 30rpx;
+  color: #b21515;
+  letter-spacing: 0;
+  margin: 0 auto;
+}
+
+.van-picker__cancel,
+.van-picker__confirm {
+  font-family: SourceHanSansSC-Regular !important;
+  font-size: 30rpx !important;
+  color: #b21515 !important;
+}
+
+.van-cell {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+.content-invitation {
+  width: 590rpx;
+  margin: 0 auto;
+  padding: 280rpx 0 0;
+}
+.content-invitation--head {
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+}
+.content-invitation--desc {
+  font-family: SourceHanSansSC-Regular;
+  text-indent: 56rpx;
+  font-size: 28rpx;
+  color: #151515;
+  letter-spacing: 0;
+  text-align: justify;
+  line-height: 48rpx;
+  padding: 58rpx 0 80rpx;
+}
+.content-invitation--banner {
+  width: 590rpx;
+  margin: 0 auto;
+  padding: 0 0 129rpx;
+}
+.content-invitation--btn__confirm {
+  width: 454rpx;
+  height: 86rpx;
+  margin: 0 auto;
+  line-height: 86rpx;
+  font-family: SourceHanSansSC-Medium;
+  font-size: 30rpx;
+  color: #b21515;
+  letter-spacing: 0;
+  text-align: center;
+}
+button::after {
+  border: none;
+}
+
+.footer-msg {
+  width: 100%;
+  text-align: center;
+  opacity: 0.48;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 24rpx;
+  color: #d92727;
+  margin: 68rpx 0 0;
+}

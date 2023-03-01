@@ -1,0 +1,76 @@
+/* sub1/pages/sui/desc.wxss */
+
+.a1 {
+    width: 100%;
+    display: flex;
+    padding: 40rpx 30rpx 0;
+    align-items: center;
+    height: 49rpx;
+}
+
+.b1 {
+    width: 44rpx;
+    position: relative;
+}
+
+.b1 image {
+    width: 44rpx;
+    position: absolute;
+    z-index: -1;
+}
+
+.b2 {
+    margin-left: 20rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 30rpx;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 49rpx;
+}
+
+.c1 {
+    font-family: '';
+    font-size: 28rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 45rpx;
+
+}
+
+.b3 {
+    margin: 10rpx 0 0 94rpx;
+    width: 626rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 46rpx;
+}
+
+.a9 {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 140rpx;
+    background-color: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 0 27px 0 rgba(0, 0, 0, 0.07);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.a9b2 {
+    width: 90%;
+    height: 100rpx;
+    background-image: linear-gradient(0deg, #4586e6 0%, #5898f5 100%);
+    border-radius: 50rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    color: #ffffff;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 100rpx;
+    margin-left: 20rpx;
+}

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-icon": "/sub3/static/vant/weapp/icon/index",
+    "van-popup": "/sub3/static/vant/weapp/popup/index",
+    "van-button": "/sub3/static/vant/weapp/button/index",
+    "my-poster": "/sub3/pages/bbx/component/poster/index",
+    "my-login": "/component/login/index"
+  }
+}

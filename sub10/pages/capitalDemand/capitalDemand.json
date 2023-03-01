@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "tabs": "../../component/capital-demand-tab/capital-demand-tab",
+    "dialog": "../../component/dialog/index"
+  },
+  "navigationBarTitleText": "资金需求",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black"
+
+}
+

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-login": "/component/login/index"
+  },
+  "navigationBarTitleText":"卡脖子专项贷"
+}

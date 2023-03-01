@@ -1,0 +1,338 @@
+<wxs src="./utils.wxs" module="utils" />
+<view class="bg">
+  <image src="{{preffixUrl}}rcbj.png"> </image>
+</view>
+<view class="rc">
+  <view class="dvOrfx">
+    <!-- 定位 -->
+		<block wx:if="{{bbx_channel=='310000'}}">
+		
+  </block>
+  <block wx:elif="{{bbx_channel=='320282'}}">
+
+  </block>
+  <block wx:else>
+    <picker wx:if="{{location.adcode}}" mode="region" bindchange="onRegionChange" value="{{location.codes}}">
+      <view class="location">
+        <image src="{{preffixUrl}}rcsydw.png" mode="widthFix"/>
+        <span>{{location.district || location.city || location.province}}</span>
+        <image src="{{preffixUrl}}rcsyx.png" mode="widthFix"/>
+      </view>
+    </picker>
+  </block>
+  	<!-- 分享按钮 -->
+		<view class="share" bindtap="share">
+      <view class="share_image">
+        <image src="{{preffixUrl}}rcsydv.png"></image>
+      </view>
+      <view class="share_fx">分享</view>
+			<!-- <image src="{{preffixUrl}}home_share2.png" mode="widthFix"></image> -->
+		</view>
+
+
+  </view>
+  <view class="commissioner" style="background-image: url({{preffixUrl}}zymp2.png);">
+   
+   <view class="commissioner_bottom">
+    <view class="headPortrait">
+      <image src="{{list.HEAD?list.HEAD:(preffixUrl+'avatar_default.png')}}"></image>
+    </view>
+    <view class="bottom_info">
+      <view class="info_top">
+        <view class="info_name">
+          {{list.STAFFNAME}}
+        </view>
+        <view class="info_type">
+          <image src="{{preffixUrl}}rcfuzy2.png"></image>
+        </view>
+      </view>
+      <view class="info_bottom">
+        <view class="WORKUNIT">{{list.WORKUNIT}}</view>
+        <view class="bottom_zhong" style="margin-left: 20rpx;">|</view>
+        <view class="JOB" style="margin-left: 20rpx;">{{list.JOB}}</view>
+      </view>
+    </view>
+    <view class="bottom_phone" bindtap="phoneCall"  data-phone="{{list.TEL}}">
+      <image src="{{preffixUrl}}lxfstb.png"></image>
+    </view>
+   </view>
+   <navigator url="/sub3/pages/bbx/staff_list?location={{location_json}}&location2={{location2}}" hover-class="none" class="commissioner_top">
+    <view class="top_title">
+      查看更多服务专员
+    </view>
+    <view class="top_image">
+      <image src="{{preffixUrl}}tz2.png"></image>
+    </view>
+   </navigator>
+  </view>
+	<view class="head">
+
+		<!-- 头图 -->
+		<!-- <block wx:if="{{bbx_channel=='310000'}}">
+			<image src="{{preffixUrl}}bg_head_hjyc.png" mode="widthFix"/>
+		</block>
+		<block wx:else>
+			<image src="{{preffixUrl}}bg_head5.png" mode="widthFix"/>
+		</block> -->
+    <view class="swiperImage">
+      <swiper class="swiper" indicator-dots="true" indicator-color="#D8D8D8" indicator-active-color="#8C8E9E" autoplay="true" interval="5000" duration="500" circular="true" snap-to-edge="5">
+        <swiper-item>
+          <navigator hover-class="none" url="/sub3/pages/bbx/shipei3?location={{location_json}}">
+					<image class="Image_rc" src="{{preffixUrl}}banner1.png" mode="widthFix"/>
+				</navigator>
+        </swiper-item>
+			<swiper-item wx:for="{{entityList}}" wx:key="key" wx:index="index" wx:item="item">
+				<view class="Image_rc" hover-class="none" bindtap="getUrl" data-url="{{item.LINK_URL}}" data-appid="{{item.APP_ID}}"  data-APP_IDTYPE="{{item.APP_IDTYPE}}">
+					<image class="Image_rc" wx:if="{{item.FILE_TYPE == '1'}}" src="{{cndUrl}}{{item.PICTURE_PATH}}"/>
+          <video class="Image_rc" wx:else src="{{cndUrl}}{{item.PICTURE_PATH}}"></video>
+				</view>
+			</swiper-item>
+		</swiper>
+    </view>
+		
+		<!-- 适配按钮 -->
+		<block wx:if="{{bbx_channel=='310000'}}">
+
+		</block>
+		<block wx:else>
+			<!-- <navigator class="head-btn" url="/sub3/pages/bbx/shipei3?location={{location_json}}" hover-class="none">
+				<image src="{{preffixUrl}}btn_adapt.png" mode="widthFix" />
+			</navigator> -->
+		</block>
+
+	
+	</view>
+	
+	<!-- 搜索框 -->
+	<!-- <block wx:if="{{bbx_channel=='310000'}}">
+	
+	</block>
+	<block wx:elif="{{bbx_channel=='320282'}}">
+		<view class="search tdyc-search">
+			<image class="search-bg" src="{{preffixUrl}}bg_search_input_taodu.png" mode="widthFix" />
+			<view class="search-body">
+				<input type="text" confirm-type="search" placeholder-class="search-placeholder" placeholder="请输入关键字" model:value="{{word}}" bindconfirm="onSearchEvent" />
+				<image class="search-icon" src="{{preffixUrl}}icon_32_search.png" mode="widthFix" />
+				<view class="search-btn" bind:tap="onSearchEvent"><image src="{{preffixUrl}}icon_right_bigw.png" mode="widthFix"/></view>
+				<view class="search-tip">
+					<image src="{{preffixUrl}}decorate_remarks.png" mode="widthFix"/>
+					<view>试试输入想要了解的内容吧，如：“补贴”、“奖励”</view>
+				</view>
+			</view>
+		</view>
+	</block>
+	<block wx:else>
+		<view class="search">
+			<image class="search-bg" src="{{preffixUrl}}bg_search_input.png" mode="widthFix" />
+			<view class="search-body">
+				<input type="text" confirm-type="search" placeholder-class="search-placeholder" placeholder="请输入关键字" model:value="{{word}}" bindconfirm="onSearchEvent" />
+				<image class="search-icon" src="{{preffixUrl}}icon_32_search.png" mode="widthFix" />
+				<view class="search-btn" bind:tap="onSearchEvent"><image src="{{preffixUrl}}icon_right_bigw.png" mode="widthFix"/></view>
+				<view class="search-tip">
+					<image src="{{preffixUrl}}decorate_remarks.png" mode="widthFix"/>
+					<view>试试输入想要了解的内容吧，如：“补贴”、“奖励”</view>
+				</view>
+			</view>
+		</view>
+	</block> -->
+
+	<!-- 主要功能 -->
+	<block wx:if="{{bbx_channel=='310000'}}">
+	
+	</block>
+	<block wx:else>
+		<view class="title">
+			主要功能
+		</view>	
+		<view class="cards">
+			<navigator class="card" url="/sub3/pages/bbx/monthlyCalendar" hover-class="none">
+				<image class="card-bg" src="{{preffixUrl}}zcylkp.png"></image>
+				<view class="card-body">
+					<view><image src="{{preffixUrl}}purple_rectangle.png" mode="widthFix"></image>政策月历</view>
+					<!-- <view>一键了解政策信息</view> -->
+				</view>
+			</navigator>
+      <navigator class="card" url="/sub3/pages/bbx/overview?location={{location_json}}" hover-class="none">
+			
+				<image class="card-bg" src="{{preffixUrl}}zczlkp.png"></image>
+				<view class="card-body">
+					<view><image src="{{preffixUrl}}blue_rectangle.png" mode="widthFix"></image>政策总览</view>
+					<!-- <view>双重数据交叉验证</view> -->
+				</view>
+			</navigator>
+      <view class="card" bindtap="toTalentPage" data-type="1">
+				<image class="card-bg" src="{{preffixUrl}}jsdjkp.png"></image>
+				<view class="card-body">
+					<view><image src="{{preffixUrl}}vsjx.png" mode="widthFix"></image>技术对接</view>
+					<!-- <view>双重数据交叉验证</view> -->
+				</view>
+			</view>
+      <view class="card" bindtap="toTalentPage" data-type="0">
+				<image class="card-bg" src="{{preffixUrl}}rcsfrzkp.png"></image>
+				<view class="card-body">
+					<view><image src="{{preffixUrl}}csjx.png" mode="widthFix"></image>人才身份认证</view>
+					<!-- <view>双重数据交叉验证</view> -->
+				</view>
+			</view>
+		</view>
+	</block>
+
+	<!-- 金融服务 -->
+	<view class="title">
+		金融服务
+		<navigator class="title-more" url="/sub3/pages/bbx/more?id=0" hover-class="none">更多<van-icon name="arrow"/></navigator>
+	</view>
+	<view class="box">
+		<navigator class="nav" url="/sub1/pages/talent/index?channel={{talent_channel}}" hover-class="none" bindtap="navTap" data-tracking="6">
+			<image src="{{preffixUrl}}talent_card_apply3.png" mode="widthFix"></image>人才信用卡
+		</navigator>
+		<navigator class="nav" url="/sub3/pages/bbx/talent_finance" hover-class="none" bindtap="navTap" data-tracking="7">
+			<image src="{{preffixUrl}}talent_finance3.png" mode="widthFix"></image>人才专享理财
+		</navigator>
+		<navigator wx:if="{{bbx_channel!='310000'}}"  class="nav" url="/sub1/pages/consumer/index" hover-class="none" bindtap="navTap" data-tracking="8">
+			<image src="{{preffixUrl}}talent_consumption_loan3.png" mode="widthFix"></image>人才消费贷
+		</navigator>
+    <navigator wx:if="{{bbx_channel=='310000'}}" class="nav" url="/sub3/pages/bbx/talents/index?channel={{sui_channel}}&talents=1&phone={{phone}}&talent_level={{talent_level}}&idcard={{idcard}}" hover-class="none" bindtap="navTap" data-tracking="8">
+			<image src="{{preffixUrl}}talent_consumption_loan3.png" mode="widthFix"></image>人才个人贷
+		</navigator>
+		<navigator wx:if="{{bbx_channel!='310000'}}" class="nav" url="/sub6/pages/rcdjyd/index?channel={{sui_channel}}" hover-class="none" bindtap="navTap" data-tracking="9">
+			<image src="{{preffixUrl}}talent_sui_loan3.png" mode="widthFix"></image>人才经营贷
+		</navigator>
+    <navigator wx:if="{{bbx_channel=='310000'}}"  class="nav" url="/sub3/pages/bbx/talents/index?channel={{sui_channel}}&talents=0&phone={{phone}}&talent_level={{talent_level}}&idcard={{idcard}}" hover-class="none" bindtap="navTap" data-tracking="9">
+			<image src="{{preffixUrl}}talent_sui_loan3.png" mode="widthFix"></image>人才企业贷
+		</navigator>
+		<navigator class="nav" url="/sub3/pages/bbx/more_detail?code=1&pic={{cndUrl+'/static/wechat/img/rcd/talentinv.jpg'}}" hover-class="none" bindtap="navTap" data-tracking="10">
+			<image src="{{preffixUrl}}talent_tou.png" mode="widthFix"></image>人才投
+		</navigator>
+		<navigator class="nav" url="/sub3/pages/bbx/talent_zu" hover-class="none" bindtap="navTap" data-tracking="11">
+			<image src="{{preffixUrl}}talent_zu.png" mode="widthFix"></image>人才租
+		</navigator>
+	</view>
+
+	<!-- 增值服务 -->
+	<view class="title">
+		增值服务
+		<navigator class="title-more" url="/sub3/pages/bbx/more?id=1" hover-class="none">更多<van-icon name="arrow"/></navigator>
+	</view>
+	<view class="box box2">
+		<navigator class="nav" url="/pages/showWeb/showWeb?skipUrl=https://csh.jsbchina.cn/eHomeLife/calculator/monthLimitCalculator.do" hover-class="none" bindtap="navTap" data-tracking="12">
+			<image src="{{preffixUrl}}mortgage_calculation3.png" mode="widthFix"></image>房贷计算器
+		</navigator>
+		<navigator class="nav" url="/pages/house/house" hover-class="none" bindtap="navTap" data-tracking="13">
+			<image src="{{preffixUrl}}house_assessment3.png" mode="widthFix"></image>房产评估
+		</navigator>
+		<navigator class="nav" url="/sub3/pages/bbx/undertaking_consult?location={{location_json}}" hover-class="none" bindtap="navTap" data-tracking="14">
+			<image src="{{preffixUrl}}undertaking_consult.png" mode="widthFix"></image>创业咨询
+		</navigator>
+		<navigator class="nav" url="/sub2/pages/ecCalculator/index" hover-class="none" bindtap="navTap" data-tracking="15">
+			<image src="{{preffixUrl}}foreign_rate3.png" mode="widthFix"></image>结汇购汇
+			<!-- /sub3/pages/bbx/foreign_rate -->
+		</navigator>
+	</view>
+
+	<!-- 地方服务 -->
+	<block wx:if="{{bbx_channel=='1000'}}">
+		<view class="title">
+			地方服务
+		</view>
+		<view class="box box2">
+			<navigator class="nav" url="/sub3/pages/bbx/home?channel=320282" hover-class="none" open-type="redirect">
+				<image src="{{preffixUrl}}place_icon_yixing.png" mode="widthFix"></image>宜兴
+			</navigator>
+			<navigator class="nav" url="/sub3/pages/bbx/home?channel=310099MIN" hover-class="none" open-type="redirect">
+				<image src="{{preffixUrl}}place_icon_shanghai.png" mode="widthFix"></image>上海
+			</navigator>
+			<!-- <view class="nav" bindtap="toHJYC">
+				<image src="{{preffixUrl}}place_icon_shanghai.png" mode="widthFix"></image>上海
+			</view>	 -->
+			<view class="nav" bindtap="comingSoom">
+				<image src="{{preffixUrl}}place_icon_hangzhou.png" mode="widthFix"></image>杭州
+			</view>
+			<view class="nav" bindtap="comingSoom">
+				<image src="{{preffixUrl}}place_icon_taizhou.png" mode="widthFix"></image>泰州
+			</view>
+			<!-- <view class="nav" bindtap="comingSoom">
+				<image src="{{preffixUrl}}place_icon_xuzhou.png" mode="widthFix"></image>徐州
+			</view> -->		
+		</view>
+	</block>
+
+	<!-- 页底 -->
+	<block wx:if="{{bbx_channel=='320282'}}">
+		<view class="tdyc-taoduyingcai">
+			<image src="{{preffixUrl}}home_yixing_taoduyingcai.jpg" mode="widthFix" bindtap="imagePreview" data-img="{{preffixUrl}}home_yixing_taoduyingcai.jpg"></image>
+		</view>
+	</block>
+	<block wx:if="{{bbx_channel=='310000'}}">
+		<view class="title">
+			其他功能
+		</view>
+		<view class="hjyc-talent">
+			<image src="{{preffixUrl}}talent_auth_hjyc.png" mode="widthFix"></image>
+			<view class="hjyc-talent-title">
+				<view>人才身份认证</view>
+				<view>双重数据交叉验证</view>
+			</view>
+			<view class="hjyc-talent-btn" bindtap="toTalentPage" data-type="0">点击认证</view>
+		</view>
+		<view class="hjyc-more">
+			<view></view><text>更多服务</text><view></view>
+		</view>
+		<view class="hjyc-app" style="background-image: url({{preffixUrl}}hjyc_app_bottom_bg.png); background-size: 100% 100%;">
+			<view class="hjyc-app-btn">
+				<view>海聚英才</view>
+				<view bindtap="toHJYC">立即前往<image src="{{preffixUrl}}hjyc_app_goto.png" mode="widthFix"></image></view>
+			</view>
+		</view>
+	</block>
+
+	<!-- 人才专员 悬浮按钮 -->
+	<!-- <navigator url="/sub3/pages/bbx/staff_list?location={{location_json}}&location2={{location2}}" hover-class="none">
+		<image class="float_talent_btn" src="{{preffixUrl}}talent_float_btn.png" mode="widthFix"></image>
+	</navigator> -->
+
+</view>
+
+<van-popup show="{{popup_image.show}}" position="center" bind:click-overlay="imagePreview">
+	<image src="{{popup_image.img}}" mode="widthFix" style="width:750rpx" show-menu-by-longpress="true"></image>
+</van-popup>
+
+<van-popup show="{{popup_phone.show}}" position="bottom" custom-class="popup" round closeable bind:close="popupClose" bind:click-overlay="popupClose" data-event="popup_phone" >
+	<view>申请获取您的手机号</view>
+	<view>您的手机号将用于人才服务百宝箱</view>
+	<view>
+		<van-button type="primary" size="small" open-type="getPhoneNumber" bindgetphonenumber="phoneGet">允许</van-button>
+	</view>
+</van-popup>
+
+<canvas
+	canvas-id="mycanvas"
+	style="width:720px;height:1216px;position:fixed;top:9999px;background-color:white"
+></canvas>
+<my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>
+<my-poster shareBox="{{my_poster.shareBox}}" hidePoster="{{my_poster.hidePoster}}" imagePath="{{my_poster.imgPath}}"></my-poster>
+<van-popup show="{{popup_poster.show}}" bind:close="popupClose" data-event="popup_poster" position="bottom">
+    <view class="poster-t1">欢迎体验,感谢分享。</view>
+    <scroll-view scroll-y style="max-height:60vh">
+        <view class="poster-t5">
+            <block wx:for="{{popup_poster.posters}}" wx:key="index">
+                <view class="poster-t51" bind:tap="posterChoose" data-id="{{index}}">
+                    <image src="{{item.img}}" mode="widthFix" style="width:100%"></image>
+                    <view class="poster-t53 {{popup_poster.select==index?'poster-t531':''}}" hover-class="none" hover-stop-propagation="false">
+                        {{item.title}}
+                    </view>
+                    <image wx:if="{{popup_poster.select==index}}" class="poster-t52" src="{{cndUrl}}/static/wechat/img/sui/sui-1076.png" mode="widthFix"></image>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+    <view class="poster-t6" wx:if="{{popup_poster.select==-1}}" style="opacity: 0.5;">请选择版本</view>
+    <view class="poster-t6" bind:tap="posterCreate" wx:if="{{popup_poster.select!=-1 && my_poster.imgPath!=''}}">
+        分享二维码
+    </view>
+    <view class="poster-t6" hover-class="none" hover-stop-propagation="false" wx:if="{{popup_poster.select!=-1 && my_poster.imgPath==''}}">
+        <image src="{{cndUrl}}/static/wechat/img/sui/loading.gif" mode="widthFix" style="width:40rpx;margin:0 10rpx"></image>
+        请稍等
+    </view>
+    <view style="height:30rpx"></view>
+</van-popup>

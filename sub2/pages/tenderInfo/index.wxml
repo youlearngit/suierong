@@ -1,0 +1,107 @@
+<view class="card1">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_73.png" class="card1Img"></image>
+    <view class="card1txt">{{a.productName}}</view>
+</view>
+<view class="card2">
+    <view class="card1txt" style=" margin-left: 5%;text-align:center;margin-top:22rpx;">产品信息</view>
+    <view class="card2bor"></view>
+    <text class="card2txt">{{a.productDesc==''?'暂无介绍':a.productDesc}}</text>
+</view>
+<view class="card3">
+    <view class="weui-cell weui-cell_input" style="margin-top: 28rpx !important;">
+        <view class="weui-cell__hd">预计融资利率</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{a.rateMin}}%-{{a.rateMax}}%</view>
+    </view>
+    <view class="weui-cell weui-cell_input" style="margin-top: 14rpx !important;">
+        <view class="weui-cell__hd" style="font-size: 11px !important;;color: #AAAAAA !important;;">
+            融资成本= ∑(单张票面金额×融资利率×票据实际剩余天数/360)
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">预计创设规模</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{a.amount/100000000}}亿元</view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">预计发行日期</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{a.issueDate}}</view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">预计到期日</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{a.maturityDate}}</view>
+    </view>
+</view>
+<view class="card3">
+    <view class="weui-cell weui-cell_input" style="margin-top: 28rpx !important;">
+        <view class="weui-cell__hd">票据资产类型</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft'>{{a.draftType=='1'?'银票':'商票'}}</view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">是否已贴现票据</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft'>{{a.isDscnt=='0'?'未贴现票据':'已贴现票据'}}</view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">票据信用主体要求</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft ' style="max-width: 60%;text-align:left;{{s?'text-overflow: ellipsis;white-space: nowrap;overflow: hidden;':'word-warp:break-word;'}}" bindtap="change">{{a.creditDesc}}</view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">票据到期日范围</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{a.effectTimeMin}}到{{a.effectTimeMax}}</view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">票面金额范围(万元)</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft'>{{a.draftAomountMin/10000}}万元-{{a.draftAomountMax/10000}}万元</view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">持票人类型</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{a.holderType=='1'?'企业':'金融机构'}}</view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">其他</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft'></view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd" style="font-size: 14px;color: #333333;letter-spacing: 0.16px;margin-bottom:2%;word-wrap:break-word;width:100%;">
+            {{a.remarks}}
+        </view>
+    </view>
+</view>
+<view class="submit">
+    <view class="sub-back" bindtap="back">返回</view>
+    <view class="sub-confi" bindtap="formSubmit">申请</view>
+</view>
+<view class="foot">
+    <view class="foot1">
+    <view class="foot-bor"></view>
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_70.png" class="foot-img"></image>
+    <view class="foot-bor"></view>
+</view>
+<view class="foottxt">企业银行</view>
+</view>
+
+<view class="loginWrap" hidden="{{loginFlag}}">
+    <view class="login">
+        <view class="tips">
+            <view class="h2">您尚未登录</view>
+            <view class="p">请您授权登录，获取更多体验</view>
+        </view>
+        <view class="slogan">
+            <image wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/logo.png'></image>
+            <view>江苏银行随e融服务平台</view>
+        </view>
+        <view class="button cancel" bindtap='logincancel'>暂不登录</view>
+        <button class='button do' open-type="getPhoneNumber" lang="zh_CN" bindgetphonenumber="bindgetphonenumber">
+            授权登录
+        </button>
+    </view>
+</view>

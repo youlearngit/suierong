@@ -1,0 +1,123 @@
+<cu-custom isCustom="{{true}}" currentPage="{{currentPage}}">
+    <view slot="content">江苏银行随e融</view>
+</cu-custom>
+<view class="f1">
+    <image src="{{cndUrl}}/static/wechat/img/sui/sui-2007.png" mode="widthFix"></image>
+</view>
+<view class="top-banner" style="padding: {{160+CustomBar}}rpx 0 0rpx;">
+    <swiper class="" style="height: 250rpx;" indicator-dots="{{false}}" circular="true" autoplay interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
+        <swiper-item style='display: flex;align-items: center;' >
+            <navigator url="/sub1/pages/fund/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl&&fundConfig}}' src="{{cndUrl}}/static/wechat/img/fund/{{fundConfig.BUSINESS_URL}}" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub1/pages/share/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui2-2008.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub2/pages/qyBankRegister/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/zm/zm_108.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+    </swiper>
+</view>
+<view wx:if="{{showChatComponent}}">
+    <view class="f4" wx:if="{{showChatComponent}}">
+        <block wx:if="{{showRecentChat}}">
+            <view class="f51">
+                <view class="f511">近期查看</view>
+                <navigator url="/sub1/pages/manager/index" class="f512">
+                    <view class="f5121">查看更多</view>
+                    <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+                </navigator>
+            </view>
+            <swiper class="card-swiper" indicator-dots="{{false}}" circular="true" autoplay="{{false}}" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+                <swiper-item wx:for="{{contactList}}" wx:key class="{{cardCur==index?'cur':''}}">
+                    <view class="f52">
+                        <image class="f520" wx:if='{{cndUrl}}' src="{{item.PHOTO2?item.PHOTO2:preffixUrl + 'adviser/getAvatar?picId=' + item.PHOTO}}" mode="widthFix"></image>
+                        <view class="f521">{{item.USERNAME}}</view>
+                        <view class="f522">{{item.TEXT1}}</view>
+                        <view class="f525">
+                            <view class="f5251">{{item.TAG2[0]}}</view>
+                            <view class="f5251">{{item.TAG2[1]}}</view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </swiper>
+        </block>
+        <block wx:else>
+            <navigator class="call-icon" url="/sub1/pages/manager/index" hover-class="none">
+                <image wx:if='{{cndUrl}}' class="call-icon" src="{{cndUrl}}/static/wechat/img/sui/sui-2009.png" mode="widthFix"></image>
+            </navigator>
+        </block>
+    </view>
+</view>
+<view class="f4">
+    <!-- <view class="f41">产品推荐</view> -->
+    <view class="f51">
+        <view class="f511">产品推荐</view>
+        <navigator url="/sub1/pages/shop/more?id=0" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="s2">
+        <view class="s21" bind:tap="skip" data-code="FM001">
+            <image class="bg" src="{{cndUrl}}/static/wechat/img/sui/sui-2011.png" mode="widthFix"></image>
+            <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-FM001.png" mode="widthFix"></image>
+            <view class="title">消费随e贷</view>
+            <view class="desc">最高可贷30万元</view>
+        </view>
+        <view class="s21" bind:tap="skip" data-code="ER002">
+            <image class="bg" src="{{cndUrl}}/static/wechat/img/sui/sui-2011.png" mode="widthFix"></image>
+            <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-ER002.png" mode="widthFix"></image>
+            <view class="title">理财超市</view>
+            <view class="desc">把最好的都给您</view>
+        </view>
+        <view class="s21" style="align-self:flex-end" bind:tap="skip" data-code="GR002">
+            <image class="bg" src="{{cndUrl}}/static/wechat/img/sui/sui-2011.png" mode="widthFix"></image>
+            <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-GR002.png" mode="widthFix"></image>
+            <view class="title">信用卡</view>
+            <view class="desc">快速申请信用卡</view>
+        </view>
+        <view class="s21" style="align-self:flex-end" bind:tap="skip" data-code="FR001">
+            <image class="bg" src="{{cndUrl}}/static/wechat/img/sui/sui-2011.png" mode="widthFix"></image>
+            <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-FR001.png" mode="widthFix"></image>
+            <view class="title">精选好基</view>
+            <view class="desc">基不可失 时不再来</view>
+        </view>
+
+        <view class="s21" bind:tap="skip" data-code="creditloan">
+            <image class="bg" src="{{cndUrl}}/static/wechat/img/sui/sui-2011.png" mode="widthFix"></image>
+            <image class="icon" wx:if='{{cndUrl}}' src="../../static/images/creditloan.png" mode="widthFix"></image>
+            <view class="title">信用贷</view>
+            <view class="desc">业务特点介绍</view>
+        </view>
+
+        <view class="s21">
+           
+        </view>
+
+        
+
+        
+    </view>
+</view>
+<view class="f4">
+    <view class="f51">
+        <view class="f511">综合服务</view>
+        <navigator url="/sub1/pages/shop/more?id=3" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="f43">
+        <view class="zh-sub" wx:for="{{zh_products}}" bind:tap="skip" data-code="{{item.code}}">
+            <image wx:if='{{cndUrl&&item.code}}' src="{{cndUrl}}/static/wechat/img/sui/sui-{{item.code}}.png" mode="widthFix"></image>
+            <view class="sub-title">{{item.name}}</view>
+        </view>
+    </view>
+</view>
+<view class="" style="height:40rpx" hover-class="none" hover-stop-propagation="false"></view>

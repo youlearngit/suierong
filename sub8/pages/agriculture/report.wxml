@@ -1,0 +1,136 @@
+<!-- <wxs src="./utils.wxs" module="utils" /> -->
+<view>
+
+<view class="card-plane" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/rdbgbj.png);">
+  <view class="card" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/rdbgkp.png);">
+
+    <view class="title">{{article.TITLE}}</view>
+    <view class="details">
+      <image class="details-bg" src="{{preffixUrl}}RELEASE_TIME.png" mode="widthFix" />
+     
+     
+     
+      <view class="detail">
+        <view>报告类型：</view>
+        <view wx:if="{{article.REPORT_TYPE == 0}}">日度报告</view>
+        <view wx:if="{{article.REPORT_TYPE == 1}}">周度报告</view>
+        <view wx:if="{{article.REPORT_TYPE == 2}}">供需形势</view>
+      </view>
+    </view>
+    <view class="detail"></view>
+    <view class="head">
+      <view>
+        <image src="{{preffixUrl}}icon_26_time.png" mode="widthFix" />发布时间 {{article.RELEASE_TIME}}
+      </view>
+      <view>阅读次数 {{article.VIEW_NUMBERS || '0'}}</view>
+    </view>
+  </view>
+</view>
+<view class="body">
+
+  <!-- <block wx:if="{{article.POLICYLABEL}}">
+    <view class="c-title"><view class="c-title-icon"></view>政策标签<image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" /></view>
+    <view class="c-content">
+      <view>{{article.POLICYLABEL_text}}</view>
+    </view>
+  </block> -->
+  <!-- 
+  <block wx:if="{{article.SUPPORT_OBJECT}}">
+    <view class="c-title">
+      <view class="c-title-icon"></view>支持政策
+      <image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" />
+    </view>
+ 
+    <rich-text class="c-content" nodes="{{article.SUPPORT_OBJECT}}" space="nbsp"></rich-text>
+  </block> -->
+
+  <block wx:if="{{article.SUPPORT_OBJECT}}">
+    <view class="c-title">
+      支持对象<view class="c-title-icon"></view>
+      <image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" />
+    </view>
+    <!-- <view class="c-content">
+      <view wx:for="{{article.POLICYCONTENT_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+    </view> -->
+    <rich-text class="c-content" nodes="{{article.SUPPORT_OBJECT}}" space="nbsp"></rich-text>
+  </block>
+
+  <block wx:if="{{article.REPORT_CONTENT}}">
+    <view class="c-title">
+     
+      <image class="c-title-bg" src="{{cndUrl}}/static/wechat/img/zssn/bgjd.png" mode="widthFix" />
+    </view>
+    <view class="c-content" wx:if="{{article.ID == '0accbb6cfc6a4ace89c4cf3206f83f8e'}}">
+      <view>{{article.POLICY_CONTENT}}</view>
+    </view>
+    <rich-text wx:if="{{article.ID != '0accbb6cfc6a4ace89c4cf3206f83f8e'}}" class="c-content" nodes="{{article.REPORT_CONTENT}}" space="nbsp"></rich-text>
+  </block>
+
+  <block wx:if="{{article.REPORT_SOURCE}}">
+    <view class="c-title">
+      <!-- <view class="c-title-icon"></view> -->
+      <image class="c-title-bg" src="{{cndUrl}}/static/wechat/img/zssn/bgly.png" mode="widthFix" />
+    </view>
+    <!-- <view class="c-content">
+      <view wx:for="{{article.OTHERDEMAND_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+    </view> -->
+    <rich-text class="c-content" nodes="{{article.REPORT_SOURCE}}" space="nbsp"></rich-text>
+  </block>
+
+  <block wx:if="{{article.MANAGEDEPT}}">
+    <view class="c-title">
+      <image class="c-title-bg" src="{{cndUrl}}/static/wechat/img/zssn/bgly.png" mode="widthFix" />
+    </view>
+    <!-- <view class="c-content">
+      <view wx:for="{{article.MANAGEDEPT_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+    </view> -->
+    <rich-text class="c-content" nodes="{{article.MANAGEDEPT}}" space="nbsp"></rich-text>
+  </block>
+
+  <block wx:if="{{article.SOURCE}}">
+    <view class="c-title">
+      来源<view class="c-title-icon"></view>
+      <image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" />
+    </view>
+    <!-- <view class="c-content">
+      <view wx:for="{{article.CONSULTWAY_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+    </view> -->
+    <rich-text class="c-content" nodes="{{article.SOURCE}}" space="nbsp"></rich-text>
+  </block>
+
+</view>
+
+<block wx:for="{{staffs}}" wx:key="index">
+  <view class="staff">
+    <image wx:if="{{item.TYPE==1}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer_g.png" mode="widthFix" />
+    <image wx:elif="{{item.TYPE==2}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer.png" mode="widthFix" />
+    <image wx:elif="{{item.TYPE==3}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer_r.png" mode="widthFix" />
+    <view class="staff-body">
+      <view class="staff-inline">
+        <van-image custom-class="staff-avatar" src="{{item.HEAD?item.HEAD:(preffixUrl+'avatar_default.png')}}" fit="widthFix" round />
+        <view>
+          <view class="staff-inline staff-name">
+            <view class="staff-staffname">{{item.STAFFNAME}}</view>
+            <view class="staff-job">
+              <view>{{item.WORKUNIT}}</view>
+              <view wx:if="{{item.JOB}}">{{item.JOB}}</view>
+            </view>
+          </view>
+          <view class="staff-inline staff-tags">
+            <view wx:if="{{item.LABEL1}}">{{item.LABEL1}}</view>
+            <view wx:if="{{item.LABEL2}}">{{item.LABEL2}}</view>
+            <view wx:if="{{item.LABEL3}}">{{item.LABEL3}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="staff-remark">{{item.RESUME}}</view>
+      <image class="staff-contact" src="{{preffixUrl}}contact_information.png" mode="widthFix" bindtap="phoneCall" data-phone="{{item.TEL}}" />
+    </view>
+  </view>
+</block>
+
+<view class="bottom" wx:if="{{article.ENCLOSURE_PATH}}">
+  <button class="btn-download" bindtap="downloadPdf">下载并查看全文</button>
+</view>
+
+</view>

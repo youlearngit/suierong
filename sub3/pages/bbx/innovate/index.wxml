@@ -1,0 +1,105 @@
+<!--sub3/pages/bbx/talents/index.wxml-->
+<view class="talents" style="background-image: url({{cndUrl}}/static/wechat/img/rcd/cxbg.png);">
+  <!-- <view class="headline">
+    <image wx:if="{{talents == 1}}" src="{{cndUrl}}/static/wechat/img/rcd/grd.png"></image>
+    <image wx:if="{{talents == 0}}" src="{{cndUrl}}/static/wechat/img/rcd/qyd.png"></image>
+  </view> -->
+  <view class="card"  style="background-image: url({{cndUrl}}/static/wechat/img/rcd/kpbj.png);">
+    <view class="card_title">
+      <view>最高可贷金额</view>
+      <view class="card_image">
+        <image src="{{cndUrl}}/static/wechat/img/rcd/cxts.png"></image>
+      </view>
+    </view>
+    <view class="sum">
+      <image src="{{cndUrl}}/static/wechat/img/rcd/cx3000.png"></image>
+    </view>
+    <view class="card_kp">
+      <view class="kp_item" wx:for="{{kpList}}">
+        <view class="item_image">
+          <image src="{{cndUrl}}/static/wechat/img/rcd/{{item.image}}.png"></image>
+        </view>
+        <view class="item_title"> {{item.title}}</view>
+      </view>
+    </view>
+  </view>
+   <view class="flow">
+    <view class="flowItem">
+      <image src="{{cndUrl}}/static/wechat/img/rcd/sfrz1.png"></image>
+    </view>
+    <view class="zhong">
+      <image src="{{cndUrl}}/static/wechat/img/rcd/bzz.png"></image>
+    </view>
+    <view class="flowItem">
+      <image wx:if="{{talents == 1}}" src="{{cndUrl}}/static/wechat/img/rcd/znsp2.png"></image>
+      <image wx:if="{{talents == 0}}" src="{{cndUrl}}/static/wechat/img/rcd/zsfw2.png"></image>
+    </view>
+    <view class="zhong">
+      <image src="{{cndUrl}}/static/wechat/img/rcd/bzz.png"></image>
+    </view>
+    <view class="flowItem">
+      <image src="{{cndUrl}}/static/wechat/img/rcd/sfrz1.png"></image>
+    </view>
+    <!--  <view class="flowItem">
+      <image src="{{cndUrl}}/static/wechat/img/rcd/sfrz1.png"></image>
+    </view> -->
+      
+  </view>
+  <view class="reminder">
+    <text class="reminder_title">我行未与任何中介机构或个人合作。如您遇到以提高通过率、提高额度、降低利率、加快办理进度等为名义，向您收取费用的情况，请点击</text>
+    <view class="reminder_button" bindtap="showComplain">
+      <image src="{{cndUrl}}/static/wechat/img/rcd/jb.png"></image>
+    </view>
+  </view>
+  <view class="talents_button">
+    <view class="buttonBox">
+      <button class="fx" bindtap='showShare'>
+        <view class="ffx_image">
+          <image src="{{cndUrl}}/static/wechat/img/rcd/fx.png"></image>
+        </view>
+        <view class="fx_title">
+          分享
+        </view>
+      </button>
+      <button class="click" bindtap="getSYD">
+        获取额度
+      </button>
+    </view>
+  </view>
+  <view class="{{shareBox}} ">
+    <view class='imagePathBox'>
+      <image src="{{imagePath}}" class='shengcheng'></image>
+    </view>
+    <view hidden="{{maskHidden}} " class="mask "></view>
+    <view class="canvas-box ">
+      <canvas style="width:750px;height:1216px;position:fixed;top:9999px " canvas-id="mycanvas" />
+    </view>
+
+    <view class="tools">
+      <view class="tb cancel" bindtap='showHide'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+        <block>取消</block>
+      </view>
+      <view class="tb shareToAPP">
+        <button open-type='share'>
+          <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+        </button>
+        <block>转发</block>
+      </view>
+      <view class="tb savePic" bindtap='baocun'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+        <view class="saveTxt">朋友圈</view>
+      </view>
+    </view>
+  </view>
+  <my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>
+  <van-popup show="{{ showComplain }}" bind:close="closePopUp" position="center">
+    <view class="complain">
+      <image class="complain-bg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/complain/popup@2x.png" mode="widthFix"></image>
+      <div class="complain-phone">025-58587992</div>
+      <!-- <image class="complain-btn__cancel2" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_13.png" mode="widthFix" bindtap='closePopUp' hidden="{{!showComplain}}" style=""></image> -->
+      <div class="complain-btn__call" style="left:60rpx" bindtap='complain' data-type='call'></div>
+      <div class="complain-btn__chat" style="right:60rpx" bindtap='complain' data-type='chat'></div>
+    </view>
+  </van-popup>
+</view>

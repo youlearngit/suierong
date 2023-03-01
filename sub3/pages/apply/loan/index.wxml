@@ -1,0 +1,177 @@
+<view class="body-background-img" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/apply-loan-background.png);">
+    <view class="top">
+      <view class="top-left"></view>
+      <view class="top-right">
+        <view style="height:43rpx;"></view>
+        <text class="top-right-text2">您正在申请江苏银行e按揭贷款！请准确填写相关信息，申请信息将作为我行审批依据，感谢您的申请！</text>
+      </view>
+    </view>
+    <view class="form-body">
+      <view class="from">
+        <form bindsubmit="nextStep" report-submit='true'>
+          <view class="section pr">
+           <!-- 法人姓名 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label cGray">姓名</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="name" id="name" value="{{ form.name }}" disabled="true" bindblur='blur' type="name" />
+                </view>
+            </view>
+            <!-- 身份证号码 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label cGray">身份证号码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="name" id="name" value="{{ form.number }}" disabled="true" bindblur='blur' type="name" />
+                </view>
+            </view>
+            <!-- 证件到期日 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label cGray">证件到期日</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="name" id="name" value="{{ form.date }}" disabled="true" bindblur='blur' type="name" />
+                </view>
+            </view>
+            <!-- 性别 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label cGray">性别</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="name" id="name" value="{{ form.gender }}" disabled="true" bindblur='blur' type="name" />
+                </view>
+            </view>
+            <!-- 婚姻状况 -->
+            <view class="weui-cell weui-cell_input" wx:if="{{!loanType}}">
+                <view class="weui-cell__hd">
+                    <view class="cGray">婚姻状况</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="multiSelector"
+                        bindchange="hyzkProfession" 
+                        value="{{hyzkIndex}}" 
+                        range="{{hyzkArray}}" 
+                        range-key="name">
+                        <input type="text" 
+                                placeholder="请选择"
+                                placeholder-class="placeholder" 
+                                disabled="{{true}}" 
+                                value="{{hyzk}}"/>
+                    </picker>
+              </view>  
+            </view>
+            <!-- 可编辑选项 -->
+            <!-- 职业 -->
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label cGray">职业</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input type="text"
+                        bindtouchend="selectProfession"
+                         placeholder="请选择"
+                         disabled="{{true}}" 
+                         value="{{profession}}"/> 
+                <single-dropdown-select bind:success="selectProfessionResult" showFlag="{{showFlag}}" bind:select='selectProfession'/>  
+              </view>  
+            </view> 
+            <!-- 工作单位 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label cGray">工作单位</view>
+                </view>
+            </view>
+            <view>
+                <input class="input-adjust" 
+                       placeholder="请输入工作单位名称" 
+                       name="company_name"
+                       id="company_name"
+                       type="name" 
+                       bindblur='inputCompanyName'
+                       value="{{ form.company_name }}"/>
+            </view>
+            <!-- 公积金缴存城市 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class=" cGray">公积金/纳税/社保缴存城市</view>
+                </view>
+                <view class="weui-cell__bd">
+                <picker mode="multiSelector"
+                  bindchange="gjjCityProfession" 
+                  value="{{gjjCityIndex}}" 
+                  range="{{gjjCityArray}}" 
+                  range-key="name">
+                  <input type="text" 
+                         placeholder="请选择城市"
+                         placeholder-class="placeholder" 
+                         disabled="{{true}}" 
+                         value="{{gjjCity}}"/>
+                </picker>
+              </view>  
+            </view>
+            <!-- 月收入 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label cGray">月收入</view>
+                </view>
+                <view class="weui-cell__bd" style="padding-right: 30rpx;">
+                    <input name="name" id="name" placeholder="请输入整数金额" 
+                    bindinput='inputTaxIncome'  type="number" 
+                    value="{{ form.tax_income }}"/>
+                    <text style="position: absolute;right: 20rpx; top: 0rpx;">元</text>
+                </view>
+            </view>
+            <!-- 工作单位地址 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label cGray">工作单位地址</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <view class="k12"  bindtap="selectRegion" mode="multiSelector"    bindchange="bindMultiPickerChange2" bindcolumnchange="bindMultiPickerColumnChange2" value="{{multiIndex2}}" range="{{multiArray2}}">
+                      <view class="picker">
+                          <input disabled='disabled' id="cityID" name="workAddress" value="{{enterWorkStation}}" type="text" placeholder="请选择" placeholder-class="placeholder1" />
+                      </view>
+                  </view>
+                </view>
+            </view>
+            <view>
+                <input class="input-adjust" name="name" id="name" type="name" 
+                bindblur='inputCompanyAddress'
+                value="{{ form.company_address }}" 
+                placeholder="请输入详细地址，精确到门牌号" />
+            </view>
+            <!-- 居住状况 -->
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label cGray">居住状况</view>
+                </view>
+                <view class="weui-cell__bd">
+                  <picker mode="multiSelector"
+                  bindchange="addressStatuProfession" 
+                  value="{{addressStatuIndex}}" 
+                  range="{{addressStatuArr}}" 
+                  range-key="name">
+                  <input type="text" 
+                         placeholder="请选择"
+                         placeholder-class="placeholder" 
+                         disabled="{{true}}" 
+                         value="{{addressStatu}}"/>
+                </picker>
+                </view>
+            </view>
+          </view>
+        </form>
+      </view>
+      <button class="apply-btn" formType="submit" bindtap="nextStep">下一步</button>
+      <view class="next-info">下一步｜填写贷款信息</view>
+    </view>
+</view>
+    <!-- 显示工作单位地址选择 -->
+    <van-popup show="{{showRegionPicker}}" position="bottom" bind:close="onClose">
+        <van-picker show-toolbar columns="{{ multiArray3 }}" value-key='name' bind:cancel="onClose" bind:confirm="onConfirm" bind:change="onChange" />
+    </van-popup>

@@ -1,0 +1,7 @@
+@import "../../../pages/dian/apli.wxss";
+@import "../../../pages/mine/auth_list.wxss";
+.authCon .p{text-indent: 0}
+.appQrc{width:530rpx;height:530rpx;margin:20rpx auto;}
+.nodataTips{display:flex;align-items:center;justify-content:center;height:60%;}
+.nodataTips .p{text-indent:-1rpx;font-size: 31rpx;color: #0066b3}
+.flexClow{align-self:center;}

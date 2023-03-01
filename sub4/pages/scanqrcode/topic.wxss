@@ -1,0 +1,373 @@
+/* sub4/pages/scanqrcode/topic.wxss */
+.mini{
+  width: 100%;
+  height: 100%;
+}
+.mask{
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+  background-color:rgba(0,0,0,0.5);
+}
+.syd{
+  z-index: 2;
+  width: 80%;
+  margin:  auto;
+  position: relative; 
+  background-color: #fff;
+  height: 45%;
+  top: 25%;
+  border-radius: 20rpx;
+}
+.syd view{
+  padding-left: 20rpx;
+  padding-top: 70rpx;
+}
+.syd button{
+  width: 80%;
+  margin-top: 60rpx;
+  background: #417DD2;
+  color: #fff;
+}
+.num{
+  height: 100%;
+}
+
+.mybg{
+  width: 100%;
+  height: 100%;
+}
+.mydtk{
+  position: relative;
+  top: -1080rpx;
+}
+.mybuin{
+  background: chartreuse;
+  height: 0rpx;
+}
+.myedt{
+  width: 94%;
+  height: 650rpx;
+  margin-left: 3%;
+}
+.myeddut{
+  width: 94%;
+  height: 740rpx;
+  margin-left: 3%;
+}
+.mygold{
+  position: relative;
+  top: -1500rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.mygopr{
+  width: 200rpx;
+  height: 200rpx;
+}
+.mytit{
+  font-size: 40rpx;
+ margin-top: -10rpx;
+}
+.mynio{
+  color: #ccc;
+  font-size: 30rpx;
+}
+.myldg{
+  position: relative;
+  top: -500rpx;
+}
+.myaboral{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  left: 150rpx;
+  top: -70rpx;
+}
+
+/* 以下是答题 */
+view{
+    box-sizing: border-box;
+  }
+  .top-currin,.top-blue{
+    width: 25%;
+    text-align: center;
+    float: left;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .top-bloc{
+    width: 45rpx;
+    height: 45rpx;
+    margin: 0 auto;
+    line-height:calc(45rpx - 2px);
+    border:1px solid #666;
+    border-radius:50%;
+    font-size: 24rpx; 
+    color: #666;
+    text-align: center;
+  }
+
+  .top-bloc>text{
+    position: absolute;
+    transform: translateY(-40rpx);
+  }
+  .top-buing>span{
+    visibility: hidden;
+  }
+  .top-buing>text{
+    position: absolute;
+    transition: all 0.3s ease-in-out 0s;
+    transform: translateY(0rpx);
+  }
+  .top-buing{
+    width: 45rpx;
+    height: 45rpx;
+    margin: 0 auto;
+    line-height:calc(45rpx - 2px);
+    border:1px solid #0081FF;
+    background-color: #0081FF;
+    border-radius:50%;
+    font-size: 24rpx; 
+    color: #fff;
+    transition: all 0.3s ease-in-out 0s;
+    transform: translateY(0rpx);
+    text-align: center;
+  }
+  .centent{
+    position: relative;
+    top: -1070rpx;
+    width: 94%;
+    float: left;
+    padding: 5% 3% 3% 3%;
+    overflow: hidden;
+    margin-left: 3%;
+    height: 550rpx;
+    /* background: chartreuse; */
+    height: 800rpx;
+  }
+  .centent-title{
+    width: 90%;
+    margin: 0 0 40rpx 5%;
+    display: flex;
+    height: auto; 
+    font-size: 32rpx;
+    font-weight: 600;
+    font-family: SourceHanSansSC-Medium;
+    color: #1C294F;
+    letter-spacing: 0.36px;
+    text-align: justify;
+  }
+  .centent-group{
+    width: 100%;
+    float: left;
+    overflow: hidden;
+  }
+  .group-radio{
+    width: 85%;  
+    height: 60rpx;
+    line-height: 60rpx; 
+    text-align: center;
+    margin-left: 45rpx;
+    background: #F9F9F9;
+    margin-top: 30rpx;
+    border-radius: 10rpx;
+  }
+  .radio-span{
+    position: relative;
+    top: 2rpx;
+    margin: 0 6rpx 0 8rpx;
+    font-family: SourceHanSansSC-Medium;
+    color: #1C294F;
+  }
+  .bottom{
+    position: relative;
+    top: -1156rpx;
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    padding: 40rpx 0;
+    text-align: center;
+    display: flex;
+  }
+  .bottom>view{
+    width: 50%;
+    float: left;
+    margin: 0 5%;
+    border: 1px solid #5BA0F9;
+    border-radius: 60rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    /* position: relative;
+    top: -800rpx; */
+  }
+  .bgso{
+    color: #5BA0F9;
+    font-weight: 600;
+    font-size: 28rpx;
+  }
+  .bottom .week{
+    background: #6CB0FC;
+     color: #fff;
+     font-size: 34rpx;
+  }
+  .submission{
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    padding: 3%;
+    text-align: center;
+  }
+  .submission>view>image{
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  .submission-center{
+    width: 40%;
+    margin: 40rpx 30%;
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #5EA3FA;
+    color: #fff;
+    border-radius: 10rpx;
+  }
+  /* 金牌分数 */
+  .mymedal{
+    position: relative;
+    top: -1000rpx;
+    /* background: darkmagenta; */
+    height: 800rpx;
+  }
+  .myfs{
+    width: 200rpx;
+    line-height: 60rpx;
+    background: rgba(5,163,255,0.10);
+    border-radius: 36.5px;
+    font-family: SourceHanSansSC-Medium;
+    color: #438CFF;
+    letter-spacing: 0;
+    text-align: center;
+    margin-left: 280rpx;
+    font-size: 27rpx;
+  }
+  .mydal{
+    width: 350rpx;
+    height: 320rpx;
+    margin-left: 200rpx;
+    margin-top: 100rpx;
+  }
+  .mygoos{
+    position: relative;
+    top: 50rpx;
+  }
+  .myjpfs{
+    position: relative;
+    top: -422rpx;
+    text-align: center;
+    font-family: STHeitiSC-Medium;
+    font-size: 87.15rpx;
+    color: #FFFBF2;
+    letter-spacing: -0.35px;
+    text-shadow: 0 2px 14px rgba(255,162,0,0.99);
+  }
+ .mydin{
+  position: relative;
+  top: -166rpx;
+  width: 90%;
+  float: left;
+  overflow: hidden;
+  padding: 40rpx 0;
+  text-align: center;
+  display: flex;
+  margin-left: 5%;
+}
+.mydin>view{
+  width: 50%;
+  float: left;
+  margin: 0 5%;
+  border: 1px solid #5BA0F9;
+  border-radius: 60rpx;
+  height: 80rpx;
+  line-height: 70rpx;
+}
+.mydin .week{
+  background: #5298F8;
+  color: #fff;
+}
+.active{
+  background: #E7F7FF;
+  color: #3470FF;
+}
+.minisubaret{
+  width: 215rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #FFAC34;
+  background: #FFF3C7;
+  position: relative;
+  top: -170rpx;
+  left: 280rpx;
+  font-size: 25rpx;
+  border-radius: 50rpx;
+}
+.subaret{
+  width: 25rpx;
+  height: 25rpx;
+  vertical-align: middle;
+}
+.minibbvu{
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: #a4a4a494;
+  position: relative;
+ top: -929rpx;
+}
+.popu{
+  position: relative;
+  left: 130rpx;
+  top: 14%;
+  z-index: 9;
+}
+.popup{
+  width: 500rpx;
+  height: 400rpx;
+}
+.mysyd{
+  position: relative;
+  left: 290rpx;
+  top: -43rpx;
+  z-index: 10;
+   
+}
+.mysyd .sydyyd{
+  font-size: 26rpx;
+}
+.minisl{
+  font-size: 65rpx;
+  margin-top: 10rpx;
+  margin-left: 30rpx;
+}
+.sfter{
+  width: 200rpx;
+  height: 80rpx;
+}
+.minisfer{
+  position: relative;
+  top: 15rpx;
+}
+.miniljhq{
+  color: #fff;
+  position: relative;
+  top: -56rpx;
+  left: 54rpx;
+  font-size: 25rpx;
+}
+.minisfter{
+  width: 100rpx;
+  height: 100rpx;
+}

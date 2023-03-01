@@ -1,0 +1,11 @@
+<!--sub6/pages/specialNew/index.wxml-->
+<!-- 专精特新页面 -->
+<page>
+  <view class="container" style="background: url('{{cndUrl}}/static/wechat/img/specialNew/special-new-1.jpg')  0 0 / 100% 100%;">
+    <navigator class="select" style="top:1350rpx;" url="./selectServer?id=0"></navigator>
+    <navigator class="select" style="top:1500rpx;" url="./selectServer?id=1"></navigator>
+    <navigator class="select" style="top:1650rpx;" url="./selectServer?id=2"></navigator>
+    <navigator class="select" style="top:1820rpx;"url="./selectServer?id=3"></navigator>
+    <navigator class="select" style="top:1970rpx;"url="./selectServer?id=4"></navigator>
+  </view>
+</page>

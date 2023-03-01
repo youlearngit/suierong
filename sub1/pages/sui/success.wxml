@@ -1,0 +1,52 @@
+<view class="a1">
+    <view class="a1b1">
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_123.png" mode="widthFix"></image>
+    </view>
+    <view class="a1b2">
+        <view class="a1b2c1">恭喜您！</view>
+        <view class="a1b2c2">额度获取成功</view>
+    </view>
+</view>
+<view class="a4">
+    <view class="a4b1">
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_129.png" mode="widthFix"></image>
+    </view>
+    <view class="a4b2">审批通过金额</view>
+    <view style="display:flex; align-items: flex-end;">
+        <view class="a4b3">
+            {{result.amount}}
+        </view>
+        <view class="a4b4">万元</view>
+    </view>
+</view>
+<view class="a2">
+    <view class="a2b1">
+        <view class="a2b1c1">审批通过期限</view>
+        <view class="a2b1c2">{{result.terms}}个月</view>
+    </view>
+    <view class="a2b1">
+        <view class="a2b1c1">审批通过利率(年利率)</view>
+        <view class="a2b1c2">{{result.rateRealYear}}%</view>
+    </view>
+    <view class="a2b1">
+        <view class="a2b1c1">审批通过时间</view>
+        <view class="a2b1c2">{{result.tranDateTime}}</view>
+    </view>
+    <view class="a2b1">
+        <view class="a2b1c1">用款方式</view>
+        <view class="a2b1c2">随借随还</view>
+    </view>
+    <view class="a2b1">
+        <view class="a2b1c1">支付方式</view>
+        <view class="a2b1c2">自主支付</view>
+    </view>
+</view>
+<view class="a3" wx:if="{{page=='result'}}">
+    <navigator class="a3b2" open-type='switchTab' url="/pages/shop/index2" hover-class="navigator-hover">
+        返回首页
+    </navigator>
+</view>
+<view class="a3" wx:else>
+    <!-- <view class="a3b1" bindtap="reApply">申请提额</view> -->
+    <view class="a3b2" bindtap="confirm">确认额度</view>
+</view>

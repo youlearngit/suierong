@@ -1,0 +1,127 @@
+/* @import '/assets/styles/colorui/main.wxss';
+@import '/assets/styles/colorui/animation.wxss';
+@import '/assets/styles/colorui/icon.wxss';
+.backIndex image,.backPage image{display:block;width:100%;height:100%;outline:none;border:0;padding:0;margin:0;} */
+.wrap{position:relative;z-index:100;background:#fff;}
+image{width:100%;height:100%;}
+.bg{
+  width:750rpx;height:2029rpx;
+  position: relative;
+}
+.bg .jb{
+  position: absolute;
+  bottom: 197rpx;left: 110rpx;
+  font-size: 23rpx;
+  color:rgba(234,150,3,1);
+}
+
+.proInfo{position:absolute;width:80%;left:10%;top:580rpx;font-size:28rpx;}
+.pronewed{position:absolute;width:40%;left:50%;top:970rpx;font-size:28rpx;}
+
+
+
+.dianDL{position:relative;display:block;width:80%;margin:60rpx auto;margin-bottom:80rpx;padding:40rpx 26rpx;line-height:1.6;font-size:26rpx;color:#333;border-radius:10rpx;background:#cfe5f5;}
+.dianDt{position:absolute;top:-40rpx;left:10%;width:80%;height:40rpx;line-height:40rpx;padding:15rpx 0 25rpx;font-size:32rpx;color: #fff;text-align:center;vertical-align:middle;}
+.dianDt text{display:inline-block;position:relative;height:40rpx;z-index:10;}
+.dianDt .span{width:40rpx;height:40rpx;border-radius:40rpx;margin-right:80rpx;color:#ff6606;background:#fff;}
+.dianDtBg{position:absolute;top:0;left:0;width:100%;height:70rpx;z-index:1;}
+.dianDL .p{display:block;margin-bottom:10rpx;text-indent:2em;text-align:justify;}
+.a9 {
+  position: fixed;
+  bottom: 10rpx;left:0;
+  width: 100%;
+  height: 100rpx;
+  box-shadow: 0 0 27px 0 rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: space-around;
+  text-align:center;overflow:hidden;z-index:11;
+}
+.a9b1 {
+  width: 170rpx;
+  height: 100rpx;
+  background-image: linear-gradient(180deg, #edbf90 0%, #d5a97c 100%);
+  border-radius: 50rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.a9b1 image {
+  width: 30rpx;
+}
+
+.a9b2 {
+  width: 500rpx;
+  height: 100rpx;
+  background-image: linear-gradient(0deg, #4586e6 0%, #5898f5 100%);
+  border-radius: 50rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #ffffff;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 100rpx;
+  margin-left: 20rpx;
+}
+
+.complain {
+  text-align: center;
+  width: 600rpx;
+  height: 600rpx;
+  position: relative;
+  background-color: transparent;
+}
+
+.complain-bg {
+  width: 100%;
+}
+
+.complain-btn__cancel {
+  width: 80rpx;
+  position: fixed;
+  left: calc(50% - 40rpx);
+  top: calc(50% + 340rpx);
+  z-index: 999999;
+}
+.complain-btn__cancel2 {
+  width: 80rpx;
+  /* position: fixed;
+    left: calc(50% - 40rpx);
+    bottom: 0rpx;
+    z-index: 999999; */
+}
+.complain-btn__call,
+.complain-btn__chat {
+
+  width: 192rpx;
+  height: 68rpx;
+  /* line-height: 68rpx; */
+  /* background-image: linear-gradient(0deg, #4586e6 0%, #5898f5 100%); */
+  /* border: #000000 1px solid; */
+  border-radius: 40rpx;
+  position: absolute;
+  bottom: 120rpx;
+}
+
+.complain-phone{
+    opacity: 0.52;
+font-family: PingFangSC-Regular;
+font-size: 26rpx;
+color: #2C3750;
+letter-spacing: 0;
+text-align: center;
+line-height: 30rpx;
+position: absolute;
+top: 278rpx;
+left: 68rpx;
+}
+.flow{
+    width: 650rpx;
+    margin: 20rpx auto;
+}
+.van-popup {
+  border-radius: 20rpx;
+}

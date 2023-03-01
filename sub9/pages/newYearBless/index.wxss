@@ -1,0 +1,135 @@
+/* sub2/pages/newYearBless/index.wxss */
+page{
+  overflow-x: hidden;
+}
+.home {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+
+}
+.page{
+  width: 100%;
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; */
+  overflow-x: hidden;
+}
+.a1 {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  /* height: 440rpx; */
+}
+
+.input1 {
+  position: absolute;
+  top: 1416rpx;
+  left: 265rpx;
+  height: 70rpx;
+  width: 450rpx;
+}
+
+.input2 {
+  position: absolute;
+  top: 1718rpx;
+  left: 266rpx;
+  width: 450rpx;
+  height: 70rpx;
+}
+.preview_canvas{
+  position: absolute;
+  top: 2840rpx;
+  width: 100%;
+
+}
+.preview_border{
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+margin: 0 auto;
+width: 347rpx;
+    height: 606rpx;
+
+z-index: 1;
+
+}
+.preview_imgTodo{
+  position: absolute;
+  top: 7.5rpx;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 336rpx;
+  height: 589rpx;
+  background-image: none;
+}
+.a2 {
+  position: absolute;
+  top: 3692rpx;
+  width: 373rpx;
+  height: 125rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+
+
+.preview_img {
+  width: 100%;
+  /* height: 240rpx !important; */
+}
+
+.preview_img1 {
+  margin-top: 10rpx;
+  width: 100%;
+  /* height: 240rpx !important; */
+}
+
+.preview_item {
+  width: 26%;
+  text-align: center;
+  color: #b73131;
+  font-weight: 700;
+  margin-right: 20rpx;
+}
+
+.preview_item1 {
+  width: 26%;
+  text-align: center;
+  color: #b73131;
+  font-weight: 700;
+}
+
+.preview_item2 {
+  width: 13%;
+
+}
+
+.preview_list {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 2078rpx;
+  width: 100%;
+  padding: 0 57rpx;
+}
+
+.tools{position:absolute;left:0;bottom:40rpx;width:100%;text-align:center;}
+.tools .tb{display:inline-block;width:60rpx;height:60rpx;margin:0 90rpx;font-size:26rpx;text-align:center;color:#fff;}
+.tools .cancel image{display:block;width:80rpx;height:80rpx;border-radius:80rpx;overflow:hidden;}
+.tools .shareToAPP image{display:block;overflow:hidden;}
+.tools .tb1{display:inline-block;width:300rpx;height:120rpx;margin:0 20rpx;font-size:26rpx;text-align:center;color:#fff;}
+
+.shareToAPP button{background:none;border:0;outline:0;padding:0;height: 80rpx;width: 80rpx;}
+.saveTxt{width:160rpx;text-align:center;margin-left:-40rpx;}
+.shengcheng{width:600rpx;height:973rpx;position:fixed;top:50rpx;left:50%;top:50%;margin-left:-40%;margin-top:-70%;z-index:10}
+
+.shareBox{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-10;overflow:hidden;}
+.shareBox.on{z-index:1000;background:rgba(0,0,0,.8);}

@@ -1,0 +1,43 @@
+<view>
+  <image class="apply-background-img" src="{{preffixUrl}}/static/wechat/img/carloans/apply-background.png" mode="widthFix"></image>
+  <view class="apply-prompt">{{contents}}</view>
+</view>
+<view class="apply-card">
+  <view class="apply-card-1">
+    <view class="apply-card-body1">
+      <view class="apply-card-body1-top-info">
+        <image class="apply-card-body1-top-info-img1" src="{{preffixUrl}}/static/wechat/img/carloans/apply-photo.png"></image>
+        <view class="apply-card-body1-top-info-conten" style="margin-top: {{dealerInfo1.dealer.length < 13 ? '25rpx' : ''}};">
+          <view class="apply-card-body1-top-info-conten-name">{{dealerInfo1.dealer}}</view>
+          <!-- <view class="tels" style="visibility:{{dealerInfo1.tel ? 'visible':'hidden'}}">{{dealerInfo1.tel || ''}}</view> -->
+        </view>
+        <view style="visibility:{{dealerInfo1.tel ? 'visible':'hidden'}}">
+          <image class="apply-card-body1-top-info-img2" src="{{preffixUrl}}/static/wechat/img/carloans/tel.png" bindtap="callPhone"></image>
+        </view>
+      </view>
+      <view class="apply-card-body1-info" wx:if="{{dealerInfo1.name}}">
+        <image class="body1-info-img" src="{{preffixUrl}}/static/wechat/img/carloans/name.png" mode="widthFix"></image>
+        {{dealerInfo1.name}}
+      </view>
+      <view class="apply-card-body1-info apply-card-body1-info2" wx:if="{{dealerInfo1.address}}">
+        <image class="body1-info-img" src="{{preffixUrl}}/static/wechat/img/carloans/address.png" mode="widthFix"></image>
+        {{dealerInfo1.address}}
+      </view>
+    </view>
+    <view class="apply-btn" wx:for="{{loanIdList}}" wx:key="id" data-id="{{item.id}}" bindtap="gotoLoan">
+      <text class="apply-btn-text">{{item.name}}</text>
+    </view>
+  </view>
+</view>
+<!-- 暂时隐藏 -->
+<!-- <view class="tips" wx:if="{{!flag}}">
+  <view class="tips_title">
+    <image class="tips_img" src="{{preffixUrl}}/static/wechat/img/carloans/card_tips.png" mode="widthFix" />
+    <text>温馨提示</text>
+  </view>
+  <view>
+    如您要办理省级公积金组合贷款业务，请点击此处的
+    <text class="hover">省级机关公积金与商业贷款组合申请入口</text>
+    ，公积金中心与我行将同步审批，为您提供便捷服务。
+  </view>
+</view> -->

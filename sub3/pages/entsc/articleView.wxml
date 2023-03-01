@@ -1,0 +1,2 @@
+<!--sub3/pages/entsc/articleView.wxml-->
+<image mode='widthFix' src="{{CDNURL+ url}} "  style="width: 100%;" />

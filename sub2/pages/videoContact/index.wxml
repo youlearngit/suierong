@@ -1,0 +1,3 @@
+<!--sub2/pages/videoContact/index.wxml-->
+<!-- <image wx:if="{{preffixUrl}}"  class="m1" src="{{preffixUrl}}{{img}}" />
+<image  wx:if="{{preffixUrl}}"  src="{{preffixUrl}}/static/wechat/img/zm/meituan-btn.png" class="btn1" bindtap="t1" style="{{autoHeight}}"></image> -->

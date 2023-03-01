@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-login": "/component/login/index"
+  },
+  "navigationBarTitleText":"专精特新专项贷款"
+}

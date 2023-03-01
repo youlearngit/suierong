@@ -1,0 +1,83 @@
+/* sub3/pages/reservedAccChg/progress.wxss */
+.img1{
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+.con{
+  margin-left: 4%;
+  width: 92%;
+margin-top: 30rpx;
+height: 231rpx;
+background-repeat:no-repeat;
+background-size:100% 100%;
+-moz-background-size:100% 100%;
+
+display: flex;
+flex-direction: column;}
+.del{
+  z-index: 100;
+  width: 100rpx;
+  height: 60rpx;
+  margin-left: 20rpx;
+  color: #5C6CFF;
+  text-align: center;
+}
+page{
+  background-color: #F3F3FF;
+  /* background-image: linear-gradient(180deg, #819EFF 0%, rgba(109,124,255,0.00) 50%); */
+}
+.img2{
+  width: 26rpx;
+}
+.txt1{
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  font-family: SourceHanSansSC-Medium;
+font-size: 30rpx;
+color: #333333;
+font-weight: 500;
+}
+.txt2{
+  margin-top: 5rpx;
+  margin-left: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #747DB0;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.txt3{
+  background-color: #E5E6EA;
+  height: 1rpx;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  width: 92%;
+
+}
+.txt4{
+  margin-left: 30rpx;
+  margin-top: 12rpx;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.txt5{
+  color: #999999;
+  margin-left: 8rpx;
+  font-family: PingFangSC-Regular;
+font-size: 26rpx;
+color: #999999;
+letter-spacing: 0;
+font-weight: 400;
+}
+.txt6{
+  margin-right: 30rpx;
+  font-family: SourceHanSansSC-Medium;
+font-size: 26rpx;
+color: #5C6CFF;
+letter-spacing: 0;
+font-weight: 700;
+/* color: #FF9F52; */
+}

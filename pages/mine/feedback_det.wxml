@@ -1,0 +1,42 @@
+<image class="mineBanner"wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/mine_feedback.jpg"></image>
+<block wx:for="{{feedlist}}" wx:key="key">
+<swiper-item>
+<view style="border-bottom:#f2f2f2 1rpx solid;overflow:hidden;">
+  <image style="position:fixed;bottom:0;left:0;width:100%;height:578rpx;z-index:-1;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/feedback_bg.jpg"></image>
+
+  
+  <view class="feedType mt20">我的意见</view>
+  <view class="pickType">
+    <radio-group class="radio-group">
+       <label class="radio" wx:if="{{item.FEED_TYPE==1}}">功能异常</label>
+       <label class="radio" wx:if="{{item.FEED_TYPE==2}}">体验问题</label>
+       <label class="radio" wx:if="{{item.FEED_TYPE==3}}">功能建议</label>
+       <label class="radio" wx:if="{{item.FEED_TYPE==4}}">其他问题</label>
+    </radio-group>
+  </view>
+  <view class="textArea">
+    <text>{{item.OPINION}}</text>
+  </view>
+  
+  <view style="padding:0 20rpx;">
+    <view class='logoinfo'>
+     <view class="tempImgBox" wx:for="{{arr}}" wx:key="key">
+      <image mode="aspectFit" bindtap="ylimg" src='{{item}}' style="width:75px;height:75px;"  data-image='{{item}}'></image>
+      </view>
+    </view>
+  </view>
+  
+</view>
+
+<view class="replay">
+  <view class="feedType mt20" style="border-color:orange;color:orange;">管理员回复</view>
+  <view class="textArea" wx:if="{{item.REPLY == null}}">
+    <text style="color:orange;" >暂无回复</text>
+  </view>
+  <view class="textArea" wx:if="{{item.REPLY}}">
+    <text style="color:orange;" >{{item.REPLY}}</text>
+  </view>
+</view>
+<navigator class="backto" url="feedback_list">返回意见反馈</navigator>
+</swiper-item>
+</block>

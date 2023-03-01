@@ -1,0 +1,103 @@
+<view class="authList">
+  <view class="formtag">
+    <view class="weui-cells__title">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_dksqxx.png"></image>
+      <text>申请信息</text>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        订单号：
+      </view>
+      <view class="weui-cell__bd">
+      {{order_state}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        企业名称：
+      </view>
+      <view class="weui-cell__bd">
+       {{enterprise_name1}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        申请金额：
+      </view>
+      <view class="weui-cell__bd">
+      {{apply_amount1}}万元
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input" wx:if='{{apply_term}}'>
+      <view class="weui-cell__hd">
+        申请期限：
+      </view>
+      <view class="weui-cell__bd">
+       {{apply_term}}个月
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input" wx:if='{{vouch_type}}'>
+      <view class="weui-cell__hd">
+        担保方式：
+      </view>
+      <view wx:if="{{vouch_type==20010010}}"  class="weui-cell__bd">住宅抵押</view>
+      <view wx:if="{{vouch_type==20010020}}"  class="weui-cell__bd">商铺抵押</view>
+      <view wx:if="{{vouch_type==20010050}}"  class="weui-cell__bd">厂房抵押</view>
+      <view wx:if="{{vouch_type==10020}}"  class="weui-cell__bd">担保公司担保</view>
+      <view wx:if="{{vouch_type==10030}}"  class="weui-cell__bd">一般企事业担保</view>
+      <view wx:if="{{vouch_type==5}}"  class="weui-cell__bd">信用</view>
+      <view wx:if="{{vouch_type==10060}}"  class="weui-cell__bd">其他</view>
+    </view>
+    <view class="weui-cell weui-cell_input" wx:if='{{purpose}}'>
+      <view class="weui-cell__hd">
+        借款用途：
+      </view>
+       <view wx:if="{{purpose==0}}" class="weui-cell__bd">经营周转</view>
+      <view wx:if="{{purpose==1}}" class="weui-cell__bd">购货</view>
+      <view wx:if="{{purpose==2}}" class="weui-cell__bd">其他经营用途</view>
+    </view>
+  </view>
+
+
+  <!-- 授权人信息 -->
+  <view class="formtag" hidden="{{authman_flag}}">
+    <view class="weui-cells__title">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_dksqxx.png"></image>
+      <text>授权信息</text>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        授权人：
+      </view>
+      <view class="weui-cell__bd userName">
+        {{applicantName}}
+        <text wx:if='{{authorType!=""}}'>{{authorType}}</text>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        身份证：
+      </view>
+      <view class="weui-cell__bd">
+      {{applicantIdcard}}
+      </view>
+    </view>
+     <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        授权时间：
+      </view>
+      <view class="weui-cell__bd">
+      {{authorTime}}
+      </view>
+    </view>
+
+
+    <view class="btnview">
+      <!-- <button class="btn" style="width:250rpx;" type='submit' disabled='true' wx:if='{{authorizeStatus==1}}'>已授权</button> -->
+      <navigator class="btn" style="width:250rpx;" open-type='navigateBack' delta='1' disabled='true' wx:if='{{authorizeStatus==1}}'>返回</navigator>
+      <!-- <button class="btn" bindtap="goAuthor" wx:if='{{authorizeStatus==0}}'>去授权</button> -->
+    </view>
+  </view>
+
+  
+</view>

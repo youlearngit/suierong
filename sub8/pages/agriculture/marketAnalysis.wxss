@@ -1,0 +1,387 @@
+/* sub6/pages/agriculture/marketAnalysis.wxss */
+.marketAnalysis {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 74%;
+  -moz-background-size: 100% 100%;
+  height: 100%;
+  padding-bottom: 100rpx;
+}
+
+.nr {
+  position: relative;
+  top: -434rpx;
+}
+
+.bg {
+  width: 100%;
+  height: 680rpx;
+}
+
+.graph {
+  width: 630rpx;
+  /* height: 584rpx; */
+  background-image: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+  box-shadow: 0 2rpx 24rpx 0 rgba(156, 187, 255, 0.28);
+  border-radius: 12rpx;
+  margin: 0 auto;
+  /* padding: 45rpx 30rpx; */
+  padding: 45rpx 30rpx 0rpx 45rpx;
+  margin-bottom: 20rpx;
+
+}
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+.leftImage {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.graphTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.titleLeft {
+  display: flex;
+}
+
+.leftTitle {
+  font-size: 30rpx;
+  color: #1f2d69;
+  margin-left: 10rpx;
+  margin-top: -5rpx;
+
+}
+
+.switch {
+  /* width: 98rpx;
+  height: 40rpx; */
+  border-radius: 20rpx;
+  background: #ffffff;
+  border: 1px solid #d6e2f8;
+  display: flex;
+  justify-content: space-between;
+  /* padding: 0 20rpx; */
+  margin-left: 60rpx;
+  margin-top: -5rpx;
+  padding: 5rpx 4rpx;
+}
+
+.swichBox {
+  width: 64rpx;
+  height: 36rpx;
+  font-size: 18rpx;
+  opacity: 0.59;
+  color: #7881A8;
+  text-align: center;
+  padding-top: 7rpx;
+  /* margin-top: 7rpx; */
+}
+
+.swichChecked {
+  width: 64rpx;
+  height: 36rpx;
+  font-size: 18rpx;
+  opacity: 0.59;
+  color: #417eff;
+  text-align: center;
+  background: rgba(92, 145, 255, 0.12);
+  /* margin-top: 7rpx; */
+  border-radius: 18rpx;
+  padding-top: 7rpx;
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24rpx;
+  position: relative;
+  top: 37rpx;
+}
+
+.legendItem {
+  display: flex;
+}
+
+.legendImage {
+  width: 25rpx;
+  height: 8rpx;
+  margin-top: -15rpx;
+}
+
+.legendTitle {
+  font-size: 22rpx;
+  color: #7881a8;
+  margin-left: 7rpx;
+}
+
+.report {
+  padding: 0 30rpx;
+
+}
+
+.reportItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemRD {
+  width: 319rpx;
+  /* height: 172rpx; */
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  padding: 30rpx;
+  margin-right: 10rpx;
+  /* padding-top: 319rpx; */
+}
+
+.itemTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topLeft {
+  display: flex;
+}
+
+.leftImage {
+  width: 22rpx;
+  height: 28rpx;
+}
+
+.leftvalur {
+  font-size: 30rpx;
+  margin-left: 10rpx;
+  color: #1f2d69;
+}
+
+.topRight {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.itemRight {
+  margin-top: 20rpx;
+}
+
+.rightItem {
+  display: flex;
+  margin-bottom: 15rpx;
+}
+
+.dian {
+  color: #7881a8;
+  margin-top: -15rpx;
+  font-size: 30rpx;
+}
+
+.TITLE {
+  color: #7881a8;
+  font-size: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 10rpx;
+  text-overflow: ellipsis;
+  width: 216rpx;
+}
+
+.gxxs {
+  width: 628rpx;
+  /* height: 167rpx; */
+  margin-top: 20rpx;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  box-shadow: 0 2rpx 24rpx 0 rgba(156, 187, 255, 0.28);
+  padding: 30rpx;
+  margin-bottom: 50rpx;
+}
+.farming{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.farmingitem{
+  width: 284rpx;
+  /* height: 625rpx; */
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  padding-top: 10rpx;
+  padding-left: 22rpx;
+  padding-bottom: 20rpx;
+}
+.TITLEs {
+  color: #7881a8;
+  font-size: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 10rpx;
+  text-overflow: ellipsis;
+  width: 600rpx;
+}
+
+.wholesale {
+  width: 610rpx;
+  height: 185rpx;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  margin-top: 26rpx;
+  padding-top: 12rpx;
+  padding-left: 20rpx;
+}
+.wholesaleTitle{
+  display: flex;
+  justify-content: space-between;
+  font-size: 23rpx;
+  color: #5570c6;
+
+}
+.DATA_TIME{
+  margin-right: 20rpx;
+  /* margin-top: -5rpx; */
+  color: #5570c6;
+  font-size: 24rpx;
+}
+.cai{
+  color: #27987e;
+  font-size: 22rpx;
+  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+}
+.numItem{
+/* width: 200rpx; */
+/* text-align: left; */
+}
+.allNum{
+  /* width:; */
+  /* margin: 0 auto; */
+  /* margin-top: 30rpx; */
+  padding: 30rpx 70rpx 0rpx 70rpx;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+.later{
+  font-size: 22rpx;
+  color: #6e7bb2;
+}
+.num{
+  margin-left: 10rpx;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+  display: flex;
+}
+.zhong{
+   width: 1rpx;
+   height: 68rpx;
+   margin-top: 20rpx;
+   background: #cbd4e8;
+   margin-left: 8rpx;
+}
+.numImage{
+  width: 18rpx;
+  height: 22rpx;
+  
+  margin-left: 10rpx;
+}
+.caiNum{
+  display: flex;
+  justify-content: space-between;
+}
+.leftAll{
+  font-size: 28rpx;
+  color: #23305c;
+}
+.rightAll{
+  margin-right: 20rpx;
+  display: flex;
+  font-size: 28rpx;
+  margin-top: 5rpx;
+}
+.lanterImage{
+  width: 24rpx;
+  height: 24rpx;
+}
+.lanter{
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.items{
+  margin-top: 47rpx;
+  
+}
+.lanterTitle{
+  font-size: 24rpx;
+  color: #5a897e;
+  margin-left: 5rpx;
+  margin-top: 6rpx;
+}
+.caiZhong{
+  width: 262rpx;
+  height: 1rpx;
+  background-color: #caece0;
+  margin-top: 20rpx;
+  margin-bottom: -25rpx;
+}
+.diagram{
+  /* width: 400rpx; */
+  height: 600rpx;
+  margin-left: -30rpx;
+  margin-top: -30rpx;
+}
+.source{
+  text-align: center;
+  font-size: 20rpx;
+  color: #7881a8;
+  position: relative;
+  top: -70rpx;
+}
+.sources{
+  text-align: center;
+  font-size: 20rpx;
+  color: #7881a8;
+  margin-top: 40rpx;
+}
+.switch_title{
+  font-size: 22rpx;
+  color: #7881A8;
+  padding: 6rpx 16rpx;
+}
+.switch_image{
+  width: 10rpx;
+  height: 6rpx;
+  margin-top: -10rpx;
+  margin-right: 17rpx;
+}
+.filter-opt-text{
+  z-index: 100;
+}
+.dataTitle{
+  font-size: 25rpx;
+  color: #7881a8;
+}
+.filter-opt-text{
+  border: 1px;
+}
+.filter-opt-text{
+  border: 1px solid #d6e2f8;
+  border-radius: 20rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: -5rpx;
+  padding: 5rpx 10px;
+}
+.legenddata{
+  display: flex;
+  margin-top: 24rpx;
+  
+  
+}
+.picker{
+  font-size: 20rpx;
+  margin-top: 5rpx;
+}

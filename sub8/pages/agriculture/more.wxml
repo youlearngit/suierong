@@ -1,0 +1,51 @@
+<!--sub8/pages/agriculture/more.wxml-->
+<!-- <cu-custom isCustom="{{true}}" currentPage="{{currentPage}}"></cu-custom>
+<view class="nav-header" hover-class="none" hover-stop-propagation="false">
+  <image class="talk-icon" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2043.png" mode="widthFix" style="width:100%"></image>
+</view> -->
+<!-- <van-nav-bar
+  title="掌上三农"
+  left-arrow
+  fixed
+  title-class="titleClass"
+  custom-class="customClass"
+  bind:click-left="onClickLeft"
+  bind:click-right="onClickRight"
+/> -->
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation style="height:100%">
+    <view class="cu-item {{index==TabCur?'cur ':''}}" wx:for="{{tpyeArray}}" wx:key="index" bindtap='tabSelect' data-id="{{index}}">
+      {{item}}
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:100%">
+    <view wx:if="{{showProducts}}">
+      <view class="padding-lr" wx:key="id">
+        <view class="cuList">
+          <view class="cuItem" wx:for="{{products[TabCur]}}" wx:key="index" bindtap="skip" data-code='{{item.CODE}}' data-name='{{item.NAME}}' data-url='{{item.url}}'>
+            <view class="producticon">
+              <image class="producticonImg" wx:if="{{item.NAME != '信贷直通车'}}" src="{{cndUrl}}/static/wechat/img/zssn/{{item.CODE}}.png" mode="widthFix" lazy-load="{{true}}" />
+              <image class="producticonImg" wx:if="{{item.NAME == '信贷直通车'}}" src="https://wxapp.jsbchina.cn:7080/rhedt//static/wechat/img/zssn/ztclogo.png" mode="widthFix" lazy-load="{{true}}" />
+            </view>
+            <view class="productdesc">
+              <view class="title" wx:if="{{item.NAME != '淮安分行阳光扶贫贷'}}">{{item.NAME}}</view>
+              <view class="title"  wx:if="{{item.NAME == '淮安分行阳光扶贫贷'}}">
+                <view style="    margin-top: -10rpx;">淮安</view>
+                <view style="    margin-top: -10rpx;">阳光扶贫贷</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-loading__wrp" wx:else style="text-align:center">
+      <view class="weui-loading" />
+    </view>
+    <view class="ch">
+      <image src="{{cndUrl}}/static/wechat/img/zssn/ch.png"></image>
+      <view class="chTitle"> 请选择您需要的金融服务吧~</view>
+    </view>
+  </scroll-view>
+
+ 
+</view>

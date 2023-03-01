@@ -1,0 +1,47 @@
+<view style="background-image: url({{cndUrl}}/static/wechat/img/sui/sui2-1092.png);" class="container">
+    <navigator class="a2" url="../consumer/index?empNo={{empNo}}" hover-class="none">
+        <image class="" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2050.png" mode="widthFix" style="width:100%"></image>
+    </navigator>
+    <button class="a3" bind:tap="showShare" >
+        <image class="" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui2-2051.png" mode="widthFix" style="width:100%"></image>
+    </button>
+    <view class="a4">
+        <view class="a5">活动内容：</view>
+        <view class="a6">
+            1、在微信中搜索小程序“江苏银行随e融”，选择消费随e贷，点击页面“分享”，分享链接至微信好友，每新增1位好友点开该链接即可获得1元苏银豆奖励，最高可获得5元苏银豆奖励。
+        </view>
+        <view class="a6">2、通过您分享的邀请进入小程序，并完成额度申请的新客户，视作推荐成功。</view>
+        <view class="a6">①申请成功即日起，您的好友可获得0.05%的利率优惠券，在随e贷首次借款时即可直接使用。</view>
+        <view class="a6">②推荐成功后，您可获得30元苏银豆，推荐越多奖励越多，上不封顶。苏银豆兑换礼品可至江苏银行手机银行或直销银行APP，海量礼品尽情挑选。</view>
+        <view class="a6">③新客户仅限未在江苏银行办理过卡易贷、金e融等消费贷款的客户。</view>
+        <view class="a6">江苏银行有权在法律允许的范围内对本次活动予以解释。</view>
+    </view>
+</view>
+<my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>
+<canvas style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+<my-poster shareBox="{{shareBox}}" hidePoster="{{hidePoster}}" bind:cancel="cancelPoster" imagePath="{{imagePath}}"></my-poster>
+<van-popup show="{{ showPosterBox }}" bind:close="onClose" position="bottom">
+    <view class="t1">欢迎体验,感谢分享。</view>
+    <view class="t4">海报模版</view>
+    <scroll-view scroll-y style="max-height:60vh">
+        <view class="t5">
+            <view class="t51" wx:for="{{posterImgs}}" bind:tap="choosePoster" data-id="{{index}}">
+                <image class="t54" src="{{cardInfo.PHOTO2}}" mode="widthFix" style="width:100%"></image>
+                <image src="{{item.img}}" mode="widthFix" style="width:100%"></image>
+                <view class="t53 {{posterIdselected==index?'t531':''}}" hover-class="none" hover-stop-propagation="false">
+                    {{item.title}}
+                </view>
+                <image wx:if="{{posterIdselected==index&&cndUrl}}" class="t52" src="{{cndUrl}}/static/wechat/img/sui/sui-1076.png" mode="widthFix"></image>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="t6" wx:if="{{posterIdselected==-1}}" style="opacity: 0.5;">请选择模版</view>
+    <view class="t6" bind:tap="createPoster" wx:if="{{posterIdselected!=-1&&imagePath!=''}}">
+        分享海报
+    </view>
+    <view class="t6" hover-class="none" hover-stop-propagation="false" wx:if="{{posterIdselected!=-1&&imagePath==''}}">
+        <image src="{{cndUrl}}/static/wechat/img/sui/loading.gif" mode="widthFix" style="width:40rpx;margin:0 10rpx"></image>
+        请稍等
+    </view>
+    <view style="height:30rpx"></view>
+</van-popup>

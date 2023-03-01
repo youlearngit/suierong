@@ -1,0 +1,842 @@
+<view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+  <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+    <image src="/pages/public/img/ico_ind.png"></image>
+  </view>
+  <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+    <view class="backPage" bindtap='prePage'>
+      <image src="/pages/public/img/ico_back.png"></image>
+    </view>
+    <view class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="wrapCommon" id='wrapCommon' animation="{{animation}}">
+  <view class="coverBgray" hidden='{{coverBgray}}'></view>
+  <view class='banner'>
+    <image class="dianApplicateBanner" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/common/banner_{{banner}}.jpg"></image>
+  </view>
+  <view class="{{pagescroll}}">
+    <image class="bg1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen1.jpg"></image>
+    <image class="bg2" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen2.jpg"></image>
+    <image class="bg3" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_wei1.png"></image>
+    <view class="page__bd">
+      <form bindsubmit="submitForm1" report-submit='true'>
+        <view class="section pr">
+          <view class="weui-cells__title">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_qyxx.png"></image>
+            <text>企业信息</text> </view>
+          <view class="weui-cells weui-cells_after-title" hidden="{{flag_org_diy}}">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">统一信用代码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="orgID" id="orgID" value="{{ form.orgID }}" bindblur='blurCity' class="weui-input" type="orgID" maxlength='18' placeholder="请输入统一社会信用代码" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">企业名称</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="orgName" id="orgName" value="{{ form.orgName }}" bindblur='blur' class="weui-input" type="orgName" placeholder="请输入企业名称" />
+              </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">企业所在地</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker class="picker" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                  <view class="picker">
+                    <input name="province" disabled='disabled' id="province" value="{{provinceName}}" class="weui-input" style="width:50%;display:inline-block;" type="text" placeholder="请点击选择" />
+                    <input name="city" disabled='disabled' id="city" value="{{cityName}}" class="weui-input" style="width:50%;display:inline-block;" type="text" placeholder="" />
+
+                  </view>
+                </picker>
+              </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">经营地址</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="officeAdd" id="officeAdd" bindblur='blur' value="{{ form.officeAdd }}" class="weui-input" type="text" placeholder="企业经营地址" />
+              </view>
+            </view>
+
+            <!-- <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">中征码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="loadCardNo" id="loadCardNo" bindblur='blur' value="{{ form.loadCardNo }}" class="weui-input" type="number" maxlength='16' placeholder="请输入中征码" />
+              </view>
+            </view> -->
+
+            <view class="diy">
+              <image bindtap="change_org_ocr" style="width:60rpx;height:60rpx;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_ipone.png"></image>
+              <view class="changeBtn">拍照模式</view>
+            </view>
+          </view>
+          <view class="ocrBox" hidden="{{flag_org_ocr}}">
+            <view class="imgFlex">
+              <image bindtap="creatPhoto" id="yyzz" class="picID" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_yyzz.png"></image>
+            </view>
+            <view class="diy">
+              <image bindtap="change_org" style="width:60rpx;height:60rpx;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_sxms.png"></image>
+              <view class="changeBtn">手工模式</view>
+            </view>
+          </view>
+          <view wx:if='{{falg1}}'>
+                    <picker class="mp" bindtap="businesCard" bindchange="pickBC" value="{{bcindex}}" range="{{busiCardList}}">
+            <image width="70%" mode="widthFix" lazy-load="true" src="{{preffixUrl}}/static/wechat/img/ico_mine_mp.png"></image>
+          </picker>
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="weui-cells__title">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_que.png"></image>
+            <text>您是否为法定代表人</text>
+          </view>
+          <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd">
+                <radio-group class="radio-group" bindchange="legalRadioChange">
+                <radio class="radio" color="#0066b3" wx:for-items="{{legalperson}}" wx:key="value" value="{{item.value}}" checked="{{item.checked}}">我是{{item.name}}</radio>
+                
+            </radio-group>
+              </view>
+            </view>
+        </view>
+
+        <view class="section" hidden="{{apliman_flag}}">
+          <view class="weui-cells__title">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_frxx.png"></image>
+            <text>申请人信息{{aplimen}}</text>
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">申请人姓名</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="applicantName" id="applicantName" value="{{ form.applicantName }}" class="weui-input" type="applicantName"  />
+              </view>
+              <!-- disabled='disabled' -->
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">身份证号码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="applicantIdCard" id="applicantIdCard" maxlength="18" bindblur='blur' value="{{ form.applicantIdCard }}" class="weui-input" type="applicantIdCard"  />
+                <!-- disabled='disabled' -->
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="section" hidden="{{legal_flag}}">
+          <view class="weui-cells__title">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_faren.png"></image>
+            <text>法定代表人信息</text>
+          </view>
+          <view class="weui-cells weui-cells_after-title" hidden="{{flag_self_diy}}">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">法定代表人姓名</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="name" id="name" value="{{ form.name }}" bindblur='blur' class="weui-input"  type="name" placeholder="请输入法人姓名" disabled='true'/>
+                <!-- disabled='{{legDisable}}' -->
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">身份证号码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="idCard" id="idCard" maxlength="18" bindblur='blur' value="{{ form.idCard }}" class="weui-input" type="idcard" placeholder="请输入身份证号码" disabled='true'/>
+                <!-- disabled='{{legDisable}}'  -->
+              </view>
+            </view>
+            <view wx:if="{{model==1}}" class="diy">
+              <image bindtap="change_self_ocr" style="width:60rpx;height:60rpx;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_phone.png"></image>
+              <view class="changeBtn">拍照模式</view>
+            </view>
+          </view>
+          <view class="ocrBox" hidden="{{flag_self_ocr}}">
+            <view class="imgFlex">
+              <image bindtap="creatPhoto" id="sfz" class="picID" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_frxx2.png"></image>
+            </view>
+            <view class="diy">
+              <image bindtap="change_self" style="width:60rpx;height:60rpx;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_sxms.png"></image>
+              <view class="changeBtn">手工模式</view>
+            </view>
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="weui-cells__title">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_dksqxx.png"></image>
+            <text>贷款申请信息</text>
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">申请金额</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="slider" id="slider" disabled="true" bindblur='blur' maxlength='4' min='1' max='1000' value="{{ form.slider }}" class="weui-input" type="number" placeholder="请输入" />
+              </view>
+              <view class="weui-cell__f t">
+                万元
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">申请期限</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker name="timeIndex" bindchange="bindTimeChange" value="{{ form.timeIndex}}" range="{{ times }}">
+                  <view class="weui-select weui-select_in-select-after">{{times[form.timeIndex]}}</view>
+                </picker>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">借款用途</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker name="yongtuIndex" bindchange="bindYongtuChange" value="{{ form.yongtuIndex}}" range="{{ yongtu }}">
+                  <view class="weui-select weui-select_in-select-after">{{yongtu[form.yongtuIndex]}}</view>
+                </picker>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">担保方式</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker class="picker" mode="multiSelector" bindchange="bindDanbaoPickerChange" bindcolumnchange="bindDanbaoPickerColumnChange" value="{{danbaoIndex}}" range="{{danbaoArray}}">
+                  <view class="weui-select weui-select_in-select-after">
+                    <input name="danbaoFir" disabled='disabled' id="danbaoFir" value="{{danbaoNameFir}}" class="weui-input" style="width:50%;display:inline-block;" type="text" placeholder="请点击选择" />
+                    <input name="danbaoSec" disabled='disabled' id="danbaoSec" value="{{danbaoNameSec}}" class="weui-input" style="width:50%;display:inline-block;" type="text" placeholder="" />
+                  </view>
+                </picker>
+                <view wx:if='{{fangchuan}}' class='danbaoResult' bindtap='showPinggu'>
+                  <!-- <icon type="info" color="#0066b3" size="24rpx" /> 您已评估房产，总估值{{gujia}}万，预计可贷{{kedai}}万 -->
+                  <image class="dyxq" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/common/ico_fc.png"></image>详情
+                </view>
+              </view>
+              <view class="weui-cell__ft"></view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">{{labelname}}手机号</view>
+              </view>
+              <view class="weui-cell__bd">
+                 <input name="applicantTel" id="applicantTel" bindblur='blur' value="{{ form.applicantTel }}" bindblur='getPhoneValue' bindinput="getPhoneValue" maxlength="11" class="weui-input" type="number" placeholder="请输入手机号" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">验证码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="verycode" id="verycode" placeholder='请输入验证码' type='number' maxlength='6' bindinput='getCodeValue' value='{{code}}' />
+              </view>
+              <view class="weui-cell__ft">
+                <button class='codeBtn' bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label cGray">客户经理工号</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="managerID" id="managerID" value="{{managerID}}"bindblur='blur' class="weui-input" type="number" maxlength='8' placeholder="选填" />
+              </view>
+              <view class="weui-cell__ft">{{trbsName}}</view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label cGray">推荐人手机号</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="managerTel" id="managerTel" value="{{managerTel}}" bindblur='blur' maxlength='11' class="weui-input" type="number" placeholder="选填" />
+              </view>
+            </view>
+            
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_switch" style="margin-left:50rpx;">
+          <view class="weui-cell__bd"  hidden="{{agree_flag}}">
+            <checkbox-group bindchange='checkedList'>
+              <label class="checkbox">
+                <checkbox style='transform:scale(0.8)' value="true" name="checklist" checked='{{ form.checklist }}' />
+                <text class='rule' bindtap='show'>我已阅读并同意相关协议</text>
+              </label>
+            </checkbox-group>
+          </view>
+        </view>
+        <view class="button-sp-area">
+          <button class="btn" formType="submit">提 交 申 请</button>
+        </view>
+      </form>
+    </view>
+  </view>
+  <!-- 原评估 -->
+</view>
+
+<view class="{{pgflag}}">
+  <view class="pingguRes" animation="{{animationPinggu}}" hidden="{{pingguRes}}">
+    <view class="h2">已评估{{count}}套
+      <!-- <text>(可选最新的5套)</text> -->
+    </view>
+    <view class="closePG" bindtap='closePG'>X</view>
+    <scroll-view scroll-y='true' style='max-height:600rpx;min-height:100rpx;'>
+      <checkbox-group bindchange="checkboxChange">
+        <view class="pinguInfo" wx:for="{{list1}}" wx:for-item="i" wx:key="index">
+          <view class="piName">{{i.buildingname}}</view>
+          <view class="piAddress">{{i.dizhi}}{{i.area}}平米</view>
+          <view class="price">
+            <text>估价：{{i.gujia}}万</text>
+            预计可贷：{{i.kedai}}万
+          </view>
+          <view class="time">{{i.shijian}}月{{i.shijian1}}日评估</view>
+          <label class="del">
+            <checkbox id="{{index}}" color='#2d72ff' value="{{i.houseid}}" checked="{{chkFlag}}" disabled="" />
+          </label>
+        </view>
+      </checkbox-group>
+    </scroll-view>
+    <block wx:if="{{count<1}}">
+      <view class="pinguTips" bindtap='addHouse'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/common/ico_fc.png"></image>
+        看看您的房产能贷多少
+      </view>
+    </block>
+    <block wx:elif="{{count>=1}}">
+      <view class="pinguTips" bindtap='addHouse'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/common/ico_fc.png"></image>
+        再评估一套
+      </view>
+    </block>
+    <view class="total">
+      <view class="totalL">
+        <view class="yjAll">预计可贷：{{kedai}}万</view>
+        <view class="pgAll">估值：{{gujia}}万</view>
+      </view>
+      <view class="totalR" bindtap='subHouse'>确定</view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="zhezao" hidden="{{flag_1}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text class="fontWeight">授权书\n(适用于个人经营贷及对公授信业务相关自然人)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="null"></span>
+                    本人/
+                    <span class="squre"></span>
+                    <em class="underline">  {{form.orgName}}  </em>
+                    办理授信业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：
+                </view>
+                <view class="p">
+                    （1）
+                    <span class="null"></span>
+                    审核授信申请；
+                </view>
+                <view class="p">
+                    （2）
+                    <span class="null"></span>
+                    担保资格审查；
+                </view>
+                <view class="p">
+                    （3）
+                    <span class="squre"></span>
+                    法人代表、负责人、高管等关联人资信审查；
+                </view>
+                <view class="p">
+                    （4）
+                    <span class="squre"></span>
+                    贷后管理；
+                </view>
+                <view class="p">
+                    （5）
+                    <span class="null"></span>
+                    异议核查；
+                </view>
+                <view class="p">
+                    （6）
+                    <span class="null"></span>
+                    <em class="underline">/</em>
+                    。
+                </view>
+                <view class="p">
+                    <em class="underline fontWeight">
+                        本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。
+                    </em>
+                </view>
+                <view class="p">
+                    本人不可撤销地授权贵行向
+                    <em class="underline">/</em>
+                    提供贵行从信用信息基础数据库依法取得的本人征信信息，用于授信业务审查审批。
+                </view>
+                <view class="p">
+                    授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权人（签字）：{{form.name}}</view>
+                    <view class="p">身份证件类型：第二代身份证</view>
+                    <view class="p">证件号码：{{form.idCard}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_2}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>江苏银行综合信息查询使用授权书\n(适用于自然人)</text>
+                </h2>
+                <view class="p fontWeight">授权人：</view>
+                <view class="p">
+                    客户姓名：
+                    <em class="underline">{{form.name}}</em>
+                </view>
+                <view class="p">
+                    身份证号码：
+                    <em class="underline">{{form.idCard}}</em>
+                </view>
+                <view class="p">
+                    一、因办理信贷业务的需要，本人不可撤销地授权
+                    <em class="underline">江苏银行股份有限公司</em>
+                    （以下简称“贵行”），<text class="fontWeight"> 通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：
+                    </text>
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（一）公积金信息:</text>
+                    本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（二）税务信息:</text>
+                    本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（三）其他信息</text>
+                </view>
+                <view class="p">
+                    本人<text class="fontWeight">[资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息]</text><text class="fontWeight">等个人信息；与融资相关的交易信息及经本人授权的其他信息。</text>
+                    按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。
+                </view>
+                <view class="p">二、本授权书用于办理涉及本人的以下信贷业务：</view>
+                <view class="p">1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；</view>
+                <view class="p">2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；</view>
+                <view class="p">
+                    3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况。
+                </view>
+                <view class="p fontWeight">
+                    三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。
+                </view>
+                <view class="p fontWeight">
+                    四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。</view>
+                <view class="fr">
+                    <view class="p">授权人：{{form.name}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_3}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text class="fontWeight">授权书\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="squre"></span>
+                    本单位/
+                    <span class="null"></span>
+                    <em class="underline">  /  </em>
+                    办理授信业务的需要，本单位不可撤销地授权贵行在下列
+                    <em class="underline">（1）（2）（4）</em>
+                    项涉及到本单位时，可以向金融信用信息基础数据库查询、打印、保存本单位信用报告：
+                </view>
+                <view class="p">（1）审核授信申请（包括以本单位作为经营实体申请的个人经营贷业务）；</view>
+                <view class="p">（2）审批用信；</view>
+                <view class="p">（3）审核担保资格；</view>
+                <view class="p">（4）贷后风险管理（包括以本单位作为经营实体办理的个人经营贷业务）；</view>
+                <view class="p">（5）涉及本单位的关联人的授信/担保业务，需要查询本单位信用状况；</view>
+                <view class="p">（6）异议核查；</view>
+                <view class="p">
+                    （7）
+                    <em class="underline">/</em>
+                    。
+                </view>
+                <view class="p">本单位不可撤销地授权贵行将包括本单位的基本信息、授信业务、担保信息等相关信用信息向金融信用信息基础数据库报送。</view>
+                <view class="p" hover-class="none" hover-stop-propagation="false">
+                    本单位不可撤销地授权贵行向
+                    <em class="underline">/</em>
+                    提供贵行从信用信息基础数据库依法取得的本单位征信信息，用于授信业务审查审批。
+                </view>
+                <view class="p">
+                    授权期限：自本单位签署本授权书之日起至上述授信/担保业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，且不以本单位是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本单位知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本单位的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权单位：{{form.orgName}}</view>
+                    <view class="p">法定代表人：{{form.name}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_4}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>江苏银行综合信息查询授权委托书\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft" style="height:160rpx;">
+                        <text class="fontWeight">授\n权\n单\n位</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p fontWeight">企业名称：{{form.orgName}}</view>
+                        <view class="p fontWeight">组织机构代码：{{fn.substring2(form.orgID,8,16)+"-"+fn.substring2(form.orgID,16,17)}}</view>
+                    </view>
+                    <wxs module="fn">
+                            module.exports = {
+                             substring2:function(str,start,end){
+                              return str.substring(start,end);
+                            }
+                        }
+                     </wxs>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft" style="height:280rpx;">
+                        <text class="fontWeight">查\n询\n信\n息\n范\n围</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">查询信息范围包括但不限于授权单位有关的各类信息；</view>
+                        <view class="p">查询途径包括但不限于国家行政机关、政府部门、园区主管部门、业务管理机构、社会第三方数据平台、网络媒体等。</view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p">
+                        因本单位办理授信等业务的需要，本单位不可撤销地授权
+                        <em class="underline fontWeight">江苏银行股份有限公司</em>
+                        ，对本单位上述“查询信息范围”中的信息查询、留存及使用。 
+                    </view>
+                    <view class="p">授权单位在此声明已知悉并理解本授权委托书，以及因提供非公开信息可能产生的法律后果。</view>
+                    <view class="fr">
+                        <view class="p">授权单位：{{form.orgName}}</view>
+                        <view class="p">授权日期：{{day_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+
+
+<view wx:if="{{v==1}}">
+  <view class="camerabox" hidden="{{camera_flag}}">
+    <camera hidden="{{camera_flag}}" class="camera" mode="normal" device-position="back" flash="off" binderror="error">
+      <cover-view class="controls">
+        <cover-image class="img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/{{takephoto.coverImg}}" />
+      </cover-view>
+      <!--cover-view class="flash">
+      <cover-image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/camera_flash.png" />
+    </cover-view-->
+      <cover-view class="noticeTXT">{{takephoto.noticeTxt}}</cover-view>
+      <cover-view class="operat">
+        <cover-image class="clickBtn" id="{{takephoto.id}}" bindtap="takePhoto" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_take.png" />
+        <cover-image class="reTake" bindtap="reTake" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_cancel.png" />
+      </cover-view>
+    </camera>
+  </view>
+</view>
+
+
+<view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+  <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+  <canvas canvas-id="attendCanvasId2" style="width:{{canvasWidth2}}px;height:{{canvasHeight2}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+</view>
+
+
+
+<view class="houseWrap" id='houseWrap' animation="{{animationHouse}}">
+  <view class="flexWrap">
+    <view class="flexHead">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/house/banner.jpg"></image>
+    </view>
+    <view class="flexBox">
+      <form bindsubmit="submitForm" report-submit='true' class="houseForm">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__hd">
+              <view class="weui-label">城市</view>
+            </view>
+            <view class="weui-cell__bd" bindtap='chosecity'>
+              <input disabled="disabled" name="cityID" id="cityID" value="{{ cityName }}" class="weui-input" placeholder="请选择房产所在城市" />
+            </view>
+            <view class="weui-cell__ft" bindtap='chosecity'>
+              <image class="ico_local" src="/pages/public/img/ico_local.jpg"></image>选择城市</view>
+          </view>
+
+          <view class="weui-cell">
+            <view class="weui-cell__hd">
+              <view class="weui-label">住宅</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input name="housekey" id="housekey" class="weui-input" placeholder="请录入2-10个住宅关键字" bindinput="getInput"  value="{{serkey}}" />
+            </view>
+            <view class="weui-cell__ft">
+              <button type="default" class="serBtn" bindtap="searchkey" hover-class="other-button-hover"> 查询 </button>
+            </view>
+          </view>
+
+          <view class="weui-cell">
+            <view class="weui-cell__hd">
+              <view class="weui-label">位置</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input disabled="disabled" name="posi" id="posi" disabled='disabled' value="{{ house.housekey }}" class="weui-input" placeholder="请点击查询选择" />
+            </view>
+            <view class="weui-cell__ft"></view>
+          </view>
+
+
+          <view class="weui-cell" wx:if='{{showbiuld}}'>
+            <view class="weui-cell__hd">
+              <view class="weui-label">楼栋</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input disabled="disabled" name="build" id="build" bindtap='location' value="{{house.buildname}}" class="weui-input" placeholder="请点击选择" />
+            </view>
+            <view class="weui-cell__ft"></view>
+          </view>
+                  <view class="weui-cell" wx:if='{{showdanyuan}}'>
+            <view class="weui-cell__hd">
+              <view class="weui-label">单元</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input disabled="disabled" name="danyuan" id="danyuan" bindtap='danyuan' value="{{house.danyuanname}}" class="weui-input" placeholder="请点击选择" />
+            </view>
+            <view class="weui-cell__ft"></view>
+          </view>
+
+          <view class="weui-cell" wx:if='{{showfanghao}}'>
+            <view class="weui-cell__hd">
+              <view class="weui-label">房号</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input disabled="disabled" name="room" id="room" bindtap='room' value="{{house.house}}" class="weui-input" placeholder="请点击选择" />
+            </view>
+            <view class="weui-cell__ft"></view>
+          </view>
+
+          
+
+          <view class="weui-cell">
+            <view class="weui-cell__hd">
+              <view class="weui-label">面积</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input name="squre" id="squre" type='digit' value="{{area}}" class="weui-input" bindblur="getInput3" placeholder="请录入面积" />
+            </view>
+            <view class="weui-cell__ft">平米</view>
+          </view>
+          <view class="weui-cell" hidden="{{keyhidden3}}">
+            <view class="weui-cell__hd">
+              <view class="weui-label">楼层</view>
+            </view>
+            <view class="weui-cell__bd">
+              <input name="floor" id="floor" type='number'  value="{{floor1}}"bindblur="getInput1" style="width:80rpx;display:inline-block;vertical-align:middle;" max="50" min='1' class="weui-input" placeholder="您的" />
+              <text style="margin-right:100rpx;">楼层</text>
+              <input name="totalfloor" id="totalfloor" type='number' max="50" min='1' bindblur="getInput2" style="width:60rpx;display:inline-block;vertical-align:middle;" class="weui-input" placeholder="总" />楼层
+            </view>
+            <view class="weui-cell__ft"></view>
+          </view>
+
+
+          <view class="weui-cell">
+            <view class="weui-cell__hd"></view>
+            <view class="weui-cell__bd"></view>
+            <view class="weui-cell__ft">
+            </view>
+          </view>
+        </view>
+
+
+        <!-- <button type="default" class="formBtn" hover-class="other-button-hover" formType="submit"> 在线估价 </button> -->
+
+        <view class="pgcityArea">
+          <button type="default" class="formBtn formBtnCancle" hover-class="other-button-hover" bindtap='pingguCancle'> 取消 </button>
+          <button type="default" formType="submit" class="formBtn" hover-class="other-button-hover"> 在线估价 </button>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>
+<!-- 关键字搜索结果页、选取值 -->
+<view hidden="{{keyhidden}}" class="coverBox">
+  <view class='beback' bindtap="beback">
+    <em></em><text>返回</text></view>
+  <view class="h1">请选择您的住宅地址</view>
+  <scroll-view scroll-y class="coverList">
+    <view class="single" data-id="{{item.id}}" data-villageid="{{item.name}}" bindtap='ed0161' wx:for="{{buildlist}}" wx:key="key">
+      {{item.name}}
+    </view>
+  </scroll-view>
+</view>
+<!-- 楼栋 -->
+<view hidden="{{keyhidden1}}" class="coverBox">
+  <view class='beback' bindtap="beback">
+    <em></em><text>返回</text></view>
+  <view class="h1">请选择您的楼栋</view>
+  <scroll-view scroll-y class="coverList">
+    <view class="single" data-id="{{item.buildingId}}" data-villageid="{{item.buildingName}}" bindtap='ed0162' wx:for="{{buildlist1}}" wx:key="key">
+      {{item.buildingName}}
+    </view>
+  </scroll-view>
+</view>
+<!-- 单元 -->
+<view hidden="{{keyhidden2}}" class="coverBox">
+  <view class='beback' bindtap="beback">
+    <em></em><text>返回</text></view>
+  <view class="h1">请选择您的单元</view>
+  <scroll-view scroll-y class="coverList">
+    <view class="single" data-id="{{item.unitId}}" data-villageid="{{item.unitName}}" bindtap='ed0163' wx:for="{{danyuanlist}}" wx:key="key">
+      {{item.unitName}}
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 房号 -->
+<view hidden="{{keyhidden3}}" class="coverBox">
+  <view class='beback' bindtap="beback">
+    <em></em><text>返回</text></view>
+  <view class="h1">请选择您的房号</view>
+  <scroll-view scroll-y class="coverList">
+    <view class="single" data-id="{{item.buildingArea}}" data-villageid="{{item.house}}" bindtap='ed0164' wx:for="{{buildlist2}}" wx:key="key">
+      {{item.house}}
+    </view>
+  </scroll-view>
+</view>
+<!-- LBS定位、选取、传city ID -->
+<view hidden="{{cityhidden}}" class="cityBox">
+  <view class="closeCity" bindtap='closeCity'>确定</view>
+  <view class="titleBefore">当前定位</view>
+  <view class="GPSCity">{{cityName}}</view>
+  <view class="titleBefore">江苏省</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__bd" data-citycode="3201" data-city="南京" bindtap='bindcity'>南京</view>
+      <view class="weui-cell__bd" data-citycode="3202" data-city="无锡" bindtap='bindcity'>无锡</view>
+      <view class="weui-cell__bd" data-citycode="3203" data-city="徐州" bindtap='bindcity'>徐州</view>
+      <view class="weui-cell__bd" data-citycode="3204" data-city="常州" bindtap='bindcity'>常州</view>
+      <view class="weui-cell__bd" data-citycode="3205" data-city="苏州" bindtap='bindcity'>苏州</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd" data-citycode="3206" data-city="南通" bindtap='bindcity'>南通</view>
+      <view class="weui-cell__bd" data-citycode="3207" data-city="连云港" bindtap='bindcity'>连云港</view>
+      <view class="weui-cell__bd" data-citycode="3208" data-city="淮安" bindtap='bindcity'>淮安</view>
+      <view class="weui-cell__bd" data-citycode="3209" data-city="盐城" bindtap='bindcity'>盐城</view>
+      <view class="weui-cell__bd" data-citycode="3210" data-city="扬州" bindtap='bindcity'>扬州</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd" data-citycode="3211" data-city="镇江" bindtap='bindcity'>镇江</view>
+      <view class="weui-cell__bd" data-citycode="3212" data-city="泰州" bindtap='bindcity'>泰州</view>
+      <view class="weui-cell__bd" data-citycode="3213" data-city="宿迁" bindtap='bindcity'>宿迁</view>
+      <view class="weui-cell__bd"></view>
+      <view class="weui-cell__bd"></view>
+    </view>
+  </view>
+  <view class="titleBefore">北京市</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__hd"></view>
+      <view class="weui-cell__bd" data-citycode="1101" data-city="北京" bindtap='bindcity'>北京</view>
+    </view>
+  </view>
+  <view class="titleBefore">上海市</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__hd"></view>
+      <view class="weui-cell__bd" data-citycode="3101" data-city="上海" bindtap='bindcity'>上海</view>
+    </view>
+  </view>
+  <view class="titleBefore">广东省</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__hd"></view>
+      <view class="weui-cell__bd" data-citycode="4403" data-city="深圳" bindtap='bindcity'>深圳</view>
+    </view>
+  </view>
+  <view class="titleBefore">浙江省</view>
+  <view class="cities">
+    <view class="weui-cell">
+      <view class="weui-cell__hd"></view>
+      <view class="weui-cell__bd" data-citycode="3301" data-city="杭州" bindtap='bindcity'>杭州</view>
+    </view>
+  </view>
+
+</view>
+
+
+
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>

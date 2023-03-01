@@ -1,0 +1,39 @@
+/* sub3/pages/creditStationSelect/index.wxss */
+
+.card {
+    background: #FFFFFF;
+    border: 1px solid #CAD5E4;
+    border-radius: 24px;
+    border-radius: 16px;
+    margin: 25rpx 24rpx;
+    height: 253rpx;
+}
+
+page {
+    background: #f4f6f6;
+}
+
+.txt1 {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333333;
+    margin-top: 23rpx;
+    margin-left: 23rpx;
+}
+
+.txt2 {
+    font-family: PingFangSC-Regular;
+    font-size: 26rpx;
+    color: #AAAAAA;
+    margin-top: 2rpx;
+    margin-left: 23rpx;
+}
+
+.txt3 {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    /* color: #E4B473; */
+    letter-spacing: 0;
+    margin-top: 47rpx;
+    margin-left: 23rpx;
+}

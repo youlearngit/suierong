@@ -1,0 +1,46 @@
+<!-- sub1/pages/creditStationPerson/show.wxml -->
+<view class="content" hover-class="none" hover-stop-propagation="false">
+    <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/talent/bg.png" mode="widthFix" class="bg"></image>
+    <view class="content-title" hover-class="none" hover-stop-propagation="false">
+        <view class="content-title1" hover-class="none" hover-stop-propagation="false">
+            邀请您认证成为江苏银行人才客户
+        </view>
+        <view class="content-title2" hover-class="none" hover-stop-propagation="false">
+            享受更优更全的人才金融服务！
+        </view>
+    </view>
+    <view class="card">
+        <image src="{{cndUrl}}/static/wechat/img/talent/card_jr.png" mode="widthFix" class="card__bg"></image>
+        <image wx:if='{{cndUrl&&empInfo.phone}}' bindtap="call" src="{{cndUrl}}/static/wechat/img/talent/icon_call.png" mode="widthFix"
+            class="icon-call"></image>
+        <view class="card-head">
+            <image wx:if='{{cndUrl&&empInfo.avatar}}' src="{{empInfo.avatar}}" mode="widthFix" class="card-head__avatar"></image>
+            <view class="card-head__info">
+                <view class="info-detail">
+                    <view class="info-name">{{empInfo.name}}</view>
+                    <view class="info-position">
+                        <view class="" hover-class="none" hover-stop-propagation="false">
+                            {{empInfo.org}}
+                        </view>
+                        <view class="" hover-class="none" hover-stop-propagation="false">
+                            {{empInfo.position}}
+                        </view>
+                    </view>
+                </view>
+                <view class="info-tag">
+                    <view class="info-tag__item" wx:for="{{empInfo.tags}}">{{item}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="card-desc" wx:if="{{empInfo.desc}}">{{empInfo.desc}}</view>
+    </view>
+
+    <!-- 旧版入口 -->
+    <!-- <navigator url="/sub1/pages/creditStationPerson/index" class="talent-btn"> -->
+    <!-- 新版入口 -->
+    <navigator url="/sub4/pages/rcrz/apply" class="talent-btn">
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/talent/btn.png" mode="widthFix" class="btn__bg"></image>
+        立即认证
+    </navigator>
+</view>
+

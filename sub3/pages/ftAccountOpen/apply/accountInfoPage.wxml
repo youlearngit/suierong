@@ -1,0 +1,196 @@
+<view class="body" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/pub_background.png);">
+  <form bindsubmit="submitForm" report-submit='true'>
+    <view class="account-info-title">
+      <view class="title">账户信息</view>
+    </view>
+    <view class="account-info">
+      <view class="info-center" style="padding-top: 20rpx;">
+        <!-- 公司账户名称 -->
+        <view class="info-margin-buttom">
+          <cover-view class="label-style">账户名称</cover-view>
+          <van-field
+            input-class="weui-input"
+            disable-default-padding="true"
+            placeholder="请输入账户名称"
+            disabled="{{formDisabeld}}"
+            model:value="{{accountName}}"
+            name="accountName"
+            input-align="left"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 账户性质 -->
+        <view>
+            <picker mode="multiSelector"
+                bindchange="zhxzChange" 
+                value="{{zhxzIndex}}" 
+                range="{{zhxzItems}}"
+                disabled="{{formDisabeld}}"
+                range-key="name">
+                <van-field
+                  label="账户性质"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  disable-default-padding="true"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  model:value="{{zhxz}}"
+                  name="zhxz"
+                  right-icon="arrow"
+                  input-align="right"/>
+            </picker>
+        </view>
+        <!-- 对账地址 -->
+        <view>
+          <van-field 
+            label-class="label-style-1"
+            label="对账地址"
+            input-class="weui-input-1"
+            disable-default-padding="true"
+            placeholder="请输入对账地址"
+            model:value="{{dzdz}}"
+            disabled="{{formDisabeld}}"
+            name="dzdz"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 邮编 -->
+        <view>
+          <van-field 
+            label-class="label-style-1"
+            label="邮编"
+            input-class="weui-input-1"
+            disable-default-padding="true"
+            placeholder="请输入邮编"
+            maxlength="6"
+            model:value="{{zipCode}}"
+            disabled="{{formDisabeld}}"
+            name="zipCode"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 基本存款账户开户许可证核准号 -->
+        <view wx:if="{{accountInfoNature !== '00' && accountInfoNature !== ''}}">
+          <cover-view class="label-style">基本存款账户开户许可证核准号<text class="label-xt">  选填</text></cover-view>
+          <van-field
+           title-width="10rpx"
+            maxlength='13'
+            label="J"
+            label-class="weui-label"
+            input-class="weui-input-3"
+            disabled="{{formDisabeld}}"
+            disable-default-padding="true"
+            placeholder="请输入核准号数字"
+            model:value="{{baseAccounthzh}}"
+            name="baseAccounthzh"
+            input-align="left"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 资金性质 -->
+        <view wx:if="{{accountInfoNature !== '00' && accountInfoNature !== ''}}">
+          <picker mode="multiSelector"
+              bindchange="zjxzChange" 
+              value="{{zjxzIndex}}" 
+              range="{{zjxzItems}}"
+              disabled="{{formDisabeld}}"
+              range-key="name">
+              <van-field
+                label="资金性质"
+                label-class="label-style-1"
+                input-class="weui-input-1"
+                disable-default-padding="false"
+                placeholder="请选择"
+                disabled="{{true}}"
+                border="{{ false }}"
+                right-icon="arrow"
+                input-align="right"/>
+          </picker>
+          <van-field custom-style="margin-top:-30rpx"
+            input-class="weui-input"
+            disable-default-padding="true"
+            disabled
+            placeholder="-"
+            model:value="{{zjxz}}"
+            name="zjxz"
+            input-align="left"
+          />
+        </view>
+        <!-- 账户使用有效期至-->
+        <view wx:if="{{accountInfoNature !== '00' && accountInfoNature !== '01'&& accountInfoNature !== ''}}">
+          <van-field class="field"
+                  input-class="weui-input-1"
+                  placeholder="请选择"
+                  model:value="{{accountUseDateTo}}"
+                  disabled="{{true}}"
+                  name="accountUseDateTo"
+                  bindtouchstart="accountUseDateToChange"
+                  right-icon="arrow"
+                  input-align="right">
+                  <view slot="label" class="label-style-1">账户使用有效期至  <text class="label-xt">  选填</text></view>
+          </van-field>
+        </view>
+        <van-popup show="{{dialogFlag.accountUseDateTo}}" bind:close="onClose" position="bottom" :style="{ height: '30%' }">
+            <van-datetime-picker 
+            show="{{dialogFlag.accountUseDateTo}}"
+            bind:cancel="onClose"
+            bind:confirm="onAccountUseDateToEvent"
+            value="{{accountUseDateToPicker}}"
+            type="date"
+            title="请选择"
+            name="accountUseDateTo"
+            :formatter="formatter">
+          </van-datetime-picker>
+        </van-popup>
+        <!-- 开户原因 -->
+        <view>
+            <picker mode="multiSelector"
+                bindchange="khyyChange" 
+                value="{{khyyIndex}}" 
+                range="{{khyyItems}}"
+                disabled="{{formDisabeld}}"
+                range-key="name">
+                <van-field
+                  label="开户原因"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  disable-default-padding="true"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  model:value="{{khyy}}"
+                  name="khyy"
+                  right-icon="arrow"
+                  input-align="right"/>
+            </picker>
+        </view>
+        <!-- 开户电话核实人 -->
+        <view>
+            <picker mode="multiSelector"
+                bindchange="khdhhsrChange" 
+                value="{{khdhhsrIndex}}" 
+                range="{{khdhhsrItems}}"
+                disabled="{{formDisabeld}}"
+                range-key="name">
+                <van-field
+                  label="开户电话核实人"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  disable-default-padding="true"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  border="{{false}}"
+                  model:value="{{khdhhsr}}"
+                  name="khdhhsr"
+                  right-icon="arrow"
+                  input-align="right"/>
+            </picker>
+        </view>
+      </view>
+    </view>
+    <button class="btn" formType="submit">下一步</button>
+  </form>
+</view>
+
+<van-toast id="van-toast" />

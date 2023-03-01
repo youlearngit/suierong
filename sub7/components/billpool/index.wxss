@@ -1,0 +1,59 @@
+/* sub1/pages/quotaquery/index.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+body{
+  background-color: #F2F6FF 100%;
+}
+.titleLogo{
+  width: 100%;
+}
+
+.qty_body{
+  width: 100%;
+	position: absolute;
+	top: 113rpx;
+}
+.title{
+  width: 300rpx;
+  height: 88rpx;
+  float: left;
+  margin-left: 40rpx;
+  font: 73rpx HYYakuHei-GEW;
+  color: #FFF;
+  padding-top: 15rpx;
+  box-sizing: border-box;
+}
+.bottom_line{
+  width: 100%;
+  height: 4rpx;
+  margin-top: 31rpx;
+  float: left;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+}
+.line{
+  width: 100%;
+}
+.card{
+  width: 100%;
+	position: absolute;
+  top: 330rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  box-sizing: border-box;
+}
+.qt_card{
+  width: 100%;
+  height: 600rpx;
+  float: left;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+}
+.card_bg{
+  width: 100%;
+  height: 600rpx;
+  /* box-shadow: 0 4px 16px 1px rgba(79,145,255,0.20); */
+}

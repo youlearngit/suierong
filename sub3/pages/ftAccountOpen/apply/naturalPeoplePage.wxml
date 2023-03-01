@@ -1,0 +1,631 @@
+<view class="body" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/pub_background.png);">
+  <form bindsubmit="submitForm" report-submit='true'>
+    <view class="title">账户相关自然人信息</view>
+    <van-collapse custom-class="collase" value="{{ activeNames }}" bind:change="onActiveChange" clickable="false">
+      <!-- 法定代表人 -->
+      <van-collapse-item name="fddbr" custom-class="card" content-class="card-content" border="{{false}}">
+        <view slot="title">
+          <view class="card-title-bg" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/card-title-bg.png);"></view>
+          <view class="card-title">法定代表人</view>
+        </view>
+          <view class="info-center-right">
+            <van-field
+                label="姓名"
+                label-class="label-input-style"
+                input-class="weui-input-2"
+                disable-default-padding="true"
+                maxlength="50"
+                placeholder="请输入姓名"
+                disabled="{{formDisabeld}}"
+                model:value="{{legalName}}"
+                name="legalName"
+                input-align="right"/>
+              <view class="picture" bindtap="checkFddbrOCR" data-id="fddbr" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/picture.png);">
+          </view>
+          </view>
+          <view>
+                <picker mode="multiSelector" class="picker"
+                    bindchange="zjlxChange" data-id="fd"
+                    model:value="{{zjlxIndex}}" 
+                    range="{{zjlxItems}}"
+                    disabled="{{formDisabeld}}"
+                    range-key="name">
+                    <van-field
+                      label="证件类型" class="field"
+                      label-class="label-input-style"
+                      input-class="weui-input-1"
+                      border="{{ false }}"
+                      disable-default-padding="true"
+                      placeholder="请选择"
+                      disabled
+                      name="legalCardType"
+                      right-icon="arrow"
+                      input-align="right"/>
+                </picker>
+                <van-field
+                  input-class="weui-input weui-input-top"
+                  disable-default-padding="true"
+                  disabled
+                  placeholder="-"
+                  model:value="{{fdzjlx}}"
+                  name="fdzjlx"
+                  input-align="left"
+                />
+          </view>
+          <view>
+            <van-field
+                    label="证件号码"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    placeholder="请输入证件号码"
+                    maxlength="50"
+                    disabled="{{formDisabeld}}"
+                    model:value="{{legalCardNo}}"
+                    name="legalCardNo"
+                    input-align="right"/>
+          </view>
+          <view style="margin: 30rpx 0rpx;">
+            <text class="label-input-style" style="margin-left: 30rpx;">证件有效期</text>
+            <radio-group class="information-select-right" bindchange="certValidityChange" data-id="fd" disabled="{{formDisabeld}}">
+              <label class="radio"  wx:for="{{fdcertValidityItems}}" wx:key="{{item.value}}" style="margin-right: {{item.marginRight?item.marginRight:0}}rpx;">
+                <radio model:value="{{item.value}}" color="#eabd91" disabled="{{formDisabeld}}" checked="{{item.checked}}"/> {{item.name}}
+              </label>
+            </radio-group>
+            <van-field wx:if="{{fdcertValidityFlag}}"
+                  input-class="weui-input weui-input-top"
+                  disable-default-padding="true"
+                  placeholder="有效期格式:xxxx-xx-xx"
+                  model:value="{{legalCardValidDate}}"
+                  disabled="{{formDisabeld}}"
+                  maxlength="10"
+                  name="legalCardValidDate"
+                  input-align="left"
+                />
+          </view>
+          <view>
+            <van-field custom-style="margin-top:-30rpx"
+                    label="手机号"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    disabled="{{formDisabeld}}"
+                    placeholder="请输入手机号"
+                    maxlength="20"
+                    model:value="{{legalPhone}}"
+                    name="legalPhone"
+                    input-align="right"/>
+          </view>
+          <view style="margin: 30rpx 0rpx;">
+            <text class="label-input-style" style="margin-left: 30rpx;">是否授权他人办理开户</text>
+            <radio-group class="information-select-right" bindchange="authorizationSelectChange">
+              <label class="radio"  wx:for="{{legalIssqSelectItems}}" wx:key="{{item.value}}" style="margin-right: {{item.marginRight?item.marginRight:0}}rpx;">
+                <radio model:value="{{item.value}}" color="#eabd91" disabled="{{formDisabeld}}" checked="{{item.checked}}"/> {{item.name}}
+              </label>
+            </radio-group>
+          </view>
+      </van-collapse-item>
+      <!-- 授权开户代理人 -->
+      <view wx:if="{{legalIssq}}">
+        <van-collapse-item name="sqkhdlr"  custom-class="card" border="{{false}}" disabled="{{activeSqdlrDialog}}">
+        <view slot="title">
+          <view class="card-title-bg" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/card-title-bg.png);"></view>
+          <view class="card-title">
+              授权开户代理
+          </view>
+        </view>
+          <view class="info-center-right">
+            <van-field 
+                label="姓名"
+                label-class="label-input-style"
+                input-class="weui-input-2"
+                disable-default-padding="true"
+                maxlength="50"
+                placeholder="请输入姓名"
+                disabled="{{formDisabeld}}"
+                model:value="{{sqOpenAccountName}}"
+                name="sqOpenAccountName"
+                input-align="right"/>
+              <view class="picture" bindtap="checkFddbrOCR" data-id="sqkhdlr" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/picture.png);">
+          </view>
+          </view>
+          <view>
+                <picker mode="multiSelector" class="picker"
+                    bindchange="zjlxChange" data-id="sq"
+                    model:value="{{zjlxIndex}}" 
+                    range="{{zjlxItems}}"
+                    disabled="{{formDisabeld}}"
+                    range-key="name">
+                    <van-field
+                      label="证件类型" class="field"
+                      label-class="label-input-style"
+                      input-class="weui-input-1"
+                      border="{{ false }}"
+                      disable-default-padding="true"
+                      placeholder="请选择"
+                      disabled
+                      name="sqOpenAccountCardType"
+                      right-icon="arrow"
+                      input-align="right"/>
+                </picker>
+                <van-field
+                  input-class="weui-input weui-input-top"
+                  disable-default-padding="true"
+                  disabled
+                  placeholder="-"
+                  model:value="{{sqzjlx}}"
+                  name="sqzjlx"
+                  input-align="left"
+                />
+          </view>
+          <view>
+            <van-field
+                    label="证件号码"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    placeholder="请输入证件号码"
+                    maxlength="50"
+                    disabled="{{formDisabeld}}"
+                    model:value="{{sqOpenAccountCardNo}}"
+                    name="sqOpenAccountCardNo"
+                    input-align="right"/>
+          </view>
+          <view style="margin: 30rpx 0rpx;">
+            <text class="label-input-style" style="margin-left: 30rpx;">证件有效期</text>
+            <radio-group class="information-select-right" bindchange="certValidityChange" data-id="sq" disabled="{{formDisabeld}}">
+              <label class="radio"  wx:for="{{sqcertValidityItems}}" wx:key="{{item.value}}" style="margin-right: {{item.marginRight?item.marginRight:0}}rpx;">
+                <radio model:value="{{item.value}}" color="#eabd91" disabled="{{formDisabeld}}" checked="{{item.checked}}"/> {{item.name}}
+              </label>
+            </radio-group>
+            <van-field wx:if="{{sqcertValidityFlag}}"
+                  input-class="weui-input weui-input-top"
+                  disable-default-padding="true"
+                  placeholder="有效期格式:xxxx-xx-xx"
+                  model:value="{{sqOpenAccountCardValidDate}}"
+                  disabled="{{formDisabeld}}"
+                  maxlength="10"
+                  name="sqOpenAccountCardValidDate"
+                  input-align="left"
+                />
+          </view>
+          <view style="margin: 30rpx 0rpx;">
+            <van-field custom-style="margin-top:-30rpx"
+                    label="手机号"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    disabled="{{formDisabeld}}"
+                    maxlength="20"
+                    placeholder="请输入手机号"
+                    model:value="{{sqOpenAccountPhone}}"
+                    name="sqOpenAccountPhone"
+                    border="{{false}}"
+                    input-align="right"/>
+          </view>
+        </van-collapse-item>
+      </view>
+       <!-- 财务负责人 -->
+       <view>
+        <van-collapse-item name="cwfzr" custom-class="card" border="{{false}}" disabled="{{activeCWDialog}}">
+        <view slot="title">
+            <view class="card-title-bg" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/card-title-bg.png);"></view>
+            <view class="card-title">
+              财务负责人
+              <view class="card-title-right">
+                <picker mode="multiSelector" class="picker" bindchange="syncInfoChange" data-id="cw"
+                    value="{{cwfzrSyncInfoIndex}}" 
+                    range="{{cwsyncInfoItems}}"
+                    disabled="{{isCreate == '2'}}"
+                    range-key="name">
+                    {{cwfzrSyncSelectName}}
+                </picker>
+              </view>
+            </view>
+        </view>
+        <view class="info-center-right">
+            <van-field
+                label="姓名"
+                label-class="label-input-style"
+                input-class="weui-input-2"
+                disable-default-padding="true"
+                maxlength="50"
+                placeholder="请输入姓名"
+                disabled="{{formDisabeld}}"
+                model:value="{{financialName}}"
+                name="financialName"
+                input-align="right"/>
+              <view class="picture" bindtap="checkFddbrOCR" data-id="cwfzr" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/picture.png);"></view>
+        </view>
+        <view>
+              <picker mode="multiSelector" class="picker"
+                  bindchange="zjlxChange" data-id="cw"
+                  model:value="{{zjlxIndex}}" 
+                  range="{{zjlxItems}}"
+                  disabled="{{formDisabeld}}"
+                  range-key="name">
+                  <van-field
+                    label="证件类型" class="field"
+                    label-class="label-input-style"
+                    input-class="weui-input-1"
+                    border="{{ false }}"
+                    disable-default-padding="true"
+                    placeholder="请选择"
+                    disabled
+                    name="financialCardType"
+                    right-icon="arrow"
+                    input-align="right"/>
+              </picker>
+              <van-field
+                input-class="weui-input weui-input-top"
+                disable-default-padding="true"
+                disabled
+                placeholder="-"
+                model:value="{{cwzjlx}}"
+                name="cwzjlx"
+                input-align="left"
+              />
+        </view>
+        <view>
+          <van-field
+                  label="证件号码"
+                  label-class="label-input-style"
+                  disable-default-padding="true"
+                  placeholder="请输入证件号码"
+                  maxlength="50"
+                  model:value="{{financialCardNo}}"
+                  disabled="{{formDisabeld}}"
+                  name="financialCardNo"
+                  input-align="right"/>
+        </view>
+        <view style="margin: 30rpx 0rpx;">
+          <text class="label-input-style" style="margin-left: 30rpx;">证件有效期</text>
+          <radio-group class="information-select-right" bindchange="certValidityChange" data-id="cw" disabled="{{formDisabeld}}">
+            <label class="radio"  wx:for="{{cwcertValidityItems}}" wx:key="{{item.value}}" style="margin-right: {{item.marginRight?item.marginRight:0}}rpx;">
+              <radio model:value="{{item.value}}" color="#eabd91" disabled="{{formDisabeld}}" checked="{{item.checked}}"/> {{item.name}}
+            </label>
+          </radio-group>
+          <van-field wx:if="{{cwcertValidityFlag}}"
+                input-class="weui-input weui-input-top"
+                disable-default-padding="true"
+                placeholder="有效期格式:xxxx-xx-xx"
+                model:value="{{financialValidDate}}"
+                disabled="{{formDisabeld}}"
+                maxlength="10"
+                name="financialValidDate"
+                input-align="left"
+              />
+        </view>
+        <view style="margin: 30rpx 0rpx;">
+          <van-field custom-style="margin-top:-30rpx"
+                  label="手机号"
+                  label-class="label-input-style"
+                  disable-default-padding="true"
+                  maxlength="20"
+                  placeholder="请输入手机号"
+                  disabled="{{formDisabeld}}"
+                  model:value="{{financialPhone}}"
+                  name="financialPhone"
+                  border="{{false}}"
+                  input-align="right"/>
+        </view>
+      </van-collapse-item>
+       </view>
+       <!-- 联系人 -->
+       <view>
+          <van-collapse-item name="lxr" custom-class="card" border="{{false}}">
+          <view slot="title">
+              <view class="card-title-bg" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/card-title-bg.png);"></view>
+              <view class="card-title">
+              联系人
+                <view class="card-title-right">
+                  <picker mode="multiSelector" class="picker"  bindchange="syncInfoChange" data-id="lxr"
+                        value="{{lxsSyncInfoIndex}}" 
+                        range="{{lxrsyncInfoItems}}"
+                        disabled="{{isCreate == '2'}}"
+                    range-key="name">{{lxsSyncSelectName}}</picker>
+                </view>
+              </view>
+          </view>
+          <view class="info-center-right">
+            <van-field
+                label="姓名"
+                label-class="label-input-style"
+                input-class="weui-input-2"
+                disable-default-padding="true"
+                maxlength="50"
+                placeholder="请输入姓名"
+                model:value="{{contactName}}"
+                disabled="{{formDisabeld}}"
+                name="contactName"
+                input-align="right"/>
+              <view class="picture" bindtap="checkFddbrOCR" data-id="lxr" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/picture.png);"></view>
+          </view>
+          <view>
+                <picker mode="multiSelector" class=".picker"
+                    bindchange="zjlxChange" data-id="lx"
+                    model:value="{{zjlxIndex}}" 
+                    range="{{zjlxItems}}"
+                    disabled="{{formDisabeld}}"
+                    range-key="name">
+                    <van-field
+                      label="证件类型" class="field"
+                      label-class="label-input-style"
+                      input-class="weui-input-1"
+                      border="{{ false }}"
+                      disable-default-padding="true"
+                      placeholder="请选择"
+                      disabled
+                      name="contactCardType"
+                      right-icon="arrow"
+                      input-align="right"/>
+                </picker>
+                <van-field
+                  input-class="weui-input weui-input-top"
+                  disable-default-padding="true"
+                  disabled
+                  placeholder="-"
+                  model:value="{{lxzjlx}}"
+                  name="lxzjlx"
+                  input-align="left"
+                />
+          </view>
+          <view>
+            <van-field
+                    label="证件号码"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    placeholder="请输入证件号码"
+                    maxlength="50"
+                    disabled="{{formDisabeld}}"
+                    model:value="{{contactCardNo}}"
+                    name="contactCardNo"
+                    input-align="right"/>
+          </view>
+          <view style="margin: 30rpx 0rpx;">
+          <text class="label-input-style" style="margin-left: 30rpx;">证件有效期</text>
+          <radio-group class="information-select-right" bindchange="certValidityChange" data-id="lxr" disabled="{{formDisabeld}}">
+            <label class="radio"  wx:for="{{lxrcertValidityItems}}" wx:key="{{item.value}}" style="margin-right: {{item.marginRight?item.marginRight:0}}rpx;">
+              <radio model:value="{{item.value}}" color="#eabd91" disabled="{{formDisabeld}}" checked="{{item.checked}}"/> {{item.name}}
+            </label>
+          </radio-group>
+          <van-field wx:if="{{lxrcertValidityFlag}}"
+                input-class="weui-input weui-input-top"
+                disable-default-padding="true"
+                placeholder="有效期格式:xxxx-xx-xx"
+                model:value="{{contactValidDate}}"
+                disabled="{{formDisabeld}}"
+                maxlength="10"
+                name="contactValidDate"
+                input-align="left"
+              />
+        </view>
+          <view style="margin: 30rpx 0rpx;">
+            <van-field custom-style="margin-top:-30rpx"
+                    label="手机号"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    placeholder="请输入手机号"
+                    maxlength="20"
+                    border="{{ false }}"
+                    disabled="{{formDisabeld}}"
+                    model:value="{{contactPhone}}"
+                    name="contactPhone"
+                    input-align="right"/>
+          </view>
+          </van-collapse-item>
+       </view>
+      <!-- 大额查证联系人1 -->
+      <view>
+        <van-collapse-item name="deczlxr1" custom-class="card" border="{{false}}">
+          <view slot="title">
+              <view class="card-title-bg" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/card-title-bg.png);"></view>
+              <view class="card-title">
+                大额查证联系人1 
+                <van-icon name="question-o" color="#4c92fe" class="top-z-index" 
+                bindtap="showdeczlxrMessage"/>
+                <!-- <view class="card-title-right">
+                  <picker mode="multiSelector" class="picker" bindchange="syncInfoChange" data-id="dae1"
+                        value="{{dae1SyncInfoIndex}}" 
+                        range="{{daesyncInfoItems}}"
+                    range-key="name">{{dae1SyncSelectName}}</picker>
+                </view> -->
+              </view>
+          </view>
+          <view class="info-center-right">
+              <van-field
+                  label="姓名"
+                  label-class="label-input-style"
+                  input-class="weui-input-2"
+                  disable-default-padding="true"
+                  maxlength="50"
+                  placeholder="请输入姓名"
+                  disabled="{{formDisabeld}}"
+                  model:value="{{deczcontactName1}}"
+                  name="deczcontactName1"
+                  input-align="right"/>
+                <view class="picture" bindtap="checkFddbrOCR" data-id="deczlxr1" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/picture.png);">
+            </view>
+          </view>
+          <view>
+              <picker mode="multiSelector" class="picker"
+                  bindchange="zjlxChange" data-id="de1"
+                  model:value="{{zjlxIndex}}" 
+                  range="{{zjlxItems}}"
+                  disabled="{{formDisabeld}}"
+                  range-key="name">
+                  <van-field class="field"
+                    label="证件类型"
+                    label-class="label-input-style"
+                    input-class="weui-input-1"
+                    border="{{ false }}"
+                    disable-default-padding="true"
+                    placeholder="请选择"
+                    disabled
+                    name="deczcontactCardType1"
+                    right-icon="arrow"
+                    input-align="right"/>
+              </picker>
+              <van-field
+                input-class="weui-input weui-input-top"
+                disable-default-padding="true"
+                disabled
+                placeholder="-"
+                model:value="{{de1zjlx}}"
+                name="de1zjlx"
+                input-align="left"
+              />
+          </view>
+          <view>
+            <van-field
+                    label="证件号码"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    placeholder="请输入证件号码"
+                    maxlength="50"
+                    disabled="{{formDisabeld}}"
+                    model:value="{{deczcontactCardNo1}}"
+                    name="deczcontactCardNo1"
+                    input-align="right"/>
+          </view>
+          <view style="margin: 30rpx 0rpx;">
+            <text class="label-input-style" style="margin-left: 30rpx;">证件有效期</text>
+            <radio-group class="information-select-right" bindchange="certValidityChange" data-id="de1"  disabled="{{formDisabeld}}">
+              <label class="radio"  wx:for="{{de1certValidityItems}}" wx:key="{{item.value}}" style="margin-right: {{item.marginRight?item.marginRight:0}}rpx;">
+                <radio model:value="{{item.value}}" color="#eabd91" disabled="{{formDisabeld}}" checked="{{item.checked}}"/> {{item.name}}
+              </label>
+            </radio-group>
+            <van-field wx:if="{{de1certValidityFlag}}"
+                  input-class="weui-input weui-input-top"
+                  disable-default-padding="true"
+                  placeholder="有效期格式:xxxx-xx-xx"
+                  maxlength="10"
+                  disabled="{{formDisabeld}}"
+                  model:value="{{deczcontactCardValidDate1}}"
+                  name="deczcontactCardValidDate1"
+                  input-align="left"
+                />
+          </view>
+          <view>
+            <van-field custom-style="margin-top:-30rpx"
+                    label="手机号"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    placeholder="请输入手机号"
+                    maxlength="20"
+                    disabled="{{formDisabeld}}"
+                    model:value="{{deczcontactPhone1}}"
+                    name="deczcontactPhone1"
+                    border="{{false}}"
+                    input-align="right"/>
+          </view>
+        </van-collapse-item>
+        </view>
+      <!-- 大额查证联系人2 -->
+      <view>
+        <van-collapse-item name="deczlxr2" custom-class="card" border="{{false}}">
+        <view slot="title">
+            <view class="card-title-bg" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/card-title-bg.png);"></view>
+            <view class="card-title">
+              大额查证联系人2
+              <van-icon class="top-z-index" color="#4c92fe" name="question-o" bindtap="showdeczlxrMessage"/>
+              <!-- <view class="card-title-right">
+                  <picker mode="multiSelector" class="picker" bindchange="syncInfoChange" data-id="dae2"
+                        value="{{dae2SyncInfoIndex}}" 
+                        range="{{daesyncInfoItems}}"
+                    range-key="name">{{dae2SyncSelectName}}</picker>
+              </view> -->
+            </view>
+        </view>
+        <view class="info-center-right">
+            <van-field
+                label="姓名"
+                label-class="label-input-style"
+                input-class="weui-input-2"
+                disable-default-padding="true"
+                maxlength="50"
+                placeholder="请输入姓名"
+                disabled="{{formDisabeld}}"
+                model:value="{{deczcontactName2}}"
+                name="deczcontactName2"
+                input-align="right"/>
+              <view class="picture" bindtap="checkFddbrOCR" data-id="deczlxr2" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/picture.png);">
+          </view>
+          </view>
+          <view>
+                <picker mode="multiSelector" class="picker"
+                    bindchange="zjlxChange" data-id="de2"
+                    model:value="{{zjlxIndex}}" 
+                    range="{{zjlxItems}}"
+                    disabled="{{formDisabeld}}"
+                    range-key="name">
+                    <van-field
+                      label="证件类型" class="field"
+                      label-class="label-input-style"
+                      input-class="weui-input-1"
+                      border="{{ false }}"
+                      disable-default-padding="true"
+                      placeholder="请选择"
+                      disabled
+                      name="deczcontactCardType2"
+                      right-icon="arrow"
+                      input-align="right"/>
+                </picker>
+                <van-field
+                  input-class="weui-input weui-input-top"
+                  disable-default-padding="true"
+                  disabled
+                  placeholder="-"
+                  model:value="{{de2zjlx}}"
+                  name="de2zjlx"
+                  input-align="left"
+                />
+          </view>
+          <view>
+            <van-field
+                    label="证件号码"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    placeholder="请输入证件号码"
+                    maxlength="50"
+                    disabled="{{formDisabeld}}"
+                    model:value="{{deczcontactCardNo2}}"
+                    name="deczcontactCardNo2"
+                    input-align="right"/>
+          </view>
+          <view style="margin: 30rpx 0rpx;">
+            <text class="label-input-style" style="margin-left: 30rpx;">证件有效期</text>
+            <radio-group class="information-select-right" bindchange="certValidityChange" data-id="de2">
+              <label class="radio"  wx:for="{{de2certValidityItems}}" wx:key="{{item.value}}" style="margin-right: {{item.marginRight?item.marginRight:0}}rpx;">
+                <radio model:value="{{item.value}}" color="#eabd91"  disabled="{{formDisabeld}}" checked="{{item.checked}}"/> {{item.name}}
+              </label>
+            </radio-group>
+            <van-field wx:if="{{de2certValidityFlag}}"
+                  input-class="weui-input weui-input-top"
+                  disable-default-padding="true"
+                  disabled="{{formDisabeld}}"
+                  placeholder="有效期格式:xxxx-xx-xx"
+                  maxlength="10"
+                  model:value="{{deczcontactCardValidDate2}}"
+                  name="deczcontactCardValidDate2"
+                  input-align="left"/>
+          </view>
+          <view>
+            <van-field custom-style="margin-top:-30rpx"
+                    label="手机号"
+                    label-class="label-input-style"
+                    disable-default-padding="true"
+                    placeholder="请输入手机号"
+                    maxlength="20"
+                    model:value="{{deczcontactPhone2}}"
+                    disabled="{{formDisabeld}}"
+                    name="deczcontactPhone2"
+                    border="{{false}}"
+                    input-align="right"/>
+          </view>
+        </van-collapse-item>
+      </view>
+    </van-collapse>
+    <view class="btn-body">
+      <button class="btn" formType="submit">下一步</button>
+    </view>
+  </form>
+  <message-popup showTip="{{showTip}}" message="{{message}}"></message-popup>
+</view>
+<van-toast id="van-toast" />

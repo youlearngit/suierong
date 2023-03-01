@@ -1,0 +1,29 @@
+
+<canvas id="myCanvas" type="2d" style="position:fixed;z-index:-1;" />
+
+<my-poster shareBox="{{poster_shareBox}}" hidePoster="{{poster_hidePoster}}" imagePath="{{poster_img}}" bind:cancel="cancelPoster"></my-poster>
+
+<van-popup show="{{show}}" bind:close="onClosePosters" position="bottom">
+    <view class="t1">欢迎体验,感谢分享。</view>
+    <view class="t4">海报模版</view>
+    <scroll-view scroll-y style="max-height:60vh">
+        <view class="t5">
+            <view class="t51" wx:for="{{media}}" bind:tap="choosePoster" data-id="{{index}}">
+                <image class="t54" src="{{emp_info.PHOTO2}}" mode="widthFix" style="width:100%"></image>
+                <image src="{{item[0].img}}" mode="widthFix" style="width:100%"></image>
+                <image wx:if="{{poster_idx==index}}" class="t52" src="{{cndUrl}}/static/wechat/img/sui/sui-1076.png" mode="widthFix"></image>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="t6" wx:if="{{poster_idx==-1}}" style="opacity: 0.5;">请选择模版</view>
+    <view class="t6" bind:tap="createPoster" wx:if="{{poster_idx!=-1&&poster_img!=''}}">
+        分享海报
+    </view>
+    <view class="t6" hover-class="none" hover-stop-propagation="false" wx:if="{{poster_idx!=-1&&poster_img==''}}">
+        <image src="{{cndUrl}}/static/wechat/img/sui/loading.gif" mode="widthFix" style="width:40rpx;margin:0 10rpx"></image>
+        请稍等
+    </view>
+    <view style="height:30rpx"></view>
+</van-popup>
+
+<van-toast id="van-toast" />

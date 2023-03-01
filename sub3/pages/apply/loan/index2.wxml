@@ -1,0 +1,235 @@
+<view class="body-background-img" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/confirm_loan_background.png);">
+  <view class="top">
+      <text class="top-title">个人汽车消费贷款</text>
+      <view>
+        <view class="top-label">
+        <image class="f2-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/car-home-gou.png" mode="aspectFit"></image>
+       <view class="f2-1-text">线上申请</view>
+      </view>
+      <view class="top-label">
+        <image class="f2-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/car-home-gou.png" mode="aspectFit"></image>
+       <view class="f2-1-text">快速审批</view>
+      </view>
+      <view class="top-label">
+        <image class="f2-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/car-home-gou.png" mode="aspectFit"></image>
+       <view class="f2-1-text">还款便捷</view>
+      </view>
+      </view>
+  </view>
+  <view class="form"> 
+    <form bindsubmit="nextStep" report-submit='true'>
+      <view class="section pr">
+        <!-- 车贷申请金额 -->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label cGray"><text class="font-red">*</text> 车贷申请金额</view>
+          </view>
+          <view class="weui-cell__bd" style="padding-right: 30rpx;">
+              <input name="name" id="name" placeholder="请输入金额" 
+              bindinput='inputCarApplyAmount'  type="number"
+              value="{{ form.carApplyAmount }}"/>
+              <text style="position: absolute;right: 20rpx; top: 0rpx;">元</text>
+          </view>
+        </view>
+        <!-- 车贷申请期限 -->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label cGray"><text class="font-red">*</text> 车贷申请期限</view>
+          </view>
+          <view class="weui-cell__bd" style="padding-right: 30rpx;">
+              <input name="name" id="name" placeholder="请输入期限" 
+              bindinput='inputCarApplyMonth'  type="number" maxlength="2"
+              value="{{ form.carApplyMonth }}"/>
+              <text style="position: absolute;right: 20rpx; top: 0rpx;">月</text>
+          </view>
+        </view>
+        <!-- 消费随e贷申请金额 -->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view>消费随e贷申请金额</view>
+          </view>
+          <view class="weui-cell__bd" style="padding-right: 30rpx;">
+              <input name="name" id="name" placeholder="请输入金额" 
+              bindinput='inputSuiEApplyAmount'  type="number" 
+              value="{{ form.suiEApplyAmount }}"/>
+              <text style="position: absolute;right: 20rpx; top: 0rpx;">元</text>
+          </view>
+        </view>
+        <!-- 消费随e贷申请期限 -->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view>消费随e贷申请期限</view>
+          </view>
+          <view class="weui-cell__bd" style="padding-right: 30rpx;">
+              <input name="name" id="name" placeholder="请输入期限" 
+              bindinput='inputSuiEApplyMonth'  type="number" maxlength="2" disabled
+              value="{{ form.suiEApplyMonth }}"/>
+              <text style="position: absolute;right: 20rpx; top: 0rpx;">月</text>
+          </view>
+        </view>
+         <!-- 经办客户经理工号 -->
+         <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label cGray">经办客户经理工号</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input name="name" id="name" placeholder="请输入经办客户经理工号" 
+              bindinput='inputChargeOrgId'  maxlength="40"
+              value="{{ form.chargeOrgId }}"/>
+          </view>
+        </view>
+        <!-- 手机号码 -->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label cGray"><text class="font-red">*</text>手机号码</view>
+          </view>
+          <view class="weui-cell__bd">
+              <input name="name" id="name" placeholder="请输入手机号码" 
+              bindinput='inputTel'  type="number" maxlength="11"
+              value="{{ form.tel }}"/>
+          </view>
+        </view>
+        <!-- 短信验证码 -->
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd" style="padding-right: 30rpx;text-align: left;">
+              <input name="name" id="name" placeholder="请输入短信验证码"
+              bindinput='inputSmsCode'  type="number" maxlength="6"
+              value="{{ smsCode }}"/>
+          </view>
+          <view class="weui-cell__hd">
+              <text class="sms-code" disabled='{{disabled}}'
+              bindtap="getVerificationCode">{{codename}}
+              </text>
+          </view>
+        </view>
+      </view>
+    </form>
+  </view>
+
+  <view class="foot">
+    <view>
+      <view class="action-text">
+        <label class="radio">
+          <radio disabled='{{true}}' color="#09BB07" bindtouchend="seeCont" checked="{{btnFlag}}"/> 
+        </label>
+          您已阅读并同意以下协议所载内容和条款<text class="action-text-content" bindtap="openAction">《综合信息查询使用授权书》、《征信查询授权书》等。</text>
+      </view>
+    </view>
+    <button class="btn-submit" bindtap="goSubmit" style="{{btnFlag?'':'opacity: 0.5;'}}">提交申请</button>
+  </view>
+</view>
+
+<page-container show="{{contractPageFlag}}" custom-style="height:100%;width:100%">
+  <view class="contaioner-content">
+    <scroll-view scroll-x scroll-with-animation='false' scroll-top='{{ topNum }}'>
+      <!-- 第一份授权书 -->
+      <view  wx:if="{{showContractFlag==1}}">
+        <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">江苏银行综合信息查询使用授权书</view>
+        <view class="title-size-30-2">（适用于自然人）</view>
+        <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+          授权人： <text class="smail-cont-text-content" decode='true' >
+          客户姓名：<text class="text-border">{{form.name}}</text>\n
+          身份证号码：<text class="text-border">{{form.number}}</text>\n\n
+          
+          {{nbsp}}一、因办理信贷业务的需要，本人不可撤销地授权<text class="text-border">江苏银行股份有限公司</text>  （以下简称“贵行”），</text>通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：\n
+          {{nbsp}}（一）公积金信息：<text class="smail-cont-text-content" decode='true' >本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。</text>\n
+          {{nbsp}}（二）税务信息：<text class="smail-cont-text-content" decode='true' >本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。</text>\n
+          {{nbsp}}（三）其他信息\n
+          {{nbsp}}本人资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息等个人信息；与融资相关的交易信息及经本人授权的其他信息。<text class="smail-cont-text-content" decode='true' >按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。
+            {{nbsp}}二、本授权书用于办理涉及本人的以下信贷业务：
+            {{nbsp}}1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；
+            {{nbsp}}2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；
+            {{nbsp}}3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况。</text>\n
+            {{nbsp}}三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。\n
+            {{nbsp}}四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。<text class="smail-cont-text-content" decode='true' >
+            {{nbsp}}五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。
+
+
+            {{nbsp}}{{nbsp}}{{nbsp}}{{nbsp}}授权人： <text class="text-border">{{form.name}}</text>\n
+            {{nbsp}}{{nbsp}}{{nbsp}}{{nbsp}}授权日期：<text class="text-border">{{Y}}</text>年<text class="text-border">{{M}}</text>月<text class="text-border">{{D}}</text>日</text>\n\n\n
+        </text>
+      </view>
+      <!-- 第二份授权书 -->
+      <view wx:if="{{showContractFlag==2}}">
+          <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">授 权 书</view>
+          <view class="text-center font-size-30">(适用于自然人)</view>
+          <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+            {{nbsp}}江苏银行：
+            {{nbsp}}因<text style="font-size: 26rpx;">☑</text>本人/□__/__办理个人贷款业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：\n
+            {{nbsp}}（1）<text style="font-size: 26rpx;">☑</text>贷款审批；\n
+            {{nbsp}}（2）□担保资格审查；\n
+            {{nbsp}}（3）□ 资信审查；\n
+            {{nbsp}}（4）□ 客户准入资格审查；\n
+            {{nbsp}}（5）<text style="font-size: 26rpx;">☑</text>贷后管理；\n
+            {{nbsp}}（6）□ <text class="smail-cont-text-content" style="text-decoration: underline;" decode='true'>{{nbsp}}/  。</text><text class="smail-cont-text-content" style="text-decoration: underline; font-weight: 600;" decode='true'>
+              {{nbsp}}本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。\n</text>
+            {{nbsp}}授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。<text class="smail-cont-text-content" style="text-decoration: underline; font-weight: 600;" decode='true'>
+            {{nbsp}}如本笔业务涉及公积金住房委托贷款且公积金管理中心有审批需要，本人授权贵行将本人信用报告提供给公积金管理中心。</text>\n
+            {{nbsp}}责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。\n
+            {{nbsp}}本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。\n\n
+
+            {{nbsp}}特此授权。\n\n
+
+          {{nbsp}} {{nbsp}} {{nbsp}}授权人（签字）：<text class="text-border">{{form.name}}</text>   \n
+          {{nbsp}} {{nbsp}} {{nbsp}}身份证件类型：<text class="text-border">身份证</text>   \n
+          {{nbsp}} {{nbsp}} {{nbsp}}证件号码：<text class="text-border">{{form.number}}</text>    \n
+          {{nbsp}} {{nbsp}} {{nbsp}}授权日期：<text class="text-border">{{Y}}</text>年<text class="text-border">{{M}}</text>月<text class="text-border">{{D}}</text>日\n\n
+          
+          {{nbsp}}特别提示：为保护您的合法权益，以上空白处请填写完整。\n\n\n
+          </text>
+      </view>
+      <!-- 第三份授权书 -->
+      <view wx:if="{{showContractFlag==3}}">
+          <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">授 权 书</view>
+          <view class="text-center font-size-30">(适用于自然人)</view>
+          <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;  white-space: pre-line;word-break: break-all;">
+            <text decode="true" style="font-weight: 200;">
+            {{nbsp}}江苏银行股份有限公司：
+            {{nbsp}}本人（姓名：<text class="text-border">{{form.name}}</text>，身份证号码：<text class="text-border">{{form.number}}</text>，）拟向贵司申请个人汽车消费贷款业务，贵司需要了解本人/本单位相关状况，用于风险评估与控制，
+            </text>因此本人/本单位特同意并不可撤销的授权：\n
+            {{nbsp}}（一）因业务所需，贵司有权向南京三百云信息科技有限公司提供本人／本单位相关信息（包括：本人姓名、身份证号、手机号，本人／本单位在本业务中产生的行为信息等）并向南京三百云信息科技有限公司查询与业务相关的本人身份、借贷及负债信息、被执行信息、违章信息、车辆信息、及与本业务相关的行为及场景、关系信息等。\n
+            {{nbsp}}（二）贵司有权委托南京三百云信息科技有限公司自行或向第三方查询并向贵司出具报告而无须另行告知本人/本单位。
+            {{nbsp}}本人/本单位知悉并理解本授权书中所有条款的声明，愿意承担前述对相关信息提供、查询、收集、使用等进行授权的法律后果，无论贷款业务是否获批准，本人/本单位的授权书、报告等资料一律不退回。\n
+            {{nbsp}}特别提示：\n
+            {{nbsp}}<text decode="true" style="font-weight: 200;">为了保障您的合法权益，请您务必阅读并充分理解与遵守本授权书；</text>若您不接受本授权书的任何条款，请您立即终止授权。\n
+            {{nbsp}}<text decode="true" style="font-weight: 200;">贵司已经对上述事宜及其风险向本人／本单位做了充分说明，本人／本单位已知晓并同意。</text>\n
+            {{nbsp}}本授权书一经出具即生效，本授权书是本人／本单位真实意思表示，本人／本单位同意承担由此带来的一切法律后果。</text>
+            <text decode="true" style="font-weight: 200;">
+              {{nbsp}}{{nbsp}}{{nbsp}}{{nbsp}}授权人：<text class="text-border">{{form.name}}</text>\n
+              {{nbsp}}{{nbsp}}{{nbsp}}{{nbsp}}授权日期：<text class="text-border">{{Y}}</text>年<text class="text-border">{{M}}</text>月<text class="text-border">{{D}}</text>日\n\n\n
+            </text>
+      </view>
+      <!-- 第四份授权书 -->
+      <view wx:if="{{showContractFlag==4}}">
+        <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">借款申请及合同签署告知书</view>
+        <view class="version">202201版</view>
+        <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;  white-space: pre-line;word-break: break-all;">
+          {{nbsp}}尊敬的客户，为保障您的权益，您在向江苏银行股份有限公司（以下简称“江苏银行”）申请个人汽车消费贷款业务并签署相关合同前，请认真阅读本告知书及相关合同内容，如您对本告知书或签署合同内容有任何疑问，或者无法准确理解相关条款，您应暂停申请和签署并通过江苏银行客服及/或客户经理进行咨询，客服电话95319。
+          {{nbsp}}1.您知晓并同意，江苏银行与您将通过江苏银行随e融小程序等各类电子渠道（以下简称“江苏银行指定渠道”）签署电子版借款合同，并同时线下签署纸质版借款合同。江苏银行将仅依据线上签署的电子版借款合同履行借款发放义务，线下签署的纸质版借款合同仅用于办理抵押登记，如线上、线上签署的借款合同内容存在不一致的，以您在线签署的电子版借款合同约定为准。
+          {{nbsp}}<text class="smail-cont-text-content" decode="true">2.您授权同意江苏银行在与您签署电子版借款合同及其他法律文件时，可以通过短信验证码（如需）、数字证书（如需）、人脸识别方式对您的身份进行核实，验证通过后，后续所有操作均视为您本人的操作。
+          {{nbsp}}3.您应当妥善保管江苏银行指定渠道以及与本次借款相关账户的账号、密码、数字证书、短信验证码以及您的手机号码等个人信息，并保持手机等通讯设备畅通。您应当保证手机等通讯设备、个人电脑等的环境安全，并不向任何人泄露前述信息。因您手机或电脑环境安全、账号或密码等信息泄露造成的损失，由您自行承担。
+          {{nbsp}}您若发现账号、密码等信息存在冒用风险，或者有他人冒用您的账号、密码等信息进行借款申请的，您应当立即通知江苏银行要求暂停本业务。同时，您应理解江苏银行对您的要求采取行动需要合理时间，在此之前，江苏银行对已执行的指令及由此产的损失不承担任何责任。若您与他人合谋或有其他不诚信的行为，或者不配合江苏银行调查情况时，则由您承担由此造成的损失。</text>\n
+          {{nbsp}}4.除非有可靠、确定的相反证据，您以电子数据形式提交、确认或签署的任何法律文件及江苏银行指定渠道生成、制作或保留的单据、凭证、记录等相关资料，均构成有效证明合同双方之间权利义务关系的确定证据，您对此不存在任何异议。\n
+          {{nbsp}}<text class="smail-cont-text-content" decode="true">5.本告知书及通过江苏银行指定渠道签署的电子版借款合同包含数字证书签名信息，由您在线签署时自动生成，并由中国金融认证中心（CFCA）提供签章服务。
+          {{nbsp}}特此告知。</text>\n\n
+
+          {{nbsp}}本人（姓名：<text class="text-border">{{form.name}}</text>，身份证号码：<text class="text-border">{{form.number}}</text>）确认知悉并仔细阅读该告知书所有内容，理解并接受贵行提示的风险。\n
+          {{nbsp}}{{nbsp}}{{nbsp}}{{nbsp}}<text class="smail-cont-text-content" decode="true">客户（电子签名）：<text class="text-border" decode="true">{{form.name}}</text></text>\n
+          {{nbsp}}{{nbsp}}{{nbsp}}{{nbsp}}<text class="smail-cont-text-content" decode="true">签订日期：<text class="text-border" decode="true">{{Y}}年{{M}}月{{D}}日</text></text>\n\n\n
+        </text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="contaioner-foot" wx:if="{{showContractFlag!='4'}}">
+    <button class="btn-submit1" bindtap="nextAction" style="{{backBtnName===0?'':'background:#999'}}">
+      {{backBtnName===0?'查看下一份授权':'查看下一份授权('+backBtnName+'s)'}}
+    </button>
+  </view>
+  <view class="contaioner-foot" wx:if="{{showContractFlag=='4'}}">
+    <button class="btn-submit1" bindtap="getBatchId" style="{{backBtnName===0?'':'background:#999'}}">
+      {{backBtnName===0?'我已阅读并同意':'我已阅读并同意('+backBtnName+'s)'}}
+    </button>
+  </view>
+</page-container>
+
+

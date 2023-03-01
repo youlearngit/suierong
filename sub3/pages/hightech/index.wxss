@@ -1,0 +1,24 @@
+.wrap{position:relative;z-index:100;background:#fff;}
+image{width:100%;height:100%;}
+.bg{width:750rpx;height:974rpx;}
+.bg2{position:relative;width:750rpx;height:1388rpx;}
+.sec{position:absolute;width:46%;height:100px;left:50%;}
+.sec.s1{top:60rpx;}
+.sec.s2{top:170rpx;}
+.sec.s3{top:280rpx;}
+.sec.s4{top:390rpx;}
+.sec .h2{font-size:32rpx;height:32rpx;line-height:32rpx;color:#000;}
+.sec .h2::before{position:absolute;content:"·";left:-40rpx;font-size:60rpx;color:#0066b3;}
+.sec .p{font-size:24rpx;color:#333;text-align:justify;}
+.proInfo{position:absolute;width:80%;left:10%;top:580rpx;font-size:28rpx;}
+.pronewed{position:absolute;width:40%;left:50%;top:970rpx;font-size:28rpx;}
+
+
+
+.dianDL{position:relative;display:block;width:80%;margin:60rpx auto;margin-bottom:80rpx;padding:40rpx 26rpx;line-height:1.6;font-size:26rpx;color:#333;border-radius:10rpx;background:#cfe5f5;}
+.dianDt{position:absolute;top:-40rpx;left:10%;width:80%;height:40rpx;line-height:40rpx;padding:15rpx 0 25rpx;font-size:32rpx;color: #fff;text-align:center;vertical-align:middle;}
+.dianDt text{display:inline-block;position:relative;height:40rpx;z-index:10;}
+.dianDt .span{width:40rpx;height:40rpx;border-radius:40rpx;margin-right:80rpx;color:#ff6606;background:#fff;}
+.dianDtBg{position:absolute;top:0;left:0;width:100%;height:70rpx;z-index:1;}
+.dianDL .p{display:block;margin-bottom:10rpx;text-indent:2em;text-align:justify;}
+

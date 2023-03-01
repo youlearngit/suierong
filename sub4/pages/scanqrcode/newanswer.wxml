@@ -1,0 +1,20 @@
+<view class="num">
+    <view class="mybg">
+    <!-- 背景图 -->
+    <image src="{{preffixUrl}}answer.png" class="mybg"></image>
+       
+  </view>
+  <view class="mycarddtk">
+    <image class="mycar" src="{{preffixUrl}}carddtk.png"></image>
+  </view>
+  <view class="myan">
+        <button class="myanuude" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber3">
+            <image class="myautho" src="{{preffixUrl}}authorizatio.png"></image>     授权登录
+        </button>
+  </view>
+    <view class="myglode">
+        <image src="./aredub/gold.png" class="glode"></image>
+    </view>
+</view>
+      
+

@@ -1,0 +1,24 @@
+
+<view>
+  <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleQueryBg.png" style="width: 100%;" mode="widthFix" class="enterpriseScaleQueryBg"></image>
+  <view>
+    <view class="enterpriseScaleTitle">选择企业类型</view>
+    <view class="enterpriseScaleTips">精确选择，快速了解优惠内容</view>
+  </view>
+</view>
+<view class="enterpriseScaleTypeQueryContent" >
+  <view bindtap="individual" style="{{individual?'color:#364FA3':''}}"><image src="{{cndUrl}}/static/wechat/img/entsc/{{individual?'enterpriseScaleChecked':'enterpriseScaleCheck'}}.png" style="width: 25rpx;margin-right: 20rpx;" mode="widthFix"></image> 个体工商户</view>
+  <view class="border"></view>
+  <view bindtap="miniature" style="{{miniature?'color:#364FA3':''}}"><image src="{{cndUrl}}/static/wechat/img/entsc/{{miniature?'enterpriseScaleChecked':'enterpriseScaleCheck'}}.png" style="width: 25rpx;margin-right: 20rpx;" mode="widthFix"></image> 小微型企业</view>
+  <view class="border"></view>
+  <view bindtap="large" style="{{large?'color:#364FA3':''}}"><image src="{{cndUrl}}/static/wechat/img/entsc/{{large?'enterpriseScaleChecked':'enterpriseScaleCheck'}}.png" style="width: 25rpx;margin-right: 20rpx;" mode="widthFix"></image> 大中型企业</view>
+</view>
+<view class="enterpriseScaleBtn" bindtap="enterpriseScaleQuery" wx:if="{{calculate}}">
+  立即估算
+</view>
+<view class="enterpriseScaleBtn" bindtap="enterpriseScaleQuery" wx:else="">
+  立即查询
+</view>
+
+<view class="tip2">*根据工业和信息化部</view>
+<view class="tip2">《中小企业划型标准规定》对企业类型划分标准。</view>

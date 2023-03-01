@@ -1,0 +1,27 @@
+<wxs src="./utils.wxs" module="utils" />
+<view>
+	<image class="bg" src="{{preffixUrl}}authorize_bg.png" mode="widthFix"/>
+	<image class="logo" src="{{preffixUrl}}authorize_logo.png" mode="widthFix"/>
+	<view class="content">
+		<view class="title">您好，</view>
+		<view>为了更好地为您提供服务，我们将获取您的微信个人信息：</view>
+		<view class="wx">
+			<image class="wx_logo" src="{{preffixUrl}}authorize_wieixn_logo.png" mode="widthFix"/>
+			<view class="wx_tip">
+				<view></view>
+				<view>用于您快捷登录人才服务百宝箱</view>
+			</view>
+		</view>
+        <view class="wx">
+            <image class="wx_logo" src="{{preffixUrl}}jsyhlogo.png" mode="widthFix"/>
+			<view class="wx_tip">
+                <view></view>
+                <view>用于您接收我行人才专属服务信息</view>
+			</view>
+		</view>
+		<view class="btns">
+			<button bindtap="cancel">拒绝</button>
+			<button open-type="getPhoneNumber" bindgetphonenumber="phoneGet">同意</button>
+		</view>
+	</view>
+</view>

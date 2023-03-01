@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"cu-custom": "/component/cu-custom/cu-custom"
+	},
+	"enablePullDownRefresh": false,
+	"navigationStyle": "custom"
+}

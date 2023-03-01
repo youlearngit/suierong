@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-checkbox": "/sub4/static/vant/weapp/checkbox/index",
+    "van-checkbox-group": "/sub4/static/vant/weapp/checkbox-group/index"
+,    "van-popup": "/sub4/static/vant/weapp/popup/index"
+,    "van-picker": "/sub4/static/vant/weapp/picker/index"
+
+  },
+  "enablePullDownRefresh": false
+
+}

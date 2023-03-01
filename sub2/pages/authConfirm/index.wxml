@@ -1,0 +1,89 @@
+<view class='banner'>
+  <image mode="widthFix" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/credit/zx_title.png" style="width:100%"></image>
+</view>
+<view style="width:90%;margin:auto">
+  <view class="title">{{authType == '1' ? '个人授权信息' : '对公授权信息'}}</view>
+  <view class="formInfo" style="width:100%;margin:auto">
+      <view wx:if="{{authType != '1'}}">
+        <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">授权企业名称</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{authorInfo.AUTH_ENTER_NAME}}</view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd"><text>统一社会\n信用代码</text></view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{authorInfo.AUTH_ENTER_CODE}}</view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">组织机构代码</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{authorInfo.AUTH_ENTER_ORGNO}}</view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">工商登记号</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{authorInfo.AUTH_ENTER_NO}}</view>
+      </view>
+    </view>
+      <view class="weui-cell weui-cell_input" >
+        <view class="weui-cell__hd">授权人姓名</view>
+        <view class='weui-cell__bd'>
+          <view wx:if="{{authType != '1'}}">
+            <view class='weui-cell__ft '>{{authorInfo.AUTH_NAME}}</view>
+          </view>
+          <view wx:else>
+            <view class='weui-cell__ft '>{{business_type !=1?authorInfo.AUTH_NAME:'***'}}</view>
+          </view>
+      </view>
+      </view>
+      <view class="weui-cell weui-cell_input ">
+        <view class="weui-cell__hd">证件类型</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{auth_cert_type_array[authorInfo.AUTH_CERT_TYPE]}}</view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">证件号码</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft '>{{business_type !=1 || authType != '1'?authorInfo.AUTH_CERT_NO:'***'}}</view>
+      </view>
+      <!-- 原逻辑 {{business_type!=1 || authType != '1'}} -->
+      <!-- 只允许个人征信授权-对公授信业务、企业授权-对公授信业务展示手机号码 -->
+      
+      <view class="weui-cell weui-cell_input" wx:if="{{(business_type == 3 && authType == '1')  || authType == '2'}}">
+        <view class="weui-cell__hd">手机号码</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft'>
+          <view class="phone-input" wx:if="{{authorInfo.AUTH_PHONE2==''}}">*</view>
+          <input placeholder="请填写手机号码" bindinput="phoneInput" wx:if="{{authorInfo.AUTH_PHONE2==''}}" type="number" maxlength="11"></input>
+          <view class="weui-cell__bd" wx:else>{{authorInfo.AUTH_PHONE}}</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input" wx:if="{{business_type==1 && authType == '1'}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">授权人类型</view>
+        </view>
+        <view class='weui-cell__bd'></view>
+        <view class="weui-cell__ft">{{auth_type_array[authorInfo.AUTH_TYPE]}}</view>
+      </view>
+      <view class="weui-cell weui-cell_input" wx:if="{{business_type==2 && authType == '1'}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">授权人类型</view>
+        </view>
+        <view class='weui-cell__bd'></view>
+        <view class="weui-cell__ft">{{auth_type_array2[authorInfo.AUTH_TYPE]}}</view>
+      </view>
+      <view class="weui-cell weui-cell_input" wx:if="{{business_type==3 && authType == '1'}}">
+        <view class="weui-cell__hd">授权主体类型</view>
+        <view class='weui-cell__bd'></view>
+        <view class='weui-cell__ft ' style=" white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:320rpx;">
+          {{auth_enterprise_type_array[authorInfo.AUTH_ENTERPRISE_TYPE]}}
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input" style="height:0"></view>
+      <view class="bottom">
+        <button bindtap="navTo">确认</button>
+      </view>
+  <i-toast id="toast" />
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="apply_radio">
+	<van-radio-group value="{{ key }}" bind:change="bindchange" direction="horizontal">
+		<block wx:for="{{range}}" wx:key="k" wx:index="idx" wx:item="item">
+			<van-radio use-icon-slot value="{{ key }}" name="{{item.key}}" class="{{key == item.key ? 'checked' : ''}}">
+				<image slot="icon" src="{{ preffixUrl + (key == item.key ? 'apply_radio_checked' : 'apply_radio_unchecked') + '.png' }}" /><text>{{item.value}}</text>
+			</van-radio>
+		</block>
+	</van-radio-group>
+</view>

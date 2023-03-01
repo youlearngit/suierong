@@ -1,0 +1,37 @@
+<cu-custom isCustom="{{true}}"  backPageSize="{{backPageSize}}">
+    <view slot="content">信息确认</view>
+</cu-custom>
+<view class="body-background-img" style="background-image: url({{bgurl}});background-color: #ffffff;">
+  <view class="top">
+      <text class="top-title">{{title}}</text>
+      <view>
+        <view class="top-label">
+        <image class="f2-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/car-home-gou.png" mode="aspectFit"></image>
+       <view class="f2-1-text">{{title1}}</view>
+      </view>
+      <view class="top-label">
+        <image class="f2-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/car-home-gou.png" mode="aspectFit"></image>
+       <view class="f2-1-text">{{title2}}</view>
+      </view>
+      <view class="top-label">
+        <image class="f2-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/car-home-gou.png" mode="aspectFit"></image>
+       <view class="f2-1-text">{{title3}}</view>
+      </view>
+      </view>
+  </view>
+  <view class="content-1">
+    <!-- 成功的信息 -->
+    <view wx:if="{{status=='1'}}" class="content-body">
+      <image class="content-img" src="{{preffixUrl}}/static/wechat/img/carloans/apply-commint.png"/>
+      <view class="content-title">信息确认已成功！</view>
+      <view class="content-text">后续可通过“我的订单”查看您的申请处理进度</view>
+    </view>
+    <!-- 失败的信息 -->
+    <view wx:if="{{status=='0'}}" class="content-body">
+      <image class="content-img" src="{{preffixUrl}}/static/wechat/img/carloans/apply-commint-fail.png"/>
+      <view class="content-title">信息确认失败！</view>
+      <view class="content-error-text">{{errorMsg}}</view>
+    </view>
+  </view>
+  <button class="btn-submit" bindtap="toOrdersPage" >查看我的订单</button>
+</view>

@@ -1,0 +1,73 @@
+<!-- sub2/pages/photovoltaicLoanApply/index.wxml -->
+<view class="photovoltaic" style="background-image: url({{cdnUrl}}/static/wechat/img/photovoltaicLoan/info-background.png);">
+    <view class="applys" style="background-image: url({{cdnUrl}}/static/wechat/img/photovoltaicLoan/infomation.png);">
+        <view class="apply_title">光伏贷融资需求登记表</view>
+    </view>
+    <form bindsubmit="submitForm" report-submit='true'>
+        <view class="apply_info_list">
+            <!-- <cover-view class="title">人才基本信息</cover-view> -->
+            <!-- <view class="field-input self">
+                <van-field label="是否本人申请" disabled />
+                <van-radio-group value="{{IS_SELF_FLAG?'true':'false'}}" bind:change="isSelf" style="display:flex">
+                    <van-radio name="false">否</van-radio>
+                    <van-radio name="true">是</van-radio>
+                </van-radio-group>
+            </view> -->
+            <view class="field-input">
+                <van-field label="公司名称" class="hidden-title " disabled />
+                <view class="spec">
+                    <van-field label="" input-align="left" class="enterprise" bindfocus="showBaseEnter" bindinput="searchEnter" value="{{enterpriseInfo.orgName}}" name="COMPANY_NAME" placeholder="请输入公司名称(可检索)" clearable adjust-position />
+                    <scroll-view scroll-y class="enter-list" wx:if="{{showBaseEnter}}">
+                        <view class="m1" wx:for="{{enterpriseCardInfo}}" bind:tap="chooseEnter" data-index="{{index}}">
+                            {{item.ORG_NAME}}
+                        </view>
+                    </scroll-view>
+                </view>
+                <van-field label="统一社会信用代码" class="hidden-title " disabled title-width="300rpx" />
+                <van-field input-align="left" class="enterprise" placeholder="统一社会信用代码将自动显示" name="CREDIT_CODE" value="{{enterpriseInfo.orgCode}}" bind:input="editOrgCode" clearable />
+                <van-field label="联系人姓名" input-align="right" name="real_name" placeholder="请输入姓名" model:value="{{real_name}}" />
+                <!-- <van-field label="证件号码" input-align="right" name="CERT_NO" placeholder="请输入证件号码" value="{{IS_SELF_FLAG?customer.ID_CARD:''}}" readonly="{{IS_SELF_FLAG}}" maxlength="18" /> -->
+                <van-field label="联系方式" input-align="right" name="tel" placeholder="请输入联系方式" model:value="{{tel}}" />
+                <view class="spec">
+                    <view class="choose" bindtap="pickCity"></view>
+                    <picker mode="multiSelector" value="{{cityIndex}}" range="{{cityArray}}" range-key="name" disabled="{{true}}">
+                        <view class="action" />
+                    </picker>
+                    <van-field label="项目所在城市" input-align="right" name="city" placeholder="{{ fieldValue ? '重新选择':'请选择'}}"  readonly is-link />
+                </view>
+                <van-field input-align="left" class="enterprise" placeholder="项目所在城市" name="city" value="{{fieldValue}}" readonly  clearable />
+                <view class="spec">
+                    <picker mode="multiSelector" bindchange="pickDegree" value="{{degreeIndex}}" range="{{degreeArray}}" range-key="name">
+                        <view class="action" />
+                    </picker>
+                    <van-field label="融资项目情况" input-align="right" name="degree" placeholder="请选择" value="{{degree}}" readonly is-link />
+                </view>
+                <view class="spec">
+                    <picker mode="multiSelector" bindchange="pickProfession" value="{{professionIndex}}" range="{{professionArray}}" range-key="name">
+                        <view class="action" />
+                    </picker>
+                    <van-field label="项目类型" input-align="right" name="profession" placeholder="请选择" value="{{profession}}" readonly is-link />
+                </view>
+                <view class="spec">
+                    <picker mode="multiSelector" bindchange="pickPoweruser" value="{{poweruserIndex}}" range="{{poweruserArray}}" range-key="name">
+                        <view class="action" />
+                    </picker>
+                    <van-field label="用电方企业类型" input-align="right" name="poweruser" value="{{poweruser}}" placeholder="请选择" readonly is-link />
+                </view>
+                <view class="spec">
+                    <picker mode="multiSelector" bindchange="pickPosition" value="{{positionIndex}}" range="{{positionArray}}" range-key="name">
+                        <view class="action" />
+                    </picker>
+                    <van-field label="项目投资类型" input-align="right" name="position" placeholder="请选择" value="{{position}}" readonly is-link />
+                </view>
+            </view>
+            <van-popup show="{{showShop}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;" close-on-click-overlay bind:click-overlay="onPopupEvent1">
+                <van-picker columns="{{ columns }}" bind:change="onChangeWd" show-toolbar bind:cancel="onCancel" bind:confirm="confirmWd" title="网点选择" />
+            </van-popup>
+        </view>
+        <view class="apply_btn">
+            <button class="btn2" bindtap="exit">返回</button>
+            <button class="btn1" formType="submit">提交</button>
+        </view>
+    </form>
+</view>

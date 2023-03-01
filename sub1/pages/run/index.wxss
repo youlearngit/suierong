@@ -1,0 +1,38 @@
+.container {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	-moz-background-size: 100%;
+	height: 100vh;
+}
+
+.auth_btn {
+	width: 54%;
+	height: 80rpx;
+    position: absolute;
+    left: 23%;
+    bottom: 106rpx;
+	background: #ffffff;
+	box-shadow: inset 0 2px 3px 0 rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
+    text-align: center;
+}
+
+.active{
+    line-height: 80rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    color: #3A67E0;
+    letter-spacing: 0;
+}
+
+.loading{
+    line-height: 80rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    color: #C1C1C1;
+    letter-spacing: 0;
+}
+
+page{
+    background-color: #189F40;
+}

@@ -1,0 +1,102 @@
+<view class="containerbox">
+  <!-- <image src="{{preffixUrl}}answer.png"></image> -->
+  <image wx:if="{{isflag}}" class="containerbg" src="{{preffixUrl}}monthbg_close.png" mode="widthFix"></image>
+  <image wx:else class="containerbg" src="{{preffixUrl}}monthbg_open.png" mode="widthFix"></image>
+  <view class="textboxone">
+    <view>政策服务月历</view>
+    <view>人才政策申报&服务活动</view>
+  </view>
+  <view class="bottombox">
+  <view class="rowSelect">
+      <picker class="yearbox" mode="selector" range="{{yearsToNow}}" bindchange="choose" value="{{yearIndex!=-1?item.selectedItems:'0'}}">
+        <view>{{yearsToNow[yearIndex]}}年</view>
+        <image class="iconstyle" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_right.png" mode="widthFix" style="width:15rpx"></image>
+      </picker>
+  </view>
+    <view class="bottomContainer">
+      <view class="imgReflect">
+        <view class="boxTop">
+          <view class="area" wx:for="{{newList}}" wx:key="index" data-id="{{item.id}}" bindtap="changeEvent">
+            <!-- 当月状态 -->
+            <block wx:if="{{todayMonth==item.id && yearsToNow[yearIndex]==nowyear}}">
+              <image class="areabg {{activeId==item.id?'active':''}}" src="{{preffixUrl}}{{item.imgToday}}" mode="widthFix"></image>
+            </block>
+            <!-- 选中状态 -->
+            <block wx:if="{{todayclick==item.id}}">
+              <image class="areabg {{activeId==item.id?'active':''}}" src="{{preffixUrl}}{{item.imgClick}}" mode="widthFix"></image>
+            </block>
+            <!-- 默认状态 -->
+            <block wx:if="{{todayclick!=item.id}}">
+              <image class="areabg {{activeId==item.id?'active':''}}" src="{{preffixUrl}}{{item.img}}" mode="widthFix"></image>
+            </block>
+          </view>
+        </view>
+        <!-- 上拉收起下拉展开 -->
+        <block wx:if="{{isflag}}">
+          <!-- 展开 -->
+          <image class="imgStyle" src="{{preffixUrl}}down_img.png" mode="widthFix" bindtap="toggleClick"></image>
+        </block>
+        <block wx:else>
+          <!-- 收起 -->
+          <image class="imgStyle" src="{{preffixUrl}}up_img.png" mode="widthFix" bindtap="toggleClick"></image>
+        </block>
+      </view>
+      <view>
+        <view class="boxBottom"  wx:for="{{monthList}}" wx:key="index">
+          <!-- 第一个 -->
+          <!-- <navigator url="/sub3/pages/bbx/monthlyCalendar_list?ID={{item.ID}}"> -->
+            <view class="downBox" data-value="{{item}}" bindtap="jumpDetail">
+              <image class="downBoxbg" src="{{preffixUrl}}blueitem_img.png" mode="widthFix"></image>
+              <view class="leftBox shi">{{item.CLASSIFICATION}}</view>
+              <view class="rightBox">
+                <view>{{item.EVENTNAME}}</view>
+                <view>
+                  <!-- <image class="phoneImg" src="{{preffixUrl}}phone_img.png" mode="widthFix"></image> -->
+                  {{item.AREA}}
+                </view>
+              </view>
+            </view>
+          <!-- </navigator> -->
+
+          <!-- 第二个 -->
+          <!-- <view class="downBox" bindtap="jumpPageTwo">
+            <image class="downBoxbg" src="{{preffixUrl}}blueitem_img.png" mode="widthFix"></image>
+            <view class="leftBox shi">政策</view>
+            <view class="rightBox">
+              <view>社会化引才奖励</view>
+              <view> -->
+          <!-- <image class="phoneImg" src="{{preffixUrl}}phone_img.png" mode="widthFix"></image> -->
+          <!-- 苏州市
+              </view>
+            </view>
+          </view> -->
+          <!-- 第三个 -->
+          <!-- <view class="downBox" bindtap="jumpPageThree">
+            <image class="downBoxbg" src="{{preffixUrl}}greenitem_img.png" mode="widthFix"></image>
+            <view class="leftBox shi">{{item.item.CLASSIFICATION}}</view>
+            <view class="rightBox">
+              <view>item.EVENTNAME</view>
+              <view> -->
+          <!-- <image class="phoneImg" src="{{preffixUrl}}phone_img.png" mode="widthFix"></image> -->
+          <!-- {{item.AREA}}
+              </view>
+            </view>
+          </view> -->
+          <!-- 第四个 -->
+          <!-- <view class="downBox" bindtap="jumpPageFour">
+            <image class="downBoxbg" src="{{preffixUrl}}greenitem_img.png" mode="widthFix"></image>
+            <view class="leftBox shi">活动</view>
+            <view class="rightBox">
+              <view>苏州国际精英创业周</view>
+              <view> -->
+          <!-- <image class="phoneImg" src="{{preffixUrl}}phone_img.png" mode="widthFix"></image> -->
+          <!-- 苏州市
+              </view>
+            </view>
+          </view> -->
+        </view>
+        <view class="bottomBox" wx:if="{{!monthList.length}}">敬请期待</view>
+      </view>
+    </view>
+  </view>
+</view>

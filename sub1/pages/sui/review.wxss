@@ -1,0 +1,60 @@
+/* sub1/pages/sui/review.wxss */
+page {
+	background-color: #f5f6f7;
+}
+
+.a1 {
+	width: 92%;
+	margin: 20rpx auto;
+	background-color: white;
+	border-radius: 15rpx;
+	padding: 120rpx 0;
+}
+.a2 {
+	width: 120rpx;
+	margin: auto;
+}
+.a2 image {
+	width: 100%;
+}
+.a3 {
+	font-family: PingFangSC-Regular;
+	font-size: 32rpx;
+	color: #333333;
+	text-align: center;
+	line-height: 32rpx;
+	margin-top: 24rpx;
+}
+.a4 {
+	font-family: PingFangSC-Medium;
+	font-size: 40rpx;
+	color: #353535;
+	letter-spacing: 0;
+	text-align: center;
+	line-height: 40rpx;
+	margin-top: 50rpx;
+}
+
+.a5 {
+	font-family: PingFangSC-Regular;
+	font-size: 32rpx;
+	color: #353535;
+	letter-spacing: 0;
+	text-align: center;
+	margin-top: 20rpx;
+}
+
+.a6 {
+	width: 90%;
+	margin: 100rpx auto;
+	height: 100rpx;
+	background-image: linear-gradient(0deg, #4586e6 0%, #5898f5 100%);
+	border-radius: 50px;
+	border-radius: 50px;
+	font-family: PingFangSC-Medium;
+	font-size: 34rpx;
+	color: #ffffff;
+	letter-spacing: 0;
+	text-align: center;
+	line-height: 100rpx;
+}

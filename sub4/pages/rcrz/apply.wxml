@@ -1,0 +1,177 @@
+<wxs src="./utils.wxs" module="utils" />
+
+<template name="step_head">
+	<view class="step_head_bg">
+		<image src="{{preffixUrl}}apply_step_lbg.png" mode="widthFix"></image>
+		<image wx:if="{{num}}" src="{{preffixUrl + 'apply_step' + num + '.png'}}" mode="widthFix"></image>
+		<text wx:if="{{txt1}}">{{txt1}}</text>
+		<text wx:if="{{txt2}}">{{txt2}}</text>
+	</view>
+</template>
+
+<template name="tap">
+	<van-cell title="{{title}}">
+		<view slot="right-icon" class="tap_icon">
+			<view wx:if="{{icon}}">{{icon}}</view>
+			<image src="{{preffixUrl}}apply_icon_entry.png" mode="widthFix"></image>
+		</view>
+	</van-cell>
+</template>
+
+<template name="camera">
+	<view class="apply_camera">
+		<text>{{label}}</text>
+		<view wx:if="{{mode=='edit'}}">
+			<view class="edit">编辑</view>
+		</view>
+		<view wx:else>
+			<image src="{{preffixUrl}}apply_camera.png" mode="widthFix"></image>
+			<image src="{{preffixUrl}}apply_icon_entry.png" mode="widthFix"></image>
+		</view>
+	</view>
+</template>
+
+<view>
+	<image class="head_bg" src="{{preffixUrl}}apply_head_bg.png" mode="widthFix"></image>
+
+	<block wx:for="{{node_steps}}" wx:key="index" wx:index="index" wx:for-item="step">
+		<!-- 1.实名认证 -->
+		<block wx:if="{{step == 1}}">
+			<view class="step">
+				<template is="step_head" data="{{preffixUrl, num:utils.idxOf(node_steps,1)+1, txt1:'步骤'+rangs_number[utils.idxOf(node_steps,1)+1], txt2:'实名认证'}}"></template>
+				<view class="step_content">
+					<view bindtap="tapAuth"><template is="tap" data="{{preffixUrl, title:'个人信息', icon:node_auth=='suc'?'已录入':''}}"></template></view>
+					<view bindtap="tapFace"><template is="tap" data="{{preffixUrl, title:'人脸识别', icon:node_face=='suc'?'已识别':''}}"></template></view>
+					<view bindtap="tapIdCard">
+						<template is="tap" wx:if="{{node_id_card}}" data="{{preffixUrl, title:'证件拍照', icon:node_id_card=='suc'?'已上传':''}}"></template>
+						<template is="camera" wx:else data="{{preffixUrl, label:'证件拍照'}}"></template>
+					</view>
+				</view>
+			</view>
+		</block>
+
+		<!-- 2.是否本人申请 -->
+		<block wx:if="{{step == 2}}">
+			<view class="step">
+				<template is="step_head" data="{{preffixUrl, num:utils.idxOf(node_steps,2)+1, txt1:'步骤'+rangs_number[utils.idxOf(node_steps,2)+1], txt2:'是否本人申请'}}"></template>
+				<view class="step_content">
+					<apply_radio model:key="{{node_is_self_flag}}" range="{{range_radios}}" bind:bindchange="changeIsSelf"></apply_radio>
+					<view class="apply_plane">
+						<van-field label="姓名" placeholder="请输入人才姓名" model:value="{{node_person_name}}" input-align="right" />
+						<apply_picker label="证件类型" placeholder="请选择" model:key="{{node_cert_type}}" range="{{range_cert_types}}" range_key="value"></apply_picker>
+						<van-field label="证件号码" placeholder="请输入证件号码" model:value="{{node_cert_no}}" input-align="right" />
+						<van-field label="联系方式" placeholder="请输入联系方式" model:value="{{node_cust_phone_no}}" input-align="right" />
+						<apply_picker label="职业" placeholder="请选择" model:key="{{node_cust_occ}}" range="{{range_occs}}" range_key="value"></apply_picker>
+						<apply_picker label="与企业关系" placeholder="请选择" model:key="{{node_tal_rel_type}}" range="{{range_tal_rel_types}}" range_key="value"></apply_picker>
+						<apply_search label="工作单位名称" placeholder="请输入工作单位名称" model:value="{{node_company_name}}" bind:bindinput="searchCompany" scrolls="{{companys}}" bind:bindtap="chooseCompany"></apply_search>
+						<van-field label="统一码" placeholder="请输入统一码" model:value="{{node_credit_code}}" input-align="right" />
+						<apply_picker label="工作地区" placeholder="请选择" mode="region" region_value="{{node_cust_cadr_info.value}}" bind:bindchange="pickerWorkStation"></apply_picker>
+					</view>
+				</view>
+			</view>
+		</block>
+
+		<!-- 3.是否列入政府人才计划 -->
+		<block wx:if="{{step == 3}}">
+			<view class="step">
+				<template is="step_head" data="{{preffixUrl, num:utils.idxOf(node_steps,3)+1, txt1:'步骤'+rangs_number[utils.idxOf(node_steps,3)+1], txt2:'是否列入政府人才计划'}}"></template>
+				<view class="step_content">
+					<apply_radio model:key="{{node_inc_flag}}" range="{{range_radios}}"></apply_radio>
+				</view>
+			</view>
+		</block>
+
+		<!-- 4.人才计划信息录入 -->
+		<block wx:if="{{step == 4 && node_inc_flag == '1'}}">
+			<view class="step">
+				<template is="step_head" data="{{preffixUrl, num:utils.idxOf(node_steps,4)+1, txt1:'步骤'+rangs_number[utils.idxOf(node_steps,4)+1], txt2:'人才计划信息录入'}}"></template>
+				<view class="step_content">
+          <apply_search_icon label="人才计划名称" placeholder="输入关键字搜索" model:value="{{node_plan_name}}" scrolls="{{range_plans}}" bind:bindinput="searchPlans" bind:bindtap="pickerPlan"></apply_search_icon>
+					<apply_picker label="人才等级" placeholder="请选择" disabled="true" model:key="{{node_support_level}}" model:value="{{node_levelname}}" range="{{range_support_levels}}" range_key="value" bind:bindchange="pickerSupportLevel"></apply_picker>
+					<apply_picker label="人才评定地区" placeholder="请选择" disabled="true" model:key="{{node_rate_area}}" model:value="{{node_areaname}}" range="{{range_rate_areas[node_support_level]}}" range_key="value"></apply_picker>
+					<apply_picker label="人才评定年份" placeholder="请选择" model:value="{{node_rate_year}}" mode="date" fields="year" start="1945" end="{{now_year}}" idx=""></apply_picker>
+				</view>
+			</view>
+		</block>
+
+		<!-- 5.影像资料录入 -->
+		<block wx:if="{{step == 5}}">
+			<view class="step">
+				<template is="step_head" data="{{preffixUrl, num: node_inc_flag =='1' ? utils.idxOf(node_steps,5)+1 : utils.idxOf(node_steps,5), txt1:'步骤'+rangs_number[node_inc_flag =='1' ? utils.idxOf(node_steps,5)+1 : utils.idxOf(node_steps,5)], txt2:'影像资料录入'}}"></template>
+				<view class="step_content">
+					<view bindtap="cameraBatch">
+						<template is="camera" data="{{preffixUrl, label:'人才身份及资质证明材料', mode:node_batchs_id?'edit':''}}"></template>
+					</view>
+					<view class="camera_pics" style="padding:0;">
+						<block wx:if="{{node_batchs_id}}">
+							<view wx:for="{{node_batchs}}" wx:key="index" wx:index="index" wx:for-item="item" class="pic">
+								<image src="{{item.path || 'data:image/jpg;base64,'+item.base64}}" mode="aspectFill"></image>
+							</view>
+						</block>
+					</view>
+					<view class="apply_remark">
+						<view>您可根据填写的信息提供以下佐证材料（如有）：</view>
+						<view>1.入选政府人才计划的政府发文、资质证书、培养协议等；</view>
+						<view>2.工作证、在职证明等；</view>
+					</view>
+				</view>
+			</view>
+		</block>
+
+		<!-- 6.客户授权 -->
+		<block wx:if="{{step == 6}}">
+			<view class="step">
+				<template is="step_head" data="{{preffixUrl, num: node_inc_flag =='1' ? utils.idxOf(node_steps,6)+1 : utils.idxOf(node_steps,6), txt1:'步骤'+rangs_number[node_inc_flag =='1' ? utils.idxOf(node_steps,6)+1 : utils.idxOf(node_steps,6)], txt2:'客户授权'}}"></template>
+				<view class="step_content" style="padding:50rpx 0 0 0">
+					<apply_empower bind:bindtap="tapEmpower" model:checked="{{node_empower}}" btn="{{node_is_self_flag=='1' ? ['本人授权','授权信息'] : ['发送授权','授权信息']}}" open_type="{{node_is_self_flag=='1'?'':'share'}}"></apply_empower>
+				</view>
+			</view>
+		</block>
+	</block>
+
+	<view class="bottom">
+		<button bindtap="stepCancel">取消</button>
+		<button bindtap="stepNext">{{node_step>=6?'提交':'下一步'}}</button>
+	</view>
+
+	<!-- 影像上传 -->
+	<page-container show="{{show_camera_batch}}">
+		<view class="camera_batch" style="background-image: url({{preffixUrl}}apply_head_bg.png);">
+			<view class="plane">
+				<template is="step_head" data="{{preffixUrl, txt2:'上传影像资料'}}"></template>
+				<view class="camera_pics">
+					<view wx:for="{{node_batchs}}" wx:key="index" wx:index="index" wx:for-item="item" class="pic">
+						<image src="{{item.path || 'data:image/jpg;base64,'+item.base64}}" mode="aspectFill">
+							<view class="del" style="background-image: url({{preffixUrl}}apply_icon_del.png);" bindtap="batchDel" data-index="{{index}}"></view>
+						</image>
+					</view>
+					<view class="pic" bindtap="batchAdd">
+						<image src="{{preffixUrl}}apply_upload_camera.png" mode="widthFix"></image>
+					</view>
+				</view>
+				<view class="tip">
+					<view><image src="{{preffixUrl}}apply_icon_tip.png" mode="widthFix"></image>温馨提示</view>
+					<view>您拍摄的证件照片将作为实名认证审核的影像资料，请拍摄时确保证件<text>边框完整，字体清晰，亮度均匀。</text></view>
+				</view>
+			</view>
+			<button class="btn {{node_batchs.length>0?'btn_act':''}}" bindtap="batchUpload">上传</button>
+		</view>
+	</page-container>
+
+	<!-- 本人授权 -->
+	<van-popup show="{{ show_empower }}" bind:close="showClose" data-event="show_empower" position="bottom" round>
+		<view class="pop_empower">
+			<view class="title">相关协议</view>
+			<block wx:for="{{pdfs}}" wx:key="index" wx:index="index" wx:for-item="item">
+				<view class="file" bindtap="pdfRead" data-base64="{{item.base64}}"><image src="{{preffixUrl}}apply_icon_pdf.png" mode="widthFix"></image><view>《{{item.title}}》</view></view>
+			</block>
+			<button bindtap="empowerSelf">立即授权</button>
+		</view>
+	</van-popup>
+
+	<canvas
+		canvas-id="canvas_share"
+		style="width:{{canvas_share.width}}px;height:{{canvas_share.height}}px;position:fixed;top:9999px;background-color:white"
+	></canvas>
+
+</view>

@@ -1,0 +1,43 @@
+<!--sub6/pages/agriculture/propertyRight.wxml-->
+<view class="propertyRight"  style="background-image: url({{cndUrl}}/static/wechat/img/zssn/cqbg.png);">
+  <view class="kp"  style="background-image: url({{cndUrl}}/static/wechat/img/zssn/cqkp.png);">
+    <view class="kpTitle">江苏省农村产权交易信息服务平台集农村各类信息服务等功能为一体，已经成为各地盘活农村集体资产资源、发展新型集体经济、促进农民增收的有效载体。</view>
+    <view class="kpIcon">
+      <image src="{{cndUrl}}/static/wechat/img/zssn/icon.png"></image>
+    </view>
+  </view>
+  <view class="ewm">
+    <view class="iosEwm">
+      <view class="iosImage" bindtap="getImage" data-image="{{cndUrl}}/static/wechat/img/zssn/iosewm.png">
+        <image src="{{cndUrl}}/static/wechat/img/zssn/iosewm.png"></image>
+      </view>
+      <view class="logo">
+        <view class="logoImage">
+          <image src="{{cndUrl}}/static/wechat/img/zssn/ios.png"></image>
+        </view>
+        <view class="logoTitle">
+          ios版
+        </view>
+      </view>
+      <view class="iosTitle">
+        扫一扫，获取更多资讯
+      </view>
+    </view>
+    <view class="iosEwm">
+      <view class="iosImage" bindtap="getImage" data-image="{{cndUrl}}/static/wechat/img/zssn/azewm.png">
+        <image src="{{cndUrl}}/static/wechat/img/zssn/azewm.png"></image>
+      </view>
+      <view class="logo">
+        <view class="logoImage">
+          <image src="{{cndUrl}}/static/wechat/img/zssn/az.png"></image>
+        </view>
+        <view class="logoTitle">
+          安卓版
+        </view>
+      </view>
+      <view class="iosTitle">
+        扫一扫，获取更多资讯
+      </view>
+    </view>
+  </view>
+</view>

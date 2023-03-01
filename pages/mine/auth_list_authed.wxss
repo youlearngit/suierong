@@ -1,0 +1,2 @@
+@import "mine_list.wxss";
+@import "auth_list_auth.wxss";

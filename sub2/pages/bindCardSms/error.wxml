@@ -1,0 +1,7 @@
+<!--sub2/pages/bindCardSms/error.wxml-->
+<image src="{{cdnurl}}/static/wechat/img/zm/error.png" class="error"></image>
+<text class="icon-txt" style="{{ios?'font-family: PingFangSC-Medium;':'font-weight: 400;text-stroke: 0.02em;-webkit-text-stroke: 0.02em;'}}">没有可绑定的银行卡</text>
+
+<navigator open-type="exit" target="miniProgram" class='tip'  style="{{tip}}">知道了</navigator>
+<!-- <text class="tips" style="{{isIPhoneX?'bottom:116rpx;':'bottom:48rpx;'}}">本服务由江苏银行提供</text> -->
+<text class="tips" style="{{isIPhoneX?'bottom:58px;':'bottom:24px;'}}">本服务由江苏银行提供</text>

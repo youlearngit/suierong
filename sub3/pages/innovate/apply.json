@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-checkbox": "/sub3/static/vant/weapp/checkbox/index",
+    "van-divider": "/sub3/static/vant/weapp/divider/index",
+    "van-popup": "/sub3/static/vant/weapp/popup/index"
+  }
+}

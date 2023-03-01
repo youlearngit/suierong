@@ -1,0 +1,43 @@
+<!--sub3/pages/reservedAccChg/progress.wxml-->
+<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_bgbgn.png" mode="widthFix" class="img" style="width: 100%;position: absolute;">
+</image>
+
+
+<scroll-view scroll-y="true" style="height: {{height}}px;" bindscrolltolower="getData">
+  <block wx:for="{{info}}">
+  
+    <view class="con" style="background-image:url({{preffixUrl}}/static/wechat/img/zm/rac_bgsuc.png);margin-top: 0;"
+      wx:if="{{item.jlzt=='1'}}">
+      <view class="txt1"  bindtap="nav"   data-index="{{index}}">{{item.zhmc==''?'暂无':item.zhmc}}</view>
+      <view class="txt2" bindtap="nav"  data-index="{{index}}" >账号 | {{item.zh}}</view>
+      <view class="txt3"></view>
+      <view class="txt4" bindtap="nav"  data-index="{{index}}" >
+        <view style="display: flex;align-items: center;">
+          <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_date.png" mode="widthFix"
+            class="img2">
+          </image>
+          <view class="txt5"  bindtap="nav" >{{item.remark5}}</view>
+        </view>
+        <view class="txt6" bindtap="nav" >变更结果:{{item.jlzt=='0'?'未记账':'成功'}}</view>
+      </view>
+      <view class="del"  bindtap="getdelete" data-type="{{item}}">删除</view>
+    </view>
+    <view  class="con"  data-index="{{index}}" style="background-image:url({{preffixUrl}}/static/wechat/img/zm/rac_bgfail.png)"
+      wx:if="{{item.jlzt=='0'}}">
+      <view bindtap="nav"   data-index="{{index}}" class="txt1">{{item.zhmc==''?'暂无':item.zhmc}}</view>
+      <view bindtap="nav"   data-index="{{index}}" class="txt2">账号 | {{item.zh}}</view>
+      <view class="txt3"></view>
+      
+      <view bindtap="nav"  data-index="{{index}}" class="txt4">
+        <view style="display: flex;align-items: center;">
+          <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_date.png" mode="widthFix"
+            class="img2">
+          </image>
+          <view class="txt5">{{item.remark5}}</view>
+        </view>
+        <view class="txt6" style="color:#FF9F52;">变更结果:{{item.jlzt=='0'?'未记账':'成功'}}</view>
+      </view>
+      <view class="del"  bindtap="getdelete" data-type="{{item}}">删除</view>
+    </view>
+  </block>
+</scroll-view>

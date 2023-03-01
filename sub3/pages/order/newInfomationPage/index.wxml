@@ -1,0 +1,114 @@
+<!-- <cu-custom isCustom="{{true}}" backPageSize="{{backPageSize}}">
+  <view slot="content">信息确认</view>
+</cu-custom> -->
+<view class="body-background-img" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/Informations-background.png);">
+  <view class="content">
+    <view wx:for="{{findList}}" wx:for-item="list" wx:key="id">
+      <view class="title1">{{list.name}}</view>
+      <view wx:for="{{list.list}}" wx:for-item="item" wx:key="id">
+        <text wx:if="{{item.title}}" class="circle1">{{item.title}}</text>
+        <view class="list">
+          <view wx:for="{{item.arr}}" wx:for-item="cell" wx:key="id">
+            <view class="spec" wx:if="{{cell.type == '1'}}">
+              <view>{{cell.title}}</view>
+              <view>{{cell.content}}</view>
+            </view>
+            <view class="spec1 {{cell.border1 ? 'border1':''}} {{cell.border2 ? 'border2':''}}" wx:elif="{{cell.type == '2'}}">
+              <view class="flex1">
+                <view class="star"></view>
+                <view>{{cell.title}}</view>
+              </view>
+              <view>{{cell.content}}</view>
+            </view>
+            <view class="item" wx:else>
+              <view>{{cell.title}}</view>
+              <view>{{cell.content}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="title1">贷款申请信息</view>
+    <view wx:for="{{listData}}" wx:for-item="list" wx:key="id">
+      <text class="circle1">{{list.title}}</text>
+      <view class="list">
+        <view class="item" wx:for="{{list.arr}}" wx:for-item="item" wx:key="id">
+          <view>{{item.title}}</view>
+          <view>{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="title1">借款人基本信息</view>
+    <view class="list">
+      <view wx:for="{{listData1}}" wx:for-item="item" wx:key="id">
+        <view class="spec" wx:if="{{item.type == '1'}}">
+          <view>{{item.title}}</view>
+          <view>{{item.content}}</view>
+        </view>
+        <view class="spec1 {{item.border1 ? 'border1':''}} {{item.border2 ? 'border2':''}}" wx:elif="{{item.type == '2'}}">
+          <view class="flex1">
+            <view class="star"></view>
+            <view>{{item.title}}</view>
+          </view>
+          <view>{{item.content}}</view>
+        </view>
+        <view class="item" wx:else>
+          <view>{{item.title}}</view>
+          <view>{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="title1">购买车辆信息</view>
+    <view class="list">
+      <view wx:for="{{listData2}}" wx:for-item="item" wx:key="id">
+        <view class="spec" wx:if="{{item.type == '1'}}">
+          <view>{{item.title}}</view>
+          <view>{{item.content}}</view>
+        </view>
+        <view class="spec1 {{item.border1 ? 'border1':''}} {{item.border2 ? 'border2':''}}" wx:elif="{{item.type == '2'}}">
+          <view class="flex1">
+            <view class="star"></view>
+            <view>{{item.title}}</view>
+          </view>
+          <view>{{item.content}}</view>
+        </view>
+        <view class="item" wx:else>
+          <view>{{item.title}}</view>
+          <view>{{item.content}}</view>
+        </view>
+      </view>
+    </view> -->
+    <view wx:if="{{comfirmedStatus != '2'}}">
+      <!-- 借款人申明 -->
+      <view class="title1">借款人申明</view>
+      <view class="list">
+        <view class="declare">
+          <view>
+            <image class="declare-img" src="{{preffixUrl}}/static/wechat/img/carloans/remind.png" mode="widthFix" lazy-load="{{true}}" />
+          </view>
+          <view>{{declare_content}}</view>
+        </view>
+        <view wx:for="{{declareData}}" wx:for-item="item" wx:key="id">
+          <view class="spec1 {{item.border1 ? 'border1':''}} {{item.border2 ? 'border2':''}}" wx:if="{{item.type == '2'}}">
+            <view class="flex1" style="width:55%">
+              <view class="star"></view>
+              <view class="contents">{{item.title}}</view>
+            </view>
+            <view>{{item.content}}</view>
+          </view>
+          <view class="confirm" wx:else>
+            <view></view>
+            <view>
+                <text>{{item.content}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="btn_group">
+        <view bindtap="exit">返回</view>
+        <view bindtap="getBatchId">确认申请信息</view>
+      </view>
+    </view>
+    <view></view>
+  </view>
+</view>

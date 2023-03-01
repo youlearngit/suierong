@@ -1,0 +1,16 @@
+<!--sub3/pages/creditStationSelect/index.wxml-->
+<view class="card" >
+<view class="txt1">人才信息认证</view>
+<view  class="txt2">提交日期 2020-06-10 15:31</view>
+<view style="border: 1rpx solid #EEEEEE;width:96%;margin-left:2%;margin-top:12rpx;" ></view>
+<view  class="txt3">认证结果：审核中</view>
+
+</view>
+
+<view class="card" >
+<view class="txt1">提交人工审核</view>
+<view  class="txt2">提交日期 2020-06-10 15:31</view>
+<view style="border: 1rpx solid #EEEEEE;width:96%;margin-left:2%;margin-top:12rpx;" ></view>
+<view  class="txt3">办理进度： 未通过</view>
+
+</view>

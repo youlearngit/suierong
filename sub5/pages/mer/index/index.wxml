@@ -1,0 +1,90 @@
+
+<view class="container">
+  <image class="bg" src="{{cdnMer}}/minibg.png" mode="widthFix"></image>
+  <view bindtap="recommend">
+      <image src="{{cdnMer}}/tjylimg.png" mode="widthFix"></image>
+      <text>推荐有礼</text>
+  </view>
+  <view>
+    <image src="{{cdnMer}}/minibt.png" mode="widthFix"></image>
+    <view>您的出口业务加速器</view>
+  </view>
+  <view class="float_bottom">
+    <view>
+      <image src="{{cdnMer}}/mer0.png" mode="widthFix"></image>
+    </view>
+    <view>
+      <image src="{{cdnMer}}/minitzbj.png" mode="widthFix"></image>
+    </view>
+    <view>
+      <view>最高审批金额(元)</view>
+      <view>
+        <image src="{{cdnMer}}/minixt.png" mode="widthFix"></image>
+        3,000,000
+      </view>
+      <view>授信额度高 · 支持多币种 · 全流程线上</view>
+    </view>
+    <view class="wknow">
+      <van-collapse value="{{wknow_show}}" accordion bind:change="onChangeCollapse" custom-class="wknow" border="{{false}}">
+        <van-collapse-item name="1" content-class="wknow_item" border="{{false}}" is-link="{{false}}">
+          <view slot="title" class="wknow_title">
+            <view>您可能还想知道</view>
+          </view>
+          <view slot="right-icon" class="wknow_ticon">
+            <image wx:if="{{wknow_show=='1'}}" src="{{cdnMer}}/zk.png"></image>
+            <image wx:else src="{{cdnMer}}/xl.png"></image>
+          </view>
+          <view id="wknow_1" class="wknow_content">
+            <view class="tt">
+              <image src="{{cdnMer}}/splc.png"></image>审批流程
+            </view>
+            <view class="cc1">
+              <image src="{{cdnMer}}/splcbg.png"></image>
+              <view>
+                <image src="{{cdnMer}}/dyb.png"></image>
+                <text>ASONE授权</text>
+              </view>
+              <image src="{{cdnMer}}/jd.png"></image>
+              <view>
+                <image src="{{cdnMer}}/deb.png"></image>
+                <text>额度核准</text>
+              </view>
+              <image src="{{cdnMer}}/jd.png"></image>
+              <view>
+                <image src="{{cdnMer}}/dsb.png"></image>
+                <text>额度生效</text>
+              </view>
+            </view>
+            <view class="tt">
+              <image src="{{cdnMer}}/sptj.png"></image>申请条件
+            </view>
+            <view class="cc2">
+              <view class="line"></view>
+              <view>成立且实际经营<text>满2年(含)以上</text> ，有完整的年度海关数据</view>
+              <view>上一年度出口量<text>160万美元-3000万美元</text></view>
+              <view>外汇管理分类为<text>A类</text></view>
+              <view>企业主<text>年满18周岁且不超过65周岁</text>，非港、澳、台及外籍人士</view>
+              <view>授信额度超过<text>20万美元</text>的，要求在本地有房产</view>
+            </view>
+          </view>
+        </van-collapse-item>
+      </van-collapse>
+    </view>
+  </view>
+</view>
+
+<view class="bottom">
+  <view bindtap="share">
+    <image src="{{cdnMer}}/minifx.png"></image>
+    分享
+  </view>
+  <view bindtap="apply">
+    立即申请
+  </view>
+</view>
+
+<my-login loginFlag="{{loginFlag}}" style="z-index: 9999;"></my-login>
+
+<share_poster show="{{posters_show}}" media="{{posters_media}}" empNo="{{empNo}}"></share_poster>
+
+<van-toast id="van-toast" />

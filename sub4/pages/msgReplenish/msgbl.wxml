@@ -1,0 +1,124 @@
+<!-- 引入wxs脚本 -->
+<wxs src="../../../utils/change.wxs" module="tools" />
+<canvas-watermark id="watermark"></canvas-watermark>
+<view class="container_box">
+  <image class="container_box_bg" src="{{preffixUrl}}/static/wechat/img/sui/msgbl.png" />
+  <image class="container_box_logo" src="{{preffixUrl}}/static/wechat/img/sui/logo_jsyh.png" />
+  <view class="top1">微业贷受益所有人补录</view>
+  <view class="top2">如您在填写过程遇到任何疑问，请联系江苏银行客服95319。</view>
+  <view class="contentbox">
+    <view class="box1">
+      <view class="title">
+        <image class="title_img" src="{{preffixUrl}}/static/wechat/img/sui/shape.png" />企业信息
+      </view>
+      <view class="row1">
+        <view>企业名称</view>
+        <input type="text" value="{{PARTY_NAME}}" disabled class="inputstyle" placeholder="请输入企业名称" placeholder-class="placeholderStyle" style="flex:2" />
+      </view>
+      <view class="row1">
+        <view>法定代表人姓名</view>
+        <input type="text" value="{{LEGAL_NAME}}" disabled class="inputstyle" placeholder="请输入法定代表人姓名" placeholder-class="placeholderStyle" />
+      </view>
+      <view class="row1">
+        <view>法人证件种类</view>
+        <!-- <input type="text" value="{{LEGAL_CERT_TYPE=='021'?'第二代居民身份证':''}}"  disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle"/> -->
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='021'}}" value="第二代居民身份证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='011'}}" value="第一代居民身份证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='031'}}" value="临时身份证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='042'}}" value="中国护照" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='056'}}" value="户口簿" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='068'}}" value="村民委员会证明" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='078'}}" value="学生证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='083'}}" value="军官证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='098'}}" value="离休干部荣誉证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='108'}}" value="军官退休证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='118'}}" value="文职干部退休证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='128'}}" value="军事学员证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='134'}}" value="武警证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='137'}}" value="警官证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='148'}}" value="士兵证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='155'}}" value="香港通行证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='165'}}" value="澳门通行证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='175'}}" value="台湾通行证或有效旅行证件" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='18A'}}" value="外国人永久居留证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='199'}}" value="边民出入境通行证" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='202'}}" value="外国护照" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='218'}}" value="其它" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='210'}}" value="个体工商户营业执照" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+        <input type="text" wx:if="{{LEGAL_CERT_TYPE=='21N'}}" value="待核实确认证件" disabled class="inputstyle" placeholder="请输入法人证件种类" placeholder-class="placeholderStyle" />
+      </view>
+      <view class="row1">
+        <view>法人证件号码</view>
+        <input type="text" value="{{LEGAL_CERT_NO}}" disabled class="inputstyle" placeholder="请输入法人证件号码" placeholder-class="placeholderStyle" />
+      </view>
+      <!-- <view class="row1">
+        <view>法人证件有效期</view>
+        <input type="text" value="{{LEGAL_CERT_TERM}}"  disabled class="inputstyle" placeholder="请输入法人证件有效期" placeholder-class="placeholderStyle"/>
+      </view> -->
+    </view>
+    <view class="logocenter">
+      <!-- <image class="logo_small" src="{{preffixUrl}}/static/wechat/img/sui/logo_small.png"/> -->
+    </view>
+    <view class="box2" wx:if="{{showSYR}}">
+      <view class="viewbox" wx:if="{{boxbox}}" style="height:{{height*BENEFICIARYLIST.length}}rpx"></view>
+      <view class="title">
+        <image class="title_img" src="{{preffixUrl}}/static/wechat/img/sui/shape.png" />受益所有人
+      </view>
+      <block wx:for="{{BENEFICIARYLIST}}" wx:key="item">
+        <view class="personsyr" wx:if="{{BENEFICIARYLIST.length>1}}">
+          受益人{{tools.convertToChinaNum(index+1)}}
+        </view>
+        <view class="row1" style="display:block;">
+          <view>受益人类型</view>
+          <picker mode="selector" range="{{arr1}}" bindchange="choose" data-item="{{index}}" value="{{item.selectedItems!=-1?item.selectedItems:'0'}}">
+            <textarea value="{{arr1[item.selectedItems]}}" class="textareaStyle" disabled placeholder-class="placeholderStyle" placeholder="请选择受益人类型"></textarea>
+          </picker>
+        </view>
+        <view class="row1">
+          <view>姓名</view>
+          <input type="text" value="{{item.CONTACT_NAME}}" disabled class="inputstyle" placeholder="请输入姓名" placeholder-class="placeholderStyle" data-index="{{index}}" bindblur="funInput2" />
+        </view>
+        <view class="row1">
+          <view>证件种类</view>
+          <input type="text" value="第二代居民身份证" disabled class="inputstyle" placeholder="请输入证件种类" placeholder-class="placeholderStyle" />
+        </view>
+        <view class="row1">
+          <view>证件号码</view>
+          <input type="idcard" value="{{item.CERT_NO}}" class="inputstyle" placeholder="请输入证件号码" placeholder-class="placeholderStyle" data-index="{{index}}" bindblur="funInput" maxlength="18" />
+        </view>
+        <view class="row1" style="display:block;">
+          <view>联系地址</view>
+          <textarea value="{{item.ADDRESS}}" class="textareaStyle" placeholder="请输入联系地址" placeholder-class="placeholderStyle" data-index="{{index}}" bindblur="funInput1"></textarea>
+        </view>
+        <view class="row1">
+          <view>证件起始日</view>
+          <picker mode="date" bindchange="bindDateChange" data-item="{{index}}" value="{{item.CONTACT_DESC}}">
+            <input type="text" class="inputstyle" disabled placeholder-class="placeholderStyle" placeholder="请选择日期" value="{{item.CONTACT_DESC}}" />
+          </picker>
+        </view>
+        <view class="row1">
+          <view>证件到期日</view>
+          <input type="text" bindtap="showModalDate" data-item="{{index}}" disabled class="inputstyle" placeholder-class="placeholderStyle" placeholder="请选择日期" value="{{item.CERT_EXPD_DATE}}" />
+        </view>
+      </block>
+    </view>
+    <view class="btn_blue_tj" bindtap="sureSubmit">
+      确认提交
+    </view>
+  </view>
+</view>
+
+
+<view class="greybox" wx:if="{{flag}}">
+  <view class="bottomchoose">
+    <picker class="row2" mode="date" bindchange="bindDateChange_sub" bindcancel="cancelDataTime">
+      选择日期
+    </picker>
+    <view class="row2" style="margin-bottom:20rpx;border:none;" bindtap="bindDateChange1">
+      长期
+    </view>
+    <view class="row2" bindtap="closeTap">
+      取消
+    </view>
+  </view>
+</view>

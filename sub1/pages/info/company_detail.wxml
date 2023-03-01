@@ -1,0 +1,41 @@
+<view class="a2">
+  <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+    <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+      <view class="cu-list menu">
+        <view class="cu-item ">
+          <view class="content">
+            <view class="view-grey">企业名称</view>
+          </view>
+          <input name="orgName" id="orgName" value="{{ companyInfo.ORG_NAME }}" bindblur='blur' bindinput="getOrgName" class="aTxt" type="text" disabled='disabled' />
+        </view>
+        <view class="cu-item ">
+          <view class="content">
+            <view class="view-grey">统一码</view>
+          </view>
+          <input name="orgID" id="orgID" value="{{  companyInfo.ORG_CODE }}" bindblur='blur' class="aTxt" type="text" disabled='disabled' />
+        </view>
+        <view class="cu-item ">
+          <view class="content">
+            <view class="view-grey">法定代表人</view>
+          </view>
+          <input name="pName" id="pName" value="{{  companyInfo.ARTIFICIAL_NAME }}" bindblur='blur' class="aTxt" type="text" disabled='disabled' />
+        </view>
+        <view class="cu-item ">
+          <view class="content">
+            <view class="view-grey">企业所在地</view>
+          </view>
+          <input name="orgAddress" id="orgAddress" value="{{  companyInfo.ORG_ADDRESS_NAME }}" bindblur='blur' class="aTxt" type="text" disabled='disabled' />
+        </view>
+        <view class="cu-item ">
+          <view class="content">
+            <view class="view-grey">状态</view>
+          </view>
+          <view class="appr">已认证</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="amountC" hover-class="none" hover-stop-propagation="false" bindtap="deleteOrg">
+  删除
+</view>

@@ -1,0 +1,105 @@
+<!-- sub2/pages/qyBankRegister/index.wxml -->
+<view class="wrap">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='home'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='home'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="bg">
+  <image wx:if="{{cdnUrl}}" mode="widthFix" style="width:100%;height:100vh;position: absolute;top: 0;bottom: 0;" src="{{cdnUrl}}/static/wechat/img/zm/zm_97.png" />
+</view>
+<view class="t1" >
+
+
+<view class="t2" >江苏银行手机银行</view>
+<image wx:if="{{cdnUrl}}" style="width:434rpx;height:2rpx;display: block;margin-top:2px;" src="{{cdnUrl}}/static/wechat/img/zm/zm_98.png" />
+
+<view class="t3" >——更懂你的手机银行</view>
+<image wx:if="{{cdnUrl}}" style="width: 74%; margin-left: 26%;height:2rpx;display: block;margin-top:2px;" src="{{cdnUrl}}/static/wechat/img/zm/zm_98.png" />
+
+<view class="t4">江苏银行手机银行集账户服务、财富管理、个人贷款、生活缴费等功能于一体，聚焦开放平台、5G智慧、财富管理、交互体验、场景生态等视角，是江苏银行全心全意为客户打造的多场景智慧化综合金融服务平台。</view>
+
+</view>
+
+<!-- body -->
+
+<view class="a0">
+<view class="a0_txt">优质服务触手可得</view>
+<image wx:if="{{cdnUrl}}" style="width:375rpx;height:2rpx;margin:0 auto;display: block;" src="{{cdnUrl}}/static/wechat/img/zm/zm_99.png" />
+
+  <view class="a1" style="margin-top:40rpx;">
+  <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/zm_87.png" class="a2" />
+  <view class="a1_txt">理财频道7*24h在线，一键体验智能财富体检。</view>
+</view>
+<view class="a1" style="height:124rpx;">
+  <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/zm_88.png" class="a2" />
+  <view class="a1_txt">存款、理财、转账三大功能全面无障碍化，助力老年和障碍人群平等享受金融服务。</view>
+</view>
+<view class="a1" >
+  <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/zm_89.png" class="a2" />
+  <view class="a1_txt">百万转账、刷脸支配，大额转账安全又便利。</view>
+</view>
+<view class="a1"  style="height:124rpx;">
+  <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/zm_90.png" class="a2" />
+  <view class="a1_txt" class="a1_txt">E缴费、缴费易，物业、水电、交通、社保一应俱全，便利生活很容易。</view>
+</view>
+<view class="a1" style="height:166rpx;">
+  <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/zm_91.png" class="a2" />
+  <view class="a1_txt">信息时代知识至上，混沌大学、凯叔讲故事、凤凰书城、海量资讯视频，手机银行融合多平台为您精彩呈现。</view>
+</view>
+<view class="a1" style="height:124rpx;">
+  <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/zm_92.png" class="a2" />
+  <view class="a1_txt">政务查询一站通，支持电子社保卡、公积金、机关社保、不动产在线查询。</view>
+</view>
+<view class="a1" style="">
+  <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/zm_93.png" class="a2" />
+  <view class="a1_txt">本地生活专栏，品味当地特色、享受本地优惠。</view>
+</view>
+
+</view>
+
+<!-- 分享 -->
+<view class='footer'>
+  <view class="share" catchtap='showShare'>
+    分
+    <!-- <text>\t\t\t\t\t\t</text> -->
+    享
+  </view>
+  <view catchtap="load" class="share blu">快速注册</view>
+</view>
+<view class="{{shareBox}}">
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+      </button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+<view style='position:fixed;top:-50%;left:0;width:100%;height:200%;background:#fff;z-index:-1;'></view>
+

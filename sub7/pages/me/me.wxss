@@ -1,0 +1,123 @@
+page,view,text,swiper,swiper-item,image,navigator{
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+}
+.container{
+  width:100%;
+  height:100vh;
+  position: relative;
+  padding:80rpx 60rpx 0 60rpx;
+}
+.container_bg{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+.box{
+  width:100%;
+  /* height:774rpx; */
+  height:700rpx;
+  position:relative;
+  padding:100rpx 0 0 60rpx;
+}
+.box_bg{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+.tx{
+  width:179rpx;
+  height:179rpx;
+  border-radius:50%;
+}
+.loginclass{
+    font-size: 24rpx;
+    padding: 10rpx 60rpx;
+    color: #3189FF;
+    background-image: linear-gradient(-40deg, #EFF8FF 0%, #C3E4FF 100%);
+    border: 1rpx solid rgba(49,137,255,0.34);
+    border-radius: 6rpx;
+    margin-left:50rpx;
+}
+.row1{
+  margin-top:50rpx;
+  margin-bottom:10rpx;
+}
+.row1_1{
+  font-size: 38rpx;
+  color: #1C2652;
+}
+.row1_2,
+.row4{
+  font-size: 24rpx;
+  color: #3189FF;
+  background-image: linear-gradient(-40deg, #EFF8FF 0%, #C3E4FF 100%);
+  border: 1rpx solid rgba(49,137,255,0.34);
+  border-radius: 6rpx;
+  padding:6rpx 14rpx;
+  margin-left:16rpx;
+}
+.row2{
+  font-size: 24rpx;
+  color: #B1B2BD;
+}
+._row1_2{
+  width: 150rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  padding: 0;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+.line{
+  width:514rpx;
+  height:1px;
+  background: linear-gradient(to right,#A4CDFF,#e4eef7);
+  margin:55rpx 0 40rpx 0;
+}
+.row3{
+  display:flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #B1B2BD;
+  margin-bottom:18rpx;
+}
+.icon_img{
+  width:18rpx;
+  height:24rpx;
+  margin-right:13rpx;
+}
+.row3 >text{
+  font-size: 30rpx;
+  color: #3E415C; 
+  margin-left:20rpx;
+}
+.row4{
+  padding:6rpx 20rpx;
+  position:absolute;
+  bottom:40rpx;
+  right:40rpx;
+}
+.bottom{
+  font-size: 26rpx;
+  color: #9FBACF;
+  position:absolute;
+  bottom:15%;
+  left:50%;
+  transform: translate(-50%,0);
+  display:flex;
+  align-items: center;
+}
+.bottom_img{
+  width:27rpx;
+  height:25rpx;
+  margin-right:12rpx;
+}

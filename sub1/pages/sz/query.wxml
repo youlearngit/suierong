@@ -1,0 +1,101 @@
+<view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+        <view class="backPage" bindtap='prePage'>
+            <image src="/pages/public/img/ico_back.png"></image>
+        </view>
+        <view class="backIndex" bindtap='indexpage'>
+            <image src="/pages/public/img/ico_ind.png"></image>
+        </view>
+    </view>
+</view>
+
+
+<view class="wrapCommon" id='wrapCommon'>
+    <view class="coverBgray" hidden='{{coverBgray}}'></view>
+    <view class='banner'>
+        <image class="dianApplicateBanner" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/common/banner_1000.jpg"></image>
+    </view>
+    <view class="{{pagescroll}}">
+        <image class="bg1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen1.jpg"></image>
+        <image class="bg2" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen2.jpg"></image>
+        
+        <view class="page__bd">
+            <form bindsubmit="submitForm1" report-submit='true'>
+                <view class="section pr">
+                    <view class="weui-cells__title">
+                        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_qyxx.png"></image>
+                        <text>企业信息</text> </view>
+                    <view class="weui-cells weui-cells_after-title" hidden="{{flag_org_diy}}">
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">统一信用代码</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input name="orgID" id="orgID" value="{{ form.orgID }}" bindblur='blur' class="weui-input" type="orgID" maxlength='18' placeholder="请输入统一社会信用代码" />
+                            </view>
+                        </view>
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">企业名称</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input name="orgName" id="orgName" value="{{ form.orgName }}" bindblur='blur' class="weui-input" type="orgName" placeholder="请输入企业名称" />
+                            </view>
+                        </view>
+
+                        <view class="diy">
+                            <image bindtap="change_org_ocr" style="width:60rpx;height:60rpx;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_ipone.png"></image>
+                            <view class="changeBtn">拍照模式</view>
+                        </view>
+                    </view>
+                    <view class="ocrBox" hidden="{{flag_org_ocr}}">
+                        <view class="imgFlex">
+                            <image bindtap="creatPhoto" id="yyzz" class="picID" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_yyzz.png"></image>
+                        </view>
+                        <view class="diy">
+                            <image bindtap="change_org" style="width:60rpx;height:60rpx;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_sxms.png"></image>
+                            <view class="changeBtn">手工模式</view>
+                        </view>
+                    </view>
+                    <view wx:if='{{falg1}}'>
+                        <picker class="mp" bindtap="businesCard" bindchange="pickBC" value="{{bcindex}}" range="{{busiCardList}}">
+                            <image width="70%" mode="widthFix" lazy-load="true" src="{{preffixUrl}}/static/wechat/img/ico_mine_mp.png"></image>
+                        </picker>
+                    </view>
+
+                    <view class="button-sp-area">
+          <button class="btn" formType="submit">确 认 申 请</button>
+        </view>
+                </view>
+            </form>
+        </view>
+    </view>
+</view>
+
+
+<image class="bg3" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_wei1.png"></image>
+
+
+
+
+<view wx:if="{{v==1}}">
+  <view class="camerabox" hidden="{{camera_flag}}">
+    <camera hidden="{{camera_flag}}" class="camera" mode="normal" device-position="back" flash="off" binderror="error">
+      <cover-view class="controls">
+        <cover-image class="img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/{{takephoto.coverImg}}" />
+      </cover-view>
+      <cover-view class="noticeTXT">{{takephoto.noticeTxt}}</cover-view>
+      <cover-view class="operat">
+        <cover-image class="clickBtn" id="{{takephoto.id}}" bindtap="takePhoto" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_take.png" />
+        <cover-image class="reTake" bindtap="reTake" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_cancel.png" />
+      </cover-view>
+    </camera>
+  </view>
+</view>
+<view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+  <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+  <canvas canvas-id="attendCanvasId2" style="width:{{canvasWidth2}}px;height:{{canvasHeight2}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+</view>

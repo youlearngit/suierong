@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-poster": "/sub1/component/poster/index",
+		"my-login": "/component/login/index"
+  },
+  "disableScroll": false
+}

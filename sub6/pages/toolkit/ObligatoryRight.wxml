@@ -1,0 +1,24 @@
+<!--sub6/pages/toolkit/ObligatoryRight.wxml-->
+<view class="ObligatoryRight">
+    <view class="bg">
+        <image src="{{cndUrl}}/static/wechat/img/gjx/zprz.jpg"></image>
+    </view>
+    
+    <view class="back" bindtap="getBace">
+        <image src="{{cndUrl}}/static/wechat/img/gjx/fhsyy.png"></image>
+    </view>
+    <view  bindtap="getAgreement"  class="ljsp">
+        <image src="{{cndUrl}}/static/wechat/img/gjx/ljsp.png"></image>
+    </view>
+    <van-popup show="{{ agreementShow }}" round position="bottom" custom-style="height: 30%" bind:close="onCloseAgreement">
+        <view class="agreement_list">
+            <view class="list_item" wx:for="{{array}}" wx:for-item="item" wx:key="item.index" bindtap="toAgreement" data-type="{{item}}">
+                <view class="list_name">{{ item.name }}</view>
+            </view>
+        </view>
+    </van-popup>
+    <!-- 人才专员 悬浮按钮 -->
+	<navigator url="/sub3/pages/bbx/staff_list?RCtype=1&location={{location_json}}" hover-class="none">
+		<image class="float_talent_btn" src="{{preffixUrl}}fwzy.png" mode="widthFix"></image>
+	</navigator>
+</view>

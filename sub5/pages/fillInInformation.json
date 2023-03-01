@@ -1,0 +1,19 @@
+{
+  "usingComponents": {
+    "van-switch": "/sub5/static/vant-weapp/switch/index",
+    "van-field": "/sub5/static/vant-weapp/field/index",
+    "van-button": "/sub5/static/vant-weapp/button/index",
+    "van-toast": "/sub5/static/vant-weapp/toast/index",
+    "van-icon": "/sub5/static/vant-weapp/icon/index",
+    "van-checkbox": "/sub5/static/vant-weapp/checkbox/index",
+    "van-checkbox-group": "/sub5/static/vant-weapp/checkbox-group/index",
+    "van-popup": "/sub5/static/vant-weapp/popup/index",
+    "van-datetime-picker": "/sub5/dist/datetime-picker/index",
+    "van-nav-bar": "/sub5/static/vant-weapp/nav-bar/index",
+    "van-dialog": "/sub5/static/vant-weapp/dialog/index"
+
+  },
+  "enablePullDownRefresh": false,
+  "navigationStyle":"custom"
+
+}

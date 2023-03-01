@@ -1,0 +1,165 @@
+/* pages/carLoans/contract/carcontract/index.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+page {
+  overflow: hidden;
+  height: 100%;
+  background-image: linear-gradient(178deg, #95BAFF 0%, #FFFFFF 95%);
+}
+.contract-background-img{
+  width: 100%;
+  height: 100%;
+  background-size: 120%;
+}
+.contract-top-img{
+  width: 100%;
+  height: 82rpx;
+  position: absolute;
+  z-index: 0;
+}
+.go-home{
+  height: 82rpx;
+  width: 120rpx;
+  float: right;
+  line-height: 82rpx;
+  margin-right: 20rpx;
+  position: relative;
+  z-index: 1;
+}
+.contract-car-home-img{
+  top: 20rpx;
+  width: 46rpx;
+  height: 50rpx;
+  float: left;
+  margin-right: 10rpx;
+}
+.go-home-name{
+  font-size: 28rpx;
+}
+.swiper-tab{
+  width: 60%;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  float: left;
+  position: relative;
+  z-index: 1;
+}
+.swiper-tab-list{  
+  font-size: 30rpx;
+  display: inline-block;
+  width: 33.33%;
+  color: #777777;
+  margin-right: 50rpx;
+}
+.on::before{  
+  content: '';
+  position: absolute;
+  top: 75rpx;
+  bottom: auto;
+  right: auto;
+  height: 8rpx;
+  width: 50rpx;
+  margin-left: 15rpx;
+  border-radius: 16rpx;
+  background-color: #2241AD;
+}
+.on{ 
+  color: #2241AD;
+}
+
+.swiper-box{ 
+  height: 100%; 
+  width: 100%; 
+  padding: 30rpx;
+} 
+swiper-item{
+  overflow: auto;
+}
+.carcontract-list-card{
+  width: 680rpx;
+  height: 281rpx;
+  margin-top: 20rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: 0rpx 5rpx 15rpx 1rpx #e3effe;
+}
+.carcontract-list-card-has{
+  background-size: 705rpx ;
+  width: 705rpx;
+  height: 281rpx;
+  margin-top: 10rpx;
+  border-radius: 16rpx;
+  margin-left: -7rpx;
+  padding: 30rpx;
+  box-shadow: 0rpx 5rpx 15rpx 1rpx #e3effe;
+}
+.card-top-label{
+  font-family: SourceHanSansSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  margin-right: 15rpx;
+  margin-top: -10rpx;
+  float: right;
+}
+.card-transno{
+  font-size: 26rpx;
+  font-family: SourceHanSansSC-Regular;
+}
+.card-applytime{
+  color: #B1B2BD;
+  font-size: 26rpx;
+  font-family: SourceHanSansSC-Regular;
+  margin-top: 4rpx;
+}
+.card-content{
+  margin-top: 30rpx;
+  padding: 20rpx;
+  width: 630rpx;
+  height: 115rpx;
+  background-size: 630rpx;
+}
+.card-content-left{
+  width: 360rpx;
+  height: 115rpxs;
+  border: 1prx solid;
+  float: left;
+}
+.card-content-center{
+  line-height: 70rpx;
+  font-size: 70rpx;
+  border-left: 1rpx solid #a89d9e;
+}
+.card-content-right{
+  width: 225rpx;
+  height: 115rpxs;
+  border: 1prx solid;
+  float: right;
+  padding-left: 20rpx;
+}
+.card-content-label{
+  font-size: 26rpx;
+  color: #7C8BA4;
+  letter-spacing: 0;
+}
+.card-content-value{
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 0;
+}
+.b4041{
+  margin: 32%;
+  width: 300rpx;
+}
+.item-top-right-img{
+  position:relative;
+  float: right;
+  top: -80rpx;
+}
+.image-common-size{
+  width: 32rpx;
+  height: 32rpx;
+}

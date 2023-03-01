@@ -1,0 +1,243 @@
+<wxs src="./utils.wxs" module="utils" />
+<view>
+	<image class="home_bg" src="{{preffixUrl}}element_collection_head.png" mode="widthFix"></image>
+
+	<view class="howuse" bindtap="popupEvent" data-event="popup_howuse">如何使用<image src="{{preffixUrl}}howuse_icon_right.png" mode="widthFix"></image></view>
+	
+	<block wx:if="{{utils.idxOf(nodes_def.step_all,'identity')<=utils.idxOf(nodes_def.step_all,nodes.step)}}">
+		<view class="steps">
+			<view class="steps_head">
+				<image src="{{preffixUrl}}steps_rectangle.png" mode="widthFix"></image>
+				<image src="{{preffixUrl}}num1.png" mode="widthFix"></image>
+				<text>步骤一</text><text>身份认证</text>
+			</view>
+			<view class="steps_input steps_input_inline">
+				<text>手机号</text>
+				<input model:value="{{identity_phone}}" placeholder="请输入申请人手机号" placeholder-class="steps_input_placeholder"/>
+			</view>
+			<view class="steps_input steps_input_inline">
+				<text>身份证号</text>
+				<input model:value="{{identity_zjhm}}" placeholder="请输入申请人身份证号" placeholder-class="steps_input_placeholder"/>
+				<block wx:if="{{!identity_zjhm}}">
+					<navigator class="" hover-class="none" url="/sub1/pages/info/set_2?url=/sub3/pages/innovate/apply&type=3"><image class="steps_input_icon" src="{{preffixUrl}}photograph.png" mode="widthFix"></image></navigator>
+				</block>
+			</view>
+			<block wx:if="{{nodes.identity.face=='suc'}}">
+				<view class="steps_input steps_input_inline">
+					<text>面容识别</text>
+					<view class="steps_input_enter steps_input_face">
+						<image src="{{preffixUrl}}certified_icon.png" mode="widthFix"></image>
+						<image src="{{preffixUrl}}entrance.png" mode="widthFix"></image>
+					</view>
+				</view>
+			</block>
+			<block wx:else>
+				<view class="steps_input steps_input_inline" bindtap="faceRecog">
+					<text>面容识别</text>
+					<view class="steps_input_enter">
+						<image src="{{preffixUrl}}entrance.png" mode="widthFix"></image>
+					</view>
+				</view>
+			</block>
+		</view>
+	</block>
+
+	<block wx:if="{{utils.idxOf(nodes_def.step_all,'enterprise')<=utils.idxOf(nodes_def.step_all,nodes.step)}}">
+		<view class="steps">
+			<view class="steps_head">
+				<image src="{{preffixUrl}}steps_rectangle.png" mode="widthFix"></image>
+				<image src="{{preffixUrl}}num2.png" mode="widthFix"></image>
+				<text>步骤二</text><text>企业基本信息</text>
+			</view>
+			<view class="steps_input">
+				<text>企业名称</text>
+				<view style="position:relative;">
+					<input model:value="{{enterprise_dwmc}}" placeholder="请输入企业名称" placeholder-class="steps_input_placeholder" bindinput="inputEvent" data-event="enterprise_dwmc" />
+					<scroll-view scroll-y class="steps_input_scroll">
+						<view wx:for="{{search_ents}}" wx:key="key" wx:index="index" bindtap="inputTapEvent" data-event="enterprise_dwmc" data-value="{{item.name}}">{{item.name}}</view>
+					</scroll-view>
+				</view>
+			</view>
+			<view class="steps_input">
+				<text>统一社会信用代码</text>
+				<input model:value="{{enterprise_usci}}" placeholder="系统将自动查询" placeholder-class="steps_input_placeholder" disabled="true"/>
+			</view>
+			<view class="steps_input">
+				<text>注册地址</text>
+				<input model:value="{{enterprise_zcdz}}" placeholder="系统将自动查询" placeholder-class="steps_input_placeholder" disabled="true"/>
+			</view>
+			<view class="steps_input steps_input_inline">
+				<text>邮箱</text>
+				<input model:value="{{enterprise_email}}" placeholder="请输入邮箱" placeholder-class="steps_input_placeholder"/>
+			</view>
+			<!-- <view class="steps_input steps_input_inline" wx:if="{{mine.REAL_NAME != enterprise_frxm}}">
+				<text>法人</text>
+				<input model:value="{{enterprise_frxm}}" placeholder="请输入法人" placeholder-class="steps_input_placeholder"/>
+			</view> -->
+		</view>
+	</block>
+
+	<block wx:if="{{utils.idxOf(nodes_def.step_all,'empower')<=utils.idxOf(nodes_def.step_all,nodes.step)}}">
+		<view class="steps">
+			<view class="steps_head">
+				<image src="{{preffixUrl}}steps_rectangle.png" mode="widthFix"></image>
+				<image src="{{preffixUrl}}num3.png" mode="widthFix"></image>
+				<text>步骤三</text><text>签署征信与综合授权书</text>
+			</view>
+			<block wx:if="{{nodes.mode == 'fr'}}">
+				<view class="steps_nav" bindtap="popupEvent" data-event="popup_agreement">法人授权<image src="{{preffixUrl}}entrance_triangle.png" mode="widthFix"></image></view>
+			</block>
+			<block wx:else>
+				<view class="steps_nav" bindtap="popupEvent" data-event="popup_agreement_send">法人授权<image src="{{preffixUrl}}entrance_triangle.png" mode="widthFix"></image></view>
+			</block>
+			<block wx:if="{{empower_res=='suc'}}">
+				<image class="empower_suc_watermark" src="{{preffixUrl}}empower_suc_watermark.png" mode="widthFix"></image>
+			</block>
+			<van-checkbox value="{{empower_agree}}" custom-class="steps_ckb" bind:change="onChangeCKB" data-event="empower_agree">
+				<view>
+					我已阅读并同意
+					<text catchtap="pdfReadUrl" data-pdf="JiaoYiGuanLiGuiFan">《江苏省科技资源统筹服务云平台交易管理规范》</text>、
+					<text catchtap="pdfReadUrl" data-pdf="ShuJuAnQuanYuYinSiZhengCe">《江苏省科技资源统筹服务云平台数据安全与隐私政策》</text>、
+					<text catchtap="pdfReadUrl" data-pdf="YongHuXieYi">《江苏省科技资源统筹服务云平台用户协议》</text>
+				</view>
+			</van-checkbox>
+		</view>
+	</block>
+
+	<block wx:if="{{utils.idxOf(nodes_def.step_all,'tax')<=utils.idxOf(nodes_def.step_all,nodes.step)}}">
+		<view class="steps">
+			<view class="steps_head">
+				<image src="{{preffixUrl}}steps_rectangle.png" mode="widthFix"></image>
+				<image src="{{preffixUrl}}num4.png" mode="widthFix"></image>
+				<text>步骤四</text><text>企业纳税数据查询授权</text>
+			</view>
+			<block wx:if="{{tax_res}}">
+				<view class="steps_nav">跳转至电子税务局验证身份<image src="{{preffixUrl}}entrance_triangle.png" mode="widthFix"></image></view>
+			</block>
+			<block wx:else>
+				<navigator class="steps_nav" hover-class="none" url="/sub3/pages/innovate/tax?areaCode={{enterprise_zcdz_qu_bm}}&orgCode={{enterprise_usci}}">跳转至电子税务局验证身份<image src="{{preffixUrl}}entrance_triangle.png" mode="widthFix"></image></navigator>
+			</block>
+		</view>
+	</block>
+
+	<block wx:if="{{utils.idxOf(nodes_def.step_all,'apply')<=utils.idxOf(nodes_def.step_all,nodes.step)}}">
+		<view class="steps">
+			<view class="steps_head">
+				<image src="{{preffixUrl}}steps_rectangle.png" mode="widthFix"></image>
+				<image src="{{preffixUrl}}num5.png" mode="widthFix"></image>
+				<text>步骤五</text><text>创新券申领信息</text>
+			</view>
+
+			<view class="steps_input_group">
+				<view>企业补充信息</view>
+				<view class="steps_input steps_input_inline">
+					<text>所属行业</text>
+					<picker class="steps_input_select" model:value="{{apply_sshy_idx}}" range="{{picker_array.apply_sshy}}" range-key="name">{{picker_array.apply_sshy[apply_sshy_idx].name||'请选择'}}</picker>
+				</view>
+				<view class="steps_input steps_input_inline">
+					<text>员工人数</text>
+					<input model:value="{{apply_ygrs}}" placeholder="请输入人数" placeholder-class="steps_input_placeholder"/>
+				</view>
+				<view class="steps_input steps_input_inline">
+					<text>是否在省级以上高新区</text>
+					<picker class="steps_input_select" model:value="{{apply_sfzsjysgxq_idx}}" range="{{picker_array.apply_sfzsjysgxq}}" range-key="name">{{picker_array.apply_sfzsjysgxq[apply_sfzsjysgxq_idx].name||'请选择'}}</picker>
+				</view>
+				<view class="steps_input steps_input_inline">
+					<text>高新区</text>
+					<picker class="steps_input_select" model:value="{{apply_gxqmc_idx}}" range="{{picker_array.apply_gxqmc}}" range-key="name">{{picker_array.apply_gxqmc[apply_gxqmc_idx].name||'请选择'}}</picker>
+				</view>
+				<view class="steps_input steps_input_inline">
+					<text>孵化器</text>
+					<picker class="steps_input_select" model:value="{{apply_kjqyfhq_idx}}" range="{{picker_array.apply_kjqyfhq}}" range-key="name">{{picker_array.apply_kjqyfhq[apply_kjqyfhq_idx].name||'请选择'}}</picker>
+					<!-- <input placeholder="请输入" placeholder-class="steps_input_placeholder"/>
+					<image class="steps_input_icon" src="{{preffixUrl}}search.png" mode="widthFix"></image> -->
+				</view>
+				<view class="steps_input steps_input_inline">
+					<text>通讯地址</text>
+					<input model:value="{{apply_txdz}}" placeholder="系统将自动显示" placeholder-class="steps_input_placeholder"/>
+				</view>
+				<view class="steps_input steps_input_inline">
+					<text>邮政编码</text>
+					<input model:value="{{apply_postalcode}}" placeholder="请输入邮政编码" placeholder-class="steps_input_placeholder"/>
+				</view>
+			</view>
+
+			<view class="steps_input_group">
+				<view>账户信息</view>
+				<view class="steps_input">
+					<text>开户行名称</text>
+					<input model:value="{{apply_khhmc}}" placeholder="请输入开户行名称" placeholder-class="steps_input_placeholder"/>
+				</view>
+				<view class="steps_input">
+					<text>账户名称</text>
+					<input model:value="{{apply_zhmc}}" placeholder="请输入账户名称" placeholder-class="steps_input_placeholder"/>
+				</view>
+				<view class="steps_input">
+					<text>银行账户</text>
+					<input model:value="{{apply_yhzh}}" placeholder="请输入银行账户" placeholder-class="steps_input_placeholder"/>
+				</view>
+			</view>
+
+			<view class="steps_input_group">
+				<view>创新券服务信息</view>
+				<view class="steps_input steps_input_inline">
+					<text>主营产品所属技术领域</text>
+					<picker class="steps_input_select" model:value="{{apply_ssjsly_idx}}" range="{{picker_array.apply_ssjsly}}" range-key="name">{{picker_array.apply_ssjsly[apply_ssjsly_idx].name||'请选择'}}</picker>
+				</view>
+				<view class="steps_input steps_input_inline">
+					<text>创新券拟使用方向</text>
+					<picker class="steps_input_select" model:value="{{apply_cxqnsyfx_idx}}" range="{{picker_array.apply_cxqnsyfx}}" range-key="name">{{picker_array.apply_cxqnsyfx[apply_cxqnsyfx_idx].name||'请选择'}}</picker>
+				</view>
+				<view class="steps_input steps_input_inline">
+					<text>联动部门</text>
+					<picker class="steps_input_select" model:value="{{apply_ldbm_idx}}" range="{{picker_array.apply_ldbm}}" range-key="name">{{picker_array.apply_ldbm[apply_ldbm_idx].name||'请选择'}}</picker>
+				</view>
+			</view>
+		</view>
+
+	</block>
+
+	<block wx:if="{{nodes.step}}">
+		<view class="bottom_btns">
+			<view class="bottom_btn" bindtap="stepCancel">取消</view>
+			<view class="bottom_btn" bindtap="stepNext">下一步</view>
+		</view>
+	</block>
+
+	<van-popup show="{{popup_agreement.show}}" position="bottom" custom-class="popup popup_agreement" round bind:click-overlay="popupEvent" data-event="popup_agreement" >
+		<view class="popup_title">相关协议</view>
+		<view class="popup_pdf" bindtap="empowerPdfRead"><image src="{{preffixUrl}}pdf_icon.png" mode="widthFix"></image>《企业信息采集和查询授权书》</view>
+		<block wx:if="{{nodes.mode == 'fr'}}">
+			<block wx:if="{{empower_res=='suc'}}">
+				<view class="popup_btn popup_btn_disable">已授权</view>
+			</block>
+			<block wx:else>
+				<view class="popup_btn" bindtap="empowerFR">立即授权</view>
+			</block>
+		</block>
+		<block wx:else>
+			<view class="popup_btn" bindtap="showModel" data-content="暂不支持非法人进行下一步操作">立即授权</view>
+		</block>
+	</van-popup>
+
+	<van-popup show="{{popup_agreement_send.show}}" position="center" custom-class="popupc" round bind:click-overlay="popupEvent" data-event="popup_agreement_send" >
+		<view class="popupc_body">
+			<view>《企业信息采集和查询授权书》</view>
+		</view>
+		<view class="popupc_dialog_bottom">
+			<view bindtap="popupEvent" data-event="popup_agreement_send">取消</view>
+			<button open-type="share">立即授权</button>
+		</view>
+	</van-popup>
+
+	<van-popup show="{{popup_howuse.show}}" position="bottom" custom-class="popup_howuse" round bind:click-overlay="popupEvent" data-event="popup_howuse">
+		<image class="popup_howuse_close" src="{{preffixUrl}}howuse_icon_close.png" mode="widthFix" bindtap="popupEvent" data-event="popup_howuse"></image>
+		<image class="popup_howuse_pic" src="{{preffixUrl}}how_to_use.png" mode="widthFix"></image>
+	</van-popup>
+
+	<canvas
+		canvas-id="canvas_share"
+		style="width:{{canvas_share.width}}px;height:{{canvas_share.height}}px;position:fixed;top:9999px;background-color:white"
+	></canvas>
+
+</view>

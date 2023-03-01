@@ -1,0 +1,66 @@
+<!-- sub2/pages/greenCredit/index.wxml -->
+<view class="greenCredit" style="background-image: url({{cdnUrl}}/static/wechat/img/greenBusinessQuery/greenCredit_bg.png);">
+    <!-- <view></view> -->
+</view>
+<view class="form">
+    <view class="spec">
+        <!-- 必填标识 -->
+        <view class="mark">
+            <image src="{{cdnUrl}}/static/wechat/img/greenBusinessQuery/mark.png" mode="widthFix" lazy-load="{{true}}" />
+        </view>
+        <view class="choose" bindtap="pickSelect" data-id="0"></view>
+        <van-field label="业务品种" input-align="right" name="businessCategory" placeholder="请选择" value="{{businessCategory}}" readonly is-link />
+    </view>
+    <van-field label="项目名称" wx:if="{{isShowProjectName}}" input-align="right" class="enterprise" name="projectName" placeholder="请输入" model:value="{{projectName}}" />
+    <view class="spec">
+        <view class="choose" bindtap="pickSelect" data-id="1"></view>
+        <van-field label="业务种类绿色信贷认定项" input-align="right" name="select1" placeholder="请选择" value="{{select1}}" readonly is-link />
+    </view>
+    <view class="spec">
+        <view class="choose" bindtap="pickSelect" data-id="5"></view>
+        <van-field label="新国标行业一级分类" input-align="right" name="select2" placeholder="请选择" value="{{select5}}" readonly is-link />
+    </view>
+    <view class="spec">
+        <view class="choose" bindtap="pickSelect" data-id="2"></view>
+        <van-field label="行业一级分类绿色信贷认定项" input-align="right" name="select2" placeholder="请选择" value="{{select2}}" readonly is-link />
+    </view>
+    <view class="spec">
+        <view class="choose" bindtap="pickSelect"  data-id="3"></view>
+        <van-field label="新国标行业四级分类" input-align="right" name="select3" placeholder="请选择" value="{{select3}}" readonly is-link />
+    </view>
+    <view class="spec">
+        <view class="choose" bindtap="pickSelect" data-id="4"></view>
+        <van-field label="行业四级分类绿色信贷认定项" input-align="right" name="select4" placeholder="请选择" value="{{select4}}" readonly is-link />
+    </view>
+    <view class="btn_group">
+        <view class="reset" bindtap="reset">重置</view>
+        <view class="calculate" bindtap="calculate">认定</view>
+    </view>
+</view>
+<view class="result" wx:if="{{init}}">
+    <view class="result_title">{{calculate_result}}</view>
+    <view class="result_img" style="background-image: url({{imgurl}})">
+    </view>
+    <view class="result_list">
+        <view wx:if="{{isResult}}">
+            <view wx:if="{{isToast}}" class="result_item" wx:for="{{resultList}}" wx:for-item="item" wx:key="id">
+                <view class="result_item_left">{{item.title}}</view>
+                <view class="result_item_right">{{item.content}}</view>
+            </view>
+        </view>
+        <view wx:else class="result_list_msg"> {{no_msg}} </view>
+    </view>
+</view>
+<!-- <view></view> -->
+<my-picker 
+    id="myPicker" 
+    items="{{dataArr}}" 
+    initValue="{{setValue}}"
+    isSearch="{{isSearch}}"
+    type="{{type}}"
+    arr="{{resultArr}}"
+    imgUrl = "{{cdnUrl}}/static/wechat/img/greenBusinessQuery/search.png"
+    bind:confirm="onConfirm"
+    bind:cancel="cancel"
+    bind:searchContent="searchContent"
+/>

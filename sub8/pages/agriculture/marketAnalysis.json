@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-switch": "/sub8/static/vant/weapp/switch/index",
+    "ec-canvas": "/sub8/static/ec-canvas/ec-canvas",
+    "van-datetime-picker": "/sub8/static/vant/weapp/datetime-picker/index",
+    "van-popup": "/sub8/static/vant-weapp/popup/index",
+    "van-picker": "/sub8/static/vant/weapp/picker/index"
+  }
+}

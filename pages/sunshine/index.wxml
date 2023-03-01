@@ -1,0 +1,98 @@
+<view class="wrap">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="ncd1">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/sunshine_bg2.png"></image>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 介 绍</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">“阳光扶贫贷”业务是江苏银行向江苏省行政区域内的低收入农户以及经济薄弱村、低收入村集体领办合作社发放的，用于支持扶贫对象发展产业的授信业务。</text>
+    </view>
+  </view>
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 特 点</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">全线上、纯信用、低利率</text>
+    </view>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">服 务 对 象</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">本业务服务对象包括建档立卡低收入农户以及省定经济薄弱村、低收入村集体领办的合作社。</text>
+    </view>
+  </view>
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">申 请 流 程</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">①在线填写贷款申请信息；</text>
+      <text class="p">②在线审批授信额度；</text>
+      <text class="p">③在线进行额度签约；</text>
+      <text class="p">④在线用款。</text>
+    </view>
+  </view>
+
+
+</view>
+
+
+
+<view class='fbuttom'>
+    <view class="btn" bindtap='showShare'>分<text>\t\t\t\t\t\t</text>享</view>
+    <view bindtap="apli" class="btn blu">立即申请</view>
+</view>
+
+<view class="{{shareBox}}">
+
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+  
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image></button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+<view style='position:fixed;top:-50%;left:0;width:100%;height:200%;background:#fff;z-index:-1;'></view>
+<my-login loginFlag="{{loginFlag}}" ></my-login>

@@ -1,0 +1,97 @@
+<wxs src="./utils.wxs" module="utils" />
+<view class="plane">
+	<image class="bg" src="{{preffixUrl}}bg_adapt_res.png" mode="widthFix" />
+
+	<view class="head">
+		<view class="head-icon"></view>
+		<view>共为您匹配政策<view class="head-h">{{is_recommend?0:articles.length}}项</view></view>
+	</view>
+	<view class="head-tip">本次匹配结果仅供参考，具体以申报通知为准</view>
+
+	<view class="recommend" wx:if="{{is_recommend}}">
+		<image src="{{preffixUrl}}policy_defect.png" />
+		<view>很抱歉没有合适的匹配结果</view>
+		<view>推荐您查阅以下相关政策</view>
+	</view>
+
+	<!-- <view class="staff" wx:for="{{talent_staffs}}" wx:key="index">
+		<image wx:if="{{item.TYPE==1}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer_g.png" mode="widthFix" />
+		<image wx:elif="{{item.TYPE==2}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer.png" mode="widthFix" />
+		<image wx:elif="{{item.TYPE==3}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer_r.png" mode="widthFix" />
+		<view class="staff-body">
+			<view class="staff-inline">
+				<van-image custom-class="staff-avatar" src="{{item.HEAD?item.HEAD:(preffixUrl+'avatar_default.png')}}" fit="widthFix" round />
+				<view>
+					<view class="staff-inline staff-name">
+						<view class="staff-sname">{{item.STAFFNAME}}</view>
+						<view class="staff-job">
+							<view>{{item.WORKUNIT}}</view>
+							<view wx:if="{{item.JOB}}">{{item.JOB}}</view>
+						</view>
+					</view>
+					<view class="staff-inline staff-tags">
+						<view wx:if="{{item.LABEL1}}">{{item.LABEL1}}</view>
+						<view wx:if="{{item.LABEL2}}">{{item.LABEL2}}</view>
+						<view wx:if="{{item.LABEL3}}">{{item.LABEL3}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="staff-remark">{{item.RESUME}}</view>
+			<image class="staff-phone" src="{{preffixUrl}}contact_information.png" mode="widthFix" bindtap="phoneCall" data-phone="{{item.TEL}}" />
+		</view>
+	</view> -->
+
+	<navigator class="modi" hover-class="none" url="/sub3/pages/bbx/shipei3?action=modi">
+		<image src="{{preffixUrl}}icon_22_maintain.png" mode="widthFix" />维护已提交信息
+	</navigator>
+
+	<view class="go-filter" data-event="get_filter" bind:tap="onFilterEvent">
+		<image src="{{preffixUrl}}icon_32_filter_white.png" mode="widthFix" />筛选
+	</view>
+
+	<block wx:for="{{articles}}" wx:key="k" wx:index="index" wx:item="item">
+		<navigator wx:if="{{item.filter != true}}" class="article" hover-class="none" url="/sub3/pages/bbx/article?ID={{item.ID}}">
+			<view class="article-title">{{item.NAME}}</view>
+			<view class="article-loc" >{{item.POLICYLEVEL_text}}<image src="{{preffixUrl}}angle_mark{{item.POLICYLEVEL}}.png" mode="widthFix" /></view>
+			<view class="detail"><view>级别</view>{{item.POLICYLEVEL_text}}</view>
+			<view class="detail"><view>政策类型</view>{{item.TWOPOLICYTYPE_text || item.POLICYTYPE_text}}</view>
+		</navigator>
+	</block>
+
+	<view class="nomore"> - 没有更多啦 - </view>
+
+</view>
+
+<van-popup show="{{filter.show}}" position="top" custom-style="border-radius: 0 0 30rpx 30rpx;" close-on-click-overlay bind:click-overlay="onFilterEvent">
+	<view class="filter-body">
+		<view class="filter-head">
+			<view>筛选条件</view>
+			<view class="filter-reset" data-event="{{filter.reset_event}}" bind:tap="onFilterEvent">恢复默认</view>
+		</view>
+		<view wx:for="{{filter.items}}" wx:key="key" wx:index="index" wx:item="item">
+			<view class="filter-title"><view class="filter-title-icon"></view>{{item.title}}</view>
+			<view class="filter-opt filter-checkbox" wx:if="{{item.type=='checkbox'}}">
+				<view wx:for="{{item.items}}" wx:key="k" wx:for-index="idx" wx:for-item="v" class="{{utils.inArr(item.value,idx)?'activity':''}}" data-event="{{item.event}}" bind:tap="onFilterEvent" data-key="{{index}}" data-val="{{idx}}">
+					{{v}}
+					<image wx:if="{{utils.inArr(item.value,idx)}}" src="{{preffixUrl}}check_checked.png" mode="widthFix" />
+				</view>
+			</view>
+			<view class="filter-opt filter-daterange" wx:elif="{{item.type=='daterange'}}">
+				<view class="filter-opt-text">{{item.text}}</view>
+				<view class="filter-daterange-date" wx:for="{{[0,1]}}" wx:key="k" wx:for-index="idx" wx:for-item="v">
+					<view wx:if="{{idx>0}}" class="filter-daterange-splitline"></view>
+					<input bindinput="onFilterEvent" data-event="{{item.event}}" data-key="{{index}}" data-idx="{{idx}}" placeholder="请选择时间" placeholder-class="input-placeholder" value="{{item.value[idx]}}" bind:tap="onDatePickerEvent" disabled="true" />
+					<image wx:if="{{item.value[idx]}}" src="{{preffixUrl}}icon_38_date_checked.png" mode="widthFix" />
+					<image wx:else src="{{preffixUrl}}icon_38_date_uncheck.png" mode="widthFix" />
+				</view>
+			</view>
+		</view>
+		<view class="filter-confirm" data-event="{{filter.event}}" bind:tap="onFilterEvent">确定</view>
+	</view>
+</van-popup>
+
+<van-popup show="{{date_picker.show}}" position="bottom" custom-style="border-radius: 30rpx 30rpx 0 0;" close-on-click-overlay bind:click-overlay="onDatePickerEvent">
+	<view>
+		<van-datetime-picker type="date" value="{{date_picker.value}}" bind:confirm="onDatePickerEvent" bind:cancel="onDatePickerEvent" />
+	</view>
+</van-popup>

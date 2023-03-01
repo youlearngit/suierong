@@ -1,0 +1,161 @@
+/* sub4/pages/scanqrcode/grade.wxss */
+.num{
+    height: 100%;
+  }
+  .mybg{
+    width: 100%;
+    height: 100%;
+  }
+  .mydtk{
+    position: relative;
+    top: -1045rpx;
+  }
+  .myedt{
+    width: 94%;
+    height: 755rpx;
+    margin-left: 3%;
+  
+  }
+   /* 金牌分数 */
+   .mymedal{
+    position: relative;
+    top: -1753rpx;
+    /* background: darkmagenta; */
+    height: 900rpx;
+  }
+  .myfs{
+    width: 200rpx;
+    line-height: 60rpx;
+    background: rgba(5,163,255,0.10);
+    border-radius: 36.5px;
+    font-family: SourceHanSansSC-Medium;
+    color: #438CFF;
+    letter-spacing: 0;
+    text-align: center;
+    margin-left: 280rpx;
+    font-size: 27rpx;
+  }
+  .mydal{
+    width: 371rpx;
+    height: 338rpx;
+    margin-left: 187rpx;
+    margin-top: 100rpx;
+  }
+  .mygoos{
+    position: relative;
+    top: 87rpx;
+  }
+  .myjpfs{
+    position: relative;
+    top: -429rpx;
+    text-align: center;
+    font-family: STHeitiSC-Medium;
+    font-size: 87.15rpx;
+    color: #FFFBF2;
+    letter-spacing: -0.35px;
+    text-shadow: 0 2px 14px rgba(255,162,0,0.99);
+  }
+ .mydin{
+  position: relative;
+  top: -114rpx;
+  width: 90%;
+  float: left;
+  overflow: hidden;
+  padding: 40rpx 0;
+  text-align: center;
+  display: flex;
+  margin-left: 5%;
+}
+.mydin>view{
+  width: 50%;
+  float: left;
+  margin: 0 5%;
+  border: 1px solid #5BA0F9;
+  border-radius: 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.mydin .week{
+  width: 50%;
+  border-radius: 45rpx;
+  background: #5298F8;
+  color: #fff;
+}
+.active{
+  background: #E7F7FF;
+  color: #3470FF;
+}
+.mygopr{
+    width: 200rpx;
+    height: 200rpx;
+  }
+.minisubaret{
+  width: 215rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #FFAC34;
+  background: #FFF3C7;
+  position: relative;
+  top: -146rpx;
+  left: 280rpx;
+  font-size: 25rpx;
+  border-radius: 50rpx;
+}
+.subaret{
+  width: 25rpx;
+  height: 25rpx;
+  vertical-align: middle;
+}
+.minibbvu{
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: #a4a4a494;
+  position: absolute;
+  top: 0;
+}
+.popu{
+  position: relative;
+  left: 130rpx;
+  top: 25%;
+  z-index: 9;
+}
+.popup{
+  width: 500rpx;
+  height: 400rpx;
+}
+.mysyd{
+  position: relative;
+  left: 290rpx;
+  top: 112rpx;
+  z-index: 10;
+   
+}
+.mysyd .sydyyd{
+  font-size: 26rpx;
+}
+.minisl{
+  font-size: 65rpx;
+  margin-top: 10rpx;
+  margin-left: 30rpx;
+}
+.sfter{
+  width: 200rpx;
+  height: 80rpx;
+}
+.minisfer{
+  position: relative;
+  top: 15rpx;
+}
+.miniljhq{
+  color: #fff;
+  position: relative;
+  top: -56rpx;
+  left: 54rpx;
+  font-size: 25rpx;
+}
+.minisfter{
+  width: 100rpx;
+  height: 100rpx;
+}
+

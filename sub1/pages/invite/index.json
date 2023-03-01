@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-field": "/sub1/static/vant-weapp/field/index",
+    "van-popup": "/sub1/static/vant-weapp/popup/index",
+    "van-picker": "/sub1/static/vant-weapp/picker/index",
+    "van-toast": "/sub1/static/vant-weapp/toast/index"
+  },
+  "navigationBarTitleText": "圆融财富管家",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "disableScroll": true
+}

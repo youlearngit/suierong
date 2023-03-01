@@ -1,0 +1,7 @@
+
+<block wx:if="{{tax_url}}">
+	<web-view src="{{tax_url}}"></web-view>
+</block>
+<block wx:else>
+	<van-loading />
+</block>

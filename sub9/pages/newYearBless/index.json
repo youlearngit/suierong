@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "my-poster": "/sub8/pages/agriculture/component/poster/index"
+
+  },
+  "navigationStyle": "custom"
+  
+
+}

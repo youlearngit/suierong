@@ -1,0 +1,11 @@
+<!--components/dialog/index.wxml-->
+<view wx:if="{{ showDialog }}" class="dialog-container">
+  <view class="dialog-bg" style="opacity: {{ isOpen ? 1 : 0 }}"></view>
+  <view class="dialog-body" style="background-color: {{ bodyBg }}; border-radius: {{ bodyBg == 'transparent' ? '0' : '16rpx' }}; width: {{ width }}; top: {{ top }}; opacity: {{ isOpen ? 1 : 0 }}; transition: all ease-in-out 0.2s; transform: {{ isOpen ? 'scale(1)' : 'scale(0.3)' }};">
+    <view class="dialog-icon-close" style="color: {{ bodyBg == 'transparent' ? '#ffffff' : '#000000' }};" bindtap="handleClose">×</view>
+    <view class="dialog-content">
+      <slot></slot>
+    </view>
+  </view>
+</view>
+

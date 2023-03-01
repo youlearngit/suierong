@@ -1,0 +1,42 @@
+<view class="warpBg" style="width:100%">
+    <image wx:if='{{cndUrl}}' src='{{cndUrl}}/static/wechat/img/sui/face_bg1.jpg' mode="widthFix" style="width:100%"></image>
+    <image class="footer" wx:if='{{cndUrl}}' src='{{cndUrl}}/static/wechat/img/sui/face_bg2.jpg' mode="widthFix" style="width:100%"></image>
+</view>
+<view class="tipBox">
+    <view class="h1" bindtap='bgMusic'>
+        <image class="icoTip" wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/tips.png'></image>
+        长按"识别"按钮：
+    </view>
+    <view class="pic">
+        <camera device-position="front" flash="off" frame-size="small" binderror="error_camera" class="camera">
+            <cover-view wx:if="{{time_sec==0}}" class="timeSec">即将开始</cover-view>
+            <cover-view wx:elif="{{time_sec==100}}" class="timeSec">智能识别中</cover-view>
+            <cover-view wx:else class="timeSec">您已录制{{time_sec}}秒</cover-view>
+            <cover-image class="cover" src="/sub1/static/cover_round.png"></cover-image>
+            <cover-image class="pic_tip" hidden="{{flag_tip}}" src='/sub1/static/s3_face.jpg'></cover-image>
+        </camera>
+    </view>
+    <view class="w80">
+        <view class="wItem">
+            <view class="wItemPic">
+                <image wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/temp/mine/s3_t2.jpg'></image>
+            </view>
+            <view class="h3">正视屏幕</view>
+        </view>
+        <view class="wItem">
+            <view class="wItemPic">
+                <image wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/temp/mine/s3_t3.jpg'></image>
+            </view>
+            <view class="h3">识别3-5秒</view>
+        </view>
+        <view class="wItem">
+            <view class="wItemPic">
+                <image wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/temp/mine/s3_t1.jpg'></image>
+            </view>
+            <view class="h3">摘下眼镜</view>
+        </view>
+    </view>
+    <button class="longpress" hover-class='on' bind:touchstart="touchStart" bind:touchend="touchEnd" bind:longpress="longPress" bind:tap="shortClick" animation="{{animation}}">
+        识别
+    </button>
+</view>

@@ -1,0 +1,18 @@
+{
+  "usingComponents": {
+    "van-field": "/sub3/static/vant-weapp/field/index",
+    "van-radio": "/sub3/static/vant-weapp/radio/index",
+    "van-radio-group": "/sub3/static/vant-weapp/radio-group/index",
+    "van-popup": "/sub3/static/vant-weapp/popup/index",
+    "van-picker": "/sub3/static/vant-weapp/picker/index",
+    "van-datetime-picker": "/sub3/static/vant-weapp/datetime-picker/index",
+    "van-collapse":"/sub3/static/vant-weapp/collapse/index",
+    "van-collapse-item":"/sub3/static/vant-weapp/collapse-item/index",
+    "van-icon":"/sub3/static/vant-weapp/icon/index",
+    "message-popup":"/sub3/pages/ftAccountOpen/component/message-popup",
+    "van-toast": "/sub3/static/vant-weapp/toast/index"
+  },
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "预约开户"
+}

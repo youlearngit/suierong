@@ -1,0 +1,499 @@
+<view class="a1">
+    <view class="a1b1" hover-class="none">
+        <view class="a1b1c1" hover-class="none">{{showNum}}%</view>
+        <view class="a1b1c2" hover-class="none">信息完整度</view>
+    </view>
+    <view class="a1b2" hover-class="none">资料完整程度越高授信额度越高</view>
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_2.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+    <view class="cu-progress round margin-top xs">
+        <view class="" style="width:{{showNum}}%;background-image: linear-gradient(270deg, #F5D8A5 0%, #D5A97C 100%);" />
+    </view>
+</view>
+<view class="a2">
+    <view class="a2b1" hover-class="none">
+        <view class="a2b1c1" hover-class="none" />
+        <view class="a2b1c2" hover-class="none">身份</view>
+    </view>
+    <block wx:if="{{showNon2}}">
+        <view class="a2b2" hover-class="none" bindtap="mobileInfo">
+            <view class="a2b2c1 " hover-class="none">手机号</view>
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item arrow">
+                        <view class="content2">{{mobile}}</view>
+                        <view class="action">
+                            <view class="appr">已认证</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">手机号</view>
+                        </view>
+                        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber3" class="mobbtn" style="background-color:#fff;margin-top: 15rpx;padding-right:0px;">
+                            <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                        </button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{showNon1}}">
+        <view class="a2b2" hover-class="none" bindtap="identifyDetail">
+            <view class="a2b2c1" hover-class="none">身份证</view>
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item arrow">
+                        <view class="content2">{{identity.NAME2}}</view>
+                        <view class="action">
+                            <view class="appr">已认证</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="a2b2" hover-class="none" bindtap="set_2">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">身份证</view>
+                        </view>
+                        <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" lazy-load="false" mode="widthFix" binderror="" bindload="" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="a2">
+    <view class="a2b1" hover-class="none">
+        <view class="a2b1c1" hover-class="none" />
+        <view class="a2b1c2" hover-class="none">经营</view>
+        <!-- <view class="a2b1c3" hover-class="none">利率低 经营好</view> -->
+    </view>
+    <!-- 未完成 -->
+    <block wx:if="{{showNon3 < 1}}">
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">我的企业</view>
+                        </view>
+                        <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="set_company" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 已完成 -->
+    <block wx:else>
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">我的企业</view>
+                        </view>
+                        <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="set_company" />
+                    </view>
+                </view>
+            </view>
+            <view class="split23" wx:if="{{cardlist}}"></view>
+            <view wx:for="{{cardlist}}" class="a2b3" wx:if="{{index<card_mini}}" hover-class="none">
+                <view class="cu-list menu" bindtap="company_detail" data-index="{{index}}" data-orgname="{{item.ORG_NAME}}" data-orgaddress="{{item.ORG_ADDRESS_NAME}}" data-orgid="{{item.ORG_ID}}">
+                    <view class="cu-item arrow" style="justify-content:space-between;">
+                        <view class="content2">
+                            {{item.ORG_NAME}}
+                            <!-- {{cardlist[0].ORG_NAME}} -->
+                        </view>
+                        <view class="action">
+                            <view class="appr">已认证</view>
+                        </view>
+                    </view>
+                    <view class="cu-item " style="align-items:flex-start">
+                        <view class="content3">统一码</view>
+                        <view class="content4">
+                            {{item.ORG_CODE}}
+                            <!-- {{cardlist[0].ORG_CODE}} -->
+                        </view>
+                    </view>
+                    <view class="cu-item " style="align-items:flex-start">
+                        <view class="content3">法定代表人</view>
+                        <view class="content4">
+                            {{item.ARTIFICIAL_NAME}}
+                            <!-- {{cardlist[0].ARTIFICIAL_NAME}} -->
+                        </view>
+                    </view>
+                    <view class="cu-item " style="align-items:flex-start">
+                        <view class="content3">企业所在地</view>
+                        <view class="content4">{{item.ORG_ADDRESS_NAME}}</view>
+                    </view>
+                </view>
+                <view class="split23" wx:if="{{cardlist.length!=1}}"></view>
+            </view>
+            <view wx:if="{{cardlist.length>1}}">
+                <view wx:if="{{card_mini!=cardlist.length}}">
+                    <view class="more" bindtap="showAllConmany">
+                        <view class="more1">展开全部内容</view>
+                        <view>
+                            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_21.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                        </view>
+                    </view>
+                </view>
+                <view wx:else>
+                    <view class="more" bindtap="hideAllConmany">
+                        <view class="more1">收起</view>
+                        <view>
+                            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_22.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 已完成 -->
+    <block wx:if="{{showNon4}}"></block>
+    <!-- 未完成 -->
+    <!-- <block wx:else>
+    <view class="a2b2" hover-class="none" >
+      <view class="a2b2c2" hover-class="none" >
+        <view class="cu-list menu">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">税务收取</view>
+            </view>
+            <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="set_tax"/>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </block> -->
+    <!-- <block  wx:if="{{showNon3 < 1}}">
+   <view class="a2b2" hover-class="none" >
+      <view class="a2b2c2" hover-class="none" >
+        <view class="cu-list menu">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">税务收取</view>
+            </view>
+
+            <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload=""  bindtap="set_tax"/>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </block> -->
+    <!-- 已完成 -->
+    <!-- <block wx:elif="{{showNon3 > 1}}"> -->
+    <view class="a2b2" hover-class="none">
+        <view class="a2b2c2" hover-class="none">
+            <view class="cu-list menu">
+                <view class="cu-item ">
+                    <view class="content">
+                        <view class="view-grey">税务授权</view>
+                    </view>
+                    <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="set_tax" />
+                </view>
+            </view>
+        </view>
+        <view class="split23" wx:if="{{cardlist.length>0}}"></view>
+        <view wx:for="{{cardlist}}" class="a2b3" wx:if="{{index<tax_mini}}" hover-class="none">
+            <view class="cu-list menu" bindtap="blurCity" data-orgname="{{item.ORG_CODE}}">
+                <view class="cu-item arrow" style="justify-content:space-between;">
+                    <view class="content2">
+                        {{item.ORG_NAME}}
+                        <!-- {{cardlist[0].ORG_NAME}} -->
+                    </view>
+                    <block wx:if="{{item.isTax}}">
+                        <view class="action">
+                            <view class="appr">已授权</view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="action">
+                            <view class="appr1">未授权</view>
+                        </view>
+                    </block>
+                </view>
+                <!-- <block wx:if="{{item.isTax}}"> -->
+                <view class="cu-item " style="align-items:flex-start">
+                    <view class="content3">授权时间</view>
+                    <view class="content4">
+                        {{item.startTime}}
+                        <!-- {{cardlist[0].ORG_CODE}} -->
+                    </view>
+                </view>
+                <view class="cu-item " style="align-items:flex-start">
+                    <view class="content3">授权渠道</view>
+                    <view class="content4">
+                        {{item.channelID}}
+                        <!-- {{cardlist[0].ARTIFICIAL_NAME}} -->
+                    </view>
+                </view>
+                <view class="cu-item " style="align-items:flex-start">
+                    <view class="content3">有效期至</view>
+                    <view class="content4">{{item.endTime}}</view>
+                </view>
+                <!-- </block> -->
+                <!-- <block wx:else></block> -->
+            </view>
+            <view class="split23" wx:if="{{cardlist.length!=1}}"></view>
+        </view>
+        <view wx:if="{{cardlist.length>1}}">
+            <view wx:if="{{tax_mini!=cardlist.length}}">
+                <view class="more" bindtap="showAllTax">
+                    <view class="more1">展开全部内容</view>
+                    <view>
+                        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_21.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                    </view>
+                </view>
+            </view>
+            <view wx:else>
+                <view class="more" bindtap="hideAllTax">
+                    <view class="more1">收起</view>
+                    <view>
+                        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_22.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="a2">
+    <view class="a2b1" hover-class="none">
+        <view class="a2b1c1" hover-class="none" />
+        <view class="a2b1c2" hover-class="none">资产</view>
+        <!-- <view class="a2b1c3" hover-class="none">额度高 资产多</view> -->
+    </view>
+    <!-- 已完成 -->
+    <!-- 已完成 -->
+    <block wx:if="{{showNon5}}"></block>
+    <!-- 未完成 -->
+    <block wx:else>
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu" bindtap="nothing">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">房产</view>
+                        </view>
+                        <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{showNon6}}">
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">房产评估</view>
+                        </view>
+                        <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="addHouseInfo" />
+                    </view>
+                </view>
+            </view>
+            <view class="split23" wx:if="{{houseInfo}}"></view>
+            <view wx:for="{{houseInfo}}" class="a2b3" wx:if="{{index<house_mini}}" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item arrow" style="justify-content:space-between;" bindtap="getDeailHouseInfo" data-index="{{index}}" data-orgname="{{item.ORG_NAME}}">
+                        <view class="content2 ">{{item.ALIAS}}</view>
+                        <view class="action arrow">
+                            <view class="appr">已评估</view>
+                        </view>
+                    </view>
+                    <block>
+                        <view class="cu-item " style="align-items:flex-start">
+                            <view class="content3">估价</view>
+                            <view class="content4">{{item.GUJIA}}万</view>
+                        </view>
+                        <view class="cu-item " style="align-items:flex-start">
+                            <view class="content3">预计可贷</view>
+                            <view class="content4">{{item.KEDAI}}万</view>
+                        </view>
+                    </block>
+                </view>
+                <view class="split23" wx:if="{{houseInfo.length!=1}}"></view>
+            </view>
+            <view wx:if="{{houseInfo.length>1}}">
+                <view wx:if="{{house_mini!=houseInfo.length}}">
+                    <view class="more" bindtap="showAllHouse">
+                        <view class="more1">展开全部内容</view>
+                        <view>
+                            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_21.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                        </view>
+                    </view>
+                </view>
+                <view wx:else>
+                    <view class="more" bindtap="hideAllHouse">
+                        <view class="more1">收起</view>
+                        <view>
+                            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_22.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 未完成 -->
+    <block wx:else>
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">房产评估</view>
+                        </view>
+                        <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="addHouseInfo" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 已完成 -->
+    <block wx:if="{{showNon7}}"></block>
+    <!-- 未完成 -->
+    <block wx:else>
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu" bindtap="nothing">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">车辆</view>
+                        </view>
+                        <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- <view class="a2b2" hover-class="none" >
+		<view class="a2b2c1" hover-class="none" >
+			身份证
+		</view>
+		<view class="a2b2c2" hover-class="none" >
+			<view class="cu-list menu">
+				<view class="cu-item arrow">
+					<view class="content">
+						<view class="view-grey">身份证</view>
+					</view>
+					<view class="action">
+						<button class="cu-btn round bg-green shadow">
+							<view class="cuIcon-upload" />
+							上传
+						</button>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view> -->
+</view>
+<view class="a2">
+    <view class="a2b1" hover-class="none">
+        <view class="a2b1c1" hover-class="none" />
+        <view class="a2b1c2" hover-class="none">资质</view>
+        <!-- <view class="a2b1c3" hover-class="none">素质高 信用好</view> -->
+    </view>
+    <!-- 已完成 -->
+    <block wx:if="{{showNon1 && !showNon8}}">
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <!-- <navigator url="/sub1/pages/creditStation/index" class="cu-item ">
+                        <view class="content">人才</view>
+                        <view class="action" style="color: #999999;">否</view>
+                    </navigator> -->
+                    <!-- <view class="cu-item ">
+                        <view class="content">人才</view>
+                    </view> -->
+
+                    <!-- 旧版入口 -->
+                    <!-- <navigator url="/sub1/pages/creditStationPerson/index" class="cu-item arrow"> -->
+                    <!-- 新版入口 -->
+                    <navigator url="/sub4/pages/rcrz/apply" class="cu-item arrow">
+                        <view class="content">人才</view>
+                        <view class="action">
+                            <text style="color: #999999;margin:0 10rpx">否</text>
+                            去认证
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:elif="{{showNon8}}">
+        <view class="a2b2" hover-class="none">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">人才</view>
+                    </view>
+                </view>
+            </view>
+            <view class="a2b3" hover-class="none">
+                <view class="cu-list menu" bindtap="set_rencai" data-name="{{identity.NAME}}">
+                    <view class="cu-item arrow">
+                        <view class="content2 ">{{rencaidengji}}</view>
+                        <view class="action arrow">
+                            <view class="appr">已认证</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 未完成 -->
+    <block wx:else>
+        <view class="a2b2" hover-class="none" bindtap="set_rencai">
+            <view class="a2b2c2" hover-class="none">
+                <view class="cu-list menu">
+                    <view class="cu-item ">
+                        <view class="content">
+                            <view class="view-grey">人才</view>
+                        </view>
+                        <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" lazy-load="false" mode="widthFix" binderror="" bindload="" />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="a2">
+    <view class="a2b1" hover-class="none">
+        <view class="a2b1c1" hover-class="none" />
+        <view class="a2b1c2" hover-class="none">关联人</view>
+        <!-- <view class="a2b1c3" hover-class="none">素质高 信用好</view> -->
+    </view>
+    <!-- 已完成 -->
+    <block wx:if="{{showNon4}}"></block>
+    <!-- 未完成 -->
+    <block wx:else>
+        <view class="a2b2" hover-class="none">
+            <view class="a2b3" hover-class="none">
+                <view class="cu-list menu" bindtap="nothing">
+                    <view class="cu-item arrow">
+                        <view class="content">配偶</view>
+                        <view class="action">去认证</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view style="height:60rpx"></view>
+<my-login loginFlag="{{loginFlag}}"></my-login>

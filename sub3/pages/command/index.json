@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "my-login": "/component/login/index",
+    "van-popup": "/sub3/static/vant-weapp/popup/index"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": false
+}

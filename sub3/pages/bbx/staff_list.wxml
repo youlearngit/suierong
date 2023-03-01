@@ -1,0 +1,100 @@
+<wxs src="./utils.wxs" module="utils" />
+
+<view class="head" style="background-image: url({{cndUrl}}/static/wechat/img/sui/manager_bg.png);">
+    <view class="head-location">
+        <image src="{{cndUrl}}/static/wechat/img/sui/icon_location.png" />
+        <!-- <text>{{locData.ORG_FULL_NAME}}</text> -->
+		<picker model:value="{{mkDataIdx}}" range="{{mkData}}" range-key="ORG_FULL_NAME" bindchange="onMkPicker">{{locData.ORG_FULL_NAME}}</picker>
+    </view>
+    <view class="head-search" wx:if="{{select==1}}">
+        <image src="{{cndUrl}}/static/wechat/img/sui/icon_search.png" />
+        <input name="info" bindinput="bindinput" placeholder="请输入专员姓名" placeholder-class="head-search-placeholder" />
+    </view>
+    <view class="head-card">
+        <image src="{{cndUrl}}/static/wechat/img/sui/manager_title.png" mode="widthFix" />
+    </view>
+</view>
+
+<view class="picker">
+    <view class="picker-txt {{select==0?'picker-txt-sel':''}}" data-id="0" bindtap="selectTap">
+        推荐
+        <image src="{{cndUrl}}/static/wechat/img/sui/icon_down.png" class="picker-img" />
+        <view class="picker-select" wx:if="{{select==0}}"></view>
+    </view>
+    <view class="picker-txt {{select==1?'picker-txt-sel':''}}" data-id="1" bindtap="selectTap">
+        全部
+        <image src="{{cndUrl}}/static/wechat/img/sui/icon_down.png" class="picker-img" />
+        <view class="picker-select" wx:if="{{select==1}}"></view>
+    </view>
+	<!-- <picker mode="region" bindchange="onRegionChange" value="{{search_location.codes}}">
+		<view class="picker-txt {{select==2?'picker-txt-sel':''}}" data-id="2" bindtap="selectTap">
+			{{search_location.district || search_location.city || search_location.province || '地区'}}
+            <image src="{{cndUrl}}/static/wechat/img/sui/icon_down.png" class="picker-img" />
+        	<view class="picker-select" wx:if="{{select==2}}"></view>
+		</view>
+	</picker> -->
+	<!-- <view data-event="set_filter_tree_select" bind:tap="onTreeSelectEvent">
+		<view class="picker-txt {{select==2?'picker-txt-sel':''}}" data-id="2" bindtap="selectTap">
+			{{search_location.district || search_location.city || search_location.province || '地区'}}
+            <image src="{{cndUrl}}/static/wechat/img/sui/icon_down.png" class="picker-img" />
+        	<view class="picker-select" wx:if="{{select==2}}"></view>
+		</view>
+	</view> -->
+	<view data-event="set_filter_popup_region" bind:tap="onPopupRegionEvent">
+		<view class="picker-txt {{select==2?'picker-txt-sel':''}}" data-id="2" bindtap="selectTap">
+			{{search_location.district || search_location.city || search_location.province || '地区'}}
+            <image src="{{cndUrl}}/static/wechat/img/sui/icon_down.png" class="picker-img" />
+        	<view class="picker-select" wx:if="{{select==2}}"></view>
+		</view>
+	</view>
+</view>
+
+<block wx:for="{{list}}" wx:key="index">
+    <view class="card">
+		<image wx:if="{{item.TYPE==1 && RCtype!=1}}" class="card-bg" src="{{preffixUrl}}talent_policy_servicer_g.png" mode="widthFix" />
+		<image wx:elif="{{item.TYPE==2 && RCtype!=1}}" class="card-bg" src="{{preffixUrl}}talent_policy_servicer.png" mode="widthFix" />
+		<image wx:elif="{{item.TYPE==3 && RCtype!=1}}" class="card-bg" src="{{preffixUrl}}talent_policy_servicer_r.png" mode="widthFix" />
+		<image wx:elif="{{RCtype==1}}" class="card-bg" src="{{cndUrl}}/static/wechat/img/gjx/talent_policy_servicer_B.png" mode="widthFix" />
+		<!-- 1 人才金融服务专员 金标 talent_policy_servicer_g -->
+		<!-- 2 人才政策服务专员 银标 talent_policy_servicer -->
+		<!-- 3 创业导师 红标 talent_policy_servicer_r -->
+		<view class="card-body">
+			<view class="card-inline">
+				<van-image custom-class="card-avatar" src="{{item.HEAD?item.HEAD:(preffixUrl+'avatar_default.png')}}" fit="widthFix" round />
+				<view>
+					<view class="card-inline card-name">
+						<view class="card-staffname">{{item.STAFFNAME}}</view>
+						<view class="card-job">
+							<view>{{item.WORKUNIT}}</view>
+							<view wx:if="{{item.JOB}}">{{item.JOB}}</view>
+						</view>
+					</view>
+					<view class="card-inline card-tags">
+						<view wx:if="{{item.LABEL1}}">{{item.LABEL1}}</view>
+						<view wx:if="{{item.LABEL2}}">{{item.LABEL2}}</view>
+						<view wx:if="{{item.LABEL3}}">{{item.LABEL3}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="card-remark">{{item.RESUME}}</view>
+			<image class="card-contact" src="{{preffixUrl}}contact_information.png" mode="widthFix" bindtap="phoneCall" data-phone="{{item.TEL}}" />
+		</view>
+	</view>
+</block>
+<view class="" style="height:30rpx" hover-class="none" hover-stop-propagation="false">
+</view>
+
+<van-popup show="{{tree_select.show}}" position="bottom" custom-style="border-radius: 30rpx 30rpx 0 0;" close-on-click-overlay bind:click-overlay="onTreeSelectEvent">
+      <van-tree-select
+	  	items="{{tree_select.items}}"
+		bind:click-nav="onTreeSelectEvent"
+		main-active-index="{{tree_select.mainActiveIndex}}"
+		active-id="{{tree_select.activeId}}"
+		bind:click-item="onTreeSelectEvent"
+      >
+      </van-tree-select>
+</van-popup>
+
+<van-popup show="{{ popup_region.show }}" position="bottom" bind:close="onPopupRegionEvent">
+    <van-picker show-toolbar columns="{{ popup_region.columns }}" value-key="name" bind:cancel="onPopupRegionEvent"  bind:change="onPopupRegionChange" bind:confirm="onPopupRegionConfirm" />
+</van-popup>

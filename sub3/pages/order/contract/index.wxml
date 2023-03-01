@@ -1,0 +1,528 @@
+<!--pages/carLoans/order/contract/index.wxml-->
+<view class="contaioner-content">
+    <!-- 第一页 -->
+    <view class="page-height">
+      <view class="version">202201版</view>
+      <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_jsyh.png"></image>
+      <view class="title-big-strong">个人借款合同</view>
+      <view class="title-size-30">（车贷综合版）</view>
+      <view class="title-bottom">江苏银行股份有限公司</view>
+    </view>
+    <view class="split"></view>
+    <!-- 第二页 -->
+    <view class="page-height">
+      <view class="version">202107版</view>
+      <view class="title-clean">告客户书</view>
+      <text class="content" decode='true' style="line-height: 40rpx;">
+        尊敬的客户：
+        {{nbsp}}根据中国银行保险监督管理委员会以及江苏银行股份有限公司（以下简称“本行”）有关规定，本行严禁员工发生下列行为：
+        {{nbsp}}1、组织、参加非法集资活动；
+        {{nbsp}}2、介绍机构和个人参与高利贷或向机构和个人发放高利贷；
+        {{nbsp}}3、向客户借款；
+        {{nbsp}}4、直接或变相参与民间借贷，为客户或其相关方民间借贷提供担保或牵线搭桥；
+        {{nbsp}}5、在业务办理过程中收取除正常融资成本外的其他费用；
+        {{nbsp}}6、借用客户账户过渡资金，或利用本人、亲属等关联账户为客户过渡资金；
+        {{nbsp}}7、在客户或其相关方兼职或领取报酬；
+        {{nbsp}}8、销售未经本行授权或签订代销协议的第三方机构产品；
+        {{nbsp}}9、违规代客办理业务，违规代客保管、传递重要物品；
+        {{nbsp}}10、接受或索取不当利益，或违规进行利益输送。
+        {{nbsp}}为保障贵方权益，本行郑重向贵方提示如下：
+        {{nbsp}}<text style="font-weight: bold;">以上事项均为本行明令禁止，本行任何员工无论以何种原因存在上述行为，均为其个人行为，不代表本行意志，请贵方务必谨慎。</text>\n
+        {{nbsp}}<text style="font-weight: bold;">其他任何机构和个人向贵方收取的任何名目的费用及任何形式的保证金均与江苏银行股份有限公司无关，江苏银行股份有限公司不承担由此引发的一切法律责任。</text>\n
+        {{nbsp}}请贵方对本行员工予以监督，如发现本行员工存在上述情形，请通过本行专用邮箱jsyhdflz@jsbchina.cn，或致电本行党风廉政建设室（电话：025-51811967）予以举报，本行将严格保密。
+        \n\n
+        {{nbsp}}江苏银行股份有限公司
+        \n\n
+        {{nbsp}}本人（本公司）确认知悉并仔细阅读《告客户书》所有内容，理解并接受贵行提示的风险，积极协助贵行对贵行员工行为予以监督。
+        \n\n
+        {{nbsp}}客户签名：<text class="text-border">{{contInfo.cusName}}</text>\n
+        {{nbsp}}签订日期： <text class="text-weight-border">{{contInfo.signDate}}</text>\n
+          \n\n\n
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第四页 -->
+    <view class="page-height">
+      <view class="text-center text-family font-size-40" style="margin-top: 100rpx;">个人借款合同</view>
+      <view class="text-center font-size-30">(车贷综合版)</view>
+      <view style="text-align: right;font-weight: 100; font-size: 26rpx;">合同编号：<text class="text-border">{{contInfo.contNo}}</text></view>
+      <text class="content title-size-30" decode='true' style="line-height: 40rpx;">
+        {{nbsp}}特别提醒:在签署本合同前，贷款人提醒借款人、抵押人完整阅读本合同及附件（如有）所有条款，明确了解、知悉己方的权利义务，特别提醒借款人、抵押人关注本合同中以黑体字、下划线标识的对借款人、抵押人权益有重大利害关系的条款，请务必仔细阅读和理解，如对本合同内容有任何疑问，或者无法准确理解相关条款，请暂停签约并通过江苏银行客服或客户经理进行咨询，客服电话95319。
+        {{nbsp}}如借款人、抵押人在贷款人指定渠道（包括但不限于江苏银行随e融小程序等各类电子渠道，下同）以电子签名或在申请办理页面点击确认、勾选等方式接受本合同，即表示借款人、抵押人已知悉、理解并同意接受本合同的所有条款内容，并愿意受此约束。本合同以数据电文形式订立，借款人、抵押人充分认同其效力。
+        <text style="font-size: 26rpx;line-height: 50rpx;" decode='true'>
+        贷款人：<text class="text-border">{{contInfo.lenderName}}</text>\n
+        通讯地址：<text class="text-border" style="width: 100rpx;">{{contInfo.liveAddrStreet}}</text>\n
+        <!-- 法定代表人/负责人：<text class="text-border">{{contInfo.loanLegalPerson}}</text>\n 更新删除此行-->
+        联系方式：<text class="text-border">{{contInfo.homePhone}}</text>\n
+        \n
+        借款人：<text class="text-border">{{contInfo.cusName}}</text>\n
+        证件种类：<text class="text-border">身份证</text>\n
+        证件号码：<text class="text-border">{{contInfo.certCode}}</text>\n
+        通讯地址：<text class="text-border">{{contInfo.houseAddrStreet}}</text>\n
+        电子邮箱：<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>\n
+        电话号码：<text class="text-border">{{contInfo.mobilePhone}}</text>\n\n
+        抵押人：<text class="text-border" decode='true'>{{contInfo.cusSName && contInfo.cusSName != '' ? contInfo.cusSName : nbsp + '/' + nbsp}}</text>\n
+        经营者：<text class="text-border" decode='true'>{{contInfo.frName && contInfo.frName != '' ? contInfo.frName : nbsp + '/' + nbsp}}</text>\n
+        通讯地址：<text class="text-border" decode='true'>{{ contInfo.operateAddr && contInfo.operateAddr != ''? contInfo.operateAddr : nbsp + '/' + nbsp }}</text>\n
+        电话号码：<text class="text-border" decode='true'>{{ contInfo.frContactTel && contInfo.frContactTel != '' ? contInfo.frContactTel : nbsp + '/' + nbsp }}</text>\n
+        \n
+        {{nbsp}}根据相关法律法规，各方经协商一致，订立本合同，并自愿遵守合同所有条款。\n
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第五页 -->
+    <view class="page-height">
+      <view style="text-align: center; margin-top: 100rpx;font-weight: bold;">第一部分 借款要素</view>
+      <text class="content title-size-30" decode='true'>
+        {{nbsp}}第一条 借款内容<text decode='true' >
+          {{nbsp}}一、借款金额及期限
+          {{nbsp}}贷款人向借款人发放（币种） <text class="text-border">人民币</text>（大写） <text class="text-border">{{contInfo.contAmt}}</text> 的借款用于购车（车辆信息详见下表，以下简称“所购车辆”），借款期限<text class="text-border">{{contInfo.contTerm}}</text>月。
+        </text>
+      </text>
+      <view class="table" style="align-items: center">
+          <block>
+            <view class="tr bg-g">
+              <view class="td border-right border-buttom padding-4">车辆品牌</view>
+              <view class="td border-right border-buttom padding-4">{{contInfo.vehicleBrand}}</view>
+              <view class="td border-right border-buttom padding-4">型号</view>
+              <view class="td border-buttom padding-4">{{contInfo.vehicleModel}}</view>
+            </view>
+          </block>
+          <block>
+            <view class="tr bg-g">
+              <view class="td border-right padding-4">发动机号码</view>
+              <view class="td border-right padding-4">{{contInfo.engineNum}}</view>
+              <view class="td border-right padding-4">车架号码</view>
+              <view class="td padding-4">{{contInfo.uniqueIntNo}}</view>
+            </view>
+          </block>
+      </view>
+      <text class="content title-size-30" decode='true'>
+        <text decode='true' >
+          （表中栏目不够填写而增加的附表，为本合同组成部分）
+          {{nbsp}}为满足客户需求，贷款人同时向借款人发放（币种）<text class="text-border">{{contInfo.followContAmt == '/' ? '/': '人民币'}}</text>（大写）<text class="text-border" decode='true'>{{contInfo.followContAmt}}</text> 的借款，用于支付购车过程中产生的物理附属设备、装饰、保养等相关合法款项，借款期限<text class="text-border">{{contInfo.followContTerm}}</text>月。\n
+          {{nbsp}}合计共发放借款（币种）<text class="text-border">人民币</text>（大写）<text class="text-border"decode='true'>{{contInfo.countContAmt}}</text> 。\n
+          {{nbsp}}二、借款利率\n
+          {{nbsp}}1.本合同项下借款的人民币借款利率为下列第<text class="text-border" decode='true'>{{nbsp}}A{{nbsp}}</text>种：\n
+          {{nbsp}}A.本合同项下借款采用固定利率，执行年利率 <text class="text-border">{{contInfo.executeRateY}}</text> ％(即按<text class="font-weight">本合同签订日前一日</text>最近一次公布的一年期贷款市场报价利率（LPR）<text class="text-border">{{(contInfo.baseRateY)}}</text> % <text class="text-border">{{(contInfo.executeRateY-contInfo.baseRateY )>0 ? '加上': '减去'}} </text>（加上/减去）<text class="text-border">{{contInfo.diffRateY}}</text> 个BP（1个BP等于0.01个百分点）执行) ，合同有效期内利率不变。\n
+          {{nbsp}}B．本合同项下借款采用浮动利率：\n
+          {{nbsp}}借款期限在五年以上的（不含五年），利率为<text class="font-weight">借款发放日前一日</text>最近一次公布的五年期以上贷款市场报价利率（LPR）<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>%                       （加上/减去）个<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>BP（1个BP等于0.01个百分点），合同利率随调整日前一日最近一次公布的同期贷款市场报价利率（LPR）按上述浮动规则调整，调整周期为按年调整，调整日为<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>:\n
+          {{nbsp}}（1）每年1月1日；\n
+          {{nbsp}}（2）每年借款发放日的对应日（如无则为当年对应月末日）。
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第六页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text decode='true' >
+
+
+          {{nbsp}}借款期限在一到五年的（含五年，不含一年），利率为<text class="font-weight">借款发放日前一日</text>最近一次公布的一年期贷款市场报价利率（LPR）<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>%（加上/减去）<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>个BP（1个BP等于0.01个百分点），合同利率随调整日前一日最近一次公布的同期贷款市场报价利率（LPR）按上述浮动规则调整，调整周期为按年调整，调整日为<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>:\n
+          {{nbsp}}（1）每年1月1日；\n
+          {{nbsp}}（2）每年借款发放日的对应日（如无则为当年对应月末日）。\n
+          {{nbsp}}选用浮动利率的，按本合同签订日前一日最近一次公布的一年期/五年期以上贷款市场报价利率（LPR）<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>（加上/减去）<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>个BP（1个BP等于0.01个百分点）估算，执行年利率为<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>%，该利率仅供借款人参考，实际执行年利率以借款借据记载为准。\n
+          {{nbsp}}2. 利息计算\n
+          {{nbsp}}本合同项下借款利息自借款发放之日起按实际放款额和实际借款天数计算，除逾期计收复利外，采用单利计算方式，按日计息，日利率＝年利率/360。\n
+          {{nbsp}}三、借款用途\n
+
+          {{nbsp}}本合同项下借款用途详见第一条“借款内容”第一款约定。\n
+        </text>
+        {{nbsp}}借款人应当严格按照本合同约定用途使用借款，未经贷款人同意不得改变借款用途或挪用借款。贷款人保留要求借款人提供借款用途证明资料的权利。\n
+        {{nbsp}}借款人承诺，借款资金不得以任何形式用于除本合同约定外的固定资产、股本权益性投资以及违反国家信贷政策的领域和用途，不得用于股票、债券、期货、金融衍生产品和资产管理产品等投资，不得从事非法活动。\n
+        <text decode='true' >{{nbsp}}四、借款借据
+          {{nbsp}}借款借据是本合同项下借款人借款凭证，是本合同的有效组成部分，与本合同具有同等法律效力。借款人在本合同项下的借款金额、发放日期、到期日期、利率等内容以借款借据记载为准。
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第七页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+
+
+        {{nbsp}}第二条 借款结息<text decode='true' >
+          {{nbsp}}本合同项下全部借款均采用以下第<text class="text-border"  decode='true' >{{nbsp}}一{{nbsp}}</text>项方式结息：\n
+          {{nbsp}}一、按（月）结息，结息日为每月的 <text class="text-border">{{contInfo.repayDay}}</text> 日（遇节假日，不顺延）。\n
+          {{nbsp}}二、其他方式:<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>\n
+          {{nbsp}}如借款本金的最后一次偿还日不在结息日，则未付利息应利随本清。\n
+        </text>{{nbsp}}第三条 罚息及复利<text decode='true' >
+          {{nbsp}}一、本合同项下借款出现逾期或未按合同约定用途使用借款时，采用下列第<text class="text-border" decode='true' >{{nbsp}}A{{nbsp}}</text>种方式计收罚息、复利：\n
+          {{nbsp}}A.采用固定利率的借款到期（含提前到期），借款人未按时足额归还借款，贷款人有权自逾期之日起按本合同借款利率加收 <text class="text-border">{{contInfo.overdueFloatingPer*100}}</text> ％（即罚息比例）计收罚息；借款人未按合同约定用途使用借款的，贷款人有权自挪用之日起，按本合同借款利率加收 <text class="text-border">{{contInfo.defaultFloatingPer*100}}</text> ％计收罚息。\n
+          {{nbsp}}B.采用浮动利率的借款到期（含提前到期），借款人未按时足额归还借款，贷款人有权自逾期之日起按当期执行利率加收<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>％（即罚息比例）计收罚息；借款人未按合同约定用途使用借款的，贷款人有权自挪用之日起，按当期执行浮动利率加收<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>％计收罚息。\n
+        </text>{{nbsp}}二、贷款人有权对借款人逾期支付的利息按本合同利率计收复利，借款逾期后按罚息利率计收复利。<text>罚息及复利计算公式如下：</text>
+        <text decode='true'>
+          {{nbsp}}1.罚息=逾期本金×【借款日利率×（1+罚息比例）】×逾期天数；
+          {{nbsp}}2.复利计算公式如下：
+          {{nbsp}}（1）仅利息逾期时，复利=逾期利息×借款日利率×逾期天数；
+          {{nbsp}}（2）本金出现逾期时，复利=逾期利息×【借款日利率×（1+罚息比例）】×逾期天数。
+        </text>{{nbsp}}第四条 借款发放<text decode='true' >
+          {{nbsp}}一、借款发放条件
+          {{nbsp}}本合同生效且满足以下条件时，借款人方可提款(贷款人同意豁免的除外):
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第八页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text decode='true'>
+
+
+          {{nbsp}}1.借款人已在贷款人处开立账户，用于还款（扣款）；
+          {{nbsp}}2.借款人已向贷款人提供符合本合同项下借款用途的证明材料；
+          {{nbsp}}3.与本借款有关的担保已经合法有效设立；担保方式为最高额担保的，申请借款时最高额担保没有发生不利于贷款人债权实现的变化；
+          {{nbsp}}4.申请提款时借款人资信状况良好，没有发生不利于贷款人债权实现的变化；
+          {{nbsp}}5.借款人在本合同项下，或与江苏银行及任何第三方签订的合同项下不存在违约，且提款也不会导致任何违约的发生；
+          {{nbsp}}6.本合同相关及贷款人要求的包括但不限于批准、登记、备案、保险、公证、见证等手续已全部办妥；
+          {{nbsp}}7.借款人已支付本合同项下所应支付的全部费用（如有）;
+          {{nbsp}}8.借贷双方约定的其他提款条件<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>。\n
+          {{nbsp}}二、借款支付\n
+          {{nbsp}}1.本合同项下借款采用受托支付方式。即贷款人根据借款人的提款申请和支付委托，将借款资金支付给符合本合同约定用途的借款人交易对象。采用受托支付方式的，借款人应向贷款人提交真实、完整、有效的支付申请以及符合合同约定的相关交易资料和凭证，经贷款人审核同意后，借款人不可撤销地授权贷款人将借款资金支付至借款人交易对象以下账户，即为贷款人已依约履行了发放借款的义务：\n
+          {{nbsp}}户名：<text class="text-border">{{contInfo.pyeeAccName}}</text>\n
+          {{nbsp}}账号：<text class="text-border">{{contInfo.pyeeAccNo}}</text>\n
+          {{nbsp}}开户银行：<text class="text-border">{{contInfo.pyeeAccBankName}}</text>\n
+          {{nbsp}}借款人未按要求提交上述资料或支付申请不符合合同约定借款用途，贷款人有权拒绝借款人的资金支付。\n
+      </text>
+          {{nbsp}}2.借款人同意，借款人每一笔借款的申请、发放、存在、延续、消灭，均适用本合同约定。若由于借款人未按规定操作而导致借款未能发放或错误发放，由此引起的一切后果由借款人承担。\n
+          {{nbsp}}3.贷款人保留依据借款人资质、历史还款情况、利率政策、市场环境变化、资金用途等因素，终止本合同项下借款发放、调整单笔借款金额、调整借款资金的支付账户和资金使用方式等事项的单方权利，借款人对此不存异议。\n
+          {{nbsp}}4.借款人理解并同意：因系统差错、页面展示错误、借款人不当获利等原因，导致贷款人需要做出资金、账务、数据等方面的调整时，借款人同意授权贷款人自行进行调整并积极配合。\n
+          {{nbsp}}5.借款人知晓并同意：贷款人非网络服务商，借款人申请发放借款时，可能因系统传输延时等原因致使相关资金无法立即入账，实际入账时间以贷款人系统记录结果为准。\n
+      <text decode='true'>
+        </text>{{nbsp}}第五条 还款<text decode='true'>
+          {{nbsp}}一、借款人应在贷款人处开立还款账户，用于本合同项下借款本息及其他应付款项的归还，还款账户为<text class="text-border">{{contInfo.repayAccNo}}</text>。\n
+          {{nbsp}}二、本合同项下借款均采用以下第 <text class="text-border" decode="true">{{nbsp}}{{contInfo.repayWay=="01"?"A":"B"}}{{nbsp}}</text> 种方式按月分期还款，具体各期应还本金及利息的实际金额以还款计划载明为准，借款人可以通过江苏银行电子渠道（如手机银行APP、网上银行等）查询还款计划：
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第九页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text decode='true'>
+
+
+        {{nbsp}}A.等额本息还款法，即除首/尾两期外，每期以固定金额偿还借款本息，借款到期日归还剩余借款本息。每期还款金额计算公式如下。
+        {{nbsp}}每期还款金额（首/尾两期除外）=借款本金×月利率×（1＋月利率）ⁿ÷[（1＋月利率）ⁿ－1]，其中n为借款期数，月利率=年利率/12。
+        {{nbsp}}B.等额本金还款法，即除首/尾两期外，每月以固定金额偿还借款本金，并偿还当期实际产生的利息，借款到期日归还剩余借款本息。每期还款金额计算公式如下。
+        {{nbsp}}每期还款金额（首/尾两期除外）=借款本金÷借款期数＋（借款本金－累计已归还本金金额）×月利率，其中月利率=年利率/12。
+        {{nbsp}}三、还款日
+        {{nbsp}}借款人首期还款日为借款发放次月的结息日，之后每月对应日为还款日；无对应日的，还款日为该月月末日。最后一期还款日为借款到期日。
+        {{nbsp}}四、借款人不可撤销地授权贷款人直接从还款账户内扣收应还借款本息。借款人保证在还款日（含展期到期日、提前到期日）下午17：00前该账户内资金余额足够偿还应还借款本息。借款人在还款账户中预存当期应还款项的，贷款人将在还款日扣划当期全部应还款项，其中利息部分按照本合同约定方式计算，不受借款人提前预存还款金额而调整。
+        </text>{{nbsp}}五、还款账户内资金余额不足或无法偿还本合同项下当期应还本息的，借款人不可撤销地授权贷款人从江苏银行股份有限公司各级分支机构开立的任何账户中扣款。上述账户中未到期款项视为提前到期，被扣划款项根据提前支取（包括全部及部分提前支取）规则进行处理。扣划款项为外汇的，按扣划日贷款人所公布的外汇买入价折算。<text decode='true' >
+          {{nbsp}}六、借款人实际归还款项不足以清偿本合同项下全部债务的，按下列顺序进行清偿：贷款人为实现债权而发生的费用、借款利息（含罚息、复利）、借款本金、其他应付款（包括但不限于违约金、损害赔偿金等）。<text class="title-size-30">但贷款人有权单方决定对前述清偿顺序作出变更。</text>\n
+          {{nbsp}}七、借款人需展期的，应在借款到期日前一个月向贷款人提出书面申请，经贷款人同意后方可办理展期。
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第十页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text decode='true'>
+
+
+          {{nbsp}}八、提前还款
+          {{nbsp}}1.借款人可向贷款人申请提前偿还全部或部分借款。贷款人同意借款人提前还款的，借款人授权贷款人自借款人还款账户中扣收相应金额用于归还借款本息（含罚息和复利）。
+          {{nbsp}}2.借款人提前还款的，已计收的利息不作调整；提前还款后，尚未归还的借款仍按约定的执行利率计收利息。
+          {{nbsp}}3.实际提前还款资金到账时间以贷款人系统完成扣款交易时间为准。
+          {{nbsp}}4.借款的放款日当天不能进行该笔借款的提前还款。
+        </text>
+      </text>
+      <view style="text-align: center;margin-top: 50rpx;">第二部分 担	保</view>
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        {{nbsp}}第六条 抵押担保<text decode='true'>
+        {{nbsp}}一、抵押人自愿以本合同项下所购车辆作为抵押物为本合同项下全部债务（具体详见本条第四款“担保范围”）提供抵押担保。
+        {{nbsp}}抵押人知悉并同意，本合同项下抵押权的效力及于抵押物的从物、从权利、代位权、附合物、混合物、加工物和孳息。
+        {{nbsp}}二、上述抵押物暂作价合计人民币 <text class="text-border" decode="true">{{contInfo.assessedAmt}}</text> 元，其最终价值以抵押权实现时实际处置抵押物的净收入为准；抵押率（即本合同项下债权本金金额与前述暂作价合计金额的比率）为<text class="text-border">{{contInfo.mortgagRate}}</text> %。\n
+        {{nbsp}}本合同所称“暂作价”是指通过贷款人认可的评估机构评估或经抵押人与贷款人共同协商后贷款人最终确认的抵押物价值。本合同对于“暂作价”的约定，并不作为贷款人处置抵押物的估值依据，也不构成贷款人行使抵押权的任何限制。\n
+        {{nbsp}}三、抵押人在本合同项下的担保范围包括但不限于：贷款人与借款人在本合同项下的债权本金及按本合同约定计收的全部利息（包括罚息和复利）、以及借款人应当支付的手续费、违约金、赔偿金、税金和贷款人为实现债权和担保权利而发生的费用（包括但不限于诉讼费、仲裁费、财产保全费、执行费、评估费、拍卖费、律师费、差旅费、公证费、公告费、送达费、鉴定费等）。\n
+        {{nbsp}}四、抵押物登记\n
+        {{nbsp}}1.本笔贷款应当在不晚于所购车辆所有权转移后10个自然日内办妥以贷款人为抵押权人的抵押登记，同时抵押人将机动车登记证书原件交由贷款人保管。抵押人应无条件协助贷款人办理抵押登记事宜。若抵押人未能按要求完成上述抵押登记事项，贷款人有权宣布本贷款提前到期。
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第十一页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text decode='true'>
+
+
+        {{nbsp}}2.贷款人要求对抵押物禁止转让等事项予以记载或登记的，抵押人必须予以协助；抵押期间，如需在登记机关办理变更登记的，抵押人应当配合贷款人及时到登记机关办理相应的变更登记手续。
+        {{nbsp}}3.当全部抵押债务清偿完毕后，贷款人配合抵押人办理抵押注销登记，相关费用由抵押人承担。
+        {{nbsp}}五、抵押物的保管
+        {{nbsp}}1.本合同项下的抵押物由抵押人保管。
+        {{nbsp}}2.抵押人必须妥善保管、保养、维护好抵押物，并采取有效措施保障抵押物的安全、完整。如抵押物需要维修，抵押人应及时进行，所需费用由抵押人承担。
+        {{nbsp}}3.因第三人行为等不可归责于贷款人的原因导致抵押物价值减少的，抵押人所得保险金、赔偿金或补偿金等参照本条第六款的约定处理。
+        {{nbsp}}六、抵押物的处分
+        {{nbsp}}1.抵押期间，抵押人不得出售、出租、转让、承包、赠与、质押、再抵押、以抵押物对外投资以其他方式处分抵押物的，如需处分抵押物应事先征得贷款人的书面同意。
+        {{nbsp}}2.贷款人书面同意抵押人处分抵押物的，抵押人应当将处分情况如实告知贷款人并接受贷款人的监督；贷款人要求与受让人、承租人等相对人签署法律文件、完善法律手续的，抵押人应当予以协助。
+        {{nbsp}}3.抵押人未经贷款人书面同意擅自处分抵押物的，贷款人有权主张不发生物权效力。
+        {{nbsp}}4.贷款人有权要求就抵押人处分抵押物所得价款（包括但不限于抵押人所得保险金、赔偿金或补偿金）优先受偿；债务履行期未届满的，贷款人有权要求抵押人提前清偿所担保债权，或将所得价款存入保证金专户或以存单质押等形式为债务提供担保并签订相应担保协议。
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第十二页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text decode='true'>
+
+
+          {{nbsp}}七、抵押权的实现
+          {{nbsp}}1.借款人及/或抵押人发生本合同项下违约事件的，贷款人有权行使抵押权。
+          {{nbsp}}<text style="font-weight: bold;">2.贷款人可自行或与抵押人协议将抵押物折价或者以变卖、拍卖、转让以及法律法规、规范性文件允许的任何其他方式处置抵押物。</text>处置抵押物所得价款优先偿还本合同项下各贷款本息及相关费用。如处置抵押物所得款项超过本合同项下债权本金、利息、费用及其他任何应付款项之和，贷款人应将超出部分退还抵押人。\n
+          {{nbsp}}3.如第三人因任何原因对抵押物提出任何主张或对抵押物的处置提出任何异议，由此产生的一切后果和责任均由抵押人承担；第三人的上述主张、异议不影响贷款人根据本合同处置抵押物。\n
+        </text>
+        {{nbsp}}4.不论借款人或其他第三方是否为债权提供保证、抵押、质押、非典型担保等其他担保(以下简称“其他担保”)，不论上述其他担保何时成立、是否有效、贷款人是否向其他担保人提出权利主张，也不论是否有第三方同意承担本合同项下的全部或部分债务，贷款人均有权直接要求抵押人在本合同约定的担保范围内承担担保责任。\n
+        {{nbsp}}无论贷款人过去、现在或将来是否已经、将要或可能放弃（包括但不限于放弃其他担保权利、放弃其他担保权利的顺位）、变更（包括但不限于变更其他担保权利的顺位、担保金额或范围）、减免借款人或任何第三方过去、现在或将来已经、将要或可能提供的其他担保，抵押人的担保责任均不因此而减少或免除，抵押人承诺仍然按照本合同约定的担保范围提供担保责任，贷款人有权在各项担保中自主选择实现担保的顺序。\n
+          {{nbsp}}5.抵押人无条件、不可撤销地承诺，贷款人有权直接通过实现担保物权特别程序处置抵押物，抵押人对此放弃一切抗辩并予以充分的配合。
+      </text>
+      <view style="text-align: center;margin-top: 50rpx;">第三部分 声明与保证</view>
+    </view>
+    <view class="split"></view>
+    <!-- 第十三页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+
+
+        {{nbsp}}第七条 借款人的声明与保证<text decode='true'>
+          {{nbsp}}一、借款人主体资格符合相关法律法规、规范性文件要求。
+          {{nbsp}}二、借款人自愿签订本合同及其他相关文件，并有能力履行义务。
+          {{nbsp}}三、借款人签订并履行本合同及其他相关文件现在或将来均不会违反任何法律法规、规范性文件，也不会与其签署的任何合同、协议或承担的任何义务相抵触。
+          {{nbsp}}四、借款人未涉入可能对其履行本合同产生不利影响的民事、刑事、行政诉讼或仲裁程序，亦未发生可能导致其涉入该等诉讼程序或仲裁程序的事件或情形。
+          {{nbsp}}五、借款人提供的全部资料能真实反映借款人的相关情况。
+          {{nbsp}}六、借款人保证其向贷款人提供的各项资料真实、完整、准确，不存在虚假、误导性陈述或遗漏。
+          {{nbsp}}七、借款人的重要资产未涉及强制执行、查封、扣押、留置、监管措施或被金融机构扣划存款，亦未发生可能导致涉及该等措施的事件或情形。
+          </text>
+          {{nbsp}}第八条 抵押人的声明与保证<text decode='true'>
+            {{nbsp}}一、抵押人清楚地知悉贷款人的经营范围、授权权限。
+            {{nbsp}}二、抵押人确认其对借款人的资产、债务、经营、信用、信誉等情况、是否具备签订相关本合同的主体资格和权限已充分了解。
+            {{nbsp}}三、抵押人主体资格符合相关法律法规及规范性文件要求。 
+            {{nbsp}}四、抵押人有权签署本合同并有能力履行本合同项下义务。
+            {{nbsp}}五、抵押人签订并履行本合同及其他相关文件现在或将来均不会违反任何法律法规、规范性文件，也不会与其签署的其他任何合同、协议或承担的任何义务相抵触。
+            {{nbsp}}六、抵押人保证其向抵押权人提供的各项资料真实、完整、准确，不存在虚假、误导性陈述或遗漏。
+            {{nbsp}}七、抵押人承诺其未涉入可能对其履行本合同的能力产生不利影响的民事、刑事、行政诉讼或仲裁程序，亦未发生可能导致其涉入该等诉讼程序或仲裁程序的事件或情形。
+            {{nbsp}}八、抵押人对抵押物设置抵押基于其已经或即将合法拥有的权利，且不存在任何既存或可能导致争议的情形。
+            {{nbsp}}九、抵押物为共有的，抵押人就本合同项下抵押事宜已征得抵押物共有人同意。
+            {{nbsp}}十、抵押物依法可以流通或转让，且不存在被查封、扣押、监管、留置、征收、征用等情形。
+            {{nbsp}}十一、抵押人已将抵押物上已经存在的担保及权利瑕疵等不利于贷款人的情况如实告知贷款人，并且已将本合同项下抵押事宜向其他贷款人等权利人进行了书面告知。
+            {{nbsp}}十二、抵押物不存在其他影响贷款人实现抵押权的情形。
+          </text>
+      </text>
+      <view style="text-align: center;margin-top: 50rpx;">第四部分 权利义务与违约责任</view>
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        {{nbsp}}第九条 借款人的权利与义务<text decode='true'>
+        {{nbsp}}一、借款人的权利
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第十四页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text decode='true'>
+
+
+          {{nbsp}}1.有权按本合同约定使用借款；
+          {{nbsp}}2.取得贷款人书面同意后，有权向第三人转让本合同项下债务。
+          {{nbsp}}二、借款人的义务
+          {{nbsp}}1.应当如实提供贷款人要求提供的相关信息及文件资料（包括但不限于借款人身份信息、工作信息、财产信息等）；
+          {{nbsp}}2.应当接受、配合贷款人对其使用借款资金情况进行调查、监督、检查；
+          {{nbsp}}3.应当配合贷款人进行贷款支付管理、贷后管理及相关检查；
+          {{nbsp}}4.应当按本合同的约定用途和方式使用借款；
+          {{nbsp}}5.应当按本合同约定按时足额偿还借款本金和利息；
+          {{nbsp}}6.借款人姓名、住所、通讯地址、联系电话等基本信息发生变更情形时，应在相关事项变更后3个工作日内书面通知贷款人；
+          {{nbsp}}7.借款人发生财务状况恶化、重大资产转让、涉及重大诉讼或者仲裁纠纷、重要资产涉及强制执行、查封、扣押、留置、监管措施、被金融机构扣划存款或类似措施，或发生其他对其债务履行能力产生不利影响的其他事件，应立即书面通知贷款人，并提供贷款人认可的新担保；
+          {{nbsp}}8.未经贷款人书面同意，借款人不得擅自为第三方提供足以对其财务状况或其履行本合同项下义务产生不利影响的担保或反担保；
+          {{nbsp}}9.根据贷款人要求为其与借款有关的财产向保险公司投保，并在投保时根据贷款人要求落实相关事项；
+          {{nbsp}}10.根据法律法规、规范性文件规定及本合同约定享有和承担的其他义务。
+          {{nbsp}}<text style="font-weight: bold;">第十条 贷款人的权利与义务</text>\n
+          {{nbsp}}一、贷款人的权利\n
+          {{nbsp}}1.有权要求借款人及抵押人提供与本合同项下借款有关的信息及文件资料；
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第十五页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text decode='true'>
+
+
+        {{nbsp}}2.有权要求借款人按期或提前归还借款本息；
+        {{nbsp}}3.有权了解借款人及抵押人的基本情况及抵押物情况等；
+        {{nbsp}}4.有权监督借款人按本合同约定用途和方式使用借款；
+        {{nbsp}}5.有权直接从借款人账户上扣收到期或提前到期借款本金和利息及其他相关费用等全部债务；
+        {{nbsp}}6.若借款人及/或抵押人未履行本合同约定的各项义务的，贷款人有权按照本合同约定变更借款支付方式、停止发放借款人尚未提取的借款、要求借款人提前归还借款、宣布全部借款提前到期或处置抵押物；
+        {{nbsp}}7.在借款人发生还款能力弱化、抵押物价值减少等危及贷款人债权安全的重大事项时，贷款人有权要求借款人提前偿还本合同项下的借款本息并支付其它一切相关费用，或要求借款人提供贷款人认可的其他担保措施；
+        {{nbsp}}<text style="font-weight: bold;">8.如借款人对贷款人负有数项债务（包括本合同项下借款及借款人在贷款人处叙做的其他合同项下债务），如借款人的给付、抵押物折价或者拍卖、变卖所得价款不足以清偿全部到期债务的，由贷款人确定所清偿的债务顺序。</text>
+        {{nbsp}}二、贷款人的义务\n
+        {{nbsp}}1.贷款人应按本合同约定的条件向借款人发放借款；\n
+        {{nbsp}}2.贷款人应当对借款人的相关情况保密，但法律法规、规范性文件另有规定或本合同另有约定的除外。\n
+        {{nbsp}}<text style="font-weight: bold;">第十一条  抵押人的权利与义务</text>\n
+        {{nbsp}}一、抵押人应按贷款人要求提供相关文件资料（包括但不限于所有开户行账号、资产状况、生产经营活动、内部管理等资料）。\n
+        {{nbsp}}二、抵押人应依法经营并接受、配合贷款人对其生产经营、财务活动等情况进行监督和检查，按照贷款人要求定时或不定时提供相关资料。\n
+        {{nbsp}}三、抵押人应监督借款人按照合同约定使用借款，如果借款人改变借款用途，抵押人仍应承担担保责任。\n
+        {{nbsp}}四、抵押人应当按本合同约定及时办理抵押登记手续。\n
+        {{nbsp}}五、未经贷款人书面同意，抵押人不得擅自为第三方提供足以对其财务状况或其履行本合同项下义务产生不利影响的担保或反担保。\n
+        {{nbsp}}六、抵押期间发，抵押人应立即书面通知贷款人：\n
+        {{nbsp}}1.抵押物被查封、扣押、留置、监管或者被采取其他强制措施；\n
+        {{nbsp}}2.抵押物发生或可能发生损毁、灭失或价值减少的情形；\n
+        {{nbsp}}3.抵押人改变资本结构或者经营体制，包括但不限于承包、租赁、股份制改造、联营、合并、分立、合资、资产转让等； \n
+        {{nbsp}}4.抵押人名称、住所地、法定代表人（负责人）、证照信息、联系方式等重大信息变更；\n
+        {{nbsp}}5.抵押人为法人或非法人组织的，抵押人发生停业、停产、歇业、整顿、被接管或托管、责令关闭、解散、营业执照被吊销或被注销或者出现其他解散事由的；抵押人为自然人的，抵押人发生失业、离婚、重大疾病等重大变故；\n
+        {{nbsp}}6.对本合同项下抵押权实现产生重大不利影响的其他事项。\n
+        {{nbsp}}<text class="font-weight">七、抵押人确认，贷款人与借款人协议变更本合同条款的（包括但不限于债务展期或延期）均视为已事先征得抵押人同意，无须通知抵押人，抵押人同意对变更后的合同项下债务继续承担担保责任。但贷款人与抵押人协议增加债权本金金额的，除抵押人书面同意外，抵押人在原担保范围内继续承担担保责任。</text>\n
+        {{nbsp}}<text class="font-weight">八、如本合同被解除的，抵押人对本合同解除后借款人应承担的责任仍应承担本合同项下的担保责任。如本合同被确认为无效或被撤销，则抵押人对于借款人因本合同无效或被撤销而产生的返还财产或赔偿损失等责任而形成的债务依法承担责任。</text>\n
+        {{nbsp}}九、根据法律法规、规范性文件规定及本合同约定享有和承担的其他权利与义务。\n
+       
+        </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第十六页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text decode='true'>
+
+            {{nbsp}}<text style="font-weight: bold;">第十二条  违约事件及处理</text>	\n
+            {{nbsp}}一、本合同有效期内,下列任一情形均构成本合同项下违约事件:\n
+            {{nbsp}}1.借款人/抵押人违反本合同项下任一声明和保证；\n
+            {{nbsp}}2.借款人/抵押人未能全面履行本合同项下的任何义务，包括但不限于未按期足额支付本合同项下借款本金、利息及其他的应付款项，抵押人未按合同要求履行担保责任等；\n
+            {{nbsp}}3.借款人未按本合同约定用途使用借款或将借款用于从事洗钱、恐怖融资或其他任何非法、违规交易；\n
+            {{nbsp}}4.借款人/抵押人提供虚假材料或隐瞒重要事实；\n
+            {{nbsp}}5.借款人/抵押人财务状况恶化可能影响借款安全，或借款人有意逃废银行债权；\n
+            {{nbsp}}6.借款人/抵押人利用其与第三人之间的虚假合同，套取贷款人或其他银行资金或授信；\n
+            {{nbsp}}7.借款人/抵押人发生或涉嫌从事违法违规行为，涉及或可能涉及诉讼、仲裁案件或其他法律纠纷；\n
+            {{nbsp}}8.借款人违反其与贷款人或其他第三人所签订的其他合同，损害贷款人合法权益的或因此类合同产生争议而导致或可能导致诉讼、仲裁或其他法律纠纷，或导致还款能力弱化的；\n
+            {{nbsp}}9.抵押人未按本合同约定办妥抵押物登记手续；\n
+            {{nbsp}}10.抵押人违反本合同约定处分抵押物，或抵押物发生毁损、灭失、价值减少、权属发生争议或遭查封、扣押、留置、监管或被采取其他强制措施等情形；\n
+            {{nbsp}}11.抵押人以任何方式（包括作为或不作为）妨碍贷款人行使抵押权；\n
+            {{nbsp}}12.危及或可能危及贷款人债权安全的其他情形。\n
+            {{nbsp}}二、前述任一违约事件发生, 贷款人有权根据违约性质、程度, 采取下列一种或数种处置方式:\n
+            {{nbsp}}1.要求借款人/抵押人限期纠正违约行为并采取补救措施;\n
+            {{nbsp}}2.变更本合同项下未提借款的支付方式；\n
+            {{nbsp}}3.要求借款人另行提供经贷款人认可的担保；\n
+            {{nbsp}}4.调整借款金额、停止借款发放或宣布本合同项下借款提前到期，立即收回借款；\n
+            {{nbsp}}5.处置抵押物；\n
+            {{nbsp}}6.宣布借款人与贷款人、江苏银行股份有限公司其他分支机构签订的其他借款合同项下借款全部提前到期，立即收回全部借款；\n
+            {{nbsp}}<text style="font-weight: bold;">7.冻结借款人部分或全部存款，有权从借款人在江苏银行股份有限公司各级分支机构开立的任何账户中扣款，以偿还本合同项下债务，上述账户中未到期款项视为提前到\n</text>
+          </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第十七页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        <text style="font-weight: bold;" decode="true">
+
+
+          期，被扣划款项根据提前支取（包括全部及部分提前支取）规则进行处理。扣划款项为外汇的，按扣划日贷款人所公布的外汇买入价折算；
+            {{nbsp}}8.如本合同经公证机关公证赋予强制执行效力，可向人民法院申请强制执行；</text>\n
+            <text decode='true'>{{nbsp}}9.行使法律法规规定及本合同约定可以行使的其他权利。</text>
+      </text>
+      <view style="text-align: center;margin-top: 50rpx;">第五部分 其他事项</view>
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+          {{nbsp}}第十三条 费用
+          <text decode='true'>{{nbsp}}一、与本合同有关的包括资信调查、公证、见证、保险等费用，由各方按法律法规、规范性文件规定各自承担。</text>
+          {{nbsp}}二、借款人未能按时偿还借款本息，导致贷款人为催收借款本息所需的费用，包括但不限于公告费、送达费、鉴定费、律师费、诉讼费、差旅费、评估费、拍卖费、财产保全费、强制执行费等因实现债权和担保权利而产生的费用，均由借款人负担。 \n
+          {{nbsp}}第十四条 <text decode='true'>借款人/抵押人同意本合同项下贷款人债权经合同公证后赋予强制执行效力，在借款人不履行或不完全履行合同规定的义务时，贷款人可向有管辖权的人民法院申请强制执行，借款人/抵押人同意放弃与此相关的一切抗辩权。</text>\n
+          {{nbsp}}第十五条 不可抗力和免责\n
+          {{nbsp}}本合同有效期内，发生下列任一情形导致贷款人无法向借款人提供本合同项下借款服务的，贷款人不承担任何违约或赔偿责任，但贷款人会尽合理努力保障借款人的合法权益。该等情形包括但不限于：\n
+          {{nbsp}}一、贷款人指定渠道终端、信息系统等进行维护；\n
+          {{nbsp}}二、发生台风、地震、海啸、洪水、停电、战争、恐怖袭击等不可抗力因素，导致本合同无法正常履行；\n
+          {{nbsp}}三、发生黑客攻击、计算机病毒、互联网故障、互联网暂时性关闭等在内的任何影响网络正常运营情形；\n
+          {{nbsp}}四、电力或通讯线路故障等影响交易实施或系统无法正常运转；\n
+          {{nbsp}}五、借款人未按照贷款人有关业务规定正确操作；\n
+          {{nbsp}}六、因国家颁布或变更法律法规、监管政策，采取政府管制等原因导致或可能导致贷款人无法履行本合同。\n
+          {{nbsp}}第十六条 反洗钱条款<text decode='true'>
+          {{nbsp}}一、借款人/抵押人向贷款人申请办理本合同项下业务是真实、合法的，未涉及洗钱、恐怖主义或其他非法目的，也未违反任何适用的关于经济制裁、贸易禁运和贸易管制等方面的法律法规和国际条约，并自愿接受反洗钱调查，及时提供相关信息，确保相关信息的准确性、真实性、完整性。
+          {{nbsp}}二、借款人/抵押人承诺向贷款人借款、还款或履行担保责任过程中所涉及的资金来源合法合规，不存在亦不涉嫌洗钱、恐怖融资、逃税、欺诈等非法活动。
+          </text>
+      </text>
+    </view>
+    <view class="split"></view>
+    <!-- 第十八页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+
+      
+        {{nbsp}}三、如贷款人发现或有合理理由怀疑借款人/抵押人存在或涉嫌洗钱、恐怖融资或逃税等非法活动的，贷款人可以采取包括但不限于暂停本合同项下借款发放、宣布借款提前到期等必要的洗钱风险控制措施，对贷款人因采取风险控制措施及因借款人/抵押人违反本条约定的反洗钱义务给贷款人造成的损失，由借款人/抵押人承担相应赔偿责任。
+        {{nbsp}}第十七条 信息查询和使用
+        {{nbsp}}一、借款人/抵押人不可撤销地授权江苏银行股份有限公司自本合同签署之日起至本合同项下业务终止之日，可通过包括但不限于国家行政机关、政府部门、业务管理机构、社会第三方数据平台、网络媒体等途径对借款人/抵押人有关的各类信息进行查询和使用。借款人/抵押人知悉因提供上述非公开信息可能产生的法律后果。
+        {{nbsp}}二、借款人/抵押人在此不可撤销地承诺因违反本合同约定义务时，贷款人可以向征信机构、银行业协会报送借款人/抵押人违约失信信息，并且授权相关银行业协会可以通过适宜的方式将借款人/抵押人失信信息在银行业金融机构之间共享乃至向社会公示。
+        {{nbsp}}借款人自愿接受贷款人等银行业金融机构联合采取调减或停止授信、停止开立新的结算账户等联合失信、惩戒维权措施。
+        {{nbsp}}三、借款人未按本合同约定及时、足额履行还款义务的，贷款人有权委托合作机构、律师事务所等合法合规的第三方机构代为催收，借款人授权并同意贷款人为催收和追索债务之目的，在本合同范围内收集、处理、使用及传递借款人的资料信息，并将借款人的必要信息（如身份信息、联系信息、履约信息和履约能力判断信息等）与前述机构进行共享。
+        {{nbsp}}四、借款人/抵押人同意在抵押权人转让/实现债权时，有权将借款人/抵押人名称及抵押物信息通过媒体、网站、微信等途径对外公布。
+      </text>
+    </view>
+    <view class="split"></view>
+     <!-- 第十九页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+
+        
+        {{nbsp}}第十八条 通知与送达
+        {{nbsp}}一、借款人/抵押人确认本合同文首处所列通讯地址、电话、传真、电子邮箱等为借款人/抵押人的有效送达地址。
+        {{nbsp}}二、向借款人/抵押人发出的通知在下述情况下应被视为送达：
+        {{nbsp}}1.电子送达（包括短信、电子邮件、传真等），以发送方设备显示发送成功视为送达；
+        <text decode='true'>{{nbsp}}2.专人送达，发送方当场在书面文件或送达回证上记明情况之日视为有效送达日；</text>
+          <text decode='true'>
+            {{nbsp}}3.邮寄送达（包括特快专递、平信邮寄、挂号邮寄等），发送方投递之日后的第五个日历日或通知实际送达相关地址或通知被退回之日（以时间较前者为准）视为送达；
+          </text>{{nbsp}}4.同时采用上述几种方式的，以其中最先到达对方者为准。\n
+          {{nbsp}}三、下列人员为贷款人通知的签收人，包括：本人、亲属、上述送达地址所在小区、办公楼的物业管理人员、门卫、保安，适用于借款人/抵押人为自然人的情形；本单位、单位股东、单位工作人员、上述送达地址所在小区、办公楼的物业管理人员、门卫、保安等，适用于借款人/抵押人为法人或非法人组织的情形。\n
+          <text decode='true'>{{nbsp}}四、上述送达地址、送达方式及签收人适用范围：包括合同成立时起至债务履行完毕之日止，借款人/抵押人在履行本合同过程中的各类通知、函件、附件、协议等文件以及本合同发生纠纷时相关文件和法律文书的送达，包括在争议进入公证、仲裁、民事诉讼程序后的一审、二审、再审和执行程序（含处置抵押物等）等各个阶段相关文件和法律文书的送达。
+          </text>{{nbsp}}五、上述送达地址如有变更的，借款人/抵押人应自变更之日起3个工作日内书面通知贷款人、人民法院、仲裁机构或公证机关等，收到书面变更通知前，贷款人、人民法院、仲裁机构或公证机关等依据上述送达地址送达的通知均视为有效送达。\n
+          <text decode='true'>{{nbsp}}六、如因借款人/抵押人提供或者确认的送达地址不正确、送达地址变更后未及时通知、被送达方或签收人拒绝签收等原因导致通知或文件未能被借款人/抵押人实际接收的，依据上述约定方式送达的通知或文件亦应视为有效送达，由此产生的风险由借款人/抵押人自行承担。
+            {{nbsp}}七、本合同发生争议或纠纷进入仲裁/民事诉讼程序后，如借款人/抵押人应诉并直接向仲裁机构/法院提交送达地址确认书，该确认地址与本合同确认的送达地址不一致的，以向仲裁机构/法院提交确认的送达地址为准（该送达地址适用本合同约定的送达方式及送达的法律后果）。
+          </text>{{nbsp}}第十九条 法律适用及争议解决
+      </text>
+    </view> 
+    <view class="split"></view>
+    <!-- 第二十页 -->
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+
+       
+          {{nbsp}}<text class="text-border">一、本合同的订立、效力、解释、履行及争议的解决均适用中华人民共和国法律（仅为本合同目的，不含中华人民共和国香港特别行政区、澳门特别行政区及台湾地区的法律）。合同履行中如发生争议，各方可进行协商或调解；协商或调解不成的，按以下第A 项规定的方式解决争议：</text>
+            {{nbsp}}<text class="text-border">A.向贷款人所在地人民法院提起诉讼；</text>\n
+            {{nbsp}}<text class="text-border">B.向  /  仲裁委员会申请仲裁；</text>\n
+            {{nbsp}}<text class="text-border">C.向合同签订地人民法院提起诉讼。</text>\n
+            {{nbsp}}<text class="text-border">在争议解决期间，本合同中不涉及争议部分的条款仍须履行。</text>\n
+            {{nbsp}}<text class="text-border">二、借款人/抵押人未按本合同约定按时足额偿还借款或发生其他违约情形后，经协商、调解不成诉至法院的，若争议标的金额符合受理法院合意选择小额诉讼程序标的额范围的，为节约诉讼成本，各方同意适用小额诉讼程序进行审理，一审终审。
+          </text>{{nbsp}}第二十条 各方约定的其他事项\n
+          {{nbsp}}一、若贷款人因业务需要委托江苏银行其他机构履行本合同项下权利及义务，借款人、抵押人均对此表示认可。贷款人授权的江苏银行其他机构有权行使本合同项下全部权利，有权就本合同项下纠纷向法院提起诉讼或提交仲裁机构裁决。<text decode='true'>
+            {{nbsp}}二、本合同项下借款本金以外的利息、费用均为含税价格。
+            {{nbsp}}三、本合同未尽事宜，按照相关法律法规、规范性文件的有关条款解释或办理。</text>\n
+            {{nbsp}}<text style="font-weight: bold;">四、借款人/抵押人知晓并同意，贷款人与借款人/抵押人同时以线上、线下两种方式签署本合同的，贷款人仅需依据线上签署的合同履行借款发放义务，线下签署的纸质合同仅用于办理抵押登记，不作其他用途。如线上、线上签署的合同内容存在不一致的，以借款人/抵押人线上签署的合同内容为准。</text>\n
+            {{nbsp}}<text decode='true'>五、<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>\n
+          </text>{{nbsp}}第二十一条 合同生效及终止<text decode='true'>
+            {{nbsp}}<text class="text-border" >一、本合同线下签署的，经借款人或其委托代理人签名，贷款人法定代表人/负责人或授权代表签章（签名或盖章）并加盖公章，抵押人经营者签章（签名或盖章）并加盖公章之日起生效，一式<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>份，贷款人、借款人及<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>、<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>、<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>各执<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>份，每份均具同等法律效力；本合同线上签署的，自借款人及抵押人经营者电子签名或在申请办理页面点击确认、勾选之日起生效。</text>\n
+            {{nbsp}}二、本合同自本合同项下全部借款本金、利息及一切相关费用全部清偿完毕之日终止。\n
+            {{nbsp}}(以下为签章处，无正文。)  \n\n\n
+          </text>
+          \n\n\n
+      </text>
+    </view>   
+    <view class="split"></view>
+    <view class="page-height">
+      <text class="content title-size-30" style="line-height: 40rpx;"  decode='true'>
+        \n
+
+        <text decode='true'>{{nbsp}}本页无正文，为合同编号为:<text class="text-border">{{contInfo.contNo}}</text>的《个人借款合同（车贷综合版）》签署页）\n </text>
+        {{nbsp}}借款人（签名）： <text class="text-weight-border">{{contInfo.cusName}}</text>\n
+          {{nbsp}}抵押人经营者（签名）：<text class="text-weight-border" decode='true'>{{ contInfo.cusName == contInfo.frName ? (nbsp + '/' + nbsp) : ((contInfo.frName || contInfo.frName != '') ? contInfo.frName : (nbsp + '/' + nbsp))}}</text>\n
+          {{nbsp}}签署日期： <text class="text-weight-border">{{contInfo.signDate}}</text>\n
+      </text>
+    </view>
+       
+</view>
+<view class="contaioner-foot" wx:if="{{contInfo.applicationStatus == '6' && contInfo.comfirmedStatus == '2' && contInfo.isEmortgageApp == '0'}}">
+  <button class="btn-submit" bindtap="getBatchId" style="{{backBtnName===0?'':'background:#999'}}">
+    {{backBtnName===0?'我已阅读并同意':'我已阅读并同意('+backBtnName+'s)'}}
+  </button>
+</view>

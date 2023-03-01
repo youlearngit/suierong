@@ -1,0 +1,18 @@
+{
+    "usingComponents": {
+      "van-steps": "/sub1/static/vant-weapp/steps/index",
+      "van-cell": "/sub1/static/vant-weapp/cell/index",
+      "van-cell-group": "/sub1/static/vant-weapp/cell-group/index",
+      "van-radio": "/sub1/static/vant-weapp/radio/index",
+      "van-radio-group": "/sub1/static/vant-weapp/radio-group/index",
+      "van-popup": "/sub1/static/vant-weapp/popup/index",
+      "van-checkbox": "/sub1/static/vant-weapp/checkbox/index",
+      "van-checkbox-group": "/sub1/static/vant-weapp/checkbox-group/index",
+      "van-dialog": "/sub1/static/vant-weapp/dialog/index",
+      "van-picker": "/sub1/static/vant-weapp/picker/index"
+    },
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "借款申请",
+    "navigationBarTextStyle": "black"
+  }
+  

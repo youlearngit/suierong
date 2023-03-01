@@ -1,0 +1,32 @@
+@import "/pages/dian/apli.wxss";
+.fontWeight{
+    font-weight: bold;
+    }
+.wrapCommon{position:absolute;top:0;background:#fff;z-index:1;}
+.coverBgray{position:absolute;width:100%;height:100%;background:rgba(0,0,0,.3);z-index:9999;}
+.houseWrap{position:fixed;width:100%;height:85%;bottom:-100%;left:0;background:#fff;z-index:10000;}
+
+
+.cityBox{top:20%;height:80%;}
+.pgcityArea{margin-top:30rpx;}
+.pgcityArea .formBtn{float:right;width:48%;}
+.pgcityArea .formBtnCancle{float:left;background:#f2f2f2;color:#333;}
+
+.danbaoResult{position:absolute;right:-30rpx;top:15rpx;width:150rpx;height:70rpx;background:linear-gradient(to right, rgba(234,150,3,0.1), rgba(234,150,3,0.8));overflow:hidden;border-top-left-radius:70rpx; border-bottom-left-radius:70rpx;color:#fff;font-size:30rpx;line-height:70rpx;margin:0;}
+.danbaoResult icon{vertical-align:middle;}
+.dyxq{width:70rpx;height:70rpx;vertical-align:middle;margin-right:10rpx;}
+.resBox{padding:5rpx 0;}
+.resName{float:left;width:80%;position:relative;}
+.resName:before{content:"·";position:absolute;left:-15rpx;top:-15rpx;color:#888;font-size:40rpx;}
+.resPrice{float:right;width:20%;text-align:right;color:#2d72ff;font-weight:600;}
+
+.pgflag{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);z-index:-1;}
+.pgflag.on{z-index:10;}
+
+.radio-group{text-align:center;}
+.radio-group .radio{display:inline-block;width:50%;}
+
+.pr{position:relative;}
+.mp{position:absolute;right:0;bottom:100rpx;width:100rpx;height:100rpx;}
+.mp image{display:block;width:74rpx;margin:0 auto;}
+.mp::after{content:'企业名片';position:absolute;left:0;bottom:0;display:block;width: 100%;height:30rpx;line-height:30rpx;font-size:22rpx;color:#999;text-align:center;}

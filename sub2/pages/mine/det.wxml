@@ -1,0 +1,34 @@
+<view class="wrap">
+  <view class="line">
+    <view class="h1">{{api.remark1}}</view>
+    <!-- <view class="gray">{{bank_adderss}}地址</view> -->
+    <!-- 预约模块 -->
+    <!-- <view class="h1 mt30" wx:if="{{status==1}}">预约时间</view>
+    <view class="h1" wx:if="{{status==1}}">{{book_date}}</view> -->
+    <view class="h1 mt30" ></view>
+    <view class="h1">姓名：{{api.khmc}}</view> 
+    <view class="h1">预约时间：{{api.yyrq}}</view> 
+
+    <view class="h1">取款时间：{{api.qkrq}}</view> 
+    <view class="h1">取款金额：{{api.yyje}}元</view> 
+
+    <view class="h1">预约号：{{api.yyh}}</view> 
+    <view class="h1">联系方式：{{api.lxfs}}</view> 
+
+
+    <!-- 排队模块 -->
+    <!-- <view class="h1 mt30" wx:if="{{status==0}}">排队号</view>
+    <view class="h1"wx:if="{{status==0}}">82</view> -->
+
+    <!-- 提示如您取款计划有变，请在取款前一个工作日15：00前取消预约 -->
+    <view class="gray mt30">如您取款计划有变</view>
+    <view class="gray">请在取款前一个工作日15:00前取消预约</view>
+    
+    <!-- 距离 -->
+    <view class="cyello" >{{distance}}</view>
+    <view class="go" wx:if='{{distance !=""}}'><image wx:if='{{preffixUrl}}'src="{{preffixUrl}}/static/wechat/img/go.png" bindtap='go'></image></view>
+    <!-- 取消操作 -->
+    <view class="cancle" bindtap='cancel'>取消</view>
+  </view>
+  <view class="sawtooth-bor"></view>
+</view>

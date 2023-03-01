@@ -1,0 +1,92 @@
+<!-- 汽车渠道商信息展示页面 -->
+<view class="f1">
+    <swiper 
+        class="square-dot" 
+        style="height: 466rpx;" 
+        indicator-dots="true" 
+        circular="true" 
+        interval="5000" 
+        duration="500" 
+        indicator-color="#fff" 
+        indicator-active-color="#0055D6"
+    >
+        <swiper-item style='display: flex;align-items: center;'>
+              <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/carloans/car-home-1239.png" mode="widthFix"></image>
+        </swiper-item>        
+        <swiper-item style='display: flex;align-items: center;'>
+              <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/carloans/car-home-1001.png" mode="widthFix"></image>
+        </swiper-item>
+    </swiper>
+</view>
+
+<view class="f3">
+  <!-- 了解汽车金融 -->
+  <view class="f3-1">
+    <swiper 
+        class="middle_bg square-dot" 
+        indicator-dots="true" 
+        circular="true" 
+        interval="5000" 
+        duration="500" 
+        indicator-color="#fff" 
+        indicator-active-color="#0055D6"
+    >
+        <swiper-item style='display: flex;align-items: center;' bindtap="toDetails">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/carloans/home_load_bg.png" mode="widthFix"></image>
+        </swiper-item>   
+        <swiper-item style='display: flex;align-items: center;' bindtap="toDetail">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/carloans/car_load_bg.png" mode="widthFix"></image>
+        </swiper-item>     
+    </swiper>
+  </view>
+  <view class="f3-2">
+    <span>业务办理</span>
+  </view>
+  <view class="f3-3">
+    <!-- 立即申请 -->
+      <view class="f3-3-1" style="background-color: #fef4e9;" data-url-flag="apply" bindtap="verifyUser">
+        <image class="f3-3-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/show-apply.png"></image>
+        <view class="f3-3-1-text f3-3-board-1">立即申请</view>
+      </view>
+    <!-- 订单详情 -->
+      <view class="f3-3-1" style="margin-left: 3%; background-color: #f5f8fe" data-url-flag="order" bindtap="verifyUser">
+        <image class="f3-3-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/show-order.png"></image>
+        <view class="f3-3-1-text f3-3-board-2">订单详情</view>
+      </view>
+     <!-- 查看授权 -->
+      <view class="f3-3-1" style="background-color: #e8f7ff" data-url-flag="authorization" bindtap="verifyUser">
+        <image class="f3-3-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/show-authorization.png"></image>
+        <view class="f3-3-1-text f3-3-board-3">征信授权</view>
+      </view>
+     <!-- 查看合同 -->
+      <view class="f3-3-1" style="margin-left: 3%;background-color: #f4f8fe" data-url-flag="contract" bindtap="verifyUser">
+        <image class="f3-3-1-img" src="{{preffixUrl}}/static/wechat/img/carloans/show-contract.png"></image>
+        <view class="f3-3-1-text f3-3-board-4">合同签订</view>
+      </view>
+  </view>
+  <!-- <view class="f3-4">
+    <image class="f3-4-1-img" src="../carLoans/images/service-guide-background.png" mode="aspectFit"></image>    
+    <image class="f3-4-2-img" src="../carLoans/images/service-guide.png" mode="aspectFit"></image>
+    <span class="f3-4-1-text">服务指引 </span>
+    <navigator class="f3-4-2-text" url="/sub3/pages/serviceguide/index">
+       <span>点击此处了解更多 ></span>
+    </navigator>
+  </view> -->
+</view>
+
+<view wx:if='{{isValidCardDialog}}' >
+  <view class='mask_layer' bindtap='modal_click_Hidden' />
+  <view class='modal_box'>
+    <image class="card-img" src="{{preffixUrl}}/static/wechat/img/carloans/sorry-box.png" mode="widthFix"></image>
+    <view class='card-content'>
+      <text class="card-content-title">很抱歉！</text>
+      <text class='card-content-modalMsg'>请通过我行合作渠道扫码申请</text>
+      <view class='card-btn'>
+          <view bindtap='popClose' class='popClose'>我知道了</view>
+    </view>
+    </view>
+  </view>
+</view>®
+
+<!-- 授权登陆，获取个人信息-->
+<my-login loginFlag="{{loginFlag}}" bind:cancel="cancelLogin" bind:onAuthUser="getUserInfo"></my-login>

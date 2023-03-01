@@ -1,0 +1,88 @@
+<!-- <view class="head">
+  <view class="head_item on"><image src="/static/img/ico_webs.png"></image>网点</view>
+  <view class="head_item"><image src="/static/img/ico_atm_un.png"></image>自助银行</view>
+  <navigator url='/pages/mine/index' class="head_item"><image src="/static/img/ico_mine_un.png"></image>我的</navigator>
+</view> -->
+<view class="map_container">
+  <map class="map" enable-zoom="true" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scala}}"
+    show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
+</view>
+<view class="map_text">
+  <view class="dl">
+    <view class="dt">
+      <view class="h1">{{textData.name}}</view>
+      <view class="distance" wx:if='{{textData.distance}}'>
+        距您约{{textData.distance}}米
+      </view>
+      <view class="navto" bindtap="go">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/go.png"></image>
+      </view>
+    </view>
+    <view class="dd">
+      <span wx:if='{{textData.name==null}}'> 若网络异常导致数据无法加载，请点击定位刷新界面 </span>
+      <!-- <view class="p" wx:if='{{textData.bizTime1 && textData.bizTime1!="上午--,下午--"}}'> -->
+      <view class="p">
+
+        <span class="ico"></span>个人业务营业时间：{{textData.bizTime1}}</view>
+      <view class="p">
+        <span class="ico"></span>对公业务营业时间：{{textData.bizTime2}}</view>
+      <view class="p gray" wx:if='{{textData.desc}}'>
+        <image class="icoGAdr" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_adr_gray.png"></image>
+        {{textData.desc}}
+      </view>
+      <view class="p gray" wx:if='{{textData.tel}}'>
+        <image class="icoGAdr" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_phone.png"></image>
+        {{textData.tel}}
+      </view>
+    </view>
+
+  </view>
+  <view class="btnArea" wx:if='{{textData.name!=null}}'>
+    <!-- <navigator class="lineBtn" url="../mine/lineup?latitude={{textData.lat}}&longitude={{textData.long}}&bankname={{textData.name}}&bankaddress={{textData.desc}}&data={{param}}" > -->
+      <!-- <navigator class="lineBtn"
+      url="../mine/book?latitude={{textData.lat}}&longitude={{textData.long}}&bankname={{textData.name}}&bankaddress={{textData.desc}}&data={{param}}&org_code={{textData.org_code}}&org_short_name={{textData.org_short_name}}">
+      <image src="{{preffixUrl}}/static/wechat/img/ico_line.png"></image>大额取现预约
+    </navigator> -->
+    <view  class="lineBtn" bindtap="bookLine">
+
+      <image src="{{preffixUrl}}/static/wechat/img/ico_line.png"></image>大额取现预约
+    </view>
+    <view class="bookBtn" bindtap="offline">
+      <image src="{{preffixUrl}}/static/wechat/img/ico_book.png"></image>网点预约
+    </view>
+  
+    <!-- <view class="call" bindtap='callGetPhone' data-getPhone='{{textData.tel}}'>
+      <image src="/static/img/ico_call.png"></image>
+    </view> -->
+    <!-- 
+      <navigator class="lineBtn" bindtap='waiting' >
+      <image  wx:if='{{preffixUrl}}'src="{{preffixUrl}}/static/wechat/img/ico_line.png" ></image>排队取号</navigator>
+    <navigator class="bookBtn" bindtap='waiting' >
+      <image  wx:if='{{preffixUrl}}'src="{{preffixUrl}}/static/wechat/img/ico_book.png"></image>预约</navigator>-->
+     <view class="call" bindtap='callGetPhone'>
+      <image  wx:if='{{preffixUrl}}'src="{{preffixUrl}}/static/wechat/img/ico_call.png"></image>
+    </view> 
+
+
+  </view>
+</view>
+
+<view class="floatbox">
+  <!-- 记录链接 -->
+  <navigator class="markBox record" url='../mine/list'>
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_mark.png"></image>
+  </navigator>
+  <!-- 搜索链接 -->
+  <view class="markBox">
+    <icon class="icoSer" type="search" size="30rpx" color='#0068b6'></icon>
+    <input data-city="{{city}}" data-longitude="{{longitude}}" data-latitude="{{latitude}}" bindtouchstart="bindInput"
+      disabled='true' />
+  </view>
+  <!-- 定位按钮 -->
+  <view class="markBox backpoi" bindtap='localLocation'>
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_poi.png"></image>
+  </view>
+</view>
+<navigator class="changeCity" url="city?data={{param}}">
+  <image wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/ico_city_change.png'></image>切换城市
+</navigator>

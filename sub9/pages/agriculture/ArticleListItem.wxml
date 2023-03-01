@@ -1,0 +1,249 @@
+<!--sub9/pages/agriculture/ArticleListItem.wxml-->
+<view class="ArticleListItem">
+  <view class="card-plane" wx:if="{{CATEGORY == '0'}}" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/zdxmbg.png);">
+    <view class="card" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/zdxmkp.png);">
+
+      <view class="title">{{article.NAME}}</view>
+      <view class="details">
+        <image class="details-bg" src="{{preffixUrl}}RELEASE_TIME.png" mode="widthFix" />
+
+        <view class="detail">
+          <view>所属领域</view>
+          <view>
+            {{article.TYPE}}
+          </view>
+
+        </view>
+
+        <view class="detail">
+          <image class="wz" src="{{cndUrl}}/static/wechat/img/zssn/zssnwz.png" mode="widthFix" />
+          <view style="width: 60rpx;min-width: 60rpx;">地 址</view>
+          <view class="detailWz">
+            <!-- <view class="wz">
+              
+            </view> -->
+            <view class="wzTitle">{{article.ADDRESS ? article.ADDRESS : '空'}}</view>
+          </view>
+
+
+        </view>
+      </view>
+      <view class="head">
+        <view  style="margin-left: 20rpx;">
+          <image src="{{cndUrl}}/static/wechat/img/zssn/zssnnd.png" mode="widthFix" />年 度
+          <view  style="margin-left: 29rpx;">
+            {{article.YEAR}}
+          </view> 
+        </view>
+        <!-- <view>阅读次数 {{article.VIEWS_NUMBER || '0'}}</view> -->
+      </view>
+    </view>
+  </view>
+  <view class="card-plane"  wx:if="{{CATEGORY == '1'}}" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/zscpbj.png);">
+    <view class="card" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/zscykp.png);">
+
+      <view class="title">{{article.NAME}}</view>
+      <view class="details">
+        <image class="details-bg" src="{{preffixUrl}}RELEASE_TIME.png" mode="widthFix" />
+
+        <view class="detail">
+          <view>产品类别</view>
+          <view>
+            {{article.TYPE}}
+          </view>
+
+        </view>
+
+        <view class="detail">
+          <image class="wz" src="{{cndUrl}}/static/wechat/img/zssn/zssnwz.png" mode="widthFix" />
+          <view style="width: 60rpx;min-width: 60rpx;">地 址</view>
+          <view class="detailWz">
+            <!-- <view class="wz">
+              
+            </view> -->
+            <view class="wzTitle">{{article.ADDRESS ? article.ADDRESS : '空'}}</view>
+          </view>
+
+
+        </view>
+      </view>
+      <view class="head">
+        <!-- <view style="margin-left: 20rpx;">
+          阅读次数
+          <view style="margin-left: 29rpx;">
+            {{article.YEAR}}
+          </view> 
+        </view> -->
+        <!-- <view>阅读次数 {{article.VIEWS_NUMBER || '0'}}</view> -->
+      </view>
+    </view>
+  </view>
+  <view class="body">
+    <view class="c-title">
+      <image class="xmxq" src="{{cndUrl}}/static/wechat/img/zssn/zdxmxmxq.png" mode=""/>
+     
+    </view>
+    <view class="xmxq-contont">
+      <view class="contont-top">
+        <view class="top-dian">
+          .
+        </view>
+        <view class="top-title" wx:if="{{CATEGORY == '0'}}">
+          建设规模及主要建设内容
+        </view>
+        <view class="top-title" wx:if="{{CATEGORY == '1'}}">
+          发展方向和重点
+        </view>
+      </view>
+      <view class="contont--bottom">
+        {{article.BUILD_MSG}}
+      </view>
+    </view>
+    <view class="xmxq-contont">
+      <view class="contont-top">
+        <view class="top-dian">
+          .
+        </view>
+        <view class="top-title" wx:if="{{CATEGORY == '0'}}">
+          资源优势
+        </view>
+        <view class="top-title" wx:if="{{CATEGORY == '1'}}">
+          发展现状及优势
+        </view>
+      </view>
+      <view class="contont--bottom">
+        {{article.RESOURCE_ADV}}
+      </view>
+    </view>
+    <view class="xmxq-contont" wx:if="{{CATEGORY == '0'}}">
+      <view class="contont-top">
+        <view class="top-dian">
+          .
+        </view>
+        <view class="top-title">
+          项目建设单位联系人
+        </view>
+        
+      </view>
+      <view class="contont--bottom">
+        <!-- {{article.RESOURCE_ADV}} -->
+        <view class="bottom-item">
+          <view>
+            联系人：
+          </view>
+          <view class="itemTwo">
+            {{article.BUILD_CONTACTS ? article.BUILD_CONTACTS : '空'}} 
+          </view>
+        </view>
+        <view class="bottom-item">
+          <view>
+            联系电话：
+          </view>
+          <view class="itemTwo">
+            {{article.BUILD_PHONE ? article.BUILD_PHONE : '空'}} 
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="xmxq-contont">
+      <view class="contont-top">
+        <view class="top-dian">
+          .
+        </view>
+        <view class="top-title">
+          当地农业农村部门联系人
+        </view>
+      </view>
+      <view class="contont--bottom">
+        <!-- {{article.RESOURCE_ADV}} -->
+        <view class="bottom-item">
+          <view>
+            联系人：
+          </view>
+          <view class="itemTwo">
+            {{article.FARMING_CONTACTS ? article.FARMING_CONTACTS : '空'}} 
+          </view>
+        </view>
+        <view class="bottom-item">
+          <view>
+            联系电话：
+          </view>
+          <view class="itemTwo">
+            {{article.FARMING_PHONE ? article.FARMING_PHONE : '空'}} 
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="xmxq-contont">
+      <view class="contont-top">
+        <view class="top-dian">
+          .
+        </view>
+        <view class="top-title" wx:if="{{CATEGORY == '0'}}">
+          项目进展
+
+        </view>
+        <view class="top-title" wx:if="{{CATEGORY == '1'}}">
+          规划投资规模
+        </view>
+      </view>
+      <view class="contont--bottom">
+        <!-- {{article.RESOURCE_ADV}} -->
+        <view class="bottom-item">
+          <view>
+            计划总投资
+          </view>
+          <view class="itemTwo">
+            {{article.TOTAL_INVESTMENT ? article.TOTAL_INVESTMENT : '空'}} 
+          </view>
+        </view>
+        <view class="bottom-item">
+          <view>
+            融资需求
+          </view>
+          <view class="itemTwo">
+            {{article.FINANCING_NEED ? article.FINANCING_NEED : '空'}} 
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="xmxq-contont">
+      <view class="contont-top">
+        <view class="top-dian">
+          .
+        </view>
+        <view class="top-title">
+          填报单位
+        </view>
+      </view>
+      <view class="contont--bottom">
+        {{article.AFF_UNIT}}
+        
+      </view>
+    </view>
+    <view class="xmxq-contont">
+      <view class="contont-top">
+        <view class="top-dian">
+          .
+        </view>
+        <view class="top-title">
+          备注
+        </view>
+      </view>
+      <view class="contont--bottom">
+        {{article.BZ ? article.BZ : '空'}}
+        
+      </view>
+    </view>
+    <view class="c-title">
+      <image class="xmxqly" src="{{cndUrl}}/static/wechat/img/zssn/xmhzly1.png" mode=""/>
+     
+    </view>
+
+    <view class="contont--bottom">
+        “江苏省农业农村重大项目投资地图” 公众号
+        
+      </view>
+
+  </view>
+</view>

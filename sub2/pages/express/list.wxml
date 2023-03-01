@@ -1,0 +1,34 @@
+<!--pages/index/list_text.wxml-->
+<view class="zong">
+  <view class="news" wx:for="{{addressList}}" wx:for-item="dayItem" wx:key="{{dayItem.id}}"  wx:for-index="index" data-gid='{{index}}'>
+    <view class="biaotinew">
+      <view class="tiqu" bindtap="tiqu"  wx:for-index="index" data-gid='{{index}}'>
+        <view class="biaoti font-break">
+          <span>{{dayItem.REAL_NAME}}</span>
+          <span> {{dayItem.TEL}}</span>
+        </view>
+        <view class="font-break">
+          <view class="text_slice">
+            {{dayItem.PROVINCE}}{{dayItem.CITY}}{{dayItem.COUNTY}}{{dayItem.ADDRESS}}
+          </view>
+        </view>
+      </view>
+      <view>
+        <view>
+          <text wx:if="{{dayItem.IS_DEFAULT==1}}" style="font-size:12px;padding-right:35%;padding-left:9%;">默认地址</text>
+          <text wx:if="{{dayItem.IS_DEFAULT==0}}" style="font-size:12px;padding-right:52%;padding-left:9%;"></text>
+          <text style="color:#0066b2;font-size:14px;" wx:for-index="index" data-gid='{{index}}' bindtap="tianjia">编辑</text>
+          <text style="padding-left:40px;color:#0066b2;font-size:14px;" bindtap="deleteAddress" wx:for-index="index" data-gid='{{index}}'>删除</text> </view>
+      </view>
+
+    </view>
+
+
+  </view>
+
+
+
+  <view class="address">
+    <view bindtap="tianjia">添加新地址</view>
+  </view>
+</view>

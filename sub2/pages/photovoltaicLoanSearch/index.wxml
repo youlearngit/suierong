@@ -1,0 +1,43 @@
+<!-- sub2/pages/photovoltaicLoanSearch/index.wxml -->
+<view class="photovoltaic" style="background-image: url({{cdnUrl}}/static/wechat/img/photovoltaicLoan/info-background.png);">
+	<view class="applys" style="background-image: url({{cdnUrl}}/static/wechat/img/photovoltaicLoan/infomation.png);">
+		<view class="apply_title">{{title}}</view>
+	</view>
+	<view wx:if="{{infoList.length}}">
+		<view class="apply_info_list" wx:for="{{infoList}}" wx:for-item="list">
+			<view
+			 wx:for="{{datas}}"
+			 wx:for-item="item"
+			 wx:key="id"
+			 class="field-input {{ item.id ? 'border' : ''}}"
+			>
+				<view wx:if="{{item.type}}" class="input_item">
+					<view>{{item.title}}</view>
+					<view>
+						{{item.id === 0 ?
+                        list.companyName : item.id === 1 ?
+                        list.contactPerson : item.id === 2 ?
+						list.contactWay : item.id === 5 ?
+						list.enterpriseTypeDesc : item.id === 6 ?
+						list.itemInvestTypeDesc : list.time
+						}}
+					</view>
+				</view>
+				<!-- <view></view> -->
+				<view wx:if="{{!item.type}}" class="input_items">
+					<view>{{item.title}}</view>
+					<view class="input_items_bg">
+						{{item.id === 4? list.itemTypeDesc :list.itemFinancingDesc}}
+					</view>
+				</view>
+			</view>
+		</view>
+    </view>
+    <view wx:else class="nodata">
+        <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/photovoltaicLoan/nodata.png" mode="widthFix" />
+    </view>
+	<view class="apply_btn">
+		<button class="btn1" bindtap="exit">{{back}}</button>
+	</view>
+</view>
+

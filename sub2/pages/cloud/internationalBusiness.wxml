@@ -1,0 +1,18 @@
+<!-- pages/creditInfo/serviceOption .wxml -->
+<view class="container1">
+	<view class="Top">
+		<image wx:if="{{preffixUrl}}" mode="widthFix" style="width:100%;" src="{{preffixUrl}}/static/wechat/credit/cloud_bg.png" />
+	</view>
+	<view class="middle" style="width:100%">
+		<view class="selectBox">
+			<navigator url="../cloud/index" class="box1">
+				<image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/img/international_btn2.png" />
+			</navigator>
+			<navigator url="../cloud/businessCloud" class="box1">
+				<image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/img/international_btn1.png" />
+			</navigator>
+		</view>
+	</view>
+</view>
+
+  <i-toast id="toast" />

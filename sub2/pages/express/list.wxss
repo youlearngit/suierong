@@ -1,0 +1,88 @@
+/* pages/index/list_text.wxss */
+
+.font-break {
+  word-break: break-all;
+  text-indent: 12px;
+  margin-bottom: 35px;
+}
+
+.news {
+  width: 90%;
+  height: 130px;
+  margin: 50rpx auto;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ced1d1;
+}
+
+.text_slice {
+  color: #454747;
+
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.biaoti {
+  padding-top: 2%;
+  font-weight: bold;
+  font-size: 35rpx;
+  text-indent: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 10px; 
+ }
+
+.biaotinew {
+  width: 96%;
+  height: 84%;
+  padding-left: 3%;
+}
+
+.dian {
+  padding: 0 10rpx;
+}
+
+.laiyuan {
+  font-size: 30rpx;
+  float: left;
+  color: #899191;
+ padding-top: 1%;
+
+
+}
+
+.riqi {
+  font-size: 25rpx;
+  float: right;
+  color: #899191;
+  padding-top: 1%;
+padding-right: 2%;
+
+}
+.dian{
+color: #0bd6d6;
+font-weight: bolder;
+}
+.address{
+position: fixed;
+width: 100%;
+height: 5%;
+background-color:#0066b2;
+bottom: 0;
+left: 0;
+text-align: center;
+overflow: hidden;
+z-index: 11;
+padding-top: 2%;
+color: white
+}
+.zong{
+  position: relative;
+  z-index: 100;
+}

@@ -1,0 +1,256 @@
+.floatbox {
+  position: fixed;
+  bottom: 33%;
+  right: 46rpx;
+  z-index: 1000;
+}
+
+.markBox {
+  position: relative;
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 8rpx;
+  background: #fff;
+  box-shadow: 0 0 10rpx #333;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.icoSer {
+  display: block;
+  width: 30rpx;
+  height: 30rpx;
+  margin: 5rpx auto;
+}
+
+.markBox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70rpx;
+  height: 70rpx;
+  text-align: center;
+}
+
+.markBox input::before,
+.record::before,
+.backpoi::before {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 20rpx;
+  line-height: 20rpx;
+  text-align: center;
+  content: "搜索";
+  font-size: 21rpx;
+  color: #0068b6;
+  left: 0;
+  top: 41rpx;
+}
+
+.record image,
+.backpoi image {
+  display: block;
+  width: 30rpx;
+  height: 30rpx;
+  margin: 5rpx auto;
+}
+
+.record::before {
+  content: "记录";
+  color: #f1bb00;
+}
+
+.backpoi::before {
+  content: "定位";
+  color: #999;
+}
+
+.map_container {
+  position: fixed;
+  top: 0;
+  height: 75%;
+  left: 0;
+  right: 0;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.map_text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  background: #fff;
+}
+
+.map_text .dl {
+  padding: 0 15px;
+}
+
+text {
+  margin: 5px 0;
+  display: block;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.h1 {
+  margin: 30rpx 0 15rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.distance {
+  line-height: 26rpx;
+  font-size: 26rpx;
+  color: #f1bb00;
+}
+
+/* .distance image{width:26rpx;height:26rpx;vertical-align:middle;margin-right:15rpx;} */
+.dt {
+  padding-bottom: 20rpx;
+  padding-right: 150rpx;
+  border-bottom: #eaeaea 1rpx solid;
+  position: relative;
+}
+
+.navto {
+  position: absolute;
+  width: 120rpx;
+  top: 0;
+  right: 0;
+  text-align: center;
+}
+
+.navto image {
+  width: 81rpx;
+  height: 81rpx;
+  vertical-align: middle;
+}
+
+.dd {
+  margin: 20rpx 0;
+}
+
+.dd .p {
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #0068b6;
+}
+
+.dd .p .ico {
+  display: inline-block;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 20rpx;
+  background: #0068b6;
+  margin-right: 10rpx;
+}
+
+.dd .p.gray {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.icoGAdr {
+  width: 20rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+
+.btnArea {
+  height: 80rpx;
+  border: #efefef 1rpx solid;
+  border-bottom: 0;
+}
+
+.lineBtn,
+.bookBtn {
+  display: inline-block;
+  width: 40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  border-radius: 0;
+  text-align: center;
+}
+
+.lineBtn image,
+.bookBtn image,
+.call image {
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.lineBtn {
+  background: #0068b6;
+  color: #fff;
+}
+
+.bookBtn {
+  background: #fff;
+  color: #0068b6;
+}
+
+.call {
+  float: right;
+  width: 19%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-left: #efefef 1rpx solid;
+  text-align: center;
+}
+
+.head {
+  height: 80rpx;
+}
+
+.head_item {
+  display: inline-block;
+  width: 33.3%;
+  text-align: center;
+  line-height: 75rpx;
+  font-size: 28rpx;
+}
+
+.head_item image {
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+
+.head_item.on {
+  border-bottom: 5rpx #0068b6 solid;
+  color: #0068b6;
+}
+
+.changeCity {
+  position: fixed;
+  bottom: 35%;
+  left: 20rpx;
+  width: 140rpx;
+  height: 30rpx;
+  margin-bottom: 20rpx;
+  background: rgba(0, 0, 0, .3);
+  color: #fff;
+  font-size: 20rpx;
+  text-align: center;
+  line-height: 30rpx;
+  border-radius: 30rpx;
+}
+
+.changeCity image {
+  width: 16rpx;
+  height: 20rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}

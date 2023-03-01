@@ -1,0 +1,142 @@
+/* sub1/pages/message/index.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+page {
+  background-color: white;
+}
+
+.s0 {
+  width: 100%;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #EBEDF2 100%);
+  padding: 15% 0 48rpx;
+}
+
+.s01 {
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #333333;
+  height: 50rpx;
+  text-align: center;
+  top: 30rpx;
+  position: relative;
+}
+
+.s02 {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 27rpx;
+  width: 690rpx;
+  height: 60rpx;
+  /* top: 34rpx; */
+  margin: 0 auto;
+  display: flex;
+}
+
+.s02img {
+  margin-left: 30rpx;
+  margin-top: 19rpx;
+}
+
+.s02input {
+  margin-top: 10rpx;
+  margin-left: 15rpx;
+  max-width: 600rpx;
+}
+
+.s1 {
+  background-color: #ffffff;
+  width: 92%;
+  height: 142rpx;
+  display: flex;
+  margin-left: 4%;
+}
+
+.s1img {
+  margin-top: 23rpx;
+  /* margin-left: 29rpx; */
+}
+
+.s11 {
+  margin-left: 35rpx;
+  width: 90%;
+}
+
+.s1right {
+  display: flex;
+  width: 100%;
+  padding-top: 17rpx;
+}
+
+.s1icon {
+  margin-right: 30rpx;
+  margin-top: 60rpx;
+}
+
+.s12 {
+  width: 90%;
+  height: 90rpx;
+  /* margin-top: 17rpx; */
+}
+
+.s121 {
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+  color: #333333;
+}
+
+.s122 {
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #999999;
+}
+
+.s1line {
+  opacity: 0.1;
+  border: 1rpx solid #000000;
+  width: 100%;
+  margin-top: 28rpx;
+}
+
+.s1time{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #999999;
+  margin: auto;
+}
+
+.notice {
+  position: absolute;
+  opacity: 0.9;
+  min-width: 29rpx;
+  height: 30rpx;
+  background: #FF5F5F;
+  border-radius: 14.5rpx;
+  border-radius: 14.5rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #FFFFFF;
+  text-align: center;
+  z-index: 999;
+  left: 96rpx;
+  margin-top: 10rpx;
+  line-height: 30rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.notice1 {
+  position: absolute;
+  opacity: 0;
+  width: 39rpx;
+  height: 29rpx;
+  background: #FF5F5F;
+  border-radius: 14.5rpx;
+  border-radius: 14.5rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #FFFFFF;
+  text-align: center;
+}

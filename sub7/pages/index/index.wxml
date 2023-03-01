@@ -1,0 +1,32 @@
+<view class="container_content">
+    <image class="container_bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/index_bg.png"></image>
+    <!-- <view class="title" wx:if="{{userInfo!=null}}">{{userInfo.nickName}}</view> -->
+    <view class="box">
+       <view>
+          <image class="boxImg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/sybg1_img.png"></image>
+          <view>商户数</view>
+          <view>{{result.merchantNumber}}</view>
+       </view>
+       <view>
+          <image class="boxImg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/sybg2_img.png"></image>
+          <view>已收订单</view>
+          <view>{{result.receivedNumber}}</view>
+       </view>
+       <view>
+          <image class="boxImg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/sybg3_img.png"></image>
+          <view>未收订单</view>
+          <view>{{result.unreceivedNumber}}</view>
+       </view>
+       <view>
+          <image class="boxImg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/sybg4_img.png"></image>
+          <view>欠款订单</view>
+          <view>{{result.debtNumber}}</view>
+       </view>
+    </view>
+    <view class="text1">订单状态统计<text>单位 万元</text></view>
+    <view class="echartbox" style="width:100%;height:500rpx;">
+      <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+    </view>
+</view>
+<import src="../../template/tabbar.wxml"/> 
+ <template is="tabBar" data="{{tabBar}}"/>

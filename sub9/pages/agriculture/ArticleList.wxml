@@ -1,0 +1,99 @@
+<!--sub9/pages/agriculture/ArticleList.wxml-->
+<wxs src="./utils.wxs" module="utils" />
+<view class="ArticleList">
+  <view class="bg">
+    <image src="{{cndUrl}}/static/wechat/img/zssn/xmhzsxjgbg.png" mode="" />
+  </view>
+  <view class="ArticleListBox">
+    <view class="articleTop" wx:if="{{CATEGORY == 0 && CATEGORY != '' }}">
+      <view class="TopImage">
+        <image src="{{cndUrl}}/static/wechat/img/zssn/zssnzdxm.png"></image>
+      </view>
+      <view class="TopName">重大项目</view>
+      <view class="producCordname">{{item.COMPANY_NAME}}</view>
+    </view>
+    <view class="articleTop" wx:if="{{CATEGORY == 1 && CATEGORY != '' }}">
+      <view class="TopImage">
+        <image src="{{cndUrl}}/static/wechat/img/zssn/zssnzsxm.png"></image>
+      </view>
+      <view class="TopName">招商产业</view>
+      <view class="producCordname">{{item.COMPANY_NAME}}</view>
+    </view>
+    <view class="search">
+      <view class="search_left">
+        <image class="search-icon" src="{{preffixUrl}}icon_32_search.png" mode="widthFix" />
+        <input type="text" confirm-type="search" placeholder-class="search-placeholder" placeholder="请输入您想搜索的关键字" model:value="{{keywords}}" bindconfirm="onSearchEvent" />
+        <view class="search-btn" bind:tap="onSearchEvent">
+          <image src="{{cndUrl}}/static/wechat/img/zssn/tz1.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="recommend" wx:if="{{is_recommend}}">
+		<image src="{{preffixUrl}}policy_defect.png" />
+		<view >暂无项目合作哦～</view>
+		<view>您还可以查看以下推荐合作哦</view>
+	</view>
+    <!-- <view class="go-filter" data-event="get_filter" bind:tap="onFilterEvent">
+      <image src="{{cndUrl}}/static/wechat/img/zssn/sxl.png" mode="widthFix" />筛选
+    </view> -->
+
+    <view class="product">
+      <view wx:for="{{LIST3}}" wx:index="index" wx:item="item" wx:key="{{item.ID}}">
+        <navigator class="article" hover-class="none" bindtap="getArticle" data-ID="{{item.ID}}" url="/sub9/pages/agriculture/ArticleListItem?ID={{item.ID}}&CATEGORY={{item.CATEGORY}}" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/bglbkp.png);">
+          <view class="article-loc">
+            <view wx:if="{{item.CATEGORY == 0}}">重大项目</view>
+            <view wx:if="{{item.CATEGORY == 1}}">招商产业</view>
+            <image src="{{cndUrl}}/static/wechat/img/zssn/xqspbgjb.png" mode="widthFix" />
+          </view>
+          <view class="article-title">
+            <view class="jt">
+              <image class="jt" src="{{cndUrl}}/static/wechat/img/zssn/jt.png"></image>
+            </view>
+            <text class="TITLE" style="margin-left: 10rpx;"> {{item.NAME}} </text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <van-popup show="{{filter.show}}" position="top" custom-style="border-radius: 0 0 30rpx 30rpx;" close-on-click-overlay bind:click-overlay="onFilterEvent">
+    <view class="filter-body">
+      <view class="filter-head">
+        <view>筛选条件</view>
+        <view class="filter-reset" data-event="{{filter.reset_event}}" bind:tap="onFilterEvent">恢复默认</view>
+      </view>
+      <view wx:for="{{filter.items}}" wx:key="key" wx:index="index" wx:item="item">
+        <view class="filter-title">
+          <view class="filter-title-icon"></view>{{item.title}}
+        </view>
+        <view class="filter-opt filter-checkbox" wx:if="{{item.type=='checkbox'}}">
+          <view wx:for="{{item.items}}" wx:key="k" wx:for-index="idx" wx:for-item="v" class="{{utils.inArr(item.value,idx)?'activity':''}}" data-event="{{item.event}}" data-v="{{item.v}}" bind:tap="onFilterEvent" data-key="{{index}}" data-val="{{idx}}">
+            {{v}}
+            <image wx:if="{{utils.inArr(item.value,idx)}}" src="{{preffixUrl}}check_checked.png" mode="widthFix" />
+          </view>
+        </view>
+        <view class="filter-opt filter-daterange" wx:elif="{{item.type=='daterange'}}">
+          <view class="filter-opt-text">{{item.text}}</view>
+          <view class="filter-daterange-date" wx:for="{{[0,1]}}" wx:key="k" wx:for-index="idx" wx:for-item="v">
+            <view wx:if="{{idx>0}}" class="filter-daterange-splitline"></view>
+            <input bindinput="onFilterEvent" data-event="{{item.event}}" data-key="{{index}}" data-idx="{{idx}}" placeholder="请选择时间" placeholder-class="input-placeholder" value="{{item.value[idx]}}" bind:tap="onDatePickerEvent" disabled="true" />
+            <image wx:if="{{item.value[idx]}}" src="{{preffixUrl}}icon_38_date_checked.png" mode="widthFix" />
+            <image wx:else src="{{preffixUrl}}icon_38_date_uncheck.png" mode="widthFix" />
+          </view>
+        </view>
+        <view class="filter-opt filter-picker-multi" wx:if="{{item.type=='picker_multis'}}">
+          <view class="filter-opt-text">{{item.text}}</view>
+          <picker mode="multiSelector" bindchange="onMultiPickerChanges" bindcolumnchange="onMultiPickerColumnChange" value="{{item.value.indexs}}" range="{{item.value.ranges}}" range-key="text" data-type="{{index}}">
+            <input value="{{item.value.value}}" disabled="true" placeholder="请选择" />
+          </picker>
+        </view>
+        <view class="filter-opt filter-picker-multi" wx:if="{{item.type=='picker_multi'}}">
+          <view class="filter-opt-text">{{item.text}}</view>
+          <picker mode="multiSelector" bindchange="onMultiPickerChange" bindcolumnchange="onMultiPickerColumnChange" value="{{item.value.indexs}}" range="{{item.value.ranges}}" range-key="text" data-type="{{index}}">
+            <input value="{{item.value.value.length>0?item.value.value[0]+item.value.value[1]+item.value.value[2]:''}}" disabled="true" placeholder="请选择" />
+          </picker>
+        </view>
+      </view>
+      <view class="filter-confirm" data-event="{{filter.event}}" bind:tap="onFilterEvent">确定</view>
+    </view>
+  </van-popup>
+</view>

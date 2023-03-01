@@ -1,0 +1,145 @@
+/* sub1/pages/trade/desc.wxss */
+page {
+    background-color: #f0f0f0;
+}
+
+.showBox {
+    width: 100%;
+}
+
+.f1 {
+    width: 100%;
+}
+
+.f2 {
+    background-color: white;
+    padding-top: 20rpx;
+}
+
+.f21 {
+    width: 652.8rpx;
+    height: 43.9rpx;
+    font-family: Helvetica;
+    font-size: 30rpx;
+    color: #ffffff;
+    line-height: 43.9rpx;
+    text-align: center;
+    background-color: #5093ff;
+    border-radius: 30rpx;
+    margin: 33rpx auto;
+}
+
+.f22 {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 20rpx 0;
+    position: relative;
+}
+
+.f22::after {
+    content: "";
+    position: absolute;
+    width: 88%;
+    left: 6%;
+    bottom: 0;
+    height: 2rpx;
+    background-color: #eeeaea;
+}
+
+.f221 {
+    width: 195.4rpx;
+    height: 134.4rpx;
+    text-align: center;
+    line-height: 134.4rpx;
+    font-family: Helvetica;
+    font-size: 27rpx;
+    border: 1px solid #5093ff;
+    margin-right: 27rpx;
+    border-radius: 10rpx;
+    color: #5093FF ;
+}
+
+.f222 {
+    width: 430rpx;
+    /* height: 116rpx; */
+    font-family: Helvetica;
+    font-size: 22rpx;
+    line-height: 38rpx;
+    color: #636363;
+}
+
+.f233{
+    width: 100%;
+    text-align: center;
+    color: #5093ff;
+    font-size: 25rpx;
+    margin: 10rpx 0;
+    
+}
+
+.f4 {
+    padding: 40rpx 0;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    background-color: #f0f0f0;
+}
+
+.f41 {
+    width: 280rpx;
+    height: 80rpx;
+    background: #5093ff;
+    font-family: Helvetica;
+    font-size: 32rpx;
+    color: #ffffff;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.f23{
+  padding-left: 65.5rpx;
+  /* padding-top:38.2rpx; */
+  padding-right: 64.9rpx;
+}
+
+.f231{
+  ont-family: Helvetica;
+  font-size: 25rpx;
+  color: #5093FF;
+  /* padding-top: 10rpx; */
+  line-height:40rpx;
+  margin-bottom: 20rpx;
+}
+
+.f232{
+  font-family: Helvetica;
+  font-size: 25rpx;
+  color: #636363;
+  /* padding-top: 10rpx; */
+  line-height:40rpx;
+}
+
+.imagePathBox {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.shengcheng {
+    width: 72%;
+    z-index: 9999;
+    position: absolute;
+    left: 14%;
+    overflow: hidden;
+    top: 40%;
+    transform: translateY(-40%);
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.tools {
+    bottom: 50rpx;
+}

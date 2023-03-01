@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-field": "/sub3/static/vant-weapp/field/index"
+  },
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "开户查询结果"
+}

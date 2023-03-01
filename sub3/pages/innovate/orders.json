@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-empty": "/sub3/static/vant/weapp/empty/index",
+    "van-popup": "/sub3/static/vant/weapp/popup/index"
+  }
+}

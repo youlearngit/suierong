@@ -1,0 +1,229 @@
+
+<view class="contract-background-img">
+  <!-- 立即授权 -->
+  <view wx:if="{{item.isAuthorisee === '0' && !flag}}">
+    <view class="box">
+      <view wx:for="{{authorList}}" wx:for-item="item" wx:for-index="index">
+          <view wx:if="{{index}}" class="line-split"></view>
+          <view class="info">
+            <label>{{item.title}}</label>
+            <text class="info-text">{{item.content}}</text>
+          </view>      
+      </view>
+    </view>
+    <view class="foot">
+      <button class="btn-submit" data-id="1" bindtap="openAction">立即授权</button>
+    </view>    
+  </view>
+
+  <!-- 签署承诺书 -->
+  <view wx:if="{{item.isSignCommit === '0' && !flag && !loanType}}">
+    <view class="box">
+      <view wx:for="{{signList}}" wx:for-item="item" wx:for-index="index">
+          <view wx:if="{{index}}" class="line-split"></view>
+          <view class="info">
+            <label>{{item.title}}</label>
+            <text class="info-text">{{item.content}}</text>
+          </view>      
+      </view>
+    </view>
+    <view class="foot">
+      <button class="btn-submit" data-id="0" bindtap="openAction">签署承诺书</button>
+    </view>    
+  </view>
+  <!-- 已签署 -->
+  <view wx:if="{{item.isSignCommit === '1' && flag == 2}}">
+      <view class="box">
+        <view wx:for="{{signListDesc}}" wx:for-item="item" wx:for-index="index">
+            <view wx:if="{{index}}" class="line-split"></view>
+            <view class="info">
+              <label>{{item.title}}</label>
+              <text class="info-text">{{item.content}}</text>
+            </view>      
+        </view>
+      </view>
+  </view>
+  <!-- 已授权 -->
+  <view wx:if="{{item.isAuthorisee === '1' && flag == 1}}">
+      <view class="box">
+        <view wx:for="{{authorListDesc}}" wx:for-item="item" wx:for-index="index">
+            <view wx:if="{{index}}" class="line-split"></view>
+            <view class="info">
+              <label>{{item.title}}</label>
+              <text class="info-text">{{item.content}}</text>
+            </view>      
+        </view>
+      </view>
+  </view>
+</view>
+<page-container show="{{contractPageFlag}}" custom-style="height:100%;width:100%">
+  <view class="contaioner-content">
+    <scroll-view scroll-x scroll-with-animation='false' scroll-top='{{ topNum }}'>
+      <view wx:if="{{isAuthor}}">
+          <!-- 第一份授权书 -->
+          <view wx:if="{{showContractFlag == '1'}}">
+            <view>
+              <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">
+                江苏银行综合信息查询使用授权书
+              </view>
+              <view class="text-center font-size-30">(适用于自然人)</view>
+              <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+              授权人：
+              <text class="smail-cont-text-content" decode='true'>客户姓名：<text class="text-border">{{item.relCusName}}</text>\n身份证号码：<text class="text-border">{{item.relCertCode}}</text>\n\n
+                  {{nbsp}}一、因办理信贷业务的需要，本人不可撤销地授权<text class="text-border">江苏银行股份有限公司</text>（以下简称“贵行”），</text>通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：\n
+                    {{nbsp}}（一）公积金信息：<text class="smail-cont-text-content" decode='true'> 本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。</text>\n
+                    {{nbsp}}（二）税务信息： <text class="smail-cont-text-content" decode='true'>本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。</text>\n
+                    {{nbsp}}（三）其他信息\n{{nbsp}}<text class="smail-cont-text-content" decode='true'>本人资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息等个人信息；与融资相关的交易信息及经本人授权的其他信息。 按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。</text> \n
+                  {{nbsp}}二、本授权书用于办理涉及本人的以下信贷业务：\n
+                    {{nbsp}} 1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；\n
+                    {{nbsp}} 2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；\n
+                    {{nbsp}} 3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况 \n
+                  {{nbsp}}三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。\n
+                  {{nbsp}}四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回
+              <text class="smail-cont-text-content" decode='true'>
+                {{nbsp}}五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。\n
+
+
+                {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}授权人：<text class="text-border">{{item.relCusName}}</text> \n
+                {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}授权日期：<text class="text-border">{{Y}}</text>年<text class="text-border">{{M}}</text>月<text class="text-border">{{D}}</text>日</text>\n\n\n
+              </text>
+            </view>
+          </view>
+          <!-- 第二份授权书 -->
+          <view wx:if="{{showContractFlag == '2'}}">
+            <view wx:if="{{authType}}">
+              <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">授 权 书</view>
+              <view class="text-center font-size-30">(适用于自然人)</view>
+              <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+                {{nbsp}}江苏银行：
+                    {{nbsp}}因□本人/<text style="font-size: 26rpx;">☑</text><text class="text-border">{{item.cusName}}</text>办理<text class="text-border">个人贷款</text>业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：\n
+                    {{nbsp}}（1）□贷款审批；\n
+                    {{nbsp}}（2）<text style="font-size: 26rpx;">☑</text>担保资格审查；\n
+                    {{nbsp}}（3）□ 资信审查；\n
+                    {{nbsp}}（4）□ 客户准入资格审查；\n
+                    {{nbsp}}（5）□ 贷后管理；\n
+                    {{nbsp}}（6）□<text class="smail-cont-text-content" style="text-decoration: underline;" decode='true'>{{nbsp}}/  。</text> \n
+                <text class="smail-cont-text-content" style="text-decoration: underline; font-weight: 600;" decode='true'>
+                  {{nbsp}}本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。\n</text> {{nbsp}}授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。\n
+                <text class="smail-cont-text-content" style="text-decoration: underline; font-weight: 600;" decode='true'>
+                  {{nbsp}}如本笔业务涉及公积金住房委托贷款且公积金管理中心有审批需要，本人授权贵行将本人信用报告提供给公积金管理中心。</text>\n
+                    {{nbsp}}责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。\n
+                    {{nbsp}}本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。\n\n
+                    {{nbsp}}特此授权。\n\n
+                    {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}  授权人（签字）：<text class="text-border">{{item.relCusName}}</text>\n
+                    {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}  身份证件类型：<text class="text-border">身份证</text>\n
+                    {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}  证件号码：<text class="text-border">{{item.relCertCode}}</text>\n
+                    {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}  授权日期：<text class="text-border">{{Y}}</text>年<text class="text-border">{{M}}</text>月<text class="text-border">{{D}}</text>日\n\n
+                  
+                  {{nbsp}}特别提示：为保护您的合法权益，以上空白处请填写完整。\n\n\n
+              </text>
+            </view>
+            <view wx:else>
+              <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">授 权 书</view>
+              <view class="text-center font-size-30">(适用于自然人)</view>
+              <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+                {{nbsp}}江苏银行：
+                    {{nbsp}}因□本人/ <text style="font-size: 26rpx;">☑</text><text class="text-border">{{item.cusName}}</text>办理<text class="text-border">个人贷款</text>业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：\n
+                    {{nbsp}}（1）<text style="font-size: 26rpx;">☑</text>贷款审批；\n
+                    {{nbsp}}（2）□ 担保资格审查；\n
+                    {{nbsp}}（3）□ 资信审查；\n
+                    {{nbsp}}（4）□ 客户准入资格审查；\n
+                    {{nbsp}}（5）<text style="font-size: 26rpx;">☑</text>贷后管理；\n
+                    {{nbsp}}（6）□<text class="smail-cont-text-content" style="text-decoration: underline;" decode='true'>{{nbsp}}/  。</text> \n
+                <text class="smail-cont-text-content" style="text-decoration: underline; font-weight: 600;" decode='true'>
+                    {{nbsp}}本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。\n </text>{{nbsp}}授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。\n
+                <text class="smail-cont-text-content" style="text-decoration: underline; font-weight: 600;" decode='true'>
+                    {{nbsp}}如本笔业务涉及公积金住房委托贷款且公积金管理中心有审批需要，本人授权贵行将本人信用报告提供给公积金管理中心。</text> \n
+                    {{nbsp}}责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。\n
+                    {{nbsp}}本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。\n\n
+                    {{nbsp}}特此授权。\n\n
+                    {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}  授权人（签字）：<text class="text-border">{{item.relCusName}}</text>\n
+                    {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}  身份证件类型：<text class="text-border">身份证</text>\n
+                    {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}  证件号码：<text class="text-border">{{item.relCertCode}}</text>\n
+                    {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}  授权日期：<text class="text-border">{{Y}}</text>年<text class="text-border">{{M}}</text>月<text class="text-border">{{D}}</text>日\n\n
+                  
+                  {{nbsp}}特别提示：为保护您的合法权益，以上空白处请填写完整。\n\n\n
+              </text>
+            </view>
+          </view>        
+      </view>
+      <view wx:else>
+          <!-- 第三份授权书 -->
+        <view wx:if="{{showContractFlag == '1'}}">
+          <view wx:if="{{itemType === 'b11'}}">
+            <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">
+              个人贷款业务承诺书
+            </view>
+            <text class="cont-content title-size-30-1" decode='true' style="line-height: 45rpx;word-break:break-all">
+              {{nbsp}}江苏银行股份有限公司：
+                  {{nbsp}}本人（姓名： <text class="text-border">{{item.relCusName}}</text>，身份证号： <text class="text-border">{{item.relCertCode}}</text>），与借款人（姓名：<text class="text-border">{{item.cusName}}</text>，身份证号：<text class="text-border">{{item.certCode}}</text>）关系为：<text class="text-border">{{item.relation}}</text>，现因借款人在贵行办理<text class="text-border">{{item.prdName}}</text>业务（业务流水号为：<text class="text-border">{{item.serno}}</text>，申请金额（元）<text class="text-border">{{item.applyAmts}}</text> ，申请期限（月） <text class="text-border">{{item.applyTerm}}</text>，担保方式：<text class="text-border">{{item.guarWay}}</text> ，拟购房地址为：<text class="text-border">{{item.houseAddr}}</text>），本人现做出如下声明与承诺：\n
+                  {{nbsp}}1、本人职业为：<text class="text-border">{{item.occupation}}</text>，工作单位为：<text class="text-border">{{item.relWorkUnitName}}</text>，月收入（元）<text class="text-border">{{item.relyearIncomes}}</text> ，承诺与借款人共同承担还款义务，负责共同按时偿还贷款本息，直至本笔贷款本息全部结清为止。\n
+                  {{nbsp}}2、本人向贵行提供的所有资料和所有提供的信息真实有效，如有虚假，所引起的一切法律后果由本人承担。 \n
+                  {{nbsp}}3、若贵行在调查、审查、审批或贷后管理过程中，可能须查证本人的家庭信息、家庭房屋居住情况、收入等情况，本人以及本人配偶（如有）将根据贵行要求主动或配合前往相关部门或机构查询。 \n
+                  {{nbsp}}4、我国《婚姻法》规定：“夫妻在婚姻关系存续期间所得财产，归夫妻共同所有，双方另有约定的除外”。因此，本人已知晓夫妻双方在婚姻关系存续期间所取得的一切收入及财产，除非本人与本人的配偶另有约定并告知贵行认可外，本人与本人的配偶就本贷款所设定的债务均有义务偿还。\n
+                  {{nbsp}}5、本人已知晓本人与本人的配偶均须同意将抵押物（如须抵押适用）给贵行作为贷款的担保并配合贵行就该抵押物的抵押或设定的担保办理相关事宜。如本人不能履行合同，贵行可依法处置抵押物，本人愿意接受强制执行。\n
+                  {{nbsp}}6、本人未使用商业性借款资金、未通过银行消费贷款、信用贷款或通过房地产中介、互联网平台、小贷公司等渠道筹集资金，充当向贵行申请个人住房贷款的首付款。本人保证上述声明真实有效，如贵行经核查诚信保证不实的，同意贵行将上述事项记入征信不良记录。\n\n
+
+                  {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}承诺人： <text class="text-border">{{item.relCusName}}</text>\n
+                  {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}承诺日期：<text class="text-border">{{Y}}</text>年<text class="text-border">{{M}}</text>月<text class="text-border">{{D}}</text>日\n\n
+            </text>
+          </view>
+          <view wx:elif="{{itemType === 'b10'}}">
+            <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">
+              个人贷款业务承诺书
+            </view>
+            <text class="cont-content title-size-30-1" decode='true' style="line-height: 45rpx;word-break:break-all">
+              {{nbsp}}江苏银行股份有限公司：
+                  {{nbsp}}本人（姓名： <text class="text-border">{{item.relCusName}}</text>，身份证号： <text class="text-border">{{item.relCertCode}}</text>），与借款人（姓名：<text class="text-border">{{item.cusName}}</text>，身份证号：<text class="text-border">{{item.certCode}}</text>）关系为：<text class="text-border">{{item.relation}}</text>，现因借款人在贵行办理<text class="text-border">{{item.prdName}}</text>业务（业务流水号为：<text class="text-border">{{item.serno}}</text>，申请金额（元）<text class="text-border">{{item.applyAmts}}</text> ，申请期限（月） <text class="text-border">{{item.applyTerm}}</text>，担保方式：<text class="text-border">{{item.guarWay}}</text> ，拟购房地址为：<text class="text-border">{{item.houseAddr}}</text>），本人现做出如下声明与承诺：\n
+                  {{nbsp}}1、本人职业为：<text class="text-border">{{item.occupation}}</text>，工作单位为：<text class="text-border">{{item.relWorkUnitName}}</text>，月收入（元）<text class="text-border">{{item.relyearIncomes}}</text> ，承诺与借款人共同承担还款义务，负责共同按时偿还贷款本息，直至本笔贷款本息全部结清为止。\n
+                  {{nbsp}}2、本人向贵行提供的所有资料和所有提供的信息真实有效，如有虚假，所引起的一切法律后果由本人承担。 \n
+                  {{nbsp}}3、若贵行在调查、审查、审批或贷后管理过程中，可能须查证本人的家庭信息、家庭房屋居住情况、收入等情况，本人以及本人配偶（如有）将根据贵行要求主动或配合前往相关部门或机构查询。 \n
+                
+                  {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}承诺人： <text class="text-border">{{item.relCusName}}</text>\n
+                  {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}承诺日期：<text class="text-border">{{Y}}</text>年<text class="text-border">{{M}}</text>月<text class="text-border">{{D}}</text>日\n\n
+            </text>
+          </view>
+          <view wx:else>
+            <view class="text-center text-family font-size-40" style="margin-top: 30rpx;">
+              个人贷款业务承诺书
+            </view>
+            <text class="cont-content title-size-30-1" decode='true' style="line-height: 45rpx;word-break:break-all">
+              {{nbsp}}江苏银行股份有限公司：
+                  {{nbsp}}本人（姓名： <text class="text-border">{{item.relCusName}}</text>，身份证号： <text class="text-border">{{item.relCertCode}}</text>），与借款人（姓名：<text class="text-border">{{item.cusName}}</text>，身份证号：<text class="text-border">{{item.certCode}}</text>）关系为：<text class="text-border">{{item.relation}}</text>，现因借款人在贵行办理<text class="text-border">{{item.prdName}}</text>业务（业务流水号为：<text class="text-border">{{item.serno}}</text>，申请金额（元）<text class="text-border">{{item.applyAmts}}</text> ，申请期限（月） <text class="text-border">{{item.applyTerm}}</text>，担保方式：<text class="text-border">{{item.guarWay}}</text> ，拟购房地址为：<text class="text-border">{{item.houseAddr}}</text>），本人现做出如下声明与承诺：\n
+                  {{nbsp}}1、本人职业为：<text class="text-border">{{item.occupation}}</text>，工作单位为：<text class="text-border">{{item.relWorkUnitName}}</text>，月收入（元）<text class="text-border">{{item.relyearIncomes}}</text> 。\n
+                  {{nbsp}}2、本人向贵行提供的所有资料和所有提供的信息真实有效，如有虚假，所引起的一切法律后果由本人承担。 \n
+                  {{nbsp}}3、若贵行在调查、审查、审批或贷后管理过程中，可能须查证本人的家庭信息、家庭房屋居住情况、收入等情况，本人以及本人配偶（如有）将根据贵行要求主动或配合前往相关部门或机构查询。 \n
+                
+                  {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}承诺人： <text class="text-border">{{item.relCusName}}</text>\n
+                  {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}承诺日期：<text class="text-border">{{Y}}</text>年<text class="text-border">{{M}}</text>月<text class="text-border">{{D}}</text>日\n\n
+            </text>
+          </view>
+        </view>      
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:if="{{isAuthor}}">
+      <view class="contaioner-foot" wx:if="{{showContractFlag != '2'}}">
+        <button class="btn-submit1" bindtap="nextAction" style="{{backBtnName===0?'':'background:#999'}}">
+          {{backBtnName===0?'查看下一份授权':'查看下一份授权('+backBtnName+'s)'}}
+        </button>
+      </view>
+      <view class="contaioner-foot" wx:if="{{showContractFlag == '2'}}">
+        <button class="btn-submit1" data-id="1" bindtap="goSubmit" style="{{backBtnName===0?'':'background:#999'}}">
+          {{backBtnName===0?'我已阅读并同意':'我已阅读并同意('+backBtnName+'s)'}}
+        </button>
+      </view>    
+  </view>
+  <view wx:else>
+      <view class="contaioner-foot" wx:if="{{showContractFlag != '1'}}">
+        <button class="btn-submit1" bindtap="nextAction" style="{{backBtnName===0?'':'background:#999'}}">
+          {{backBtnName===0?'查看下一份授权':'查看下一份授权('+backBtnName+'s)'}}
+        </button>
+      </view>
+      <view class="contaioner-foot" wx:if="{{showContractFlag == '1'}}">
+        <button class="btn-submit1" bindtap="goSubmit" style="{{backBtnName===0?'':'background:#999'}}">
+          {{backBtnName===0?'我已阅读并同意':'我已阅读并同意('+backBtnName+'s)'}}
+        </button>
+      </view>    
+  </view>
+</page-container>

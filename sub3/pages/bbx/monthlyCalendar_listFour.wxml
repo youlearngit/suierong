@@ -1,0 +1,65 @@
+<view class="containerbox">
+  <image class="containerbg" src="{{preffixUrl}}msgitem_img.png" mode="widthFix"></image>
+  <view class="textboxone">
+    <view>苏州国际精英创业周</view>
+    <view>活动</view>
+  </view>
+  <view class="bottombox">
+    <view class="bottomContainer">
+      <image class="bottomContainerbg" src="{{preffixUrl}}content_img.png" mode="widthFix"></image>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        申报时间
+      </view>
+      <view class="box1_text">2022年7月10日</view>
+      <!-- <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        申报对象
+      </view>
+      <view class="box1_text">外国国籍人才牵头的专家项目、团队项目、引智项目及工作室项目</view>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        支持政策
+      </view>
+      <view class="box1_text">30万-100万资助</view> -->
+
+      <!-- 活动内容 -->
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        活动内容
+      </view>
+      <view class="box1_text">四大产业创新集群和数字经济领域人才嘉宾实地考察洽谈，促进人才、项目、载体、资金、新充分对接合作</view>
+      <!-- 截止时间 -->
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        截止时间
+      </view>
+      <view class="box1_text">2022年7月12日</view>
+
+      <!-- <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        申报网址
+      </view>
+      <view class="box1_text">www.baidu.com</view> -->
+      <!-- <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        咨询部门
+      </view>
+      <view class="box1_text">南京市科技局</view>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        咨询电话
+      </view>
+      <view class="box1_text">025-68786283</view> -->
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        活动链接
+      </view>
+      <!-- 二维码 -->
+      <view class="box1_text">
+        <image class="box1img2" src="{{preffixUrl}}listFour.png" show-menu-by-longpress="{{true}}"></image>
+        <view class="box1count2">(长按识别二维码)</view>
+      </view>
+    </view>
+  </view>
+</view>

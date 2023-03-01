@@ -1,0 +1,21 @@
+{
+  "name": "sui",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "@babel/runtime": "^7.10.5",
+    "miniprogram-api-promise": "^1.0.4",
+    "miniprogram-computed": "^4.0.5",
+    "miniprogram-sm-crypto": "^0.1.0",
+    "@vant/weapp": "1.10.5",
+    "@vant/area-data": "*",
+    "dayjs": "^1.11.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

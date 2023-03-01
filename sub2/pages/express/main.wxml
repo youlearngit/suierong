@@ -1,0 +1,71 @@
+<!--sub1/pages/express/main.wxml-->
+<form bindsubmit="submitForm" report-submit='true'>
+  <view class="section">
+
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">公司名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input value="{{sndaddress.cust_name}}" bindblur='cutname' bindinput="cutname" class="weui-input" placeholder="请输入公司名称" />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input" bindtap='tolist'>
+        <view class="weui-cell__hd">
+          <view class="weui-label">寄件人信息</view>
+        </view>
+        <view class="weui-cell__bd" value='sndaddress'>
+          <text style="font-size:12px;">{{sndaddress.real_name}} {{sndaddress.tel}}</text>
+          <text style="float:left;font-size:10px;color:gray;">{{sndaddress.province}}{{sndaddress.city}}{{sndaddress.county}}{{sndaddress.address}}</text>
+          <input wx:if="{{sndaddress.real_name==''}}" value="" disabled='disabled' class="weui-input" placeholder="点击获取寄件人信息" />
+        </view>
+        <view class="fhts_hd_chose">
+          <image mode="aspectFit" lazy-load="true" class="ico_local" src="/pages/public/img/ico_local.jpg"></image>
+        </view>
+
+      </view>
+
+      <view class="weui-cell weui-cell_input" bindtap="receipt">
+        <view class="weui-cell__hd">
+          <view class="weui-label">收件人信息</view>
+        </view>
+        <view class="weui-cell__bd">
+          <text style="font-size:12px;">{{custList.ADDRESSEE_NAME_BORDER}} {{custList.ADDRESSEE_MOBIL_BORDER}}</text>
+          <text style="float:left;font-size:10px;color:gray;">{{custList.RECEIVE_ADDRESS_BORDER}}</text>
+          <input wx:if="{{custList==''}}" value="" disabled='disabled' class="weui-input" placeholder="点击获取收件人信息" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">业务类型</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="bustypeIndex" bindchange="bindbustypeChange" value="{{ form.bustypeIndex}}" range="{{ bustype }}">
+            <view class="weui-select weui-select_in-select-after">
+              <input disabled='disabled' value="{{bustype[form.bustypeIndex]}}" class="weui-input" style="width:70%;display:inline-block;" type="text" placeholder="请选择业务类型" />
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">上门时间</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="timerangeIndex" bindchange="bindtimerangeChange" value="{{ form.timerangeIndex}}" range="{{ timerange }}">
+            <view class="weui-select weui-select_in-select-after">
+              <input disabled='disabled' value="{{timerange[form.timerangeIndex]}}" class="weui-input" style="width:70%;display:inline-block;" type="text" placeholder="请选择上门时间" />
+            </view>
+          </picker>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="button-sp-area">
+    <button class="btn" formType="submit" bindtap="">提交</button>
+  </view>
+
+</form>

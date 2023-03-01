@@ -1,0 +1,43 @@
+<view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+        <view class="backPage" bindtap='prePage'>
+            <image src="/pages/public/img/ico_back.png"></image>
+        </view>
+        <view class="backIndex" bindtap='indexpage'>
+            <image src="/pages/public/img/ico_ind.png"></image>
+        </view>
+    </view>
+</view>
+<view class="wrapCommon" id='wrapCommon'>
+    <view class="coverBgray" hidden='{{coverBgray}}'></view>
+    <view class='banner'>
+        <image class="dianApplicateBanner" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/common/banner_1000.jpg"></image>
+        
+    </view>
+</view>
+
+<view wx:if='{{nodata}}' class="nodataTips">
+    <view class="flexClow">
+    <image class="appQrc" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/fhts/suzhouapp.jpg"></image>
+    <view class="p">请您在苏州征信APP完成注册后重新申请</view>
+    </view>
+</view>
+
+<view wx:else class="authList">
+    <navigator class="authCon" wx:for="{{list}}" wx:key="key" wx:for-index="indexnum" url="apli?orgID={{item.entpriseId}}&&orgName={{item.entpriseName}}&&address={{item.entpriseAddr}}&&slider={{item.applyAmount}}&&tel={{item.legalPersonPhone}}&&orderNo={{item.applyId}}">
+        <view class="indexnum">{{indexnum+1}}</view>
+        <view class="h1">{{item.entpriseName}}</view>
+        <view class="p">网贷订单号：{{item.applyId}}</view>
+        <view class="authStatus" style="margin-top:20rpx">
+            <text class="f20">申请金额</text>
+            <text class="b">{{item.applyAmount}}</text>
+            <text class="f20">万元</text>
+        </view>
+    </navigator>
+    <view class="nodata">
+        <text>{{pageTips}}</text>
+    </view>
+</view>

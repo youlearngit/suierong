@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "van-switch": "/sub4/static/vant/weapp/switch/index",
+    "van-image": "/sub4/static/vant/weapp/image/index",
+    "van-field": "/sub4/static/vant/weapp/field/index",
+    "van-cell-group":"/sub4/static/vant/weapp/cell-group/index",
+    "van-cell":"/sub4/static/vant/weapp/cell/index",
+    "van-popup": "/sub4/static/vant/weapp/popup/index",
+    "van-picker": "/sub4/static/vant/weapp/picker/index",
+    "van-datetime-picker": "/sub4/static/vant/weapp/datetime-picker/index",
+    "van-radio": "/sub4/static/vant/weapp/radio/index",
+    "van-radio-group": "/sub4/static/vant/weapp/radio-group/index"
+  }
+}

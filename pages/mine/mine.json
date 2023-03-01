@@ -1,0 +1,10 @@
+{
+ 
+"usingComponents": {
+  "cu-custom": "/component/cu-custom/cu-custom"
+},
+"navigationBarBackgroundColor": "#353b50",
+"navigationBarTextStyle": "white",
+"enablePullDownRefresh": false,
+"navigationStyle": "custom"
+}

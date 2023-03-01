@@ -1,0 +1,83 @@
+<view class='button_container' wx:if="{{type==='add'}}">
+  <block wx:for="{{buttons}}" wx:key="buttons">
+    <view class="entub" class='{{item.checked?"checked_button":"normal_button"}}' data-id='{{item.id}}' bindtap='radioButtonTap'>{{item.name}}  </view>
+  </block>
+    
+  <view class="myinji" wx:if="{{mybuht}}"><image class="myabsui" src="{{testUrl}}/static/wechat/img/invite/subtag.png" /></view>
+  <view class="mysubtag" wx:if="{{mybgyc}}"><image class="myabsui" src="{{testUrl}}/static/wechat/img/invite/subtag.png" /></view>
+</view>
+<!-- 以上是单选 -->
+<view wx:if="{{type==='add'}}" class="content">
+    <image class="bg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/invite/bg.png" mode="widthFix" />
+    <view class="field">
+        <view class="label">客户姓名</view>
+        <input type="text" name='userName' style="text-align: right;" model:value="{{inviteeName}}" placeholder="请输入客户姓名"
+            placeholder-class="input-placeholder"></input>
+    </view>
+    <view class="field"  wx:if="{{addincard}}">
+        <view class="label">
+          企业名称
+        </view>
+        <input type="text" style="text-align: right;" placeholder="请输入企业名称" bindfocus="showBaseEnter" bindinput="searchEnter"
+            value="{{enterpriseInfo.eNTNAME}}" name="COMPANY_NAME" placeholder-class="input-placeholder"></input>
+        <scroll-view scroll-y class="enter-list" wx:if="{{showBaseEnter}}">
+            <view class="m1" wx:for="{{enterpriseCardInfo}}" bind:tap="chooseEnter" data-orgname="{{item.ORG_NAME}}">
+                {{item.ORG_NAME}}
+            </view>
+        </scroll-view>
+    </view>
+    <view class="enterprise" wx:if="{{hasEnterPrise}}">
+        <view class="field">
+            <view class="label">统一社会信用代码</view>
+            <input type="text" style="text-align: right;" value="{{enterpriseInfo.cREDITCODE}}"></input>
+        </view>
+        <view class="field">
+            <view class="label">客户与企业关系</view>
+            <view bind:tap="pickRelationship">
+                <van-field label="" input-align="right" name="relationship" model:value="{{relationship}}" placeholder="请选择"
+                    readonly is-link />
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <button open-type="share" class="content-btn" style="background: url({{cndUrl}}/static/wechat/img/invite/btn_invite.png) no-repeat 0 0  / 100% 100%;">
+            立即邀请
+        </button>
+    </view>
+    <van-popup show="{{ showRelationshipPicker }}" position="bottom" bind:close="onClose">
+        <van-picker show-toolbar columns="{{ relationshipList }}" value-key='name' bind:cancel="onClose" bind:confirm="onConfirm"
+            bind:change="onChange" />
+    </van-popup>
+</view>
+<view wx:else class="content-invitation">
+    <image class="bg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/invite/bg_invite.png" mode="widthFix" />
+    <view class="content-invitation--head" hover-class="none" hover-stop-propagation="false">
+        尊敬的
+        <p class="" style='text-decoration: underline'>{{inviteeName}}</p>
+    </view>
+    <view class="content-invitation--desc" hover-class="none" hover-stop-propagation="false">
+        诚邀您体验江苏银行“圆融财富管家”活动，我行为您精心准备了多款存款、理财、基金、保险产品，欢迎您点击以下内容进行查询。
+    </view>
+    <image bindtap="showImg" class="content-invitation--banner" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/invite/banner@2x.png"
+        mode="widthFix" />
+    <view class="content-invitation--btn__confirm" style="background: url({{cndUrl}}/static/wechat/img/invite/btn_invite.png) no-repeat 0 0  / 100% 100%;"
+        hover-class="none" hover-stop-propagation="false" bind:tap="acceptInvitation">
+        接受邀请
+    </view>
+    <view class="footer-msg" hover-class="none" hover-stop-propagation="false">
+        * 如您暂时不参加活动，可直接关闭页面。
+    </view>
+</view>
+<van-popup show="{{ showMsg }}" position="center" custom-style='border-radius: 10rpx;'>
+    <view class="tips" style="background: url({{cndUrl}}/static/wechat/img/invite/{{msg.bg}}) no-repeat 0 0  / 100% 100%;">
+        <image class="tips-icon--error" wx:if='{{cndUrl&&msg.icon}}' src="{{cndUrl}}/static/wechat/img/invite/{{msg.icon}}" mode="widthFix" />
+        <view class="tips-msg1">{{msg.msg1}}</view>
+        <view class="tips-msg2">{{msg.msg2}}</view>
+        <view class="tips-btn--confirm" style="background: url({{cndUrl}}/static/wechat/img/invite/btn_msg.png) no-repeat 0 0  / 100% 100%;"
+            bind:tap="onClose" data-status='{{msg.status}}'>
+            {{msg.confirm_button_text}}
+        </view>
+    </view>
+</van-popup>
+<van-toast id="van-toast" />
+

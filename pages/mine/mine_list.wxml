@@ -1,0 +1,383 @@
+<view wx:for="{{apply}}">
+  <block wx:if="{{item.SHOW_STATE=='021'}}">
+    <view  class="a1">
+      <view bindtap="toMineApplicate" data-apply="{{item}}" data-sedid="{{item.A_ID}}" data-orderno="{{item.ORDER_NO}}" hover-class="none" open-type="navigate">
+        <view class="a11">
+          <view class="a111">订单编号 {{item.ORDER_NO}}</view>
+          <view class="a112">申请日期 {{item.APPLY_DATE}}</view>
+        </view>
+        <view class="a12">
+          <view class="res">
+            <view class="res1" >
+              待法人授权
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="a1" wx:if="{{item.SHOW_STATE!='0'}}">
+      <view bindtap="toMineApplicate" data-apply="{{item}}" data-sedid="{{item.A_ID}}" data-orderno="{{item.ORDER_NO}}" hover-class="none" open-type="navigate">
+        <view class="a11" wx:if="{{item.APPLY_TYPE!='16'}}" style="opacity: {{item.SHOW_STATE=='4'&&item.APPLY_TYPE=='14'?'0.4;':'1'}}">
+            <view class="a111">订单编号 {{item.ORDER_NO}}</view>
+            <view class="a112">申请日期 {{item.APPLY_DATE}}</view>
+        </view>
+        <view class="a11" wx:if="{{item.APPLY_TYPE==='16'}}" style="opacity: {{item.SHOW_STATE=='4'&&item.APPLY_TYPE=='14'?'0.4;':'1'}}">
+            <view class="a111">人才认证订单编号 {{item.ORDER_NO}}</view>
+            <view class="a112">申请日期 {{item.APPLY_DATE}}</view>
+        </view>
+        <view class="" style="background-color:#eeeeee;height:1rpx" style="opacity: {{item.SHOW_STATE=='4'&&item.APPLY_TYPE=='14'?'0.4;':'1'}}"></view>
+        <view class="a12" wx:if="{{item.SHOW_STATE=='2'&&item.APPLY_TYPE!='16'&&item.APPLY_TYPE!='14'&&item.APPLY_TYPE!='20'&&item.APPLY_TYPE!='21'}}" style="opacity: {{item.SHOW_STATE=='4'&&item.APPLY_TYPE=='14'?'0.4;':'1'}}">
+            <view class="res">
+                <view class="res1">受理中</view>
+            </view>
+        </view>
+        <view class="a12" wx:if="{{item.SHOW_STATE=='2'&&item.APPLY_TYPE=='21'}}" style="opacity: {{item.SHOW_STATE=='4'&&item.APPLY_TYPE=='14'?'0.4;':'1'}}">
+            <view class="res">
+                <view class="res1">人工审批中</view>
+            </view>
+        </view>
+        <view class="a12" wx:if="{{item.SHOW_STATE=='12'&& item.APPLY_TYPE=='21'}}" style="opacity: {{item.SHOW_STATE=='4'&&item.APPLY_TYPE=='14'?'0.4;':'1'}}">
+            <view class="res">
+                <view class="res1">受理中</view>
+            </view>
+        </view>
+        <view class="a12" wx:if="{{item.SHOW_STATE >'2'&&item.APPLY_TYPE!='14'&&item.APPLY_TYPE!='16'&&item.APPLY_TYPE!='20'&&item.APPLY_TYPE!='21'}}">
+            <view class="res">
+                <view class="res1">审批完成</view>
+            </view>
+        </view>
+        <view class="a12" wx:if="{{item.APPLY_TYPE=='20'}}">
+            <view class="res" wx:if="{{item.SHOW_STATE==2}}">
+                <view class="res1">已受理（额度测算中）</view>
+            </view>
+            <view class="" wx:if="{{item.SHOW_STATE==3}}">
+                <view class="ress">
+                    <view class="res3">
+                        {{item.APPLY_AMOUNT }}
+                        <text class="res31">万元</text>
+                    </view>
+                    <view class="res4">
+                        <view class="res21">额度期限 {{item.TERMS}}个月</view>
+                        <view class="res21">借款利率 {{item.RATEREALYEAR}}%</view>
+                    </view>
+                </view>
+                <!-- <view class="bt1" catch:tap="confirmCz" data-orderno="{{item.ORDER_NO}}"  data-apply="{{item}}" data-sedid="{{item.A_ID}}" >
+                    确认结果, 立即签约
+                </view> -->
+            </view>
+            <view class="res" wx:if="{{item.SHOW_STATE==5}}">
+                <!-- <view class="res1">
+                    <view class="">
+                        审批通过<text class="res11">{{item.APPLY_AMOUNT}}</text>万元
+                    </view>
+                    <view class="">
+                        额度期限<text class="res11">{{item.TERMS}}</text>个月
+                    </view>
+                    <view class="">
+                        借款利率<text class="res11">{{item.RATEREALYEAR}}%</text>
+                    </view>
+                </view> -->
+                      <block>
+                        <view class="">
+                            审批通过<text class="res11">
+                            <block wx:if="{{item.SHOWTYPE==1}}">{{item.AMOUNT_GD}}</block>
+                            <block wx:else>{{item.APPLY_AMOUNT}}</block>
+                            </text>万元
+                        </view>
+                        <view class="">
+                            额度期限<text class="res11">{{item.TERMS}}</text>个月
+                        </view>
+                        <view class="">
+                            借款利率<text class="res11">{{item.RATEREALYEAR}}%</text>
+                        </view>
+                      </block>
+                      <block wx:if="{{item.SHOWTYPE==1}}">
+                        <view  style="margin-top: 30rpx;" class="">
+                            审批通过<text class="res11">{{item.AMOUNT_FD}}</text>万元
+                        </view>
+                        <view class="">
+                            额度期限<text class="res11">{{item.TERMS}}</text>个月
+                        </view>
+                        <view class="">
+                            借款利率<text class="res11">{{item.ATTR1.rateRealYearFD}}%</text>
+                        </view>
+                      </block>
+                <view class="res2">
+                    <view class="res21">已确认</view>
+                    <image class="" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/snew-25.png" mode="widthFix" style="width:32rpx"></image>
+                </view>
+            </view>
+            <view class="res" wx:if="{{item.SHOW_STATE==4}}">
+                <view class="res1" >
+                    审批未通过
+                </view>
+            </view>
+            
+            
+        </view>
+        <view class="a12" wx:if="{{item.APPLY_TYPE=='21'&&tem.SHOW_STATE!=2}}">
+            <!-- <block wx:if="{{item.obligate4&&item.obligate4==='1'}}">
+                <view class="res">
+                    <view class="res1">已受理（待客户经理对接）</view>
+                </view>
+            </block> -->
+            <!-- <block wx:else> -->
+            <!--  wx:if="{{item.APPLY_AMOUNT && item.APPLY_AMOUNT != NaN}}"  -->
+                <view class="res" wx:if="{{item.ORDER_STATE==0||item.ORDER_STATE==1||item.ORDER_STATE==2||item.ORDER_STATE==11}}">
+                    <view class="res1">已受理（额度测算中）</view>
+                </view>
+                <view class="res" wx:if="{{item.SHOW_STATE==5}}">
+                <view class="res1">审批未通过</view>
+            </view>
+                <view class="" wx:if="{{item.APPLY_AMOUNT && item.APPLY_AMOUNT != NaN && item.SHOW_STATE!=5 && item.SHOW_STATE!=2 &&item.SHOW_STATE!=17}}" >
+                    <view class="ress">
+                        <view class="res3">
+                          <text class="res31">约</text>
+                            {{item.APPLY_AMOUNT}}
+                            <text class="res31">万元</text>
+                        </view>
+                        <view class="res4">
+                            <view class="res21">额度期限 12个月</view>
+                            <view class="res21">借款参考年化利率 {{item.ATTR3}}%</view>
+                        </view>
+                    </view>
+                    <view style="font-size: 25rpx;text-align: center;">利率仅供参考，以放款日与本行签约确定的利率为准。</view>
+                    <view class="bt1" catch:tap="confirm" data-orderno="{{item.ORDER_NO}}"  data-apply="{{item}}" data-sedid="{{item.A_ID}}" >
+                        确认结果, 立即签约
+                    </view>
+                    <!-- <view wx:if="{{!disabled}}" style="opacity:0.6;" class="bt1"  data-orderno="{{item.ORDER_NO}}"  data-apply="{{item}}" data-sedid="{{item.A_ID}}" >
+                        确认结果, 立即签约
+                    </view> -->
+                    <!-- <view catch:tap="applyArtificialService" data-orderno="{{item.ORDER_NO}}" data-index="{{index}}" class="up">
+                        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_up.png" mode="widthFix" style="width:30rpx"></image>
+                        <view class="up-text1">我要更多额度</view>
+                        <view class="up-text2">申请人工服务</view>
+                        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_arrow.png" mode="widthFix" style="width:20rpx"></image>
+                    </view> -->
+                </view>
+                <view class="res" wx:if="{{item.ORDER_STATE==21||item.SHOW_STATE==17}}">
+                    <view class="res1">
+                        <view class="">
+                          预审批通过<text class="res11">{{item.APPLY_AMOUNT}}</text>万元
+                        </view>
+                        <view class="">
+                            额度期限<text class="res11">12个月</text>
+                        </view>
+                        <view class="">
+                          借款参考年化利率<text class="res11">{{item.ATTR3}}%</text>
+                        </view>
+                    </view>
+                    <view class="res2">
+                        <view class="res21">已确认</view>
+                        <image class="" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/snew-25.png" mode="widthFix" style="width:32rpx"></image>
+                    </view>
+                </view>
+                <view class="res" wx:if="{{item.ORDER_STATE==41||item.ORDER_STATE==42||item.ORDER_STATE==43||item.ORDER_STATE==44||item.ORDER_STATE==46||item.ORDER_STATE==48}}">
+                    <view class="res1">
+                        <view class="">
+                            审批通过<text class="res11">{{item.APPLY_AMOUNT}}</text>万元
+                        </view>
+                        <view class="">
+                            额度期限<text class="res11">{{item.TERMS}}</text>个月
+                        </view>
+                        <view class="">
+                            借款利率<text class="res11">{{item.RATEREALYEAR}}%</text>
+                        </view>
+                    </view>
+                    <view class="res2">
+                        <view class="res21">已确认</view>
+                        <image class="" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/snew-25.png" mode="widthFix" style="width:32rpx"></image>
+                    </view>
+                </view>
+                <view class="res" wx:if="{{item.ORDER_STATE==41||item.ORDER_STATE==42||item.ORDER_STATE==43||item.ORDER_STATE==44||item.ORDER_STATE==46||item.ORDER_STATE==48}}">
+                      <block>
+                        <view class="">
+                            审批通过<text class="res11">
+                            <block wx:if="{{item.SHOWTYPE==1}}">{{item.AMOUNT_GD}}</block>
+                            <block wx:else>{{item.APPLY_AMOUNT}}</block>
+                            </text>万元
+                        </view>
+                        <view class="">
+                            额度期限<text class="res11">{{item.TERMS}}</text>个月
+                        </view>
+                        <view class="">
+                            借款利率<text class="res11">{{item.RATEREALYEAR}}%</text>
+                        </view>
+                      </block>
+                      <block wx:if="{{item.SHOWTYPE==1}}">
+                        <view  style="margin-top: 30rpx;" class="">
+                            审批通过<text class="res11">{{item.AMOUNT_FD}}</text>万元
+                        </view>
+                        <view class="">
+                            额度期限<text class="res11">{{item.TERMS}}</text>个月
+                        </view>
+                        <view class="">
+                            借款利率<text class="res11">{{item.ATTR1.rateRealYearFD}}%</text>
+                        </view>
+                      </block>
+                    <view class="res2">
+                        <view class="res21">已确认</view>
+                        <image class="" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/snew-25.png" mode="widthFix" style="width:32rpx"></image>
+                    </view>
+                </view>
+                <view class="res" wx:if="{{item.ORDER_STATE==5||item.ORDER_STATE==6||item.ORDER_STATE==7||item.ORDER_STATE==8||item.ORDER_STATE==9||item.ORDER_STATE==10||item.ORDER_STATE==12}}">
+                    <view class="res1" wx:if="{{item.ORDER_STATE==8||item.ORDER_STATE==10||item.ORDER_STATE==12}}">
+                        业务已终结
+                    </view>
+                    <view class="res1" wx:if="{{item.ORDER_STATE==6||item.ORDER_STATE==7}}">
+                        审批未通过
+                    </view>
+                    <view class="res1" wx:if="{{item.ORDER_STATE==5}}">准入失败</view>
+                    <view class="res1" wx:if="{{item.ORDER_STATE==9}}">系统异常，请稍后再试</view>
+                    <view class="res2" wx:if="{{item.ORDER_STATE==5||item.ORDER_STATE==6||item.ORDER_STATE==7||item.ORDER_STATE==8||item.ORDER_STATE==9||item.ORDER_STATE==10||item.ORDER_STATE==12}}">
+                        <view class="res21">联系客户经理</view>
+                        <image class="" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/snew-25.png" mode="widthFix" style="width:32rpx"></image>
+                    </view>
+                    <view class="artificial" catch:tap="applyArtificialService" data-orderno="{{item.ORDER_NO}}" data-index="{{index}}" wx:if="{{item.ORDER_STATE==6||item.ORDER_STATE==7}}">
+                        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/artificial_icon2.png" mode="widthFix" style="width:18rpx;margin: 0 10rpx 0 0;"></image>
+                        人工服务
+                    </view>
+                </view>
+            <!-- </block> -->
+            <!-- <view class="res" wx:if="{{item.ORDER_STATE==5||item.ORDER_STATE==6||item.ORDER_STATE==7||item.ORDER_STATE==8||item.ORDER_STATE==9||itesm.ORDER_STATE==10||item.ORDER_STATE==12}}">
+                <view class="bt1" >人工办理</view>
+            </view> -->
+            <!-- <view class="a121" catch:tap="toCommon" data-sedid="{{item.A_ID}}" wx:if="{{item.APPLY_TYPE=='14'&&item.ORDER_STATE!=8&&item.ORDER_STATE!=9&&item.ORDER_STATE!=10&&item.ORDER_STATE!=12}}">
+                我需要客户经理人工服务
+            </view> -->
+        </view>
+        <View class="a12" wx:if="{{item.APPLY_TYPE=='21' && item.ORDER_STATE==2}}">
+          <view class="res">
+                    <view class="res1">人工审批中</view>
+                </view>
+        </View>
+        <view class="a12" wx:if="{{item.APPLY_TYPE=='14' && item.APPLY_TYPE!='21'}}">
+            <block wx:if="{{item.obligate4&&item.obligate4==='1'}}">
+                <view class="res">
+                    <view class="res1">已受理（待客户经理对接）</view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="res" wx:if="{{item.ORDER_STATE==0||item.ORDER_STATE==1||item.ORDER_STATE==2||item.ORDER_STATE==11}}">
+                    <view class="res1">已受理（额度测算中）</view>
+                </view>
+                <view class="" wx:if="{{item.ORDER_STATE==3}}">
+                    <view class="ress">
+                        <view class="res3">
+                            <block wx:if="{{item.SHOWTYPE==1}}">
+                              {{item.AMOUNT_GD}}
+                            </block>
+                            <block wx:else>
+                              {{item.APPLY_AMOUNT }}
+                            </block>
+                            <text class="res31">万元</text>
+                        </view>
+                        <view class="res4">
+                            <view class="res21">额度期限 {{item.TERMS}}个月</view>
+                            <view class="res21">借款利率 {{item.RATEREALYEAR}}%</view>
+                        </view>
+                    </view>
+                    <!-- 新增 -->
+                    <view class="ress" wx:if="{{item.SHOWTYPE==1}}">
+                        <view class="res3">
+                            {{item.AMOUNT_FD}}
+                            <text class="res31">万元</text>
+                        </view>
+                        <view class="res4">
+                            <view class="res21">额度期限 {{item.TERMS}}个月</view>
+                            <view class="res21">借款利率 {{item.ATTR1.rateRealYearFD}}%</view>
+                        </view>
+                    </view>
+                    <view class="bt1" catch:tap="confirm" data-orderno="{{item.ORDER_NO}}"  data-apply="{{item}}" data-sedid="{{item.A_ID}}" >
+                        确认结果, 立即签约
+                    </view>
+                    <view catch:tap="applyArtificialService" data-orderno="{{item.ORDER_NO}}" data-index="{{index}}" class="up">
+                        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_up.png" mode="widthFix" style="width:30rpx"></image>
+                        <view class="up-text1">我要更多额度</view>
+                        <view class="up-text2">申请人工服务</view>
+                        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_arrow.png" mode="widthFix" style="width:20rpx"></image>
+                    </view>
+                </view>
+                <view class="res" wx:if="{{item.ORDER_STATE==41||item.ORDER_STATE==42||item.ORDER_STATE==43||item.ORDER_STATE==44||item.ORDER_STATE==46||item.ORDER_STATE==48}}">
+                    <view class="res1">
+                      <block>
+                        <view class="">
+                            审批通过<text class="res11">
+                            <block wx:if="{{item.SHOWTYPE==1}}">{{item.AMOUNT_GD}}</block>
+                            <block wx:else>{{item.APPLY_AMOUNT}}</block>
+                            </text>万元
+                        </view>
+                        <view class="">
+                            额度期限<text class="res11">{{item.TERMS}}</text>个月
+                        </view>
+                        <view class="">
+                            借款利率<text class="res11">{{item.RATEREALYEAR}}%</text>
+                        </view>
+                      </block>
+                      <block wx:if="{{item.SHOWTYPE==1}}">
+                        <view  style="margin-top: 30rpx;" class="">
+                            审批通过<text class="res11">{{item.AMOUNT_FD}}</text>万元
+                        </view>
+                        <view class="">
+                            额度期限<text class="res11">{{item.TERMS}}</text>个月
+                        </view>
+                        <view class="">
+                            借款利率<text class="res11">{{item.ATTR1.rateRealYearFD}}%</text>
+                        </view>
+                      </block>
+                    </view>
+                    <view class="res2">
+                        <view class="res21">已确认</view>
+                        <image class="" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/snew-25.png" mode="widthFix" style="width:32rpx"></image>
+                    </view>
+                </view>
+                <view class="res" wx:if="{{item.ORDER_STATE==5||item.ORDER_STATE==6||item.ORDER_STATE==7||item.ORDER_STATE==8||item.ORDER_STATE==9||item.ORDER_STATE==10||item.ORDER_STATE==12}}">
+                    <view class="res1" wx:if="{{item.ORDER_STATE==8||item.ORDER_STATE==10||item.ORDER_STATE==12}}">
+                        业务已终结
+                    </view>
+                    <view class="res1" wx:if="{{item.ORDER_STATE==6||item.ORDER_STATE==7}}">
+                        审批未通过
+                    </view>
+                    <view class="res1" wx:if="{{item.ORDER_STATE==5}}">准入失败</view>
+                    <view class="res1" wx:if="{{item.ORDER_STATE==9}}">系统异常，请稍后再试</view>
+                    <view class="res2" wx:if="{{item.ORDER_STATE==5||item.ORDER_STATE==6||item.ORDER_STATE==7||item.ORDER_STATE==8||item.ORDER_STATE==9||item.ORDER_STATE==10||item.ORDER_STATE==12}}">
+                        <view class="res21">联系客户经理</view>
+                        <image class="" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/snew-25.png" mode="widthFix" style="width:32rpx"></image>
+                    </view>
+                    <view class="artificial" catch:tap="applyArtificialService" data-orderno="{{item.ORDER_NO}}" data-index="{{index}}" wx:if="{{item.ORDER_STATE==6||item.ORDER_STATE==7}}">
+                        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/artificial_icon2.png" mode="widthFix" style="width:18rpx;margin: 0 10rpx 0 0;"></image>
+                        人工服务
+                    </view>
+                </view>
+            </block>
+            <!-- <view class="res" wx:if="{{item.ORDER_STATE==5||item.ORDER_STATE==6||item.ORDER_STATE==7||item.ORDER_STATE==8||item.ORDER_STATE==9||itesm.ORDER_STATE==10||item.ORDER_STATE==12}}">
+                <view class="bt1" >人工办理</view>
+            </view> -->
+            <!-- <view class="a121" catch:tap="toCommon" data-sedid="{{item.A_ID}}" wx:if="{{item.APPLY_TYPE=='14'&&item.ORDER_STATE!=8&&item.ORDER_STATE!=9&&item.ORDER_STATE!=10&&item.ORDER_STATE!=12}}">
+                我需要客户经理人工服务
+            </view> -->
+        </view>
+        <view class="a12" wx:if="{{item.APPLY_TYPE=='16'}}">
+            <view class="res" wx:if="{{item.SHOW_STATE==1}}">
+                <view class="res1">已受理</view>
+            </view>
+            <view class="res" wx:if="{{item.SHOW_STATE==2}}">
+                <view class="res1">认证通过</view>
+            </view>
+            <view class="res" wx:if="{{item.SHOW_STATE==3}}">
+                <view class="res1">认证失败</view>
+            </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<page>
+    <view>
+        <view class="nodata">
+            <text>{{pageTips}}</text>
+        </view>
+    </view>
+</page>

@@ -1,0 +1,131 @@
+<view class="f1" hover-class="none" hover-stop-propagation="false">
+    <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_601.png" mode="widthFix"></image>
+    <view class="f12" hover-class="none" hover-stop-propagation="false">江苏银行随e融</view>
+</view>
+<view class="new-broadcast">
+    <view class="new-userinfo">
+        <view wx:if="{{!hasUserInfo }}" class="new-userinfoBox">
+            <image class="new-userinfo-avatar" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/no_avator.png" mode="cover" />
+            <button class="new-getUserbtn" bindtap="getUserInfo">授权登录</button>
+        </view>
+        <view wx:else class="new-userinfoBox">
+            <image bindtap="bindViewTap" class="new-userinfo-avatar" wx:if='{{cndUrl}}' src="{{customerInfo.PHOTO}}" mode="cover" />
+            <view class="new-nameview">
+                <view class="new-nickname">{{customerInfo.NICK_NAME}}</view>
+                <view class="new-welcome">欢迎回来</view>
+            </view>
+        </view>
+    </view>
+    <view class="new-d">
+        <view class="new-dt">
+            <text class="new-day">{{day}}</text>
+            <text class="new-month">{{month}}月</text>
+        </view>
+        <view class="new-dd">
+            <view class="new-adlist">{{jitang}}</view>
+        </view>
+        <navigator hover-class='none' url='jitang?jt={{jitang}}' style="display:none">
+            <image class="new-share" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_61.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+        </navigator>
+    </view>
+</view>
+<view class="new-setInfo">
+    <view class="new-setInfo-l">
+        <view class="new-setInfo-tit">个人信息管理</view>
+        <view class="new-setInfo-des">全面的信息有效提高您的授信等级</view>
+    </view>
+    <navigator url='/sub1/pages/auth/index?taxflag=true' hover-class="none">
+        <view class="new-setInfo-btn">
+            <image class="new-setInfo-pic" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_62.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+            <text class="new-setInfo-word">去完善</text>
+        </view>
+    </navigator>
+</view>
+<view class="new-listCox">
+    <view class="weui-cells page__category-content">
+        <navigator url="mine_list">
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__hd">
+                    <image class="new-icoMine" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2046.png" />
+                </view>
+                <view class="weui-cell__bd">我的申请</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access" />
+            </view>
+        </navigator>
+        <view class="new-line"></view>
+        <navigator url="auth_list_auth">
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__hd">
+                    <image class="new-icoMine" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2048.png" />
+                </view>
+                <view class="weui-cell__bd">授权管理</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">处理您的待授权指令</view>
+            </view>
+        </navigator>
+        <view class="new-line"></view>
+        <!-- <navigator url="/sub1/pages/award/index">
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__hd">
+                    <image class="new-icoMine" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2047.png" />
+                </view>
+                <view class="weui-cell__bd">我的邀请</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access" />
+            </view>
+        </navigator> -->
+        <!-- <view class="new-line"></view> -->
+        <view bindtap='toRecommend'>
+            <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__hd">
+                    <image class="new-icoMine" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2047.png" />
+                </view>
+                <view class="weui-cell__bd">推荐有礼</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access" />
+            </view>
+        </view>
+        <view class="new-line"></view>
+        <!-- 烟商贷专项营销活动 -->
+        <!-- wx:if='{{showEmpModules}}' -->
+        <navigator wx:if='{{showEmpModules}}' url="/sub4/pages/ysdMarketing/ysd_marketing_activities">
+          <view class="weui-cell weui-cell_access">
+                <view class="weui-cell__hd">
+                    <image class="new-icoMine" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2047.png" />
+                </view>
+                <view class="weui-cell__bd">烟商贷专项营销</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access" />
+            </view>
+        </navigator>
+        <view class="new-line"></view>
+        <navigator wx:if='{{showEmpModules}}'>
+        
+         
+          <view class="weui-cell weui-cell_access" bindtap="toDevOfficer">
+                <view class="weui-cell__hd">
+                    <image class="new-icoMine" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2047.png" />
+                </view>
+                <view class="weui-cell__bd">发展推荐官</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access" />
+            </view>
+         
+     
+        </navigator>
+    </view>
+</view>
+<view wx:if='{{showEmpModules}}' style="text-align: center;font-size: 22rpx;color: #999999;margin-top: 20rpx;">
+    <!-- ―― 员工入口 ―― -->
+</view>
+<view wx:if='{{showEmpModules}}' style="margin-top: -15rpx">
+    <view class="new-listCox">
+        <view class="weui-cells page__category-content">
+            <view bindtap="getCardInfo" hover-class="navigator-hover">
+                <view class="weui-cell weui-cell_access">
+                    <view class="weui-cell__hd">
+                        <image class="new-icoMine" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2045.png" />
+                    </view>
+                    <view class="weui-cell__bd">我的工作平台</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access" />
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="" style="height:60rpx"></view>

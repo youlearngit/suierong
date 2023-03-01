@@ -1,0 +1,58 @@
+/* sub2/pages/ecCalculator/index.wxss */
+.ecTitle{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.ecTitle1{
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+
+  background: white;
+  color: #000000;
+}
+.ecTitleSel{
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  background: #417DD2;
+  color: white;
+}
+.content{
+  background: white;
+  padding:30rpx 0;
+
+}
+.ecinput1{
+  padding:40rpx 0;
+  margin:0 25rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+border-bottom: 1px solid #F0F3F8;
+}
+.ecinput2{
+  display: flex;
+  align-items: center;
+  color: grey;
+}
+page{
+  background: #F0F3F8;
+
+}
+span.arrow-down {
+  border-left: 2px solid grey;
+  border-bottom: 2px solid grey;
+  margin-left: 10rpx;
+  height: 6px;
+  width: 6px;
+  transform: translate(2px, -2px) rotate(-45deg);
+  -webkit-transform: translate(2px, -2px) rotate(-45deg);
+  border-right: 2px solid transparent;
+  border-top: 2px solid transparent;
+  display: inline-block;
+  -moz-transform: translate(2px, -2px) rotate(-45deg);
+  -ms-transform: translate(2px, -2px) rotate(-45deg);
+  -o-transform: translate(2px, -2px) rotate(-45deg);
+}

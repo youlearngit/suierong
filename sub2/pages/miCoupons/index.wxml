@@ -1,0 +1,14 @@
+<!--sub1/pages/miCoupons/index.wxml-->
+<view class="bg2" >
+	<view class="container1">
+
+		<view class="bg">
+			<image wx:if="{{preffixUrl}}"  style="width:100%;height:100vh;position: absolute;top: 0;bottom: 0;" src="{{preffixUrl}}{{img}}" />
+		</view>
+<view class="bgn" style="{{autoHeight}}">
+		<image wx:if="{{preffixUrl}}"  style="width:478rpx;height:85rpx;" src="{{preffixUrl}}/static/wechat/img/zm/zm_55_01.png" data-id="15010905" bindtap="getCoupons"/>
+		<image wx:if="{{preffixUrl}}"  style="width:478rpx;height:85rpx;margin-top: 29rpx;"  data-id="15009771" src="{{preffixUrl}}/static/wechat/img/zm/zm_55_02.png"  bindtap="getCoupons"/>
+</view>
+		</view>
+	</view>
+	<i-toast id="toast" />

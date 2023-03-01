@@ -1,0 +1,5 @@
+@import "auth_list.wxss";
+
+.history{text-align:right;}
+.rules{position:fixed;right:0;top:130rpx;width:200rpx;height:70rpx;margin-bottom:20rpx;background:linear-gradient(to right, rgba(241,187,0,.8), rgba(234,155,2,1));overflow:hidden;border-top-left-radius:70rpx; border-bottom-left-radius:70rpx;color:#fff;text-align:center;font-size:30rpx;line-height:70rpx;}
+.rules icon{vertical-align:baseline;}

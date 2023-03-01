@@ -1,0 +1,8 @@
+/* sub1/pages/list/list.wxss */
+.f4 {
+	width: 690rpx;
+  margin: 0 auto;
+  height: 160rpx;
+  padding-top: 18rpx;
+  
+}

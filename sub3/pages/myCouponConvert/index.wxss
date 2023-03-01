@@ -1,0 +1,110 @@
+/* sub3/pages/myCouponConvert/index.wxss */
+
+.item {
+    width: 45.1%;
+    height: 344rpx;
+    background: #FFFFFF;
+    border-radius: 12rpx;
+    margin-left: 4%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 31rpx;
+}
+
+page {
+    background: #f4f6f6;
+}
+
+.col {
+    display: flex;
+    flex-direction: row;
+}
+
+.convert-img {
+    width: 250rpx;
+    height: 180rpx;
+    position: absolute;
+    top: 42.8rpx;
+}
+
+.convert-coin {
+    width: 25.7rpx;
+    height: 23.6rpx;
+    position: absolute;
+    bottom: 48rpx;
+    left: 10rpx;
+}
+
+.convert-txt {
+    font-family: '''';
+    font-size: 32rpx;
+    color: #E64551;
+    letter-spacing: -0.62rpx;
+    position: absolute;
+    bottom: 40rpx;
+    left: 46rpx;
+}
+
+.convert-img1 {
+    width: 36rpx;
+    height: 36rpx;
+    position: absolute;
+    bottom: 39rpx;
+    left: 284rpx;
+}
+
+.comfirm {
+    background-image: linear-gradient(0deg, #4586E6 0%, #5898F5 100%);
+    box-shadow: 0 6rpx 13rpx 0 rgba(69, 134, 229, 0.30);
+    border-radius: 50rpx;
+    width: 42%;
+    /* margin-left: 4%; */
+    height: 100rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 34rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom{
+    display: flex;
+    width: 92%;
+    justify-content: space-between;
+    margin: 40rpx auto;
+}
+
+.a4 {
+	width: 690rpx;
+	/* position: absolute; */
+	/* left: 30rpx; */
+	/* top: 2664rpx; */
+    margin: auto;
+}
+
+.a5 {
+	opacity: 0.5;
+	font-family: PingFangSC-Medium;
+	font-size: 24rpx;
+	/* color: #ffffff; */
+	text-align: justify;
+	line-height: 40rpx;
+}
+
+.a6 {
+	opacity: 0.5;
+	font-family: PingFangSC-Light;
+	font-size: 24rpx;
+	/* color: #ffffff; */
+	text-align: justify;
+	line-height: 40rpx;
+}
+
+.font-bold{
+    font-weight: bold;
+}

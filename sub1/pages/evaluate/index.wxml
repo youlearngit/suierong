@@ -1,0 +1,143 @@
+<view class="order">
+    <view class="o-number">订单编号 {{applyInfo.ORDER_NO}}</view>
+    <view class="o-date-apply">申请日期 {{applyInfo.APPLY_DATE[0]}} {{applyInfo.APPLY_DATE[1]}}</view>
+    <view class="detail" style="display:flex">
+        <view class="d-money">
+            <block wx:if="{{applyInfo.SHOWTYPE==1}}">{{applyInfo.AMOUNT_GD}}</block>
+            <block wx:else>{{applyInfo.APPLY_AMOUNT}}</block>
+            <span class="d-money-unit">万元</span>
+        </view>
+        <view class="d-limit">
+            <text class="">
+                额度期限
+                <text class="d-limit-month">{{applyInfo.TERMS}}</text>
+                个月\n审批利率
+                <text class="d-limit-month">{{applyInfo.RATEREALYEAR}}%</text>
+            </text>
+        </view>
+    </view>
+    <view wx:if="{{applyInfo.SHOWTYPE==1}}" class="detail" style="display:flex">
+        <view class="d-money">
+            {{applyInfo.AMOUNT_FD}}
+            <span class="d-money-unit">万元</span>
+        </view>
+        <view class="d-limit">
+            <text class="">
+                额度期限
+                <text class="d-limit-month">{{applyInfo.TERMS}}</text>
+                个月\n审批利率
+                <text class="d-limit-month">{{applyInfo.ATTR1.rateRealYearFD}}%</text>
+            </text>
+        </view>
+    </view>
+
+    <view class="divider"></view>
+    <view class="progress-title">认证进度</view>
+    <view class="progress" style="">
+        <image mode="widthFix" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/icon_evaluate_loading.png" style="width:120rpx"></image>
+        <view class="progress-time">
+            {{applyInfo.APPLY_DATE[1]}}
+            <image mode="widthFix" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/icon_evaluate_line.png" style="width:120rpx"></image>
+            {{applyInfo.APPLY_DATE[0]}}
+        </view>
+        <image mode="widthFix" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/icon_evaluate_waiting.png" style="width:120rpx"></image>
+        <view class="progress-time">
+            <image mode="widthFix" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/icon_evaluate_line.png" style="width:120rpx"></image>
+        </view>
+        <image mode="widthFix" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/icon_evaluate_confirmed.png" style="width:120rpx"></image>
+    </view>
+    <view class="progress-desc">
+        <text class="">
+            已受理\n
+            <text style="opacity: 0.4;font-size: 22rpx;">额度测算中</text>
+        </text>
+        <text class="">
+            已审批\n
+            <text style="opacity: 0.4;font-size: 22rpx;">额度待确认</text>
+        </text>
+        <text class="">
+            已确认\n
+            <text style="opacity: 0.4;font-size: 22rpx;">额度已确认</text>
+        </text>
+    </view>
+</view>
+<view class="pingjia">
+    <image class="pingjia-bg-cardhead" src="{{cndUrl}}/static/wechat/img/sui/pingjia-card-head.png" mode="widthFix"></image>
+    <view class="pingjia1">
+        <view wx:if="{{!pingjia || isUnfold}}" class="pingjia-downup" bindtap="pingjiaStar" data-event="downup1" data-star="0">
+            <image src="{{cndUrl}}/static/wechat/img/sui/pingjia-icon-up.png" mode="widthFix"></image>
+        </view>
+        <view wx:else class="pingjia-downup" bindtap="pingjiaStar" data-event="downup1" data-star="0">
+            <image src="{{cndUrl}}/static/wechat/img/sui/pingjia-icon-down.png" mode="widthFix"></image>
+        </view>
+        <view class="pingjia-title1" wx:if="{{!pingjia||isUnfold}}">
+            感谢您的支持和信任！请您对我们的产品服务进行评价，您的满意是我们前进最大的动力！
+        </view>
+        <view class="pingjia-stars">
+            总体满意度
+            <view class="pingjia-star" wx:for="{{5}}" wx:key="index" bindtap="pingjiaStar" data-event="zongti" data-star="{{index+1}}">
+                <image wx:if="{{pingjia && index<pingjia.zongti}}" src="{{cndUrl}}/static/wechat/img/sui/pingjia-star-sel.png" mode="widthFix"></image>
+                <image wx:else src="{{cndUrl}}/static/wechat/img/sui/pingjia-star-unsel.png" mode="widthFix"></image>
+            </view>
+        </view>
+        <view class="pingjia-stars" wx:if="{{!pingjia || isUnfold}}">
+            产品满意度
+            <view class="pingjia-star" wx:for="{{5}}" wx:key="index" bindtap="pingjiaStar" data-event="chanpin" data-star="{{index+1}}">
+                <image wx:if="{{pingjia&&index<pingjia.chanpin}}" src="{{cndUrl}}/static/wechat/img/sui/pingjia-star-sel.png" mode="widthFix"></image>
+                <image wx:else src="{{cndUrl}}/static/wechat/img/sui/pingjia-star-unsel.png" mode="widthFix"></image>
+            </view>
+        </view>
+        <view class="pingjia-stars" wx:if="{{!pingjia || isUnfold}}">
+            服务满意度
+            <view class="pingjia-star" wx:for="{{5}}" wx:key="index" bindtap="pingjiaStar" data-event="fuwu" data-star="{{index+1}}">
+                <image wx:if="{{pingjia&&index<pingjia.fuwu}}" src="{{cndUrl}}/static/wechat/img/sui/pingjia-star-sel.png" mode="widthFix"></image>
+                <image wx:else src="{{cndUrl}}/static/wechat/img/sui/pingjia-star-unsel.png" mode="widthFix"></image>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{pingjia&&pingjia.zongti&&pingjia.chanpin&&pingjia.fuwu}}">
+        <view class="pingjia3" wx:if="{{pingjia && pingjia.zongti==5 && pingjia.chanpin==5 && pingjia.fuwu==5}}">
+            <view class="pingjia3-title1">感谢您的支持和信任！</view>
+            <view class="pingjia3-title2">
+                您愿意将
+                <text>随e贷</text>
+                推荐给您的朋友吗？
+            </view>
+            <view class="pingjia-btns">
+                <view data-url="/sub1/pages/share/index" bind:tap="choiceIfWillingToShare" class="pingjia-btn {{isWillingToShare?'pingjia-btn-act':''}}" data-choice="{{true}}">
+                    <image wx:if="{{isWillingToShare}}" src="{{cndUrl}}/static/wechat/img/sui/pingjia-willing.png" mode="widthFix"></image>
+                    <image wx:else src="{{cndUrl}}/static/wechat/img/sui/icon_willing_unchoosed.png" mode="widthFix"></image>
+                    愿意
+                </view>
+                <view data-url="/pages/mine/mine_list" class="pingjia-btn {{!isWillingToShare?'pingjia-btn-act':''}}" bind:tap="choiceIfWillingToShare" data-choice="{{false}}">
+                    <image wx:if="{{isWillingToShare}}" src="{{cndUrl}}/static/wechat/img/sui/pingjia-unwilling.png" mode="widthFix"></image>
+                    <image wx:else src="{{cndUrl}}/static/wechat/img/sui/icon_wuwilling_choosed.png" mode="widthFix"></image>
+                    不愿意
+                </view>
+            </view>
+        </view>
+        <view class="pingjia2" wx:else>
+            <view class="pingjia-title2">您觉得我们的服务还有哪些提升空间？</view>
+            <view wx:for="{{descList}}" wx:key="{{item.value}}" class="pingjia-radio" bindtap="pingjiaStar" data-event="downup1" data-star="{{item.value}}">
+                <image wx:if="{{pingjia && fn._indexOf(pingjia.downup1,item.value) }}" src="{{cndUrl}}/static/wechat/img/sui/pingjia-radio-sel.png" mode="widthFix"></image>
+                <image wx:else src="{{cndUrl}}/static/wechat/img/sui/pingjia-radio-unsel.png" mode="widthFix"></image>
+                {{item.name}}
+            </view>
+        </view>
+    </block>
+    <view class="pingjia-btns">
+        <view wx:if="{{pingjia &&pingjia.zongti&&pingjia.chanpin&& pingjia.fuwu&& pingjia.downup1||(pingjia &&pingjia.zongti==5&&pingjia.chanpin==5&& pingjia.fuwu==5)}}" class="pingjia-btn2" bindtap="pingjiaConfirm">
+            提交评价
+        </view>
+    </view>
+</view>
+<wxs module="fn">
+ module.exports = {
+     _indexOf:function(str1, str2){
+         if(!str1){
+             return false
+         }
+         return str1.indexOf(str2) > -1;
+    }
+}
+</wxs>

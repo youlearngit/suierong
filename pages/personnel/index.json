@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "人才e贷",
+  "usingComponents": {  
+      "my-login": "/component/login/index"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": false
+}

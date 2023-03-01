@@ -1,0 +1,24 @@
+/* sub6/pages/toolkit/steward.wxss */
+.steward{
+    width: 100%;
+    height:191%;
+}
+.bg {
+    width: 100%;
+    height: 100%;
+}
+image{
+    width: 100%;
+    height: 100%;
+}
+.back{
+    width: 100%;
+    height: 100rpx;
+}
+.float_talent_btn {
+	position: fixed;
+	top: 820rpx;
+	right: 0;
+	width: 196rpx;
+	height: 196rpx;
+}

@@ -1,0 +1,29 @@
+.apply_empower {
+	position: relative;
+	height: 166rpx;
+}
+.apply_empower button {
+	width: 464rpx;
+	height: 80rpx;
+	background: #F3F6FF;
+	border-radius: 41rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: SourceHanSansCN-Regular;
+	font-size: 26rpx;
+	color: #507AFF;
+	font-weight: 400;
+}
+.apply_empower button image:nth-last-of-type(1) {
+	width: 11rpx;
+	height: 17rpx;
+	margin-left: 10rpx;
+}
+.apply_empower .img {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 159rpx;
+	height: 166rpx;
+}

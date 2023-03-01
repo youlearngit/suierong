@@ -1,0 +1,42 @@
+.num{
+    height: 100%;
+    height: 100%;
+  }
+  .mybg{
+    width: 100%;
+    height: 100%;
+  }
+  .mycarddtk{
+      position: relative;
+      top: -1078rpx
+  }
+  .mycar{
+    width: 94%;
+    height: 912rpx;
+    margin-left: 3%;
+  }
+  .myan{
+    position: relative;
+    top: -1558rpx;
+  }
+  .myanuude{
+      width: 52%;
+      height: 90rpx;
+      background: #63A7FB;
+      border-radius: 81rpx;
+      color: #fff;
+      font-size: 31rpx;
+      line-height: 90rpx; 
+  }
+  .myautho{
+      width: 30rpx;
+      height: 30rpx;
+  }
+  .myglode{
+      position: relative;
+      top: -1220rpx;
+  }
+  .glode{
+    width: 200rpx;
+    height: 200rpx;
+  }

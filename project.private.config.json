@@ -1,0 +1,170 @@
+{
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false,
+    "bigPackageSizeSupport": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "客服文件上传",
+          "pathName": "sub4/pages/securityFileUpload/index",
+          "query": "token=c3ff05d89891",
+          "launchMode": "default",
+          "scene": 1194
+        },
+        {
+          "name": "",
+          "pathName": "sub3/pages/understanding/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub3/pages/bbx/innovate/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub3/pages/order/contract/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub5/pages/fillInInformation",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub3/pages/bbx/talents/index",
+          "query": "talents=0",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/carLoans/index",
+          "query": "scene=PRJ2022113000030141",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub4/pages/scanqrcode/newanswer",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub3/pages/bbx/home",
+          "query": "channel=000000QYB",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub2/pages/crossBorderE/register",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub1/pages/hw/index",
+          "query": "applyInfo=oyXzewR0v9ehyHIPl7JVc7-xliAeKuh1uTwi3KyU3V0bD3-vUuQMDucv33CbZb1pCWatGlqLE8CZuaYTXMvmA2YOUiN6x0uXipViqq5pxObFat6LYoN34WCUEnHMOv8dFLJzb9V8k-mRCzBKIVvJFgEgsqsj7ieJyu2Q95pAzgYX4ThnzsitOvWzBmgofSJcyI_lyXZE8SprkgQUoduypXHQP7Vt1x-GF_2_9HTJI8TpX8Qo9jdAC4MvOpwoWyfMHd1gjmecRASj3HjB964Vx2q38-zxb8lBqNpmdDSXgShNYrBudKUgqNlTheZ8L9ZVNqr2t1nTf17abaVXXIEr1J1emImDL72bFe3YMATa0_83YueYhj18kEJilF02UZBkMnR5K7VUjByKDOemotQrlNdZ0RCgo6O1oLoVfo7726U-8pLMtoqGZ7LXR9mcD8QfLyDCfTXuLeKtpRBSYxi6uIihOGN2ieYXj8I2o0udGFxmT6EQlmjmNRdwJV3_vxxI",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub1/pages/sui/index",
+          "query": "channel=000000JMT",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub2/pages/authConfirm/index",
+          "query": "scene=b4c6b3609536464dbb03742540ab59e8",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "e按揭",
+          "pathName": "pages/carLoans/index",
+          "query": "scene=PRJ2022011400028168",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub4/pages/scanqrcode/topic",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub4\\pages\\scanqrcode\\newanswer",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub4/pages/scanqrcode/newanswer",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub1/pages/account/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "征信授权首页",
+          "pathName": "sub2/pages/creditInfo/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub1/pages/shop/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub3/pages/bbx/entre",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "sub4/pages/msgReplenish/msgbl",
+          "query": "code=91320106302535609G",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "libVersion": "2.27.2",
+  "projectname": "%E9%9A%8Fe%E8%9E%8D"
+}

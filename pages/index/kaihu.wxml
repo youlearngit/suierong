@@ -1,0 +1,138 @@
+<view class="warp">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="kh1">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/kaihu_bg1.jpg"></image>
+  </view>
+  <view class="kh2">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/kaihu_bg2.jpg"></image>
+  </view>
+  <view class="intro">
+    <view class="service">
+      <view class="h2">
+        <span></span>小程序预开户四“心”服务
+        <span></span>
+      </view>
+      <view class="sxfw">
+        <view class="dl">
+          <view class="dt">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_kh_sx.png"></image>
+          </view>
+          <view class="dd">
+            <view class="f30">省心</view>
+            <view class="f24">开户申请 自动填写</view>
+          </view>
+        </view>
+        <view class="dl">
+          <view class="dt">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_kh_ax.png"></image>
+          </view>
+          <view class="dd">
+            <view class="f30">安心</view>
+            <view class="f24">证件需求 一目了然</view>
+          </view>
+        </view>
+        <view class="dl">
+          <view class="dt">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_kh_shux.png"></image>
+          </view>
+          <view class="dd">
+            <view class="f30">舒心</view>
+            <view class="f24">临柜即得 一次搞定</view>
+          </view>
+        </view>
+        <view class="dl">
+          <view class="dt">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_kh_fx.png"></image>
+          </view>
+          <view class="dd">
+            <view class="f30">放心</view>
+            <view class="f24">智能风控 科技助力</view>
+          </view>
+        </view>
+      </view>
+      <view class="tedian">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/kaihu_td.jpg"></image>
+        <view class="td t1">微信搜索“江苏银行融惠e点通”小程序, 随时随地，预约不受限；</view>
+        <view class="td t2">只需您扫一扫，证照信息全明了，应用大数据自动获取更多信息；</view>
+        <view class="td t3">柜面通过预约号，自动获开户款信息，现场帮您打印，您只需盖章确认即可；</view>
+      </view>
+    </view>
+    <view class="service">
+      <view class="h2">
+        <span></span>开户携带材料
+        <span></span>
+      </view>
+      <image class="cl" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/kaihu_cl.jpg"></image>
+    </view>
+  </view>
+</view>
+
+<view class='fbuttom'>
+  <view class=" btn " bindtap='showShare'>分
+    <text>\t\t\t\t\t\t</text>享</view>
+  <view bindtap="apli" class="btn blu ">立即申请</view>
+</view>
+
+
+
+<view class="{{shareBox}} ">
+
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}} " class="mask "></view>
+  <view class="canvas-box ">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px " canvas-id="mycanvas" />
+  </view>
+
+  <!-- <view class="tools ">
+    <view class="tb cancel " bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg "></image>
+      <block>取消</block>
+    </view>
+    <view class="tb savePic " bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg "></image>
+      <view class="saveTxt ">朋友圈</view>
+    </view>
+    <view class="tb shareToAPP" bindtap='intro'>
+      <image src="/pages/public/img/ico_savepic.jpg"></image>
+      <block>下载</block>
+    </view>
+
+  </view> -->
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+      </button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+
+</view>
+
+
+<view style='position:fixed;bottom:0;left:0;width:100%;height:50%;background:#fff;z-index:0;'></view>
+
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>

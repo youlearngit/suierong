@@ -1,0 +1,9 @@
+{
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "cu-custom": "/component/cu-custom/cu-custom-car"
+    },
+    "navigationBarTitleText": "信息确认",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black"
+}

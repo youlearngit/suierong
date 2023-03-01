@@ -1,0 +1,89 @@
+<!--sub3/pages/reservedAccChg/result.wxml-->
+<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_sucBgn.png" mode="widthFix" class="bgn">
+</image>
+
+<view class="resCon">
+
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_sucIco.png" mode="widthFix"
+    style="width: 120rpx;margin-left: 81rpx;">
+  </image>
+  <view class="resCon1">
+    <view class="resCon2">预约成功！</view>
+    <view class="resCon3">成功预约对公账户信息变更业务</view>
+
+  </view>
+</view>
+
+<view class="resCon4">
+  <view class="resCon6">
+    <view class="resCon5">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_dates.png" mode="widthFix"
+        style="width: 26rpx;">
+      </image>
+      预约号
+    </view>
+    <view style="width: 60%;word-break: break-all;">
+      {{info.yyh}}
+    </view>
+  </view>
+
+
+  <view class="resCon7">
+    <view style="display: inline-block;">请您于</view>
+    <view class="resCon8">30日</view>
+    <view style="display: inline;">内携带相关资料前往</view>
+    <view class="resCon8">江苏银行{{wdInfo.text}}网点</view>（{{wdInfo.DIZHII}}）办理开户业务。
+  </view>
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_res1.png" mode="widthFix"
+    style="width: 108%;margin: 28rpx 0 23rpx -28rpx;"></image>
+
+  <view class="resCon88">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_ld.png" mode="widthFix"
+      style="width: 38rpx;margin-right: 12rpx;"></image>
+    变更所需提供的材料如下:
+
+  </view>
+
+  <view class="resCon9">
+    <view class="resCon10">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_1.png" mode="widthFix"
+        style="width: 36rpx;margin-right: 15rpx;"></image>
+      单位结算账户相关信息确认函
+    </view>
+    <view class="resCon10">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_2.png" mode="widthFix"
+        style="width: 36rpx;margin-right: 15rpx;"></image>
+        单位主要证明文件
+    </view>
+    <view class="resCon10">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_3.png" mode="widthFix"
+        style="width: 36rpx;margin-right: 15rpx;"></image>
+        法人身份证件（正、背面）
+    </view>
+    <view class="resCon10">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_4.png" mode="widthFix"
+        style="width: 36rpx;margin-right: 15rpx;"></image>
+        经办人身份证（正、背面）
+    </view>
+    <view class="resCon10">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_5.png" mode="widthFix"
+        style="width: 36rpx;margin-right: 15rpx;"></image>
+        其他证明文件
+    </view>
+    <view class="resCon10" style="margin-bottom: 8rpx;">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_6.png" mode="widthFix"
+        style="width: 36rpx;margin-right: 15rpx;"></image>
+        变更银行结算账户申请书
+
+    </view>
+    <view class="resCon11">提供加盖公章的财务负责人证件复印件或原件均可</view>
+
+    <view class="resCon10" style="margin-bottom: 0;">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_7.png" mode="widthFix"
+        style="width: 36rpx;margin-right: 15rpx;"></image>
+        企业类客户需提供工商变更核准通知书
+    </view>
+  </view>
+</view>
+
+<view class="submit" bindtap="exit">完成</view>

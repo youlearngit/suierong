@@ -1,0 +1,304 @@
+<!--sub3/pages/reservedAccChg/company.wxml-->
+<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_bgn3.png" mode="widthFix" class="bgn">
+</image>
+<view class="title1">
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+    class="rac_rect1" />
+  <view class="title2">授权委托信息</view>
+</view>
+<form bindsubmit="submitForm" report-submit='true'>
+
+  <view class="title3">
+    <view class="title4_1" style="{{checked?'margin-bottom:24rpx':''}}">
+      <view class="title4">是否授权经办</view>
+      <van-switch checked="{{ checked }}" bind:change="onChange" active-color="#5C6CFF" size='25px'
+        inactive-color="#E6E6E6" />
+    </view>
+    <view class="bor" style="margin-top: 0;" wx:if="{{checked}}"></view>
+
+    <view class="com_title" wx:if="{{checked}}">
+      <view>授权经办人姓名</view>
+      <input placeholder="请输入姓名" style="text-align: right;" value="{{info.remark2}}" name='remark2' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;" wx:if="{{checked}}"></view>
+    <view style="width: 100%;padding-left: 60rpx;" wx:if="{{checked}}">
+      <van-cell title="证件种类及号码" is-link value="{{selectId.text}}" clickable bind:click='click1'
+        custom-class='valueCell11' />
+    </view>
+
+    <view class="title6" wx:if="{{checked}}">
+      <input placeholder="请输入" class="inpu1" value="{{info.remark4}}" name='remark4' />
+    </view>
+  </view>
+  <view class="title1" style="padding-top: 40rpx;    justify-content: space-between;    width: 92%;">
+  <view style="display: flex;align-items: center;">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+      class="rac_rect1" />
+    <view class="title2" >选择修改单位基本信息</view>
+  </view>
+  <view class="search_res2txt2" bindtap="allCheck" style="color: white;">
+      全选
+    </view>
+  </view>
+  <view class="com_con"  style="padding: 0;    width: 92%;">
+
+    <van-checkbox-group value="{{ checkAcc }}" bind:change="onChange1">
+
+    <block wx:for="{{List}}" wx:key='index'>
+      <view class="list">
+        <van-checkbox name="{{item.name}}" checked-color='#6D7CFF' ></van-checkbox>
+
+        <view class="listTxt">{{item.txt}} </view>
+        <!-- <view class="listTxt1">{{item.zhangh}}</view>
+        <view class="listTxt1" style="width: 30%;font-size: 24rpx;">({{item.txt}})</view> -->
+        <!-- class="check" -->
+      </view>
+    </block>
+    </van-checkbox-group>
+  </view>
+  <view class="title1" style="padding-top: 40rpx;">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect1.png" mode="widthFix"
+      class="rac_rect1" />
+    <view class="title2" style="color: #3E415C;">单位基本信息</view>
+  </view>
+
+  <view class="com_con">
+    <view class="title5 title7">
+      <view>账户中文名</view>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_sea.png" mode="widthFix"
+        class="searchTxt" bindtap="searchArea" data-type="1"/>
+    </view>
+    <view class="title6">
+      <input placeholder="请输入"bindinput='watchZhzwm' class="inpu1" value="{{info.zhzwm}}" name='zhzwm' />
+    </view> 
+    
+    <!-- <view class="com_title" style="opacity: 0.49;font-size: 24rpx;">
+      <view>变更客户中文名</view>
+      <view>{{info.khzwm}}</view>
+    </view> -->
+
+    <view class="bor" style="margin-top: -15rpx;"></view>
+
+    <view class="title5" style="margin-top: 28rpx;">统一社会信用代码</view>
+    <view class="title6">
+      <input placeholder="请输入" class="inpu1" value="{{info.shxydm}}" name='shxydm' />
+    </view>
+    <view class="bor"></view>
+    <!-- dateSel -->
+    <van-cell title="营业执照有效期" is-link value="{{info.govinExpireDate}}" clickable bind:click='click2'
+      custom-class='valueCell11' border="{{false}}" data-name='govinExpireDate' />
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <van-cell title="有效日期" is-link value="{{info.yxrq}}" clickable bind:click='click3' custom-class='valueCell11'
+      border="{{false}}" />
+    <view class="bor" style="margin-top: 0;"></view>
+    <van-cell title="账户标志" is-link value="{{info.zhbz}}" clickable bind:click='click5' custom-class='valueCell11'
+      border="{{false}}" />
+    <view class="bor" style="margin-top: 0;"></view>
+    <van-cell title="账户性质" is-link value="{{info.zhxz}}" clickable bind:click='click4' custom-class='valueCell11'
+      border="{{false}}" />
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="title5 title7" style="margin-top: 28rpx;">
+      <view>执照注册地址</view>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_sea.png" mode="widthFix"
+        class="searchTxt" bindtap="searchArea"  data-type="1"/>
+    </view>
+    <view class="title6">
+      <input placeholder="请输入" class="inpu1" value="{{info.liceAppAddr}}" name='liceAppAddr' />
+    </view>
+    <view class="bor"></view>
+    <!-- <van-cell-group custom-class='vanCell1'>
+    <van-field value="{{ username }}" clearable label="注册资金" placeholder="请输入" input-align="right" />
+  </van-cell-group> -->
+    <view class="com_title">
+      <view>注册资金(元)</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.regCptl}}" name='regCptl' />
+     
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <van-cell title="行业类别" is-link value="{{selectTxt}}" clickable bind:click='clickType' custom-class='valueCell11'
+      border="{{false}}" />
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="title7" style="margin-top: 28rpx;">
+      <view>经营范围</view>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_sea.png" mode="widthFix"
+        class="searchTxt" bindtap="searchArea"  data-type="1"/>
+    </view>
+    <textarea class="title6 title66" style="height:165rpx;  width: 92%; background: #F2F6FF;border-radius: 10rpx;"
+      value="{{info.custMainBusn}}" name='custMainBusn'></textarea>
+    <view class="bor"></view>
+
+    <!-- <van-cell-group custom-class='vanCell1'>
+    <van-field value="{{ username }}" clearable label="审批文号" placeholder="请输入" input-align="right" />
+    <van-field value="{{ username }}" clearable label="批文有效日期" placeholder="请输入" input-align="right" />
+    <van-field value="{{ username }}" clearable label="办公电话" placeholder="请输入" input-align="right" />
+    <van-field value="{{ username }}" clearable label="办公地址邮编" placeholder="请输入" input-align="right" />
+  </van-cell-group> -->
+
+    <view class="com_title">
+      <view>审批文号</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.appCertNo}}" name='appCertNo' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+    <view class="com_title">
+      <view>批文有效日期</view>
+      <input placeholder="请选择" style="text-align: right;" value="{{info.appCertExpireDate}}" disabled
+        data-name='appCertExpireDate' bindtap="click2" />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+
+    <view class="com_title">
+      <view>办公电话</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.workTel}}" name='workTel' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;"></view>
+
+
+    <view class="com_title">
+      <view>办公地址邮编</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.posrCd}}" name='posrCd' />
+
+    </view>
+    <view class="bor" style="margin-top: 0;margin-bottom: 30rpx;"></view>
+
+    <view class="title5">办公地址</view>
+    <view class="title6">
+      <input placeholder="请输入" class="inpu1" value="{{info.workAddr}}" name='workAddr' />
+    </view>
+
+    <view class="bor" style="margin-top: 0;margin-bottom: 30rpx;"></view>
+
+    <view class="title5">资金币种</view>
+    <view class="title6"  bindtap="onclickBi">
+      <view  class="inpu1"  name='zczjbzTxt'  >{{info.zczjbzTxt==''?'请选择':info.zczjbzTxt}}</view>
+    </view>
+    <input style="display: none;" value="{{info.zczjbz}}" disabled data-name='zczjbz' />
+
+    <view class="bor" style="margin-top: 0;margin-bottom: 30rpx;"></view>
+
+    <view class="title5">上级机构基本存款账户核准号</view>
+    <view class="title6">
+      <input placeholder="请输入" class="inpu1" value="{{info.zhbzh}}" name='zhbzh' />
+    </view>
+
+    <view class="bor" style="margin-top: 0;"></view>
+    <view class="com_title">
+      <view>上级机构负责人姓名</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.fzrmc}}" name='fzrmc' />
+
+    </view>
+
+
+    <view class="com_title">
+      <view style="width: 60%;">上级机构负责人证件种类</view>
+      <input placeholder="请选择" style="text-align: right;" value="{{info.fzrzjzlTxt}}" disabled data-name='fzrzjzlTxt'
+        bindtap="onPopupEvent" />
+
+    </view>
+    <input style="display: none;" value="{{info.fzrzjzl}}" disabled data-name='fzrzjzl' />
+
+    <view class="bor" style="margin-top: 0;"></view>
+    <view class="com_title">
+      <view style="width: 60%;">上级机构负责人证件号码</view>
+      <input placeholder="请输入" style="text-align: right;" value="{{info.fzrzjh}}" name='fzrzjh' />
+
+    </view>
+  </view>
+  <!-- <navigator class="next" url="./person">下一步</navigator> -->
+  <button class="next" formType="submit"> 下一步</button>
+</form>
+
+<van-popup show="{{idCardSelShow}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent1">
+  <van-picker columns="{{ cardTypeList }}" show-toolbar bind:cancel="onCancel" bind:confirm="confirmIdCard"
+    title="证件种类选择" />
+</van-popup>
+
+<van-popup show="{{biTypeListShow}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent1">
+  <van-picker columns="{{ biTypeList }}" show-toolbar bind:cancel="onCancel" bind:confirm="confirmBiType"
+    title="资金币种选择" />
+</van-popup>
+<van-popup show="{{validdateSelShow}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent3">
+  <van-picker columns="{{ validDateColumns }}" bind:cancel="onCancel3" bind:confirm="confirm3" show-toolbar
+    title="有效日期" />
+
+</van-popup>
+<van-popup show="{{accountSelShow}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent4">
+  <van-picker columns="{{ accountColumns }}" bind:cancel="onCancel4" bind:confirm="confirm4" show-toolbar
+    title="账户性质" />
+
+</van-popup>
+<van-popup show="{{flagSelShow}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent5">
+  <van-picker columns="{{ flagColumns }}" bind:cancel="onCancel5" bind:confirm="confirm5" show-toolbar
+    title="账户标志" />
+
+</van-popup>
+<van-popup show="{{dateSelShow}}" position="bottom" custom-style="border-radius: 16rpx;width:100%;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent2">
+  <van-datetime-picker type="date" value="{{ currentDate }}" bind:input="onInput" min-date="{{ minDate }}" max-date="{{ maxDate }}"
+    formatter="{{ formatter }}" bind:cancel="onCancel2" bind:confirm="confirm2" />
+</van-popup>
+<van-overlay show="{{showOver}}" z-index='1000'>
+  <view class="acc_model">
+    <view style="padding-bottom: 50rpx">
+      <view class="acc_tradeTip">
+        <image src="{{preffixUrl}}/static/wechat/img/zm/acc_tradeType.png" class="acc_tradeType" />
+        <view class="acc_tradeTxt1">行业分类</view>
+      </view>
+      <view class="acc_tradeBorder"></view>
+      <scroll-view scroll-y style="height: 100vh;">
+
+        <view wx:for="{{tradeTypeList}}" wx:key="index" class="acc">
+          <view class="acc_types" catchtap="selectId1C" data-id="{{item.id}}">
+            <view class="acc_typesItem">{{ item.id }}</view>
+            <view class="acc_typesItem1">{{ item.txt }}</view>
+            <image src="{{preffixUrl}}/static/wechat/img/zm/industryDI.png" class="acc_typesItem2"
+              wx:if="{{selectId1 == item.id}}" />
+          </view>
+          <view wx:for="{{item.child}}" wx:for-item='item1' wx:for-index='index1' wx:key="index1">
+            <view class="{{selectId2 == item1.id? 'acc_typesItem3Select': 'acc_typesItem3'}}"
+              wx:if="{{selectId1 == item.id}}" catchtap="selectId2C" data-id="{{item1.id}}">
+              <image src="{{preffixUrl}}/static/wechat/img/zm/industryWA.png" class="acc_typesItem4"
+                wx:if="{{selectId2 == item1.id}}" />
+              <image src="{{preffixUrl}}/static/wechat/img/zm/industryPR.png" class="acc_typesItem6" wx:else />
+
+              <view class="{{  selectId2 == item1.id? 'acc_typesItem5Select': 'acc_typesItem5'}}">
+                {{ item1.txt }}
+              </view>
+            </view>
+            <view wx:for="{{item1.child}}" wx:for-item='item11' wx:for-index='index11' wx:key="index11">
+              <view class="acc_typesItem7" catchtap="selectId3C" wx:if="{{selectId2 == item1.id}}"
+                data-id="{{item11.id}}">
+                <image src="{{preffixUrl}}/static/wechat/img/zm/industryPA.png" class="acc_typesItem8"
+                  wx:if="selectId3 == item11.id" />
+
+                <image src="{{preffixUrl}}/static/wechat/img/zm/industryPR.png" class="acc_typesItem11" v-else />
+                <view class="acc_typesItem9">{{ item11.txt }}</view>
+              </view>
+              <view wx:for="{{item11.child}}" wx:for-item='item111' wx:for-index='index111' wx:key="index111">
+                <view class="{{selectId4 == item111.id? 'acc_typesItem10Select': 'acc_typesItem10'}}"
+                  catchtap="selectId4C" data-id="{{item111.id}}" data-txt="{{item111.txt}}"
+                  wx:if="{{selectId3 == item11.id}}">
+                  {{ item111.txt }}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</van-overlay>

@@ -1,0 +1,62 @@
+<view class='banner'>
+  <image class="dianApplicateBanner" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/common/ked_bannerBig.jpg"></image>
+</view>
+
+<view class="page" style='padding-bottom:100rpx;'>
+  <!-- <image class="bg1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen1.jpg"></image> -->
+  <image class="bg2" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen2.jpg"></image>
+  <image class="bg3" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_wei1.png"></image>
+  <icon type="success" size="80" color='#0168b7' />
+  <text class="tips">审批通过</text>
+  <view class="formtag">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        审批通过金额（元）：
+      </view>
+      <view class="weui-cell__bd">
+        {{amount}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        审批通过期限（月）：
+      </view>
+      <view class="weui-cell__bd">
+        {{term}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        审批通过利率（年）：
+      </view>
+      <view class="weui-cell__bd">
+        {{nianlvli}}%
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        审批通过时间：
+      </view>
+      <view class="weui-cell__bd">
+        {{date}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        用款方式：
+      </view>
+      <view class="weui-cell__bd">
+        随借随还
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        支用方式：
+      </view>
+      <view class="weui-cell__bd">
+       自主支付/受托支付
+      </view>
+    </view>
+  </view>
+  <navigator class="btn" hover-class='none' open-type="switchTab" url='/pages/shop/index2'>返回主页</navigator>
+</view>

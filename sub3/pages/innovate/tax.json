@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "van-loading": "/sub3/static/vant/weapp/loading/index"
+  }
+}

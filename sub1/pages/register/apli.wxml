@@ -1,0 +1,131 @@
+<view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+  <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+    <image src="/pages/public/img/ico_ind.png"></image>
+  </view>
+  <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+    <view class="backPage" bindtap='prePage'>
+      <image src="/pages/public/img/ico_back.png"></image>
+    </view>
+    <view class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="wrapCommon" id='wrapCommon'>
+  <view class="coverBgray" hidden='{{coverBgray}}'></view>
+  <view class='banner'>
+    <image class="dianApplicateBanner" style='height:360rpx;' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/register/banner_ebank.jpg"></image>
+  </view>
+
+  <view class="{{pagescroll}}">
+    <image class="bg1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen1.jpg"></image>
+    <image class="bg2" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen2.jpg"></image>
+
+    <view class="page__bd">
+      <form bindsubmit="submitForm" report-submit='true'>
+
+
+        <view class="section pr">
+          <view class="weui-cells__title">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_frxx.png"></image>
+            <text>注册信息</text> </view>
+          <view class="weui-cells weui-cells_after-title" hidden="{{flag_org_diy}}">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">姓名</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="name" id="name" value="{{ form.name }}" bindblur='blurCity' class="weui-input" type="name" maxlength='6' placeholder="请输入姓名" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">身份证号</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="idCard" id="idCard" value="{{ form.idCard }}" bindblur='blur' class="weui-input" type="text" placeholder="请输入身份证号" />
+              </view>
+            </view>
+
+
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">手机号</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input name="tel" id="tel" bindblur='blur' value="{{ form.tel }}" bindblur='getPhoneValue' bindinput="getPhoneValue" maxlength="11" class="weui-input" type="number" placeholder="请输入手机号" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">短信验证码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" name="verycode" id="verycode" placeholder='请输入验证码' type='number' maxlength='6' bindinput='getCodeValue' value='{{code}}' />
+              </view>
+              <view class="weui-cell__ft">
+                <button class='codeBtn' bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
+              </view>
+            </view>
+
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">登录密码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" name='pwd' id='pwd' maxlength='16' value='{{form.password}}' type="password" placeholder="请输入登录密码" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd">
+                <view class="weui-label">确认密码</view>
+              </view>
+              <view class="weui-cell__bd">
+                <input class="weui-input" name='pwdTwo' id='pwdTwo' maxlength='16' value='{{form.passwordTwo}}' type="password" placeholder="请输入确认密码" />
+              </view>
+            </view>
+          </view>
+          <view class="ocrBox" hidden="{{flag_org_ocr}}">
+            <view class="imgFlex">
+              <image bindtap="creatPhoto" id="yyzz" class="picID" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_yyzz.png"></image>
+            </view>
+
+          </view>
+
+        </view>
+
+
+        <view class="button-sp-area">
+          <button class="btn" formType="submit">注 册</button>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>
+
+<image class="bg3" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_wei1.png"></image>
+
+
+
+
+
+<view wx:if="{{v==1}}">
+  <view class="camerabox" hidden="{{camera_flag}}">
+    <camera hidden="{{camera_flag}}" class="camera" mode="normal" device-position="back" flash="off" binderror="error">
+      <cover-view class="controls">
+        <cover-image class="img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/{{takephoto.coverImg}}" />
+      </cover-view>
+      <cover-view class="noticeTXT">{{takephoto.noticeTxt}}</cover-view>
+      <cover-view class="operat">
+        <cover-image class="clickBtn" id="{{takephoto.id}}" bindtap="takePhoto" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_take.png" />
+        <cover-image class="reTake" bindtap="reTake" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_cancel.png" />
+      </cover-view>
+    </camera>
+  </view>
+</view>
+
+<view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+  <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+  <canvas canvas-id="attendCanvasId2" style="width:{{canvasWidth2}}px;height:{{canvasHeight2}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+</view>

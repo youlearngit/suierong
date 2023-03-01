@@ -1,0 +1,130 @@
+<view class="container">
+    <image class="bg1" src="{{cdnUrl}}/static/wechat/img/sui/account_bg.png" mode="widthFix"></image>
+    <view class="content">
+        <view class="title1">
+            <image class="icon" src="{{cdnUrl}}/static/wechat/img/sui/account_hello.png" mode="widthFix"></image>
+            <view class="desc1">查询结果为</view>
+            <view class="desc2" wx:if="{{selectedItems.item2=='0'}}">基本户</view>
+            <view class="desc2" wx:elif="{{selectedItems.item2=='1'}}">一般户</view>
+            <view class="desc2" wx:elif="{{selectedItems.item2=='2'}}">验资户</view>
+            <view class="desc2" wx:elif="{{selectedItems.item2=='3'}}">其他临时户</view>
+            <view class="desc2" wx:else>专户</view>
+        </view>
+        <view class="title2">资料清单</view>
+        <view class="title3">柜台提供凭证</view>
+        <view class="title4" wx:if="{{accountList.k1=='1'}}">开户申请书</view>
+        <view class="desc" wx:if="{{accountList.k1=='1'}}">一式四联</view>
+        <view class="title4" wx:if="{{accountList.k2=='1'}}">账户管理协议</view>
+        <view class="desc" wx:if="{{accountList.k2=='1'}}">2份</view>
+        <view class="title4" wx:if="{{accountList.k3=='1'}}">相关信息确认函</view>
+        <view class="desc" wx:if="{{accountList.k3=='1'}}">1份</view>
+        <view class="title4" wx:if="{{accountList.k4=='1'}}">空白凭证购买单</view>
+        <view class="desc" wx:if="{{accountList.k4=='1'}}">1份</view>
+        <view class="title4" wx:if="{{accountList.k5=='1'}}">芯片印鉴卡</view>
+        <view class="desc" wx:if="{{accountList.k5=='1'}}">1份</view>
+        <view class="title4" wx:if="{{accountList.k6=='1'}}">单位银行结算账户综合服务申请表</view>
+        <view class="desc" wx:if="{{accountList.k6=='1'}}">1份，如有综合签约业务</view>
+        <view class="title4" wx:if="{{accountList.k7=='1'}}">单位银行结算账户综合服务协议</view>
+        <view class="desc" wx:if="{{accountList.k7=='1'}}">2份，如有综合签约业务</view>
+        <view class="title3">客户提供凭证</view>
+        <view class="title4" wx:if="{{accountList.k8=='1'}}">营业执照或其他证明文件</view>
+        <view class="title4" wx:if="{{accountList.k9=='1'}}">开户许可证/基本存款账户信息</view>
+        <view class="title4" wx:if="{{accountList.k10=='1'}}">法人身份证</view>
+        <view class="title4" wx:if="{{accountList.k11=='1'}}">经办人身份证</view>
+        <view class="desc" wx:if="{{accountList.k11=='1'}}">如有</view>
+        <view class="title4" wx:if="{{accountList.k12=='1'}}">大额联系人身份证</view>
+        <view class="title4" wx:if="{{accountList.k13=='1'}}">财务负责人身份证</view>
+        <view class="desc" wx:if="{{accountList.k13=='1'}}">如有</view>
+        <view class="title4" wx:if="{{accountList.k14=='1'}}">网银操作员身份证</view>
+        <view class="desc" wx:if="{{accountList.k14=='1'}}">如有</view>
+        <view class="title4" wx:if="{{accountList.k15=='1'}}">预留印鉴人身份证</view>
+        <view class="desc" wx:if="{{accountList.k15=='1'}}">如有</view>
+        <view class="title4" wx:if="{{accountList.k16=='1'}}">公司全套印章</view>
+        <view class="title4" wx:if="{{accountList.k17=='1'}}">上级机构开户资料</view>
+        <view class="desc" wx:if="{{accountList.k17=='1'}}">如有</view>
+        <view class="title4" wx:if="{{accountList.k18=='1'}}">
+            出资人营业执照或其他证明文件、开户许可证/基本存款账户信息、法人身份证等出资人开户资料
+        </view>
+        <view class="title3" wx:if="{{accountList.k19=='1' ||accountList.k20=='1'||accountList.k21=='1'||accountList.k22=='1'||accountList.k23=='1'}}">
+            《客户反电信诈骗尽职调查表》及相关凭据(深圳地区）
+        </view>
+        <view class="title4" wx:if="{{accountList.k19=='1'}}">《客户反点选诈骗尽职调查表》</view>
+        <view class="desc" wx:if="{{accountList.k19=='1'}}">双人签字确认，单位负责人审批</view>
+        <view class="title4" wx:if="{{accountList.k20=='1'}}">租赁合同或房产证明</view>
+        <view class="title4" wx:if="{{accountList.k21=='1'}}">企业经营真实性凭证</view>
+        <view class="desc" wx:if="{{accountList.k21=='1'}}">(银行流水，代扣税，社保，水电费发票、收据等资料)</view>
+        <view class="title4" wx:if="{{accountList.k22=='1'}}">双人持PAD上门核实</view>
+        <view class="desc" wx:if="{{accountList.k22=='1'}}">（门牌、大厦外观、与法人合影、内部办公环境）</view>
+        <view class="title4" wx:if="{{accountList.k23=='1'}}">双人持PAD上门核实单位开户资料原件</view>
+        <view class="title3" wx:if="{{accountList.k24=='1'||accountList.k25=='1'||accountList.k26=='1'}}">
+            《江苏银行非自然人客户受益所有人信息确认函》及相关凭据
+        </view>
+        <view class="title4" wx:if="{{accountList.k24=='1'}}">《江苏银行非自然人客户受益所有人信息确认函》</view>
+        <view class="title4" wx:if="{{accountList.k25=='1'}}">公司股东工商查询结果（系统截屏</view>
+        <view class="title4" wx:if="{{accountList.k26=='1'}}">
+            公司章程（或合伙协议、信托协议、备忘录、股权证明书、注册证书、存续证明文件等）。核原件，留客户盖公章确认的复印件。
+        </view>
+        <view class="title4" wx:if="{{accountList.k27=='1'}}">受益人情况说明</view>
+        <view class="desc" wx:if="{{accountList.k27=='1'}}">如有</view>
+        <view class="title4" style="margin-bottom: 20rpx;" wx:if="{{accountList.k28=='1'}}">
+            资管户（托管、保管、监管）批复
+        </view>
+        <block wx:if="{{demandList.d1=='1'||demandList.d2=='1'||demandList.d3=='1'||demandList.d4=='1'||demandList.d5=='1'||demandList.d6=='1'||demandList.d7=='1'||demandList.d8=='1'||demandList.d9=='1'||demandList.d10=='1'}}">
+            <view class="title2">尽职调查要求</view>
+            <view class="title3">登记表格</view>
+            <view class="title4">《单位账户业务尽职调查报告》</view>
+            <view class="title3">尽职调查使用设备</view>
+            <view class="desc3">
+                根据总行关于客户信息保密的要求，尽职调查应使用移动PAD，特殊情况如贷前审查已上门核实过相关信息的，应提交业务情况说明并经分行运营管理部审批后可提交线下影像资料。线下保管的尽职调查影像资料须刻盘随账户资料保管。
+            </view>
+            <view class="desc3">
+                注意：尽职调查人员（双人）完成尽职调查后，按各自核实的部分登记《单位账户业务尽职调查报告》、《江苏银行非自然人客户受益所有人信息确认函》，并签字确认后提交柜面审核。
+            </view>
+        </block>
+        <view class="title3" wx:if="{{demandList.d1=='1'||demandList.d2=='1'||demandList.d3=='1'}}">
+            上门核实
+            <text style="font-size: 22rpx;color: #8D95A9;">| 双人</text>
+        </view>
+        <view class="desc" wx:if="{{demandList.d1=='1'}}">
+            前往客户注册地址或实际经营地址上门核实，查看办公场所、经营设施等情况，确认实际地址与申请资料填写的地址是否一致，并留存照片或录像。
+            <view class="desc4">门牌、大厦外观、与法人合影、内部办公环境</view>
+        </view>
+        <view class="desc" wx:if="{{demandList.d2=='1'}}">
+            审查客户提供的租赁合同(房产证明)、水电费缴费单据、代扣税、缴纳社保等资料。
+        </view>
+        <view class="desc" wx:if="{{demandList.d3=='1'}}">拨打申请资料上留存电话，现场核实电话的真实性和有效性。</view>
+        <view class="title3" wx:if="{{demandList.d4=='1'}}">
+            意愿确认
+            <text style="font-size: 22rpx;color: #8D95A9;">| 双人</text>
+        </view>
+        <view class="desc" wx:if="{{demandList.d4=='1'}}">
+            向法定代表人或单位负责人确认账户业务的真实性，核实完成后对调查结果签字确认，同步进行录音录像。
+        </view>
+        <view class="title3" wx:if="{{demandList.d5=='1'}}">
+            开户面签
+            <text style="font-size: 22rpx;color: #8D95A9;">| 双人</text>
+        </view>
+        <view class="desc" wx:if="{{demandList.d5=='1'}}">
+            亲见法定代表人或单位负责人在《开立单位银行结算账户申请书》和账户管理协议上签名，同时进行拍照或录像。
+        </view>
+        <view class="title3" wx:if="{{demandList.d6=='1'||demandList.d7=='1'||demandList.d8=='1'}}">
+            审核原件
+            <text style="font-size: 22rpx;color: #8D95A9;">| 双人</text>
+        </view>
+        <view class="desc" wx:if="{{demandList.d6=='1'}}">
+            亲见单位营业执照、依法设立或经营等证明文件原件与工商等行政管理部门公开的信息是否一致；
+        </view>
+        <view class="desc" wx:if="{{demandList.d7=='1'}}">
+            亲见法定代表人或单位负责人、财务负责人、授权经办人、大额联系人、网银操作员、预留印鉴人等身份证件原件，进行联网核查，核查结果是否相符。
+        </view>
+        <view class="desc" wx:if="{{demandList.d8=='1'}}">
+            留存证明文件原件影像件和复印件，在复印件上注明“与原件核对相符”并双人签字确认。
+        </view>
+        <view class="title3" wx:if="{{demandList.d9=='1'||demandList.d10=='1'}}">
+            留印拍照
+            <text style="font-size: 22rpx;color: #8D95A9;">| 双人</text>
+        </view>
+        <view class="desc" wx:if="{{demandList.d9=='1'}}">亲见单位在本行预留印鉴卡上加盖印章，将加盖预留印鉴的行为拍照或录像。</view>
+        <view class="desc" wx:if="{{demandList.d10=='1'}}">拍摄画面里须见单位加盖印章人员的正面以及完整印鉴卡片和印章。</view>
+    </view>
+</view>

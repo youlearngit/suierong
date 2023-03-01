@@ -1,0 +1,78 @@
+<!-- pages/creditInfo/serviceOption .wxml -->
+<view class="a1">
+    <image wx:if="{{preffixUrl}}" mode="widthFix" style="width:100%" src="{{preffixUrl}}/static/wechat/credit/serviceOpt.png"></image>
+</view>
+<view class="middle" style="width:100%">
+    <view class="title">请选择此征信授权对应的授信业务</view>
+    <view class="selectBox">
+        <view class="{{type==1?'box4':'box3'}}" bindtap="selectChange1" data-id="1">
+            <view class="{{type==1?'text2':'text1'}}">个人征信授权</view>
+        </view>
+        <view class="{{type==2?'box4':'box3'}}" bindtap="selectChange1" data-id="2">
+            <view class="{{type==2?'text2':'text1'}}">企业授权</view>
+        </view>
+    </view>
+</view>
+
+<view class="middle" wx:if="{{type == '1'}}" style="width:100%">
+  <view class="border"></view>
+    <!-- <view class="title">请选择此征信授权对应的授信业务</view> -->
+    <view class="selectBox">
+        <view class="{{business_type==1?'box2':'box1'}}" bindtap="selectChange" data-id="1">
+            <view class="{{business_type==1?'text2':'text1'}}">个人零售类贷款</view>
+        </view>
+        <view class="{{business_type==2?'box2':'box1'}}" bindtap="selectChange" data-id="2">
+            <view class="{{business_type==2?'text2':'text1'}}">个人经营性贷款</view>
+        </view>
+        <view class="{{business_type==3?'box2':'box1'}}" bindtap="selectChange" data-id="3">
+            <view class="{{business_type==3?'text2':'text1'}}">对公授信业务</view>
+        </view>
+    </view>
+</view>
+<view class="middle" wx:if="{{type == '2'}}" style="width:100%">
+  <view class="border"></view>
+    <!-- <view class="title">请选择此征信授权对应的授信业务</view> -->
+    <view class="selectBox">
+      <view class="{{borrower_type==1?'box2':'box1'}}" bindtap="selectChange2" data-id="1">
+            <view class="{{borrower_type==1?'text2':'text1'}}">个人经营性业务</view>
+        </view>
+        <view class="{{borrower_type==2?'box2':'box1'}}" bindtap="selectChange2" data-id="2">
+            <view class="{{borrower_type==2?'text2':'text1'}}">对公授信业务</view>
+        </view>
+    </view>
+</view>
+
+<!-- 个人授权选项第三层 -->
+<view wx:if="{{borrower_type == '1'}}">
+  <view class="border"></view>
+    <!-- <view class="title">请选择此征信授权对应的授信业务</view> -->
+    <view class="selectBox">
+        <view class="{{business_type==1?'box6':'box5'}}" bindtap="selectChange" data-id="1">
+            <view class="{{business_type==1?'text2':'text1'}}">经营实体</view>
+        </view>
+        <view class="{{business_type==2?'box6':'box5'}}" bindtap="selectChange" data-id="2">
+            <view class="{{business_type==2?'text2':'text1'}}">担保企业</view>
+        </view>
+        <view class="{{business_type==3?'box6':'box5'}}" bindtap="selectChange" data-id="3">
+            <view class="{{business_type==3?'text2':'text1'}}">关联企业</view>
+        </view>
+    </view>
+</view>
+<view wx:if="{{borrower_type == '2'}}">
+  <view class="border"></view>
+    <view class="selectBox">
+          <view class="{{business_type==1?'box6':'box5'}}" bindtap="selectChange" data-id="1">
+              <view class="{{business_type==1?'text2':'text1'}}">借款企业</view>
+          </view>
+          <view class="{{business_type==2?'box6':'box5'}}" bindtap="selectChange" data-id="2">
+              <view class="{{business_type==2?'text2':'text1'}}">担保企业</view>
+          </view>
+          <view class="{{business_type==3?'box6':'box5'}}" bindtap="selectChange" data-id="3">
+              <view class="{{business_type==3?'text2':'text1'}}">关联企业</view>
+          </view>
+      </view>
+</view>
+<view class="bottom">
+        <button bindtap="navTo">下一步</button>
+    </view>
+<i-toast id="toast" />

@@ -1,0 +1,88 @@
+<view>
+  <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleQueryBg.png" style="width: 100%;" mode="widthFix" class="enterpriseScaleQueryBg"></image>
+  <view>
+    <view class="enterpriseScaleTitle">一键查询</view>
+    <view class="enterpriseScaleTitleb ">快速了解你的企业规模</view>
+  </view>
+</view>
+<view class="enterpriseScaleTypeQueryContent" wx:if="{{enterpriseShowFirst}}">
+  <view  class="enterpriseScaleTypeQuerySelect">您是否为个体工商户：</view>
+  <!-- 选择个体工商户 -->
+  <view class="enterpriseTypeQueryIndividual {{enterpriseScaleIndividual?'selectBorder':''}}" bindtap="enterpriseScaleIndividualCheck">
+    <view class="enterpriseScaleCheck" >
+      <image src="{{cndUrl}}/static/wechat/img/entsc/{{enterpriseScaleIndividualChecked}}.png" style="width: 26rpx;" mode="widthFix" ></image>
+      <text class="{{enterpriseScaleIndividual?'selectText':''}}">个体工商户</text>
+    </view>
+    <view class="enterpriseScaleIndividualCheck">
+      <image src="{{cndUrl}}/static/wechat/img/entsc/{{enterpriseScaleIndividualChecked}}Individual.png" style="width: 120rpx;height: 101rpx;" mode="widthFix" ></image>
+    </view>
+  </view>
+  <!-- 选择非个体工商户 -->
+  <view class="enterpriseTypeQueryIndividual  {{enterpriseScaleNotIndividual?'selectBorder':''}}" bindtap="enterpriseScaleNotIndividualCheck" >
+    <view class="enterpriseScaleCheck" >
+      <image src="{{cndUrl}}/static/wechat/img/entsc/{{enterpriseScaleNotIndividualChecked}}.png" style="width: 26rpx;" mode="widthFix" ></image>
+      <text class="{{enterpriseScaleNotIndividual?'selectText':''}}">非个体工商户</text>
+    </view>
+    <view class="enterpriseScaleIndividualCheck">
+      <image src="{{cndUrl}}/static/wechat/img/entsc/{{enterpriseScaleNotIndividualChecked}}NotIndividual.png" style="width: 120rpx;height: 101rpx;" mode="widthFix" ></image>
+    </view>
+  </view>
+</view>
+<!-- <view > -->
+<view wx:if="{{enterpriseShowSecond}}">
+  <view class="enterpriseScaleTypeQueryContent">
+    <view class="enterpriseScaleTypeQueryLine">
+      <view class="enterpriseScaleTypeQueryLineLeft">行业类别</view>
+      <view class="enterpriseScaleTypeQueryLineFlex">
+        <picker bindchange="bindPickerChangeCategory" value="{{categoryIndex}}" range="{{categoryList}}" >
+          <input type="text" placeholder="请选择行业类型" placeholder-style="color: #BABECA" class="input" style="width: 380rpx; height: 30rpx;display: inline-block; box-sizing: border-box; text-align: center;" value="{{categoryList[categoryIndex]}}" disabled="disabled"/>
+          <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleTriangle.png" style="width: 15rpx; height: 26rpx;" mode="widthFix" class="aaa"></image>
+        </picker>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="enterpriseScaleTypeQueryLine">
+      <view class="enterpriseScaleTypeQueryLineLeft">营业收入</view>
+      <view class="enterpriseScaleTypeQueryLineFlex">
+        <picker bindchange="bindPickerChangeIncome" value="{{incomeIndex}}" range="{{incomeList}}" disabled="{{show_income?'':'disabled'}}">
+          <input type="text" placeholder="{{show_income?'请选择收入区间':'无需输入'}}" placeholder-style="color: #BABECA" class="input" style="width: 380rpx; height: 30rpx;text-align: center;" value="{{incomeList[incomeIndex]}}" disabled="disabled"/>
+          <text class="bbb">万元 </text>
+          <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleTriangle.png" style="width: 15rpx; height: 26rpx; " mode="widthFix" class="ccc"></image>
+        </picker>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="enterpriseScaleTypeQueryLine">
+      <view class="enterpriseScaleTypeQueryLineLeft">从业人员</view>
+      <view class="enterpriseScaleTypeQueryLineFlex">
+        <picker bindchange="bindPickerChangeEmployee" value="{{employeesIndex}}" range="{{employeesList}}" disabled="{{show_population?'':'disabled'}}">
+          <input type="text" placeholder="{{show_population?'请选择人数区间':'无需输入'}}" placeholder-style="color: #BABECA" class="input" style="width: 380rpx; height: 30rpx;display: inline-block; box-sizing: border-box; text-align: center;" value="{{employeesList[employeesIndex]}}" disabled="disabled"/>
+          <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleTriangle.png" style="width: 15rpx; height: 26rpx;" mode="widthFix" class="ddd"></image>
+        </picker>
+      </view>
+    </view>
+    <view class="border"></view>
+    <view class="enterpriseScaleTypeQueryLine">
+      <view class="enterpriseScaleTypeQueryLineLeft">资产规模</view>
+      <view class="enterpriseScaleTypeQueryLineFlex">
+        <picker bindchange="bindPickerChangeAsset" value="{{assetIndex}}" range="{{assetList}}" disabled="{{show_assets?'':'disabled'}}">
+          <input type="text" placeholder="{{show_assets?'请选择资产区间':'无需输入'}}" placeholder-style="color: #BABECA" class="input" style="width: 380rpx; height: 30rpx;text-align: center;" value="{{assetList[assetIndex]}}" disabled="disabled"/>
+          <text class="eee">万元 </text>
+          <image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleTriangle.png" style="width: 15rpx; height: 26rpx; " mode="widthFix" class="fff"></image>
+        </picker>
+      </view>
+    </view>
+  </view>
+<view class="enterpriseScaleBtn" bindtap="enterpriseScaleQuery" wx:if="{{enterpriseScale==='非个体工商户'||enterpriseScale==='大中型企业'||enterpriseScale==='小微型企业'}}">
+  立即查询
+</view>
+  <view class="enterpriseScaleQueryBottomTips">
+    <view><image src="{{cndUrl}}/static/wechat/img/entsc/enterpriseScaleTipsIcon.png" style="width: 30rpx;" mode="widthFix" class="enterpriseScaleQueryBottomTipsImg"></image>如您的营业执照中类型栏已注明为个体工商户，可不再进行企业规模查询，请直接<span class="querySpan" bindtap="bindSpanA" >查询降费政策</span>或<span class="querySpan" bindtap="bindSpanB" >进行优惠估算</span>
+    </view>
+    <view class="explain">*工业（B采矿业，C制造业，D电力、热力、燃气及水生产和供应业；）</view>
+    <view class="explain">*交通运输业（包括G54道路运输业，G55水上运输业，G56航空运输业，G57管道运输业，G58多式联运和运输代理业，G591装卸搬运，不包括G53铁路运输业）</view>
+    <view class="explain">*仓储业（仓储业包括G592通用仓储，G593低温仓储，G594，危险品仓储，G595谷物、棉花等农产品仓储，G596中药材仓储和G599其他仓储业）</view>
+    <view class="explain">*信息传输业（信息传输业包括I63电信、广播电视和卫星传输服务，I64互联网和相关服务）</view>
+    <view class="explain">*其他未列明行业（G53铁路运输业，K703房地产中介服务，K704 房地产租赁经营，K709其他房地产业，M科学研究和技术服务业，N水利、环境和公共设施管理业，O居民服务、修理和其他服务业，P教育，Q卫生和社会工作，R文化、体育和娱乐业，S公共管理、社会保障和社会组织，T国际组织）</view>
+  </view>
+</view>

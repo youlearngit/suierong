@@ -1,0 +1,70 @@
+@import '..\\..\\pages\\mer\\styles\\main.scss';
+
+.t1 {
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  position: relative;
+  padding: 40rpx 30rpx 0;
+  border-radius: 30rpx 30rpx 0 0;
+}
+.t1::before {
+  content: ' ';
+  width: 6rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 0;
+  top: 40rpx;
+  background: #4586e6;
+  border-radius: 0 100rpx 100rpx 0;
+}
+.t4 {
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: #333333;
+  letter-spacing: 0;
+  padding: 40rpx 30rpx;
+}
+.t5 {
+  width: 690rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+.t51 {
+  width: 202rpx;
+  margin: 0 0 30rpx;
+  position: relative;
+  box-shadow: 0 6rpx 13rpx 0 #eeeeee;
+  height: 360rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
+}
+.t52 {
+  width: 73rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.t54 {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.t6 {
+  width: 702rpx;
+  height: 98rpx;
+  margin: 0 auto;
+  background: #1677ff;
+  border-radius: 49rpx;
+  line-height-step: 98rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 36rpx;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

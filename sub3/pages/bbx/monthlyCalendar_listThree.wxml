@@ -1,0 +1,52 @@
+<view class="containerbox">
+  <image class="containerbg" src="{{preffixUrl}}msgitem_img.png" mode="widthFix"></image>
+  <view class="textboxone">
+    <view>江苏人才创新创业大赛南京选拔赛</view>
+    <view>活动</view>
+  </view>
+  <view class="bottombox">
+    <view class="bottomContainer">
+      <image class="bottomContainerbg" src="{{preffixUrl}}content_img.png" mode="widthFix"></image>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        申报时间
+      </view>
+      <view class="box1_text">2022年7月上旬</view>
+      <!-- <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        申报对象
+      </view>
+      <view class="box1_text">外国国籍人才牵头的专家项目、团队项目、引智项目及工作室项目</view>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        支持政策
+      </view>
+      <view class="box1_text">30万-100万资助</view> -->
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+       活动内容
+      </view>
+      <view class="box1_text">项目征集、项目评审、项目路演等，选拔优质项目参与全省总决赛</view> 
+      <!-- <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        截止时间
+      </view>
+      <view class="box1_text">2022年7月22日</view> -->
+      <!-- <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        申报网址
+      </view>
+      <view class="box1_text">www.baidu.com</view> -->
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        咨询部门
+      </view>
+      <view class="box1_text">市委人才办、市人社局</view>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        咨询电话
+      </view>
+      <view class="box1_text" bindtap="phoneCall">68788219</view>
+    </view>
+  </view>
+</view>

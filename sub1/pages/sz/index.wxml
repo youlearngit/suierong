@@ -1,0 +1,140 @@
+<view class="wrap">
+    <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+        <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+            <image src="/pages/public/img/ico_ind.png"></image>
+        </view>
+        <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+            <view class="backPage" bindtap='prePage'>
+                <image src="/pages/public/img/ico_back.png"></image>
+            </view>
+            <view class="backIndex" bindtap='indexpage'>
+                <image src="/pages/public/img/ico_ind.png"></image>
+            </view>
+        </view>
+    </view>
+
+    <view class="ncd1">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/fhts/sz.jpg"></image>
+        <view style="opacity: 0.6;font-size: 11px;position: absolute;bottom: 33px;left: 183px;color: #505987;"> 按单利计算</view>
+    </view>
+
+    <view class="dianDL">
+        <view class="dianDt">
+            <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+            <text>产 品 简 介</text>
+        </view>
+        <view class="dianDd">
+            <text class="p">“征信贷”是以苏州地方征信数据为基础，为企业提供定制化授信产品，实现线上申请、预授信额度、高效审批、快速提款。</text>
+            <!-- <text class="p">产品期限：6-36个月</text>
+            <text class="p">产品类型：信用贷款</text>
+            <text class="p">放款时间：7个工作日</text> -->
+        </view>
+    </view>
+    <view class="dianDL">
+        <view class="dianDt">
+            <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+            <text>申 请 条 件</text>
+        </view>
+        <view class="dianDd">
+            <text class="p">1.企业成立一年以上且在苏州企业征信平台上注册的企业；</text>
+            <text class="p">2.企业、企业主及配偶无不良信用记录等。</text>
+        </view>
+    </view>
+    <view class="dianDL">
+        <view class="dianDt">
+            <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+            <text class="">产 品 特 点</text>
+        </view>
+        <view class="dianDd">
+            <text class="p">1.额度高：单笔最高1000万元；</text>
+            <text class="p">2.免抵押：信用放款；</text>
+            <text class="p">3.利率低：利率最低4.35%，按单利计算；</text>
+            <text class="p">4.用款易：为优质征信企业量身定制。</text>
+        </view>
+    </view>
+
+    <view class="dianDL">
+        <view class="dianDt">
+            <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+            <text class="">申 请 流 程</text>
+        </view>
+        <view class="dianDd">
+            <text class="p">在线申请—电话联系—提交材料—放款</text>
+        </view>
+    </view>
+    <view class="dianDL" style="margin-bottom:150rpx;">
+        <view class="dianDt">
+            <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+            <text class="">联 系 方 式</text>
+        </view>
+        <view class="dianDd">
+            <view class="tips">* 点击下方电话，可以一键拨号哦！</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-68631865'>
+                <span>营业部</span>0512-68631865</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-52061058'>
+                <span>常熟支行</span>0512-52061058</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-57332821'>
+                <span>昆山支行</span>0512-57332821</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-66577078'>
+                <span>吴中支行</span>0512-66577078</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-63022882'>
+                <span>吴江支行</span>0512-63022882</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-53586619'>
+                <span>太仓支行</span>0512-53586619</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-58817033'>
+                <span>张家港支行</span>0512-58817033</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-65589907'>
+                <span>金阊支行</span>0512-65589907</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-67480728'>
+                <span>园区支行</span>0512-67480728</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-66623295'>
+                <span>新区支行</span>0512-66623295</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-67520693'>
+                <span>相城支行</span>0512-67520693</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-63571718'>
+                <span>盛泽支行</span>0512-63571718</view>
+            <view class="p" bindtap='callGetPhone' data-getPhone='0512-65110956'>
+                <span>平江支行</span>0512-65110956</view>
+        </view>
+    </view>
+
+</view>
+
+
+
+<view class='fbuttom'>
+    <view class="btn" bindtap='showShare'>分
+        <text>\t\t\t\t\t\t</text>享</view>
+    <view bindtap="apli" class="btn blu">立即申请</view>
+</view>
+
+<view class="{{shareBox}}">
+
+    <view class='imagePathBox'>
+        <image src="{{imagePath}}" class='shengcheng'></image>
+    </view>
+    <view hidden="{{maskHidden}}" class="mask"></view>
+    <view class="canvas-box">
+        <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+    </view>
+
+    <view class="tools">
+        <view class="tb cancel" bindtap='showHide'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+            <block>取消</block>
+        </view>
+        <view class="tb shareToAPP">
+            <button open-type='share'>
+                <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+            </button>
+            <block>转发</block>
+        </view>
+        <view class="tb savePic" bindtap='baocun'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+            <view class="saveTxt">朋友圈</view>
+        </view>
+    </view>
+</view>
+
+<view style='position:fixed;top:-50%;left:0;width:100%;height:200%;background:#fff;z-index:-1;'></view>
+<my-login loginFlag="{{loginFlag}}" ></my-login>

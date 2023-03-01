@@ -1,0 +1,55 @@
+<view class="weui-cell weui-cell_access poi">
+  <view class='weui-cell__bd'>
+    <view class="h1">{{poi.bankname}}</view>
+    <view class="p">{{poi.bankaddress}}</view>
+  </view>
+  <view class='weui-cell__ft weui-cell__ft_in-access'>
+    <navigator url="../inputtips/input?page=1&data={{mkData}}" class="otherPoi">其他网点</navigator>
+  </view>
+</view>
+
+<form bindsubmit="submitForm" report-submit='true'>
+  <view class="weui-cells form">
+    <view class="weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>业务类型</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft weui-cell__ft_in-access'>
+        <picker name="types" bindchange="typeChange" value="{{form.typeIndex}}" range="{{ types }}">
+          {{types[form.typeIndex]}}
+        </picker>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>证件类型</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        二代身份证
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>证件号码</view>
+      <view class='weui-cell__bd'></view>
+      <view class='weui-cell__ft'>
+        <input name="idCard" id="idCard" type='idCard' maxlength="18" value='{{id_card}}' placeholder='请输入证件号码'></input>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>姓名</view>
+      <view class='weui-cell__bd' ></view>
+      <view class='weui-cell__ft'>
+        <input name="name" id="name" type='name' value='{{real_name}}' placeholder='请输入姓名'></input>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access">
+      <view class='weui-cell__hd'>手机号</view>
+            <view class='weui-cell__bd'></view>
+            <view class='weui-cell__ft'>
+             {{tel}}
+        <button hidden="{{hiddenPhone}}" wx:if='{{tel==""}}' class="getphone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取微信手机号</button>
+      </view>
+    </view>
+  </view>
+  <view class="btnarea">
+    <button class="weui-btn weui-btn_primary" formType="submit" >一键排队</button>
+  </view>
+</form>

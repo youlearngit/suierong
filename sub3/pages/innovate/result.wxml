@@ -1,0 +1,20 @@
+<!--sub3/pages/innovate/result.wxml-->
+<wxs src="./utils.wxs" module="utils" />
+<view>
+
+	<block wx:if="{{success}}">
+		<image class="img" src="{{preffixUrl}}apply_res_success.png" mode="widthFix"></image>
+	</block>
+	<block wx:else>
+		<image class="img" src="{{preffixUrl}}apply_res_fail.png" mode="widthFix"></image>
+	</block>
+
+	<view class="title">{{title}}</view>
+	<view class="tip">{{tip}}</view>
+	<view class="btn" bindtap="btnConfirm">{{btn_title}}</view>
+
+	<block wx:if="{{success}}">
+		<image class="pic" src="{{preffixUrl}}how_to_use_d.png" mode="widthFix"></image>
+	</block>
+	
+</view>

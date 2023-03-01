@@ -1,0 +1,112 @@
+<wxs src="./utils.wxs" module="utils" />
+<view>
+	<view class="card-plane">
+		<view class="card">
+			<view class="head">
+				<view><image src="{{preffixUrl}}icon_26_time.png" mode="widthFix" />发布时间 {{article.DOCDATE}}</view>
+				<view>阅读次数 {{article.READTIME}}</view>
+			</view>
+			<view class="title">{{article.NAME}}</view>
+			<view class="details">
+				<image class="details-bg" src="{{preffixUrl}}card_policy_details.png" mode="widthFix" />
+				<view class="detail"><view>发文文号</view>{{article.SYMBOL}}</view>
+				<view class="detail"><view>适用地区</view>{{article.AREA_text}}</view>
+				<view class="detail"><view>政策类别</view>{{article.TWOPOLICYTYPE_text || article.POLICYTYPE_tex}}</view>
+				<view class="detail"><view>政策层级</view>{{article.POLICYLEVEL_text}}</view>
+				<view class="detail"><view>对象类型</view>{{article.OBJECTTYPE_text}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="body">
+
+		<!-- <block wx:if="{{article.POLICYLABEL}}">
+			<view class="c-title"><view class="c-title-icon"></view>政策标签<image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" /></view>
+			<view class="c-content">
+				<view>{{article.POLICYLABEL_text}}</view>
+			</view>
+		</block> -->
+
+		<block wx:if="{{article.SUPPORTOBJECT&&article.SUPPORTOBJECT!=='<CLOB>'}}">
+			<view class="c-title"><view class="c-title-icon"></view>支持政策<image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" /></view>
+			<!-- <view class="c-content">
+				<view wx:for="{{article.SUPPORTOBJECT_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+			</view> -->
+			<rich-text class="c-content" nodes="{{article.SUPPORTOBJECT}}" space="nbsp"></rich-text>
+		</block>
+
+		<block wx:if="{{article.POLICYCONTENT&&article.POLICYCONTENT!=='<CLOB>'}}">
+			<view class="c-title"><view class="c-title-icon"></view>支持对象<image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" /></view>
+			<!-- <view class="c-content">
+				<view wx:for="{{article.POLICYCONTENT_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+			</view> -->
+			<rich-text class="c-content" nodes="{{article.POLICYCONTENT}}" space="nbsp"></rich-text>
+		</block>
+
+		<block wx:if="{{article.APPLYPROCESS}}">
+			<view class="c-title"><view class="c-title-icon"></view>申请流程<image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" /></view>
+			<!-- <view class="c-content">
+				<view wx:for="{{article.APPLYPROCESS_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+			</view> -->
+			<rich-text class="c-content" nodes="{{article.APPLYPROCESS}}" space="nbsp"></rich-text>
+		</block>
+		
+		<block wx:if="{{article.OTHERDEMAND}}">
+			<view class="c-title"><view class="c-title-icon"></view>其他要求<image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" /></view>
+			<!-- <view class="c-content">
+				<view wx:for="{{article.OTHERDEMAND_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+			</view> -->
+			<rich-text class="c-content" nodes="{{article.OTHERDEMAND}}" space="nbsp"></rich-text>
+		</block>
+		
+		<block wx:if="{{article.MANAGEDEPT}}">
+			<view class="c-title"><view class="c-title-icon"></view>政策依据<image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" /></view>
+			<!-- <view class="c-content">
+				<view wx:for="{{article.MANAGEDEPT_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+			</view> -->
+			<rich-text class="c-content" nodes="{{article.MANAGEDEPT}}" space="nbsp"></rich-text>
+		</block>
+
+		<block wx:if="{{article.CONSULTWAY}}">
+			<view class="c-title"><view class="c-title-icon"></view>咨询方式<image class="c-title-bg" src="{{preffixUrl}}decorate_letter_1.png" mode="widthFix" /></view>
+			<!-- <view class="c-content">
+				<view wx:for="{{article.CONSULTWAY_html}}" wx:key="key" wx:index="index" wx:item="item">{{item}}</view>
+			</view> -->
+			<rich-text class="c-content" nodes="{{article.CONSULTWAY}}" space="nbsp"></rich-text>
+		</block>
+
+	</view>
+
+	<block wx:for="{{staffs}}" wx:key="index">
+		<view class="staff">
+			<image wx:if="{{item.TYPE==1}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer_g.png" mode="widthFix" />
+			<image wx:elif="{{item.TYPE==2}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer.png" mode="widthFix" />
+			<image wx:elif="{{item.TYPE==3}}" class="staff-bg" src="{{preffixUrl}}talent_policy_servicer_r.png" mode="widthFix" />
+			<view class="staff-body">
+				<view class="staff-inline">
+					<van-image custom-class="staff-avatar" src="{{item.HEAD?item.HEAD:(preffixUrl+'avatar_default.png')}}" fit="widthFix" round />
+					<view>
+						<view class="staff-inline staff-name">
+							<view class="staff-staffname">{{item.STAFFNAME}}</view>
+							<view class="staff-job">
+								<view>{{item.WORKUNIT}}</view>
+								<view wx:if="{{item.JOB}}">{{item.JOB}}</view>
+							</view>
+						</view>
+						<view class="staff-inline staff-tags">
+							<view wx:if="{{item.LABEL1}}">{{item.LABEL1}}</view>
+							<view wx:if="{{item.LABEL2}}">{{item.LABEL2}}</view>
+							<view wx:if="{{item.LABEL3}}">{{item.LABEL3}}</view>
+						</view>
+					</view>
+				</view>
+				<view class="staff-remark">{{item.RESUME}}</view>
+				<image class="staff-contact" src="{{preffixUrl}}contact_information.png" mode="widthFix" bindtap="phoneCall" data-phone="{{item.TEL}}" />
+			</view>
+		</view>
+	</block>
+
+	<view class="bottom" wx:if="{{article.POLICYPDF}}">
+		<button class="btn-download" bindtap="downloadPdf">下载并查看全文</button>
+	</view>
+
+</view>

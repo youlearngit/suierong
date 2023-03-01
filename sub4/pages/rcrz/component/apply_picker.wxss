@@ -1,0 +1,19 @@
+.apply_picker {
+	height: 87rpx;
+	border-bottom: 1rpx solid rgba(236,236,236,1);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.apply_picker .input {
+	display: flex;
+	align-items: center;
+}
+.apply_picker .input input {
+	text-align: right;
+}
+.apply_picker .input image {
+	width: 15rpx;
+	height: 26rpx;
+	margin-left: 10rpx;
+}

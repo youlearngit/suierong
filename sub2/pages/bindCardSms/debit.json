@@ -1,0 +1,12 @@
+{
+    "usingComponents": {
+      "van-checkbox": "/sub2/static/vant-weapp/checkbox/index",
+      "van-checkbox-group": "/sub2/static/vant-weapp/checkbox-group/index"
+    },
+    "enablePullDownRefresh": false,
+    "navigationBarBackgroundColor":"#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": ""
+
+
+}

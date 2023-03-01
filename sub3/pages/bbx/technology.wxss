@@ -1,0 +1,80 @@
+/* sub3/pages/bbx/technology.wxss */
+.technology{
+  width: 100%;
+  height: 100%;
+}
+image{
+  width: 100%;
+  height: 100%;
+}
+.commissioner{
+    width: 646rpx;
+    height: 153rpx;
+    margin: 20rpx auto;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    padding: 22rpx 13rpx 37rpx 32rpx;
+    margin-bottom: 37rpx;
+  }
+  .commissioner_bottom{
+    display: flex;
+    /* margin-top: 77rpx; */
+  }
+  .headPortrait{
+    width: 90rpx;
+    height: 90rpx;
+  }
+  .bottom_info{
+    margin-left: 26rpx;
+  }
+  .info_top{
+    display: flex;
+  }
+  .info_name{
+    font-size: 32rpx;
+  color: #1C294F;
+  margin-bottom: 20rpx;
+  }
+  .info_bottom{
+    display: flex;
+    font-size: 24rpx;
+  color: #5D6F9F;
+  }
+  .bottom_phone{
+    width: 58rpx;
+    height: 58rpx;
+    margin-left: 66rpx;
+  }
+  .bottom_info{
+    margin-left: 26rpx;
+  }
+  .info_type{
+    width: 200rpx;
+    height: 36rpx;
+    margin-top: 5rpx;
+    margin-left: 20rpx;
+  }
+  .commissioner_top{
+    display: flex;
+    float: right;
+    margin-top: 20rpx;
+  }
+  .top_image{
+    width: 20rpx;
+    height: 17rpx;
+  }
+  image{
+    width: 100%;
+    height: 100%;
+  }
+  .top_title{
+    font-size: 22rpx;
+    color: #8FB7E3;
+    margin-top: 10rpx;
+    margin-right: 20rpx;
+  }
+  .info_bottom{
+    display: flex;
+    font-size: 24rpx;
+  color: #5D6F9F;
+  }

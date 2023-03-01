@@ -1,0 +1,47 @@
+<view class="containerbox">
+  <image class="containerbg" src="{{preffixUrl}}msgitem_img.png" mode="widthFix"></image>
+  <view class="textboxone">
+    <view>社会化引才奖励</view>
+    <view>政策</view>
+  </view>
+  <view class="bottombox">
+    <view class="bottomContainer">
+      <image class="bottomContainerbg" src="{{preffixUrl}}content_img.png" mode="widthFix"></image>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        申报时间
+      </view>
+      <view class="box1_text">2022年7月中旬</view>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        申报对象
+      </view>
+      <view class="box1_text">引荐创新创业人才（团队）来苏的各类主体</view>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        支持政策
+      </view>
+      <view class="box1_text">给予引荐人才（团队）的主体给予2万-30万奖励</view>
+      <!-- <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        截止时间
+      </view>
+      <view class="box1_text">2022年7月22日</view> -->
+      <!-- <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        申报网址
+      </view>
+      <view class="box1_text">www.baidu.com</view> -->
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        咨询部门
+      </view>
+      <view class="box1_text">苏州市人社局</view>
+      <view class="box1">
+        <image class="box1img" src="{{preffixUrl}}titleright_img.png"></image>
+        咨询电话
+      </view>
+      <view class="box1_text" bindtap="phoneCall">0512-69820119</view>
+    </view>
+  </view>
+</view>

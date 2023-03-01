@@ -1,0 +1,77 @@
+
+<form bindsubmit="submitForm" report-submit='true' >
+<view class="section">
+
+  <view class="weui-cells weui-cells_after-title">
+  
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">寄件人</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name='name' id="name" bindblur='blur' style="font-size:12px" value="{{name}}" type="name"></input>
+
+      </view>
+
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">联系电话</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name='tel' id="tel" bindblur='blur'  style="font-size:12px" value="{{phone}}" type="tel"></input>
+      </view>
+
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">身份证号码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name='idCard' id="idCard" bindblur='blur'  style="font-size:12px" value="{{idcard}}" type="idCard"></input>
+
+      </view>
+
+    </view>
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">所在地区</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="weui-select weui-select_in-select-after">
+            <input disabled='disabled' value="{{region}}" class="weui-input" style="width:90%;display:inline-block;" type="text" placeholder="请选择所在地区" />
+          </view>
+        </picker>
+      </view>
+    </view>
+
+
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">地址详情</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input name='address' id="address" bindblur='blur' style="font-size:12px" value="{{address}}"></input>
+
+      </view>
+
+    </view>
+
+
+  </view>
+</view>
+
+<view class="anniu">
+<view class="moren"> <text>设置默认</text></view>
+ <view class="queding" bindtap="mouren"> <switch class="tui-fr" color="#007aff"  checked="{{isChecked3}}" bindchange="changeSwitch3" /></view>
+ 
+</view>
+
+
+<view class="button-sp-area">
+  <button class="btn" formType="submit">保存</button>
+</view>
+</form>

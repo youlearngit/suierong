@@ -1,0 +1,279 @@
+<cu-custom isCustom="{{true}}" currentPage="{{currentPage}}">
+    <view slot="content">江苏银行随e融</view>
+</cu-custom>
+<view class="f1">
+    <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2007.png" mode="widthFix"></image>
+</view>
+
+<view class="top-banner" style="padding: {{160+CustomBar}}rpx 0 0rpx;">
+    <swiper class="" style="height: 250rpx;" indicator-dots="{{false}}" circular="true" autoplay interval="5000"
+        duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
+        
+        <swiper-item style='display: flex;align-items: center;' wx:if="{{showBless}}">
+            <navigator url="/sub9/pages/newYearBless/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/zm/ynhd.png" mode="widthFix"
+                    style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub1/pages/share/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/banner_financial_sui.png" mode="widthFix"
+                    style="width:100%"></image>
+            </navigator>
+        </swiper-item>
+
+    </swiper>
+</view>
+<!-- <view class="f4" wx:if="{{contactList.length>0}}">
+    <view class="f51">
+        <view class="f511">近期查看</view>
+        <navigator class="f512" url="/sub1/pages/manager/index">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <swiper class="card-swiper" indicator-dots="{{false}}" circular="true" autoplay="{{false}}" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+        <swiper-item wx:for="{{contactList}}" wx:key class="{{cardCur==index?'cur':''}}">
+            <view class="f52">
+                <image class="f520" wx:if='{{cndUrl}}' src="{{item.PHOTO2}}" mode="widthFix"></image>
+                <view class="f521">{{item.USERNAME}}</view>
+                <view class="f522">{{item.TEXT1}}</view>
+                <view class="f525">
+                    <view class="f5251">{{item.TAG2[0]}}</view>
+                    <view class="f5251">{{item.TAG2[1]}}</view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>
+<navigator wx:else class="call-icon" url="/sub1/pages/manager/index" hover-class="none">
+    <image wx:if='{{cndUrl}}' class="call-icon" src="{{cndUrl}}/static/wechat/img/sui/sui-2009.png" mode="widthFix"></image>
+</navigator> -->
+<view class="f4">
+    <view class="f51">
+        <view class="f511">热门推荐</view>
+        <navigator url="/sub1/pages/shop/more?id=0" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix"
+                style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="s3">
+        <navigator url="/sub1/pages/sui/index" class="s31">
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2013.png"
+                style="width:335rpx;height:375rpx;"></image>
+            <view class="s311">
+                <view class="s31title">经营随e贷</view>
+                <view class="s31desc">最高可贷1000万元</view>
+                <view class="s31click">立即申请</view>
+            </view>
+        </navigator>
+        <view class="s32">
+            <navigator url="/pages/dian/dian" class="s321">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2014.png"
+                    style="width:335rpx;height:177rpx;"></image>
+                <view class="s3211">
+                    <view class="s32111">
+                        <view class="s32title">电e融</view>
+                        <view class="s32desc">以电相连 一点即来</view>
+                    </view>
+                </view>
+            </navigator>
+            <navigator url="/pages/nong/index" class="s322">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2015.png"
+                    style="width:335rpx;height:177rpx;"></image>
+                <view class="s3211">
+                    <view class="s32111">
+                        <view class="s32title">农业担保贷款</view>
+                        <view class="s32desc">服务产业 融旺乡村</view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+</view>
+<view class="f4">
+    <view class="f51">
+        <view class="f511">公司业务</view>
+        <navigator url="/sub1/pages/shop/more" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix"
+                style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="s4">
+        <view class="s41">
+            <view class="s421" bind:tap="skip" data-code="BO005">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2016.png"
+                    style="width:335rpx;height:175rpx;"></image>
+                <view class="s211">
+                    <view class="s2111">
+                        <!-- <view class="s4title">代理付款</view> -->
+                        <view class="s4title">订单管家</view>
+                        <view class="s4desc">应付账款智能管理</view>
+                    </view>
+                </view>
+            </view>
+            <view class="s422" bind:tap="skip" data-code="BM010">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2017.png"
+                    style="width:335rpx;height:175rpx;"></image>
+                <view class="s211">
+                    <view class="s2111">
+                        <view class="s4title">e融单</view>
+                        <view class="s4desc">全流程线上融资 秒级放款</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="s42">
+            <view class="s421">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2018.png"
+                    style="width:335rpx;height:175rpx;"></image>
+                <view class="s211" bind:tap="skip" data-code="BO002">
+                    <view class="s2111">
+                        <view class="s4title">票据池</view>
+                        <view class="s4desc">专业的票据管家</view>
+                    </view>
+                </view>
+            </view>
+            <view class="s422">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2019.png"
+                    style="width:335rpx;height:175rpx;"></image>
+                <view class="s211" bind:tap="skip" data-code="BO003">
+                    <view class="s2111">
+                        <view class="s4title">现金管理</view>
+                        <view class="s4desc">集团资金统一管理好手</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 新增绿色金融 -->
+<view class="f4">
+    <view class="f51">
+        <view class="f511">绿色金融</view>
+        <navigator url="/sub1/pages/shop/more" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix"
+                style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="s4">
+        <view class="s41">
+            <navigator url="/sub2/pages/greenCredit/index" class="s321" >
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/greenFinance/lsxd.png"
+                    style="width:335rpx;height:177rpx;box-shadow: 0 3px 14px 0 rgba(191,193,218,0.40);"></image>
+                <view class="s211">
+                    <view class="s2111">
+                        <view class="s4title">绿色信贷试算</view>
+                        <view class="s4desc">信贷分类，智能试算</view>
+                    </view>
+                </view>
+            </navigator>
+            <view class="s322" bindtap="comingSoon">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/greenFinance/cpsc.png"
+                    style="width:335rpx;height:177rpx;box-shadow: 0 3px 14px 0 rgba(191,193,218,0.40);"></image>
+                <view class="s211">
+                    <view class="s2111">
+                        <view class="s4title">产品手册</view>
+                        <view class="s4desc"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <navigator url="/sub2/pages/photovoltaicLoan/index" class="s31">
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/greenFinance/gfd.png"
+                style="width:335rpx;height:375rpx;box-shadow: 0 3px 14px 0 rgba(191,193,218,0.40);"></image>
+            <view class="s311" style="margin-left:40rpx">
+                <view class="s31title">光伏贷</view>
+                <view class="s31desc">清洁能源，一键申请</view>
+                <view class="logos">
+                    <image src="{{cndUrl}}/static/wechat/img/greenFinance/logo2.png" mode="widthFix" lazy-load="{{true}}" />
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+<!-- 国际业务 -->
+<view class="f4">
+    <view class="f51">
+        <view class="f511">国际业务</view>
+        <navigator url="/sub1/pages/shop/more" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix"
+                style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="s4">
+        <view class="s41">
+            <view class="s421" bind:tap="skip" data-code="DS002">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2060.png"
+                    style="width:335rpx;height:175rpx;"></image>
+                <view class="s211">
+                    <view class="s2111">
+                        <view class="s4title">汇出汇款</view>
+                        <view class="s4desc">资金动向 全球跟踪</view>
+                    </view>
+                </view>
+            </view>
+            <view class="s422" bind:tap="skip" data-code="DS001">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2061.png"
+                    style="width:335rpx;height:175rpx;"></image>
+                <view class="s211">
+                    <view class="s2111">
+                        <view class="s4title">汇入汇款</view>
+                        <view class="s4desc">收款提醒 分秒入账</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="s42">
+            <view class="s421">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2062.png"
+                    style="width:335rpx;height:175rpx;"></image>
+                <view class="s211" bind:tap="skip" data-code="DZ001">
+                    <view class="s2111">
+                        <view class="s4title">出口商票融资</view>
+                        <view class="s4desc">线上融资 一键放款</view>
+                    </view>
+                </view>
+            </view>
+            <view class="s422">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2063.png"
+                    style="width:335rpx;height:175rpx;"></image>
+                <view class="s211" bind:tap="skip" data-code="DY002">
+                    <view class="s2111">
+                        <view class="s4title">远期结售汇</view>
+                        <view class="s4desc">简单几步 汇率避险</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="f4">
+    <view class="f51">
+        <view class="f511">地区特色</view>
+        <navigator url="/sub1/pages/shop/more?id=1" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix"
+                style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <image wx:if='{{cndUrl&&areaPorductCode}}' bind:tap="skip" data-code="{{areaPorductCode}}"
+        src="{{cndUrl}}/static/wechat/img/sui/sui-city-{{areaPorductCode}}.png" mode="widthFix"
+        style="height:160rpx;width:100%"></image>
+</view>
+<view class="f4">
+    <view class="f41">综合服务</view>
+    <view class="f43">
+        <view class="zh-sub" wx:for="{{zh_products}}" bind:tap="skip" data-code="{{item.code}}">
+            <image wx:if='{{cndUrl&&item.code}}' src="{{cndUrl}}/static/wechat/img/sui/sui-{{item.code}}.png"
+                mode="widthFix"></image>
+            <view class="sub-title">{{item.name}}</view>
+        </view>
+    </view>
+</view>
+<view class="" style="height:30rpx" />

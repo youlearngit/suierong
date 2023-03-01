@@ -1,0 +1,7 @@
+<view style="background-image: url({{cdnurl}}/static/wechat/img/sui/run_bg2.png);" class="container">
+    <button  wx:if="{{status}}" class="auth_btn {{loading?'loading':'active'}}" disabled="{{loading}}" open-type="launchApp" app-parameter="{{steps}}" binderror="launchAppError" bindlaunchapp="launchAppSuccess">
+        <text wx:if="{{loading}}">数据同步中({{num}}s)</text>
+        <text wx:else>返回天天理财</text>
+    </button>
+    <view class="auth_btn active" bind:tap="getSteps"  wx:else >授权步数</view>
+</view>

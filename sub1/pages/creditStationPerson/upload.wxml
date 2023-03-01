@@ -1,0 +1,49 @@
+<view class="bg">
+    <image class="" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/talent/bg_top.png" mode="widthFix" style="width:100%" />
+</view>
+<view class="talentContainer">
+    <view class="field-input">
+        <view class="upload-box" hover-class="none" hover-stop-propagation="false">
+            <view class="" wx:if="{{!isSelf}}" hover-class="none" hover-stop-propagation="false">
+                <view class="title">上传证件照片</view>
+                <view class="idCard-uploader">
+                    <view class="idCard" bindtap="getImage" data-type="front">
+                        <image class="" wx:if="{{preffixUrl}}" src="{{idCardFrontImage||preffixUrl+'/static/wechat/img/talent/bg_front.png'}}" mode="aspectFill" />
+                        上传人像面图像
+                    </view>
+                    <view class="idCard" bindtap="getImage" data-type="back">
+                        <image class="" wx:if="{{preffixUrl}}" src="{{idCardBackImage||preffixUrl+'/static/wechat/img/talent/bg_end.png'}}" mode="aspectFill" />
+                        上传国徽面图像
+                    </view>
+                </view>
+            </view>
+            <view class="title" style="{{!isSelf?'margin: 60rpx 0 43rpx;':''}}">上传人才资质证明材料</view>
+            <view class="" style="color:#557DF7;font-size: 24rpx;margin: -30rpx 30rpx 10rpx;">提示：证明文件包括但不限于政府发文、资质证书、培养协议等可证明人才资质的文件。</view>
+            <view class="talent-uploader">
+                <view class='pic' wx:for="{{imgList}}" wx:for-item="item" wx:key="*this">
+                    <image class='weui-uploader__img ' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg" style="width:147rpx;height: 110rpx;" />
+                    <image class="" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/talent/icon_delete.png" mode="widthFix" class="delete-btn" data-index="{{index}}" catchtap="deleteImg" />
+                </view>
+                <view class='pic'>
+                    <image wx:if="{{preffixUrl}}" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/talent/icon_camera2.png" mode="widthFix" style="width:147rpx;height: 110rpx;" bindtap="getImage" data-type='talent' />
+                </view>
+            </view>
+        </view>
+        <view class="tips-box" hover-class="none" hover-stop-propagation="false">
+            <view class="tips">
+                <view class=" self">
+                    <image class="" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/talent/icon_warning.png" mode="widthFix" />
+                    温馨提示
+                </view>
+                <view class="desc">
+                    您拍摄的证件照片将作为实名认证审核的影像资料，请拍摄时确保证件
+                    <text class="" style="color:#557DF7">边框完整，字体清晰，亮度均匀</text>
+                    。
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="btn-confirm {{canSubmit?'':'btn-disabled'}}" bindtap="{{canSubmit?'getImageBatchID':''}}">
+        上传
+    </view>
+</view>

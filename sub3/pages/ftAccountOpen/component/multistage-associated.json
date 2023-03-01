@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-overlay": "/sub3/static/vant/weapp/overlay/index"
+  }
+}

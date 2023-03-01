@@ -1,0 +1,87 @@
+<wxs src="./utils.wxs" module="utils" />
+
+<view class="map_container">
+	<map class="map" id="map" enable-zoom="true" show-location="true"
+		scale="{{scala}}" 
+		latitude="{{point.latitude}}" longitude="{{point.longitude}}"
+		markers="{{markers}}" bindmarkertap="makerTap" ></map>
+	<!-- <view class="map_search">
+		<view class="map_search_list" wx:if="{{search_list.length>0}}">
+			<block wx:for="{{search_list}}" wx:key="index">
+				<view class="map_search_item" bindtap="mapSearchTap" data-id="{{item.ID}}">
+					<view>{{item.ORG_FULL_NAME}}</view>
+					<view>{{item.ORG_ADDRESS}}</view>
+				</view>
+			</block>
+		</view>
+		<input placeholder="银行名称" bindinput="mapSearch" value="{{search_mk.ORG_FULL_NAME}}" >
+			<image class="map_search_icon" src="{{preffixUrl}}icon_32_search.png" mode="widthFix" />
+		</input>
+		<picker mode="multiSelector" bindchange="cityPickerChange" bindcolumnchange="cityPickerColumnChange" value="{{city_multi_idx}}" range="{{city_multi}}">
+			<view class="map_search_city">
+				<image src="{{jsbUrl}}/static/wechat/img/ico_adr_gray.png"></image>
+				{{search_city.value}}
+			</view>
+		</picker>
+	</view> -->
+</view>
+<view class="map_boxs">
+	<view class="map_box map_poi" bindtap='locationMe'>
+		<image src="{{jsbUrl}}/static/wechat/img/ico_poi.png"></image>
+	</view>
+</view>
+
+<view class="map_text">
+	<view class="title">
+		<view>{{locData.ORG_FULL_NAME}}</view>
+		<view class="distance" wx:if="{{locData.distance}}">
+			距您约{{locData.distance}}
+		</view>
+		<view class="navto" bindtap="routes">
+			<image src="{{jsbUrl}}/static/wechat/img/go.png"></image>
+		</view>
+	</view>
+	<view class="desc">
+		<view class="desc_line">
+			<span class="ico"></span>个人业务营业时间：{{locData.P_AM}} {{locData.P_PM}}
+		</view>
+		<view class="desc_line">
+			<span class="ico"></span>对公业务营业时间：{{locData.C_AM}} {{locData.C_PM}}
+		</view>
+		<view class="desc_gray" wx:if="{{locData.ORG_ADDRESS}}">
+			<image src="{{jsbUrl}}/static/wechat/img/ico_adr_gray.png"></image>
+			{{locData.ORG_ADDRESS}}
+		</view>
+		<view class="desc_gray" wx:if="{{locData.tel}}">
+			<image src="{{jsbUrl}}/static/wechat/img/ico_phone.png"></image>
+			{{locData.tel}}
+		</view>
+	</view>
+
+	<block wx:for="{{staffs}}" wx:key="index">
+		<view class="staff">
+			<image class="staff-bg" src="{{preffixUrl}}tutor_bg.png" mode="widthFix"></image>
+			<view class="staff-inline">
+				<van-image custom-class="staff-avatar" src="{{item.HEAD?item.HEAD:(preffixUrl+'avatar_default.png')}}" fit="widthFix" round />
+				<view>
+					<view class="staff-name">
+						<view>{{item.STAFFNAME}}</view>
+						<view class="staff-job">
+							<view>{{item.WORKUNIT}}</view>
+							<view>{{item.JOB}}</view>
+						</view>
+					</view>
+					<view class="staff-tags">
+						<view wx:if="{{item.LABEL1}}">{{item.LABEL1}}</view>
+						<view wx:if="{{item.LABEL2}}">{{item.LABEL2}}</view>
+						<view wx:if="{{item.LABEL3}}">{{item.LABEL3}}</view>
+					</view>
+				</view>
+			</view>
+			<van-divider customStyle="margin:20rpx 0 0 0;color:#E2E2E2;" />
+			<view class="staff-remark">{{item.RESUME}}</view>
+			<image class="staff-phone" src="{{preffixUrl}}tutor_mobilephone.png" mode="widthFix" bindtap="phoneCall" data-phone="{{item.TEL}}"></image>
+		</view>
+	</block>
+	
+</view>

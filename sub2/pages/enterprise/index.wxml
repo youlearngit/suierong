@@ -1,0 +1,27 @@
+<!--sub2/pages/enterprise/index.wxml-->
+<view class="topPic">
+    <image class="listImg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_enterprise.png" ></image>
+</view>
+<view class="exhibition">
+<view class="list" hover-class="none" bind:tap="getCode">
+    <image class="ex-bgdImg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_inimg.png" ></image>
+    <image class="ex-icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_personal.png" ></image>
+    <view class="tit">智能人事</view>
+    <view class="content">注册开通薪税管家人事功能</view>
+    <image class="ri-bgdImg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_return.png" ></image>
+</view>
+<navigator url="/sub3/pages/salary/index" class="list" hover-class="none">
+    <image class="ex-bgdImg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_inimg.png" ></image>
+    <image class="ex-icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_wages.png" ></image>
+    <view class="tit">工资条</view>
+    <view class="content">查询电子工资条</view>
+    <image class="ri-bgdImg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_return.png" ></image>
+</navigator>
+<view class="list" hover-class="none" wx:if='{{userInfo}}' bind:tap="toXX">
+    <image class="ex-bgdImg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_inimg.png" ></image>
+    <image class="ex-icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_appoint.png" ></image>
+    <view class="tit">预约功能(仅行员)</view>
+    <view class="content">行员线上预约客户路演信息</view>
+    <image class="ri-bgdImg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_salary_return.png" ></image>
+</view>
+</view>

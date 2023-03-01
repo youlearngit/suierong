@@ -1,0 +1,15 @@
+/* sub1/pages/miCoupons/index.wxss */
+.bg{
+  width: 100%;
+}
+
+.bgn{
+  position: fixed;
+  /* bottom: 102rpx; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+align-items: center;
+
+}

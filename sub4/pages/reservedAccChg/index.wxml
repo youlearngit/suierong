@@ -1,0 +1,31 @@
+<!--sub3/pages/reservedAccChg/index.wxml-->
+<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_bgn1.png" mode="widthFix" class="bgn">
+</image>
+<view class="txt1">
+  账户信息变更</view>
+<view class="txt2">
+  一键预约，变更您的账户信息</view>
+
+<view class="v3">
+  <view class="v4">
+    <navigator url="./search">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_round.png" mode="widthFix"
+        class="img1"></image>
+
+      <text class="txt3">预约对公
+        客户信息变更</text>
+    </navigator>
+  </view>
+  <view class="v5">
+    <navigator url="./progress">
+
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_bgjd.png" mode="widthFix" class="img2">
+    </image>
+   
+    <text class="txt4">修改
+    变更预约信息</text>
+  </navigator>
+
+  </view>
+
+</view>

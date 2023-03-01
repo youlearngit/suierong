@@ -1,0 +1,168 @@
+<view class="" style='padding-top:298rpx'>
+  <image wx:if='{{cndUrl}}' class="bg-top" src="{{cndUrl}}/static/wechat/img/mer/rec_bg_top1.png" mode="widthFix" style="width:100%;"></image>
+  <view class="user-box">
+    <image class="user-boxBg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/mer/card_img.png" mode="widthFix" style="width:100%;"></image>
+    <view class="rule" bindtap='showTips'>规则</view>
+    <!-- <view class="extract2" bindtap='showBeanBox'>
+      <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/icon_right_blue.png" mode="widthFix" style="width:10rpx;margin-right:10rpx;transform:rotate(180deg);"></image>
+      立即提取
+    </view> -->
+    <!-- <navigator url="/sub3/pages/myCouponConvert/index" class="extract">
+            积分商城
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/rec/icon_right_blue.png" mode="widthFix" style="width:10rpx;margin-left:10rpx"></image>
+        </navigator> -->
+    <view class="user-info">
+      <view class="avatar">
+        <image src="{{customerInfo.PHOTO}}" mode="widthFix" style="width:100%;border-radius:50%;"></image>
+      </view>
+      <view class="detail" style='display: flex;align-items: center;'>
+        <view class="name">{{customerInfo.NICK_NAME||customerInfo.REAL_NAME}}</view>
+      </view>
+    </view>
+    <view class="a12">
+      <view class="a121">
+        <view class="a1211">{{awardTotal||0}}</view>
+        <view class="a1212">
+          <image class="a12122" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_beans_yellow.png" mode="widthFix"></image>
+          <view class="a12121">累计获得苏银豆</view>
+          <!-- <image class="" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_right_grey.png" mode="widthFix" style="width:10rpx"></image> -->
+        </view>
+      </view>
+      <view class="a121">
+        <view class="a1211">
+          <view style="width:100%">{{awardSurplus||0}}</view>
+        </view>
+        <view class="a1212">
+          <image class="a12122" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_beans_blue.png" mode="widthFix"></image>
+          <view class="a12121">可提取苏银豆</view>
+        </view>
+      </view>
+      <view class="line"></view>
+    </view>
+  </view>
+  <view bindtap="showCalendar" style="display: inline-block;">
+    <view class="calendar-box">
+      <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_calendar.png" mode="widthFix" style="width:26rpx"></image>
+      <view class="text1">{{calendarTitle}}</view>
+      <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_right.png" mode="widthFix" style="width:13rpx"></image>
+    </view>
+  </view>
+  <view class="content021">
+    <image class="watermark-calendar" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/mer/icon_histogram1.png" mode="widthFix"></image>
+    <view class="content021_tip">单位丨新客户户数</view>
+    <view class="content021_title1">
+      <view class="content021_title">
+        <text class="content021_title2 content021_title4">数据\n统计</text>
+        <view class="content021_title2 content021_title3">分享</view>
+        <view class="content021_title2 content021_title3">申请成功</view>
+        <text class="content021_title2 content021_title3">申请失败</text>
+        <view class="content021_title2  content021_title3">
+          <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/rec/icon_bean_silver.png" mode="widthFix" style="width:24rpx;margin: 4rpx;"></image>
+          <view>奖励</view>
+        </view>
+      </view>
+      <view class="content021_title5">
+        <view class="content021_title2 content021_title6">总计</view>
+        <view class="content021_title2 content021_title3">
+          {{shareTotal||0}}
+        </view>
+        <view class="content021_title2 content021_title3">
+          {{shareSuccessTotal||0}}
+        </view>
+        <view class="content021_title2 content021_title3">
+          {{shareFailTotal||0}}
+        </view>
+        <view class="content021_title2 content021_title3" style="background: #F1F6FF;height: 100%;">
+          {{awardTotal||0}}
+        </view>
+      </view>
+    </view>
+    <view class="more" bindtap="watchmore">查看明细</view>
+  </view>
+</view>
+<!-- 查看明细 -->
+<van-popup show="{{ showmore }}" bind:close="onClose" custom-style='border-radius: 30rpx'>
+  <view class="a2">
+    <view class="a21" style="margin-bottom:0rpx;">
+      <image class="a21left" src="{{cndUrl}}/static/wechat/img/mer/icon_rightImg.png"></image>
+      查看明细
+    </view>
+    <view class="box2">
+      <view class="table">
+        <!-- 表头(即第一行) -->
+        <view class="tr">
+          <view class="th">企业名称</view>
+          <view class="th">奖励苏银豆</view>
+          <view class="th">时间</view>
+        </view>
+        <view style="border-right: 1rpx solid #CDD8FB;border-top: 1px solid #CDD8FB;">
+          <block wx:if="{{list.length>0}}">
+            <view class="tr" wx:for="{{list}}" wx:key="index">
+              <view class="td">{{item.enterPriseName}}</view>
+              <view class="td">{{item.awardNum}}</view>
+              <view class="td">{{item.addTime}}</view>
+            </view>
+          </block>
+          <view class="tr" wx:else>
+            <view class="td" style="width:100%;">暂无数据</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="a23">
+      <view class="a231" bind:tap="onClose">确认</view>
+    </view>
+  </view>
+</van-popup>
+<!-- 立即提取  -->
+<van-popup show="{{ showBeanBox }}" bind:close="onClose" class="extract-box" custom-style="border-radius: 16rpx;">
+  <view class="c1">
+    <view class="c21">
+      <view class="c211">提取苏银豆</view>
+      <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-16.png" mode="widthFix" bind:tap="onClose"></image>
+    </view>
+    <view class="c22" wx:if="{{!submit}}">
+      <input class="c221" type="number" placeholder="请输入提取数量" bindinput="numInput" value="{{beansNum}}" placeholder-class="input-placeholder" />
+    </view>
+    <view class="c23" wx:else>
+      <view>{{getBeanDesc1}}</view>
+      <view wx:if="{{show1}}">积分余额：{{getBeanDesc2}}</view>
+    </view>
+    <view class="extract-btn" bindtap="getBeans" wx:if="{{!submit}}">确认</view>
+    <view class="extract-btn" bindtap="onClose" wx:else>我知道了</view>
+    <view class="text4">(“出口贸e融”专项奖励，苏银豆有效期为1年。)</view>
+  </view>
+</van-popup>
+<!-- 规则弹出框 -->
+<van-popup show="{{ showTips }}" bind:close="onClose" custom-style='border-radius: 30rpx'>
+  <view class="a2">
+    <view class="a21">
+      <image class="a21left" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/mer/icon_rightImg.png"></image>
+      活动规则
+    </view>
+    <!-- <view class="text2">活动时间</view>
+        <view class="text3">2021年11月1日﹣2023年12月31日</view>
+        <view class="text2">活动细则</view> -->
+    <view class="a22" scroll-x="false" scroll-y="false" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="" bindscroll="">
+      <view class="a221">
+        <view class="a223">
+          1．微信搜索小程序“江苏银行随e融”，选择“出口贸e融”，点击“分享”，即可邀请好友参与申请。
+        </view>
+        <view class="a223">
+          2．每推荐一位客户申请“出口贸e融”，首次申请成功后，若未通过审批，您可获得价值50元苏银豆；若通过审批，您可获得价值100元苏银豆。
+        </view>
+        <view class="a223" style="color:#91a4cf">（1）同一客户仅统计首次申请时各阶段的奖励；</view>
+        <view class="a223" style="color:#91a4cf">（2）苏银豆兑换礼品需先至江苏银行手机银行或天天理财APP开户，海量好礼等着您。</view>
+          <view>活动时间为即日起至2022.12.31，总发放金额为10万人民币。</view>
+        <view class="a223">江苏银行有权在法律允许的范围内对本次活动予以解释。</view>
+      </view>
+    </view>
+    <view class="a23">
+      <view class="a231" bind:tap="onClose">确认</view>
+    </view>
+  </view>
+</van-popup>
+<!-- 本月 -->
+<view class="" wx:if="{{showCalendarBox}}">
+  <van-calendar show="{{ showCalendar }}" bind:close="onClose" bind:confirm="confirmDate" color="#3C5CD5 " type="range" default-date="{{ defaultDate }}" min-date="{{ minDate }}" title="选择日期" />
+</view>

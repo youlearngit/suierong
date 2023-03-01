@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-tab": "/sub6/static/vant-weapp/tab/index",
+  "van-tabs": "/sub6/static/vant-weapp/tabs/index"
+  }
+}

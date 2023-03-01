@@ -1,0 +1,95 @@
+<!-- sub2/pages/billDisCount/eQuery.wxml -->
+<image class="bg1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen1.jpg" />
+<image class="bg2" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen2.jpg" />
+<!-- <image class="bg3" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_wei1.png" /> -->
+<block wx:for="{{a}}" wx:key="{{index}}">
+    <view style="width:92%;margin:auto;margin-top: 30rpx; margin-bottom: 50rpx;">
+        <view class="formInfo" style="width:100%;margin:auto">
+            <view class="title">企业信息</view>
+            <view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">企业名称</view>
+                    </view>
+                    <view class="weui-cell__bd" style="font-size: 28rpx;">{{item.partyName}}</view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">贴现额度</view>
+                    </view>
+                    <view class="weui-cell__bd" wx:if="{{item.businessMoney}}">{{item.businessMoney}}元</view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">剩余贴现额度</view>
+                    </view>
+                    <view class="weui-cell__bd" wx:if="{{item.doMoney}}">{{item.doMoney}}元</view>
+                </view>
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">额度到期日</view>
+                    </view>
+                    <view class="weui-cell__bd">{{item.maturityDate}}</view>
+                </view>
+                <view class="weui-cell weui-cell_input" style="height:10rpx;"></view>
+
+                <view class="title">贴现路径</view>
+
+                <view class="weui-cells weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">贴现方式</view>
+                    </view>
+                    <view class="weui-cell__bd" style="font-size: 22rpx;">买断式</view>
+                </view>
+                <view class="weui-cells weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">贴入行名称</view>
+                    </view>
+                    <view class="weui-cell__bd" style="font-size: 22rpx;">{{item.rcvBankName}}</view>
+                </view>
+                <view class="weui-cells weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">贴入行行号</view>
+                    </view>
+                    <view class="weui-cell__bd" style="font-size: 22rpx;">{{item.rcvBankNo}}</view>
+                </view>
+                <view class="weui-cells weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">入账户名称</view>
+                    </view>
+                    <view class="weui-cell__bd" style="font-size: 22rpx;">{{item.aoaBankName}}</view>
+                </view>
+                <view class="weui-cells weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">入账行行号</view>
+                    </view>
+                    <view class="weui-cell__bd" style="font-size: 22rpx;">{{item.aoaBankNo}}</view>
+                </view>
+                <view class="weui-cells weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">入账账号</view>
+                    </view>
+                    <view class="weui-cell__bd" style="font-size: 22rpx;">请填写您在江苏银行开立的结算账号</view>
+                </view>
+                <view class="weui-cells weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">可转让标志</view>
+                    </view>
+                    <view class="weui-cell__bd" style="font-size: 22rpx;">可转让</view>
+                </view> <view class="weui-cells weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">清算标志</view>
+                    </view>
+                    <view class="weui-cell__bd "style="font-size: 22rpx;">线下</view>
+                </view>
+
+                <view class="weui-cells weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">联系方式</view>
+                    </view>
+                    <view class="weui-cell__bd">{{item.phoneNumber}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>

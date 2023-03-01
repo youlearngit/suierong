@@ -1,0 +1,18 @@
+/* sub2/pages/billDisCount/status.wxss */
+page {
+    background: #f2f2f2;
+  }
+  
+  .container {
+    height: 500rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+  }
+  .tips{
+    text-align: center;
+  }
+  @import '/assets/styles/weui.wxss';
+  @import '/assets/styles/skyvow.wxss';

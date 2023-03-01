@@ -1,0 +1,42 @@
+/* pages/cloud/cloudSearch.wxss */
+/* .weui-cell {
+  font-size: 40rpx;
+  justify-content: center;
+  display: flex;
+  background-color: gainsboro;
+}
+
+.weui-content{
+  align-items: center;
+  justify-content: center;
+  margin-top: 30%;
+}
+.weui-cell1 {
+  font-size: 4rpx;
+  justify-content: center;
+  display: flex;
+  height: 4rpx;
+} */
+@import '/assets/styles/weui.wxss';
+
+
+
+.searchLists {
+  width: 94%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.searchListsItem {
+  height: 15vh;
+}
+
+.searchLists image {
+  height: 8.5vh;
+  width: 8.5vh;
+}
+.searchImg {
+  margin-top: 7vh;
+  height: 15vh;
+  width: 98%;
+}

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+      "cu-custom": "/component/cu-custom/cu-custom",
+  "van-notice-bar": "/assets/styles/vant-weapp/notice-bar/index"
+
+  },
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom"
+}

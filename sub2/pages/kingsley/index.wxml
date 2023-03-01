@@ -1,0 +1,128 @@
+<!--sub2/pages/kingsley/index.wxml-->
+<view>
+    <image class="bj-img" src="{{CDNURL+ 'productbac@3x.png'}} " style="height:{{windowHeight}}px" />
+    <image mode='widthFix' src="{{CDNURL+ 'icon.png'}} " class="yui-jsyh-icon" />
+    <image mode='widthFix' src="{{CDNURL+ 'jysed.png'}} " class="yui-jysyd-img" />
+    <view class="yui-lssh">—烟草零售商户专享—</view>
+    <view class="content_poster">
+      <image src="{{CDNURL+ 'procasebac.png'}} " class="content_img" mode="widthFix" />
+      <view class="contxt1">产品方案</view>
+      <view class="contxt1_bg"></view>
+      <view class="contxt2">
+        为满足江苏省烟草零售商户经营周转资金需求，江苏银行为烟草零售商户提供“经营随e贷（烟草零售商户专享）”产品，为零售商户烟草采购或经营周转提供专项资金支持。
+      </view>
+    </view>
+
+    <view class="tipType">
+      <view class="tipType1">
+        <view style="width: 48%">
+          <view>
+            <view class="feature-content">特点一·额度高</view>
+            <view class="yui-gradual-change-1"></view>
+          </view>
+          <view class="tipwarp">
+            <view class="tip1">额度最高</view>
+            <view class="tip2">1000</view>
+
+            <view class="tip3">万元</view>
+            <view class="border_tip"></view>
+            <view class="tip4">纯信用最高</view>
+            <view class="tip5" style="font-weight: 800">200万</view>
+          </view>
+        </view>
+        <view style="width: 48%">
+          <view>
+            <view class="feature-content">特点二·期限长</view>
+            <view class="yui-gradual-change-1"></view>
+          </view>
+          <view class="tipwarp">
+            <view class="tip1">额度最长</view>
+            <view class="tip2">3</view>
+            <view class="tip33" >年有效</view>
+            <view class="border_tip"></view>
+
+            <view class="tip4">贷款到期可办理</view>
+            <view class="tip7">无还本续贷</view>
+          </view>
+        </view>
+      </view>
+      <view class="tipType2">
+        <view style="width: 48%">
+          <view>
+            <view class="feature-content">特点三·费率低</view>
+            <view class="yui-gradual-change-1"></view>
+          </view>
+          <view class="tipwarp">
+            <view class="tip1">
+              年利率最低
+              <view class="tip3_1">3.85</view>
+              %
+            </view>
+            <view class="border_tip1"></view>
+            <view class="tip3_2">按单利计算，按日计息，</view>
+            <view class="tip6">
+              贷款1万元日息仅
+              <view class="tip3_3">1.05元</view>
+            </view>
+          </view>
+        </view>
+        <view style="width: 48%">
+          <view>
+            <view class="feature-content">特点四·操作简</view>
+            <view class="yui-gradual-change-1"></view>
+          </view>
+          <view class="tipwarp1">
+            <image mode='widthFix'
+              src="{{CDNURL+ 'featuresf.png'}} "
+              class="tipwarp_img"
+            />
+            <view class="yui-4" style="margin-top:13rpx;">
+              <view class="yui-cz-list" />
+              在线申请
+            </view>
+            <view class="yui-4">
+              <view class="yui-cz-list" />
+              在线签约
+            </view>
+            <view class="yui-4">
+              <view class="yui-cz-list" />
+              随借随还
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+ 
+    <!-- <view class="yui-btn-sq"></view> -->
+<image src="{{CDNURL+'yan_share_bg.png'}}"  class="yanbg"/>
+<image wx:if="{{showApply}}" src="{{CDNURL+'yan_share_apply.png'}}"  class="yanapply" mode="widthFix" bindtap="goTo"/>
+<image src="{{CDNURL+'yan_share_btn.png'}}"  class="{{showApply?'yanshare':'yanshare2'}}" mode="widthFix" bindtap="share"/>
+
+
+<view class="{{shareBox}}">
+
+<view class='imagePathBox'>
+  <image src="{{imagePath}}" class='shengcheng' wx:if="{{  shareBox!='shareBox'}}"></image>
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box" >
+  <canvas
+            style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white"
+            canvas-id="mycanvas" />
+          </view>
+
+<view class="tools" wx:if="{{  shareBox!='shareBox'}}">
+  <view class="tb cancel" bindtap='showHide'>
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+    <block>取消</block>
+  </view>
+  <view class="tb shareToAPP">
+    <button open-type='share'><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image></button>
+    <block>转发</block>
+  </view>
+  <view class="tb savePic" bindtap='baocun'>
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+    <view class="saveTxt">朋友圈</view>
+  </view>
+</view>
+</view>  </view>

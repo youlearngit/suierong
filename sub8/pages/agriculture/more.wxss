@@ -1,0 +1,248 @@
+/* sub6/pages/agriculture/more.wxss */
+.titleClass{
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #FFFFFF;
+}
+/* .customClass{
+  background-color: #7aabff;
+} */
+.van-nav-bar {
+  background-color: #7aabff;
+}
+/* pages/component/nav/nav.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+page {
+	background-color: white;
+}
+.VerticalBox{
+  height: 100%;
+}
+.nav-header {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.VerticalNav.nav {
+	width: 260rpx;
+	white-space: initial;
+	z-index: 99;
+	background-color: #f6faff;
+}
+
+.VerticalNav.nav .cu-item {
+	width: 100%;
+	text-align: center;
+	background-color: #fff;
+	margin: 0;
+	border: none;
+	height: 112rpx;
+	line-height: 112rpx;
+	position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+	background-color: #f1f1f1;
+	font-family: PingFangSC-Medium;
+	font-size: 30rpx;
+	color: #333333;
+}
+
+.VerticalNav.nav .cu-item.cur::after {
+	content: "";
+	width: 10rpx;
+	height: 31rpx;
+	position: absolute;
+	background-color: currentColor;
+	top: 0;
+	right: 0rpx;
+	bottom: 0;
+	margin: auto;
+}
+
+.VerticalBox {
+	display: flex;
+	/* padding: 130rpx 0; */
+}
+
+.text-green,
+.line-green,
+.lines-green {
+	color: #353b50;
+}
+
+.productBImg {
+	width: 100%;
+}
+
+.cu-item image {
+	margin: 0 0 20rpx;
+}
+.cuList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.cuItem{
+  width: 180rpx;
+  height: 180rpx;
+  background: #F6F7FF;
+border-radius: 10px;
+text-align: center;
+margin-left: 42rpx;
+margin-bottom: 42rpx;
+  
+
+}
+.cu-list.menu-avatar > .cu-item .content {
+	/* position: absolute;
+	left: 30rpx;
+	width: 95%;
+	top: 46rpx;
+	display: flex; */
+}
+
+.cu-list.menu-avatar > .cu-item .content2 {
+	position: absolute;
+	left: 30rpx;
+	width: 95%;
+	top: 46rpx;
+}
+
+.producticon {
+	width: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  margin-top: 28rpx;
+  margin-left: 50rpx;
+}
+
+image{
+  width: 100%;
+  height: 100%;
+}
+
+.producticonBox {
+	display: flex;
+
+	width: 100%;
+	flex-flow: row wrap;
+}
+
+.zh-product {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.producticonBox2 {
+	height: 150rpx;
+	width: 33.3%;
+	text-align: center;
+}
+
+.title2 {
+	font-family: PingFangSC-Regular;
+	font-size: 25.74rpx;
+	color: #4a4a4a;
+	text-align: center;
+}
+
+.producticonImg2 {
+	width: 80rpx;
+	height: 80rpx;
+}
+
+.producticonImg3 {
+	width: 60rpx;
+}
+
+.productdesc {
+  margin-top: 10rpx;
+  text-align: center;
+  margin-bottom: 10rpx;
+	/* max-width: 300rpx; */
+}
+.ch{
+  width: 399rpx;
+  height: 264rpx;
+  position: absolute;
+  left: 83rpx;
+  bottom: 126rpx;
+}
+
+
+.chTitle{
+  text-align: center;
+  font-family: SourceHanSansSC-Regular;
+font-size: 26rpx;
+color: #ADCCFF;
+}
+.title {
+	font-family: PingFangSC-Regular;
+font-size: 24rpx;
+color: #4A4A4A;
+/* margin-left: 30rpx;
+width: 120rpx; */
+}
+
+.desc {
+	font-family: PingFangSC-Regular;
+	font-size: 24rpx;
+	color: #999999;
+	line-height: 24rpx;
+}
+
+.cu-list.menu-avatar > .cu-item {
+	/* position: relative;
+	display: flex;
+	padding-right: 0rpx;
+	height: auto;
+	justify-content: flex-end;
+	align-items: center;
+	height: 152rpx;
+	margin: 0 0 15rpx; */
+}
+
+.VerticalNav.nav .cu-item.cur::after {
+	content: "";
+	width: 0rpx;
+}
+
+.VerticalNav.nav .cu-item.cur::before {
+	content: "";
+	width: 10rpx;
+	height: 43rpx;
+	border-radius: 0 27rpx 36rpx 0;
+	position: absolute;
+	background-color: #4586e6;
+	top: 0;
+	left: 0rpx;
+	bottom: 0;
+	margin: auto;
+}
+
+.VerticalNav.nav .cu-item.cur {
+	background-color: #fff;
+	font-size: 32rpx;
+	font-family: PingFangSC-Medium;
+	color: #151515;
+}
+
+.VerticalMain {
+	background-color: white;
+	z-index: 9999;
+	padding: 40rpx 0;
+}
+
+.VerticalNav.nav .cu-item {
+	background-color: #f6faff;
+	font-size: 26rpx;
+	font-family: PingFangSC-Regular;
+	color: #333333;
+}

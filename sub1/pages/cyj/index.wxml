@@ -1,0 +1,17 @@
+<cu-custom isCustom="{{true}}" currentPage="{{currentPage}}">
+    <view slot="content"></view>
+</cu-custom>
+<view>
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/cyj_bg.jpg" mode="widthFix" style="width:100%"></image>
+</view>
+<view class='fbuttom'>
+    <view class=" btn " bindtap='showShare'>
+        分
+        <text>\t\t\t\t\t\t</text>
+        享
+    </view>
+    <view bindtap="apli" class="btn blu ">立即申请</view>
+</view>
+<my-poster shareBox="{{shareBox}}" imagePath="{{imagePath}}" hidePoster="{{hidePoster}}" height="65vh" top="13vh" ></my-poster>
+<canvas style="width: 750px;height: 1216px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+<my-login loginFlag="{{loginFlag}}"></my-login>

@@ -1,0 +1,79 @@
+<image class="f1" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_11.png" mode="widthFix"></image>
+<view class="f2">
+    <view class="f21">
+        <view class="f211" decode="{{true}}">
+            <text class="" decode="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;江苏银行自贸云服务平台融合了最新的金融科技，能够为企业自贸区业务开展、提供一站式、全线上化的跨境结算、跨境融资和跨境交易等自贸金融综合服务。
+            </text>
+        </view>
+    </view>
+</view>
+<view class="f3">
+    <view class="f31">
+        <view class="f311">
+            <view class="f3111">上海自贸区专属服务</view>
+            <view class="f3112">政策优势    适用对象    服务网点</view>
+        </view>
+        <view class="f313"></view>
+        <view class="f312" bindtap='toDesc' data-id="1">
+            <image wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_13.png" mode="widthFix"></image>
+        </view>
+    </view>
+    <view class="f31">
+        <view class="f311">
+            <view class="f3111">江苏自贸区专属服务</view>
+            <view class="f3112">政策优势    适用对象    服务网点</view>
+        </view>
+        <view class="f313"></view>
+        <view class="f312" bindtap='toDesc' data-id="2">
+            <image wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_13.png" mode="widthFix"></image>
+        </view>
+    </view>
+    <view class="f31">
+        <view class="f311">
+            <view class="f3111">粤港澳大湾区专属服务</view>
+            <view class="f3112">政策优势    适用对象    服务网点</view>
+        </view>
+        <view class="f313"></view>
+        <view class="f312" bindtap='toDesc' data-id="3">
+            <image wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_13.png" mode="widthFix"></image>
+        </view>
+    </view>
+    <view class="f31 ff">
+        <view class="f311">
+            <view class="f3111">企业自贸金融专属服务</view>
+            <view class="f3112">您的自贸金融服务专家</view>
+        </view>
+        <view class="f313"></view>
+        <view class="f312" bindtap='toDesc' data-id="4">
+            <image wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/zm/zm_13.png" mode="widthFix"></image>
+        </view>
+    </view>
+</view>
+<view class="f4">
+    <view class="f41" style="margin-right:30rpx" bind:tap="showShare">点击分享</view>
+    <view class="f41" bindtap="register">立即注册</view>
+</view>
+<view class="{{shareBox}}">
+    <view class='imagePathBox' hidden="{{hidePoster}}">
+        <image src="{{imagePath}}" class='shengcheng' mode="widthFix" />
+    </view>
+    <view class="canvas-box">
+        <canvas style="width: {{posterBoxWidth}}rpx;height: {{posterBoxHeight}}rpx;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+    </view>
+    <view class="tools" hidden="{{hidePoster}}">
+        <view class="tb cancel" bindtap='showHide'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg" />
+            <block>取消</block>
+        </view>
+        <view class="tb shareToAPP">
+            <button open-type='share'>
+                <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg" />
+            </button>
+            <block>转发</block>
+        </view>
+        <view class="tb savePic" bindtap='baocun'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg" />
+            <view class="saveTxt">朋友圈</view>
+        </view>
+    </view>
+</view>

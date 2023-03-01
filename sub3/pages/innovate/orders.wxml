@@ -1,0 +1,148 @@
+<wxs src="./utils.wxs" module="utils" />
+<view>
+
+	<view class="howuse" bindtap="popupEvent" data-event="popup_howuse">如何使用<image src="{{preffixUrl}}howuse_icon_right.png" mode="widthFix"></image></view>
+
+	<block wx:if="{{orders.length==0}}">
+		<van-empty description="暂无订单" />
+	</block>
+
+	<block wx:for="{{orders}}" wx:key="key" wx:index="index">
+
+		<!-- 0-未审批 1-审批失败r 2-审批通过 3-审核中 4-申领中 5-待提交 6-提交失败r -->
+		
+		<!-- 未审批 --> 
+		<block wx:if="{{item.STATUS=='0' || !item.STATUS}}">
+			
+		</block>
+
+		<!-- 审批失败 -->
+		<block wx:elif="{{item.STATUS=='1'}}">
+			<view class="order">
+				<view class="order_title">
+					<view>{{item.DWMC}}</view>
+					<view>统一社会信用代码 {{item.USCI}}</view>
+				</view>
+				<view class="order_body">
+					<view class="order_opts">
+						<view><text>剩余额度</text><text>{{item.QUOTA}}</text></view>
+						<view><text>申领人</text><text>{{item.DWMC}}</text></view>
+						<view><text>有效年份</text><text>{{item.VALIDYEAR}}</text></view>
+					</view>
+					<view>
+						<view class="order_nav order_nav_nopass">审批不通过<image src="{{preffixUrl}}nav_nopass_icon.png" mode="widthFix"></image></view>
+					</view>
+				</view>
+			</view>
+			<view class="order_nopass"><image src="{{preffixUrl}}fail_expression_icon.png" mode="widthFix"></image>{{item.FAILREASON}}</view>
+		</block>
+
+		<!-- 审批通过 -->
+		<block wx:elif="{{item.STATUS=='2'}}">
+			<view class="order">
+				<view class="order_title">
+					<view>{{item.DWMC}}</view>
+					<view>统一社会信用代码 {{item.USCI}}</view>
+				</view>
+				<view class="order_body">
+					<view class="order_opts">
+						<view><text>剩余额度</text><text>{{item.QUOTA}}</text></view>
+						<view><text>申领人</text><text>{{item.DWMC}}</text></view>
+						<view><text>有效年份</text><text>{{item.VALIDYEAR}}</text></view>
+					</view>
+					<view>
+						<view class="order_nav">审批通过<image src="{{preffixUrl}}nav_pass_icon.png" mode="widthFix"></image></view>
+					</view>
+				</view>
+			</view>
+		</block>
+
+		<!-- 审批中 -->
+		<block wx:elif="{{item.STATUS=='3'}}">
+			<view class="order">
+				<view class="order_title">
+					<view>{{item.DWMC}}</view>
+					<view>统一社会信用代码 {{item.USCI}}</view>
+				</view>
+				<view class="order_body">
+					<view class="order_opts">
+						<view><text>剩余额度</text><text>{{item.QUOTA}}</text></view>
+						<view><text>申领人</text><text>{{item.DWMC}}</text></view>
+						<view><text>有效年份</text><text>{{item.VALIDYEAR}}</text></view>
+					</view>
+					<view>
+						<view class="order_nav">审批中<image src="{{preffixUrl}}nav_pass_icon.png" mode="widthFix"></image></view>
+					</view>
+				</view>
+			</view>
+		</block>
+
+		<!-- 申领中 -->
+		<block wx:elif="{{item.STATUS=='4'}}">
+			<view class="order">
+				<view class="order_title">
+					<view>{{item.DWMC}}</view>
+					<view>统一社会信用代码 {{item.USCI}}</view>
+				</view>
+				<view class="order_body">
+					<view class="order_opts">
+						<view><text>剩余额度</text><text>--</text></view>
+						<view><text>申领人</text><text>{{item.DWMC}}</text></view>
+						<view><text>有效年份</text><text>--</text></view>
+					</view>
+					<view>
+						<view class="order_nav">申领中<image src="{{preffixUrl}}nav_pass_icon.png" mode="widthFix"></image></view>
+					</view>
+				</view>
+			</view>
+		</block>
+
+		<!-- 提交失败 -->
+		<block wx:elif="{{item.STATUS=='6'}}">
+			<view class="order">
+				<view class="order_title">
+					<view>{{item.DWMC}}</view>
+					<view>统一社会信用代码 {{item.USCI}}</view>
+				</view>
+				<view class="order_body">
+					<view class="order_opts">
+						<view><text>剩余额度</text><text>{{item.QUOTA}}</text></view>
+						<view><text>申领人</text><text>{{item.DWMC}}</text></view>
+						<view><text>有效年份</text><text>{{item.VALIDYEAR}}</text></view>
+					</view>
+					<view>
+						<view class="order_nav order_nav_nopass">提交失败<image src="{{preffixUrl}}nav_nopass_icon.png" mode="widthFix"></image></view>
+					</view>
+				</view>
+			</view>
+			<view class="order_nopass"><image src="{{preffixUrl}}fail_expression_icon.png" mode="widthFix"></image>{{item.FAILREASON}}</view>
+		</block>
+
+		<!-- 其他 -->
+		<block wx:else>
+			<view class="order">
+				<view class="order_title">
+					<view>{{item.DWMC}}</view>
+					<view>统一社会信用代码 {{item.USCI}}</view>
+				</view>
+				<view class="order_body">
+					<view class="order_opts">
+						<view><text>剩余额度</text><text>{{item.QUOTA}}</text></view>
+						<view><text>申领人</text><text>{{item.DWMC}}</text></view>
+						<view><text>有效年份</text><text>{{item.VALIDYEAR}}</text></view>
+					</view>
+					<view>
+						<view class="order_nav order_nav_nopass">{{item.STATUS}}<image src="{{preffixUrl}}nav_nopass_icon.png" mode="widthFix"></image></view>
+					</view>
+				</view>
+			</view>
+		</block>
+
+	</block>
+
+	<van-popup show="{{popup_howuse.show}}" position="bottom" custom-class="popup_howuse" round bind:click-overlay="popupEvent" data-event="popup_howuse">
+		<image class="popup_howuse_close" src="{{preffixUrl}}howuse_icon_close.png" mode="widthFix" bindtap="popupEvent" data-event="popup_howuse"></image>
+		<image class="popup_howuse_pic" src="{{preffixUrl}}how_to_use.png" mode="widthFix"></image>
+	</van-popup>
+
+</view>

@@ -1,0 +1,50 @@
+<view class='banner'>
+    <image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/credit/zx_title.png" style="width:100%"></image>
+</view>
+    <view style="width:90%;margin:auto">
+        <view class="formInfo" style="width:100%;margin:auto">
+    <view class="weui-cell weui-cell_input" wx:if="{{business_type==1&&borrowData.BORROW_NAME}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">借款人:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input"  value="{{borrowData.BORROW_NAME}}" disabled   />
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_input" wx:if="{{type==1}}">
+        <view class="weui-cell__hd">
+          <view class="weui-label">借款公司:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input"  value="{{borrowData.ENTERPRISE_NAME}}" disabled/>
+        </view>
+    </view>
+
+    <view class="title">授权人管理</view>
+      <view class="title_imp">请在确认已采集所有征信授权人信息后，点击提交“确认按钮”；<p wx:if="{{type == 0 || !type}}">如需增加授权人，请点击“添加授权人”按钮</p></view>
+      <view wx:if="{{authData.length==0}}">
+          <i-load-more tip="暂无数据" loading="{{ false }}" />
+      </view>
+      <scroll-view scroll-y style="height:38vh;margin-top:30rpx;" wx:if="{{type == 0}}">
+          <i-cell-group wx:for="{{authData}}" wx:key="{{index}}">
+              <i-cell i-class="listitem" title="{{item.AUTH_NAME}}" label="{{auth_enterprise_type_array[item.AUTH_ENTERPRISE_TYPE]?auth_enterprise_type_array[item.AUTH_ENTERPRISE_TYPE]:auth_enterprise_type_array[item.AUTH_ENTERPRISE_TYPE]}}" value="" is-link id="{{index}}" bind:click="getDetail" wx:if="{{business_type==3}}"></i-cell>
+
+              <i-cell i-class="listitem" title="{{item.AUTH_NAME}}" label="{{auth_type_array[item.AUTH_TYPE]}}" value="" is-link id="{{index}}" bind:click="getDetail" wx:elif="{{business_type==1}}"></i-cell>
+              <i-cell i-class="listitem" title="{{item.AUTH_NAME}}" label="{{auth_type_array2[item.AUTH_TYPE]}}" value="{{item.IS_PUSH=='0'?'':'已失效'}}" is-link id="{{index}}" bind:click="getDetail" wx:else></i-cell>
+          </i-cell-group>
+      </scroll-view>
+      <scroll-view scroll-y style="height:38vh;margin-top:30rpx;" wx:else>
+          <i-cell-group wx:for="{{authData}}" wx:key="{{index}}">
+
+              <i-cell i-class="listitem" title="{{item.BOR_PER_NAME}}" label="{{type == 1 ? '借款企业法定代表人' : '授权企业法定代表人'}}" value="" is-link id="{{index}}" bind:click="getDetail"></i-cell>
+          </i-cell-group>
+      </scroll-view>
+    </view>
+    <view class="add" bindtap="addAuth" wx:if="{{type == 0 || !type}}">
+        <text>+ 添加授权人</text>
+    </view>
+    <view class="bottom">
+        <button bindtap="navTo">提交授权人确认</button>
+    </view>
+    <i-toast id="toast" />
+</view>

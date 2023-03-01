@@ -1,0 +1,10 @@
+@import "index.wxss";
+
+.p2 {
+  display: block;
+  margin-bottom: 10rpx;
+  text-indent: 2em;
+  text-align: justify;
+  margin-top: 5rpx;
+  font-weight: 800;
+}

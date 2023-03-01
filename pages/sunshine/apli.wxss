@@ -1,0 +1,14 @@
+@import "../dian/apli.wxss";
+.section_gap{font-size:24rpx;margin:15rpx 0;}
+.wrapCommon{position:relative;}
+.radio-group{text-align:center;}
+.radio-group .radio{display:inline-block;width:50%;}
+
+.infoBox{display:flex;position:fixed;width:100%;height:100%;top:0;left:0;background:rgba(0,0,0,.3);z-index:100001;align-items:center;justify-content:center;}
+.showBox{width:80%;padding-top:30rpx;align-self:center;background:#fff;border-radius:10rpx;}
+.showBox .weui-cells:before,.showBox .weui-cell:before{border:none;}
+.showBox .btn{display:block;width:200rpx;height:60rpx;line-height:60rpx;font-size:32rpx;margin:30rpx auto 20rpx;}
+
+.infoTip{position:fixed;right:0;bottom:20%;width:300rpx;height:70rpx;margin-bottom:20rpx;background:linear-gradient(to right, rgba(241,187,0,.8), rgba(234,155,2,1));overflow:hidden;border-top-left-radius:70rpx; border-bottom-left-radius:70rpx;color:#fff;text-align:center;font-size:30rpx;line-height:70rpx;z-index: 100}
+.infoTip icon{vertical-align:middle;}
+.bg3{bottom:-10rpx;}

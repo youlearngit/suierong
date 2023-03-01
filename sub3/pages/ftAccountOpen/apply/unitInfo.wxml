@@ -1,0 +1,658 @@
+<view class="body" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/pub_background.png);">
+  <form bindsubmit="submitForm" report-submit='true'>
+    <!-- 开户类型选择 -->
+    <view class="top">
+      <view class="title">开户类型</view>
+      <view class="info-center">
+        <radio-group class="label-style" bindchange="selectAccountType" >
+          <label class="radio"  wx:for="{{formAccountTypeItems}}" wx:key="key" style="margin-right: {{item.marginRight?item.marginRight:0}}rpx;">
+            <radio value="{{item.value}}" disabled="{{formDisabeld}}" checked="{{item.checked}}"/> {{item.name}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <!-- 单位信息 -->
+    <view class="unit-info" wx:if="{{khlx == 'FTE'}}">
+      <view class="title">单位信息</view>
+      <view class="info-center">
+        <text class="label-style">单位证明文件</text>
+        <view class="info-center-right" bindtap="getGS">
+          <view class="picture" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/picture.png);"></view>
+          <view class="go"  style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/go.png);"></view>
+        </view>
+      </view>
+    </view>
+    <view class="infomartion-prompt" wx:if="{{khlx == 'FTE'}}">上传证件后自动填充，无需填写</view>
+
+    <view class="information-info">
+      <view class="info-center" style="padding-top: 20rpx;">
+        <!-- 客户名称 -->
+        <view class="info-margin-buttom">
+          <cover-view class="label-style">客户名称</cover-view>
+          <van-field
+            input-class="weui-input"
+            disabled="{{formDisabeld}}"
+            placeholder="请输入客户名称"
+            model:value="{{custName}}"
+            name="custName"
+            input-align="left"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 统一社会信用代码或其他证明文件编号-->
+        <view class="info-margin-buttom" wx:if="{{khlx == 'FTE'}}">
+          <cover-view class="label-style">统一社会信用代码或其他证明文件编号</cover-view>
+          <van-field
+            bind:blur="inputSerchshxydm"
+            input-class="weui-input"
+            disable-default-padding="true"
+            placeholder="请输入统一社会信用代码或其他证明文件编号"
+            model:value="{{shxydm}}"
+            disabled="{{formDisabeld}}"
+            name="shxydm"
+            input-align="left"
+            cursor-spacing="10"
+          />
+        </view>
+         <!-- 特殊机构赋码编号 -->
+         <view wx:if="{{khlx == 'FTN'}}">
+          <van-field 
+            label-class="label-style-1"
+            label="特殊机构赋码编号"
+            input-class="weui-input-1"
+            disable-default-padding="true"
+            placeholder="请输特殊机构赋码编号"
+            model:value="{{specialorgNo}}"
+            disabled="{{formDisabeld}}"
+            name="specialorgNo"
+            maxlength="9"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+
+         <!-- 证明文件种类-->
+        <view>
+            <picker mode="multiSelector"
+                bindchange="zmwjzlChange" 
+                value="{{zmwjzlIndex}}" 
+                range="{{zmwjzlItems}}"
+                disabled="{{formDisabeld}}"
+                range-key="name">
+                <van-field
+                  label="证明文件种类"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  disable-default-padding="true"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  model:value="{{zmwjzl}}"
+                  name="zmwjzl"
+                  right-icon="arrow"
+                  input-align="right">
+                  </van-field>
+            </picker>
+        </view>
+        <!-- 证明文件编号 -->
+        <view>
+          <van-field 
+            label-class="label-style-1"
+            label="证明文件编号"
+            input-class="weui-input-1"
+            disable-default-padding="true"
+            placeholder="请输入证明文件编号"
+            model:value="{{identityFileNo}}"
+            disabled="{{formDisabeld}}"
+            name="identityFileNo"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 证明文件有效期 -->
+        <view>
+          <picker mode="multiSelector"
+                bindchange="businessValidityTypeChange" 
+                value="{{businessValidityIndex}}" 
+                range="{{businessValidityItem}}"
+                disabled="{{formDisabeld}}"
+                range-key="name">
+                <van-field
+                  border="{{false}}"
+                  label="证明文件有效期"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  disable-default-padding="true"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  model:value="{{businessValidity}}"
+                  name="businessValidity"
+                  right-icon="arrow"
+                  input-align="right"/>
+          </picker>
+        </view>
+       <van-field wx:if="{{businessValidityIndex[0] == '0'}}"
+            custom-style="margin-top: -25rpx"
+            input-class="weui-input"
+            disable-default-padding="true"
+            placeholder="请选择证明文件有效期"
+            model:value="{{identityFileDate}}"
+            bindtap="identityFileDateChange"
+            disabled="{{true}}"
+            name="identityFileDate"
+            input-align="left"/>
+        <van-popup  show="{{dialogFlag.identityFileDate}}" bind:close="onClose" position="bottom" :style="{ height: '30%' }">
+            <van-datetime-picker 
+            show="{{dialogFlag.identityFileDate}}"
+            cancel-button-text=""
+            bind:cancel="onClose"
+            bind:confirm="onIdentityFileDateEvent"
+            model:value="{{identityFileDateDatePicker}}"
+            type="date"
+            title="请选择"
+            name="identityFileDateDatePicker"
+            :min-date="minDate"
+            :max-date="maxDate"
+            :formatter="formatter">
+          </van-datetime-picker>
+        </van-popup>
+
+        <!-- 其他证明文件类型 -->
+        <view>
+            <picker mode="multiSelector"
+                bindchange="qtzmwjzlChange" 
+                value="{{qtzmwjzlIndex}}" 
+                range="{{qtzmwjzlItems}}"
+                disabled="{{formDisabeld}}"
+                range-key="name">
+                <van-field
+                  label="其他证明文件种类"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  disable-default-padding="true"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  model:value="{{qtzmwjzl}}"
+                  name="qtzmwjzl"
+                  right-icon="arrow"
+                  input-align="right"/>
+            </picker>
+        </view>
+        <!-- 其他证明文件编号 -->
+        <view wx:if="{{identityFileTypeother!== ''}}">
+          <van-field 
+            label-class="label-style-1"
+            label="其他证明文件编号"
+            input-class="weui-input-1"
+            disable-default-padding="true"
+            placeholder="请输入证明文件编号"
+            model:value="{{identityFileNoother}}"
+            disabled="{{formDisabeld}}"
+            name="identityFileNoother"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 其他证明文件有效期 -->
+        <view wx:if="{{identityFileTypeother!== ''}}">
+          <picker mode="multiSelector"
+                bindchange="qtBusinessValidityTypeChange" 
+                value="{{qtbusinessValidityIndex}}" 
+                range="{{qtbusinessValidityItem}}"
+                disabled="{{formDisabeld}}"
+                range-key="name">
+                <van-field
+                  border="{{false}}"
+                  label="其他证明文件有效期"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  disable-default-padding="true"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  model:value="{{qtbusinessValidity}}"
+                  name="qtbusinessValidity"
+                  right-icon="arrow"
+                  input-align="right"/>
+          </picker>
+        </view>
+        <van-field wx:if="{{qtbusinessValidityIndex[0] == '0' && identityFileTypeother!== ''}}"
+            custom-style="margin-top: -25rpx"
+            input-class="weui-input"
+            disable-default-padding="true"
+            placeholder="请选择证明文件有效期"
+            model:value="{{identityFileDateother}}"
+            bindtap="qtIdentityFileDateChange"
+            disabled="{{true}}"
+            name="identityFileDateother"
+            input-align="left"/>
+         <van-popup  show="{{dialogFlag.identityFileDateother}}" bind:close="onClose" position="bottom" :style="{ height: '30%' }">
+            <van-datetime-picker 
+            show="{{dialogFlag.identityFileDateother}}"
+            cancel-button-text=""
+            bind:cancel="onClose"
+            bind:confirm="onQTIdentityFileDateEvent"
+            model:value="{{identityFileDateotherDatePicker}}"
+            type="date"
+            title="请选择"
+            name="identityFileDateotherDatePicker"
+            :min-date="minDate"
+            :max-date="maxDate"
+            :formatter="formatter">
+          </van-datetime-picker>
+        </van-popup>
+        <!-- 组织机构代码 -->
+        <view wx:if="{{khlx == 'FTE'}}">
+          <van-field
+            label-class="label-style-1"
+            label="组织机构代码"
+            input-class="weui-input-1"
+            disable-default-padding="true"
+            placeholder="请输入组织机构代码"
+            disabled="{{formDisabeld}}"
+            model:value="{{orgCode}}"
+            name="orgCode"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 国税登记证号 -->
+        <view wx:if="{{khlx == 'FTE'}}">
+          <van-field
+          label-class="label-style-1"
+          input-class="weui-input-1"
+          disabled="{{formDisabeld}}"
+          label="国税登记证号"
+          disable-default-padding="true"
+          placeholder="请输入国税登记证号"
+          model:value="{{stateTaxRegisterNo}}"
+          name="stateTaxRegisterNo"
+          input-align="right"
+          cursor-spacing="10"
+          />
+        </view>
+        <!-- 地税登记证号 -->
+        <view wx:if="{{khlx == 'FTE'}}">
+          <van-field
+            label="地税登记证号"
+            label-class="label-style-1"
+            input-class="weui-input-1"
+            disabled="{{formDisabeld}}"
+            disable-default-padding="true"
+            placeholder="请输入地税登记证号"
+            model:value="{{landTaxRegisterNo}}"
+            name="landTaxRegisterNo"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 存款人类别 -->
+        <view>
+          <picker mode="multiSelector"
+                bindchange="ckrlnChange" 
+                value="{{ckrlbIndex}}" 
+                range="{{ckrlbItems}}"
+                disabled="{{formDisabeld || khlx == 'FTN'}}"
+                range-key="name">
+                <van-field
+                  label="存款人类别"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  disable-default-padding="true"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  model:value="{{ckrlb}}"
+                  name="ckrlb"
+                  right-icon="arrow"
+                  input-align="right"/>
+            </picker>
+        </view>
+        <!-- 行业分类-->
+        <view>
+          <van-field
+                label="行业分类"
+                bindtap='clickType' 
+                label-class="label-style-1"
+                input-class="weui-input-1"
+                disable-default-padding="false"
+                placeholder="请选择"
+                disabled="{{true}}"
+                border="{{ false }}"
+                right-icon="arrow"
+                input-align="right"/>
+          
+          <van-field custom-style="margin-top:-30rpx"
+            input-class="weui-input"
+            disable-default-padding="true"
+            disabled
+            placeholder="-"
+            model:value="{{hyfl}}"
+            name="hyfl"
+            input-align="left"
+          />
+        </view>
+        <!-- 注册资金币种 -->
+        <view>
+          <picker mode="multiSelector"
+                bindchange="zczjbzChange" 
+                value="{{zczjbzIndex}}" 
+                range="{{zczjbzItems}}"
+                disabled="{{formDisabeld}}"
+                range-key="name">
+                <van-field
+                  label="注册资金币种"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  disable-default-padding="true"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  model:value="{{zczjbz}}"
+                  name="zczjbz"
+                  right-icon="arrow"
+                  maxlength="50"
+                  input-align="right"/>
+          </picker>
+        </view>
+        <!-- 注册资金 -->
+        <view>
+          <van-field
+            label-class="label-style-1"
+            input-class="weui-input-1"
+            label="注册资金"
+            disable-default-padding="true"
+            placeholder="请输入注册资金"
+            model:value="{{registerCapital}}"
+            name="registerCapital"
+            input-align="right"
+            disabled="{{formDisabeld}}"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 经营范围 -->
+        <view>
+          <van-field
+            label-class="label-style-1"
+            input-class="weui-input-1"
+            label="经营范围"
+            disable-default-padding="true"
+            placeholder="请输入经营范围"
+            model:value="{{businessScope}}"
+            disabled="{{formDisabeld}}"
+            name="businessScope"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 注册地址 -->
+        <view view class="info-margin-buttom">
+              <cover-view class="label-style">注册地址</cover-view>
+              <van-field
+                input-class="weui-input"
+                disable-default-padding="true"
+                placeholder="{{khlx == 'FTN'?'请填写境外注册地址':'请填写境内注册地址'}}"
+                model:value="{{registerAddress}}"
+                disabled="{{formDisabeld}}"
+                name="registerAddress"
+                input-align="left"
+                cursor-spacing="10"
+              />
+        </view>
+         <!-- 注册邮编 -->
+         <view>
+          <van-field
+            label-class="label-style-1"
+            input-class="weui-input-1"
+            label="注册邮编"
+            disable-default-padding="true"
+            placeholder="{{khlx == 'FTN'?'请填写境外注册邮编':'请填写境内注册邮编'}}"
+            model:value="{{zcyb}}"
+            disabled="{{formDisabeld}}"
+            name="zcyb"
+            maxlength="10"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 注册电话 -->
+        <view>
+          <van-field
+            label-class="label-style-1"
+            input-class="weui-input-1"
+            label="注册电话"
+            disable-default-padding="true"
+            placeholder="请输入注册电话"
+            model:value="{{registerPhone}}"
+            disabled="{{formDisabeld}}"
+            name="registerPhone"
+            maxlength="20"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 办公地址 -->
+        <view class="info-margin-buttom">
+              <cover-view class="label-style">办公地址</cover-view>
+              <van-field
+                input-class="weui-input"
+                disable-default-padding="true"
+                placeholder="请输入办公地址"
+                disabled="{{formDisabeld}}"
+                model:value="{{workAddress}}"
+                name="workAddress"
+                input-align="left"
+                cursor-spacing="10"
+              />
+        </view>
+        <!-- 办公地邮编 -->
+        <view>
+          <van-field
+          label-class="label-style-1"
+            input-class="weui-input-1"
+            label="办公地邮编"
+            disable-default-padding="true"
+            placeholder="请输入办公地邮编"
+            model:value="{{workAddressCode}}"
+            disabled="{{formDisabeld}}"
+            name="workAddressCode"
+            maxlength="6"
+            input-align="right"
+            cursor-spacing="10"
+          />
+        </view>
+        <!-- 成立日期 -->
+        <view>
+          <van-field class="field"
+                  label="成立日期"
+                  label-class="label-style-1"
+                  input-class="weui-input-1"
+                  placeholder="请选择"
+                  disabled="{{true}}"
+                  model:value="{{establishDate}}"
+                  name="establishDate"
+                  bindtouchstart="establishDateChange"
+                  right-icon="arrow"
+                  input-align="right"/>
+        </view>
+         <van-popup  show="{{dialogFlag.establishDate}}" bind:close="onClose" position="bottom" :style="{ height: '30%' }">
+            <van-datetime-picker 
+            show="{{dialogFlag.establishDate}}"
+            bind:cancel="onClose"
+            bind:confirm="onEstablishDateEvent"
+            value="{{establishDatePickerDatePicker}}"
+            type="date"
+            title="请选择"
+            name="establishDate"
+            min-date="{{mixDate}}"
+            :max-date="{{maxDate}}"
+            :formatter="formatter">
+          </van-datetime-picker>
+        </van-popup>
+        <!-- 执照批准机关 -->
+        <view class="info-margin-buttom">
+              <cover-view class="label-style">执照批准机关</cover-view>
+              <van-field custom-style="padding-bottom: 40rpx !important;border-radius: 0 0 25rpx 25rpx;"
+                input-class="weui-input"
+                placeholder="请输入执照批准机关"
+                model:value="{{licenceApproveOrg}}"
+                name="licenceApproveOrg"
+                disabled="{{formDisabeld}}"
+                input-align="left"
+                cursor-spacing="10"
+              />
+        </view>
+      </view>
+    </view>
+
+    <!-- 上级机构信息 -->
+    <view class="information-info">
+      <view class="title" style="color:#1C294F">上级机构信息</view>
+        <view class="info-center">
+          <text class="label-style">有无上级机构</text>
+          <radio-group class="information-select-right" bindchange="hasInstitutionsChange">
+            <label class="radio"  wx:for="{{hasInstitutionsItems}}" wx:key="key" style="margin-right: {{item.marginRight?item.marginRight:0}}rpx;">
+              <radio value="{{item.value}}" color="#eabd91" checked="{{item.checked}}" disabled="{{khlx == 'FTE' || formDisabeld}}"/> {{item.name}}
+            </label>
+          </radio-group>
+          <!-- 上级机构信息 -->
+          <view wx:if="{{isHaveProOrg}}" class="info-foot">
+            <view class="line-split"></view>
+            <!-- 上级法人或主管单位名称 -->
+            <view class="info-margin-buttom">
+              <cover-view class="label-style">上级法人或主管单位名称</cover-view>
+              <van-field
+                input-class="weui-input"
+                disable-default-padding="true"
+                placeholder="请输入上级法人或主管单位名称"
+                model:value="{{preLegalEnterprise}}"
+                name="preLegalEnterprise"
+                input-align="left"
+                disabled="{{formDisabeld}}"
+                cursor-spacing="10"
+              />
+            </view>
+            <!-- 上级基本存款账户开户许可证号 -->
+            <view class="info-margin-buttom">
+              <cover-view class="label-style">上级基本存款账户开户许可证号</cover-view>
+              <van-field
+                input-class="weui-input"
+                disable-default-padding="true"
+                placeholder="请输入上级基本存款账户开户许可证号"
+                model:value="{{preBaseAccountxkzh}}"
+                name="preBaseAccountxkzh"
+                disabled="{{formDisabeld}}"
+                input-align="left"
+                cursor-spacing="10"
+              />
+            </view>
+            <!-- 上级代码证种类 -->
+            <picker mode="multiSelector"
+              bindchange="sjdmzlChange" 
+              value="{{sjdmzlIndex}}" 
+              range="{{sjdmzlItems}}"
+              disabled="{{formDisabeld}}"
+              range-key="name">
+              <van-field
+                label="上级代码证种类"
+                label-class="label-style-1"
+                input-class="weui-input-1"
+                disable-default-padding="false"
+                placeholder="请选择"
+                disabled="{{true}}"
+                border="{{ false }}"
+                right-icon="arrow"
+                input-align="right"/>
+            </picker>
+            <van-field custom-style="margin-top:-30rpx"
+              input-class="weui-input"
+              disable-default-padding="true"
+              disabled
+              placeholder="-"
+              model:value="{{sjdmzl}}"
+              name="sjdmzl"
+              input-align="left"
+            />
+            <!-- 代码证件编号 -->
+            <view>
+              <van-field
+              label-class="label-style-1"
+                input-class="weui-input-1"
+                label="代码证件编号"
+                disable-default-padding="true"
+                placeholder="请输入代码证件编号"
+                model:value="{{preDmzNo}}"
+                disabled="{{formDisabeld}}"
+                name="preDmzNo"
+                input-align="right"
+                cursor-spacing="10"
+              />
+            </view>
+            <!-- 上级法定代表人名称 -->
+            <view>
+              <van-field
+              label-class="label-style-1"
+                input-class="weui-input-1"
+                label="上级法定代表人名称"
+                disable-default-padding="true"
+                placeholder="请输入法定代表人名称"
+                model:value="{{preLegalName}}"
+                disabled="{{formDisabeld}}"
+                name="preLegalName"
+                input-align="right"
+                cursor-spacing="10"
+              />
+            </view>
+            <!-- 上级法定代表人证件类型 -->
+            <picker mode="multiSelector"
+              bindchange="sjfddbrzjChange" 
+              value="{{sjfddbrzjIndex}}" 
+              range="{{sjfddbrzjItems}}"
+              disabled="{{formDisabeld}}"
+              range-key="name">
+              <van-field
+                label="上级法定代表人证件类型"
+                label-class="label-style-1"
+                input-class="weui-input-1"
+                disable-default-padding="false"
+                placeholder="请选择"
+                disabled="{{true}}"
+                border="{{ false }}"
+                right-icon="arrow"
+                input-align="right"/>
+            </picker>
+            <van-field custom-style="margin-top:-30rpx"
+              input-class="weui-input"
+              disable-default-padding="true"
+              disabled
+              placeholder="-"
+              model:value="{{sjfddbrzj}}"
+              name="sjfddbrzj"
+              input-align="left"
+            />
+            <!-- 上级法定代表人证件号码 -->
+            <view class="info-margin-buttom">
+              <cover-view class="label-style">上级法定代表人证件号码</cover-view>
+              <van-field
+                input-class="weui-input"
+                disable-default-padding="true"
+                placeholder="请输入上级法定代表人证件号码"
+                model:value="{{preLegalCardNo}}"
+                disabled="{{formDisabeld}}"
+                name="preLegalCardNo"
+                input-align="left"
+                cursor-spacing="10"
+              />
+            </view>
+          </view>
+        </view>
+    </view>
+    <button class="btn" formType="submit">下一步</button>
+  </form>
+</view>
+
+<!-- 营业执照图片上传容器 -->
+<view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+    <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+</view>
+<!-- 行业分类组件 -->
+<multistage-associated show="{{showOver}}" tradeTypeList="{{hyflItems}}" bind:resInfo="industryInfo">
+</multistage-associated>
+
+<van-toast id="van-toast" />

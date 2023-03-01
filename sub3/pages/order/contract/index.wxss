@@ -1,0 +1,257 @@
+/* pages/carLoans/order/contract/index.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+page {
+  background-color: white;
+  overflow: hidden
+}
+.contract-background-img{
+  width: 100%;
+	position: absolute;
+	top: -130rpx;
+  z-index: -1;
+}
+
+.contract-prompt{
+  width: 690rpx;
+  height: 90rpx;
+  padding: 12rpx 20rpx;
+  background-color: #cddffe;
+  color: #4668A8;
+  margin: 30rpx 30rpx 0rpx;
+  border-radius: 20rspx;
+  font-weight: 400;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  font-family: SourceHanSansSC-Normal;
+  border-radius: 13rpx;
+}
+.contract-center{
+  width: 100%;
+  height: 430rpx;
+  margin-top: 70rpx;
+  padding: 0px 30rpx;
+}
+.center-common{
+  width: 335rpx;
+  height: 430rpx;
+  float: left;
+  box-shadow: 20srpx 2rpx 28rpx 10rpx  #d2e1fe ;
+}
+.center-common-back{
+  width: 380rpx;
+  height: 100%;
+  left: -24rpx;
+}
+.contract-left{
+  margin-right: 20rpx;
+}
+.center-common-font{
+  position:relative;
+  top: -400rpx;
+  left: 30rpx;
+  font-size: 32rpx;
+  font-family: SourceHanSansSC-Medium;
+}
+.center-button{
+  position:relative;
+  width: 186rpx;
+  height: 56rpx;
+  border-radius: 25rpx;
+  top: -230rpx;
+  left: 30rpx;
+}
+.center-search{
+  position:relative;
+  width: 10rpx;
+  height: 16rpx;
+  top: -250rpx;
+  left: -120rpx;
+}
+text{
+  position:relative;
+  font-size: 28rpx;
+  font-weight: 300;
+  font-family: SourceHanSansSC-Normal;
+}
+/* page-container内样式 */
+.contaioner-top{
+  height: 120rpx;
+  background-color: #ffffff;
+  line-height: 120rpx;
+}
+.contaioner-top::before{
+  content: '';
+  position: absolute;
+  top: 110rpx;
+  left: 25rpx;
+  bottom: auto;
+  right: auto;
+  height: 1rpx;
+  width: 700rpx;
+  background-color: #E5E6EA;
+}
+.top-left{
+  font-family: SourceHanSansCN-Medium;
+  font-size: 34rpx;
+  color: #1C294F;
+  text-align: center;
+}
+.top-right{
+  position: relative;
+  top: -120rpx;
+  left: 660rpx;
+  width: 60rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #6580ED;
+  text-align: right;
+}
+.contaioner-content{
+  margin: 25rpx 0rpx;
+  height: 90%;
+  width: 100%;
+  overflow: auto;
+}
+.foot{
+  height: 174rpx;
+  width: 750rpx;
+  position: fixed;
+  background-color: #ffffff;
+  box-shadow:0px 0px 80rpx 10rpx #cbd8f3;
+  top: 88%;
+  padding: 35rpx 50rpx 29rpx 50rpx;
+}
+.btn-submit{
+  width: 80%;
+  height: 80rpx;
+  padding-top: 10rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+  background:linear-gradient(to bottom, #8BA2FD,#3D5FE9);
+  box-shadow: 0 4px 12px 0 rgba(110,137,245,0.33);
+  border-radius: 40rpx;
+}
+.contaioner-foot{
+  height: 154rpx;
+  width: 750rpx;
+  position: fixed;
+  background-color: #ffffff;
+  box-shadow:0px 0px 80rpx 10rpx #e1ebff;
+  top: 90%;
+  padding: 35rpx 50rpx 29rpx 50rpx;
+}
+
+
+/*合同样式*/
+.page-height{
+  padding: 0rpx 20rpx;
+}
+.version{
+  margin-top: 100rpx;
+  font-family:'Courier New', Courier, monospace;
+  float: right;
+}
+.title-img{
+  width: 700rpx;
+  height: 150rpx;
+  margin-top: 20rpx;
+}
+.title-big-strong{
+  font-family: 'SimHei';
+  font-weight: bold;
+  font-size: 80rpx;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.title-size-30{
+  text-align: center;
+  margin: 20rpx 0rpx 600rpx 0rpx;
+  font-weight: 500;
+  font-size: 30rpx;
+}
+.font-weight{
+  font-weight: 500;
+}
+.title-bottom{
+  text-align: center;
+  font-weight: 900;
+  font-size: 30rpx;
+  margin-bottom: 150rpx;
+}
+.split{
+  margin-top: 150rpx;
+  border: 8rpx solid;
+  height: 10rpx;
+}
+.title-clean{
+  margin-top: 50rpx;
+  text-align: center;
+  font-size: 30rpx;
+  clear: both;
+  font-weight: 600;
+}
+.content{
+  width: 100%;
+  height: 100%;
+  padding: 0rpx 20rpx ;
+  margin-bottom: 150rpx;
+}
+
+.text-center{
+  text-align: center;
+}
+.text-family{
+  font-family: FangSong;
+}
+.font-size-40{
+  font-size: 40rpx;
+}
+.font-size-30{
+  font-size: 30rpx;
+}
+/*表格*/
+.table {
+  margin-top: 20rpx;
+  border: 1px solid;
+ }
+ .tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 6rem;
+  align-items: center;
+ }
+ .td {
+  width:25%;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+ }
+.border-right{
+  border-right: 1rpx solid;
+}
+.border-buttom{
+  border-bottom: 1rpx solid;
+}
+.padding-4{
+  padding-top: 4%;
+  white-space: pre-line;
+  word-break: break-all;
+}
+.padding-1{
+  padding-top: 1%;
+}
+
+.text-weight-border{
+  font-weight: 400;
+  border-bottom: 1rpx solid ;
+}
+.text-border{
+  width: 80%;
+  border-bottom: 1rpx solid ;
+}

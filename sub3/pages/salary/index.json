@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+      "van-dialog": "/sub3/static/vant/weapp/dialog/index",
+      "van-toast": "/sub3/static/vant/weapp/toast/index"
+    }
+  }
+  

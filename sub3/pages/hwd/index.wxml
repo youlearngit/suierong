@@ -1,0 +1,106 @@
+<view class="wrap">
+    <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+        <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+            <image src="/pages/public/img/ico_ind.png"></image>
+        </view>
+        <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+            <view class="backPage" bindtap='prePage'>
+                <image src="/pages/public/img/ico_back.png"></image>
+            </view>
+            <view class="backIndex" bindtap='indexpage'>
+                <image src="/pages/public/img/ico_ind.png"></image>
+            </view>
+        </view>
+    </view>
+
+    <view class="ncd1">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/wed_bg.jpg"></image>
+    </view>
+
+    <view class="dianDL">
+        <view class="dianDt">
+            <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+            <text class="">微 e 融</text>
+        </view>
+        <view class="dianDd">
+            <text class="p">“微e融”是江苏银行专为小微业主及个体户打造的一款灵活便捷的线上化产品，主要满足客户日常经营周转中“短、频、快”的融资需求。</text>
+        </view>
+    </view>
+    <view class="dianDL">
+        <view class="dianDt">
+            <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+            <text class="">产 品 特 点</text>
+        </view>
+        <view class="dianDd">
+            <text class="p">1.易办理。线上申请，手续便捷；</text>
+            <text class="p">2.速度快。线上签约，随借随还；</text>
+            <text class="p">3.额度高。信用100万，抵押300万；</text>
+            <text class="p">4.期限长。3年额度循环使用；</text>
+            <text class="p">5. 轻松还。享受定制化还款方式。</text>
+        </view>
+    </view>
+
+    <view class="dianDL">
+        <view class="dianDt">
+            <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+            <text class="">服 务 对 象</text>
+        </view>
+        <view class="dianDd">
+            <text class="p">1.20-65周岁自然人；</text>
+            <text class="p">2.从事正常经营活动；</text>
+            <text class="p">3.信用记录表现良好。</text>
+        </view>
+    </view>
+    <view class="dianDL">
+        <view class="dianDt">
+            <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+            <text class="">您只需这样办理</text>
+        </view>
+        <view class="dianDd">
+            <text class="p">1.通过江苏银行“融惠e点通”微信平台在线申请；</text>
+            <text class="p">2.拍照上传客户经营资料，实时提交远程快速审批；</text>
+            <text class="p">3.最快当日通过，在线签约，激活额度，实时用款。</text>
+        </view>
+    </view>
+    <view style="height:80rpx"></view>
+
+</view>
+
+
+
+<view class='fbuttom'>
+    <view class="btn" bindtap='showShare'>分
+        <text>\t\t\t\t\t\t</text>享</view>
+    <view bindtap="apli" class="btn blu">立即申请</view>
+</view>
+
+<view class="{{shareBox}}">
+
+    <view class='imagePathBox'>
+        <image src="{{imagePath}}" class='shengcheng'></image>
+    </view>
+    <view hidden="{{maskHidden}}" class="mask"></view>
+    <view class="canvas-box">
+        <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+    </view>
+
+    <view class="tools">
+        <view class="tb cancel" bindtap='showHide'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+            <block>取消</block>
+        </view>
+        <view class="tb shareToAPP">
+            <button open-type='share'>
+                <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+            </button>
+            <block>转发</block>
+        </view>
+        <view class="tb savePic" bindtap='baocun'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+            <view class="saveTxt">朋友圈</view>
+        </view>
+    </view>
+</view>
+
+<view style='position:fixed;top:-50%;left:0;width:100%;height:200%;background:#fff;z-index:-1;'></view>
+<my-login loginFlag="{{loginFlag}}" ></my-login>

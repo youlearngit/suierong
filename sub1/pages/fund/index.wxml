@@ -1,0 +1,10 @@
+<view class="content" hover-class="none" hover-stop-propagation="false">
+    <image wx:if='{{cndUrl&&fundConfig}}' src="{{cndUrl}}/static/wechat/img/fund/{{fundConfig.FUND_URL}}" mode="widthFix" style="width:100%"></image>
+</view>
+<view wx:if='{{cndUrl&&fundConfig}}' style="background-image: url({{cndUrl}}/static/wechat/img/fund/{{fundConfig.APPLY_BG_URL}});" class="footer">
+    <image wx:if='{{cndUrl&&fundConfig}}' bind:tap="showShare" src="{{cndUrl}}/static/wechat/img/fund/{{fundConfig.BUTTON_URL}}" mode="widthFix" style="width:170rpx"></image>
+    <image wx:if='{{cndUrl&&fundConfig}}' bindtap="toWeb" src="{{cndUrl}}/static/wechat/img/fund/{{fundConfig.APPLY_URL}}" mode="widthFix" style="width:500rpx"></image>
+</view>
+<canvas style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+<my-poster shareBox="{{shareBox}}" hidePoster="{{hidePoster}}" imagePath="{{imagePath}}"></my-poster>
+<my-login loginFlag="{{loginFlag}}" bind:onAuthUser="auth"></my-login>

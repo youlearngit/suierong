@@ -1,0 +1,145 @@
+<!--sub4/pages/index.wxml-->
+<view class="home" style="min-height:{{height}}">
+    <view class="bg bgbox">
+        <image src="{{preffixUrl}}/static/wechat/img/mer/minibg.png" mode="widthFix"></image>
+    </view>
+    <view class="tjyr" bindtap="recommend">
+      <image class="tjyrimg" src="{{preffixUrl}}/static/wechat/img/mer/tjylimg.png"></image>
+      推荐有礼
+    </view>
+    <view class="minibt">
+        <image src="{{preffixUrl}}/static/wechat/img/mer/minibt.png" class="minibb"></image>
+    </view>
+    <view class="minifbt">
+      您的出口业务加速器
+    </view>
+    <view class="bigContent" style="height:{{height1}}">
+    <view class="top1">
+        <image class="top1bg" src="{{preffixUrl}}/static/wechat/img/mer/mer0.png"/>
+    </view>
+    <view class="td">
+        <image src="{{preffixUrl}}/static/wechat/img/mer/minitzbj.png" alt="" srcset="" />
+    </view>
+    <view class="contont">
+        <view class="copyWriter">
+            <view class="copyWriter_contont">最高审批金额(元) </view>
+            <!-- <image class="imgts" src="{{preffixUrl}}/static/wechat/img/mer/ts.png"></image> -->
+        </view>
+        <view class="contont_num">3,000,000</view>
+        <view class="contentbyuu">
+            <image src="{{preffixUrl}}/static/wechat/img/mer/minixt.png"></image>
+        </view>
+        <view class="contont_title">授信额度高 · 支持多币种 · 全流程线上</view>
+       
+    </view>
+    <view class="home_ts" bindtap="openUnfold">
+        <view class="ts_title">您可能还想知道</view>
+        <view class="ts_image">
+            <image wx:if="{{!unfold}}" src="{{preffixUrl}}/static/wechat/img/mer/xl.png"></image>
+            <image wx:if="{{unfold}}" src="{{preffixUrl}}/static/wechat/img/mer/zk.png"></image>
+        </view>
+
+    </view>
+    <view wx:if="{{unfold}}" class="unfold">
+        <view class="unfold_lable">
+            <view class="lable_img">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/splc.png"></image>
+            </view>
+            <view class="lable_title">
+                审批流程
+            </view>
+        </view>
+        <view class="unfold_contont">
+            <image src="{{preffixUrl}}/static/wechat/img/mer/splcbg.png"></image>
+            <view class="flow">
+                <view class="flow_item">
+                    <view class="numImage">
+                        <image src="{{preffixUrl}}/static/wechat/img/mer/dyb.png"></image>
+                    </view>
+                    <view class="flow_title">ASONE授权</view>
+                </view>
+                <view class="flow_image">
+                    <image src="{{preffixUrl}}/static/wechat/img/mer/jd.png"></image>
+                </view>
+                <view class="flow_item">
+                    <view class="numImage">
+                        <image src="{{preffixUrl}}/static/wechat/img/mer/deb.png"></image>
+                    </view>
+                    <view class="flow_title">额度核准</view>
+                </view>
+                <view class="flow_image">
+                    <image src="{{preffixUrl}}/static/wechat/img/mer/jd.png"></image>
+                </view>
+                <view class="flow_item">
+                    <view class="numImage">
+                        <image src="{{preffixUrl}}/static/wechat/img/mer/dsb.png"></image>
+                    </view>
+                    <view class="flow_title">额度生效</view>
+                </view>
+            </view>
+        </view>
+        <view class="unfold_lable">
+            <view class="lable_img">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/sptj.png"></image>
+            </view>
+            <view class="lable_title">
+                申请条件
+            </view>
+        </view>
+        <view class="unfold_lc">
+            <view class="xian">
+                <view class="dian"></view>
+                <view class="xian_item"></view>
+                <view class="dian"></view>
+                <view class="xian_item"></view>
+                <view class="dian"></view>
+                <view class="xian_item"></view>
+                <view class="dian"></view>
+                <view class="xian_item"></view>
+                <view class="dian"></view>
+            </view>
+            <view class="lc_contont">
+                <view class="lc_contont_title" style="margin-top:-17rpx;">成立且实际经营<text class="lc_zhong">满2年(含)以上</text> ，有完整的年度海关数据</view>
+                <view class="lc_contont_title" style="margin-top:22rpx;">上一年度出口量<text class="lc_zhong"> 160万美元-3000万美元</text></view>
+                <view class="lc_contont_title" style="margin-top:50rpx;">外汇管理分类为<text class="lc_zhong">A类</text></view>
+                <view class="lc_contont_title" style="margin-top:48rpx;">企业主<text class="lc_zhong">年满18周岁且不超过65周岁</text>，非港、澳、台及外籍人士</view>
+                <view class="lc_contont_title" style="margin-top:20rpx;">授信额度超过<text class="lc_zhong">20万美元</text>的，要求在本地有房产</view>
+            </view>
+        </view>
+    </view>
+  </view>
+    <view class="bottom_u">
+        <view class="minifx" bindtap="showShare"> <image src="{{preffixUrl}}/static/wechat/img/mer/minifx.png"></image> 分享</view>
+        <view class="contont_button" round type="info" bindtap="pageDown">立即申请</view>
+    </view>
+  
+   
+</view> 
+       
+<my-login loginFlag="{{loginFlag}}" style="z-index: 9999;" bind:onAuthUser="auth"></my-login>
+
+<canvas style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+<my-poster shareBox="{{shareBox}}" hidePoster="{{hidePoster}}"  bind:cancel="cancelPoster" imagePath="{{imagePath}}"></my-poster>
+<van-popup show="{{ showPosterBox }}" bind:close="onClose" position="bottom">
+    <view class="t1">欢迎体验,感谢分享。</view>
+    <view class="t4">海报模版</view>
+  
+    <scroll-view scroll-y style="max-height:60vh">
+        <view class="t5">
+            <view class="t51" wx:for="{{posterImgs}}" bind:tap="choosePoster" data-id="{{index}}">
+                <image class="t54" src="{{cardInfo.PHOTO2}}" mode="widthFix" style="width:100%"></image>
+                <image src="{{item.img}}" mode="widthFix" style="width:100%"></image>
+                <image wx:if="{{posterIdselected==index&&cndUrl}}" class="t52" src="{{cndUrl}}/static/wechat/img/sui/sui-1076.png" mode="widthFix"></image>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="t6" wx:if="{{posterIdselected==-1}}" style="opacity: 0.5;">请选择模版</view>
+    <view class="t6" bind:tap="createPoster" wx:if="{{posterIdselected!=-1&&imagePath!=''}}">
+        分享海报
+    </view>
+    <view class="t6" hover-class="none" hover-stop-propagation="false" wx:if="{{posterIdselected!=-1&&imagePath==''}}">
+        <image src="{{cndUrl}}/static/wechat/img/sui/loading.gif" mode="widthFix" style="width:40rpx;margin:0 10rpx"></image>
+        请稍等
+    </view>
+    <view style="height:30rpx"></view>
+</van-popup>

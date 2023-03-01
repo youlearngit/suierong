@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "enablePullDownRefresh": false,
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "我的合同",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "backgroundTextStyle": "dark"
+}

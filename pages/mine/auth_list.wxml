@@ -1,0 +1,24 @@
+
+<view class="swiper-tab">
+    <navigator class="swiper-tab-item" url="auth_list_auth" open-type='redirect'>我的授权</navigator>
+    <view class="swiper-tab-item active">我的申请</view>  
+  </view>
+
+<view class="authList">
+  <navigator class="authCon" url="auth_det?orderNo={{item.ORDER_NO}}&&authorizeExpiration={{item.authorizeExpiration}}"  wx:for="{{list}}" wx:key="key" wx:for-index="indexnum">
+    <view class="indexnum">{{indexnum+1}}</view>
+    <view class="h1">{{item.companyName}}</view>
+    <view class="p">订单编号：{{item.ORDER_NO}}</view>
+    <view class="pd">申请日期：{{item.APPLY_DATE}}</view>
+      <view  class="authStatus" style="margin-top:20rpx">
+      <text class="f20">申请金额</text>
+      <text class="b">{{item.APPLY_AMOUNT}}</text>
+      <text class="f20">万元</text>
+    </view>
+  </navigator>
+
+ <view class="nodata">
+        <text>{{pageTips}}</text>
+  </view>
+
+</view>

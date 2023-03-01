@@ -1,0 +1,239 @@
+/* pages/carLoans/order/InformationPage/index.wxss */
+
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+page {
+    background-color: #F9FAFE;
+    overflow: scroll;
+}
+
+.body-background-img {
+    width: 100%;
+    height: 220%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    -moz-background-size: 100%;
+    padding: 50rpx 0;
+}
+
+.content {
+    margin: 0 30rpx
+}
+
+.title1 {
+    font-family: SourceHanSansSC-Medium;
+    font-size: 34rpx;
+    color: #1c3aa6;
+    letter-spacing: 0;
+    margin-bottom: 30rpx;
+}
+
+.circle1 {
+    background: rgba(232, 240, 255, 0.81);
+    border: 1rpx solid #cbd8ff;
+    border-radius: 25rpx;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 26rpx;
+    color: #1f3172;
+    letter-spacing: 0;
+    padding: 8rpx;
+}
+
+.list {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2rpx 12rpx 0 rgba(156, 187, 255, 0.31);
+    border-radius: 16rpx;
+    margin: 30rpx 0 60rpx;
+    padding: 30rpx;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10rpx;
+}
+
+.item>view:first-child {
+    opacity: 0.5;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 26rpx;
+    color: #1f3172;
+    letter-spacing: 0;
+    text-align: left;
+    width: 30%;
+}
+
+.item>view:last-child {
+    font-family: SourceHanSansSC-Medium;
+    font-size: 28rpx;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: right;
+    flex: 1;
+}
+
+.spec {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10rpx;
+}
+
+.spec>view:first-child {
+    opacity: 0.5;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 26rpx;
+    color: #1f3172;
+    letter-spacing: 0;
+}
+
+.spec>view:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 18rpx 20rpx;
+    background: #F7FBFF;
+    border-radius: 10rpx;
+    margin-top: 10rpx;
+}
+
+.spec1 {
+    background: #F7FBFF;
+    border: 1rpx solid #D2DDFF;
+    /* border-radius: 10rpx; */
+    padding: 10rpx 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: none;
+    border-bottom: none;
+    margin: 0 10rpx;
+}
+
+.spec1>view:first-child {
+    opacity: 0.5;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 26rpx;
+    color: #1F3172;
+    letter-spacing: 0;
+    width: 40%;
+}
+
+.spec1>view:last-child {
+    font-family: SourceHanSansSC-Regular;
+    font-size: 26rpx;
+    color: #1F3172;
+    letter-spacing: 0;
+    flex: 1;
+    text-align: right;
+}
+
+.border1 {
+    border-top: 1rpx solid #D2DDFF;
+    margin-top: 20rpx;
+    padding-top: 30rpx;
+}
+
+.border2 {
+    border-bottom: 1rpx solid #D2DDFF;
+    padding-bottom: 30rpx;
+}
+
+.flex1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flex2 {
+    flex: 1;
+}
+
+.star {
+    width: 11.3rpx;
+    height: 11.3rpx;
+    transform: rotate(-315deg);
+    background: #6580ED;
+    border-radius: 2.47rpx;
+    margin-right: 15rpx;
+}
+
+.declare,
+.confirm {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 16rpx;
+}
+
+.declare>view:first-child {
+    margin-right: 10rpx;
+}
+
+.declare-img {
+    width: 22rpx;
+    height: 24rpx;
+}
+
+.declare>view:last-child {
+    font-family: SourceHanSansSC-Regular;
+    font-size: 24rpx;
+    color: #6580ED;
+    text-align: justify;
+    flex: 1
+}
+
+.confirm>view:first-child {
+    width: 8rpx;
+    height: 8rpx;
+    text-align: center;
+    border-radius: 50%;
+    background: #6580ED;
+    margin: 15rpx 17rpx 0 8rpx;
+}
+
+.confirm>view:last-child {
+    font-family: SourceHanSansSC-Regular;
+    font-size: 26rpx;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: justify;
+    flex: 1;
+}
+
+.btn_group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50rpx;
+}
+
+.btn_group>view {
+    height: 80rpx;
+    line-height: 80rpx;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 30rpx;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.btn_group>view:first-child {
+    width: 228rpx;
+    border: 1rpx solid #6580ED;
+    border-radius: 40rpx;
+    background: #fff;
+    color: #6580ED;
+}
+
+.btn_group>view:last-child {
+    width: 442rpx;
+    background-image: linear-gradient(180deg, #8BA2FD 0%, #3D5FE9 100%);
+    box-shadow: 0 4rpx 12rpx 0 rgba(110, 137, 245, 0.33);
+    border-radius: 40rpx;
+    color: #FFFFFF;
+}

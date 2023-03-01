@@ -1,0 +1,22 @@
+page{background:#f2f2f2;}
+.weui-cell{background:#fff;z-index: 1;width: 100%;}
+.icoGAdr{width:20rpx;height:24rpx;margin-right:10rpx;}
+.serInpt{right: 20rpx; width:80%;margin:5px auto;border:1rpx solid #c3c3c3;height:30px;border-radius: 30px;padding: 0 0px;background:#f2f2f2;text-align:center;
+}
+
+.serFloat{position:absolute;top:120rpx;left:0;width:100%;height:80%;background:#fff;z-index:1000;}
+.text_box{
+  margin: 10px 25px;
+  border-bottom:1px solid #c3c3c3;
+  padding-bottom:10px
+}
+
+.weui-tab__content{background:#f2f2f2;margin-top: 0rpx;}
+.lists{padding:0rpx 0;}
+.box{position:relative;padding:20rpx 30rpx;margin-bottom:20rpx;background:#fff;}
+.box .h1{font-size:32rpx;}
+.box .h1 span{font-size:26rpx;color:#888;}
+.box .p{color:#888;font-size:26rpx;}
+.ico_nav{position:absolute;right:30rpx;top:40%;width:35rpx;height:35rpx;}
+.addmore{height:60rpx;line-height:60rpx;text-align:center;font-size:34rpx;color:#888;margin-bottom: 39rpx;}
+.weui-cell__hd{color: #0068b6}

@@ -1,0 +1,68 @@
+page {
+    background-color: white;
+}
+
+.container {
+    background-color: white;
+}
+
+.avatar {
+    position: absolute;
+    left: 12%;
+    /* top: 1270rpx; */
+    bottom: 12%;
+    width: 150rpx;
+    height: 150rpx;
+    clip-path: circle(70rpx at center);
+    z-index: 1;
+}
+
+.qrcode {
+    position: absolute;
+    right: 12%;
+    bottom: 12%;
+    height: 140rpx;
+    width: 140rpx;
+    z-index: 1;
+}
+
+.qrcodeTitle {
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    /* top: 1450rpx; */
+}
+
+.avatarTitle {
+    position: absolute;
+    left: 7%;
+    bottom: 10%;
+    /* top: 1450rpx; */
+}
+
+.bg {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.bottom button {
+    width: 90%;
+    background-color: #16a8fa;
+    color: white;
+    position: absolute;
+    left: 5%;
+    bottom: 3%;
+    /* top: 1530rpx; */
+}
+
+.bottom2 {
+    width: 90%;
+    height: 5%;
+    position: absolute;
+    /* top: 1600rpx; */
+    bottom: 1%;
+}

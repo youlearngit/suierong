@@ -1,0 +1,33 @@
+page{display:block;width:100%;}
+.mt20{margin-top:40rpx;}
+.feedType{height:30rpx;line-height:30rpx;font-size:26rpx;border-left:#0168b7 8rpx solid;padding-left:15rpx;color:#0168b7;}
+.radio-group{padding:0 20rpx;}
+.radio{display:inline-block;height:50rpx;margin-top:20rpx;padding:0 20rpx;border-radius:25rpx;text-align:center;line-height:50rpx;background:#f1f7fb;margin-right:20rpx;font-size:26rpx;}
+.radio radio{transform:scale(0.7);}
+textarea {width:90%;font-size:26rpx;margin:0 auto;}
+.textArea{margin:30rpx auto;}
+ 
+.textarea-bg {background-color: #f2f2f2;padding: 10rpx;font-size:26rpx;border:#ddd 1rpx solid;border-radius:10rpx;}
+ 
+ .yichang{margin:40rpx auto;width:80%;font-size:22rpx;text-align:center;color:#999;vertical-align:middle;}
+
+.mineBanner{width:100%;height:183rpx;}
+.picture_list{padding:20px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;align-content:flex-start}
+.picture_item{margin:10px;position:relative;width:160rpx;height:160rpx}
+.upload_progress{position:absolute;top:0;left:0;opacity:.7;background-color:#000;color:#fff;width:160rpx;height:160rpx;text-align:center;line-height:160rpx;font-size:12px}
+.picture_item image{width:160rpx;height:160rpx}
+.logoinfo{display:flex;flex-direction:row;}
+.tempImgBox{display:flex;flex-direction:row;justify-content:center;align-items:center;position:relative;width:160rpx;height:160rpx;margin:15rpx 15rpx 15rpx 0;border:#f2f2f2 1rpx solid;text-align:center;}
+.tempImgBox image{width:140rpx;height:140rpx;}
+.addPic{width:160rpx;height:160rpx}
+.close{position:absolute;top:-10rpx;right:-10rpx;display:inline-block;width:40rpx;height:40rpx;text-align:center;line-height:40rpx;border-radius:40rpx;background:red;font-size:24rpx;color:#fff;}
+.big-logos{margin:30rpx;}
+
+.successForm{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.3);z-index:1000;}
+.sucImg{position:absolute;top:30%;left:225rpx;width:300rpx;height:500rpx;}
+.sucImg image{width:300rpx;height:366rpx;}
+.backIndex{display:inline-block;width:300rpx;height:60rpx;text-align:center;line-height:60rpx;font-size:26rpx;color:#fff;border-radius:30rpx;margin-top:50rpx;background:linear-gradient(to left, rgba(241,187,1,1), rgba(234,150,3,1));}
+
+.textArea text{display:block;padding:0 20rpx;font-size:26rpx;color:#333;}
+.replay{margin:30rpx 20rpx;}
+.backto{display:block;width:300rpx;height:60rpx;margin:0 auto;line-height:60rpx;text-align:center;border-radius:30rpx;font-size:30rpx;color:#fff;background:linear-gradient(to left, rgba(241,187,1,1), rgba(234,150,3,1));}

@@ -1,0 +1,22 @@
+/* sub2/pages/videoContact/index.wxss */
+.v1 {
+  height: 100%;
+  width: 100%;
+}
+
+.m1 {
+  height: 100vh;
+  width: 100%;
+  background-size: 100% 100%;
+}
+
+.btn1 {
+  width: 498rpx;
+  height: 110rpx;
+
+  position: absolute;
+  /* top: 75%; */
+  left: 0;
+  right: 0;
+  margin: auto;
+}

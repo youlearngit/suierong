@@ -1,0 +1,3 @@
+@import "../../../pages/dian/apli.wxss";
+.button-sp-area{position:fixed;bottom:15%;left:225rpx;margin:0;}
+.button-sp-area .btn{margin:0;}

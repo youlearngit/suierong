@@ -1,0 +1,1296 @@
+<view class="t0 " wx:if="{{step>='2'&&step<'6'}}" bindtouchstart="touchStart">
+    <view class="tt {{cc}}">
+        <image class="t01" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-28.png" mode="widthFix"></image>
+        <view class="t02" style="top:{{platformUserId?'17':'34'}}rpx">
+            <view class="t021">您正在申请 江苏银行 随e贷(经营贷)</view>
+            <view class="t021" wx:if="{{cc!='t0_hide'}}">订单编号：{{order_no}}</view>
+            <view class="t021" wx:if="{{platformUserId!=''}}">
+                客户经理：{{cardInfo.USERNAME}} {{platformUserId}}
+            </view>
+        </view>
+        <view class="t03" wx:if="{{cc!='t0_hide'}}" style="{{platformUserId!=''?'justify-content: space-between;':'justify-content: center;'}}">
+            <view class="t031" bind:tap="finishApply">取消申请</view>
+            <view class="t031" wx:if="{{platformUserId}}" bind:tap="openPhoneDialog">咨询客户经理</view>
+        </view>
+    </view>
+</view>
+<image class="t1" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-10.png" mode="widthFix"></image>
+<view scroll-y="{{isScroll}}" style="height:100vh;overflow-anchor:auto" scroll-with-animation scroll-into-view="step{{step=='2.5'?'25':step}}">
+    <view class="c1" style="padding: 190rpx 0rpx 20rpx;" wx:if="{{step<='1'}}">
+        <view class="c14" id="step0">您此次是通过何种渠道了解到我行产品的？</view>
+        <view class="c61">
+            <van-radio-group value="{{channelType}}" bind:change="chooseChannelType">
+                <block wx:for="{{questions}}">
+                    <view class="c611" style="margin: 0 0 25rpx;">
+                        <van-radio name="{{item.value}}" checked-color="#5B87C6">
+                            <text class="body-title" style="font-weight:normal">{{item.desc}}</text>
+                        </van-radio>
+                    </view>
+                </block>
+            </van-radio-group>
+            <textarea  wx:if="{{channelType==='G'}}" class="k4" style='width: 100%;margin: 0;' cursor-spacing="100"  model:value="{{extraChannelInfo}}"  placeholder="请输入渠道名称" placeholder-class="placeholder2" maxlength="40"></textarea>
+        </view>
+    </view>
+    <!-- 是否在其他银行办理 -->
+    <view wx:if="{{step<='1'}}" bindtap="clickStep5" class="c1" style="padding: 120rpx 0rpx 20rpx;height: 35vh;display:none">
+        <view class="c14" id="step0">您是否已在他行办理江苏省普惠基金贷款业务(苏科贷、小微贷、苏农贷、苏信贷、苏服贷)？</view>
+        <view class="c61" style="margin-top: 140rpx;">
+            <van-radio-group value="{{ifChooseBank}}" bind:change="chooseBank">
+                <block wx:for="{{bankQuestions}}">
+                    <view class="c611" style="margin: 0 0 25rpx;">
+                        <van-radio name="{{item.value}}" checked-color="#5B87C6">
+                            <text class="body-title" style="font-weight:normal">{{item.desc}}</text>
+                        </van-radio>
+                    </view>
+                </block>
+            </van-radio-group>
+        </view>
+    </view>
+ 
+    <navigator class="c1" url="../identity/index" hover-stop-propagation="true" hover-class="none">
+        <view class="c11">1/6</view>
+        <image class="c13" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-1.png" mode="widthFix" style="width:30rpx"></image>
+        <view class="c14">请进行身份认证</view>
+        <view class="c15">为保障您的信息安全，我们需要认证您的身份</view>
+        <view class="c16">
+            <van-steps steps="{{ steps }}" active="{{ userInfoLevel }}" direction="vertical" active-color="#5B87C6" />
+        </view>
+        <view wx:if="{{step=='0'}}">
+            <view class="c12">身份认证</view>
+            <view style="height:40rpx"></view>
+        </view>
+        <image id="step1" class="c17" wx:if="{{cndUrl && step>='1' }}" src="{{cndUrl}}/static/wechat/img/sui/snew-16.png" mode="widthFix" style="width:30rpx"></image>
+    </navigator>
+    <view class="c2" wx:if="{{step=='0'}}">
+        <image class="c21" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-34.png" mode="widthFix"></image>
+        <view class="c22">您还需要完成的步骤</view>
+        <view class="c23">录入企业信息</view>
+        <view class="c11">2/6</view>
+    </view>
+    <view class="c8" wx:if="{{step=='1'}}">— 以上步骤已完成 —</view>
+    <view>
+        <view class="c3" wx:if="{{step>='1'}}">
+            <image class="c13" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-13.png" mode="widthFix"></image>
+            <image class="c93" wx:if='{{cndUrl&&isTalent=="0"}}' src="{{cndUrl}}/static/wechat/img/sui/snew-39.png" mode="widthFix"></image>
+            <block wx:if="{{showHelpStep2 || step=='2'}}">
+            <!-- <view class="cHelp" bindtap="clickHelp"> 弹框-->
+            <view class="cHelp" bindtap="getHelp">
+              <image class="chimg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/help_click.png" mode="widthFix"></image>
+              <view class="chText">帮助</view>
+            </view>
+            <view class="helpAlert" wx:if="{{showHelp%2 == 0}}" bindtap="getHelp">
+              <view class="ha1" style="background-image: url({{cndUrl}}/static/wechat/img/sui/help_choice.png)">
+                <view>一键帮助</view>
+                <!-- <view style="border-bottom: 1px solid rgba(248, 246, 246,0.6)">一键帮助</view>
+                <view>操作演示</view> -->
+              </view>
+            </view>
+            </block>
+            <view class="c14">请录入企业信息</view>
+            <view class="c15">采集您的经营实体信息，借款用于企业经营周转</view>
+            <view class="c11">2/6</view>
+            <view wx:if="{{step=='1'}}">
+                <view class="c31">
+                    <view class="a2b1">
+                        <view class="a2b1c1" style="color: #333333;">企业名称</view>
+                        <view class="a2b1c3">
+                            <input class="a2b1c4" type="text" placeholder="请输入企业名称{{lastPage === 'sub1/pages/warehousing/index'?'':'(可检索)'}}" placeholder-style="" placeholder-class="input-placeholder" maxlength="30" focus="{{false}}" bindfocus="showBaseEnter" bindinput="searchEnter" value="{{enterpriseInfo.ORG_NAME}}" name="name" style="width:100%"></input>
+                            <view class="btn-company-search" bind:tap="getCompanyNameInfo" wx:if="{{lastPage === 'sub1/pages/warehousing/index'}}">查询</view>
+                            <scroll-view scroll-y class="enter-list" wx:if="{{showBaseEnter}}" style="text-align:left">
+                                <view class="m1" wx:for="{{enterpriseCardInfo}}" bind:tap="chooseEnter" data-index="{{index}}">
+                                    {{item.ORG_NAME}}
+                                </view>
+                            </scroll-view>
+                        </view>
+                    </view>
+                    <view class="a2b1copy">
+                      <view style="display: flex;justify-content: space-between;">
+                          <view class="a2b1c1">统一码</view>
+                          <input bindtap="copyOrgCode" class="a2b1c2" name="code" value="{{enterpriseInfo.ORG_CODE}}" disabled="{{lastPage != 'sub1/pages/warehousing/index'}}" bindinput="addOrgCode" placeholder-class="input-placeholder" placeholder="输入企业后展示" ></input>
+                      </view>
+                      <view style="font-size: 24rpx;margin:10rpx 30rpx 0 0;display: flex;align-items: center;justify-content:flex-end;width: 100%;color: #5B87C6;">
+                            <!-- 请<div class="copy" bindtap="copyOrgCode">复制</div>统一码，供税务授权粘贴使用 -->
+                            （请复制统一码，供税务授权粘贴使用）
+                      </view>
+                    </view>
+                    <view class="k1" wx:if="{{showTaxlevelBox}}">
+                        <view class="a2b1c1">从业人数采集</view>
+                        <view class="a2b1c3">
+                            <input class="a2b1c4" type="number" placeholder="请输入从业人数" placeholder-style="" placeholder-class="input-placeholder" maxlength="5" bindinput="employeeNumberInput" value="{{employeeNumber}}" name="employeeNumber"></input>
+                        </view>
+                    </view>
+                    <view class="a2b1">
+                        <view class="a2b1c1">经营地址</view>
+                        <view class="k12"  bindtap="selectRegion" mode="multiSelector"    bindchange="bindMultiPickerChange2" bindcolumnchange="bindMultiPickerColumnChange2" value="{{multiIndex2}}" range="{{multiArray2}}">
+                            <view class="picker">
+                                <input disabled='disabled' id="cityID" name="workAddress" value="{{enterWorkStation}}" type="text" placeholder="请选择经营地区" placeholder-class="placeholder1" />
+                            </view>
+                        </view>
+                    </view>
+                    <view class="K1">
+                        <view class="k2"></view>
+                        <view class="">
+                            <textarea class="k4" maxlength="30" name="detailAddress" placeholder="请输入详细地址：如道路、门牌号等" value="{{enterDetailAddress}}" bindinput="enterDetailAddressInput" placeholder-class="placeholder2"></textarea>
+                        </view>
+                    </view>
+                    <button disabled="{{canSubmitNode2}}" class="c12 c32" bind:tap="submitNode2">提交企业信息</button>
+                    <view style="height:40rpx"></view>
+                </view>
+            </view>
+            <view class="c33" wx:if="{{step>='2'}}">
+                <view class="c35" id="step2">
+                    <van-radio-group value="2" bind:change="onChange">
+                        <van-radio name="2" checked-color="#5B87C6">
+                            {{enterpriseInfo.ORG_NAME}}
+                        </van-radio>
+                    </van-radio-group>
+                </view>
+                <!-- <view class="c34" bind:tap="updateEnterInfo">重新录入</view> -->
+            </view>
+            <image class="c17" wx:if="{{cndUrl&&step>='2'}}" src="{{cndUrl}}/static/wechat/img/sui/snew-16.png" mode="widthFix" style="width:30rpx"></image>
+        </view>
+        <van-popup show="{{ enterAddrShow }}" position="bottom" round="true" bind:close="onClose">
+            <view class="k1">
+                <view class="k11">经营地区</view>
+                <picker class="k12" mode="multiSelector" bindchange="bindMultiPickerChange2" bindcolumnchange="bindMultiPickerColumnChange2" value="{{multiIndex2}}" range="{{multiArray2}}">
+                    <view class="picker">
+                        <input disabled='disabled' id="cityID" value="{{enterWorkStation}}" type="text" placeholder="请选择经营地区" placeholder-class="placeholder1" />
+                    </view>
+                </picker>
+            </view>
+            <view class="k2">详细地址</view>
+            <textarea class="k4" cursor-spacing="100" name="detailAddress" model:value="{{enterDetailAddress}}" placeholder="请输入详细地址：如道路、门牌号等" placeholder-class="placeholder2"></textarea>
+            <view class="z5" bind:tap="onClose">确认提交</view>
+            <view style="height:40rpx" class=""></view>
+        </van-popup>
+    </view>
+    <view class="c8" wx:if="{{step=='2'}}">— 以上步骤已完成 —</view>
+    <view class="c2" wx:if="{{step=='1'}}">
+        <image class="c21" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-34.png" mode="widthFix"></image>
+        <view class="c22">您还需要完成的步骤</view>
+        <view class="c23">选择借款金额和期限</view>
+        <view class="c11">3/6</view>
+    </view>
+    <view style="height:220rpx" wx:if="{{step=='1'}}"></view>
+    <view class="c4" wx:if="{{step>='2'}}">
+        <image class="c13" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-5.png" mode="widthFix"></image>
+        <view class="c14">请选择您需要的金额</view>
+        <view class="c15" id="step25">我们将根据您的选择为您导入申请流程</view>
+        <view class="c11">3/6</view>
+        <view class="c43" wx:if="{{step=='2'}}">
+            <block wx:for="{{applyAmountAndTerm}}">
+                <view class="c41" wx:if="{{item.businessType==='0'}}" bind:tap="showApplyTypeBox" data-type="0">
+                    <image class="c411" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-45.png" mode="widthFix"></image>
+                    <image class="c416" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-43.png" mode="widthFix"></image>
+                    <image class="c417" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-42.png" mode="widthFix"></image>
+                    <view class="c412">
+                        最高
+                        <text style="" class="c4122">{{item.maxAmt}}</text>
+                        万
+                    </view>
+                    <view class="c413">最长{{item.applyMaxTerms}}年 申请到放款最快15分钟</view>
+                    <view class="c415">立即办理</view>
+                </view>
+                <view class="c42" wx:if="{{item.businessType==='1'}}" bind:tap="showApplyTypeBox" data-type="1">
+                    <image class="c411" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-41.png" mode="widthFix"></image>
+                    <image class="c416" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-44.png" mode="widthFix"></image>
+                    <image class="c417" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-40.png" mode="widthFix"></image>
+                    <view class="c412" style="color: linear-gradient(direction, #FFE3BE, #FFD982);background: linear-gradient(#FFE3BE, #FFD982);-webkit-background-clip: text;color: transparent;">
+                        最高
+                        <text class="c4121">{{item.maxAmt}}</text>
+                        万
+                    </view>
+                    <view class="c413" style="color: #F8DFA6;">
+                        最长{{item.applyMaxTerms}}年 最快1个工作日放款
+                    </view>
+                    <view class="c415" style="color: #3E4450;">立即办理</view>
+                </view>
+                <view class="c42" wx:if="{{item.businessType==='2'}}" bind:tap="showApplyTypeBox" data-type="2">
+                    <image class="c411" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/artificial_bg.png" mode="widthFix"></image>
+                    <image class="c416" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/artificial_btn.png" mode="widthFix"></image>
+                    <image class="c417" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/artificial_icon1.png" mode="widthFix"></image>
+                    <view class="c412" style="color: #FFFFFF">
+                        最高
+                        <text class="c4121" style="color: #FFFFFF">{{item.maxAmt}}</text>
+                        万
+                    </view>
+                    <view class="c415" style="color: #825E4E;">立即办理</view>
+                </view>
+                <view class="c42" wx:if="{{item.businessType==='3'}}" bind:tap="showApplyTypeBox" data-type="3">
+                    <image class="c411" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/vguarantee_bg.png" mode="widthFix"></image>
+                    <image class="c416" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/artificial_btn.png" mode="widthFix"></image>
+                    <image class="c417" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/vguarantee_icon.png" mode="widthFix"></image>
+                    <view class="c412" style="color: #FFFFFF">
+                        最高
+                        <text class="c4121" style="color: #FFFFFF">{{item.maxAmt}}</text>
+                        万
+                    </view>
+                    <view class="c415" style="color: #305FD2;">立即办理</view>
+                    <view class="c4123" hover-class="none" hover-stop-propagation="false">
+                        最长1年 担保费率低
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="c44" wx:if="{{step>='2.5'&&applyType=='0'}}">
+            <view class="c441">
+                <view class="c4411" id="step3">最高可贷额度(元)</view>
+                <view class="c4412">{{applyMaxNum}}</view>
+                <view class="c4413">万</view>
+            </view>
+            <view class="c441">
+                <view class="c4411">纯信用，最长</view>
+                <view class="c4412">{{applyMaxTerms}}</view>
+                <view class="c4413">年</view>
+            </view>
+            <view class="c441">
+                <view class="c4411">申请到放款最快</view>
+                <view class="c4412">15</view>
+                <view class="c4413">分钟</view>
+            </view>
+        </view>
+        <view class="c45" wx:if="{{step>='2.5'&&applyType=='1'}}">
+            <image class="c451" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-38.png" mode="widthFix"></image>
+            <view class="c452"></view>
+            <view class="c453" id="step3">
+                最高
+                <text style="font-size:70rpx;">{{applyMaxNum}}</text>
+                万
+            </view>
+            <view class="c454">住宅抵押，最长{{applyMaxTerms}}年</view>
+            <view class="c455">最快1个工作日放款</view>
+        </view>
+        <view class="c44" wx:if="{{step>='2.5'&&applyType=='2'}}">
+            <view class="c441">
+                <view class="c4411 " id="step3">最高可贷额度(元)</view>
+                <view class="c4412">{{applyMaxNum}}</view>
+                <view class="c4413">万</view>
+            </view>
+        </view>
+        <view class="c44" wx:if="{{step>='2.5'&&applyType=='3'}}">
+            <view class="c441">
+                <view class="c4411 " id="step3">最高可贷额度(元)</view>
+                <view class="c4412">{{applyMaxNum}}</view>
+                <view class="c4413">万</view>
+            </view>
+        </view>
+        <image class="c17" wx:if="{{cndUrl&&step>='3'}}" src="{{cndUrl}}/static/wechat/img/sui/snew-16.png" mode="widthFix" style="width:30rpx"></image>
+        <van-popup show="{{ showApplyTypeBox }}" position="bottom" round="true" bind:close="onClose">
+            <view class="z1">选择您需要的金额和期限</view>
+            <view class="z2">
+                <view class="z21">申请金额(万元)</view>
+                <input class="z22" value="{{applyNum}}" bindinput="numInput" type="number" placeholder="请输入申请金额" placeholder-class="placeholder1" cursor-spacing="170" bindkeyboardheightchange='bindkeyboardheightchange' />
+            </view>
+            <view class="z6">
+                {{applyType==2?'':applyType==0?"纯信用，":applyType==1?"住宅抵押，":"V担保"}}最高{{applyMaxNum}}万元
+            </view>
+            <view class="z3">
+                <view class="cu-form-group">
+                    <view class="title z21">申请期限</view>
+                    <picker bindchange="pickApplyTime" range="{{applyTimeArray}}">
+                        <view class="picker">{{applyTime+'个月'}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="z6">最长{{applyTime/12}}年期限<text wx:if="{{applyType !== '3'}}" >，随借随还</text></view>
+            <view class="z5" bind:tap="chooseApplyType">确认提交</view>
+            <view style="height:40rpx" class=""></view>
+        </van-popup>
+    </view>
+    <view class="a3" wx:if="{{step=='2.5'}}">
+        <view class="a31">录入房产信息</view>
+        <view class="a32">录入房产信息，在线快速估值</view>
+        <view class="a33">
+            <view class="a331" bind:tap="finishStep3">暂不录入，跳过</view>
+            <view class="a332" bind:tap="editHouseInfo" data-type='add' target="" url="house2?node={{step}}&applyType={{applyType}}&applyNum={{applyNum}}&applyTime={{applyTime}}&sed_id={{sed_id}}&type=add&isWhite={{isWhite}}&province={{enterpriseInfo.province}}&borrowBodyConfigList={{borrowBodyConfigList}}" hover-class="none" open-type="navigate">
+                立即录入
+            </view>
+        </view>
+    </view>
+    <view class="c3" wx:if="{{step>='3'&&(applyType=='1'||applyType=='2')}}">
+        <view class="c14">录入房产信息</view>
+        <view class="c15">录入房产信息，在线快速估值</view>
+        <view class="c33" style="padding: 200rpx 50rpx 10rpx;" id="step3">
+            <view class="c35" id="step2">
+                <van-radio-group value="2" bind:change="onChange">
+                    <van-radio name="2" checked-color="#5B87C6" wx:for="{{houseChoosed}}">
+                        {{item.address}}
+                    </van-radio>
+                </van-radio-group>
+            </view>
+            <view class="c34" style="width:267rpx" bind:tap="editHouseInfo" data-type='update' url="house2?node={{step}}&applyType={{applyType}}&applyNum={{applyNum}}&applyTime={{applyTime}}&sed_id={{sed_id}}&type=update&isWhite={{isWhite}}&province={{enterpriseInfo.province}}&borrowBodyConfigList={{borrowBodyConfigList}}" hover-class="none" open-type="navigate">
+                修改/增加房产
+            </view>
+        </view>
+        <image class="c17" wx:if="{{cndUrl&&step>='2'}}" src="{{cndUrl}}/static/wechat/img/sui/snew-16.png" mode="widthFix" style="width:30rpx"></image>
+    </view>
+    <view class="c8" wx:if="{{step=='3'}}">— 以上步骤已完成 —</view>
+    <view class="c2" wx:if="{{step=='2'||step=='2.5'}}">
+        <image class="c21" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-34.png" mode="widthFix"></image>
+        <view class="c22">您还需要完成的步骤</view>
+        <view class="c23">企业纳税数据查询授权</view>
+        <view class="c11">4/6</view>
+    </view>
+    <view style="height:220rpx" wx:if="{{step=='2'}}"></view>
+    <view class="c5" wx:if="{{step>='3'}}">
+        <image class="c13" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-4.png" mode="widthFix"></image>
+        <view class="c14">请提交企业纳税数据查询授权</view>
+        <view wx:if="{{step>='4'&&citysUncontainedInStep4}}" id="step4"></view>
+        <view class="c51">为了解您的企业经营情况，需要您向我们授权查询您的企业近期纳税情况。</view>
+        <view class="c11">4/6</view>
+        <view class="c52" wx:if="{{step=='3'}}">
+            <image class="c521" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-29.png" mode="widthFix"></image>
+            <view class="c522">
+                <view wx:if="{{citysUncontainedInStep4}}">请您确认已完成税务授权,如有问题可以联系客户经理</view>
+                <view wx:else>需跳转至电子税务局，通过登录密码验证身份</view>
+            </view>
+        </view>
+        <view wx:if="{{step=='3'}}">
+            <view class="a33" wx:if="{{applyType==='2' || enterpriseInfo.province == '31'}}" style="padding: 0rpx 30rpx 50rpx;">
+                <view class="a331" bind:tap="finishStep4" wx:if="{{ enterpriseInfo.province != '32' || eNTTYPE == '个体工商户' || eNTTYPE == '农民专业合作社' || eNTTYPE == '个体' || eNTTYPE == '农民合作社' || eNTTYPE == '农民专业合作经济组织' || (eNTTYPE == '个人独资企业' && nameTrue) || canFinishStep4By3209 == true}}">跳过</view>
+                <view class="a332" bind:tap="AuthTax">
+                    {{citysUncontainedInStep4?'确认授权':'立即授权'}}
+                </view>
+            </view>
+            <view class="c12" wx:else bind:tap="AuthTax">
+                {{citysUncontainedInStep4?'确认授权':'立即授权'}}
+            </view>
+            <view style="height:20rpx"></view>
+        </view>
+        <view class="" style="padding: 40rpx 50rpx 34rpx;" wx:if="{{step>='4'&&!citysUncontainedInStep4}}">
+            <view class="c35" id="step4">
+                <van-radio-group value="2" bind:change="onChange">
+                    <van-radio name="2" checked-color="#5B87C6">授权时间：{{day_time2}}</van-radio>
+                </van-radio-group>
+            </view>
+            <view class="c34" bind:tap="validateTax" wx:if="{{step<='5'}}">重新录入</view>
+        </view>
+        <view class="" wx:if="{{step>='4'&&citysUncontainedInStep4}}" style="height:100rpx"></view>
+        <image class="c17" wx:if="{{cndUrl&&step>='4'}}" src="{{cndUrl}}/static/wechat/img/sui/snew-16.png" mode="widthFix" style="width:30rpx"></image>
+    </view>
+    <view class="c8" wx:if="{{step=='4'}}">— 以上步骤已完成 —</view>
+    <view class="c2" wx:if="{{step=='3'}}">
+        <image class="c21" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-34.png" mode="widthFix"></image>
+        <view class="c22">您还需要完成的步骤</view>
+        <view class="c23">选择借款主体</view>
+        <view class="c11">5/6</view>
+    </view>
+    <view class="c6" wx:if="{{step>='4'}}">
+        <image class="c13" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-6.png" mode="widthFix"></image>
+        <view class="c14">请选择借款主体</view>
+        <view class="c51">支持企业贷款、个人经营贷款</view>
+        <view class="c11" id="step5">5/6</view>
+        <view class="c61">
+            <van-radio-group value="{{loanType}}" bind:change="chooseApplyBody">
+                <block wx:for="{{borrowBodyConfigList}}">
+                    <view class="c611" hidden="{{step>='5'&&loanType!==item.loanType}}">
+                        <van-radio name="{{item.loanType}}" checked-color="#5B87C6">
+                            <text class="body-title">{{item.showName}}</text>
+                        </van-radio>
+                        <view class="c612">{{item.showRemark}}</view>
+                    </view>
+                </block>
+            </van-radio-group>
+        </view>
+        <image class="c17" wx:if="{{cndUrl&&step>'4'}}" src="{{cndUrl}}/static/wechat/img/sui/snew-16.png" mode="widthFix" style="width:30rpx"></image>
+        <button wx:if="{{step<='4'}}" class="c12" bind:tap="confirmBorrowBody" disabled="{{canSubmitNode5}}">
+            确认提交
+        </button>
+    </view>
+    <view class="c8" wx:if="{{step=='5'}}">— 以上步骤已完成 —</view>
+    <view class="c2" wx:if="{{step=='4'}}">
+        <image class="c21" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-34.png" mode="widthFix"></image>
+        <view class="c22">您还需要完成的步骤</view>
+        <view class="c23">签署征信与综合授权书</view>
+        <view class="c11">6/6</view>
+    </view>
+    <view style="height:220rpx" wx:if="{{step=='4'}}"></view>
+    <view class="c7" wx:if="{{step>='5'}}" style="{{step>='6'?'height:400rpx':''}}">
+        <image class="c13" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-7.png" mode="widthFix"></image>
+        <view class="c14">请签署征信与综合授权书</view>
+        <view class="c51">为保障授权人的信息安全，我们需要认证授权人的身份</view>
+        <view class="c11">6/6</view>
+        <view wx:if="{{step=='5'}}">
+            <view class="c71">{{loanTpyeName}}</view>
+            <view class="c72">
+                <van-steps steps="{{authSteps}}" active="{{ -1 }}" direction="vertical" active-color="#5B87C6" />
+            </view>
+            <view class="c12" bind:tap="AuthDocuments">立即授权</view>
+            <view style="height:40rpx"></view>
+        </view>
+        <view class="" wx:if="{{step>='6'}}">
+            <image class="c17" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-16.png" mode="widthFix" style="width:30rpx"></image>
+        </view>
+    </view>
+    <view class="c9" id="step6" wx:if="{{step=='6'}}">
+        <view class="c91">正在审批中...</view>
+        <view class="c92">
+            <image class="c921" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-18.png" mode="widthFix"></image>
+            <view class="">
+                预计还有
+                <text class="c922">{{times}}</text>
+                秒
+            </view>
+        </view>
+    </view>
+    <view style="height:100rpx" wx:if="{{step>='5'}}"></view>
+</view>
+<van-popup show="{{ showAuthDocunments }}" position="bottom" round="true" bind:close="onClose">
+    <view class="a41">相关协议</view>
+    <van-checkbox-group value="{{result}}" bind:change="readDocument">
+        <scroll-view scroll-y style="max-height:650rpx">
+            <van-checkbox name="0" disabled wx:if="{{loanType==='10'||loanType==='11'}}">
+                <view class="a42" catch:tap="viewDocunment" data-index="0">
+                    <image class="a421" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-21.png" mode="widthFix"></image>
+                    <view class="a422">《“随e贷”贷款业务申请书》</view>
+                </view>
+            </van-checkbox>
+            <van-checkbox name="1" disabled>
+                <view class="a42" catch:tap="viewDocunment" data-index="1">
+                    <image class="a421" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-21.png" mode="widthFix"></image>
+                    <view class="a422">《个人征信查询授权书》</view>
+                </view>
+            </van-checkbox>
+            <van-checkbox name="2" disabled>
+                <view class="a42" catch:tap="viewDocunment" data-index="2">
+                    <image class="a421" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-21.png" mode="widthFix"></image>
+                    <view class="a422">《个人综合信息查询授权委托书》</view>
+                </view>
+            </van-checkbox>
+            <van-checkbox name="3" disabled wx:if="{{applyerType==='0'}}">
+                <view class="a42" catch:tap="viewDocunment" data-index="3">
+                    <image class="a421" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-21.png" mode="widthFix"></image>
+                    <view class="a422">《企业征信查询授权书》</view>
+                </view>
+            </van-checkbox>
+            <van-checkbox name="4" disabled wx:if="{{applyerType==='0'}}">
+                <view class="a42" catch:tap="viewDocunment" data-index="4">
+                    <image class="a421" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-21.png" mode="widthFix"></image>
+                    <view class="a422">《企业综合信息查询授权委托书》</view>
+                </view>
+            </van-checkbox>
+            <van-checkbox name="5" disabled wx:if="{{applyerType==='0'&&enterpriseInfo.city === '3204'}}">
+                <view class="a42" catch:tap="viewDocunment" data-index="5">
+                    <image class="a421" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-21.png" mode="widthFix"></image>
+                    <view class="a422">《企业信用报告查询授权书》</view>
+                </view>
+            </van-checkbox>
+            <van-checkbox name="6" disabled wx:if="{{applyerType==='0'&&enterpriseInfo.city === '3204'}}">
+                <view class="a42" catch:tap="viewDocunment" data-index="6">
+                    <image class="a421" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-21.png" mode="widthFix"></image>
+                    <view class="a422">《企业信息采集授权书》</view>
+                </view>
+            </van-checkbox>
+            <van-checkbox name="7" disabled wx:if="{{applyerType==='0'&&applyType === '3'}}">
+                <view class="a42" catch:tap="viewDocunment" data-index="7">
+                    <image class="a421" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/snew-21.png" mode="widthFix"></image>
+                    <view class="a422">《苏州征信授权书》</view>
+                </view>
+            </van-checkbox>
+        </scroll-view>
+        <view class="a43">
+            <van-checkbox name="99">
+                <view class="a42" data-index="99">
+                    <view class="a422">我已阅读并同意相关协议</view>
+                </view>
+            </van-checkbox>
+        </view>
+    </van-checkbox-group>
+    <button class="c12" bind:tap="subscribeMessage" disabled="{{canSubmitApply}}">提交审批</button>
+    <view style="height:30rpx"></view>
+</van-popup>
+<!-- 协议 -->
+<!-- <block wx:if="{{specialProductCode == ''}}"> -->
+<view class="zhezao" hidden="{{flag_0}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>“随e贷”贷款业务申请书</h2>
+                <view class="table">
+                    <view class="tr bg-gray">
+                        <view class="th">借款人基本信息</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">
+                            <h3>借款人</h3>
+                            <view class="tc">{{enterpriseInfo.ORG_NAME}}</view>
+                        </view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">
+                            <h3>营业执照号码</h3>
+                            <view class="tl">{{enterpriseInfo.ORG_CODE}}</view>
+                        </view>
+                        <view class="td">
+                            <h3>法定代表人姓名</h3>
+                            <view class="tl">{{customerInfo.REAL_NAME}}</view>
+                        </view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">
+                            <h3>共同借款人</h3>
+                            <view class="tc">{{applyerInfo.applyName}}</view>
+                        </view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">
+                            <h3>身份证件类型</h3>
+                            <view class="tl">第二代身份证</view>
+                        </view>
+                        <view class="td">
+                            <h3>身份证件号码</h3>
+                            <view class="tl">{{applyerInfo.applyCard}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="p">
+                    借款人及共同借款人知悉并同意，向江苏银行股份有限公司（以下简称“江苏银行”）申请办理“随e贷”贷款业务，本着自愿、平等、互利的原则，双方达成以下业务办理协议，并承诺共同遵守：
+                </view>
+                <view class="p">
+                    一、借款人及共同借款人承诺，向江苏银行申请授信所提供的信息和资料的真实性、准确性和完整性，并授权江苏银行，可向有关渠道及人民银行征信系统，就有关情况及信用状况进行查询。
+                </view>
+                <view class="p">
+                    二、借款人及共同借款人在签署本协议之前，已充分了解了江苏银行信贷业务管理要求，保证确有能力履行到期还本付息职责，同意根据江苏银行要求办理业务。
+                </view>
+                <view class="p">
+                    三、借款人同意并不可撤销的授权，协议有效期内，共同借款人通过江苏银行电子渠道（包括但不限于企业网上银行、个人网上银行、个人手机银行等经江苏银行确认的渠道），向江苏银行提交“随e贷”业务申请，并授权江苏银行获取借款人相关信息，用于办理江苏银行信贷业务及贷后监测管理。
+                </view>
+                <view class="p">
+                    四、借款人及共同借款人知悉并同意，“随e贷”业务的申请、签约、用款、还款等操作均通过江苏银行电子渠道（包括但不限于企业网上银行、个人网上银行、个人手机银行等经江苏银行确认的渠道）完成，业务办理过程中涉及的各项文件，以电文形式订立的，与纸质文件具有同等法律效力；
+                    <text class="fontWeight">贷款资金发放至借款人开立在江苏银行的对公账户内。</text>
+                </view>
+                <view class="p">
+                    <text class="fontWeight">五、业务办理过程中，借款人及共同借款人有义务采取风险防范措施，安全使用江苏银行电子渠道</text>
+                    （包括但不限于企业网上银行、个人网上银行、个人手机银行等经江苏银行确认的渠道），因非江苏银行原因泄露电子渠道账户用户名及密码所产生的一切后果均由借款人及共同借款人自行承担，江苏银行不承担责任。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">六、协议期限：</text>
+                    自借款人、共同借款人双方签署本协议之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中贷款额度不以本人是否有借款余额作为前提条件。在协议有效期内，借款人及共同借款人根据本协议内容进行的操作均为双方真实意愿的表达，对双方均具有约束力。
+                </view>
+                <view class="fr">
+                    <view class="p">借款人：{{enterpriseInfo.ORG_NAME}}</view>
+                    <view class="p">共同借款人：{{customerInfo.NAME}}</view>
+                    <view class="p">法定代表人：{{customerInfo.NAME}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_1}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text class="fontWeight">授权书\n(适用于个人经营贷及对公授信业务相关自然人)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="{{doc_self?'squre':'null'}}"></span>
+                    本人/
+                    <span class="{{doc_self?'null':'squre'}}"></span>
+                    <em class="underline">{{doc_self?'/':enterpriseInfo.ORG_NAME}}</em>
+                    办理授信业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：
+                </view>
+                <block>
+                    <view class="p">
+                        （1）
+                        <span class="{{doc_checkbox1?'squre':'null'}}"></span>
+                        贷款审批；
+                    </view>
+                    <view class="p">
+                        （2）
+                        <span class="{{doc_checkbox2?'squre':'null'}}"></span>
+                        担保资格审查；
+                    </view>
+                    <view class="p">
+                        （3）
+                        <span class="{{doc_checkbox3?'squre':'null'}}"></span>
+                        法人代表、负责人、高管等资信审查；
+                    </view>
+                    <view class="p">
+                        （4）
+                        <span class="null"></span>
+                        资信审查；
+                    </view>
+                    <view class="p">
+                        （5）
+                        <span class="{{doc_checkbox5?'squre':'null'}}"></span>
+                        贷后管理；
+                    </view>
+                    <view class="p">
+                        （6）
+                        <span class="null"></span>
+                        <em class="underline">/</em>
+                        。
+                    </view>
+                </block>
+                <view class="p">
+                    <em class="underline fontWeight">
+                        本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。
+                    </em>
+                </view>
+                <view class="p">
+                    本人不可撤销地授权贵行向
+                    <em class="underline">
+                    <block wx:if="{{specialProductCode == ''}}">/</block>
+                    <block wx:if="{{specialProductCode !== ''}}">江苏省农业融资担保有限责任公司</block>
+                    </em>
+                    提供贵行从信用信息基础数据库依法取得的本人征信信息，用于授信业务审查审批。
+                </view>
+                <view class="p">
+                    授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权人：{{customerInfo.NAME}}</view>
+                    <view class="p">身份证件类型：第二代身份证</view>
+                    <view class="p">证件号码：{{customerInfo.ID_NUMBER}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_2}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>江苏银行综合信息查询使用授权书\n(适用于自然人)</text>
+                </h2>
+                <view class="p fontWeight">授权人：</view>
+                <view class="p">
+                    客户姓名：
+                    <em class="underline">{{customerInfo.NAME}}</em>
+                </view>
+                <view class="p">
+                    身份证号码：
+                    <em class="underline">{{customerInfo.ID_NUMBER}}</em>
+                </view>
+                <view class="p">
+                    一、因办理信贷业务的需要，本人不可撤销地授权
+                    <em class="underline">江苏银行股份有限公司</em>
+                    （以下简称“贵行”），
+                    <text class="fontWeight">
+                        通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：
+                    </text>
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（一）公积金信息:</text>
+                    本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（二）税务信息:</text>
+                    本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（三）其他信息</text>
+                </view>
+                <view class="p">
+                    本人
+                    <text class="fontWeight">
+                        [资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息]
+                    </text>
+                    <text class="fontWeight">等个人信息；与融资相关的交易信息及经本人授权的其他信息。</text>
+                    按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。
+                </view>
+                <view class="p">二、本授权书用于办理涉及本人的以下信贷业务：</view>
+                <view class="p">1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；</view>
+                <view class="p">2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；</view>
+                <view class="p">
+                    3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况。
+                </view>
+                <view class="p fontWeight">
+                    三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。
+                </view>
+                <view class="p fontWeight">
+                    四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。</view>
+                <view class="fr">
+                    <view class="p">授权人：{{customerInfo.NAME}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_3}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text class="fontWeight">授权书\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="{{doc_borrower?'null':'squre'}}"></span>
+                    本单位/
+                    <span class="{{doc_borrower?'squre':'null'}}"></span>
+                    <em class="underline">{{doc_borrower?applyerInfo.applyName:'/'}}</em>
+                    办理授信业务的需要，本单位不可撤销地授权贵行在下列
+                    <em class="underline">（1）（2）（4）</em>
+                    项涉及到本单位时，可以向金融信用信息基础数据库查询、打印、保存本单位信用报告：
+                </view>
+                <view class="p">（1）审核授信申请（包括以本单位作为经营实体申请的个人经营贷业务）；</view>
+                <view class="p">（2）审批用信；</view>
+                <view class="p">（3）审核担保资格；</view>
+                <view class="p">（4）贷后风险管理（包括以本单位作为经营实体办理的个人经营贷业务）；</view>
+                <view class="p">（5）涉及本单位的关联人的授信/担保业务，需要查询本单位信用状况；</view>
+                <view class="p">（6）异议核查；</view>
+                <view class="p">
+                    （7）
+                    <em class="underline">/</em>
+                    。
+                </view>
+                <view class="p">本单位不可撤销地授权贵行将包括本单位的基本信息、授信业务、担保信息等相关信用信息向金融信用信息基础数据库报送。</view>
+                <view class="p">
+                    本单位不可撤销地授权贵行向
+                    <em class="underline">
+                      <block wx:if="{{specialProductCode == ''}}">/</block>
+                    <block wx:if="{{specialProductCode !== ''}}">江苏省农业融资担保有限责任公司</block>
+                    </em>
+                    提供贵行从信用信息基础数据库依法取得的本单位征信信息，用于授信业务审查审批。
+                </view>
+                <view class="p">
+                    授权期限：自本单位签署本授权书之日起至上述授信/担保业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，且不以本单位是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本单位知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本单位的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权单位：{{enterpriseInfo.ORG_NAME}}</view>
+                    <view class="p">法定代表人：{{customerInfo.NAME}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_4}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>江苏银行综合信息查询授权委托书\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft" style="height:160rpx;">
+                        <text class="fontWeight">授\n权\n单\n位</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p fontWeight">企业名称：{{enterpriseInfo.ORG_NAME}}</view>
+                        <view class="p fontWeight">
+                            组织机构代码：{{fn.substring2(enterpriseInfo.ORG_CODE)}}
+                        </view>
+                    </view>
+                    <wxs module="fn">
+                            module.exports = {
+                             substring2:function(str){
+                                 if(str){
+                                      return str.substring(8,16)+"-"+str.substring(16,17)
+                                 }else{
+                                     return "";
+                                 }
+                            },
+                            showNeedBlockInfo:function(e1,e2){
+                                return e1?e1.indexOf(e2)>-1:false
+                            }
+                        }
+                     </wxs>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft" style="height:280rpx;">
+                        <text class="fontWeight">查\n询\n信\n息\n范\n围</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">查询信息范围包括但不限于授权单位有关的各类信息；</view>
+                        <view class="p">查询途径包括但不限于国家行政机关、政府部门、园区主管部门、业务管理机构、社会第三方数据平台、网络媒体等。</view>
+                    </view>
+                </view>
+                <view class="tableFoot" wx:if="{{enterpriseInfo.province == '11'}}">
+                    <view class="p">
+                        因本单位办理授信等业务的需要，本单位不可撤销地授权
+                        <em class="underline fontWeight">江苏银行股份有限公司及创信融项目运行机构</em>
+                        ，对本单位上述“查询信息范围”中的信息采集、查询、留存及使用。
+                    </view>
+                    <view class="p">本单位不可撤销地授权<em class="underline fontWeight">江苏银行股份有限公司</em>可依法向中国人民银行营业管理部提供、报送、上传因金融服务产生的本企业身份识别、法定代表人、行业等基本信息，及本次贷款金额、期限等要素及其他相关信息。</view>
+                    <view class="p">授权单位在此声明已知悉并理解本授权委托书，以及因提供非公开信息可能产生的法律后果。</view>
+                    <view class="fr">
+                        <view class="p">授权单位：{{enterpriseInfo.ORG_NAME}}</view>
+                        <view class="p">授权日期：{{day_time}}</view>
+                    </view>
+                </view>
+                 <view class="tableFoot" wx:else>
+                    <view class="p">
+                        因本单位办理授信等业务的需要，本单位不可撤销地授权
+                        <em class="underline fontWeight">江苏银行股份有限公司{{showBeiJingExtraDocInfo?'':''}}</em>
+                        ，对本单位上述“查询信息范围”中的信息查询、留存及使用。
+                    </view>
+                    <view class="p">授权单位在此声明已知悉并理解本授权委托书，以及因提供非公开信息可能产生的法律后果。</view>
+                    <view class="fr">
+                        <view class="p">授权单位：{{enterpriseInfo.ORG_NAME}}</view>
+                        <view class="p">授权日期：{{day_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_5}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>企业信用报告查询授权书</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft">
+                        <text class="fontWeight">授权企业名称</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_NAME}}</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">统一社会信用代码</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_CODE}}</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">被授权单位名称</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">江苏银行股份有限公司常州分行</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">授权事由</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">请从以下选项中选填授权事由：</view>
+                        <view class="p">
+                            <span class="squre"></span>
+                            审核企业贷款申请；
+                            <span class="squre"></span>
+                            审核企业作为担保人；
+                            <span class="squre"></span>
+                            涉及企业的关联人的贷款；
+                            <span class="squre"></span>
+                            贷后管理；5、______（如为其他业务，请填写明细）。
+                        </view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">授权期限</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">
+                            被授权单位可以自本查询授权书签订之日起查询本授权企业信用报告，截止至
+                            <em class="underline">{{expirationTime}}</em>
+                            。
+                        </view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p">授权条款：</view>
+                    <view class="p ">1、授权企业在此授权被授权单位可以向常州企业征信服务有限公司（下称“常州征信”）查询本授权企业的信用情况。</view>
+                    <view class="p ">2、企业信用报告包含下列信息：</view>
+                    <view class="p ">企业的基本信息：包括但不限于工商登记信息、高管履职相关信息、社保及公积金缴纳信息、涉诉信息等；</view>
+                    <view class="p ">企业的经营信息：包括但不限于财务和纳税信息、海关进出口信息、环评信息、不动产登记信息、电信运营商信息等；</view>
+                    <view class="p ">企业的金融信息：包括但不限于企业的金融信用信息、授信信息、贷款质量分类等级等；</view>
+                    <view class="p ">企业主动向相关部门提供的和相关部门在行政管理过程中产生的信息；</view>
+                    <view class="p ">国家法律、行政法规、部门规章、地方性法规未禁止征信机构采集的与授权企业有关的其他信息。</view>
+                    <view class="p fontWeight">3、授权企业在此声明已知悉并理解本授权书，以及因提供正面及负面信息有可能导致的一切后果。</view>
+                    <view class="fr">
+                        <view class="p">法定代表人签字或签章：{{customerInfo.REAL_NAME}}</view>
+                        <view class="p">授权书签订日期：{{day_time}}</view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p fontWeight">注：本表格避免采用手动填写，请直接电子打印。</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_6}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>企业信息采集授权书</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft">
+                        <text class="fontWeight">授权企业名称</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_NAME}}</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">统一社会信用代码</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_CODE}}</view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p">授权条款：</view>
+                    <view class="p ">
+                        一、授权企业在此授权给常州企业征信服务有限公司（下称“常州征信”）从国家机关（包括但不限于工商局、质监局、人力资源和社会保障局、公积金管理中心、不动产登记中心、国家税务局、地方税务局、法院、人民银行、发改委、经信委、科技局、财政局、国土局、商务局、食监局、环保局、法制办、海关等）、事业单位、金融机构、行业协会、社会团体、互联网信息平台、电信运营商（包括但不限于中国移动、中国联通、中国电信）、新闻媒体等渠道收集授权企业的下列信息：
+                    </view>
+                    <view class="p ">
+                        1、企业的基本信息、企业的经营信息、企业的金融信息及企业主动向相关部门提供的和相关部门在行政管理过程中产生的信息；
+                    </view>
+                    <view class="p ">2、国家法律、行政法规、部门规章、地方性法规未禁止征信机构采集的与授权企业有关的其他信息。</view>
+                    <view class="p ">二、在本企业存续期间内，自该信息采集授权书签订之日起，授权常州征信采集本企业上述信息。</view>
+                    <view class="p ">三、承诺及声明：</view>
+                    <view class="p fontWeight">
+                        1、授权企业在此授权上述有关单位和部门向常州征信提供本企业的上述一切信息，包括企业的历史及更新信息、正面及负面信息；
+                    </view>
+                    <view class="p fontWeight">
+                        2、授权企业在此承诺国家机关、事业单位等部门和单位因行政管理、公共服务的需要，亦可直接查询企业的上述信息。
+                    </view>
+                    <view class="p fontWeight">3、授权企业在此声明已知悉并理解本授权委托书，并保留随时书面要求常州征信终止信息采集的权利。</view>
+                    <view class="fr">
+                        <view class="p">法定代表人签字或签章：{{customerInfo.REAL_NAME}}</view>
+                        <view class="p">授权书签订日期：{{day_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_7}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>企业征信信息采集和查询授权书</text>
+                </h2>
+                <view class="table" style="margin-bottom:0">
+                    <view class="tr2">
+                        <view class="td2 " style="border-left: 1rpx solid black ; border-top: 1rpx solid black ;">
+                            <view class="shu">授权企业信息</view>
+                        </view>
+                        <view class="td2">
+                            <view class="tableHead">
+                                <view class="thLeft">
+                                    <text class="fontWeight">证件代码（勾选类型）</text>
+                                </view>
+                                <view class="thLeft">
+                                    <span class="squre"></span>
+                                    统一社会信用代码
+                                    <span class="null"></span>
+                                    组织机构代码
+                                    <span class="null"></span>
+                                    （个体工商户）注册号
+                                </view>
+                                <view class="thRight">
+                                    <view class="p">{{enterpriseInfo.ORG_CODE}}</view>
+                                </view>
+                            </view>
+                            <view class="tableBody">
+                                <view class="thLeft">
+                                    <text class="fontWeight">企业名称（填写全称）</text>
+                                </view>
+                                <view class="thRight">
+                                    <view class="p">{{enterpriseInfo.ORG_NAME}}</view>
+                                </view>
+                            </view>
+                            <view class="tableBody">
+                                <view class="thLeft">
+                                    <text class="fontWeight">基本户开户行</text>
+                                </view>
+                                <view class="thRight">
+                                    <view class="p">{{depositBankName}}</view>
+                                </view>
+                            </view>
+                            <view class="tableBody">
+                                <view class="thLeft">
+                                    <text class="fontWeight">法定代表人姓名</text>
+                                </view>
+                                <view class="thRight">
+                                    <view style="padding:0 10px">{{customerInfo.NAME}}</view>
+                                </view>
+                                <view class="thLeft" style="border-left: #333 1rpx solid;">
+                                    <text class="fontWeight">法定代表人手机号码</text>
+                                </view>
+                                <view class="thRight">
+                                    <view style="padding:0 10px">{{customerInfo.TEL}}</view>
+                                </view>
+                            </view>
+                            <view class="tableBody">
+                                <view class="thLeft">
+                                    <text class="fontWeight">授权签订日期</text>
+                                </view>
+                                <view class="thRight">
+                                    <view class="p">{{day_time}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="tr2">
+                        <view class="td2" style="border-left: 1rpx solid black ; border-top: 1rpx solid black ;">
+                            <view class="shu">采集和查询信息范围、方式及授权内容</view>
+                        </view>
+                        <view class="td2">
+                            <view class="tableFoot">
+                                <view class="p">
+                                    一、授权企业在此授权苏州综合金融服务平台、苏州股权融资服务平台、苏州地方企业征信平台、苏州企业征信服务有限公司（下称“采集方”）采集本企业如下信息：（一）企业基本信息、经营信息、财务信息、税务信息、金融信息、水电气信息、各类负面信息等企业向相关部门和单位提供的及相关部门和单位在履职、提供服务中产生的信息；（二）企业的董事、监事、高级管理人员与其履行职务相关的信息；（三）国家法律、行政法规、部门规章、地方性法规未禁止采集的与授权企业有关的其他信息。
+                                </view>
+                                <view class="p">
+                                    二、授权企业在此授权采集方可以从国家机关、政府部门、事业单位、金融机构等相关部门和单位采集上述信息（包括所有历史信息及更新信息），也可从行业协会、社会团体、互联网信息平台渠道、第三方机构等取得上述信息。授权企业在此授权上述有关部门和单位向采集方提供本企业上述信息。
+                                </view>
+                                <view class="p">
+                                    三、授权企业在此承诺国家机关、政府部门、事业单位等部门和单位因行政管理、公共服务的需要，可以直接查询企业的上述信息，采集方可向上述部门和单位提供上述信息。
+                                </view>
+                                <view class="p ">
+                                    四、
+                                    <text class="fontWeight">授权企业在此授权</text>
+                                    <em class="underline fontWeight">江苏银行苏州分行、苏州市中小微企业融资担保有限公司</em>
+                                    <text class="fontWeight">
+                                        向苏州地方企业征信平台查询使用本企业上述信息，并授权苏州地方企业征信平台将该等信息提供给查询机构。
+                                    </text>
+                                </view>
+                                <view class="p fontWeight">
+                                    <text>查询期限自本授权签订日期起至</text>
+                                    <em class="underline fontWeight">{{expirationTime2.year}}</em>
+                                    年
+                                    <em class="underline fontWeight">{{expirationTime2.mounth}}</em>
+                                    月
+                                    <em class="underline fontWeight">{{expirationTime2.day}}</em>
+                                    日止。
+                                </view>
+                                <view class="p">
+                                    五、授权企业同意苏州综合金融服务平台、苏州股权融资服务平台的成员单位可以向苏州地方企业征信平台查询使用本企业上述信息。
+                                </view>
+                                <view class="p ">
+                                    六、本授权自授权签订之日起生效，信息采集期限为长期。授权企业如未填写授权签订日期，则以授权企业提交授权书之日为授权生效日。
+                                </view>
+                                <view class="p ">七、如需终止本授权，授权企业需提供相关资料，满足终止授权条件的可以终止。</view>
+                                <view class="p ">
+                                    八、授权企业在此声明已知悉并理解本授权委托书，以及因采集和提供非公开信息及负面信息可能导致的任何不利后果。
+                                </view>
+                                <view class="fr">
+                                    <view class="p">授权企业：{{enterpriseInfo.ORG_NAME}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="tr2">
+                        <view class="td2" style="border-left: 1rpx solid black ; border-top: 1rpx solid black ;border-bottom: 1rpx solid black ;">
+                            <view class="shu">水电气信息</view>
+                        </view>
+                        <view class="td2">
+                            <view class="tableFoot">
+                                <view class="p">授权企业在经营活动中实际使用的水电气信息：</view>
+                                <view class="p ">
+                                    <span class="null"></span>
+                                    水  收费单位：
+                                    <em class="underline"></em>
+                                    ， 户号：
+                                    <em class="underline"></em>
+                                </view>
+                                <view class="p ">
+                                    <span class="null"></span>
+                                    电  收费单位：
+                                    <em class="underline">国家电网江苏苏州供电公司</em>
+                                    ， 户号：
+                                    <em class="underline"></em>
+                                </view>
+                                <view class="p ">
+                                    <span class="null"></span>
+                                    气  收费单位：
+                                    <em class="underline"></em>
+                                    ， 户号：
+                                    <em class="underline"></em>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- </block> -->
+<van-popup show="{{ showTaxImg }}" bind:close="onClose" position="bottom" style="border-radius: 30rpx">
+    <view class="tax-tip" hover-class="none" hover-stop-propagation="false">
+        <!-- <scroll-view scroll-y="{{true}}" style="height:80vh"> -->
+        <image class="" src="{{cndUrl}}/static/wechat/img/sui/sui_tax.png" mode="widthFix" style="width:100%"></image>
+        <!-- </scroll-view> -->
+        <button class="c12" bind:tap="confirmTaxInfo" style="margin:20rpx auto">确认</button>
+    </view>
+</van-popup>
+<van-popup show="{{ showExtraInfo }}" position="bottom" round="true" bind:close="onClose">
+    <view class="z1">完善企业信息</view>
+    <scroll-view class="" scroll-y style="max-height:800rpx">
+        <form bindsubmit="addRelatedPersonnelInformation">
+            <view class="fr-box" wx:if="{{fn.showNeedBlockInfo(collectionInfo,'0')}}">
+                <view class="a2b1" style="padding: 25rpx 30rpx;">
+                    <view class="a2b1c1">法人代表姓名</view>
+                    <input class="a2b1c2" name="legalName" value="" placeholder="请输入法人代表姓名" placeholder-class="input-placeholder"></input>
+                </view>
+                <view class="a2b1" style="padding: 25rpx 30rpx;">
+                    <view class="a2b1c1">证件号码</view>
+                    <input class="a2b1c2" name="legalCard" bindinput='inputLegalCaed' value="{{legalCard0}}" type="idcard" maxlength="18" placeholder="请输入证件号码" placeholder-class="input-placeholder"></input>
+                </view>
+                <view class="a2b1" style="padding: 25rpx 30rpx;">
+                    <view class="a2b1c1">手机号码</view>
+                    <input class="a2b1c2" name="legalMobile" value="" type="number" maxlength="11" placeholder="请输入手机号码" placeholder-class="input-placeholder"></input>
+                </view>
+            </view>
+            <view class="fr-box" wx:if="{{fn.showNeedBlockInfo(collectionInfo,'1')}}">
+                <view class="a2b1" style="padding: 25rpx 30rpx;">
+                    <view class="a2b1c1">股东姓名</view>
+                    <input class="a2b1c2" name="shareholderName" value="" placeholder="请输入股东代表姓名" placeholder-class="input-placeholder"></input>
+                </view>
+                <view class="a2b1" style="padding: 25rpx 30rpx;">
+                    <view class="a2b1c1">证件号码</view>
+                    <input class="a2b1c2" name="shareholderCard" value="" type="idcard" maxlength="18" placeholder="请输入证件号码" placeholder-class="input-placeholder"></input>
+                </view>
+                <view class="a2b1" style="padding: 25rpx 30rpx;">
+                    <view class="a2b1c1">手机号码</view>
+                    <input class="a2b1c2" name="shareholderMobile" value="" type="number" maxlength="11" placeholder="请输入手机号码" placeholder-class="input-placeholder"></input>
+                </view>
+            </view>
+            <view class="fr-box" wx:if="{{fn.showNeedBlockInfo(collectionInfo,'3')}}">
+                <view class="a2b1" style="padding: 25rpx 30rpx;">
+                    <view class="a2b1c1">实际控制人姓名</view>
+                    <input class="a2b1c2" name="actualShareholderName" value="" placeholder="请输入实际控制人姓名" placeholder-class="input-placeholder"></input>
+                </view>
+                <view class="a2b1" style="padding: 25rpx 30rpx;">
+                    <view class="a2b1c1">证件号码</view>
+                    <input class="a2b1c2" name="actualShareholderCard" value="" type="idcard" maxlength="18" placeholder="请输入证件号码" placeholder-class="input-placeholder"></input>
+                </view>
+                <view class="a2b1" style="padding: 25rpx 30rpx;">
+                    <view class="a2b1c1">手机号码</view>
+                    <input class="a2b1c2" name="actualShareholderMobile" value="" type="number" maxlength="11" placeholder="请输入手机号码" placeholder-class="input-placeholder"></input>
+                </view>
+            </view>
+            <!-- 是否受疫情影响申请延期 -->
+            <view wx:if="{{showIfDelay}}" class="a2b1" style="padding: 25rpx 30rpx;">
+                <view class="a2b1c1">是否受疫情影响申请延期</view>
+                <picker bindchange="bindOutbreakChange" value="{{indexOutbreak}}" range="{{chooseOutbreakArr}}">
+                    <view class="a2b1c1" style="color:#7C8BA4;">{{outbreakVal}}</view>
+                </picker>
+            </view>
+
+            <button form-type="submit" class="z5">确认提交</button>
+            <view style="height:40rpx" class=""></view>
+        </form>
+    </scroll-view>
+</van-popup>
+<!-- 借据list -->
+<van-popup show="{{ showIousList }}" position="bottom" round='true' bind:close="onIousListClose">
+    <scroll-view class="iousList" scroll-y style="height:800rpx">
+        <block wx:for="{{assetCodeList}}" wx:key="index">
+          <view class="iousItem{{index==iousItemId?'choose':''}}" bindtap="chooseIous" data-index="{{index}}" 
+          data-duebillNo="{{item.duebillNo}}" data-balance="{{item.balance}}" data-yqAmount="{{item.duebillAmount}}">
+            <view class="iousCont">
+              <view class="iousContLine">
+                <view style="width:15vw;">借据号:</view>
+                <view class="iousVal">{{item.duebillNo}}</view>
+              </view>
+              <view class="iousContLine">
+                <view style="width:auto;">借据余额(元):</view>
+                <view style="width:2vw;"></view>
+                <view class="iousVal">{{item.balance}}</view>
+              </view>
+              <view class="iousContLine">
+                <view style="width:15vw;">起始日:</view>
+                <view style="width:24vw;">{{item.startDate}}</view>
+                <view style="width:15vw;">到期日:</view>
+                <view style="width:24vw;">{{item.endDate}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+
+        <!-- <view class="iousItem">
+            <view class="iousCont">
+              <view class="iousContLine">
+                <view style="width:15vw;">借据号:</view>
+                <view class="iousVal">50362003000076001</view>
+              </view>
+              <view class="iousContLine">
+                <view class="iousTit">借据金额:</view>
+                <view class="iousVal">456855</view>
+              </view>
+              <view class="iousContLine">
+                <view style="width:15vw;">起始日:</view>
+                <view style="width:24vw;">2020-01-10</view>
+                <view style="width:15vw;">到期日:</view>
+                <view style="width:24vw;">2020-01-10</view>
+              </view>
+            </view>
+        </view> -->
+    </scroll-view>
+    <button class="c12" bind:tap="submitIous" disabled="{{canSubmitIous}}">提交借据</button>
+</van-popup>
+<van-dialog use-slot title="" custom-style="border-radius: 22rpx;" show="{{sendAuthDoc}}" confirm-button-text="发送授权" show-cancel-button bind:cancel="onClose" data-auth='auth' confirm-button-open-type="share">
+    <view class="docList" hover-class="none" hover-stop-propagation="false">
+        <view class="doc_title" hover-class="none" hover-stop-propagation="false">《个人征信查询授权书》</view>
+        <view class="doc_title" hover-class="none" hover-stop-propagation="false">《企业征信查询授权书》</view>
+    </view>
+</van-dialog>
+
+<van-popup show="{{ showRegionPicker }}" position="bottom" bind:close="onClose">
+    <van-picker show-toolbar columns="{{ multiArray3 }}" value-key='name' bind:cancel="onClose" bind:confirm="onConfirm" bind:change="onChange" />
+</van-popup>
+<!-- 一键帮助 -->
+<view class="helpC" wx:if="{{showHelpBox}}">
+  <image src="{{cndUrl}}/static/wechat/img/sui/help_alert.png"></image>
+  <view class="hc0">
+    <view class="hc1">您好，</view>
+    <view class="hc2" style="margin-bottom: 30rpx;">尊敬的客户，如您贷款申请遇到困难，可联系客户经理协助解决。</view>
+    <view class="hc2">联系方式：{{helpPhone}}</view>
+    <view class="hcbtn">
+      <view class="hcbL hcb" bindtap="cancelHelp">取消</view>
+      <view class="hcbR hcb" bindtap="callHelp">一键帮助</view>
+    </view>
+  </view>
+</view>

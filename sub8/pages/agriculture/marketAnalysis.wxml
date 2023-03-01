@@ -1,0 +1,340 @@
+<!--sub8/pages/agriculture/marketAnalysis.wxml-->
+<view class="marketAnalysis">
+  <view class="bg">
+    <image src="{{cndUrl}}/static/wechat/img/zssn/scfxbgbj.png"></image>
+  </view>
+  <view class="nr">
+    <view class="graph">
+      <view class="graphTitle">
+        <view class="titleLeft">
+          <view class="leftImage">
+            <image src="{{cndUrl}}/static/wechat/img/zssn/zsqs.png"></image>
+          </view>
+          <view class="leftTitle">农产品批发价格指数趋势</view>
+        </view>
+        <!-- <view class="switch">
+          <view class="{{ checked ? 'swichChecked' : 'swichBox'}}" bindtap="getChecked" data-type="0">日度</view>
+          <view class="{{ !checked ? 'swichChecked' : 'swichBox'}}" bindtap="getChecked" data-type="1">月度</view>
+        </view> -->
+      </view>
+      <view class="legend">
+        <view class="legendItem">
+          <view class="legendImage">
+            <image src="{{cndUrl}}/static/wechat/img/zssn/ncp200zs.png"></image>
+          </view>
+          <view class="legendTitle">农产品200指数</view>
+        </view>
+        <view class="legendItem">
+          <view class="legendImage">
+            <image src="{{cndUrl}}/static/wechat/img/zssn/clzzs.png"></image>
+          </view>
+          <view class="legendTitle">菜篮子指数</view>
+        </view>
+        <view class="legendItem">
+          <view class="legendImage">
+            <image src="{{cndUrl}}/static/wechat/img/zssn/lyzs.png"></image>
+          </view>
+          <view class="legendTitle">粮油指数</view>
+        </view>
+      </view>
+      <view class="diagram">
+        <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+      </view>
+      <view class="source">数据来源：全国重点农产品市场信息平台</view>
+    </view>
+    <view class="graph" style="padding-bottom: 40rpx;">
+      <view class="graphTitle">
+        <view class="titleLeft">
+          <view class="leftImage">
+            <image src="{{cndUrl}}/static/wechat/img/zssn/zs.png"></image>
+          </view>
+          <view class="leftTitle">
+          <view>农产品批发价格指数</view>
+          
+         
+          </view>
+        </view>
+        <view class="DATA_TIME">{{before.DATA_TIME}}</view>
+        <!-- <view class="switch" >
+        <view class="{{ checked ? 'swichChecked' : 'swichBox'}}" bindtap="getChecked" data-type="0">日度</view>
+        <view class="{{ !checked ? 'swichChecked' : 'swichBox'}}" bindtap="getChecked" data-type="1">月度</view>
+      </view> -->
+      </view>
+      <view class="wholesale" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/pfjgzzs.png);">
+        <view class="wholesaleTitle">
+          <view>批发价格200总指数</view>
+          
+        </view>
+        <view class="allNum">
+          <view class="numItem">
+            <view class="later">总指数</view>
+            <view class="num">{{before.TOTAL_INDEX}}</view>
+          </view>
+          <view class="zhong"></view>
+          <view class="numItem" style="margin-right: 20rpx;">
+            <view class="later">较上日</view>
+            <view class="num">
+              <view>{{before.TOTAL_INDEX_BEFORE}}</view>
+              <view class="numImage">
+                  <image wx:if="{{before.TOTAL_INDEX_BEFORE[0] == '-' && before.TOTAL_INDEX_BEFORE != 0 && before.TOTAL_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/xj.png"></image>
+                  <image wx:if="{{before.TOTAL_INDEX_BEFORE[0] != '-' && before.TOTAL_INDEX_BEFORE != 0 && before.TOTAL_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/ss.png"></image>
+                </view>
+            </view>
+
+          </view>
+        </view>
+
+      </view>
+      <view class="farming">
+        <view class="farmingitem" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/clzcpjgzs.png);">
+          <view class="cai">"菜篮子"产品批发价格指数</view>
+          <view class="caiNum">
+            <view class="leftAll">{{before.BASKET_PRICE_INDEX}}</view>
+            <view class="rightAll">
+              <view>{{before.BASKET_PRICE_INDEX_BEFORE}}</view>
+              <view class="numImage">
+                  <image wx:if="{{before.BASKET_PRICE_INDEX_BEFORE[0] == '-'&& before.BASKET_PRICE_INDEX_BEFORE != '0' && before.BASKET_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/xj.png"></image>
+                  <image wx:if="{{before.BASKET_PRICE_INDEX_BEFORE[0] != '-'&& before.BASKET_PRICE_INDEX_BEFORE != 0 && before.BASKET_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/ss.png"></image>
+                </view>
+            </view>
+          </view>
+         
+          <view class="items">
+            <view class="lanter">
+              <view class="lanterImage">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/xcp.png"></image>
+              </view>
+              <view class="lanterTitle">畜产品</view>
+            </view>
+            <view class="caiNum">
+              <view class="leftAll">{{before.LIVESTOCK_PRICE_INDEX}}</view>
+              <view class="rightAll">
+                <view>{{before.LIVESTOCK_PRICE_INDEX_BEFORE}}</view>
+                <view class="numImage">
+                  <image wx:if="{{before.LIVESTOCK_PRICE_INDEX_BEFORE[0] == '-'&& before.LIVESTOCK_PRICE_INDEX_BEFORE != 0 && before.LIVESTOCK_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/xj.png"></image>
+                  <image wx:if="{{before.LIVESTOCK_PRICE_INDEX_BEFORE[0] != '-'&& before.LIVESTOCK_PRICE_INDEX_BEFORE != 0 && before.LIVESTOCK_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/ss.png"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="caiZhong"></view>
+          <view class="items">
+            <view class="lanter">
+              <view class="lanterImage">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/scp.png"></image>
+              </view>
+              <view class="lanterTitle">水产品</view>
+            </view>
+            <view class="caiNum">
+              <view class="leftAll">{{before.AQUATIC_PRICE_INDEX}}</view>
+              <view class="rightAll">
+                <view>{{before.AQUATIC_PRICE_INDEX_BEFORE}}</view>
+                <view class="numImage">
+                  <image wx:if="{{before.AQUATIC_PRICE_INDEX_BEFORE[0] == '-'&& before.AQUATIC_PRICE_INDEX_BEFORE != 0 && before.AQUATIC_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/xj.png"></image>
+                  <image wx:if="{{before.AQUATIC_PRICE_INDEX_BEFORE[0] != '-'&& before.AQUATIC_PRICE_INDEX_BEFORE != 0 && before.AQUATIC_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/ss.png"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="caiZhong"></view>
+          <view class="items">
+            <view class="lanter">
+              <view class="lanterImage">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/sc.png"></image>
+              </view>
+              <view class="lanterTitle">蔬菜</view>
+            </view>
+            <view class="caiNum">
+              <view class="leftAll">{{before.VEGETABLES_PRICE_INDEX}}</view>
+              <view class="rightAll">
+                <view>{{before.VEGETABLES_PRICE_INDEX_BEFORE}}</view>
+                <view class="numImage">
+                  <image wx:if="{{before.VEGETABLES_PRICE_INDEX_BEFORE[0] == '-'&& before.VEGETABLES_PRICE_INDEX_BEFORE != 0 && before.VEGETABLES_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/xj.png"></image>
+                  <image wx:if="{{before.VEGETABLES_PRICE_INDEX_BEFORE[0] != '-'&& before.VEGETABLES_PRICE_INDEX_BEFORE != 0 && before.VEGETABLES_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/ss.png"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="caiZhong"></view>
+          <view class="items">
+            <view class="lanter">
+              <view class="lanterImage">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/sg.png"></image>
+              </view>
+              <view class="lanterTitle">水果</view>
+            </view>
+            <view class="caiNum">
+              <view class="leftAll">{{before.FRUITS_PRICE_INDEX}}</view>
+              <view class="rightAll">
+                <view>{{before.FRUITS_PRICE_INDEX_BEFORE}}</view>
+                <view class="numImage">
+                  <image wx:if="{{before.FRUITS_PRICE_INDEX_BEFORE[0] == '-'&& before.FRUITS_PRICE_INDEX_BEFORE != 0 && before.FRUITS_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/xj.png"></image>
+                  <image wx:if="{{before.FRUITS_PRICE_INDEX_BEFORE[0] != '-'&& before.FRUITS_PRICE_INDEX_BEFORE != 0 && before.FRUITS_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/ss.png"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="farmingitem" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/lycpjgzs.png);">
+          <view class="cai" style="color: #e46a6a;">粮油产品批发价格指数</view>
+          <view class="caiNum">
+            <view class="leftAll">{{before.GRAIN_OIL_PRICE_INDEX}}</view>
+            <view class="rightAll">
+              <view>{{before.GRAIN_OIL_PRICE_INDEX_BEFORE}}</view>
+              <view class="numImage">
+                  <image wx:if="{{before.GRAIN_OIL_PRICE_INDEX_BEFORE[0] == '-'&& before.GRAIN_OIL_PRICE_INDEX_BEFORE != 0 && before.GRAIN_OIL_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/xj.png"></image>
+                  <image wx:if="{{before.GRAIN_OIL_PRICE_INDEX_BEFORE[0] != '-'&& before.GRAIN_OIL_PRICE_INDEX_BEFORE != 0 && before.GRAIN_OIL_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/ss.png"></image>
+                </view>
+            </view>
+          </view>
+          <view class="items">
+            <view class="lanter">
+              <view class="lanterImage">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/ls.png"></image>
+              </view>
+              <view class="lanterTitle" style="color: #bb5f5f;">粮食</view>
+            </view>
+            <view class="caiNum">
+              <view class="leftAll">{{before.GRAIN_PRICE_INDEX}}</view>
+              <view class="rightAll">
+                <view>{{before.GRAIN_PRICE_INDEX_BEFORE}}</view>
+                <view class="numImage">
+                  <image wx:if="{{before.GRAIN_PRICE_INDEX_BEFORE[0] == '-'&& before.GRAIN_PRICE_INDEX_BEFORE != 0 && before.GRAIN_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/xj.png"></image>
+                  <image wx:if="{{before.GRAIN_PRICE_INDEX_BEFORE[0] != '-'&& before.GRAIN_PRICE_INDEX_BEFORE != 0 && before.GRAIN_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/ss.png"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="caiZhong"></view>
+          <view class="items">
+            <view class="lanter">
+              <view class="lanterImage">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/syy.png"></image>
+              </view>
+              <view class="lanterTitle" style="color: #bb5f5f;">食用油</view>
+            </view>
+            <view class="caiNum">
+              <view class="leftAll">{{before.EDIBLE_OIL_PRICE_INDEX}}</view>
+              <view class="rightAll">
+                <view>{{before.EDIBLE_OIL_PRICE_INDEX_BEFORE}}</view>
+                <view class="numImage">
+                  <image wx:if="{{before.EDIBLE_OIL_PRICE_INDEX_BEFORE[0] == '-'&& before.EDIBLE_OIL_PRICE_INDEX_BEFORE != 0 && before.EDIBLE_OIL_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/xj.png"></image>
+                  <image wx:if="{{before.EDIBLE_OIL_PRICE_INDEX_BEFORE[0] != '-'&& before.EDIBLE_OIL_PRICE_INDEX_BEFORE != '0' && before.EDIBLE_OIL_PRICE_INDEX_BEFORE != ''}}" src="{{cndUrl}}/static/wechat/img/zssn/ss.png"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- <view class="caiZhong"></view> -->
+        </view>
+      </view>
+      <view class="sources">数据来源：全国重点农产品市场信息平台</view>
+    </view>
+    <view class="graph">
+      <view class="graphTitle">
+        <view class="titleLeft">
+          <view class="leftImage">
+            <image src="{{cndUrl}}/static/wechat/img/zssn/zycpzs.png"></image>
+          </view>
+          <view class="leftTitle">主要农产品批发价格走势图</view>
+        </view>
+        <view style="font-size: 25rpx; color: #7881a8;">单位：元/公斤</view>
+
+      </view>
+      <view class="legenddata">
+        <view class="dataTitle">日期</view>
+        <view class="filter-opt-text">
+          <picker mode="date" value="{{startTime}}" end="{{endSTime}}" bindchange="startBindDateChange">
+            <view class="picker">
+              {{startTime}}
+            </view>
+          </picker>
+
+        </view>
+
+        <view style="margin-top: -5rpx;">-</view>
+
+        <view class="filter-opt-text">
+          <picker mode="date" value="{{endTime}}" end="{{endSTime}}" bindchange="endBindDateChange">
+            <view class="picker">
+              {{endTime}}
+            </view>
+          </picker>
+
+        </view>
+        <picker style="z-index: 100;" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="switch" bindtap="getProduct">
+            <view class="switch_title">{{selectProduct}}</view>
+            <view class="switch_image">
+              <image src="{{cndUrl}}/static/wechat/img/zssn/xzcp.png"></image>
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="diagram">
+        <ec-canvas id="mychart-dom-lines" disable-scroll="true" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd"canvas-id="mychart-dom-lines" ec="{{ productFrom }}"></ec-canvas>
+      </view>
+      <view class="source">数据来源：全国重点农产品市场信息平台</view>
+    </view>
+    <view class="report">
+      <view class="reportItem">
+        <view class="itemRD" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/rdbg.png);">
+          <view class="itemTop">
+            <view class="topLeft">
+              <view class="leftImage">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/baogao.png"></image>
+              </view>
+              <view class="leftvalur">日度报告</view>
+            </view>
+            <view class="topRight" bindtap="getReport" data-type="0">
+              <image src="{{cndUrl}}/static/wechat/img/zssn/tz.png"></image>
+            </view>
+          </view>
+          <view class="itemRight">
+            <view class="rightItem" wx:for="{{RDList}}" wx:index="index" wx:item="item" wx:key="{{item.ID}}" bindtap="getArticle" data-type="{{item.ID}}">
+              <view class="dian">.</view>
+              <view class="TITLE">{{item.TITLE}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="itemRD" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/zdbg.png);">
+          <view class="itemTop">
+            <view class="topLeft">
+              <view class="leftImage">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/baogao.png"></image>
+              </view>
+              <view class="leftvalur">周度报告</view>
+            </view>
+            <view class="topRight" bindtap="getReport" data-type="1">
+              <image src="{{cndUrl}}/static/wechat/img/zssn/tz.png"></image>
+            </view>
+          </view>
+          <view class="itemRight">
+            <view class="rightItem" wx:for="{{YDList}}" wx:index="index" wx:item="item" wx:key="{{item.ID}}" bindtap="getArticle" data-type="{{item.ID}}">
+              <view class="dian">.</view>
+              <view class="TITLE">{{item.TITLE}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="gxxs" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/gxxskp.png);">
+        <view class="itemTop">
+          <view class="topLeft">
+            <view class="leftImage">
+              <image src="{{cndUrl}}/static/wechat/img/zssn/gxxs.png"></image>
+            </view>
+            <view class="leftvalur">供需形势</view>
+          </view>
+          <view class="topRight" bindtap="getReport" data-type="2">
+            <image src="{{cndUrl}}/static/wechat/img/zssn/tzl.png"></image>
+          </view>
+        </view>
+        <view class="itemRight">
+          <view class="rightItem" wx:for="{{GXList}}" wx:index="index" wx:item="item" wx:key="{{item.ID}}" bindtap="getArticle" data-type="{{item.ID}}">
+            <view class="dian">.</view>
+            <view class="TITLEs">{{item.TITLE}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

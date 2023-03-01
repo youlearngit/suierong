@@ -1,0 +1,14 @@
+<view class="a1">
+    <view class="a2">
+        <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_127.png" mode="widthFix"></image>
+    </view>
+    <view class="a3">审批失败</view>
+    <view class="a4">订单编号: {{orderNo}}</view>
+    <view class="a4">失败原因: {{result}}</view>
+</view>
+<view class="b1">
+    <view class="b2" bindtap="reminder">联系客服</view>
+    <navigator class="b3" target="" url="apply" hover-class="none" open-type="redirect">
+        重新申请
+    </navigator>
+</view>

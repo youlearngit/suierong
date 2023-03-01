@@ -1,0 +1,225 @@
+<!--sub8/pages/agriculture/index.wxml-->
+<scroll-view class="home" scroll-y="{{isScroll}}" scroll-into-view="{{intoView}}" scroll-with-animation="true" style="height: 100vh;">
+  <view class="share" bindtap='share'>
+    <view class="fxImage">
+      <image src="{{cndUrl}}/static/wechat/img/zssn/zssnfx.png"></image>
+    </view>
+    <view class="fxtText">
+      分享
+    </view>
+    <!-- <image src="{{preffixUrls}}home_share2.png" mode="widthFix"></image> -->
+  </view>
+  <view class="swiperImage">
+    <swiper class="swiper" indicator-dots="false" indicator-color="#D8D8D8" indicator-active-color="#8C8E9E" autoplay="true" interval="5000" duration="500" circular="true" snap-to-edge="5">
+      <swiper-item>
+        <view class="bg" bindtap="getAdaptive" style="background-image: url({{cndUrls}}/static/wechat/img/zssn/zssnsybj.png);">
+
+          <!-- <image src="{{cndUrl}}/static/wechat/img/zssn/bgdb.png"></image> -->
+          <!-- 分享按钮 -->
+
+          <view class="Adaptive">
+            <image class="AdaptiveImage" src="{{cndUrls}}/static/wechat/img/zssn/zssnxuqban.png"></image>
+            <view class="AdaptiveTitle">自动推荐您想要的服务</view>
+          </view>
+
+        </view>
+      </swiper-item>
+      <swiper-item>
+        <view class="Image_rc" bindtap="getZt">
+          <image class="Image_rc" src="{{cndUrl}}/static/wechat/img/zssn/ztctt4.png" />
+   
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+
+  <view class="search">
+    <image class="search-icon" src="{{preffixUrls}}icon_32_search.png" mode="widthFix" />
+    <view>
+        <input type="text" class="weui-input" placeholder-class="search-placeholder" placeholder="请输入搜索关键词" model:value="{{keywords}}" bindconfirm="onSearchEvent" bindfocus="bindfocus" bindblur="closeblur" />
+    
+    </view>
+    <view class="searchButton" bindtap="getSearch">
+      <view class="buttonImage">
+        <image src="{{cndUrl}}/static/wechat/img/zssn/jty.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="title">
+    主要功能
+  </view>
+  <view class="function">
+    <view class="functionList" bindtap="getFunction" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/zczx.png);">
+      <view class="itemContont">
+        <view class="colour" style="background: #308cff;"></view>
+        <view class="contont">
+          <view class="zcTitle">政策资讯</view>
+          <view class="zcContont">一键了解政策信息</view>
+        </view>
+      </view>
+      <!-- <view class="zcTitle">政策资讯</view>
+      <view class="zcContont">一键了解政策信息</view> -->
+    </view>
+    <view class="zssnBox">
+      <view class="bazaar" bindtap="getBazaar" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/scfxkp.png);">
+        <view class="itemContont">
+          <view class="colour" style="background: #ff9e4f;"></view>
+          <view class="contont">
+            <view class="zcTitle">市场分析</view>
+            <view class="zcContont">一眼看懂市场走势</view>
+          </view>
+        </view>
+      </view>
+      <view class="bazaar" bindtap="getProject" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/xmhzkp.png);">
+        <view class="itemContont">
+          <view class="colour" style="background: #45bf03;"></view>
+          <view class="contont">
+            <view class="zcTitle">项目合作</view>
+            <view class="zcContont">一线融合你我供需</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:for="{{catalogueList}}" wx:key="index" bindtap="getRz">
+    <view class="title">
+      <view>{{item.title}}</view>
+      <view class="gd" data-type="{{item.type}}" bindtap="getMore">
+        更多
+      </view>
+    </view>
+    <view class="lists" wx:if="{{item.type == 0}}">
+      <navigator class=" listBox" wx:for="{{item.list}}" wx:key="key" wx:for-item="itemName" url="{{itemName.url}}"  wx:if="{{itemName.NAME != '信贷直通车'}}" >
+        <view class="synthesizeImage">
+          <image src="{{cndUrl}}/static/wechat/img/zssn/{{itemName.CODE}}.png"></image>
+        </view>
+        <view class="ListTitle" wx:if="{{itemName.NAME != '淮安分行阳光扶贫贷'}}">{{itemName.NAME}}</view>
+        <view class="ListTitle" wx:if="{{itemName.NAME == '淮安分行阳光扶贫贷'}}">
+          <view style="    margin-top: -10rpx;">淮安</view>
+          <view style=" ">阳光扶贫贷</view>
+        </view>
+        <!-- <view class="ListTitle">
+          {{itemName.NAME}}
+        </view> -->
+      </navigator>
+      <view class=" listBox" wx:for="{{item.list}}" wx:key="key" wx:for-item="itemName" url="{{itemName.url}}"  wx:if="{{itemName.NAME == '信贷直通车'}}"  bindtap="getZt">
+        <view class="synthesizeImage">
+          <image src="{{cndUrls}}/static/wechat/img/zssn/ztclogo.png"></image>
+        </view>
+        <view class="ListTitle">{{itemName.NAME}}</view>
+      
+        <!-- <view class="ListTitle">
+          {{itemName.NAME}}
+        </view> -->
+      </view>
+      <!-- <view class="listItem" wx:for="{{menuList}}" wx:key="key" data-type="{{item.type}}" bindtap="getMore">
+      <image src="{{cndUrl}}{{item.imageUrlL}}"></image>
+      <view class="itemContont">
+        <view class="colour" style="background: {{item.colour}};"></view>
+        <view class="contont">
+          <view class="name">{{item.name}}</view>
+          <view class="value">{{item.contont}}</view>
+        </view>
+      </view>
+    </view> -->
+    </view>
+    <view class="list" wx:if="{{item.type == 1}}">
+      <navigator class="synthesizeItem" wx:for="{{item.list}}" wx:key="key" wx:for-item="itemName" url="{{itemName.url}}">
+        <view class="synthesizeImage">
+          <image src="{{cndUrl}}/static/wechat/img/zssn/{{itemName.CODE}}.png"></image>
+        </view>
+
+        <view class="synthesizeTitle">
+          {{itemName.NAME}}
+        </view>
+      </navigator>
+      <!-- <view class="listItem" wx:for="{{menuList}}" wx:key="key" data-type="{{item.type}}" bindtap="getMore">
+      <image src="{{cndUrl}}{{item.imageUrlL}}"></image>
+      <view class="itemContont">
+        <view class="colour" style="background: {{item.colour}};"></view>
+        <view class="contont">
+          <view class="name">{{item.name}}</view>
+          <view class="value">{{item.contont}}</view>
+        </view>
+      </view>
+    </view> -->
+    </view>
+  </view>
+
+  <view class="title">
+    增值服务
+    <view class="gd" data-type="5" bindtap="getMore">
+      更多
+    </view>
+  </view>
+  <view class="synthesizeList" bindtap="getRz">
+    <navigator class="synthesizeItem" wx:for="{{synthesizeList}}" url="{{item.url}}">
+      <view class="synthesizeImage">
+        <image src="{{cndUrl}}/static/wechat/img/zssn/{{item.imageUrl}}.png"></image>
+      </view>
+      <view class="synthesizeTitle">
+        {{item.name}}
+      </view>
+    </navigator>
+  </view>
+  <!-- <view class="{{shareBox}} " wx:if="{{shareBox == 'shareBox on'}}">
+    <view class='imagePathBox'>
+      <image src="{{imagePath}}" class='shengcheng'></image>
+    </view>
+    <view hidden="{{maskHidden}} " class="mask "></view>
+    <view class="canvas-box ">
+      <canvas style="width:750px;height:1216px;position:fixed;top:9999px " canvas-id="mycanvas" />
+    </view>
+
+    <view class="tools">
+      <view class="tb cancel" bindtap='showHide'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+        <block>取消</block>
+      </view>
+      <view class="tb shareToAPP">
+        <button open-type='share'>
+          <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+        </button>
+        <block>转发</block>
+      </view>
+      <view class="tb savePic" bindtap='baocun'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+        <view class="saveTxt">朋友圈</view>
+      </view>
+    </view>
+  </view> -->
+  <my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>
+  <canvas
+	canvas-id="mycanvas"
+	style="width:720px;height:1216px;position:fixed;top:9999px;background-color:white"
+></canvas>
+</scroll-view>
+<my-poster shareBox="{{my_poster.shareBox}}" hidePoster="{{my_poster.hidePoster}}" imagePath="{{my_poster.imgPath}}"></my-poster>
+<van-popup show="{{popup_poster.show}}" bind:close="popupClose" data-event="popup_poster" position="bottom">
+  <view class="poster-t1">欢迎体验,感谢分享。</view>
+  <scroll-view scroll-y style="max-height:60vh">
+    <view class="poster-t5">
+      <block wx:for="{{popup_poster.posters}}" wx:key="index">
+        <view class="poster-t51" bind:tap="posterChoose" data-id="{{index}}">
+          <image src="{{item.img}}" mode="widthFix" style="width:100%"></image>
+          <view class="poster-t53 {{popup_poster.select==index?'poster-t531':''}}" hover-class="none" hover-stop-propagation="false">
+            {{item.title}}
+          </view>
+          <image wx:if="{{popup_poster.select==index}}" class="poster-t52" src="{{cndUrl}}/static/wechat/img/sui/sui-1076.png" mode="widthFix"></image>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <view class="poster-t6" wx:if="{{popup_poster.select==-1}}" style="opacity: 0.5;">请选择版本</view>
+  <view class="poster-t6" bind:tap="posterCreate" wx:if="{{popup_poster.select!=-1}}">
+    分享二维码
+  </view></van-popup>
+<!-- 人才专员 悬浮按钮 -->
+<view style="position: fixed; text-align: center; width: 200rpx;z-index: 1000; height:50rpx;display: block;left:{{posX}}px;top:{{posY}}px" bindtouchmove="touchMove" bindtouchstart="touchStart" bindtouchend="touchEnd">
+  <navigator url="/sub8/pages/agriculture/staff_list?RCtype=1&location={{location_json}}" hover-class="none">
+    <image class="float_talent_btn" src="{{cndUrl}}/static/wechat/img/zssn/fwzy.png" mode="widthFix"></image>
+  </navigator>
+
+</view>

@@ -1,0 +1,61 @@
+/* sub6/pages/agriculture/propertyRight.wxss */
+.propertyRight{
+  height: 100%;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  padding-top: 92rpx;
+}
+.kp{
+  width: 692rpx;
+  height: 477rpx;
+  margin: 0 auto;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  padding-top: 243rpx;
+}
+.kpTitle{
+  width: 594rpx;
+  margin: 0 auto;
+  font-size: 28rpx;
+  color: #1b5f75;
+  line-height: 44rpx;
+}
+.kpIcon{
+  width: 648rpx;
+  height: 251rpx;
+  margin: 0 auto;
+}
+image{
+  width: 100%;
+  height: 100%;
+}
+.ewm{
+  display: flex;
+  padding: 0 90rpx;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.iosImage{
+  width: 210rpx;
+  height: 210rpx;
+  margin: 0 auto;
+}
+.logo{
+  width: 100rpx;
+  margin: 0 auto;
+  display: flex;
+}
+.logoImage{
+  width: 23rpx;
+  height: 23rpx;
+}
+.logoTitle{
+  font-size: 24rpx;
+  margin-left: 5rpx;
+  margin-top: 5rpx;
+}
+.iosTitle{
+  font-size: 22rpx;
+  color: #0e4f64;
+}

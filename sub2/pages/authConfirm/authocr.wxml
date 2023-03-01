@@ -1,0 +1,72 @@
+<view style="margin:5%;margin-left:2.2%">
+  <i-steps>
+   <i-step status="process">
+            <view slot="title">身份验证</view>
+        </i-step>
+        <i-step status="">
+            <view slot="title">人脸识别</view>
+        </i-step>
+        <i-step status="" >
+            <view slot="title">{{business_type!='1'?'短信验证':'签署授权'}}</view>
+        </i-step>
+  </i-steps>
+</view>
+<view class="desc">
+  信息仅用于您的个人身份认证和银行打款，江苏银行保障您的信息安全
+</view>
+<view style="width:90%;margin:auto">
+  <view class="formInfo" style="width:100%;margin:auto">
+    <form bindsubmit="submitForm" report-submit='true'>
+      <view class="title">请拍摄并上传身份证</view>
+      <view style="color:red;width:100%;margin:auto;font-size:20rpx;text-align:center">
+        *注意事项：确保照片上的信息清晰可见,不可有反光，照片填满显示区域
+      </view>
+      <view class="section2">
+        <view class="weui-cells__title" style="margin-top:40rpx" bindtap="creatPhoto">
+          <text>身份证人像面</text>
+        </view>
+        <view class="ocrBox" style="margin-top:20rpx" bindtap="creatPhoto" >
+          <view class="imgFlex" >
+            <image   id="renxiang"  class="picID"  wx:if='{{preffixUrl}}' src="{{img.renxiang}}"></image>
+          </view>
+        </view>
+      </view>
+      <view class="section2">
+        <view class="weui-cells__title" style="margin-top:40rpx">
+          <text>身份证国徽面</text>
+        </view>
+        <view class="ocrBox" style="margin-top:20rpx" bindtap="creatPhoto">
+          <view class="imgFlex">
+            <image id="guohui" class="picID"  wx:if='{{preffixUrl}}' src="{{img.guohui}}"></image>
+          </view>
+        </view>
+      </view>
+      
+      <view class="bottom">
+        <button bindtap="reader">智能识别</button>
+      </view>
+      <view style="height:60rpx">
+      </view>
+    </form>
+  </view>
+  <view wx:if="{{v==1}}">
+    <view class="camerabox" hidden="{{camera_flag}}">
+      <camera hidden="{{camera_flag}}" class="camera" mode="normal" device-position="back" flash="off" binderror="error">
+        <cover-view class="controls">
+          <cover-image class="img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}{{takephoto.coverImg}}" />
+        </cover-view>
+        <cover-view class="noticeTXT">{{takephoto.noticeTxt}}</cover-view>
+        <cover-view class="operat">
+          <cover-image class="clickBtn" id="{{takephoto.id}}" bindtap="takePhoto" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_take.png" />
+          <cover-image class="reTake" bindtap="reTake" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_cancel.png" />
+        </cover-view>
+      </camera>
+    </view>
+  </view>
+
+  <view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+    <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+    <canvas canvas-id="attendCanvasId2" style="width:{{canvasWidth2}}px;height:{{canvasHeight2}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+  </view>
+  <i-toast id="toast" />
+</view>

@@ -1,0 +1,16 @@
+/* sub6/pages/specialNew/index.wxss */
+page {
+  width: 100%;
+  background-color: #1e1f21 !important;
+}
+.container {
+  height: 2300rpx;
+  z-index: -1;
+}
+.select{
+  position: absolute;
+  height: 130rpx;
+  width: 600rpx;
+  margin: 14rpx;
+  border-radius: 50rpx;
+} 

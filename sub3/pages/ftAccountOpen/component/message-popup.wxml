@@ -1,0 +1,15 @@
+<van-popup show="{{showTip}}" round style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+  <view class="tipHeader">
+    <van-image width="32rpx" height="32rpx" src="{{(preffixUrl+'static/wechat/img/ftKaihu/acc_tip1.png')}}" custom-class="acc_tip1"></van-image>
+    <view class="tipHeaderTxt">温馨提示</view>
+  </view>
+  <view class="tipBorder"></view>
+  <view class="tipTxt">
+   {{message}}
+  </view>
+  <view class="tipBorder">
+  </view>
+  <view class="tipConfirm" bindtap="close">
+      确定
+    </view>
+</van-popup>

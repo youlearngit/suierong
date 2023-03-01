@@ -1,0 +1,116 @@
+/* pages/carLoans/order/InformationPage/resultPage.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+page {
+  background-color:  #4d7fcc;
+  overflow: hidden
+}
+
+.body-background-img {
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 60rpx 20rpx 0rpx 20rpx;
+}
+.top{
+  margin: 40rpx;
+}
+.top-title{
+  font-family: SourceHanSansSC-Bold;
+  font-size: 48rpx;
+  color: #1A3B77;
+  letter-spacing: 0;
+  font-weight: 900;
+}
+.top-label{
+  width: 160rpx;
+  height: 40rpx;
+  float: left;
+}
+.f2-1-img{
+  margin: 6rpx 10rpx 0rpx 0rpx;
+  width: 24rpx;
+  height: 24rpx;
+  float: left;
+}
+.f2-1-text{
+  opacity: 0.62;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 24rpx;
+  color: #1A3B77;
+  letter-spacing: 0.5px;
+}
+
+.content-1{
+  margin: 80rpx 20rpx 0rpx 20rpx;
+  padding-bottom: 1rpx;
+  background-color: #ffffff;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+  box-shadow: 0 2rpx 24rpx 0 rgba(156,187,255,0.56);
+  border-radius: 16rpx;
+}
+.content-body{
+  text-align: center;
+  margin-bottom: 30rpx ;
+}
+
+.content-img{
+  width: 302rpx;
+  height: 289rpx;
+  margin: 20rpx 150rpx 0rpx 150rpx ;
+}
+.content-title{
+  font-family: SourceHanSansSC-Medium;
+  font-size: 34rpx;
+  color: #333333;
+  height: 60rpx;
+}
+.content-text{
+  margin-left: 80rpx;
+  width: 560rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  letter-spacing: 0;
+  text-align: center;
+  margin-bottom: 150rpx;
+}
+.content-error-text{
+  margin-left: 80rpx;
+  margin-bottom: 80rpx;
+  width: 520rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  letter-spacing: 0;
+  text-align: center;
+}
+.content-search-prompt{
+  background: #F7FBFF;
+  margin: 30rpx 22rpx 60rpx 22rpx;
+  padding: 20rpx;
+  border: 1px solid #D2DDFF;
+  border-radius: 10px;
+  width: 630rpx;
+  height: 114rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 24rpx;
+  color: #7C8BA4;
+  line-height: 40rpx;
+}
+.btn-submit{
+  margin-top: 100rpx;
+  margin-bottom: 100rpx;
+  width: 80%;
+  height: 90rpx;
+  padding-top: 10rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+  background:linear-gradient(to bottom, #8BA2FD,#3D5FE9);
+  box-shadow: 0 4px 12px 0 rgba(110,137,245,0.33);
+  border-radius: 40rpx;
+}

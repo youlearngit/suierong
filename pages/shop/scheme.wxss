@@ -1,0 +1,47 @@
+/* pages/shop/scheme.wxss */
+page {
+    background: #ffffff;
+}
+.topPic {
+    height: 260rpx;
+}
+.agricultureImg{
+    width: 210rpx;
+    height: 161rpx;
+    margin-left: 420rpx;
+}
+.topImg {
+    height: 248rpx;
+    width: 100%;
+    margin-bottom: 12rpx;
+}
+
+.list {
+    height: 170rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-top: 20rpx;
+    /* box-shadow: 0 4px 28px -2px rgba(123,140,170,0.16); */
+    box-shadow: 0 3rpx 14rpx 0 rgba(191, 193, 218, 0.4);
+}
+.listImg {
+    height: 100%;
+    width: 100%;
+}
+
+.tit {
+    font-family: PingFangSC-Semibold;
+    font-size: 36rpx;
+    color: #2c3750;
+    line-height: 36rpx;
+    margin-top: -130rpx;
+    margin-left: 40rpx;
+}
+.content {
+    font-family: PingFangSC-Regular;
+    font-size: 22rpx;
+    color: #7a8397;
+    line-height: 22rpx;
+    margin-top: 20rpx;
+    margin-left: 40rpx;
+}

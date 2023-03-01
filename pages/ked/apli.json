@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "my-login": "/component/login/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "快e贷申请",
+  "enablePullDownRefresh": false
+}

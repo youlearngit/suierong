@@ -1,0 +1,83 @@
+<!--sub8/pages/agriculture/projectCooperation.wxml-->
+<!-- <text>sub8/pages/agriculture/projectCooperation.wxml</text> -->
+<view class="projectCooperation">
+  <view class="bg">
+    <image src="{{cndUrl}}/static/wechat/img/zssn/xmhzbj1.png"></image>
+  </view>
+  <view class="projectCooperation_contont">
+    <view class="projectCooperation_valce">
+      <view class="valce_title">项目合作</view>
+      <view class="valce_contont">一线融合你我供需</view>
+    </view>
+    <view class="talVan">
+      <van-tabs active="{{ active }}" bind:change="onChange" color="none" title-active-color="#1c294f">
+        <van-tab title="热门产品">
+          <view class="productOrProject">
+            <view class="search">
+              <view class="search_left">
+                <image class="search-icon" src="{{preffixUrl}}icon_32_search.png" mode="widthFix" />
+                <input type="text" confirm-type="search" placeholder-class="search-placeholder" placeholder="请输入您想搜索的关键字" model:value="{{keywords}}" bindconfirm="onSearchEvent" />
+                <view class="search-btn" bind:tap="onSearchEvent">
+                  <image src="{{cndUrl}}/static/wechat/img/zssn/tz1.png"></image>
+                </view>
+              </view>
+            </view>
+            <view class="gd">
+              <view class="gd_title" bindtap="getLists">查看更多</view>
+              <view class="gd_image">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/ckgd.png"></image>
+              </view>
+            </view>
+            <view class="product">
+              <view class="productItem" wx:for="{{productList}}" wx:key="index" bindtap="getProductDetails" data-id="{{item.ID}}">
+                <view class="productImage">
+                  <image src="{{cndUrl}}{{item.PIC_URL}}"></image>
+                </view>
+                <view class="productName">{{item.NAME}}</view>
+                <view class="producCordname">{{item.COMPANY_NAME}}</view>
+              </view>
+            </view>
+          </view>
+        </van-tab>
+        <van-tab title="热门项目">
+          <view class="productOrProject">
+            <view class="search">
+              <view class="search_left">
+                <image class="search-icon" src="{{preffixUrl}}icon_32_search.png" mode="widthFix" />
+                <input type="text" confirm-type="search" placeholder-class="search-placeholder" placeholder="请输入您想搜索的关键字" model:value="{{keywords}}" bindconfirm="onSearchEvent" />
+                <view class="search-btn" bind:tap="onSearchEvent">
+                  <image src="{{cndUrl}}/static/wechat/img/zssn/tz1.png"></image>
+                </view>
+              </view>
+            </view>
+            <view class="gd">
+              <view class="gd_title" bindtap="getLists">查看更多</view>
+              <view class="gd_image">
+                <image src="{{cndUrl}}/static/wechat/img/zssn/ckgd.png"></image>
+              </view>
+            </view>
+            <view class="product">
+              <view wx:for="{{LIST3}}" wx:index="index" wx:item="item" wx:key="{{item.ID}}">
+                <navigator class="article" hover-class="none" bindtap="getArticle" data-ID="{{item.ID}}" url="/sub9/pages/agriculture/ArticleListItem?ID={{item.ID}}&CATEGORY={{item.CATEGORY}}" style="background-image: url({{cndUrl}}/static/wechat/img/zssn/bglbkp.png);">
+                  <view class="article-loc">
+                    <view wx:if="{{item.CATEGORY == 0}}">重大项目</view>
+                    <view wx:if="{{item.CATEGORY == 1}}">招商产业</view>
+                    <image src="{{cndUrl}}/static/wechat/img/zssn/xqspbgjb.png" mode="widthFix" />
+                  </view>
+                  <view class="article-title">
+                    <view class="jt">
+                      <image class="jt" src="{{cndUrl}}/static/wechat/img/zssn/jt.png"></image>
+                    </view>
+                    <text class="TITLE" style="margin-left: 10rpx;"> {{item.NAME}} </text>
+                  </view>
+
+
+                </navigator>
+              </view>
+            </view>
+          </view>
+        </van-tab>
+      </van-tabs>
+    </view>
+  </view>
+</view>

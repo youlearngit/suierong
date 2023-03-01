@@ -1,0 +1,14 @@
+<view class="apply_search">
+	<text>{{label}}</text>
+	<van-field 
+		custom-style="background-color:transparent; padding:0;" 
+		placeholder-style="color:#999999;"
+		label="" input-align="right" clearable adjust-position
+		bind:input="bindinput" 
+		model:value="{{value}}" placeholder="{{placeholder}}" />
+	<scroll-view scroll-y wx:if="{{scrolls.length>0}}">
+		<view wx:for="{{scrolls}}" data-item="{{item}}" bind:tap="bindtap">
+			{{item.value}}
+		</view>
+	</scroll-view>
+</view>

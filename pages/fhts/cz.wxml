@@ -1,0 +1,115 @@
+<view class="wrap">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="ncd1">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/fhts/cz.jpg"></image>
+      <view style="opacity: 0.6;font-size: 11px;position: absolute;bottom: 25px;left: 205px;color: #505987;"> 按单利计算</view>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 简 介</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">江苏银行与常州市商务局合作，向纳入“小微外贸退税企业名单库”的企业提供的贷款服务，以企业国际收支及退税信息为主要审批依据。</text>
+    </view>
+  </view>
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 特 点</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">1.产品期限：期限最长1年；</text>
+      <text class="p">2.产品额度：额度最高500万元；</text>
+      <text class="p">3.担保方式：信用为主；</text>
+      <text class="p">4.利率定价：年化最低4.35%，按单利计算。</text>
+    </view>
+  </view>
+
+
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">服 务 对 象</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">企业成立2年以上且正常退税满1年、税务信息良好、无不良信用的外贸退税企业，未被列入税务、工商、海关、外汇管理等国家机关的违规行为通报名单或受到相关处罚。</text>
+    </view>
+  </view>
+  <view class="dianDL" style="margin-bottom:150rpx;">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">联 系 方 式</text>
+    </view>
+    <view class="dianDd">
+      <view class="tips">* 点击下方电话，可以一键拨号哦！</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-88107827'><span>常州分行</span>0519-88107827</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-88198679'><span>分行营业部</span>0519-88198679</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-87928113'><span>溧阳支行</span>0519-87928113</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-82105186'><span>金坛支行</span>0519-82105186</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-85510295'><span>武进支行</span>0519-85510295</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-88378970'><span>经济开发区支行</span>0519-88378970</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-85117769'><span>新北支行</span>0519-85117769</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-85356323'><span>天宁支行</span>0519-85356323</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-86635710'><span>钟楼支行</span>0519-86635710</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-86644647'><span>兰陵支行</span>0519-86644647</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-86600757'><span>博爱路支行</span>0519-86600757</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-86648945'><span>清凉路支行</span>0519-86648945</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-88114504'><span>文化宫支行</span>0519-88114504</view>
+
+
+    </view>
+  </view>
+
+</view>
+
+
+
+<view class='fbuttom'>
+    <view class="btn" bindtap='showShare'>分<text>\t\t\t\t\t\t</text>享</view>
+    <view bindtap="apli" class="btn blu">立即申请</view>
+</view>
+
+<view class="{{shareBox}}">
+
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+  
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image></button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>
+

@@ -1,0 +1,36 @@
+.ncd1{width:100%;height:1000rpx;position: relative;}
+.ncd2{width:100%;height:266rpx;}
+.ncd3{width:100%;height:842rpx;}
+.ncd1 image,.ncd2 image,.ncd3 image,.contact .bg image,.tedian .dt image{width:100%;height:100%;}
+.contact{position:absolute;bottom:80rpx;left:40rpx;height:80rpx;}
+.contact .bg{float:left;width:80rpx;height:80rpx;margin-right:20rpx;}
+.phone{font-size:30rpx;color:#0066b3;width:600rpx;line-height:80rpx;}
+.phone text{color:#0066b3;}
+.wrap{position:relative;}
+
+
+.tedian{margin-top:50rpx;margin-bottom:100rpx;}
+.tedian .dl{width:80%;margin:30rpx auto;}
+.tedian .dt{display:inline-block;width:89rpx;height:103rpx;margin-right:20rpx;vertical-align:top;}
+.tedian .dd{display:inline-block;width:480rpx;}
+.tedian .h2{color:#0068b7;font-size:30rpx;font-weight:500;}
+.tedian .p{font-size:24rpx;}
+
+
+.dianDL{position:relative;display:block;width:80%;margin:60rpx auto;margin-bottom:80rpx;padding:40rpx 26rpx 15rpx;line-height:1.6;font-size:26rpx;color:#333;border-radius:10rpx;background:#cfe5f5;}
+.dianDt{position:absolute;top:-40rpx;left:10%;width:80%;height:40rpx;line-height:40rpx;padding:15rpx 0 25rpx;font-size:32rpx;color: #fff;text-align:center;vertical-align:middle;}
+.dianDt text{display:inline-block;position:relative;height:40rpx;z-index:10;}
+.dianDt .span{width:40rpx;height:40rpx;border-radius:40rpx;margin-right:80rpx;color:#ff6606;background:#fff;}
+.dianDtBg{position:absolute;top:0;left:0;width:100%;height:70rpx;z-index:1;}
+.dianDL .p{display:block;margin-bottom:10rpx;text-indent:2em;text-align:justify;margin-top:5rpx;}
+
+
+.tools{position:absolute;left:0;bottom:40rpx;width:100%;text-align:center;}
+.tools .tb{display:inline-block;width:80rpx;height:120rpx;margin:0 30rpx;font-size:26rpx;text-align:center;color:#fff;}
+.tools .tb image{display:block;width:80rpx;height:80rpx;border-radius:80rpx;overflow:hidden;}
+.shareToAPP button{background:none;border:0;outline:0;padding:0;}
+.saveTxt{width:160rpx;text-align:center;margin-left:-40rpx;}
+.shengcheng{width:600rpx;height:973rpx;position:fixed;top:50rpx;left:50%;top:50%;margin-left:-40%;margin-top:-70%;z-index:10}
+
+.shareBox{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
+.shareBox.on{z-index:1000;background:rgba(0,0,0,.8);}

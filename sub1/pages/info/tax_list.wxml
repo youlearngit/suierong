@@ -1,0 +1,55 @@
+<!--sub1/pages/info/tax_list.wxml-->
+<view class="a2">
+  <view class="a2b2" wx:for="{{cardlist}}"  hover-class="none" hover-stop-propagation="false">
+    <view  class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+      <view class="cu-list menu" bindtap="tax_detail" data-orgname="{{item.ORG_CODE}}">
+        <view class="cu-item arrow" >
+          <view class="content2">
+          {{item.ORG_NAME}} 
+          <!-- {{cardlist[0].ORG_NAME}} -->
+          </view>
+          <block  wx:if="{{item.isTax}}">
+                <view class="action" >
+                <view class="appr" >
+                    已授权
+                  </view>
+                </view>
+              </block>
+              <block wx:else>
+                <view class="action" >
+                  <view class="appr1" >
+                    未授权
+                  </view>
+                </view>
+              </block>
+        </view>
+        <view class="cu-item ">
+          <view class="content3">
+            统一码
+          </view>
+          <view class="content4">
+          {{item.ORG_CODE}} 
+            <!-- {{cardlist[0].ORG_CODE}} -->
+          </view>
+        </view>
+        <view class="cu-item ">
+          <view class="content3">
+            法定代表人
+          </view>
+          <view class="content4">
+            {{item.ARTIFICIAL_NAME}} 
+              <!-- {{cardlist[0].ARTIFICIAL_NAME}} -->
+          </view>
+        </view>
+        <view class="cu-item ">
+          <view class="content3">
+            企业所在地
+          </view>
+          <view class="content4" >
+            {{item.ORG_ADDRESS}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

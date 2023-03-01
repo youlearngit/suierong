@@ -1,0 +1,16 @@
+<view class="container_content">
+    <image class="container_bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/login_bg.png"></image>
+    <view class="title">订单管理平台</view>
+    <view class="box">
+        <view class="text1">手机号码</view>
+        <view class="bottombox">
+            <input class="inputstyle" type="number" maxlength="11" placeholder="请输入手机号码" value="{{mobile}}" bindinput="phoneInput"/>
+        </view>
+        <view class="text1">手机验证码</view>
+        <view class="bottombox">
+            <input class="inputstyle" type="number" maxlength="6" placeholder="请输入手机验证码" value="{{code}}" bindinput="codeInput"/>
+            <button class="codeText" size="mini" bindtap='getVerificationCode' disabled='{{disabled}}'>{{codename}}</button>
+        </view>
+    </view>
+    <view class="btnlogin" bindtap="jumpPage">登 录</view>
+</view>

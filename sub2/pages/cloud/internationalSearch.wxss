@@ -1,0 +1,21 @@
+@import '/assets/styles/weui.wxss';
+
+.searchLists {
+  width: 94%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.searchListsItem {
+  height: 15vh;
+}
+
+.searchLists image {
+  height: 8.5vh;
+  width: 8.5vh;
+}
+.searchImg {
+  margin-top: 7vh;
+  height: 15vh;
+  width: 98%;
+}

@@ -1,0 +1,116 @@
+
+@import "./assets/styles/iconfont.wxss";
+page{height:100%;}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+image{display:inline-block;width:auto;height:auto;}
+
+.diyNav{position:fixed;left:20rpx;z-index:10;background:rgba(0,0,0,.15);vertical-align:middle;color:#fff;box-shadow:0 0 3rpx #ccc;overflow:hidden;}
+.backIndex{display:inline-block;width:16px;height:16px;padding:8px 10px;overflow:hidden}
+.backIndex image,.backPage image{display:block;width:100%;height:100%;outline:none;border:0;padding:0;margin:0;}
+/* .btnG{} */
+.backPage{display:inline-block;height:16px;line-height:16px;margin:5px 0;padding:3px 10px 3px 15px;width:15rpx;overflow:hidden;border-right:#eee 1rpx solid;}
+
+
+.fbuttom{position:fixed;bottom:0;left:0;width:100%;height:100rpx;text-align:center;overflow:hidden;z-index:11;}
+.btn{display:inline-block;width:300rpx;height:100rpx;margin:0 25rpx;border-radius:10rpx;text-align:center;line-height:100rpx;color:#fff;font-size:40rpx;border:none;background:linear-gradient(to left, rgba(240,168,0,0.3), rgba(234,150,3,1));overflow:hidden;}
+.btn.blu{background:linear-gradient(to left, rgba(64,157,233,0.3), rgba(0,104,183,1));}
+
+.shareBox{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden;}
+.shareBox.on{z-index:1000;background:rgba(0,0,0,.8);}
+.tools{position:absolute;left:0;bottom:20rpx;width:100%;text-align:center;}
+.tools .tb{display:inline-block;width:80rpx;height:120rpx;margin:0 30rpx;font-size:26rpx;text-align:center;color:#fff;}
+.tools .tb image{display:block;width:80rpx;height:80rpx;border-radius:80rpx;overflow:hidden;}
+.shareToAPP button{background:none;border:0;outline:0;padding:0;}
+.saveTxt{width:160rpx;text-align:center;margin-left:-40rpx;}
+.shengcheng{width:600rpx;height:973rpx;position:fixed;top:50rpx;left:50%;top:50%;margin-left:-40%;margin-top:-70%;z-index:10}
+
+.warp{position:relative;z-index:10;}
+.dianDd .p span{display:inline-block;width:250rpx;}
+.dianDd .tips{margin:8rpx auto 15rpx;text-align: center;color:rgba(0,104,183,1);font-size:20rpx;}
+
+.flexWrap{display:flex;width:100%;height:100%;box-orient:vertical;flex-direction:column;}
+.flexWrap .flexHead{height:325rpx;width:750rpx;background:#fff;}
+.flexWrap .flexHead image{width:750rpx;height:325rpx;}
+.flexWrap .flexBox{display:flex;flex:1;border: 1rpx solid transparent;
+border-image: -webkit-linear-gradient(#3588fd,#1da5e8, #42a7ec, #fff) 1;border-width:1rpx 0 0 1rpx}
+
+.houseForm{width:90%;margin:30rpx auto;}
+.houseForm .serBtn{font-size:26rpx;line-height:40rpx;padding:0 15rpx;color:#fff;background:#0066b3;margin-left: 20rpx;}
+.houseForm .weui-cells:before {border-top:0;}
+.houseForm .weui-cell{padding:5rpx 20rpx;}
+.houseForm .weui-cell:before {left:0;}
+.houseForm .weui-label{width:120rpx;font-size:32rpx;color:#0066b3;}
+.houseForm .weui-input{font-size:30rpx;}
+.coverBox{position:fixed;width:100%;height:80%;top:20%;left:0;background:#f7f7f7;z-index:10002;}
+.cityBox{position:fixed;width:100%;height:100%;top:0;left:0;background:#f7f7f7;z-index:10001;}
+.coverBox .h1{padding:30rpx 0 0;font-size:34rpx;color:#0066b2;text-align:center;}
+.coverList{width:90%;height:90%;margin:5rpx auto 50rpx;}
+.houseForm .formBtn{margin-top:60rpx;background:#2f72f5;color:#fff;}
+.single{font-size:30rpx;line-height:1.4;padding:15rpx 10rpx;border-bottom:#ddd 1rpx solid;}
+.closeCity{position:absolute;top:85rpx;right:10rpx;width:150rpx;height:70rpx;line-height:70rpx;text-align:center;background:#0066b2;border-radius:10rpx;color:#fff;font-size:36rpx;}
+.GPSCity{height:100rpx;line-height:100rpx;background:#fff;font-size:32rpx;color:#e4250c;text-indent:1em;}
+.cities{background:#fff;}
+.cities .weui-cell__bd{font-size:32rpx;}
+.titleBefore{font-size:26rpx;color:#999;text-indent:1em;line-height:1.6;padding:20rpx 0 10rpx;}
+.ico_local{width:20rpx;height:25rpx;margin-right:5rpx;}
+
+.pingguRes{position:fixed;bottom:-100%;left:0;width:90%;padding:40rpx 5%  120rpx;background:#f2f2f2;z-index:10000;overflow:hidden;}
+.pingguRes .h2{font-size:36rpx;}
+.pingguRes .h2 text{font-size:24rpx;color:#888;}
+.pingguRes .closePG{position:absolute;top:0;right:0;width:60rpx;height:60rpx;line-height:60rpx;text-align:center;color:#fff;font-size:40rpx;background:linear-gradient(to right,#f00, rgba(234,150,3,1));}
+.pinguInfo{position:relative;margin:20rpx auto;padding:20rpx 30rpx;border-radius:15rpx;background:#fff;}
+.pinguTips{position:relative;margin:20rpx auto;padding:20rpx 30rpx;border-radius:15rpx;background:#fff;text-align:center;font-size:30rpx;line-height:100rpx;}
+.pinguTips image{width:80rpx;height:80rpx;margin:10rpx 20rpx;vertical-align:middle;}
+.pinguInfo .time{position:absolute;top:25rpx;right:20rpx;text-align:right;font-size:22rpx;color:#868686;}
+.piName{width:75%;font-size:32rpx;}
+.piAddress{width:90%;font-size:26rpx;color:#868686;}
+.price{color:#2d72ff;font-size:32rpx;margin-top:15rpx;}
+.price text{margin:0 60rpx 0 0;font-size:28rpx;color:#333;}
+.pinguInfo .del{display: flex;justify-content:center;align-items:center;position:absolute;top:15%;right:0;width:10%;height:70%;text-align:center;}
+.total{position:absolute;bottom:0;left:0;height:100rpx;width:100%;background:#fff;box-shadow:0 0 5rpx #ccc;}
+.totalL{float:left;width:65%;padding-right:5%;text-align:right;}
+.totalR{float:right;width:30%;text-align:center;line-height:100rpx;color:#fff;background:linear-gradient(to left, rgba(241,187,1,1), rgba(234,150,3,1));}
+.pgAll{margin-top:10rpx;font-size:26rpx;color:#888;}
+.yjAll{font-size:32rpx;}
+/* .add{position:absolute;left:20rpx;top:-40rpx;width:140rpx;height:140rpx;border-radius:140rpx;line-height:120rpx;text-align:center;font-size:80rpx;color:#fff;background:linear-gradient(to left, rgba(241,187,1,1), rgba(234,150,3,1));} */
+.diya{font-size:26rpx;color:#ccc;}
+.loginWrap{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.3);z-index:1000;}
+.login{position:fixed;top:30%;left:12.5%;width:75%;height:40%;background:#fff;box-shadow:0 0 8rpx #ccc;border-radius:10rpx;}
+.login .button{position:absolute;bottom:20rpx;width:35%;height:60rpx;border-radius:60rpx;font-size:30rpx;text-align:center;line-height:60rpx;color:#fff;}
+.login .button.cancel{left:10%;background:#ccc;}
+.login .button.do{right:10%;background:#0066b3;}
+.login .tips{margin-top:7%;text-align:center;}
+.login .tips .h2{font-size:36rpx;color:#333;margin-bottom:10rpx;}
+.login .tips .p{font-size:24rpx;color:#888;}
+.login .slogan{position:absolute;top:35%;left:0;width:100%;height:200rpx;text-align:center;font-size:26rpx;color: #0267f1;}
+.login .slogan image{display:inline-block;width:120rpx;height:123rpx;margin-bottom:20rpx;}
+.beback{position:absolute;width:80%;height:26rpx;line-height:26rpx;font-size:26rpx;font-weight:400;color:#333;top:30rpx;left:30rpx;z-index:10;}
+.beback em{display:inline-block;width:18rpx;height:18rpx;border-bottom:2rpx solid #333;border-left:2rpx solid #333;transform:rotate(45deg);vertical-align:middle}
+.beback text{vertical-align:middle}
+
+
+  .menu-item1{  
+    width: 24%;  
+    float: left;  
+    text-align: center;  
+    padding: 20rpx 0!important;  
+    font-size:22rpx;
+  }  
+  .menu-item1 .img{ 
+    width: 23px;  
+    height: 23px;  
+    display: block;  
+    margin:auto;  
+  }  
+  .tab-bar{  
+    position: fixed;  
+    width: 100%;  
+  }  
+
+

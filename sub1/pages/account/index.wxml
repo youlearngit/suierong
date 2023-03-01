@@ -1,0 +1,78 @@
+<view class="container">
+    <image class="bg1" src="{{cdnUrl}}/static/wechat/img/sui/account_bg.png" mode="widthFix"></image>
+    <view class="acc-form">
+        <view class="filed">
+            <view class="title">客户类别</view>
+            <view class="action arrow" style="padding-right:30rpx;font-size: 29rpx;text-align: right;">
+                <picker class="" mode="selector" range="{{arr}}" value="" bindchange="choose" data-item="1">
+                    <input type="text" placeholder="请选择" disabled="{{true}}" value="{{arr[selectedItems.item1]}}" placeholder-class="placeholder" />
+                </picker>
+            </view>
+        </view>
+        <view class="filed">
+            <view class="title">账户性质</view>
+            <view class="action arrow" style="padding-right:30rpx;font-size: 29rpx;text-align: right;">
+                <picker class="" mode="selector" range="{{arr2}}" value="" bindchange="choose" data-item="2">
+                    <input type="text" placeholder="请选择" disabled="{{true}}" value="{{arr2[selectedItems.item2]}}" placeholder-class="placeholder" />
+                </picker>
+            </view>
+        </view>
+        <view class="filed">
+            <view class="title">注册地异地</view>
+            <view class="action">
+                <radio-group bindchange="choose" class="raido-group" data-item="3">
+                    <radio class="radio" value="0" checked="false" color="#1E69FF">否</radio>
+                    <radio class="radio" value="1" checked="false" color="#1E69FF">是</radio>
+                </radio-group>
+            </view>
+        </view>
+        <view class="filed">
+            <view class="title">经营地异地</view>
+            <view class="action">
+                <radio-group bindchange="choose" class="raido-group" data-item="4">
+                    <radio class="radio" value="0" checked="false" color="#1E69FF">否</radio>
+                    <radio class="radio" value="1" checked="false" color="#1E69FF">是</radio>
+                </radio-group>
+            </view>
+        </view>
+        <view class="filed">
+            <view class="title">法人是否亲临柜台办理开户</view>
+            <view class="action">
+                <radio-group bindchange="choose" class="raido-group" data-item="5">
+                    <radio class="radio" value="0" checked="false" color="#1E69FF">否</radio>
+                    <radio class="radio" value="1" checked="false" color="#1E69FF">是</radio>
+                </radio-group>
+            </view>
+        </view>
+        <view class="filed">
+            <view class="title">
+                <view class="">资管户</view>
+                <image class="icon" bind:tap="showTips" data-type='1' src="{{cdnUrl}}/static/wechat/img/sui/account_desc.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+            </view>
+            <view class="desc" wx:if="{{showTips1}}" bind:>托管、保管、监管</view>
+            <view class="action">
+                <radio-group bindchange="choose" class="raido-group" data-item="6">
+                    <radio class="radio" value="0" checked="false" color="#1E69FF">否</radio>
+                    <radio class="radio" value="1" checked="false" color="#1E69FF">是</radio>
+                </radio-group>
+            </view>
+        </view>
+        <view class="filed">
+            <view class="title">
+                <view class="">开户资料原件</view>
+                <image class="icon" bind:tap="showTips" data-type='2' src="{{cdnUrl}}/static/wechat/img/sui/account_desc.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+            </view>
+            <view class="desc" wx:if="{{showTips2}}">含公章、法人章、财务印鉴</view>
+            <view class="action">
+                <radio-group bindchange="choose" class="raido-group" data-item="7">
+                    <radio class="radio" value="0" checked="false" color="#1E69FF">否</radio>
+                    <radio class="radio" value="1" checked="false" color="#1E69FF">是</radio>
+                </radio-group>
+            </view>
+        </view>
+        <view  bind:tap="toDetail"  class="search">
+            <image class="icon" src="{{cdnUrl}}/static/wechat/img/sui/account_search.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+            <view class="content">查询</view>
+        </view>
+    </view>
+</view>

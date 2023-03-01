@@ -1,0 +1,40 @@
+
+<view class="plane">
+	<!-- <image class="bg" src="{{preffixUrl}}talent_finance_apply_detail.png" mode="widthFix"></image> -->
+
+	<view class="illustration">
+		<image class="illustration-img" src="{{preffixUrl}}talent_finance_illustration.png" mode="widthFix"></image>
+		<view class="illustration-tip">请前往江苏银行手机app进行操作</view>
+	</view>
+
+	<view class="title">
+		<image class="title-phone" src="{{preffixUrl}}mobilephone.png" mode="widthFix"></image>
+		具体操作步骤如下
+	</view>
+
+	<view class="steps">
+		<view>
+			<image src="{{preffixUrl}}procedure.png" mode="widthFix"></image>
+			应用商店下载或打开江苏银行手机银行
+		</view>
+		<view>
+			<image src="{{preffixUrl}}procedure.png" mode="widthFix"></image>
+			登录手机银行，点击下方“财富”按钮进入财富首页，点击财富页面中“理财产品”版块
+		</view>
+		<view>
+			<image src="{{preffixUrl}}procedure.png" mode="widthFix"></image>
+			进入“理财产品”首页，点击上方搜索框，输入“人才”关键字进行搜索选择
+		</view>
+		<view>
+			<image src="{{preffixUrl}}procedure.png" mode="widthFix"></image>
+			进入产品详情页面，点击“立刻购买”，按提示完成交易
+		</view>
+	</view>
+
+	<view class="remark">
+		<view>温馨提示</view>
+		<view>理财非存款、产品有风险、投资需谨慎</view>
+		<view>具体产品及要素以江苏银行发布的理财产品说明书为准</view>
+	</view>
+	
+</view>

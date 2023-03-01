@@ -1,0 +1,32 @@
+<!--pages/search/search.wxml-->
+<!-- <text>pages/search/search.wxml</text> -->
+<view class="mycountend">
+  <view class="mybeiht">
+
+    <view class="searchBox">
+      <!-- 搜索框 -->
+      <view class="search_input">
+        <image src="{{preffixUrl}}search.png" mode="widthFix" class="search"></image>
+
+        <input type="text" placeholder="请输入关键字" confirm-type="search" bindconfirm="search" class="inputBox" bindinput="getkeywords" value="{{keywords}}" />
+       
+        <view class="comfirm_search" bindtap="search">
+          搜索
+        </view>
+      </view>
+      <!-- 搜索历史、热门搜索 -->
+      <view class="searchCountBox" style="height: {{searchHeight}};">
+        <!-- 搜索历史 -->
+       
+
+        <view class="keyword" wx:for="{{hotList}}" data-keywords="{{item.RSPTB1}}" bindtap="getKeyworToSearch">
+          <rich-text nodes="{{item.RSPTB1}}"></rich-text>
+        </view>
+
+       
+
+      </view>
+
+    </view>
+  </view>
+</view>

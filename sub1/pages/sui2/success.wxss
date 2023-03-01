@@ -1,0 +1,146 @@
+/* sub1/pages/sui/success.wxss */
+.a1 {
+    width: 92%;
+    margin: auto;
+    display: flex;
+    margin: 63rpx 30rpx 52rpx;
+}
+
+.a1b1 {
+    width: 90rpx;
+}
+
+.a1b1 image {
+    width: 100%;
+}
+
+.a1b2 {
+    margin: 0 20rpx;
+}
+
+.a1b2c1 {
+    font-family: PingFangSC-Regular;
+    font-size: 46rpx;
+    color: #333333;
+    line-height: 50rpx;
+    margin-bottom: 10rpx;
+}
+
+.a1b2c2 {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #666666;
+    line-height: 30rpx;
+}
+
+.a2 {
+    width: 92%;
+    margin: auto;
+}
+.a2b1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 39rpx 0;
+}
+
+.a2b1c1 {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #666666;
+    letter-spacing: 0;
+    line-height: 30rpx;
+}
+
+.a2b1c2 {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: right;
+    line-height: 30rpx;
+}
+
+.a3 {
+    width: 100%;
+    display: flex;
+    margin: 100rpx auto;
+
+    justify-content: space-around;
+}
+
+.a3b1 {
+    width: 40%;
+    height: 100rpx;
+    background-image: linear-gradient(180deg, #edbf90 0%, #d5a97c 100%);
+    border-radius: 50px;
+    border-radius: 50px;
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+.a3b2 {
+    width: 40%;
+    height: 100rpx;
+    background-image: linear-gradient(0deg, #4586e6 0%, #5898f5 100%);
+    border-radius: 50rpx;
+    font-family: PingFangSC-Medium;
+    font-size: 34rpx;
+    color: #ffffff;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+.a4 {
+    width: 92%;
+    height: 230rpx;
+    margin: auto;
+}
+.a4b1 {
+    width: 100%;
+}
+.a4b1 image {
+    width: 92%;
+    position: absolute;
+    z-index: -1;
+}
+.a4b2 {
+    opacity: 0.6;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #ffffff;
+    letter-spacing: 0;
+    line-height: 30rpx;
+    padding: 53rpx  40rpx 20rpx;
+}
+
+.a4b3 {
+    color: linear-gradient(direction, #f5d8a5, #d5a97c);
+    /* color: transparent; */
+    background: linear-gradient(#f5d8a5, #d5a97c);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: '';
+    font-size: 90rpx;
+    letter-spacing: 0;
+    line-height: 80rpx;
+    padding-left: 40rpx;
+}
+
+.a4b4 {
+    color: linear-gradient(direction, #f5d8a5, #d5a97c);
+    /* color: transparent; */
+    background: linear-gradient(#f5d8a5, #d5a97c);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: '';
+    font-size: 50rpx;
+    letter-spacing: 0;
+    line-height: 60rpx;
+    padding-left: 10rpx;
+}
+

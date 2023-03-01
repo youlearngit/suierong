@@ -1,0 +1,63 @@
+@import '/assets/styles/weui.wxss';
+.con{
+  width:690rpx;height: 120rpx;
+  display: flex;justify-content: space-between;align-items: center;
+  border-bottom: 0.5pt solid rgba(235, 235, 235, 1);
+}
+.btn{
+  position: relative;
+  width: 80rpx;height: 80rpx;
+  background:#f2f2f2;
+  border-radius: 50%;
+	-moz-border-radius: 50%;      
+  -webkit-border-radius: 50%;
+}
+.new-userinfo-avatar {
+  position: absolute;z-index: 99;
+  left: 0;top: 0;
+  display:block;
+  width: 80rpx;
+  height: 80rpx;
+  background:#f2f2f2;
+  border-radius: 50%;      
+	-moz-border-radius: 50%;      
+  -webkit-border-radius: 50%; 
+}
+.button-avatar{
+  position: absolute;z-index: 100;
+  left: 0;top: 0;
+  padding: 0;margin: 0;
+  opacity: 0;
+  background:#f2f2f2;
+  width: 80rpx;height: 80rpx;
+  border-radius: 50%;
+	-moz-border-radius: 50%;      
+  -webkit-border-radius: 50%; 
+}
+button{
+  color: gray;
+  font-size: 32rpx;
+}
+button::after{
+  border: none;
+}
+input{
+  width: 400rpx;height: 90rpx;
+  text-align: right;
+}
+.confirm {
+	width: 451rpx;
+	height: 81rpx;
+	background: #1677ff;
+	box-shadow: 0 3rpx 11rpx 0 rgba(115, 149, 255, 0.64);
+	border-radius: 42rpx;
+	border-radius: 42rpx;
+	font-family: PingFangSC-Regular;
+	font-size: 30rpx;
+	line-height: 81rpx;
+	color: #ffffff;
+	letter-spacing: 0;
+	text-align: center;
+  margin: 0 auto;
+  margin-top: 100rpx;
+}

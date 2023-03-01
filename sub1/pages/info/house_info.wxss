@@ -1,0 +1,74 @@
+/* sub1/pages/auth/index.wxss */
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+.amountC {
+    width: 90%;
+    height: 100rpx;
+    margin: auto;
+    background-image: linear-gradient(0deg, #4586e6 0%, #5898f5 100%);
+    border-radius: 50rpx;
+    border-radius: 50rpx;
+    font-size: 34rpx;
+    color: #ffffff;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 100rpx;
+}
+
+.content3 {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #929292;
+    letter-spacing: 0;
+    line-height: 28rpx;
+    width: 180rpx;
+}
+.content4 {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 28rpx;
+    text-overflow: ellipsis;
+}
+
+.action {
+    font-size: 30rpx;
+    color: #4586e6;
+    letter-spacing: 0;
+    line-height: 30rpx;
+}
+
+.a2b2 {
+    width: 94%;
+    margin: 20rpx auto;
+    background-color: white;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.action {
+    font-size: 30rpx;
+    color: #4586e6;
+    letter-spacing: 0;
+    line-height: 30rpx;
+}
+.appr {
+    background: #4ccba5;
+    width: 94rpx;
+    height: 40rpx;
+    border-radius: 6rpx;
+    font-size: 24rpx;
+    color: #ffffff;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 40rpx;
+}
+
+
+.cu-list.menu>.cu-item::after{
+    left: 5%;
+    width: 180%;
+}

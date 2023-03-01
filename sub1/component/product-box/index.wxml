@@ -1,0 +1,156 @@
+<view class="f3" wx:if="{{products.detail.length===1}}">
+    <view class="f31">
+        <view class="f311">{{products.name}}</view>
+        <navigator url="/sub1/pages/shop/more" class="f512">
+            <view class="">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="s1">
+        <view class="s11 {{products.showEditChoice&&edit?'fuzzy':''}}" bind:tap="skip" data-code="{{products.detail[0].code}}">
+            <image class="bg " src="{{cndUrl}}/static/wechat/img/sui/sui-2020.png" mode="widthFix"></image>
+            <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-{{products.detail[0].code}}.png" mode="widthFix"></image>
+            <view class="title">{{products.detail[0].name}}</view>
+            <view class="desc">{{products.detail[0].summary}}</view>
+            <view class="apli-btn">立即申请</view>
+        </view>
+        <view wx:if="{{products.showEditChoice&&edit}}">
+            <view class="cover"></view>
+            <view class="s22" wx:if="{{true}}">
+                <view class="hide-btn" bind:tap="showEditBox">
+                    <image class="left-icon {{products.showEditChoice?'cc':''}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2021.png" mode="widthFix"></image>
+                </view>
+                <view class="s221" wx:for="{{editChoice}}" bind:tap="{{item.click}}">
+                    <image class="edit-icon" src="{{cndUrl}}/static/wechat/img/sui/{{item.icon}}" mode="widthFix"></image>
+                    <view class="">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <block wx:if="{{(!products.showEditChoice)&&edit}}">
+            <view class="s23 "></view>
+            <view class="s23" bind:tap="showEditBox">
+                <image class="left-icon" src="{{cndUrl}}/static/wechat/img/sui/sui-2021.png" mode="widthFix"></image>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="f3" wx:if="{{products.detail.length===2}}">
+    <view class="f31">
+        <view class="f311">{{products.name}}</view>
+        <navigator url="/sub1/pages/shop/more" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="s2">
+        <view class="s21 {{products.showEditChoice&&edit?'fuzzy':''}} " wx:for="{{products.detail}}" bind:tap="skip" data-code="{{item.code}}">
+            <image class="bg " src="{{cndUrl}}/static/wechat/img/sui/sui-2011.png" mode="widthFix"></image>
+            <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-{{item.code}}.png" mode="widthFix"></image>
+            <view class="title">{{item.name}}</view>
+            <view class="desc">{{item.summary}}</view>
+        </view>
+        <view wx:if="{{products.showEditChoice&&edit}}">
+            <view class="cover"></view>
+            <view class="s22" wx:if="{{true}}">
+                <view class="hide-btn" bind:tap="showEditBox">
+                    <image class="left-icon {{products.showEditChoice?'cc':''}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2021.png" mode="widthFix"></image>
+                </view>
+                <view class="s221" wx:for="{{editChoice}}" bind:tap="{{item.click}}">
+                    <image class="edit-icon" src="{{cndUrl}}/static/wechat/img/sui/{{item.icon}}" mode="widthFix"></image>
+                    <view class="">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <block wx:if="{{(!products.showEditChoice)&&edit}}">
+            <view class="s23 "></view>
+            <view class="s23" bind:tap="showEditBox">
+                <image class="left-icon" src="{{cndUrl}}/static/wechat/img/sui/sui-2021.png" mode="widthFix"></image>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="f3" wx:if="{{products.detail.length===3}}">
+    <view class="f31">
+        <view class="f311">{{products.name}}</view>
+        <navigator url="/sub1/pages/shop/more" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="s2">
+        <view class="s21  {{products.showEditChoice&&edit?'fuzzy':''}} " style="height:314rpx;" bind:tap="skip" data-code="{{products.detail[0].code}}">
+            <image class="bg" src="{{cndUrl}}/static/wechat/img/sui/sui-2010.png" mode="widthFix"></image>
+            <!-- <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-10164.png" mode="widthFix"></image> -->
+            <view class="title" style="left:19rpx">{{products.detail[0].name}}</view>
+            <view class="desc" style="left:19rpx">{{products.detail[0].summary}}</view>
+            <view class="apli-btn" style="left:19rpx;top:210rpx;">立即申请</view>
+        </view>
+        <view class="s21 {{products.showEditChoice&&edit?'fuzzy':''}}" style="height:314rpx;" >
+            <view class="s21" bind:tap="skip" data-code="{{products.detail[1].code}}">
+                <image class="bg" src="{{cndUrl}}/static/wechat/img/sui/sui-2011.png" mode="widthFix"></image>
+                <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-{{products.detail[1].code}}.png" mode="widthFix"></image>
+                <view class="title">{{products.detail[1].name}}</view>
+                <view class="desc">{{products.detail[1].summary}}</view>
+            </view>
+            <view class="s21" style="align-self:flex-end" bind:tap="skip" data-code="{{products.detail[2].code}}">
+                <image class="bg" src="{{cndUrl}}/static/wechat/img/sui/sui-2011.png" mode="widthFix" bind:tap="skip" data-code="{{products.detail[2].code}}"></image>
+                <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-{{products.detail[2].code}}.png" mode="widthFix"></image>
+                <view class="title">{{products.detail[2].name}}</view>
+                <view class="desc">{{products.detail[2].summary}}</view>
+            </view>
+        </view>
+        <view wx:if="{{products.showEditChoice&&edit}}">
+            <view class="cover"></view>
+            <view class="s22" wx:if="{{true}}">
+                <view class="hide-btn" bind:tap="showEditBox">
+                    <image class="left-icon {{products.showEditChoice?'cc':''}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2021.png" mode="widthFix"></image>
+                </view>
+                <view class="s221" wx:for="{{editChoice}}" bind:tap="{{item.click}}">
+                    <image class="edit-icon" src="{{cndUrl}}/static/wechat/img/sui/{{item.icon}}" mode="widthFix"></image>
+                    <view class="">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <block wx:if="{{(!products.showEditChoice)&&edit}}">
+            <view class="s23 "></view>
+            <view class="s23" bind:tap="showEditBox">
+                <image class="left-icon" src="{{cndUrl}}/static/wechat/img/sui/sui-2021.png" mode="widthFix"></image>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="f3" wx:if="{{products.detail.length===4}}">
+    <view class="f31">
+        <view class="f311">{{products.name}}</view>
+        <navigator url="/sub1/pages/shop/more" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="s2">
+        <view class="s21 {{products.showEditChoice&&edit?'fuzzy':''}} " style="width:340rpx;" wx:for="{{products.detail}}" bind:tap="skip" data-code="{{item.code}}">
+            <image class="bg" src="{{cndUrl}}/static/wechat/img/sui/sui-2011.png" mode="widthFix"></image>
+            <image class="icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-{{item.code}}.png" mode="widthFix"></image>
+            <view class="title">{{item.name}}</view>
+            <view class="desc">{{item.summary}}</view>
+        </view>
+        <view wx:if="{{products.showEditChoice&&edit}}">
+            <view class="cover"></view>
+            <view class="s22" wx:if="{{true}}">
+                <view class="hide-btn" bind:tap="showEditBox">
+                    <image class="left-icon {{products.showEditChoice?'cc':''}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2021.png" mode="widthFix"></image>
+                </view>
+                <view class="s221" wx:for="{{editChoice}}" bind:tap="{{item.click}}">
+                    <image class="edit-icon" src="{{cndUrl}}/static/wechat/img/sui/{{item.icon}}" mode="widthFix"></image>
+                    <view class="">{{item.name}}</view>
+                </view>
+            </view>
+        </view>
+        <block wx:if="{{(!products.showEditChoice)&&edit}}">
+            <view class="s23 "></view>
+            <view class="s23" bind:tap="showEditBox">
+                <image class="left-icon" src="{{cndUrl}}/static/wechat/img/sui/sui-2021.png" mode="widthFix"></image>
+            </view>
+        </block>
+    </view>
+</view>

@@ -1,0 +1,130 @@
+<view class='banner'>
+  <image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/credit/zx_title.png" style="width:100%"></image>
+</view>
+<view style="width:90%;margin:auto;height:100%;">
+  <view class="formInfo" style="width:100%;margin:auto;">
+    <view class="title">授权主体信息</view>
+    <form bindsubmit="submitForm" report-submit='true'>
+     
+      <block>
+        <view class="weui-cell weui-cell_input" >
+          <view class="weui-cell__hd">
+            <view class="weui-label">授权企业名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入" value="{{borrowerInfo.ENTERPRISE_NAME}}" data-type="enterprise" name="ENTERPRISE_NAME" bindinput="getInput" />
+          </view>
+          <view class="weui-cell__ft">
+            <!-- <button type="default" class="serBtn" bindtap="searchkey" style="color:white;background-color:#0066b3;" hover-class="other-button-hover">
+              查询
+            </button> -->
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input" style="height:110rpx">
+          <view class="weui-cell__hd">
+            <view class="weui-label">
+              <text>统一社会\n信用代码</text>
+            </view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="统一社会信用代码" name="credit_code" value="{{borrowerInfo.CREDIT_CODE}}" disabled />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">工商登记号</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入工商登记号" name="registration_no" value="{{borrowerInfo.REGISTRATION_NO}}" disabled />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">组织机构代码</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入组织机构代码" name="enterprise_code" value="{{borrowerInfo.ENTERPRISE_CODE}}" />
+          </view>
+        </view>
+      </block>
+
+      <view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">
+             <text>授权企业\n法人姓名</text>
+            </view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入姓名" value="{{auth_Info.AUTH_NAME}}" name="auth_name" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input ">
+          <view class="weui-cell__hd">
+            <view class="weui-label">证件类型</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" id="auth_cert_type" value="{{index}}" range="{{auth_cert_type_array}}">
+              <view class="picker">
+                <input class="weui-select weui-select_in-select-after" placeholder="请选择证件类型" disabled="disabled" name="auth_cert_type" value="{{auth_cert_type==''?auth_cert_type_array[auth_Info.AUTH_CERT_TYPE]:auth_cert_type_array[auth_cert_type]}}" />
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">证件号码</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入证件号码" name="auth_cert_no" type="idcard" value="{{auth_Info.AUTH_CERT_NO}}" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">向第三方提供信用报告信息</view>
+          </view>
+          <view class="weui-cell__bd">
+            <radio-group class="information-select-right" bindchange="authorizationSelectChange">
+              <label class="radio"  wx:for="{{legalIssqSelectItems}}" wx:key="{{item.value}}" style="margin-right: 15rpx;">
+                <radio model:value="{{item.value}}" color="#eabd91" disabled="{{formDisabeld}}" checked="{{item.checked}}"/> {{item.name}}
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input" wx:if="{{legalIssq}}">
+          <view class="weui-cell__hd">
+            <view class="weui-label">第三方名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入第三方名称" value="{{borrowerInfo.empower_company}}" name="empower_company" data-type="empower" bindinput="getInput" />
+          </view>
+          <view class="weui-cell__ft">
+          </view>
+        </view>
+      </view>
+  
+      <view class="bottom">
+        <button hidden="{{page==1}}" class="delBtn" bindtap="delAuth" style="z-index:1000;">
+          删除
+        </button>
+        <button class="saveBtn2" formType="submit" style="z-index:1000;">
+          保存
+        </button>
+      </view>
+    </form>
+  </view>
+  <i-toast id="toast" />
+</view>
+<!-- 关键字搜索结果页、选取值 -->
+<view class="coverBox" hidden="{{coverHidden}}" style="height: 41%;top: 59%;">
+  <view class='beback' bindtap="beback">
+    <em></em>
+    <text>返回</text>
+  </view>
+  <view class="h1">请选择您的公司</view>
+  <scroll-view scroll-y class="coverList">
+    <view class="single" data-name="{{item.entNames}}" bindtap='ed0161' wx:for="{{selectComList}}" wx:key="key">
+      {{item.entNames}}
+    </view>
+  </scroll-view>
+</view>

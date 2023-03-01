@@ -1,0 +1,70 @@
+/* sub6/pages/toolkit/ObligatoryRight.wxss */
+.ObligatoryRight{
+    width: 100%;
+    height: 230%;
+}
+.bg {
+    width: 100%;
+    height: 100%;
+}
+image{
+    width: 100%;
+    height: 100%;
+}
+.back{
+    width: 100%;
+    height: 100rpx;
+}
+.ljsp{
+    width: 393rpx;
+    height: 100rpx;
+    margin: 0 auto;
+    position: relative;
+    top: -262rpx;
+}
+.van-popup--bottom.van-popup--safe {
+    padding-bottom: 34px;
+}
+.van-bottom-enter-active, .van-bottom-leave-active, .van-left-enter-active, .van-left-leave-active, .van-right-enter-active, .van-right-leave-active, .van-top-enter-active, .van-top-leave-active {
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+}
+.van-popup--bottom {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    -webkit-transform: translate3d(-50%,0,0);
+    transform: translate3d(-50%,0,0);
+}
+.van-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-height: 100%;
+    overflow-y: auto;
+    background-color: #fff;
+    box-sizing: border-box;
+    -webkit-animation: ease both;
+    animation: ease both;
+    -webkit-overflow-scrolling: touch;
+    transition-timing-function: ease;
+}
+.agreement_list{
+    /* text-align: center;
+    margin-bottom: 40rpx; */
+    padding: 40rpx;
+}
+.list_item{
+    text-align: center;
+    margin-bottom: 40rpx;
+}
+.float_talent_btn {
+	position: fixed;
+	top: 820rpx;
+	right: 0;
+	width: 196rpx;
+	height: 196rpx;
+}

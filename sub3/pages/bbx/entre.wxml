@@ -1,0 +1,77 @@
+<view class="wrap">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="bg">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/bbxEnter_bg.jpg" mode="widthFix"></image>
+  </view>
+
+
+  <!-- <view class='fbuttom'>
+    <view class=" btn " bindtap='showShare'>��
+      <text>\t\t\t\t\t\t</text>��</view>
+    <view class="btn blu" bindtap='apli'>��ȡ���</view>
+  </view> -->
+  <view class='a9'>
+  <view class="a9b1" bindtap="showShare">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_11.png" mode="widthFix"></image>
+                分享
+            </view>
+  <view bindtap="apli" class="a9b2">获取额度</view>
+</view>
+
+</view>
+
+
+
+<view class="{{shareBox}} ">
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}} " class="mask "></view>
+  <view class="canvas-box ">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px " canvas-id="mycanvas" />
+  </view>
+
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+      </button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+
+<view style='position:fixed;bottom:0;left:0;width:100%;height:50%;background:#fff;z-index:0;'></view>
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>
+<van-popup show="{{ showComplain }}" bind:close="closePopUp" position="center">
+    <view class="complain">
+        <image class="complain-bg" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/complain/popup@2x.png" mode="widthFix"></image>
+        <div class="complain-phone">025-58587992</div>
+        <!-- <image class="complain-btn__cancel2" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_13.png" mode="widthFix" bindtap='closePopUp' hidden="{{!showComplain}}" style=""></image> -->
+        <div class="complain-btn__call" style="left:60rpx" bindtap='complain' data-type='call'></div>
+        <div class="complain-btn__chat" style="right:60rpx" bindtap='complain' data-type='chat'></div>
+    </view>
+</van-popup>
+<image class="complain-btn__cancel" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/complain/icon@2x.png" mode="widthFix" bindtap='closePopUp' hidden="{{!showComplain}}" style="transition-duration: 300ms;transition-property: opacity;transition-timing-function: ease;"></image>

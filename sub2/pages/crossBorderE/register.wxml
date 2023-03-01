@@ -1,0 +1,56 @@
+<!--sub1/pages/crossBorderE/register.wxml-->
+<view class="a1">
+	<view class="a1b1" hover-class="none">
+		<!-- <view class="a1b1c1" hover-class="none">{{showNum}}%</view> -->
+		<view  class="a1b1c11" >{{showNum}}%</view>
+		<view class="a1b1c2" hover-class="none">信息完整度</view>
+	</view>
+	<view class="a1b2" hover-class="none">请完善个人如下信息填写</view>
+	<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_25.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+
+	<view class="cu-progress round margin-top xs">
+		<view class="" style="width:{{showNum}}%;background-image: linear-gradient(270deg, #F5D8A5 0%, #D5A97C 100%);" />
+	</view>
+</view>
+<view class="formInfo">
+	<view class="weui-cell weui-cell_input" style="height:100rpx;">
+		<view class="weui-cell__hd">
+			<view class="weui-label">企业名称</view>
+		</view>
+		<view class="weui-cell__bd">
+			<input name="coName" id="coName" value="{{ form.coName }}" bindinput='blur' class="weui-input" type="orgName" placeholder="必填" />
+		</view>
+	</view>
+
+	<view class="weui-cell weui-cell_input" style="height:100rpx;">
+		<view class="weui-cell__hd">
+			<view class="weui-label">联系人</view>
+		</view>
+		<view class="weui-cell__bd">
+			<input name="contact" id="contact" value="{{ form.contact }}" bindinput='blur' class="weui-input" type="orgName" placeholder="必填" />
+		</view>
+	</view>
+	<view class="weui-cell weui-cell_input" style="height:100rpx;">
+		<view class="weui-cell__hd">
+			<view class="weui-label">联系电话</view>
+		</view>
+		<view class="weui-cell__bd" style="display: flex;align-items: center;">
+			<input name="phone" id="phone" value="{{ form.phone }}" bindinput='blur' maxlength="11" class="weui-input" type="number" type="orgName" placeholder="必填" />
+			<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber3" class="mobbtn" style="background-color:#fff;margin-top: 15rpx;padding-right:0px;">
+				<image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+			</button>
+		</view>
+	</view>
+	<view class="weui-cell weui-cell_input" style="height:100rpx;">
+		<view class="weui-cell__hd">
+			<view class="weui-label">办公地址</view>
+		</view>
+		<view class="weui-cell__bd">
+			<input name="address" id="address" value="{{ form.address }}" bindinput='blur' class="weui-input" type="orgName" placeholder="必填" />
+		</view>
+	</view>
+
+</view>
+
+
+<button class="btn1" bindtap="register">预约申请</button>

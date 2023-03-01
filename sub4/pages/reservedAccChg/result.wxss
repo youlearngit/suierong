@@ -1,0 +1,166 @@
+/* sub3/pages/reservedAccChg/result.wxss */
+page {
+  background: #F5FAFF;
+  letter-spacing: 0;
+}
+
+.bgn {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.resCon {
+  margin-top: 73rpx;
+  display: flex;
+  align-items: center;
+}
+
+.resCon1 {
+  margin-left: 30rpx;
+}
+
+.resCon2 {
+  font-family: SourceHanSansCN-Medium;
+  font-size: 40rpx;
+  color: #FFFFFF;
+  letter-spacing: 2rpx;
+  line-height: 46rpx;
+  font-weight: 500;
+}
+
+.resCon3 {
+  font-family: SourceHanSansCN-Normal;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  letter-spacing: 2rpx;
+  line-height: 46rpx;
+  font-weight: 400;
+}
+
+.resCon4 {
+  background: #FFFFFF;
+  box-shadow: 0 8px 16px 0 #9CABFF;
+  /* padding-bottom: 41rpx; */
+  width: 92%;
+  margin-left: 4%;
+  /* height: 985rpx; */
+  padding-bottom: 41rpx;
+  margin-top: 96rpx;
+  margin-bottom: 60rpx;
+  border-bottom-right-radius: 20rpx;
+  border-bottom-left-radius: 20rpx;
+  padding-top: 48rpx;
+
+}
+
+.resCon11{
+  opacity: 0.6;
+font-family: SourceHanSansSC-Normal;
+font-size: 24rpx;
+color: #3E415C;
+/* letter-spacing: -0.84px; */
+font-weight: 400;
+margin-bottom: 20rpx;
+margin-left: 80rpx;
+}
+.submit {
+  width: 444rpx;
+  height: 86rpx;
+  background: #6D7CFF;
+  box-shadow: 0 8px 16px 0 #9CABFF;
+  border-radius: 43rpx;
+  font-family: SourceHanSansSC-Medium;
+  font-size: 34rpx;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 40rpx;
+  line-height: 86rpx;
+  text-align: center;
+  margin-left: 20%;
+  margin-bottom: 40rpx;
+}
+
+.resCon5 {
+  background: #FF9F52;
+  border-radius: 22rpx;
+  width: 140rpx;
+  height: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  line-height: 34rpx;
+  font-weight: 400;
+  margin-right: 18rpx;
+  margin-left: 33rpx;
+}
+
+.resCon6 {
+  font-family: SourceHanSansCN-Bold;
+  font-size: 34rpx;
+  color: #3E415C;
+  letter-spacing: 0;
+  line-height: 35rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.resCon7 {
+  margin-top: 38rpx;
+  margin-left: 30rpx;
+  font-family: SourceHanSansCN-Normal;
+  font-size: 28rpx;
+  color: #3E415C;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: 46rpx;
+  width: 92%;
+  word-break: break-all;
+}
+
+.resCon8 {
+  font-family: SourceHanSansCN-Bold;
+  font-size: 28rpx;
+  color: #3E415C;
+  letter-spacing: 0;
+  line-height: 46rpx;
+  font-weight: 700;
+  display: inline;
+  word-break: break-all;
+}
+.resCon88{
+  font-family: SourceHanSansCN-Medium;
+font-size: 28rpx;
+color: #6A6D82;
+letter-spacing: 0;
+font-weight: 500;
+margin-top: 23rpx;
+margin-left: 22rpx;
+display: flex;
+align-items: center;
+}
+.resCon9{
+  background: #F6F8FF;
+border-radius: 12px;
+width: 92%;
+margin-left: 4%;
+padding: 30rpx 0 40rpx 0;
+}
+.resCon10{
+  margin-left: 29rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+align-items: center;
+font-family: SourceHanSansSC-Normal;
+font-size: 26rpx;
+color: #3E415C;
+/* letter-spacing: -0.91px; */
+font-weight: 400;
+}

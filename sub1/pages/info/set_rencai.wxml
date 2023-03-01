@@ -1,0 +1,78 @@
+<view class="content" hover-class="none" hover-stop-propagation="false">
+    <image src="{{cndUrl}}/static/wechat/img/talent/bg_authed.png" mode="widthFix" class="bg {{ talent.getway[0] ? 'showNon' : 'showNon1'}}"></image>
+    <!-- 6.23新增功能 -->
+    <view wx:if="{{btnShow}}" class="{{ talent.getway[0] ? 'showNon1' : 'showNon'}}">
+        <image src="{{cndUrl}}/static/wechat/img/talent/bianzu.png" mode="widthFix"  class="bg1"></image>
+        <view  class="spec_title">
+                <text class="text1">邀请您认证成为江苏银行人才客户</text>
+                <text class="text2">享受更优更全的人才金融服务！</text>
+        </view>
+    </view>
+    
+    <view class="talent-info" hover-class="none" hover-stop-propagation="false" >
+        <!-- 角标 -->
+        <view wx:if="{{ talent.getway[0] == 'ZHYQ00191' }}" class="mark">
+            <!-- 人才客户认证角标 -->
+            <image src="{{cndUrl}}/static/wechat/img/talent/rckhrz.png" mode="widthFix" class="mark_bg"></image>
+        </view>
+        <view wx:elif="{{ talent.getway[0] == 'getRcrz' }}" class="mark">
+            <!-- 人才客户待认证角标 -->
+            <image src="{{cndUrl}}/static/wechat/img/talent/rckhdrz.png" mode="widthFix" class="mark_bg"></image>
+        </view>
+
+        <view class="talent-info__item" wx:if="{{ talent.name }}">
+            <view class="title">姓名：</view>
+            <view class="value">{{ talent.name }}</view>
+        </view>
+        <view class="talent-info__item" wx:if="{{ talent.plantype }}">
+            <view class="title">人才大类：</view>
+            <view class="value">{{ talent.plantype }}</view>
+        </view>
+        <view class="talent-info__item" wx:if="{{ talent.planlevel }}">
+            <view class="title">人才计划等级：</view>
+            <view class="value">{{ talent_levels[talent.planlevel] }}</view>
+        </view>
+        <view class="talent-info__item" wx:if="{{ talent.planname }}">
+            <view class="title">人才计划名称：</view>
+            <view class="value">{{ talent.planname }}</view>
+        </view>
+    </view>
+    <!-- 6.23新增功能 -->
+    <view wx:if="{{btnShow}}" class="card_spec {{ talent.getway[0] ? 'showNon1' : 'showNon'}}"></view>
+    <view class="card" wx:if="{{empInfo.name}}" >
+        <image wx:if="{{cndUrl&&empInfo.type=='政策'}}" src="{{cndUrl}}/static/wechat/img/talent/card_zc.png" mode="widthFix" class="card__bg"></image>
+        <image wx:if="{{cndUrl&&empInfo.type=='金融'}}" src="{{cndUrl}}/static/wechat/img/talent/card_jr.png" mode="widthFix" class="card__bg"></image>
+        <image wx:if='{{cndUrl&&empInfo.phone}}' bindtap="call" src="{{cndUrl}}/static/wechat/img/talent/icon_call.png" mode="widthFix"
+            class="icon-call"></image>
+        <view class="card-head">
+            <image wx:if='{{cndUrl&&empInfo.avatar}}' src="{{empInfo.avatar}}" mode="widthFix" class="card-head__avatar"></image>
+            <view class="card-head__info">
+                <view class="info-detail">
+                    <view class="info-name">{{empInfo.name}}</view>
+                    <view class="info-position">
+                        <view class="" hover-class="none" hover-stop-propagation="false">
+                            {{empInfo.org}}
+                        </view>
+                         <view class="" hover-class="none" hover-stop-propagation="false">
+                            {{empInfo.position}}
+                        </view>
+                    </view>
+                </view>
+                <view class="info-tag">
+                    <view class="info-tag__item" wx:for="{{empInfo.tags}}" wx:key="index">{{item}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="card-desc">{{empInfo.desc}}</view>
+    </view>
+
+    <!-- 旧版入口 -->
+    <!-- <navigator url="/sub1/pages/creditStationPerson/index?type=update&talentInfo={{talentJson}}" class="talent-btn"> -->
+    <!-- 新版入口 -->
+    <navigator url="/sub4/pages/rcrz/apply?type=update&talentInfo={{talentJson}}" class="talent-btn">
+        <image wx:if='{{cndUrl && btnShow}}' src="{{cndUrl}}/static/wechat/img/talent/btn.png" mode="widthFix" class="btn__bg"></image>
+        {{ talent.getway[0] ? talent.getway[0] == 'getRcrz' ? '完善信息并认证' : '更新认证信息'  : '立即认证'}}        
+    </navigator>
+
+</view>
+

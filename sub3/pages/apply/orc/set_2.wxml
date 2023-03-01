@@ -1,0 +1,99 @@
+
+<view class="caiji" hidden="{{caijiFlag}}">
+  <!-- 人像面 -->
+  <view id="renxiang" class="con"  bindtap="creatPhoto">
+    <view id="renxiang" class="conIcon"><image id="renxiang" wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/temp/mine/s2_ren.png'></image></view>
+    <view id="renxiang" class="imgBox">
+      <image mode='aspectFill' id="renxiang" src="{{img.renxiang}}"></image>
+    </view>
+  </view>
+  <!-- 国徽面 -->
+  <view id="guohui" class="con" bindtap="creatPhoto">
+    <view id="guohui" class="conIcon"><image id="guohui" wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/temp/mine/s2_guo.png'></image></view>
+    <view id="guohui" class="imgBox">
+      <image mode='aspectFill' id="guohui" src="{{img.guohui}}"></image>
+    </view>
+  </view>
+  <button class='shibie' loading='{{loading}}' bindtap='reader'>智能识别</button>
+</view>
+
+
+
+<view class="caiji" hidden='{{reshowFlag}}'>
+ 
+  <form bindsubmit="submitForm" report-submit='true'>
+  <view  hidden="{{flag_self_diy}}">
+  <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+  <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+    <view class="cu-list menu">
+      <view class="cu-item ">
+        <view class="content3">
+          证件类型
+        </view>
+        <view class="content4">
+        <input name="cardtype" id="cardtype" value="二代身份证" disabled='true' class="weui-input" style="text-align:right;min-width: 420rpx;"/>
+        </view>
+      </view>
+      <view class="cu-item ">
+        <view class="content3">
+          姓名
+        </view>
+        <view class="content4">
+       <input name="name" id="name" value="{{ idcard.name }}" disabled='true' class="weui-input" style="text-align:right;min-width: 420rpx;"/>
+        </view>
+      </view>
+      <view class="cu-item ">
+        <view class="content3">
+          证件号码
+        </view>
+        <view class="content4">
+        <input name="idcard" id="idcard" value="{{ idnum }}" disabled='true' class="weui-input" style="text-align:right;min-width: 420rpx;"/>
+        </view>
+      </view>
+      <view class="cu-item ">
+        <view class="content3">
+          证件有效期
+        </view>
+        <view class="content4">
+        <input name="date" id="date" value="{{ idcard.date }}" disabled='true' class="weui-input" style="text-align:right;min-width: 420rpx;"/>
+        </view>
+      </view>
+      <view class="cu-item ">
+        <view class="content3">
+          地址
+        </view>
+        <view class="content4">
+        <!-- {{ idcard.address }} -->
+        <input name="address" id="address" value="{{ idcard.address }}"  class="weui-input" style="text-align:right;min-width: 420rpx;"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+</view>
+    <view class="button-sp-area">
+      <view class="button-new2" bindtap='back'>返 回</view>
+      <button class="button-new1" formType="submit">提 交</button>
+    </view>
+  </form>
+</view>
+<view wx:if="{{v==1}}">
+  <view class="camerabox" hidden="{{camera_flag}}">
+    <camera hidden="{{camera_flag}}" class="camera" mode="normal" device-position="back" flash="off" binderror="error">
+      <cover-view class="controls">
+        <cover-image class="img" src="{{takephoto.coverImg}}" />
+      </cover-view>
+      <cover-view class="noticeTXT">{{takephoto.noticeTxt}}</cover-view>
+      <cover-view class="operat">
+        <cover-image class="clickBtn" id="{{takephoto.id}}" bindtap="takePhoto" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_take.png" />
+        <cover-image class="reTake" bindtap="reTake" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_cancel.png" />
+      </cover-view>
+    </camera>
+  </view>
+</view>
+<view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+  <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+  <canvas canvas-id="attendCanvasId2" style="width:{{canvasWidth2}}px;height:{{canvasHeight2}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+</view>
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>

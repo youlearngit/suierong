@@ -1,0 +1,23 @@
+.main {
+  margin-top: 740rpx;
+}
+
+.product-list {
+  display: flex;
+  margin: 0 auto;
+}
+.product-nav {
+  width: 363rpx;
+  height: 596rpx;
+}
+
+.product-nav:last-child {
+  margin-left: -10rpx;
+}
+
+.bg_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

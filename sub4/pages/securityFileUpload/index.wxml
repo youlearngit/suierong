@@ -1,0 +1,73 @@
+<!--sub4/pages/securityFileUpload/index.wxml-->
+<view class="box" style="background-image: url({{preffixUrl}}/static/wechat/img/securityFileUpload/background.png)">
+    <!-- 标题 -->
+    <view class="top">
+      <view class="top-text-black">江苏银行</view>
+      <view class="top-text-black"><text style="color: #5885FF;">安全</text>文件上传</view>
+      <view class="top-text-smail" wx:if="{{sessionList.length!=0}}">{{sessionInfo.name.scenario +'（' + sessionInfo.name.category + '）'}}资料上传</view>
+    </view>
+    <!-- 提交文件体 -->
+    <view class="center">
+      <view class="card" wx:for="{{sessionList}}" data-id="{{item.id}}" wx:key="key" wx:if="{{item.icon != 6 || showIcon6 == true}}">
+      <vant-row>
+        <vant-col span="3">
+          <view class="card-image-line-height">
+            <image class="card-image" src="{{item.iconImgPath}}"></image>
+          </view>
+        </vant-col>
+        <vant-col span="{{!item.showFlag && item.uploaded.length == 0 ? ( item.template ? '12':'17' ) :( item.template?'17':'21')}}" custom-class="col-style">
+          <view class="'card-image-text'">{{item.name}}</view>
+        </vant-col>
+        <vant-col span="{{!item.showFlag && item.uploaded.length == 0 ? ( item.template? '9' : '4' ) :( item.template?'4':'0')}}">
+            <vant-button wx:if="{{!completed && !item.showFlag && item.uploaded.length == 0}}" class="card-button-down" icon="{{preffixUrl}}/static/wechat/img/securityFileUpload/file-upload.png" round type="info" size="mini" data-id="{{item.id}}" bindtap="uploadFile">上传</vant-button>
+            <vant-button wx:if="{{item.template}}"  class="card-button-down" plain type="info" icon="{{preffixUrl}}/static/wechat/img/securityFileUpload/file-down.png" data-template="{{item.template}}" round size="mini" bindtap="downloadTemplate">模版</vant-button>
+        </vant-col>
+      </vant-row>
+        
+        <!-- 显示上传模块 -->
+        <view class="uploadIdCardCenter" wx:if="{{item.showFlag || !item.uploaded.length == 0}}">
+          <view class="comment-info" wx:if="{{item.comment}}">
+            <vant-icon name="warning-o" custom-class="icon-style" color="red" size="24rpx"/>  
+            {{item.comment}}
+          </view>
+            <vant-uploader 
+            disabled="{{completed}}"
+            file-list="{{item.showFilePath}}"
+            deletable="{{!completed}}"
+            max-size="{{item.size_limit * 1024 * 1024}}" 
+            max-count="{{item.count_limit}}" 
+            data-info="{{item}}"
+            data-id="{{item.id}}"
+            data-item="{{item.uploaded}}"
+            accept="{{item.type == 1 ? 'image' : 'file'}}"
+            bind:oversize="imageOver"
+            bind:after-read="afterRead" 
+            bind:delete="afterRead"
+            bind:click-preview="prevViewImage"
+            multiple="{{true}}"
+            preview-size="180rpx"
+            image-fit="aspectFit"
+            >
+              <vant-button  wx:if="{{item.type == 0 }}" icon="plus"></vant-button>
+            </vant-uploader>
+        </view>
+      </view>
+     
+    </view>
+    <vant-overlay show="{{showCircle}}">
+      <view class="wrapper">
+        <vant-circle value="{{ currentRate }}" text="{{currentRate+'%'}}" stroke-width="6" speed="500"/>
+      </view>
+    </vant-overlay>
+
+    <!-- 按钮 -->
+    <view class="foot" wx:if="{{!completed}}">
+      <view class="pgcityArea">
+        <vant-button class="formBtn formBtnCancle" block round plain type="info" bindtap='popClose'> 取消 </vant-button>
+        <vant-button class="formBtn" block round  type="info" bindtap="submit"> 提交 </vant-button>
+        </view>
+    </view>
+    <view class="buttom-height" wx:if="{{!completed}}"> </view>
+</view>
+
+<!-- <van-toast id="van-toast" /> -->

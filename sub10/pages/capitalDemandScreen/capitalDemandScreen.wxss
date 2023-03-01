@@ -1,0 +1,182 @@
+/* pages/screenwed/screenwed.wxss */
+body{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.mycountend {
+  width: 100%;
+  height: 100vh;
+  background: #BBBCBF;
+}
+
+.mybeiht {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border-bottom-left-radius: 40rpx;
+  border-bottom-right-radius: 40rpx;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.mysxtj {
+  width: 90%;
+  margin-left: 5%;
+  line-height: 100rpx;
+  border-bottom: 2px solid #F9F9FB;
+}
+
+.mybesotj {
+  font-family: SourceHanSansSC-Medium;
+  color: #333333;
+  letter-spacing: 0;
+  text-align: center;
+}
+.myhfmor{
+  font-size: 30rpx;
+  color: #75A4FD;
+  position: absolute;
+  right: 0;
+  margin-right: 5%;
+}
+.myonews{
+  
+}
+.myfbsj{
+  width: 100%;
+ 
+}
+.mybuentu{
+  width: 6rpx;
+  height: 30rpx;
+  float: left;
+  background: #75A4FD;
+  margin-top: 8rpx;
+  margin-right: 30rpx;
+  border-top-right-radius:5rpx;
+  border-bottom-right-radius:5rpx;
+}
+
+.myb_dt{
+  width: auto;
+  height: 35rpx;
+  float: left;
+}
+.myenbus{
+  width: 100%;
+  float: left;
+  margin-left: 35rpx;
+  margin-top: 30rpx;
+  margin-bottom: 70rpx;
+  display: flex;
+}
+.minibbsj{
+  width: 305rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  color: #BFC1CF;
+  border: 1rpx solid #EBECF0;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tzgm{
+  width: 232rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  float: left;
+  color: #BFC1CF;
+  border: 1rpx solid #EBECF0;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.myinage{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 45rpx;
+}
+
+
+.minicount{
+  color: #EBEFF8;
+  line-height: 70rpx;
+  float: left;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+ 
+}
+.myziczqh{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 20rpx;
+}
+.mycplb{
+  width: 100%;
+  height: auto;
+  float: left;
+}
+.mybueeton{
+  width: 333rpx;
+  line-height: 60rpx;
+  margin-left: 8rpx;
+  margin-right: 8rpx;
+  text-align: center;
+  
+  background: #F5F6F7;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #707FA9;
+  margin-top: 30rpx;
+  position: relative;
+}
+
+.release-branch{
+  width: 160rpx;
+  line-height: 60rpx;
+  margin-left: 8rpx;
+  margin-right: 8rpx;
+  text-align: center;
+  
+  background: #F5F6F7;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #707FA9;
+  margin-top: 30rpx;
+  position: relative;
+}
+
+.active{
+  color: #4663dc;
+  border: 1rpx solid #4663dc;
+  background: #fff;
+}
+.check{
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  right: -15rpx;
+  top: -15rpx;
+}
+.confirm{
+  width: 60%;
+  line-height: 85rpx;
+  border-radius: 50rpx;
+  font-size: 35rpx;
+  background: #4663dc;
+  color: #fff;
+  margin-left: 20%;
+  margin-top: 100rpx;
+  margin-bottom: 77rpx;
+  float: left;
+  border: none;
+}

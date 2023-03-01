@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "烟商贷专项营销活动",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "van-row": "/sub4/static/vant/weapp/row/index",
+    "van-col": "/sub4/static/vant/weapp/col/index"
+  }
+}

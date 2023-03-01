@@ -1,0 +1,15 @@
+
+<view>
+
+	<view class="kh1">
+		<image src="{{preffixUrl}}/static/wechat/img/temp/kaihu_bg1.jpg"></image>
+	</view>
+	<view class="kh2">
+		<image src="{{preffixUrl}}/static/wechat/img/temp/kaihu_bg2.jpg"></image>
+	</view>
+
+	<view class='ffbuttom'>
+		<view bindtap="apli" class="btn blu ">立即申请</view>
+	</view>
+
+</view>

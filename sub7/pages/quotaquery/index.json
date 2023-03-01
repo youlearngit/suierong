@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "i-billpool":"../../components/billpool/index"
+  }
+}

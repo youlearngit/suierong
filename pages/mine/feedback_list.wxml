@@ -1,0 +1,97 @@
+<wxs module="tutil" src="../../utils/date.wxs"></wxs>
+<view class="headBg">
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">提意见</view>
+
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">看回复</view>
+  </view>
+</view>
+<image class="mineBanner" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/mine_feedback.jpg"></image>
+<view style='position:relative;z-index:0;'>
+  <image style="position:fixed;bottom:0;left:0;width:100%;height:578rpx;z-index:0;" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/feedback_bg.jpg"></image>
+</view>
+<view class="{{currentTab == 0 ? 'show':'hidden'}}" style="position:relative;z-index:10;">
+  <scroll-view>
+
+    <form bindsubmit="formSubmit">
+      <view class="feedType mt20">意见类型</view>
+      <view class="pickType">
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{items}}" wx:key="key">
+            <radio color="#0066b3" value="{{item.value}}" checked="{{item.checked}}" /> {{item.name}}
+          </label>
+        </radio-group>
+      </view>
+      <view class="textArea">
+        <textarea class="textarea-bg" placeholder="请简单描述您的问题和意见，若功能异常，上传页面截图更快解决哦" bindblur="getDataBindTap" bindinput='formdata' style="height: 6em" />
+      </view>
+
+
+      <view class="feedType mt20">上传图片（最多三张）</view>
+      <view class="big-logos">
+        <view class='logoinfo'>
+          <view class="tempImgBox" wx:for="{{files}}" wx:key="key">
+            <image mode="aspectFit" wx:if="{{item}}" src='{{preffixUrl}}{{item}}' bindtap="ylimg" data-src="{{item}}"></image>
+            <span class="close" bindtap="deleteImage" data-index="{{index}}">X</span>
+          </view>
+        </view>
+        <image class="addPic" bindtap="upimg" wx:if='{{preffixUrl}}' src='{{preffixUrl}}/static/wechat/img/ico_add_pic.png' mode="aspectFill"></image>
+
+      </view>
+
+      <view class="pics">
+        <button type="default" size="mini" bindtap="chooseImage" wx:if="{{images.length < 3}}">添加图片</button>
+      </view>
+
+      <view class="yichang">
+        <icon type="warn" size="14" style="vertical-align:middle;" />
+        <text> 异常问题将在收到问题反馈的72小时内处理\n非工作日则自动顺延</text>
+      </view>
+      <view class="button-sp-area">
+        <button class="weui-btn" style='width:50%;background:#0066b3;' type="primary" formType="submit">提 交</button>
+      </view>
+
+    </form>
+
+
+    <view class="successForm" hidden="{{suc_flag}}">
+      <view class="sucImg">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/feedback_suc.png"></image>
+        <view class="backIndex" bindtap="tomine">返回我的</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="{{currentTab == 1 ? 'show':'hidden'}}">
+  <view wx:if="{{list==''||list==null}}">
+    <view class="nodata">
+      <text>暂无数据</text>
+    </view>
+  </view>
+
+  <scroll-view>
+    <view class="backList">
+      <navigator class="detNav" wx:for="{{list}}" wx:key="key" url="feedback_det?id={{item.ID}}">
+        <view class="backBox">
+          <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">
+              <view class="backTitle">{{item.OPINION}}</view>
+              <view class="backInfo">
+                <label class="radio" wx:if="{{item.FEED_TYPE==1}}">功能异常</label>
+                <label class="radio" wx:if="{{item.FEED_TYPE==2}}">体验问题</label>
+                <label class="radio" wx:if="{{item.FEED_TYPE==3}}">功能建议</label>
+                <label class="radio" wx:if="{{item.FEED_TYPE==4}}">其他问题</label>
+                <text class="time">{{item.OPINION_DATE}}</text>
+              </view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">
+            </view>
+          </view>
+        </view>
+      </navigator>
+
+    </view>
+  </scroll-view>
+
+
+</view>

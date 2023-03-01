@@ -1,0 +1,113 @@
+/* sub2/pages/bindCardSms/error.wxss
+
+page {
+    display: flex;
+    justify-content: center;
+}
+
+.icon-box-img {
+    top: 55.6px;
+    position: absolute;
+}
+
+.icon-txt {
+    opacity: 0.9;
+    font-size: 40rpx;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    position: absolute;
+    top: 260rpx;
+    width: 100%;
+}
+
+
+.error {
+    position: absolute;
+    top: 98rpx;
+    width: 128rpx;
+    height: 128rpx;
+}
+
+.tip {
+    color: #07C160;
+    font-size: 34rpx;
+    letter-spacing: 2rpx;
+    background: #F2F2F2;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 80rpx;
+    width:368rpx;
+}
+
+.tips {
+    font-size: 22rpx;
+    color: rgba(0,0,0,0.50);
+    text-align: center;
+    bottom: 86rpx;
+    position: absolute;
+}
+
+.tip:active {
+    background: rgba(0, 0, 0, 0.10);
+    border-radius: 3px;
+} */
+
+page {
+    display: flex;
+    justify-content: center;
+}
+
+.icon-box-img {
+    top: 55.6px;
+    position: absolute;
+}
+
+.icon-txt {
+    opacity: 0.9;
+    font-size: 22px;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    position: absolute;
+    top: 144px;
+    width: 100%;
+}
+
+
+.error {
+    position: absolute;
+    top: 48px;
+    width: 64px;
+    height: 64px;
+}
+
+.tip {
+    color: #07C160;
+    font-size: 17px;
+    letter-spacing: 1px;
+    background: #F2F2F2;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+height: 40px;
+width: 184px;
+}
+
+.tips {
+    font-size: 12px;
+    color: rgba(0,0,0,0.50);
+    text-align: center;
+    bottom: 43px;
+    position: absolute;
+}
+
+.tip:active {
+    background: rgba(0, 0, 0, 0.10);
+    border-radius: 3px;
+}

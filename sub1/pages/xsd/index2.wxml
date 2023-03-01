@@ -1,0 +1,14 @@
+<view class="container">
+    <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/xsd/bg_container.png" mode="widthFix" style="width:100%" class="bg_container" />
+    <view class="main">
+        <view class="product-list">
+            <view bind:tap="apply" data-type='0' class="product-nav">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/xsd/bg_comsumer.png" mode="widthFix" style="width:100%" />
+            </view>
+            <view bind:tap="apply" data-type='1' class="product-nav">
+                <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/xsd/bg_sui.png" mode="widthFix" style="width:100%" />
+            </view>
+        </view>
+    </view>
+</view>
+

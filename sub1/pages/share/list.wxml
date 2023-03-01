@@ -1,0 +1,27 @@
+<view class="f1">
+    <image class="" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-1031.png" mode="widthFix" style="width:100%"></image>
+</view>
+<view class="b1" hover-class="none" hover-stop-propagation="false">
+    <block wx:for="{{shareList}}">
+        <view class="b2" hover-class="none" hover-stop-propagation="false">
+            <image class="b11" wx:if="{{item.CLICK_PHOTO}}" src="{{item.CLICK_PHOTO}}" mode="widthFix" style="width:54.6rpx;border-radius: 50%;"></image>
+            <view class="b12">{{item.REAL_NAME||item.CLICK_NICKNAME||"TA未注册"}}</view>
+            <view class="b13">{{item.APPLYTIME||item.CREATE_DATE}}</view>
+            <view class="b14" wx:if="{{item.SHARE_AWARD}}">
+                <image class="b141" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-1039.png" mode="widthFix" style="width:32.3rpx"></image>
+                <view class="b142">{{item.SHARE_AWARD}}</view>
+            </view>
+            <view class="b14" wx:else>
+                <view class="b143">-</view>
+            </view>
+        </view>
+        <view class="b3"></view>
+    </block>
+    <view wx:if="{{totalPage==0}}">
+        <view class="b4">- 暂无记录 -</view>
+    </view>
+    <view wx:else class="" hover-class="none" hover-stop-propagation="false">
+        <view class="b4" wx:if="{{totalPage==shareList.length}}">- 没有更多啦 -</view>
+        <navigator url="../award/index?type=1" hover-class="none" class="b4" wx:else >查看更多</navigator>
+    </view>
+</view>

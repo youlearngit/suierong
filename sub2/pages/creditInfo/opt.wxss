@@ -1,0 +1,100 @@
+
+.a1 {
+    width: 100%;
+}
+
+.bottom button {
+	width: 90%;
+	margin-bottom: 5%;
+	background-color: #16a8fa;
+	color: white;
+}
+
+.selectBox {
+	height: 240rpx;
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+}
+
+.box1 {
+	text-align: center;
+	height: 70%;
+	width: 180rpx;
+	border: 4rpx solid #dadada;
+	margin: auto;
+	/* display: table; */
+	position: relative;
+}
+
+.box2 {
+	text-align: center;
+	height: 70%;
+	width: 180rpx;
+	border: 4rpx solid #16a8fa;
+	margin: auto;
+	/* display: table; */
+	position: relative;
+}
+.box3 {
+	text-align: center;
+	height: 50%;
+	width: 280rpx;
+	border: 4rpx solid #dadada;
+	margin: auto;
+	/* display: table; */
+	position: relative;
+}
+.box4 {
+	text-align: center;
+	height: 50%;
+	width: 280rpx;
+	border: 4rpx solid #16a8fa;
+	margin: auto;
+	/* display: table; */
+	position: relative;
+}
+.box5 {
+	text-align: center;
+	height: 50%;
+	width: 180rpx;
+	border: 4rpx solid #dadada;
+	margin: auto;
+	/* display: table; */
+	position: relative;
+}
+.box6 {
+	text-align: center;
+	height: 50%;
+	width: 180rpx;
+	border: 4rpx solid #16a8fa;
+	margin: auto;
+	/* display: table; */
+	position: relative;
+}
+.border{
+  border: 1rpx solid #16a8fa; 
+  width: 85%;
+  margin-left: 50rpx;
+}
+
+.text1 {
+	padding: 35rpx 20rpx;
+	margin: auto;
+	font-size: 33rpx;
+}
+
+.text2 {
+	padding: 35rpx 20rpx;
+	margin: auto;
+	font-size: 33rpx;
+	color: #16a8fa;
+}
+
+.title {
+	width: 90%;
+	margin: auto;
+	font-size: 36rpx;
+	margin-top: 30rpx;
+	font-weight: bold;
+}

@@ -1,0 +1,44 @@
+<wxs src="./utils.wxs" module="utils" />
+<view>
+	<image class="home_bg" src="{{preffixUrl}}empower_confirm_bg.png" mode="widthFix"></image>
+	
+	<view class="title"><text>{{nodes.identity.real_name || ""}}</text>正在办理“创新券”</view>
+	<view class="title_tip">申请需由您授权确认</view>
+
+	<view class="item">
+		<view>申领企业</view><view>{{nodes.enterprise.dwmc || ""}}</view>
+	</view>
+	<view class="item">
+		<view>申领人</view><view>{{nodes.identity.real_name || ""}}</view>
+	</view>
+
+	<view class="agreements">
+		<view>相关协议</view>
+		<view>
+			<view class="agreements_nav" bindtap="readPdf">《企业信息采集和查询授权书》</view>
+		</view>
+	</view>
+
+	<view class="opts">
+		<view class="opt">
+			<view class="opt_icon"><image src="{{preffixUrl}}applicant_icon.png" mode="widthFix"></image></view>
+			<view class="opt_item">申请人<text>{{nodes.identity.real_name || ""}}</text></view>
+		</view>
+		<view class="opt">
+			<view class="opt_icon"><image src="{{preffixUrl}}apply_time_icon.png" mode="widthFix"></image></view>
+			<view class="opt_item">申请时间<text>{{nodes.created_text}}</text></view>
+		</view>
+		<view class="opt">
+			<view class="opt_icon"><image src="{{preffixUrl}}empower_icon.png" mode="widthFix"></image></view>
+			<view class="opt_item">授权人<text>{{nodes.enterprise.frxm || ""}}</text></view>
+		</view>
+		<view class="opt">
+			<view class="opt_icon"><image src="{{preffixUrl}}empower_progress_icon.png" mode="widthFix"></image></view>
+			<view class="opt_item">授权进度<text>{{nodes.id ? '法人未授权' : ''}}</text></view>
+		</view>
+	</view>
+
+	<view class="bottom_btn" bindtap="empowerFR">立即授权</view>
+	<view class="bottom_tip">本产品未与任何中介机构合作，不会向您收取额外费用</view>
+
+</view>

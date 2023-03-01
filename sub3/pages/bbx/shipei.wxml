@@ -1,0 +1,147 @@
+<wxs src="./utils.wxs" module="utils" />
+<view>
+	<image class="bg" src="{{preffixUrl}}bg_chat.png" />
+
+	<scroll-view class="records" scroll-y="true" scroll-into-view="{{scroll_into}}">
+
+		<view class="time">{{time_now}}</view>
+
+		<view class="record other">
+			<view class="record-content">Hi，欢迎使用江苏银行人才百宝箱。苏苏会根据您的回答推荐政策哦～</view>
+			<view class="record-href" bind:tap="next" wx:if="{{records.length==0}}">
+				开始适配<image src="{{preffixUrl}}icon_30_right.png" mode="widthFix"/>
+			</view>
+		</view>
+
+		<view id="{{item.id}}" wx:for="{{records}}" wx:key="key" wx:index="index" wx:item="item">
+
+			<block wx:if="{{item.type=='question'}}">
+
+				<block wx:if="{{item.question.type=='checkbox'}}">
+					<view class="record other">
+						<view class="record-content">{{item.question.title}}</view>
+						<!-- <view class="record-href">继续适配<image src="{{preffixUrl}}icon_30_right.png" mode="widthFix"/></view> -->
+					</view>
+					<view class="record own">
+						<view class="record-content">
+							<view>{{answers[item.question_type].length>1?(item.question.items[answers[item.question_type][0]]+' 等'+answers[item.question_type].length+'项'):item.question.items[answers[item.question_type][0]]}}</view>
+							<image src="{{preffixUrl}}icon_40_modi.png" mode="widthFix" data-event="{{item.question_type}}" data-action="get" bind:tap="onPopupEvent"/>
+						</view>
+					</view>
+				</block>
+
+				<block wx:if="{{item.question.type=='input'}}">
+					<view class="record other">
+						<view class="record-content">{{item.question.title}}</view>
+					</view>
+					<view class="record own" wx:if="{{answers[item.question_type]}}">
+						<view class="record-content">
+							{{answers[item.question_type]}}
+						</view>
+					</view>
+				</block>
+
+				<block wx:if="{{item.question.type=='radio'}}">
+					<view class="record other">
+						<view class="record-content">{{item.question.title}}</view>
+					</view>
+					<view class="record own">
+						<view class="record-content">
+							<view>{{item.question.items[answers[item.question_type]]}}</view>
+							<image src="{{preffixUrl}}icon_40_modi.png" mode="widthFix" data-event="{{item.question_type}}" data-action="get" bind:tap="onPopupEvent"/>
+						</view>
+					</view>
+				</block>
+			</block>
+
+			<block wx:if="{{item.type=='chat'}}">
+				<view class="record own" wx:if="{{item.from=='own'}}">
+					<view class="record-content">
+						{{item.text}}
+					</view>
+				</view>
+
+				<view class="record other" wx:if="{{item.from=='other'}}">
+					<view class="articles" wx:if="{{item.text_type=='articles'}}">
+						<image class="articles-bg" src="{{preffixUrl}}popup_1.png" mode="scaleToFill"/>
+						<view class="articles-title"><view class="icon"></view>为您推荐以下{{item.text.length}}项优质政策</view>
+						<view class="articles-plane">
+							<navigator class="article" hover-class="none" wx:for="{{item.text}}" wx:key="k" wx:item="item" url="/sub3/pages/bbx/article?ID={{item.ID}}">
+								{{item.NAME}}
+								<view class="article-time">{{item.DOCDATE}}</view>
+							</navigator>
+						</view>
+					</view>
+					<view class="record-content" wx:else>
+						{{item.text}}
+					</view>
+				</view>
+			</block>
+
+			<block wx:if="{{item.type=='finish'}}">
+				<view class="record other">
+					<view bindtap="finishGo">
+						<image class="only-img" src="{{preffixUrl}}card_adapt_complete.png" mode="widthFix"></image>
+					</view>
+				</view>
+			</block>
+
+		</view>
+		<view class="record-into" id="record-into"></view>
+
+	</scroll-view>
+
+	<!-- <image src="{{preffixUrl}}icon_24_recom.png" mode="widthFix"/> -->
+	<!-- icon_24_recomed.png -->
+	<view class="bottom">
+		<view class="tips">
+			<view wx:for="{{tips_arr}}" wx:key="k" wx:item="item">
+				{{item.title}}
+			</view>
+		</view>
+		<input confirm-type="send" placeholder-class="input-placeholder" placeholder="请输入内容…" model:value="{{word}}" bindconfirm="onInputEvent" />
+		<view class="input-send" bind:tap="onInputEvent"><image src="{{preffixUrl}}icon_right_bigw.png" mode="widthFix"/></view>
+	</view>
+</view>
+
+<van-popup show="{{popup.show}}" position="center" round custom-style="border-radius: 20rpx;" close-on-click-overlay bind:click-overlay="onPopupEvent">
+	<view class="popup">
+		<image class="popup-bg" src="{{preffixUrl}}popup_1.png" mode="widthFix"/>
+		<view class="popup-content">
+			<view class="popup-head">
+				<image class="popup-icon" src="{{preffixUrl}}icon_64_problem.png" mode="widthFix"/>
+				{{popup.title}}
+				<!-- <span wx:if="{{popup.type=='checkbox'}}">(可多选)</span> -->
+				<!-- <image class="popup-close" src="{{preffixUrl}}icon_32_close.png" mode="widthFix" bind:tap="onPopupEvent"/> -->
+				<view class="popup-idx">
+					<image src="{{preffixUrl}}decorate_80_tab.png" mode="widthFix"/>
+					<view>{{popup.idx}}</view>
+				</view>
+			</view>
+			
+			<view wx:if="{{popup.type=='radio'}}">
+				<view class="popup-body">
+					<view wx:for="{{popup.items}}" wx:key="k" wx:index="index" wx:item="item" class="{{index==popup.value?'activity':''}}" data-event="{{popup.event}}" data-action="set" data-item="{{index}}" bind:tap="onPopupEvent">{{item}}</view>
+				</view>
+			</view>
+			<view wx:elif="{{popup.type=='checkbox'}}">
+				<view class="popup-body">
+					<view wx:for="{{popup.items}}" wx:key="k" wx:index="index" wx:item="item" class="{{utils.inArr(popup.value,index)?'activity-multi':''}}" data-event="{{popup.event}}" data-action="set_item" data-item="{{index}}" bind:tap="onPopupEvent">
+						{{item}}
+						<image wx:if="{{utils.inArr(popup.value,index)}}" src="{{preffixUrl}}icon_40_sel_blue.png" mode="widthFix"/>
+					</view>
+				</view>
+				<view class="popup-bottom">
+					<button data-event="{{popup.event}}" data-action="set_items" bind:tap="onPopupEvent">完成</button>
+				</view>
+			</view>
+
+		</view>
+	</view>
+</van-popup>
+
+<van-popup show="{{date_picker.show}}" position="bottom" custom-style="border-radius: 30rpx 30rpx 0 0;" close-on-click-overlay bind:click-overlay="onDatePickerEvent">
+	<view>
+		<van-datetime-picker type="date" value="{{date_picker.value}}" bind:confirm="onDatePickerEvent" bind:cancel="onDatePickerEvent" min-date="{{date_picker.min_date}}" max-date="{{date_picker.max_date}}" />
+	</view>
+</van-popup>

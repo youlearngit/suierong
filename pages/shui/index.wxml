@@ -1,0 +1,173 @@
+<view class="wrap">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="bg">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/shui_bg.jpg"></image>
+  </view>
+  <view class="tedian">
+    <view class="dl" style='margin-bottom:60rpx;'>
+      <view class="dt">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/shui_1.jpg"></image>
+      </view>
+      <view class="dd">
+        <view class="h2">易办理</view>
+        <view class="p">凡正常缴税两年以上的客户均可申请，通过网络申请，简单便捷。 </view>
+      </view>
+    </view>
+    <view class="dl">
+      <view class="dt">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/shui_3.jpg"></image>
+      </view>
+      <view class="dd">
+        <view class="h2">高额度</view>
+        <view class="p">纯信用方式下，贷款额度最高可达200万元。如客户有其他担保措施的，可通过组合的方式，获得更高额的贷款。</view>
+      </view>
+    </view>
+    <view class="dl" style='margin-bottom:70rpx;'>
+      <view class="dt">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/shui_2.jpg"></image>
+      </view>
+      <view class="dd">
+        <view class="h2">免担保</view>
+        <view class="p">仅需纳税历史记录作为贷款依据，无须任何担保即可获得融资。</view>
+      </view>
+    </view>
+    <view class="dl" style='margin-bottom:4rpx;'>
+      <view class="dt">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/shui_5.jpg"></image>
+      </view>
+      <view class="dd">
+        <view class="h2">期限长</view>
+        <view class="p">一次授信额度有效期最长36个月，单笔贷款最长期限为12个月。</view>
+      </view>
+    </view>
+    <view class="dl" style='margin-bottom:60rpx;'>
+      <view class="dt">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/shui_6.jpg"></image>
+      </view>
+      <view class="dd">
+        <view class="h2">费率省</view>
+        <view class="p">线上实时提款，随借随还，按日计息，最大限度节约财务成本。</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 简 介</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">“税e融”是江苏银行为正常缴税的小微客户打造的一款“以无担保纯信用为主，可采取各种方式组合为一体”的信贷产品。借助互联网渠道，小微客户仅凭缴税记录即可申请办理，并在线获得贷款额度，实现“在线申请、网上用款、随借随还”。</text>
+    </view>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">服 务 对 象</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">正常缴税两年以上，且前12个月缴税总额（含增值税、所得税、消费税）大于1万元，无不良信用记录及欠缴税记录，纳税评级为B级（含）以上。</text>
+    </view>
+  </view>
+  <view class="dianDL" style="margin-bottom:150rpx;">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">联 系 方 式</text>
+    </view>
+    <view class="dianDd">
+      <view class="tips">* 点击下方电话，可以一键拨号哦！</view>
+      <view class="h2" style='text-indent:2em;font-weight:500;'>江苏省内</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='025-58587263'>
+        <span>南京分行</span>025-58587263</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0510-82326755'>
+        <span>无锡分行</span>0510-82326755</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0512-68631276'>
+        <span>苏州分行</span>0512-68631276</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0513-85799649'>
+        <span>南通分行</span>0513-85799649</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0519-88107896'>
+        <span>常州分行</span>0519-88107896</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0514-87368380'>
+        <span>扬州分行</span>0514-87368380</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0511-85600917'>
+        <span>镇江分行</span>0511-85600917</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0523-86392780'>
+        <span>泰州分行</span>0523-86392780</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0517-83932982'>
+        <span>淮安分行</span>0517-83932982</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0516-83100607'>
+        <span>徐州分行</span>0516-83100607</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0515-66665857'>
+        <span>盐城分行</span>0515-66665857</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0527-81001966'>
+        <span>宿迁分行</span>0527-81001966</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0518-85820952'>
+        <span>连云港分行</span>0518-85820952</view>
+
+      <view class="h2" style='text-indent:2em;font-weight:500;margin-top:15rpx;'>江苏省外</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='010-56986982'>
+        <span>北京分行</span>010-56986982</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='021-22258192'>
+        <span>上海分行</span>021-22258192</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0755-22660320'>
+        <span>深圳分行</span>0755-22660320</view>
+      <view class="p" bindtap='callGetPhone' data-getPhone='0571-88359680'>
+        <span>杭州分行</span>0571-88359680</view>
+    </view>
+  </view>
+
+  <view class='fbuttom'>
+    <view class=" btn " bindtap='showShare'>分
+      <text>\t\t\t\t\t\t</text>享</view>
+    <view class="btn blu" bindtap='apli'>立即申请</view>
+  </view>
+
+</view>
+
+
+
+<view class="{{shareBox}} ">
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}} " class="mask "></view>
+  <view class="canvas-box ">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px " canvas-id="mycanvas" />
+  </view>
+
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'>
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image>
+      </button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+
+<view style='position:fixed;bottom:0;left:0;width:100%;height:50%;background:#fff;z-index:0;'></view>
+
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>

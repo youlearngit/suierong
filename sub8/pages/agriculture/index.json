@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-search": "/sub8/static/vant-weapp/search/index",
+    "my-login": "/component/login/index",
+    "my-poster": "/sub8/pages/agriculture/component/poster/index",
+    
+    "van-popup": "/sub8/static/vant-weapp/popup/index"
+  },
+  "navigationBarTitleText":"掌上三农"
+}

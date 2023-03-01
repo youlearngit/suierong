@@ -1,0 +1,22 @@
+<cu-custom isCustom="{{true}}"  backPageSize="{{backPageSize}}">
+    <view slot="content">合同签订</view>
+</cu-custom>
+<view class="body-background-img" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/confirm_loan_background.png);background-color: #ffffff;">
+
+  <view class="content-1">
+    <!-- 成功的信息 -->
+    <view wx:if="{{status=='1'}}" class="content-body">
+      <image class="content-img" src="{{preffixUrl}}/static/wechat/img/carloans/apply-commint.png"/>
+      <view class="content-title">合同签订已成功！</view>
+      <view class="content-text" wx:if="{{type == 'b02'}}">后续可通过“我的订单”查看您的合同签约信息</view>
+      <view class="content-text" wx:if="{{type == 'b04'}}">后续可通过“合同签订-已签约”查看您的合同签约信息</view>
+    </view>
+    <!-- 失败的信息 -->
+    <view wx:if="{{status=='0'}}" class="content-body">
+      <image class="content-img" src="{{preffixUrl}}/static/wechat/img/carloans/apply-commint-fail.png"/>
+      <view class="content-title">合同签订失败！</view>
+      <view class="content-error-text">{{errorMsg}}</view>
+    </view>
+  </view>
+  <button class="btn-submit" bindtap="toContsPage" >{{ status=='1' ? '查看我的合同' : type == 'b02'? '查看我的订单' :  '查看待签约合同列表'}}</button>
+</view>

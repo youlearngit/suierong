@@ -1,0 +1,85 @@
+<!-- sub2/pages/billDisCount/applyExtra.wxml -->
+<image class="bg1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen1.jpg" />
+<image class="bg2" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen2.jpg" />
+<view style="width:90%;margin:auto; overflow-x: hidden;">
+    <view class="formInfo" style="width:100%;margin:auto;">
+        
+        <view class="title">影像资料上传</view>
+        <view>请拍摄您上一年度财务报表，包括：资产负债表、现金流量表、利润表，报表需加盖公章。（最多十张）</view>
+        <view class="weui-uploader">
+            <view class="img-v weui-uploader__bd">
+                <view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+                    <image class='weui-uploader__img ' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+                        <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon>
+                    </image>
+                </view>
+                <view class="weui-uploader__input-box pic" bindtap="chooseImg"></view>
+            </view>
+        </view>
+        <view>请拍摄包含您企业名称的门头、大门以及经营场所，如生产车间、办公室等。（最多十张）</view>
+        <view class="weui-uploader">
+            <view class="img-v weui-uploader__bd">
+                <view class='pic' wx:for="{{imgs1}}" wx:for-item="item" wx:key="*this">
+                    <image class='weui-uploader__img ' src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg1">
+                        <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg1"></icon>
+                    </image>
+                </view>
+                <view class="weui-uploader__input-box pic" bindtap="chooseImg1"></view>
+            </view>
+        </view>
+        <view class="title">还需您补充如下企业信息</view>
+        <form bindsubmit="submitForm" report-submit='true'>
+            <view style="margin-bottom:20%;height:400px;">
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">员工人数</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入人工人数" name="employeesNum" bindinput="inputForm" data-name="employeesNum" />
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input " style="display:none">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">中征码</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="请输入16位中征码"  bindinput="inputForm" data-name="bankCardNo" maxlength="16" type="idcard" name="bankCardNo" value="1111111111111"/>
+                    </view>
+                </view>
+              
+                <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">所属区域</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                            <input class="weui-input" disabled placeholder="非必填" name="region" maxlength="11" value="{{region[0]=='请选择'?'请选择':region[0]+'-'+region[1]+'-'+region[2]}}"  />
+                        </picker>
+                    </view>
+                </view>
+              
+                <view class="weui-cell weui-cell_input" >
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">客户经理工号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="非必填" style="{{isdisabled?'color:grey;':''}}" name="recommendNum" maxlength="11" value="{{recommendNum}}" disabled="{{isdisabled}}"  bindinput="inputForm" data-name="recommendNum"/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input" >
+                    <view class="weui-cell__hd">
+                        <view class="weui-label"  style="color:grey;">营销人工号</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input class="weui-input" placeholder="非必填" style="color:grey;" name="remark6" value="{{remark6}}"  maxlength="11"  disabled/>
+                    </view>
+                </view>
+                <view class="weui-cell weui-cell_input"></view>
+            </view>
+            <view class="bottom">
+                <button class="saveBtns" bindtap="submitForms">下一步</button>
+                <button class="saveBtn" bindtap="back">取消</button>
+            </view>
+        </form>
+    </view>
+</view>

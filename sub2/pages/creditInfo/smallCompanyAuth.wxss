@@ -1,0 +1,66 @@
+@import "/assets/styles/weui.wxss";
+page {
+    background-color: white;
+}
+
+.bottom .saveBtn {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 40%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+.serBtn {
+    font-size: 26rpx;
+    line-height: 40rpx;
+    padding: 0 15rpx;
+    color: white;
+    background-color: #0066b3;
+    margin-left: 20rpx;
+}
+
+.bottom .delBtn {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    width: 40%;
+    background-color: white;
+    color: #ff0000;
+}
+
+.bottom .saveBtn2 {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    width: 90%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+.weui-select {
+    border-right: 0rpx solid #d9d9d9;
+}
+
+.title {
+    margin: auto;
+    font-size: 34rpx;
+    margin-top: 40rpx;
+    margin-bottom: 30rpx;
+    font-weight: bold;
+    color: #0066b3;
+}
+
+.weui-label {
+    color: #0066b3;
+}
+
+.i-swipeout-demo-item {
+    border-bottom: #333 solid 1px;
+}
+
+.i-cell-padding {
+    padding: 5px 0px !important;
+    font-size: 14px;
+}

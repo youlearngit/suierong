@@ -1,0 +1,27 @@
+/* sub1/component/cu-custom/cu-custom.wxss */
+.cu-custom {
+    position: absolute;
+}
+.border-custom2 {
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 1000rpx;
+}
+  
+.cu-custom .cu-bar .border-custom2::after {
+    content: " ";
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+    box-sizing: border-box;
+    border: 1rpx solid var(--white);
+    opacity: 0.5;
+}
+
+

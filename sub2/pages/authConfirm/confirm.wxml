@@ -1,0 +1,249 @@
+<view class="page" wx:if="{{!showBook}}">
+    <view class="weui-msg">
+        <view>
+            <image wx:if="preffixUrl" src="{{preffixUrl}}/static/wechat/img/sq_success.png" mode="widthFix" style="width:300rpx"></image>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title" style="font-size:30rpx">授权人信息验证成功</view>
+            <!-- <view class="weui-msg__desc">内容详情，可根据实际需要安排，如果换行则不超过规定长度，居中展现<navigator url="" class="weui-msg__link">文字链接</navigator></view> -->
+        </view>
+    </view>
+    <block wx:if="{{business_type!=1 && authType == '1'}}">
+      <view style="width:90%;margin:auto">
+          <i-panel title="我的授权书" i-class="kk">
+              <i-cell-group>
+                  <i-cell i-class="cc" bindtap="showDetail" data-id="1"title="征信授权书" is-link  wx:if="{{business_type==3}}"></i-cell>
+                                  <i-cell i-class="cc" bindtap="showDetail" data-id="3"title="征信授权书" is-link wx:if="{{business_type==2}}"></i-cell>
+                  <!-- <i-cell i-class="cc" bindtap="showDetail" data-id="2"title="综合信息授权书" is-link  wx:if="{{business_type!=1}}"></i-cell> -->
+                  <i-cell i-class="cc" bindtap="showDetail" data-id="4"title="征信授权书" is-link wx:if="{{business_type==1}}"></i-cell>
+              </i-cell-group>
+          </i-panel>
+      </view>
+      <view style="width:80%;margin:30rpx 9%" wx:if="{{business_type!=1}}">
+          <checkbox-group bindchange="handleChange" style="float:left;">        
+              <checkbox value="isChecked" checked="{{isCheck}}" />
+          </checkbox-group>
+              <text style="color:#A6A6A6;font-size:30rpx;margin-left:5rpx">我已阅读所有授权书</text>
+      </view>
+      <view class="bottom" wx:if="{{business_type!=1}}">
+          <button bindtap="navTo">下一步</button>
+      </view>
+    </block>
+    <block wx:if="{{authType != '1'}}">
+      <view style="width:90%;margin:auto">
+        <i-panel title="我的授权书" i-class="kk">
+            <i-cell-group>
+                <i-cell i-class="cc" bindtap="showDetail" data-id="11"title="征信授权书" is-link></i-cell>
+            </i-cell-group>
+        </i-panel>
+      </view>
+      <view style="width:80%;margin:30rpx 9%">
+          <checkbox-group bindchange="handleChange" style="float:left;">        
+              <checkbox value="isChecked" checked="{{isCheck}}" />
+          </checkbox-group>
+              <text style="color:#A6A6A6;font-size:30rpx;margin-left:5rpx">我已阅读所有授权书</text>
+      </view>
+      <view class="bottom">
+          <button bindtap="navTo">下一步</button>
+      </view>
+    </block>
+</view>
+
+<block wx:if="{{showBook}}">
+<view class="zhezao">
+  <view class="t_w">
+    <view class="scrollBox">
+  <scroll-view scroll-y="true" style="height:1200rpx;  background: #f4f6f6;">
+      <!-- 个人零售 -->
+      <view class="propose" style="margin-top: 30px;">
+        <h2>
+          <text style="font-weight: 700;">江苏银行综合信息查询使用授权书\n（适用于自然人）</text>
+        </h2>
+        <view>授权人：</view>
+        <view>客户姓名：{{authInfo.AUTH_NAME}}</view>
+        <view>身份证号码：{{authInfo.AUTH_CERT_NO}}</view>
+        <view class="p" style="margin-top:20rpx">
+          一、因办理信贷业务的需要，本人不可撤销地授权
+          <em class="underline">江苏银行股份有限公司</em>
+          （以下简称“贵行”），<p  style="font-weight: 700;">通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：</p>
+        </view>
+        <view class="p"><p style="font-weight: 700;">（一）公积金信息：</p>本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。</view>
+        <view class="p"><p style="font-weight: 700;">（二）税务信息：</p>本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。</view>
+        <view class="p">
+          <p style="font-weight: 700;">（三）其他信息:</p>
+          本人 <p style="font-weight: 700;">资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息等个人信息；与融资相关的交易信息及经本人授权的其他信息。</p>按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。        </view>
+        <view class="p">二、本授权书用于办理涉及本人的以下信贷业务：</view>
+        <view class="p">1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；</view>
+        <view class="p">2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；</view>
+        <view class="p">3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况。</view>
+        <view class="p"  style="font-weight: 700;">
+          三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。
+        </view>
+        <view wx:if="{{borrowerInfo.BORROW_TYPE =='02'}}">
+          <view class="p" style="font-weight: 700;">
+              四、本人同意并授权，为缩短个人二手房按揭贷款办理流程、实现房产交易信息一站式查询服务，贵行可以获取、使用、保存本人通过贝壳找房平台申请贷款过程中主动提供的资料、信息（包括但不限于姓名、证件号码、手机号码、婚姻状况等个人信息、所购房屋信息、申请贷款信息），并可将相关贷款结果、担保服务办理结果等信息同步给天津海贝信息技术有限公司（联系电话10106188）。
+          </view>
+          <view class="p" style="font-weight: 700;">
+              五、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。
+              </view>
+          <view class="p">六、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。</view>
+        </view>
+        <view wx:if="{{borrowerInfo.BORROW_TYPE !='02'}}">
+          <view class="p" style="font-weight: 700;">
+              四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。
+              </view>
+          <view class="p">五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。</view>
+        </view>
+        
+        <view class="fr">
+          <view class="p">授权人：{{authInfo.AUTH_NAME}}</view>
+          <!-- <view class="p">身份证件类型：第二代身份证</view>
+          <view class="p">证件号码：{{authInfo.AUTH_CERT_NO}}</view> -->
+          <view class="p">授权日期：{{pdfTime}}</view>
+        </view>
+      </view>
+      <view class="propose" style="margin-top: 112px;" >
+        <h2>
+          <text style="font-weight: 700;">授权书\n(适用于自然人)</text>
+        </h2>
+        <view>江苏银行：</view>
+        <view class="p">
+          因
+          <span class="{{borrowerInfo.IS_SAME_PERSON==0?'squre':'null'}}"></span>
+          本人/
+          <span class="{{borrowerInfo.IS_SAME_PERSON==0?'null':'squre'}}"></span>
+          <em class="underline">{{borrowerInfo.IS_SAME_PERSON==0?'':borrowerInfo.BORROW_NAME}}</em>
+          办理
+          <em class="underline">{{yewuName}}</em>
+          业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：
+        </view>
+      <block wx:if="{{business_type==1&&(authInfo.AUTH_TYPE==0||authInfo.AUTH_TYPE==1)}}">
+          <view class="p">
+            （1）
+            <span class="squre"></span>
+            贷款审批；
+          </view>
+          <!-- <view class="p">
+            （2）
+            <span class="null"></span>
+            额度审批；
+          </view> -->
+          <view class="p">
+            （2）
+            <span class="null"></span>
+            担保资格审查；
+          </view>
+          <view class="p">
+            （3）
+            <span class="null"></span>
+            资信审查；
+          </view>
+          <view class="p">
+            （4）
+            <span class="null"></span>
+            客户准入资格审查；
+          </view>
+          <view class="p">
+            （5）
+            <span class="squre"></span>
+            贷后管理；
+          </view>
+           <!-- <view class="p">
+            （7）
+            <span class="null"></span>
+            异议核查；
+          </view> -->
+          <view class="p">
+            （6）
+            <span class="null"></span>
+            <em class="underline">/</em>
+            。
+          </view>
+        </block>
+        <block wx:if="{{business_type==1&&(authInfo.AUTH_TYPE==2)}}">
+          <view class="p">
+            （1）
+            <span class="null"></span>
+            贷款审批；
+          </view>
+          <!-- <view class="p">
+            （2）
+            <span class="null"></span>
+            额度审批；
+          </view> -->
+          <view class="p">
+            （2）
+            <span class="squre"></span>
+            担保资格审查；
+          </view>
+          <view class="p">
+            （3）
+            <span class="null"></span>
+            资信审查；
+          </view>
+          <view class="p">
+            （4）
+            <span class="null"></span>
+            客户准入资格审查；
+          </view>
+          <view class="p">
+            （5）
+            <span class="null"></span>
+            贷后管理；
+          </view>
+           <!-- <view class="p">
+            （7）
+            <span class="null"></span>
+            异议核查；
+          </view> -->
+          <view class="p">
+            （6）
+            <span class="null"></span>
+            <em class="underline">/</em>
+            。
+          </view>
+        </block>
+        <view class="p">
+          <em class="underline" style="font-weight: 700;">
+            本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。
+          </em>
+        </view>
+        <view class="p">
+          授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。
+        </view>
+        <view class="p">
+          <em class="underline">如本笔业务涉及公积金住房委托贷款且公积金管理中心有审批需要，本人授权贵行将本人信用报告提供给公积金管理中心。</em>
+        </view>
+        <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+        <view class="p">
+          本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。
+        </view>
+        <view class="p">特此授权。</view>
+        <view class="fr">
+          <view class="p">授权人：{{authInfo.AUTH_NAME}}</view>
+          <view class="p">身份证件类型：第二代身份证</view>
+          <view class="p">证件号码：{{authInfo.AUTH_CERT_NO}}</view>
+          <view class="p">授权日期：{{pdfTime}}</view>
+        </view>
+        <view class="p" style="float: right;margin-bottom:200rpx;">特别提示：为保护您的合法权益，以上空白处请填写完整。</view>
+       
+  
+      </view>
+         </scroll-view> 
+
+    </view>
+  </view>
+</view>
+ 
+</block>
+<i-toast id="toast" />
+ <view class="bottoms" wx:if="{{business_type==1&&showBook}}">
+         <view style="width:80%;margin:30rpx 9%;position: fixed;bottom: 7%; left: 5%;">
+        <checkbox-group bindchange="handleChange" style="float:left;">        
+            <checkbox value="isChecked" checked="{{isCheck}}" />
+        </checkbox-group>
+     
+            <text style="font-size:30rpx;margin-left:5rpx;color:#A6A6A6;">我已阅读所有授权书</text>
+    </view>
+        <button bindtap="navTo">提交授权</button>
+    </view>

@@ -1,0 +1,50 @@
+@import '/assets/styles/weui.wxss';
+@import "feedback_det.wxss";
+
+.headBg{padding:20rpx 0 30rpx;background:#0168b7;}
+.about_page{margin:0 10px}
+.swiper-tab{width:70%;text-align:center;height:60rpx;line-height:60rpx;margin:0 auto;color:#fff;font-size:16px;background:#99c3e2;border-radius:30rpx;}
+.swiper-tab-item{display:inline-block;width:50%;color:#434343;border-radius:30rpx;}
+.active{color:#0168b7;background:#fff;font-size:16px;font-weight:700}
+.juzhong{margin:0 auto}
+.domain{background-color:#fff;height:100%;margin:0 10px}
+.show{display:block}
+.hidden{display:none}
+.backList{margin:30rpx 40rpx;}
+.backBox{padding:20rpx;border-radius:10rpx;box-shadow:0 0 5rpx #ccc;}
+.backTitle{width:500rpx;font-size:30rpx;overflow:hidden;white-space:nowrap;text-overflow: ellipsis;}
+.time{font-size:22rpx;color:#999;}
+.detNav{display:block;margin:20rpx 0;}
+.nodata{width:80%;margin:60rpx auto;height:33rpx;text-align:center;border-bottom:#d2d2d2 1rpx solid;}
+.nodata text{padding:0 15rpx;background:#fff;color:#999;}
+.dian_show {
+  float: right;
+  width: 16rpx;
+  height: 16rpx;
+  background-color: green;
+  border-radius: 50%;
+  margin-right: 25rpx;
+  margin-top: 25rpx;
+}
+.dian {
+  float: right;
+  width: 16rpx;
+  height: 16rpx;
+  background-color: green;
+  border-radius: 50%;
+  margin-right: 25rpx;
+  margin-top: 25rpx;
+  display: none;
+}
+
+/*隐藏 */
+
+.hide {
+  display: none;
+}
+
+/*显示 */
+
+.show {
+  display: block;
+}

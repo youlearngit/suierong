@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-image": "/sub8/static/vant/weapp/image/index",
+    "Parser":"/sub8/static/Parser/index"
+  }
+}

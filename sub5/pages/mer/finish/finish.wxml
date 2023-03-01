@@ -1,0 +1,71 @@
+
+<view class="container">
+
+  <!-- 审批中 -->
+  <block wx:if="{{type==0}}">
+    <view class="img_wait">
+      <image src="{{cdnMer}}/dtbg.png"></image>
+      <image src="{{cdnMer}}/sl.gif"></image>
+    </view>
+    <view class="text">
+      <text>额度审批中，请耐心等待……</text>
+    </view>
+  </block>
+  
+  <!-- 成功提交 -->
+  <block wx:if="{{type==1}}">
+    <view class="img_apply">
+      <image src="{{cdnMer}}/ddsh.png" mode="widthFix"></image>
+    </view>
+    <view class="text">
+      <text>您已成功提交申请资料</text>
+      <text>审批结果稍后通过短信方式通知您</text>
+      <text>祝您生活愉快～</text>
+    </view>
+    <button bindtap="home" class="btn_home">关闭</button>
+  </block>
+
+  <!-- 申请成功 -->
+  <block wx:if="{{type==2}}">
+    <view class="img_success">
+      <image src="{{cdnMer}}/spcg.png"></image>
+    </view>
+    <view class="text">
+      <text>恭喜您，成功申请额度(元)</text>
+      <text class="money">5000000</text>
+    </view>
+    <button bindtap="home" class="btn_home">关闭</button>
+    <text>客户经理将在3个工作日内联系您</text>
+  </block>
+
+  <!-- 未满足条件 -->
+  <block wx:if="{{type==3}}">
+    <view class="img_fail">
+      <image src="{{cdnMer}}/sqsb.png"></image>
+    </view>
+    <view class="text">
+      <text>抱歉，您暂未满足申请条件</text>
+    </view>
+    <view class="more">
+      <image src="{{cdnMer}}/app.png"></image>
+      <view>
+        <view>关注江苏银行更多精彩讯息</view>
+        <view>安全便捷的个性化服务 助您随时随地掌控自己的金融生活</view>
+      </view>
+    </view>
+    <button bindtap="home" class="btn_home">关闭</button>
+  </block>
+
+  <!-- 等待法人 -->
+  <block wx:if="{{type==4}}">
+    <view class="img_wait">
+      <image src="{{cdnMer}}/dtbg.png"></image>
+      <image src="{{cdnMer}}/sl.gif"></image>
+    </view>
+    <view class="text">
+      <text>请等待法人授权……</text>
+    </view>
+    <button bindtap="home" class="btn_home">关闭</button>
+  </block>
+
+</view>

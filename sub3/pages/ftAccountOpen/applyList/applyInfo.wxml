@@ -1,0 +1,33 @@
+<!--查看开户已预约详情-->
+<view class="body">
+  <van-cell-group>
+    <van-field
+      label-class="label-style"
+      input-class="input-style"
+      model:value="{{ applyInfo.phone }}"
+      label="申请人手机号:"
+      disabled
+      input-align="right"
+    />
+    <van-field
+      label-class="label-style"
+      input-class="input-style"
+      model:value="{{ applyInfo.yybh }}"
+      label="业务编号:"
+      disabled
+      input-align="right"
+    />
+    <van-field
+      label-class="label-style"
+      input-class="input-style-1"
+      label="业务状态:"
+      model:value=" {{ applyInfo.status }}"
+      disabled
+      type="textarea"
+      autosize
+      label-align="left"
+      input-align="right"/>
+  </van-cell-group>
+  <view style="height: 60%;"></view>
+  <button class="btn" bindtap="back">返回</button>
+</view>

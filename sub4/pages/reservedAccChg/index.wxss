@@ -1,0 +1,80 @@
+/* sub3/pages/reservedAccChg/index.wxss */
+.bgn{
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+}
+.txt1{
+  font-family: SourceHanSansSC-Bold;
+font-size: 46rpx;
+color: #5C6CFF;
+letter-spacing: 0;
+font-weight: 700;
+padding-top: 83rpx;
+margin-left: 30rpx;
+}
+.txt2{
+  font-family: SourceHanSansSC-Normal;
+  font-size: 30rpx;
+  color: #5C6CFF;
+  letter-spacing: 0;
+  font-weight: 400;
+  margin-left: 30rpx;
+margin-top: 6px;
+}
+.txt3{
+  font-family: SourceHanSansSC-Medium;
+  font-size: 32rpx;
+  color: #3E415C;
+  letter-spacing: 0;
+  text-align: center;
+  font-weight: 500;  
+  position: absolute;
+  top: 60rpx;
+  left: 98rpx;
+}
+.txt4{
+  font-family: SourceHanSansSC-Medium;
+  font-size: 32rpx;
+  color: #3E415C;
+  letter-spacing: 0;
+  font-weight: 500;
+  position: absolute;
+  text-align: center;
+  top: 60rpx;
+  left: 61rpx;
+}
+
+.txt5{
+  font-family: SourceHanSansSC-Medium;
+font-size: 32rpx;
+color: #3E415C;
+letter-spacing: 0;
+font-weight: 500;
+position: absolute;
+bottom: 221rpx;
+left: 61rpx;
+}
+.v3{
+  margin-top: 107rpx;
+  margin-left: 10rpx;
+display: flex;
+position: relative;
+justify-content: space-around;
+}
+.img1{
+ width: 335rpx;
+}
+
+.img2{
+  width: 335rpx;
+ }
+ .img3{
+  width: 360rpx;
+ }
+ .v5{
+   /* margin-left: 20rpx; */
+   position: relative;
+
+ }

@@ -1,0 +1,49 @@
+<wxs src="./utils.wxs" module="utils" />
+
+<view>
+    <scroll-view scroll-y="true" style="height:1200rpx;  background: #f4f6f6; padding-bottom: 200rpx;">
+        <view class="propose" style="margin-top: 30px;">
+            <h2>
+            <text style="font-weight: 700;">江苏银行综合信息查询使用授权书\n（适用于自然人）</text>
+            </h2>
+            <view>授权人：</view>
+            <view>客户姓名：{{node_person_name}}</view>
+            <view>身份证号码：{{node_cert_no}}</view>
+            <view class="p" style="margin-top:20rpx">
+                一、因办理信贷业务的需要，本人不可撤销地授权
+                <em class="underline">江苏银行股份有限公司</em>
+                （以下简称“贵行”），<p  style="font-weight: 700;">通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：</p>
+            </view>
+            <view class="p"><p style="font-weight: 700;">（一）公积金信息：</p>本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。</view>
+            <view class="p"><p style="font-weight: 700;">（二）税务信息：</p>本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。</view>
+            <view class="p">
+                <p style="font-weight: 700;">（三）其他信息:</p>
+                本人 <p style="font-weight: 700;">资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息等个人信息；与融资相关的交易信息及经本人授权的其他信息。</p>按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。        </view>
+            <view class="p">二、本授权书用于办理涉及本人的以下信贷业务：</view>
+            <view class="p">1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；</view>
+            <view class="p">2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；</view>
+            <view class="p">3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况。</view>
+            <view class="p"  style="font-weight: 700;">
+                三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。
+            </view>
+            <view class="p" style="font-weight: 700;">
+                四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。
+            </view>
+            <view class="p">五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。</view>
+            <view class="fr">
+                <view class="p">授权人：{{node_person_name}}</view>
+                <view class="p">授权日期：{{nowDateStr}}</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+
+<view class="bottoms">
+    <view class="ckb">
+        <checkbox-group bindchange="handleChange">        
+            <checkbox value="isChecked" checked="{{isCheck}}" />
+        </checkbox-group>
+        <text style="font-size:30rpx;margin-left:5rpx;color:#A6A6A6;">我已阅读所有授权书</text>
+    </view>
+    <button bindtap="submit">提交授权</button>
+</view>

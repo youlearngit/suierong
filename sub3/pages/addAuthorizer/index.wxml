@@ -1,0 +1,52 @@
+<!-- sub3/pages/addAuthorizer/index.wxml -->
+<view class='banner'>
+    <image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/credit/zx_title.png" style="width:100%"></image>
+</view>
+<view style="width:90%;margin:auto">
+    <form bindsubmit="submitForm" report-submit='true'>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">授权人姓名</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入姓名" name="authorizerName" maxlength="6" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">授权人与企业关系</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="pickChange" id="authorizerType" data-type="authorizerType" value="{{index}}" range="{{authorizerType_array}}">
+                    <view class="picker">
+                        <input class="weui-select weui-select_in-select-after" name="authorizerType" value="{{authorizerType_array[authorizerType]}}" disabled="disabled" placeholder="请选择" />
+                    </view>
+                </picker>
+            </view>
+        </view> 
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">授权人类型</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="pickAuthorizerType"  range="{{authorizerTypeList}}"  range-key='name'  >
+                    <view class="picker">
+                        <input class="weui-select weui-select_in-select-after" name="authorizerType" value="{{resvFld5.name}}" disabled="disabled" placeholder="请选择" />
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">证件号码</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入证件号码" name="authorizerCard" type="idcard" maxlength="18" />
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input" style="height:0rpx"></view>
+        <view class="bottom">
+            <button formType="submit">添加</button>
+        </view>
+    </form>
+</view>

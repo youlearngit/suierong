@@ -1,0 +1,1262 @@
+<view class="coverAuth" hidden="{{coverAuth}}"></view>
+<view class="authList">
+    <view class="formtag">
+        <view class="weui-cells__title">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_dksqxx.png"></image>
+            <text>申请信息</text>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">订单号：</view>
+            <view class="weui-cell__bd">{{orderNo}}</view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">企业名称：</view>
+            <view class="weui-cell__bd">{{enterprise_name1}}</view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">申请金额：</view>
+            <view class="weui-cell__bd">{{apply_amount1}}万</view>
+        </view>
+        <view class="weui-cell weui-cell_input" wx:if='{{apply_term}}'>
+            <view class="weui-cell__hd">申请期限：</view>
+            <view class="weui-cell__bd">{{apply_term}}个月</view>
+        </view>
+        <view class="weui-cell weui-cell_input" wx:if='{{vouch_type}}'>
+            <view class="weui-cell__hd">担保方式：</view>
+            <view wx:if="{{vouch_type==20010010}}" class="weui-cell__bd">住宅抵押</view>
+            <view wx:if="{{vouch_type==20010020}}" class="weui-cell__bd">商铺抵押</view>
+            <view wx:if="{{vouch_type==20010050}}" class="weui-cell__bd">厂房抵押</view>
+            <view wx:if="{{vouch_type==10020}}" class="weui-cell__bd">担保公司担保</view>
+            <view wx:if="{{vouch_type==10030}}" class="weui-cell__bd">一般企事业担保</view>
+            <view wx:if="{{vouch_type==5}}" class="weui-cell__bd">信用</view>
+            <view wx:if="{{vouch_type==10060}}" class="weui-cell__bd">其他</view>
+        </view>
+        <view class="weui-cell weui-cell_input" wx:if='{{purpose}}'>
+            <view class="weui-cell__hd">借款用途：</view>
+            <view wx:if="{{purpose==0}}" class="weui-cell__bd">经营周转</view>
+            <view wx:if="{{purpose==1}}" class="weui-cell__bd">购货</view>
+            <view wx:if="{{purpose==2}}" class="weui-cell__bd">其他经营用途</view>
+        </view>
+    </view>
+    <!-- <view class="rules" bindtap='ss'>业务规则</view> -->
+    <!-- 授权人信息 -->
+    <view class="formtag">
+        <view class="weui-cells__title">
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_dksqxx.png"></image>
+            <text>授权信息</text>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">授权人：</view>
+            <view class="weui-cell__bd userName">
+                {{applicantName}}
+                <text wx:if="{{authorType!=''}}">{{authorTypeName}}</text>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">身份证：</view>
+            <view class="weui-cell__bd">{{applicantIdcard2}}</view>
+        </view>
+        <view class="weui-cell weui-cell_input" wx:if='{{autorStatus==0}}'>
+            <view class="weui-cell__bd">
+                <checkbox-group bindchange='checkedList'>
+                    <label class="checkbox">
+                        <checkbox style='transform:scale(0.8)' value="true" name="checklist" checked='{{ form.checklist }}' />
+                        <text class='rule' bindtap='showagree'>我已阅读并同意相关协议</text>
+                    </label>
+                </checkbox-group>
+            </view>
+        </view>
+        <view class="btnview">
+            <button class="btn" type='submit' bindtap='submit1' wx:if='{{autorStatus==0}}'>
+                授权
+            </button>
+            <button class="btn" type='submit' bindtap='back' wx:if='{{autorStatus==1}}'>返回</button>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_wdone}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text class="fontWeight">授权书\n(适用于个人经营贷及对公授信业务相关自然人)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="null"></span>
+                    本人/
+                    <span class="squre"></span>
+                    <em class="underline">{{jieName}}</em>
+                    办理授信业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：
+                </view>
+                <view class="p">
+                    （1）
+                    <span class="null"></span>
+                    贷款审批；
+                </view>
+                <view class="p">
+                    （2）
+                    <span class="{{authorType==0?'null':'squre'}}"></span>
+                    担保资格审查；
+                </view>
+                <view class="p">
+                    （3）
+                    <span class="{{authorType==0?'squre':'null'}}"></span>
+                    法人代表、负责人、高管等资信审查；
+                </view>
+                <view class="p">
+                    （4）
+                    <span class="null"></span>
+                    资信审查；
+                </view>
+                <view class="p">
+                    （5）
+                    <span class="null"></span>
+                    贷后管理；
+                </view>
+                <view class="p">
+                    （6）
+                    <span class="null"></span>
+                    <em class="underline">/</em>
+                    。
+                </view>
+                <view class="p">
+                    <em class="underline fontWeight">
+                        本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。
+                    </em>
+                </view>
+                <view class="p">
+                    本人不可撤销地授权贵行向
+                    <em class="underline">
+                      <block wx:if="{{specialProductCode !== '166'}}">/</block>
+                      <block wx:if="{{specialProductCode == '166'}}">江苏省农业融资担保有限责任公司</block>
+                    </em>
+                    提供贵行从信用信息基础数据库依法取得的本人征信信息，用于授信业务审查审批。
+                </view>
+                <view class="p">
+                    授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权人：{{authorInfo.REAL_NAME}}</view>
+                    <view class="p">身份证件类型：第二代身份证</view>
+                    <view class="p">证件号码：{{authorInfo.ID_CARD}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_wdtwo}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>江苏银行综合信息查询使用授权书\n(适用于自然人)</text>
+                </h2>
+                <view class="p fontWeight">授权人：</view>
+                <view class="p">
+                    客户姓名：
+                    <em class="underline">{{authorInfo.REAL_NAME}}</em>
+                </view>
+                <view class="p">
+                    身份证号码：
+                    <em class="underline">{{authorInfo.ID_CARD}}</em>
+                </view>
+                <view class="p">
+                    一、因办理信贷业务的需要，本人不可撤销地授权
+                    <em class="underline">江苏银行股份有限公司</em>
+                    （以下简称“贵行”），
+                    <text class="fontWeight">通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：</text>
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（一）公积金信息:</text>
+                    本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（二）税务信息:</text>
+                    本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（三）其他信息</text>
+                </view>
+                <view class="p">
+                    本人
+                    <text class="fontWeight">[资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息]</text>
+                    <text class="fontWeight">等个人信息；与融资相关的交易信息及经本人授权的其他信息。</text>
+                    按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。
+                </view>
+                <view class="p">二、本授权书用于办理涉及本人的以下信贷业务：</view>
+                <view class="p">1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；</view>
+                <view class="p">2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；</view>
+                <view class="p">
+                    3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况。
+                </view>
+                <view class="p fontWeight">
+                    三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。
+                </view>
+                <view class="p fontWeight">
+                    四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。</view>
+                <view class="fr">
+                    <view class="p">授权人：{{authorInfo.REAL_NAME}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_wdthird}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text class="fontWeight">授权书\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="null"></span>
+                    本单位/
+                    <span class="squre"></span>
+                    <em class="underline">{{jieName}}</em>
+                    办理授信业务的需要，本单位不可撤销地授权贵行在下列
+                    <em class="underline">（1）（2）（4）</em>
+                    项涉及到本单位时，可以向金融信用信息基础数据库查询、打印、保存本单位信用报告：
+                </view>
+                <view class="p">（1）审核授信申请（包括以本单位作为经营实体申请的个人经营贷业务）；</view>
+                <view class="p">（2）审批用信；</view>
+                <view class="p">（3）审核担保资格；</view>
+                <view class="p">（4）贷后风险管理（包括以本单位作为经营实体办理的个人经营贷业务）；</view>
+                <view class="p">（5）涉及本单位的关联人的授信/担保业务，需要查询本单位信用状况；</view>
+                <view class="p">（6）异议核查；</view>
+                <view class="p">
+                    （7）
+                    <em class="underline">/</em>
+                    。
+                </view>
+                <view class="p">本单位不可撤销地授权贵行将包括本单位的基本信息、授信业务、担保信息等相关信用信息向金融信用信息基础数据库报送。</view>
+                <view class="p" hover-class="none" hover-stop-propagation="false">
+                    本单位不可撤销地授权贵行向
+                    <em class="underline">/</em>
+                    提供贵行从信用信息基础数据库依法取得的本单位征信信息，用于授信业务审查审批。
+                </view>
+                <view class="p">
+                    授权期限：自本单位签署本授权书之日起至上述授信/担保业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，且不以本单位是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本单位知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本单位的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权单位：{{enterprise_name1}}</view>
+                    <view class="p">法定代表人：{{authorInfo.REAL_NAME}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_wdfourth}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>江苏银行综合信息查询授权委托书\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft" style="height:160rpx;">
+                        <text class="fontWeight">授\n权\n单\n位</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p fontWeight">企业名称：{{enterprise_name1}}</view>
+                        <view class="p fontWeight">
+                            组织机构代码：{{fn.substring2(socialCreditCode)}}
+                        </view>
+                    </view>
+                    <wxs module="fn">
+                            module.exports = {
+                             substring2:function(str,start,end){
+                              return str.substring(start,end);
+                            }
+                        }
+                     </wxs>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft" style="height:280rpx;">
+                        <text class="fontWeight">查\n询\n信\n息\n范\n围</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">查询信息范围包括但不限于授权单位有关的各类信息；</view>
+                        <view class="p">查询途径包括但不限于国家行政机关、政府部门、园区主管部门、业务管理机构、社会第三方数据平台、网络媒体等。</view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p">
+                        因本单位办理授信等业务的需要，本单位不可撤销地授权
+                        <em class="underline fontWeight">江苏银行股份有限公司</em>
+                        ，对本单位上述“查询信息范围”中的信息查询、留存及使用。
+                    </view>
+                    <view class="p">授权单位在此声明已知悉并理解本授权委托书，以及因提供非公开信息可能产生的法律后果。</view>
+                    <view class="fr">
+                        <view class="p">授权单位：{{enterprise_name1}}</view>
+                        <view class="p">授权日期：{{day_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_1}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text class="fontWeight">授权书\n(适用于个人经营贷及对公授信业务相关自然人)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="null"></span>
+                    本人/
+                    <span class="squre"></span>
+                    <em class="underline">{{enterprise_name1}}</em>
+                    办理授信业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：
+                </view>
+                <view class="p">
+                    （1）
+                    <span class="null"></span>
+                    贷款审批；
+                </view>
+                <view class="p">
+                    （2）
+                    <span class="squre"></span>
+                    担保资格审查；
+                </view>
+                <view class="p">
+                    （3）
+                    <span class="{{xieyiShow == 'YB'&& loanType =='0'?'null':'squre'}}"></span>
+                    法人代表、负责人、高管等资信审查；
+                </view>
+                <view class="p">
+                    （4）
+                    <span class="null"></span>
+                    资信审查；
+                </view>
+                <view class="p">
+                    （5）
+                    <span class="squre"></span>
+                    贷后管理；
+                </view>
+                <view class="p">
+                    （6）
+                    <span class="null"></span>
+                    <em class="underline">/</em>
+                    。
+                </view>
+                <view class="p">
+                    <em class="underline fontWeight">
+                        本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。
+                    </em>
+                </view>
+                <view class="p">
+                    本人不可撤销地授权贵行向
+                    <em class="underline">
+                      <block wx:if="{{specialProductCode !== '166'}}">/</block>
+                      <block wx:if="{{specialProductCode == '166'}}">江苏省农业融资担保有限责任公司</block>
+                    </em>
+                    提供贵行从信用信息基础数据库依法取得的本人征信信息，用于授信业务审查审批。
+                </view>
+                <view class="p">
+                    授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权人：{{authorInfo.REAL_NAME}}</view>
+                    <view class="p">身份证件类型：第二代身份证</view>
+                    <view class="p">证件号码：{{authorInfo.ID_CARD}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_2}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>江苏银行综合信息查询使用授权书\n(适用于自然人)</text>
+                </h2>
+                <view class="p fontWeight">授权人：</view>
+                <view class="p">
+                    客户姓名：
+                    <em class="underline">{{authorInfo.REAL_NAME}}</em>
+                </view>
+                <view class="p">
+                    身份证号码：
+                    <em class="underline">{{authorInfo.ID_CARD}}</em>
+                </view>
+                <view class="p">
+                    一、因办理信贷业务的需要，本人不可撤销地授权
+                    <em class="underline">江苏银行股份有限公司</em>
+                    （以下简称“贵行”），
+                    <text class="fontWeight">通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：</text>
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（一）公积金信息:</text>
+                    本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（二）税务信息:</text>
+                    本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（三）其他信息</text>
+                </view>
+                <view class="p">
+                    本人
+                    <text class="fontWeight">
+                        [资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息]
+                    </text>
+                    <text class="fontWeight">等个人信息；与融资相关的交易信息及经本人授权的其他信息。</text>
+                    按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。
+                </view>
+                <view class="p">二、本授权书用于办理涉及本人的以下信贷业务：</view>
+                <view class="p">1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；</view>
+                <view class="p">2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；</view>
+                <view class="p">
+                    3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况。
+                </view>
+                <view class="p fontWeight">
+                    三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。
+                </view>
+                <view class="p fontWeight">
+                    四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。</view>
+                <view class="fr">
+                    <view class="p">授权人：{{authorInfo.REAL_NAME}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_3}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>《企业征信查询授权书》\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="squre"></span>
+                    本单位/
+                    <span class="null"></span>
+                    <em class="underline">/</em>
+                    办理授信业务的需要，本单位不可撤销地授权贵行在下列
+                    <em class="underline">（1）（2）（4）</em>
+                    项涉及到本单位时，可以向金融信用信息基础数据库查询、打印、保存本单位信用报告：
+                </view>
+                <view class="p">（1）审核授信申请（包括以本单位作为经营实体申请的个人经营贷业务）；</view>
+                <view class="p">（2）审批用信；</view>
+                <view class="p">（3）审核担保资格；</view>
+                <view class="p">（4）贷后风险管理（包括以本单位作为经营实体办理的个人经营贷业务）；</view>
+                <view class="p">（5）涉及本单位的关联人的授信/担保业务，需要查询本单位信用状况；</view>
+                <view class="p">（6）异议核查；</view>
+                <view class="p">
+                    （7）
+                    <em class="underline">/</em>
+                    。
+                </view>
+                <view class="p">本单位不可撤销地授权贵行将包括本单位的基本信息、授信业务、担保信息等相关信用信息向金融信用信息基础数据库报送。</view>
+                <view class="p">
+                    授权期限：自本单位签署本授权书之日起至上述授信/担保业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，且不以本单位是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本单位知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本单位的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权单位：{{enterprise_name1}}</view>
+                    <view class="p">法定代表人：{{authorInfo.REAL_NAME}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{flag_4}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal">
+            <text class="txtsurename">返回</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>《企业综合信息查询授权委托书》\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft" style="height:160rpx;">
+                        <text>授\n权\n单\n位</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">企业名称：{{enterprise_name1}}</view>
+                        <view class="p">统一社会信用代码：{{socialCreditCode}}</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft" style="height:280rpx;">
+                        <text>查\n询\n信\n息\n范\n围</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">查询信息范围包括但不限于授权单位有关的各类信息；</view>
+                        <view class="p">查询途径包括但不限于国家行政机关、政府部门、业务管理机构、社会第三方数据平台、网络媒体等。</view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p">
+                        因本单位办理授信等业务的需要，本单位不可撤销地授权
+                        <em class="underline">江苏银行股份有限公司</em>
+                        ，对本单位上述“查询信息范围”中的信息查询、留存及使用。
+                    </view>
+                    <view class="p">授权单位在此声明已知悉并理解本授权委托书，以及因提供非公开信息可能产生的法律后果。</view>
+                    <view class="fr">
+                        <view class="p">授权单位：{{enterprise_name1}}</view>
+                        <view class="p">授权日期：{{day_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{document0}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>“随e贷”贷款业务申请书</h2>
+                <view class="table">
+                    <view class="tr bg-gray">
+                        <view class="th">借款人基本信息</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">
+                            <h3>借款人</h3>
+                            <view class="tc">{{enterprise_name1}}</view>
+                        </view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">
+                            <h3>营业执照号码</h3>
+                            <view class="tl">{{socialCreditCode}}</view>
+                        </view>
+                        <view class="td">
+                            <h3>法定代表人姓名</h3>
+                            <view class="tl">{{authorInfo.REAL_NAME}}</view>
+                        </view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">
+                            <h3>共同借款人</h3>
+                            <view class="tc">{{legalInfo.legalName}}</view>
+                        </view>
+                    </view>
+                    <view class="tr">
+                        <view class="td">
+                            <h3>身份证件类型</h3>
+                            <view class="tl">第二代身份证</view>
+                        </view>
+                        <view class="td">
+                            <h3>身份证件号码</h3>
+                            <view class="tl">{{legalInfo.legalCard}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="p">
+                    借款人及共同借款人知悉并同意，向江苏银行股份有限公司（以下简称“江苏银行”）申请办理“随e贷”贷款业务，本着自愿、平等、互利的原则，双方达成以下业务办理协议，并承诺共同遵守：
+                </view>
+                <view class="p">
+                    一、借款人及共同借款人承诺，向江苏银行申请授信所提供的信息和资料的真实性、准确性和完整性，并授权江苏银行，可向有关渠道及人民银行征信系统，就有关情况及信用状况进行查询。
+                </view>
+                <view class="p">
+                    二、借款人及共同借款人在签署本协议之前，已充分了解了江苏银行信贷业务管理要求，保证确有能力履行到期还本付息职责，同意根据江苏银行要求办理业务。
+                </view>
+                <view class="p">
+                    三、借款人同意并不可撤销的授权，协议有效期内，共同借款人通过江苏银行电子渠道（包括但不限于企业网上银行、个人网上银行、个人手机银行等经江苏银行确认的渠道），向江苏银行提交“随e贷”业务申请，并授权江苏银行获取借款人相关信息，用于办理江苏银行信贷业务及贷后监测管理。
+                </view>
+                <view class="p">
+                    四、借款人及共同借款人知悉并同意，“随e贷”业务的申请、签约、用款、还款等操作均通过江苏银行电子渠道（包括但不限于企业网上银行、个人网上银行、个人手机银行等经江苏银行确认的渠道）完成，业务办理过程中涉及的各项文件，以电文形式订立的，与纸质文件具有同等法律效力；
+                    <text class="fontWeight">贷款资金发放至借款人开立在江苏银行的对公账户内。</text>
+                </view>
+                <view class="p">
+                    <text class="fontWeight">五、业务办理过程中，借款人及共同借款人有义务采取风险防范措施，安全使用江苏银行电子渠道</text>
+                    （包括但不限于企业网上银行、个人网上银行、个人手机银行等经江苏银行确认的渠道），因非江苏银行原因泄露电子渠道账户用户名及密码所产生的一切后果均由借款人及共同借款人自行承担，江苏银行不承担责任。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">六、协议期限：</text>
+                    自借款人、共同借款人双方签署本协议之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中贷款额度不以本人是否有借款余额作为前提条件。在协议有效期内，借款人及共同借款人根据本协议内容进行的操作均为双方真实意愿的表达，对双方均具有约束力。
+                </view>
+                <view class="fr">
+                    <view class="p">借款人：{{enterprise_name1}}</view>
+                    <view class="p">共同借款人：{{applicantName}}</view>
+                    <view class="p">法定代表人：{{legalInfo.legalName}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{document1}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text class="fontWeight">授权书\n(适用于个人经营贷及对公授信业务相关自然人)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="{{doc_self?'squre':'null'}}"></span>
+                    本人/
+                    <span class="{{doc_self?'null':'squre'}}"></span>
+                    <em class="underline">
+                        {{doc_self?'/':doc_borrower?jieName:enterprise_name1}}
+                    </em>
+                    办理授信业务的需要，本人不可撤销地授权贵行可以下述原因向金融信用信息基础数据库查询、使用本人信用报告：
+                </view>
+                <block>
+                    <view class="p">
+                        （1）
+                        <span class="{{doc_checkbox1?'squre':'null'}}"></span>
+                        贷款审批；
+                    </view>
+                    <view class="p">
+                        （2）
+                        <span class="{{doc_checkbox2?'squre':'null'}}"></span>
+                        担保资格审查；
+                    </view>
+                    <view class="p">
+                        （3）
+                        <span class="{{doc_checkbox3?'squre':'null'}}"></span>
+                        法人代表、负责人、高管等资信审查；
+                    </view>
+                    <view class="p">
+                        （4）
+                        <span class="null"></span>
+                        资信审查；
+                    </view>
+                    <view class="p">
+                        （5）
+                        <span class="{{doc_checkbox5?'squre':'null'}}"></span>
+                        贷后管理；
+                    </view>
+                    <view class="p">
+                        （6）
+                        <span class="null"></span>
+                        <em class="underline">/</em>
+                        。
+                    </view>
+                </block>
+                <view class="p">
+                    <em class="underline fontWeight">
+                        本人不可撤销地授权贵行将包括本人的基本信息、授信业务、担保信息（包含逾期、核销等负面信息）等相关信用信息向金融信用信息基础数据库报送。
+                    </em>
+                </view>
+                <view class="p">
+                    本人不可撤销地授权贵行向
+                    <em class="underline">
+                      <block wx:if="{{specialProductCode !== '166'}}">/</block>
+                      <block wx:if="{{specialProductCode == '166'}}">江苏省农业融资担保有限责任公司</block>
+                    </em>
+                    提供贵行从信用信息基础数据库依法取得的本人征信信息，用于授信业务审查审批。
+                </view>
+                <view class="p">
+                    授权期限：自本人签署本授权书之日起至上述业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，其中循环额度不以本人是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本人知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本人的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权人：{{authorInfo.REAL_NAME}}</view>
+                    <view class="p">身份证件类型：第二代身份证</view>
+                    <view class="p">证件号码：{{authorInfo.ID_CARD}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{document2}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>江苏银行综合信息查询使用授权书\n(适用于自然人)</text>
+                </h2>
+                <view class="p fontWeight">授权人：</view>
+                <view class="p">
+                    客户姓名：
+                    <em class="underline">{{authorInfo.REAL_NAME}}</em>
+                </view>
+                <view class="p">
+                    身份证号码：
+                    <em class="underline">{{authorInfo.ID_CARD}}</em>
+                </view>
+                <view class="p">
+                    一、因办理信贷业务的需要，本人不可撤销地授权
+                    <em class="underline">江苏银行股份有限公司</em>
+                    （以下简称“贵行”），
+                    <text class="fontWeight">通过金融信用信息基础数据库，全国高等教育学生信息数据库，司法机关，公安机关，公积金管理中心、税务部门、社保部门、民政部门、园区主管部门及其他政府行政管理部门，物流、通信运营商、网络媒体及其他经授权的第三方合法渠道查询、核实、获取、使用、保存包括但不限于下列信息：</text>
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（一）公积金信息:</text>
+                    本人公积金基本信息、缴存单位信息、住房公积金缴存记录、公积金提取情况、公积金贷款情况等。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（二）税务信息:</text>
+                    本人个人所得税纳税信息，并同意将授权人的姓名、证件号码、手机号码、单位名称、单位电话、通讯地址等相关信息向税务部门报送。
+                </view>
+                <view class="p">
+                    <text class="fontWeight">（三）其他信息</text>
+                </view>
+                <view class="p">
+                    本人
+                    <text class="fontWeight">[资信状况、工作信息、婚姻信息、关系人信息、财产信息、收入信息、通信信息、涉诉信息、行为信息、消费信息、学籍学历信息]</text>
+                    <text class="fontWeight">等个人信息；与融资相关的交易信息及经本人授权的其他信息。</text>
+                    按照全国高等学校学生信息咨询与就业指导中心要求，学籍、学历信息查询记录将会体现在本人个人学信档案记录中。
+                </view>
+                <view class="p">二、本授权书用于办理涉及本人的以下信贷业务：</view>
+                <view class="p">1.审核本人信贷业务申请或进行贷后管理，需要查询本人信用状况；</view>
+                <view class="p">2.审核自然人的信贷业务申请或进行贷后管理，审核本人作为担保人或关联人等，需要查询本人信用状况；</view>
+                <view class="p">
+                    3.审核法人或其他组织的信贷业务申请或进行贷后管理，审核本人作为其法定代表人、出资人、担保人或关联人等，需要查询本人信用状况。
+                </view>
+                <view class="p fontWeight">
+                    三、本人确认并同意，贵行可以根据司法机关、行政机关、金融行业工会联合会、第三方征信机构或其他监管机构要求，在符合法律法规的前提下，将上述信息资料用于贵行自行或委托的合法第三方进行案件调查、债务追索等用途。
+                </view>
+                <view class="p fontWeight">
+                    四、本人确认，本人已经完全知悉并充分理解本授权书条款的内容及相应的法律后果，已经充分知晓并理解该等信息被提供和使用的风险，愿意接受本授权书条款的约定。本人同意，无论信贷业务是否获批，本人的基础资料、授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">五、本授权书自授权人签字或电子签名或在相关页面勾选本授权书起生效。</view>
+                <view class="fr">
+                    <view class="p">授权人：{{authorInfo.REAL_NAME}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{document3}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text class="fontWeight">授权书\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view>江苏银行：</view>
+                <view class="p">
+                    因
+                    <span class="{{doc_borrower?'null':'squre'}}"></span>
+                    本单位/
+                    <span class="{{doc_borrower?'squre':'null'}}"></span>
+                    <em class="underline">{{doc_borrower?jieName:'/'}}</em>
+                    办理授信业务的需要，本单位不可撤销地授权贵行在下列
+                    <em class="underline">（1）（2）（4）</em>
+                    项涉及到本单位时，可以向金融信用信息基础数据库查询、打印、保存本单位信用报告：
+                </view>
+                <view class="p">（1）审核授信申请（包括以本单位作为经营实体申请的个人经营贷业务）；</view>
+                <view class="p">（2）审批用信；</view>
+                <view class="p">（3）审核担保资格；</view>
+                <view class="p">（4）贷后风险管理（包括以本单位作为经营实体办理的个人经营贷业务）；</view>
+                <view class="p">（5）涉及本单位的关联人的授信/担保业务，需要查询本单位信用状况；</view>
+                <view class="p">（6）异议核查；</view>
+                <view class="p">
+                    （7）
+                    <em class="underline">/</em>
+                    。
+                </view>
+                <view class="p">本单位不可撤销地授权贵行将包括本单位的基本信息、授信业务、担保信息等相关信用信息向金融信用信息基础数据库报送。</view>
+                <view class="p">
+                    本单位不可撤销地授权贵行向
+                    <em class="underline">
+                      <block wx:if="{{specialProductCode !== '166'}}">/</block>
+                      <block wx:if="{{specialProductCode == '166'}}">江苏省农业融资担保有限责任公司</block>
+                    </em>
+                    提供贵行从信用信息基础数据库依法取得的本单位征信信息，用于授信业务审查审批。
+                </view>
+                <view class="p">
+                    授权期限：自本单位签署本授权书之日起至上述授信/担保业务结清/办结之日，包含授信额度有效期以及授信额度有效期内支用的每笔借款结清前的任意时点，且不以本单位是否有借款余额作为前提条件。
+                </view>
+                <view class="p">责任约定：被授权人超出授权查询的一切后果及法律责任由被授权人承担。</view>
+                <view class="p">
+                    本单位知悉并理解本授权书中所有条款的声明，愿意承担授权贵行查询信用信息的法律后果，无论授信业务是否获批准，本单位的授权书、信用报告等资料一律不退回。
+                </view>
+                <view class="p">特此授权。</view>
+                <view class="fr">
+                    <view class="p">授权单位：{{enterprise_name1}}</view>
+                    <view class="p">法定代表人：{{authorInfo.REAL_NAME}}</view>
+                    <view class="p">授权日期：{{day_time}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{document4}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>江苏银行综合信息查询授权委托书\n(适用于法人及其他经济组织)</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft" style="height:160rpx;">
+                        <text class="fontWeight">授\n权\n单\n位</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p fontWeight">企业名称：{{enterprise_name1}}</view>
+                        <view class="p fontWeight">组织机构代码：{{fn.substring2(socialCreditCode)}}</view>
+                    </view>
+                    <wxs module="fn">
+                            module.exports = {
+                             substring2:function(str){
+                                 if(str){
+                                      return str.substring(8,16)+"-"+str.substring(16,17)
+                                 }else{
+                                     return "";
+                                 }
+                            }
+                        }
+                     </wxs>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft" style="height:280rpx;">
+                        <text class="fontWeight">查\n询\n信\n息\n范\n围</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">查询信息范围包括但不限于授权单位有关的各类信息；</view>
+                        <view class="p">查询途径包括但不限于国家行政机关、政府部门、园区主管部门、业务管理机构、社会第三方数据平台、网络媒体等。</view>
+                    </view>
+                </view>
+                <view class="tableFoot" wx:if="{{enterpriseInfo.province == '11'}}">
+                    <view class="p">
+                        因本单位办理授信等业务的需要，本单位不可撤销地授权
+                        <em class="underline fontWeight">江苏银行股份有限公司及创信融项目运行机构</em>
+                        ，对本单位上述“查询信息范围”中的信息采集、查询、留存及使用。
+                    </view>
+                    <view class="p">
+                        本单位不可撤销地授权
+                        <em class="underline fontWeight">江苏银行股份有限公司</em>
+                        可依法向中国人民银行营业管理部提供、报送、上传因金融服务产生的本企业身份识别、法定代表人、行业等基本信息，及本次贷款金额、期限等要素及其他相关信息。
+                    </view>
+                    <view class="p">授权单位在此声明已知悉并理解本授权委托书，以及因提供非公开信息可能产生的法律后果。</view>
+                    <view class="fr">
+                        <view class="p">授权单位：{{enterpriseInfo.ORG_NAME}}</view>
+                        <view class="p">授权日期：{{day_time}}</view>
+                    </view>
+                </view>
+                <view class="tableFoot" wx:else>
+                    <view class="p">
+                        因本单位办理授信等业务的需要，本单位不可撤销地授权
+                        <em class="underline fontWeight">江苏银行股份有限公司</em>
+                        ，对本单位上述“查询信息范围”中的信息查询、留存及使用。
+                    </view>
+                    <view class="p">授权单位在此声明已知悉并理解本授权委托书，以及因提供非公开信息可能产生的法律后果。</view>
+                    <view class="fr">
+                        <view class="p">授权单位：{{enterprise_name1}}</view>
+                        <view class="p">授权日期：{{day_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{document5}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>企业信用报告查询授权书</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft">
+                        <text class="fontWeight">授权企业名称</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_NAME}}</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">统一社会信用代码</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_CODE}}</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">被授权单位名称</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">江苏银行股份有限公司常州分行</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">授权事由</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">请从以下选项中选填授权事由：</view>
+                        <view class="p">
+                            <span class="squre"></span>
+                            审核企业贷款申请；
+                            <span class="squre"></span>
+                            审核企业作为担保人；
+                            <span class="squre"></span>
+                            涉及企业的关联人的贷款；
+                            <span class="squre"></span>
+                            贷后管理；5、______（如为其他业务，请填写明细）。
+                        </view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">授权期限</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">
+                            被授权单位可以自本查询授权书签订之日起查询本授权企业信用报告，截止至
+                            <em class="underline">{{expirationTime}}</em>
+                            。
+                        </view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p">授权条款：</view>
+                    <view class="p ">1、授权企业在此授权被授权单位可以向常州企业征信服务有限公司（下称“常州征信”）查询本授权企业的信用情况。</view>
+                    <view class="p ">2、企业信用报告包含下列信息：</view>
+                    <view class="p ">企业的基本信息：包括但不限于工商登记信息、高管履职相关信息、社保及公积金缴纳信息、涉诉信息等；</view>
+                    <view class="p ">企业的经营信息：包括但不限于财务和纳税信息、海关进出口信息、环评信息、不动产登记信息、电信运营商信息等；</view>
+                    <view class="p ">企业的金融信息：包括但不限于企业的金融信用信息、授信信息、贷款质量分类等级等；</view>
+                    <view class="p ">企业主动向相关部门提供的和相关部门在行政管理过程中产生的信息；</view>
+                    <view class="p ">国家法律、行政法规、部门规章、地方性法规未禁止征信机构采集的与授权企业有关的其他信息。</view>
+                    <view class="p fontWeight">3、授权企业在此声明已知悉并理解本授权书，以及因提供正面及负面信息有可能导致的一切后果。</view>
+                    <view class="fr">
+                        <view class="p">法定代表人签字或签章：{{farenName}}</view>
+                        <view class="p">授权书签订日期：{{day_time}}</view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p fontWeight">注：本表格避免采用手动填写，请直接电子打印。</view>
+                </view>
+            </view>
+            <view class="propose">
+                <h2>
+                    <text>企业信息采集授权书</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft">
+                        <text class="fontWeight">授权企业名称</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_NAME}}</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">统一社会信用代码</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_CODE}}</view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p">授权条款：</view>
+                    <view class="p ">
+                        一、授权企业在此授权给常州企业征信服务有限公司（下称“常州征信”）从国家机关（包括但不限于工商局、质监局、人力资源和社会保障局、公积金管理中心、不动产登记中心、国家税务局、地方税务局、法院、人民银行、发改委、经信委、科技局、财政局、国土局、商务局、食监局、环保局、法制办、海关等）、事业单位、金融机构、行业协会、社会团体、互联网信息平台、电信运营商（包括但不限于中国移动、中国联通、中国电信）、新闻媒体等渠道收集授权企业的下列信息：
+                    </view>
+                    <view class="p ">
+                        1、企业的基本信息、企业的经营信息、企业的金融信息及企业主动向相关部门提供的和相关部门在行政管理过程中产生的信息；
+                    </view>
+                    <view class="p ">2、国家法律、行政法规、部门规章、地方性法规未禁止征信机构采集的与授权企业有关的其他信息。</view>
+                    <view class="p ">二、在本企业存续期间内，自该信息采集授权书签订之日起，授权常州征信采集本企业上述信息。</view>
+                    <view class="p ">三、承诺及声明：</view>
+                    <view class="p fontWeight">
+                        1、授权企业在此授权上述有关单位和部门向常州征信提供本企业的上述一切信息，包括企业的历史及更新信息、正面及负面信息；
+                    </view>
+                    <view class="p fontWeight">
+                        2、授权企业在此承诺国家机关、事业单位等部门和单位因行政管理、公共服务的需要，亦可直接查询企业的上述信息。
+                    </view>
+                    <view class="p fontWeight">3、授权企业在此声明已知悉并理解本授权委托书，并保留随时书面要求常州征信终止信息采集的权利。</view>
+                    <view class="fr">
+                        <view class="p">法定代表人签字或签章：{{farenName}}</view>
+                        <view class="p">授权书签订日期：{{day_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{document6}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>企业信息采集授权书</text>
+                </h2>
+                <view class="tableHead">
+                    <view class="thLeft">
+                        <text class="fontWeight">授权企业名称</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_NAME}}</view>
+                    </view>
+                </view>
+                <view class="tableBody">
+                    <view class="thLeft">
+                        <text class="fontWeight">统一社会信用代码</text>
+                    </view>
+                    <view class="thRight">
+                        <view class="p">{{enterpriseInfo.ORG_CODE}}</view>
+                    </view>
+                </view>
+                <view class="tableFoot">
+                    <view class="p">授权条款：</view>
+                    <view class="p ">
+                        一、授权企业在此授权给常州企业征信服务有限公司（下称“常州征信”）从国家机关（包括但不限于工商局、质监局、人力资源和社会保障局、公积金管理中心、不动产登记中心、国家税务局、地方税务局、法院、人民银行、发改委、经信委、科技局、财政局、国土局、商务局、食监局、环保局、法制办、海关等）、事业单位、金融机构、行业协会、社会团体、互联网信息平台、电信运营商（包括但不限于中国移动、中国联通、中国电信）、新闻媒体等渠道收集授权企业的下列信息：
+                    </view>
+                    <view class="p ">
+                        1、企业的基本信息、企业的经营信息、企业的金融信息及企业主动向相关部门提供的和相关部门在行政管理过程中产生的信息；
+                    </view>
+                    <view class="p ">2、国家法律、行政法规、部门规章、地方性法规未禁止征信机构采集的与授权企业有关的其他信息。</view>
+                    <view class="p ">二、在本企业存续期间内，自该信息采集授权书签订之日起，授权常州征信采集本企业上述信息。</view>
+                    <view class="p ">三、承诺及声明：</view>
+                    <view class="p fontWeight">
+                        1、授权企业在此授权上述有关单位和部门向常州征信提供本企业的上述一切信息，包括企业的历史及更新信息、正面及负面信息；
+                    </view>
+                    <view class="p fontWeight">
+                        2、授权企业在此承诺国家机关、事业单位等部门和单位因行政管理、公共服务的需要，亦可直接查询企业的上述信息。
+                    </view>
+                    <view class="p fontWeight">3、授权企业在此声明已知悉并理解本授权委托书，并保留随时书面要求常州征信终止信息采集的权利。</view>
+                    <view class="fr">
+                        <view class="p">法定代表人签字或签章：{{farenName}}</view>
+                        <view class="p">授权书签订日期：{{day_time}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="zhezao" hidden="{{document7}}">
+    <view class="t_w">
+        <view class="txtsurebg" bindtap="conceal" style="{{backBtnName===0?'':'background:#999'}}">
+            <text class="txtsurename">{{backBtnName===0?'返回':backBtnName+'s'}}</text>
+        </view>
+        <view class="scrollBox">
+            <view class="propose">
+                <h2>
+                    <text>企业征信信息采集和查询授权书</text>
+                </h2>
+                <view class="table" style="margin-bottom:0">
+                    <view class="tr2">
+                        <view class="td2 " style="border-left: 1rpx solid black ; border-top: 1rpx solid black ;">
+                            <view class="shu">授权企业信息</view>
+                        </view>
+                        <view class="td2">
+                            <view class="tableHead">
+                                <view class="thLeft">
+                                    <text class="fontWeight">证件代码（勾选类型）</text>
+                                </view>
+                                <view class="thLeft">
+                                    <span class="squre"></span>
+                                    统一社会信用代码
+                                    <span class="null"></span>
+                                    组织机构代码
+                                    <span class="null"></span>
+                                    （个体工商户）注册号
+                                </view>
+                                <view class="thRight">
+                                    <view class="p">{{enterpriseInfo.ORG_CODE}}</view>
+                                </view>
+                            </view>
+                            <view class="tableBody">
+                                <view class="thLeft">
+                                    <text class="fontWeight">企业名称（填写全称）</text>
+                                </view>
+                                <view class="thRight">
+                                    <view class="p">{{enterpriseInfo.ORG_NAME}}</view>
+                                </view>
+                            </view>
+                            <view class="tableBody">
+                                <view class="thLeft">
+                                    <text class="fontWeight">基本户开户行</text>
+                                </view>
+                                <view class="thRight">
+                                    <view class="p">{{depositBankName}}</view>
+                                </view>
+                            </view>
+                            <view class="tableBody">
+                                <view class="thLeft">
+                                    <text class="fontWeight">法定代表人姓名</text>
+                                </view>
+                                <view class="thRight">
+                                    <view style="padding:0 10px">{{authorInfo.REAL_NAME}}</view>
+                                </view>
+                                <view class="thLeft" style="border-left: #333 1rpx solid;">
+                                    <text class="fontWeight">法定代表人手机号码</text>
+                                </view>
+                                <view class="thRight">
+                                    <view style="padding:0 10px">{{authorInfo.TEL}}</view>
+                                </view>
+                            </view>
+                            <view class="tableBody">
+                                <view class="thLeft">
+                                    <text class="fontWeight">授权签订日期</text>
+                                </view>
+                                <view class="thRight">
+                                    <view class="p">{{day_time}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="tr2">
+                        <view class="td2" style="border-left: 1rpx solid black ; border-top: 1rpx solid black ;">
+                            <view class="shu">采集和查询信息范围、方式及授权内容</view>
+                        </view>
+                        <view class="td2">
+                            <view class="tableFoot">
+                                <view class="p">
+                                    一、授权企业在此授权苏州综合金融服务平台、苏州股权融资服务平台、苏州地方企业征信平台、苏州企业征信服务有限公司（下称“采集方”）采集本企业如下信息：（一）企业基本信息、经营信息、财务信息、税务信息、金融信息、水电气信息、各类负面信息等企业向相关部门和单位提供的及相关部门和单位在履职、提供服务中产生的信息；（二）企业的董事、监事、高级管理人员与其履行职务相关的信息；（三）国家法律、行政法规、部门规章、地方性法规未禁止采集的与授权企业有关的其他信息。
+                                </view>
+                                <view class="p">
+                                    二、授权企业在此授权采集方可以从国家机关、政府部门、事业单位、金融机构等相关部门和单位采集上述信息（包括所有历史信息及更新信息），也可从行业协会、社会团体、互联网信息平台渠道、第三方机构等取得上述信息。授权企业在此授权上述有关部门和单位向采集方提供本企业上述信息。
+                                </view>
+                                <view class="p">
+                                    三、授权企业在此承诺国家机关、政府部门、事业单位等部门和单位因行政管理、公共服务的需要，可以直接查询企业的上述信息，采集方可向上述部门和单位提供上述信息。
+                                </view>
+                                <view class="p ">
+                                    四、
+                                    <text class="fontWeight">授权企业在此授权</text>
+                                    <em class="underline fontWeight">江苏银行苏州分行、苏州市中小微企业融资担保有限公司</em>
+                                    <text class="fontWeight">向苏州地方企业征信平台查询使用本企业上述信息，并授权苏州地方企业征信平台将该等信息提供给查询机构。</text>
+                                </view>
+                                <view class="p fontWeight">
+                                    <text>查询期限自本授权签订日期起至</text>
+                                    <em class="underline fontWeight">{{expirationTime2.year}}</em>
+                                    年
+                                    <em class="underline fontWeight">{{expirationTime2.mounth}}</em>
+                                    月
+                                    <em class="underline fontWeight">{{expirationTime2.day}}</em>
+                                    日止。
+                                </view>
+                                <view class="p">
+                                    五、授权企业同意苏州综合金融服务平台、苏州股权融资服务平台的成员单位可以向苏州地方企业征信平台查询使用本企业上述信息。
+                                </view>
+                                <view class="p ">
+                                    六、本授权自授权签订之日起生效，信息采集期限为长期。授权企业如未填写授权签订日期，则以授权企业提交授权书之日为授权生效日。
+                                </view>
+                                <view class="p ">七、如需终止本授权，授权企业需提供相关资料，满足终止授权条件的可以终止。</view>
+                                <view class="p ">
+                                    八、授权企业在此声明已知悉并理解本授权委托书，以及因采集和提供非公开信息及负面信息可能导致的任何不利后果。
+                                </view>
+                                <view class="fr">
+                                    <view class="p">授权企业：{{enterpriseInfo.ORG_NAME}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="tr2">
+                        <view class="td2" style="border-left: 1rpx solid black ; border-top: 1rpx solid black ;border-bottom: 1rpx solid black ;">
+                            <view class="shu">水电气信息</view>
+                        </view>
+                        <view class="td2">
+                            <view class="tableFoot">
+                                <view class="p">授权企业在经营活动中实际使用的水电气信息：</view>
+                                <view class="p ">
+                                    <span class="null"></span>
+                                    水  收费单位：
+                                    <em class="underline"></em>
+                                    ， 户号：
+                                    <em class="underline"></em>
+                                </view>
+                                <view class="p ">
+                                    <span class="null"></span>
+                                    电  收费单位：
+                                    <em class="underline">国家电网江苏苏州供电公司</em>
+                                    ， 户号：
+                                    <em class="underline"></em>
+                                </view>
+                                <view class="p ">
+                                    <span class="null"></span>
+                                    气  收费单位：
+                                    <em class="underline"></em>
+                                    ， 户号：
+                                    <em class="underline"></em>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

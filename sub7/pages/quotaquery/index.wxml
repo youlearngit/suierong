@@ -1,0 +1,81 @@
+<!--sub1/pages/quotaquery/index.wxml-->
+<!-- <image src="{{cndUrl}}/static/wechat/img/sui/billpool_bg.png" mode="widthFix" class="titleLogo"></image>
+<view class="qty_body">
+<view class="title">额度查询</view>
+<view class="bottom_line"><image src="{{cndUrl}}/static/wechat/img/sui/decorate_line.png" class="line" mode="widthFix"></image></view>
+
+</view> -->
+<i-billpool></i-billpool>
+<view class="card">
+<view class="qt_card">
+  <image src="{{cndUrl}}/static/wechat/img/sui/billcard_bg2x.png" class="card_bg"></image>
+<view class="cbody">
+<view class="item" wx:if="{{ status == 1}}" >
+<!-- 客户名称 -->
+<view class="perfect_box">
+    <view class="perfect_countbox">
+        <text class="perfect_text">1</text>
+        <view class="perfect_title">客户名称</view>
+    </view>
+    <view class="perfect_input">
+        <input bindinput="onReadskhmc" placeholder-class="textinput" value="{{name}}" type="text" placeholder="请输入" />
+    </view>
+    </view>
+    <!-- 银行名称 -->
+    <view class="perfect_box">
+    <view class="perfect_countbox">
+        <text class="perfect_text">2</text>
+        <view class="perfect_title">银行名称<text class="jianjie">丨无需录入分支机构，录入银行名称即可</text></view>
+    </view>
+    <view class="perfect_input">
+        <input bindinput="onReadsyhmc" placeholder-class="textinput" value="{{bank}}" type="text" placeholder="请输入" />
+    </view>
+    </view>
+    <!-- 银行行号 -->
+    <view class="perfect_box">
+    <view class="perfect_countbox">
+        <text class="perfect_text">3</text>
+        <view class="perfect_title">银行行号</view>
+    </view>
+    <view class="perfect_input">
+        <input bindinput="onReadsyhhh" placeholder-class="textinput" value="{{account}}"  disabled="true" type="number" placeholder="点击查询获取行号及额度" />
+    </view>
+    </view>
+</view>
+
+<view class="item" wx:if="{{ status == 2}}">
+<view class="balance_title">
+<view class="btitle">
+  <view class="titlelogo">
+  <image src="{{cndUrl}}/static/wechat/img/sui/quota_icon.png" class="balance_bg"></image>
+  </view>
+  <view class="titles">当前剩余额度(元)</view>
+</view>
+</view>
+<view class="balance_nums">{{creditBalance}}</view>
+<view class="balance_det">
+<view class="details">
+  <view class="bank_title">银行名称</view>
+  <view class="bank_name">{{bankName}}</view>
+</view>
+</view>
+</view>
+
+<view class="item_t2" wx:if="{{ status == 3}}">
+<view class="bank_tubiao">
+  <image src="{{cndUrl}}/static/wechat/img/sui/bank_logo.png" class="bank_icon"></image>
+</view>
+<view class="hello">Hello</view>
+<view class="bak_line">
+  <image src="{{cndUrl}}/static/wechat/img/sui/matrix_icon.png" class="line_icon"></image>
+</view>
+<view class="bank_back">江苏银行承兑票据均可入池</view>
+</view>
+
+</view>
+</view>
+</view>
+<view class="btn">
+  <view class="btn_search" bindtap="search"  wx:if="{{ status == 1}}" >查询</view>
+  <view class="btn_search" bindtap="back"  wx:if="{{ status == 3}}" >我知道了</view>
+</view>

@@ -1,0 +1,31 @@
+
+
+<block  wx:if="{{status==1}}">
+<view class="container" >
+  <icon type="success" size="80"></icon>
+  <text class="tips" style="margin-top: 15rpx;  ">预约成功，您的预约号{{yyh}}</text>
+  <text class="tips" style="margin-top: 15rpx; font-size: 24rpx; ">如有特殊情况我行将电话与您联系，请以电话通知为准。</text>
+  <text class="tips"  style="margin-top: 15rpx;font-size: 24rpx;">请您携带银行卡、身份证等有效证件于{{time}}至预约网点办理取现业务。</text>
+
+  
+</view>
+<button style="margin-top: 30rpx;width: 80%;" bindtap="back">完成</button>
+</block>
+<block wx:else>
+<view class="container">
+  <icon type="warn" size="80"></icon>
+  <text class="tips"  style="margin-top: 15rpx;">预约失败</text>
+  <text class="tips" style="width:75%;text-align:center;margin-top: 15rpx;">很抱歉，您暂时不符合我行预约条件，如有疑问，请通过电话联系预约网点。</text>
+
+</view>
+<button style="margin-top: 30rpx;width: 80%;" bindtap="back">完成</button>
+</block>
+
+<view style="padding:0 15px;font-size:24rpx;color:grey;margin-top:50rpx;">
+  <view>温馨提示：</view>
+  <view style="margin-top: 10rpx;">1、如您取款计划有变，请在取款前一个工作日15:00前取消预约；</view>
+  <view style="margin-top: 8rpx;"> 2.如您已预约未办理取款，且未按程序取消预约，这将影响您以后办理预约取现业务。</view>
+
+  
+  
+  </view>

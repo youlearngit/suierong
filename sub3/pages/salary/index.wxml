@@ -1,0 +1,46 @@
+<image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/bg_salary.png" mode="widthFix" style="width:100%;"></image>
+<view class="salary-list" style="position: absolute; left: 0rpx; top: 272rpx">
+    <picker mode="date" fields='year' bindchange="chooseYear">
+        <view class="calendar-box" hover-class="none" hover-stop-propagation="false">
+            {{currentYear}} 年
+            <view class="arrow"></view>
+        </view>
+    </picker>
+    <!-- <view class="salary-month" wx:for="{{salaryList}}" wx:key="{{index}}">
+        <view class="s-title">{{item.mounth}}月</view>
+        <view class="s-detail" bind:tap="getSalaryDetail" data-url = "{{item.pAYSLIP_LINK}}">
+            <view class="s-detail-item" hover-class="none" hover-stop-propagation="false">
+                <view class="s-detail-title">实发薪资</view>
+                <view class="s-detail-number" >{{item.wAGES}}</view>
+            </view>
+        </view>
+    </view> -->
+    <view class="salary-month" wx:for="{{salaryList}}" wx:key="{{index}}">
+        <view class="s-title">{{item.mounth}}月</view>
+        <view class="s-detail" bind:tap="getSalaryDetail" data-url = "{{item.pAYSLIP_LINK}}">
+            <view class="s-detail-item" hover-class="none" hover-stop-propagation="false">
+                <view class="s-detail-left">
+                    
+                    <view class="s-detail-middle">
+                        <view class="s-detail-icon">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui_salary_company.png" mode="widthFix" style="width:30rpx;height: 30rpx;"></image>
+                        </view>
+                        <view class="s-detail-company">{{item.rSPTB2}}</view>
+                        <!-- <view class="s-detail-company">爱的发而发安慰法违法安抚awful埃尔文发噶feature</view> -->
+                    </view>
+                    <view class="s-detail-title2">实发薪资</view>
+                </view>
+                
+                <view class="s-detail-number" >{{item.wAGES}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<van-dialog id="van-dialog" confirm-button-color='#568CEB' show-cancel-button="false" bind:getphonenumber="getphonenumber" />
+<van-dialog use-slot title="提示" show="{{ showPhoneButton }}" confirm-button-color='#568CEB' bind:close="onClose" confirm-button-open-type="getPhoneNumber" bind:getphonenumber="getphonenumber">
+    <view style="overflow-y: auto;text-align: center;-webkit-overflow-scrolling: touch;font-size: var(--dialog-message-font-size,14px);line-height: var(--dialog-message-line-height,20px);max-height: var(--dialog-message-max-height,60vh);padding: var(--dialog-message-padding,24px);padding-top: var(--dialog-has-title-message-padding-top,8px);color: var(--dialog-has-title-message-text-color,#646566);" hover-class="none" hover-stop-propagation="false">
+        查询需要您的手机号
+    </view>
+    <!-- <view class="" style="padding:30rpx;text-align:center">查询需要您的手机号</view> -->
+</van-dialog>
+<van-toast id="van-toast" />

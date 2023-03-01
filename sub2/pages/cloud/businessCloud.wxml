@@ -1,0 +1,109 @@
+<!-- <view class="container">
+    <view class="Top">
+        <image mode="widthFix" wx:if="{{preffixUrl}}" style="width:100%" src="{{preffixUrl}}/static/wechat/img/zmy_kjwfw.png"></image>
+    </view>
+    <view class="middle" style="width:100%">
+        <view class="selectBox">
+            <view class="box1" bindtap="navTo">
+                <image mode="widthFix" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/cloud_ydt.png"></image>
+                <view class="text1">跨境e点通</view>
+            </view>
+            <view class="box1" bindtap="cc">
+                <image style="width:90rpx;margin-top:33rpx;margin-bottom:6rpx;" wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/img/cloud_kd.png"></image>
+                <view class="text1">跨境e快递</view>
+            </view>
+            <view class="box1" bindtap="cc">
+                <image style="width:61rpx;margin-top:25rpx;margin-bottom:0rpx;" wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/img/cloud_search.png"></image>
+                <view class="text1">跨境e查询</view>
+            </view>
+        </view>
+    </view>
+</view> -->
+
+<view class="bg2">
+	<view class="container1">
+
+		<!-- <view class="bg">
+            <image  mode="widthFix" style="width:100%;" src="/static/img/kj_bg.jpg"></image>
+        </view> -->
+		<view class="bg">
+			<!-- <image wx:if="{{preffixUrl}}" style="width:100%;vertical-align:bottom;height:100vh;" src="{{preffixUrl}}/static/wechat/img/kj_bg.jpg" /> -->
+						<image wx:if="{{preffixUrl}}" style="width:100%;vertical-align:bottom;height:100vh;" src="{{preffixUrl1}}/static/wechat/img/zm/zm_54.png" />
+
+		</view>
+
+		<view class="middle" style="width:100%">
+			<view class="selectBox">
+				<view class="sle">
+				<!-- <view class="box1" bindtap="navTo" > -->
+					<image wx:if="{{preffixUrl1}}" mode="widthFix"  bindtap="navTo" src="{{preffixUrl1}}/static/wechat/img/zm/zm_54_01.png" />
+				<!-- </view> -->
+				<!-- <view class="box1" bindtap="toExpress"> -->
+					<image wx:if="{{preffixUrl1}}" mode="widthFix" bindtap="toExpress" src="{{preffixUrl1}}/static/wechat/img/zm/zm_54_02.png" />
+				<!-- </view> -->
+				</view>
+				<view class="sle" >
+				<!-- <view class="box1" bindtap="cloudSearch"> -->
+					<image wx:if="{{preffixUrl1}}" mode="widthFix" bindtap="cloudSearch" src="{{preffixUrl1}}/static/wechat/img/zm/zm_54_03.png" />
+				<!-- </view> -->
+					<!-- <view class="box1" bindtap="toCross" > -->
+					<image wx:if="{{preffixUrl1}}" mode="widthFix"  bindtap="toCross" src="{{preffixUrl1}}/static/wechat/img/zm/zm_54_04.png" />
+				<!-- </view> -->
+			</view>
+			</view>
+		</view>
+		
+		<!-- <view class="middle" style="width:100%">
+            <view class="selectBox">
+                <view class="box1" bindtap="navTo">
+                    <image  mode="widthFix" src="/static/img/kj_ydt.jpg"></image>
+                </view>
+                <view class="box1" bindtap="cc">
+                    <image  mode="widthFix" src="/static/img/kj_kd.jpg"></image>
+                </view>
+                <view class="box1" bindtap="cc">
+                    <image  mode="widthFix" src="/static/img/kj_search.jpg"></image>
+                </view>
+            </view>
+        </view> -->
+		<view class="middle2" style="width:80%;display:flex;margin:auto">
+			<button class="box2" size="mini" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="showShare">
+				<!-- <image mode="widthFix" src="/static/img/zmy_btn1.png"></image> -->
+				分享
+			</button>
+			<button class="box3" size="mini" bindtap="toApply">
+				立即申请
+				<!-- <image mode="widthFix" src="/static/img/zmy_btn2.png"></image> -->
+			</button>
+		</view>
+	</view>
+	<view class="{{shareBox}}">
+		<view class='imagePathBox'>
+			<image src="{{imagePath}}" mode="widthFix" class='shengcheng' />
+			<!-- <image src="/static/img/zmy_poster.png"  mode="widthFix" class='shengcheng'></image> -->
+		</view>
+		<view hidden="{{maskHidden}}" class="mask" />
+		<view class="canvas-box">
+			<canvas style="width:1502rpx;height:2930rpx;position:fixed;top:9999px" canvas-id="mycanvas" />
+		</view>
+		<view class="tools">
+			<view class="tb cancel" bindtap='showHide'>
+				<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg" />
+				<block>取消</block>
+			</view>
+			<view class="tb shareToAPP">
+				<button open-type='share'>
+					<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg" />
+				</button>
+				<block>转发</block>
+			</view>
+			<view class="tb savePic" bindtap='baocun'>
+				<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg" />
+				<view class="saveTxt">朋友圈</view>
+			</view>
+		</view>
+	</view>
+</view>
+<i-toast id="toast" />
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>

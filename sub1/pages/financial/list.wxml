@@ -1,0 +1,6 @@
+<view wx:for="{{tabs}}" class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+  <view class="f4">
+    <image wx:if='{{preffixUrl}}' src="/assets/images/assets/sui-city-{{item.code}}.png" mode="widthFix"  style="height:160rpx;width:100%;padding-right:20rpx"></image>
+  </view>
+</view>
+

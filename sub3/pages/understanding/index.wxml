@@ -1,0 +1,277 @@
+<!--pages/carLoans/understanding/index.wxml-->
+<view class="body-background-img" style="background-image: url({{bgurl}})">
+    <view wx:if="{{type}}">
+        <!-- 贷款介绍分栏 -->
+        <view class="swiper-tab">
+          <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}">
+            <image class="swiper-tab-image" wx:if="{{currentTab==0}}" src="{{preffixUrl}}/static/wechat/img/carloans/select_product.png"></image>
+            <image class="swiper-tab-image" wx:if="{{currentTab!=0}}" data-current="0" bindtap="swichNav" src="{{preffixUrl}}/static/wechat/img/carloans/no_select_product.png"></image>
+          </view>
+          <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}">
+            <image class="swiper-tab-image" wx:if="{{currentTab==1}}" src="{{preffixUrl}}/static/wechat/img/carloans/select_business.png"></image>
+            <image class="swiper-tab-image" wx:if="{{currentTab!=1}}" data-current="1" bindtap="swichNav" src="{{preffixUrl}}/static/wechat/img/carloans/no_select_business.png"></image>
+          </view>
+          <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}">
+            <image class="swiper-tab-image" wx:if="{{currentTab==2}}" src="{{preffixUrl}}/static/wechat/img/carloans/select_problem.png"></image>
+            <image class="swiper-tab-image" wx:if="{{currentTab!=2}}" data-current="2" bindtap="swichNav" src="{{preffixUrl}}/static/wechat/img/carloans/no_select_problem.png"></image>
+          </view>
+        </view>
+
+    <!-- swiper 切图 -->
+    <swiper current="{{currentTab}}" class="swiper-box" duration="0" style="height:{{currentTab==0?winHeight - 220:currentTab==1?winHeight + 100:winHeight - 100}}px;" bindchange="bindChange">
+
+          <!-- 产品特色 -->
+          <swiper-item class="swiper-item-1">
+            <image class="angle-image angle-image-top-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-top-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <view class="card-title">
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_left.png"></image>
+              <text class="title-center-text">产品特色</text>
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_right.png"></image>
+            </view>
+            <view class="card-content-text">
+              1.个人汽车消费贷款是江苏银行为广大有购车需求客户提供用于支付购车款项的个人贷款服务。<view></view>
+              2.个人消费随e贷是江苏银行为在本行办理个人汽车消费贷款客户提供的一款用于购买汽车装潢、保养、保险等服务的贷款。
+            </view>
+            <view class="card-foot">
+              <image class="card-foot-img-1" src="{{preffixUrl}}/static/wechat/img/carloans/product_3.png"></image>
+              <image class="card-foot-img-2" src="{{preffixUrl}}/static/wechat/img/carloans/manifold_line.png"></image>
+              <image class="card-foot-img-1" src="{{preffixUrl}}/static/wechat/img/carloans/product_2.png"></image>
+              <image class="card-foot-img-2" src="{{preffixUrl}}/static/wechat/img/carloans/manifold_line.png"></image>
+              <image class="card-foot-img-1" src="{{preffixUrl}}/static/wechat/img/carloans/product_1.png"></image>
+              <text class="card-foot-text" style="position: absolute; left: 55rpx;top:530rpx; ">线上申请</text>
+              <text class="card-foot-text" style="position: absolute; left: 295rpx;top:530rpx; ">快速审批</text>
+              <text class="card-foot-text" style="position: absolute; left: 530rpx;top:530rpx; ">还款便捷</text>
+            </view>
+          </swiper-item>
+
+          <!-- 业务流程 -->
+          <swiper-item class="swiper-item-2">
+            <image class="angle-image angle-image-top-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-top-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <view class="card-title">
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_left.png"></image>
+              <text class="title-center-text">业务流程</text>
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_right.png"></image>
+            </view>
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_01_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">01</text>
+                <text class="card-label-text">提交申请</text>
+              </view>
+              <view class="card-01-text">
+                您确定购车意向后，通过江苏银行准入的汽车经销商扫码申请，扫码进入江苏银行随e融小程序贷款申请页面填写基本信息并征信授权后提交申请，如您有消费随e贷申请需求，可一并提交申请。本行会在10分钟内反馈申请受理信息，如成功受理，将为您分配专属客户经理。
+              </view>
+            </view >
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_02_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">02</text>
+                <text class="card-label-text">申请受理</text>
+              </view>
+              <view class="card-01-text">
+              客户经理会主动与您联系，详细了解购车及其他信息，您需要再次通过小程序确认全部申请信息。
+              </view>
+            </view>
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_03_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">03</text>
+                <text class="card-label-text">贷款审批</text>
+              </view>
+              <view class="card-01-text">
+                您再次确认申请信息后，客户经理会提交贷款审批，本行审批时间一般在1到2个工作日。
+              </view>
+            </view>
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_04_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">04</text>
+                <text class="card-label-text">合同签订</text>
+              </view>
+              <view class="card-01-text">
+              贷款审批通过，本行系统会自动发送短信通知您，客户经理会与您联系签署合同，并准备放款资料。
+              </view>
+            </view>
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_05_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">05</text>
+                <text class="card-label-text">贷款发放</text>
+              </view>
+              <view class="card-01-text">
+              放款资料准备齐全后，客户经理会提交放款申请，申请审核通过后，贷款资金会发放至与您约定的放款账户中。
+              </view>
+            </view>
+          </swiper-item>
+
+          <!-- 常见问题 -->
+          <swiper-item class="swiper-item-3">
+            <!-- 四个角的点 -->
+            <image class="angle-image angle-image-top-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-top-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <!-- 背景的双引号 -->
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <!-- 正文 -->
+            <view class="card-title">
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_left.png"></image>
+              <text class="title-center-text">常见问题</text>
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_right.png"></image>
+            </view>
+            <block wx:for="{{ listDatas }}" wx:key="index" >
+              <view class="list-content" bindtap="onListClick" data-index="{{ index }}">
+                <view class="list-content-name">
+                  <image class="list-content-name-img" src="{{preffixUrl}}/static/wechat/img/carloans/problem_icon.png"></image>
+                  <text>{{ item.list_name }}</text>
+                </view>
+                <view class="list-text {{selected[index] ? '' : 'hidden-content'}}">
+                <view>
+                  <text selectable="true" decode="true">{{item.list_content}}</text>
+                </view>
+              </view>
+              </view>
+            </block>
+          </swiper-item>
+        </swiper>      
+    </view>
+    <view wx:else>
+        <!-- 贷款介绍分栏 -->
+        <view class="swiper-tab">
+          <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}">
+            <image class="swiper-tab-image" wx:if="{{currentTab==0}}" src="{{preffixUrl}}/static/wechat/img/carloans/select_product.png"></image>
+            <image class="swiper-tab-image" wx:if="{{currentTab!=0}}" data-current="0" bindtap="swichNav" src="{{preffixUrl}}/static/wechat/img/carloans/no_select_product.png"></image>
+          </view>
+          <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}">
+            <image class="swiper-tab-image" wx:if="{{currentTab==1}}" src="{{preffixUrl}}/static/wechat/img/carloans/select_business.png"></image>
+            <image class="swiper-tab-image" wx:if="{{currentTab!=1}}" data-current="1" bindtap="swichNav" src="{{preffixUrl}}/static/wechat/img/carloans/no_select_business.png"></image>
+          </view>
+          <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}">
+            <image class="swiper-tab-image" wx:if="{{currentTab==2}}" src="{{preffixUrl}}/static/wechat/img/carloans/select_problem.png"></image>
+            <image class="swiper-tab-image" wx:if="{{currentTab!=2}}" data-current="2" bindtap="swichNav" src="{{preffixUrl}}/static/wechat/img/carloans/no_select_problem.png"></image>
+          </view>
+        </view>
+
+        <!-- swiper 切图 -->
+        <swiper current="{{currentTab}}" class="swiper-box" duration="0" style="height:{{currentTab==0?winHeight - 220:currentTab==1?winHeight + 100:winHeight - 100}}px;" bindchange="bindChange">
+
+          <!-- 产品特色 -->
+          <swiper-item class="swiper-item-1">
+            <image class="angle-image angle-image-top-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-top-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <view class="card-title">
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_left.png"></image>
+              <text class="title-center-text">产品特色</text>
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_right.png"></image>
+            </view>
+            <view class="card-content-text">
+              个人住房贷款是江苏银行为广大有购房需求客户提供用于支付购房款项的个人贷款服务，包括一手住房贷款、二手住房贷款以及公积金组合贷款等。
+              <view style="visibility:hidden">2.个人消费随e贷是江苏银行为在本行办理个人汽车消费贷款</view>
+            </view>
+            <view class="card-foot">
+              <image class="card-foot-img-1" src="{{preffixUrl}}/static/wechat/img/carloans/product_3.png"></image>
+              <image class="card-foot-img-2" src="{{preffixUrl}}/static/wechat/img/carloans/manifold_line.png"></image>
+              <image class="card-foot-img-1" src="{{preffixUrl}}/static/wechat/img/carloans/product_2.png"></image>
+              <image class="card-foot-img-2" src="{{preffixUrl}}/static/wechat/img/carloans/manifold_line.png"></image>
+              <image class="card-foot-img-1" src="{{preffixUrl}}/static/wechat/img/carloans/product_1.png"></image>
+              <text class="card-foot-text" style="position: absolute; left: 55rpx;top:530rpx; ">线上申请</text>
+              <text class="card-foot-text" style="position: absolute; left: 295rpx;top:530rpx; ">快速响应</text>
+              <text class="card-foot-text" style="position: absolute; left: 530rpx;top:530rpx; ">专属服务</text>
+            </view>
+          </swiper-item>
+
+          <!-- 业务流程 -->
+          <swiper-item class="swiper-item-2">
+            <image class="angle-image angle-image-top-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-top-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <view class="card-title">
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_left.png"></image>
+              <text class="title-center-text">业务流程</text>
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_right.png"></image>
+            </view>
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_01_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">01</text>
+                <text class="card-label-text">提交申请</text>
+              </view>
+              <view class="card-01-text">
+                您确定购房意向后，通过江苏银行准入的项目合作方扫码申请，扫码进入江苏银行随e融小程序贷款申请页面填写基本信息并征信授权后提交申请，本行会在10分钟内反馈申请受理信息，如成功受理，将为您分配专属客户经理。
+              </view>
+            </view >
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_02_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">02</text>
+                <text class="card-label-text">申请受理</text>
+              </view>
+              <view class="card-01-text">
+              客户经理会主动与您联系，详细了解购房及其他信息，您需要再次通过小程序确认全部申请信息。
+              </view>
+            </view>
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_03_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">03</text>
+                <text class="card-label-text">贷款审批</text>
+              </view>
+              <view class="card-01-text">
+                您再次确认申请信息后，客户经理会提交贷款审批，您可通过小程序查看办理进度。
+              </view>
+            </view>
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_04_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">04</text>
+                <text class="card-label-text">合同签订</text>
+              </view>
+              <view class="card-01-text">
+              贷款审批通过，本行系统会自动发送短信通知您，客户经理会与您联系签署合同，并准备放款资料。
+              </view>
+            </view>
+            <view class="card-01" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/business_05_back.png);">
+              <view class="card-label">
+                <text class="card-label-num">05</text>
+                <text class="card-label-text">贷款发放</text>
+              </view>
+              <view class="card-01-text">
+              放款资料准备齐全后，客户经理会提交放款申请，申请审核通过后，贷款资金会发放至与您约定的放款账户中。
+              </view>
+            </view>
+          </swiper-item>
+
+          <!-- 常见问题 -->
+          <swiper-item class="swiper-item-3">
+            <!-- 四个角的点 -->
+            <image class="angle-image angle-image-top-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-top-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-left" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <!-- 背景的双引号 -->
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <image class="angle-image angle-image-bottom-right" src="{{preffixUrl}}/static/wechat/img/carloans/angle.png"></image>
+            <!-- 正文 -->
+            <view class="card-title">
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_left.png"></image>
+              <text class="title-center-text">常见问题</text>
+              <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/title_right.png"></image>
+            </view>
+            <block wx:for="{{ listDataset }}" wx:key="index" >
+              <view class="list-content" bindtap="onListClick" data-index="{{ index }}">
+                <view class="list-content-name">
+                  <image class="list-content-name-img" src="{{preffixUrl}}/static/wechat/img/carloans/problem_icon.png"></image>
+                  <text>{{ item.list_name }}</text>
+                </view>
+                <view class="list-text {{selected[index] ? '' : 'hidden-content'}}">
+                <view>
+                  <text selectable="true" decode="true">{{item.list_content}}</text>
+                </view>
+              </view>
+              </view>
+            </block>
+          </swiper-item>
+        </swiper>      
+    </view>
+</view>

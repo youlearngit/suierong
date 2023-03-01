@@ -1,0 +1,21 @@
+/* sub3/pages/addAuthorizer/index.wxss */
+@import "/assets/styles/weui.wxss";
+.qy .weui-cell weui-cell_input::before {
+  border-top: 0rpx;
+}
+
+.weui-label {
+  color: #0066b3;
+  width: 155px;
+}
+.weui-select {
+  border-right: 0rpx solid #d9d9d9;
+}
+.bottom button {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  width: 90%;
+  background-color: #16a8fa;
+  color: white;
+}

@@ -1,0 +1,129 @@
+/* sub2/pages/photovoltaicLoanSearch/index.wxss */
+
+.photovoltaic {
+    position: relative;
+    width: 100%;
+    /* height: 120%; */
+    padding-bottom: 10%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+}
+
+.applys {
+    padding: 71rpx 0 15rpx 40rpx;
+    width: 100%;
+    height: 80rpx;
+    background-repeat: no-repeat;
+    background-size: 45% 45%;
+    -moz-background-size: 45% 45%;
+    background-position: 40rpx 40rpx;
+}
+
+.apply_title {
+    font-family: SourceHanSansSC-Bold;
+    font-size: 38rpx;
+    color: #0440AF;
+    letter-spacing: 0;
+    font-weight: bolder;
+}
+
+.apply_info_list {
+    margin: 1% auto 3%;
+    width: 92%;
+    background: #FFFFFF;
+    border: 1rpx solid #FFFFFF;
+    border-radius: 18rpx;
+}
+
+.action {
+    width: 50%;
+    height: 100rpx;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: 99;
+    transform: translateY(-50%);
+}
+
+.field-input {
+    background: #ffffff;
+    margin: 0 30rpx;
+}
+
+.border {
+    border-top: 1rpx solid #E5E6EA;
+}
+
+.self {
+    display: flex;
+    align-items: center;
+}
+
+.btn2 {
+    width: 226rpx;
+    height: 80rpx;
+    border: 1rpx solid #2785FF;
+    border-radius: 40rpx;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 30rpx;
+    color: #2785FF;
+    text-align: center;
+}
+
+.btn1 {
+    width: 580rpx;
+    height: 80rpx;
+    margin-top: 5%;
+    background-image: linear-gradient(106deg, #0A92FC 9%, #0459F8 100%);
+    border-radius: 40rpx;
+    font-family: SourceHanSansSC-Regular;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.input_item {
+    padding: 30rpx 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input_items {
+    padding: 30rpx 0;
+}
+
+.input_items_bg {
+    background: #F7FBFF;
+    border: 1rpx solid #D2DDFF;
+    border-radius: 10rpx;
+    width: 600rpx;
+    height: 41rpx;
+    line-height: 41rpx;
+    padding: 20rpx 0 20rpx 22rpx;
+    margin-top: 5%;
+}
+
+.input_item view,
+.input_items view {
+    font-family: SourceHanSansSC-Regular;
+    font-size: 28rpx;
+    color: #031126;
+    letter-spacing: 0;
+}
+
+.nodata {
+    width: 92%;
+    margin: 4%;
+    height: 956rpx;
+    line-height: 1010rpx;
+    background: #FFFFFF;
+    border: 1rpx solid #FFFFFF;
+    border-radius: 18rpx;
+    text-align: center;
+}
+
+.nodata image {
+    width: 380rpx;
+}

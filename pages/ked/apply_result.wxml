@@ -1,0 +1,68 @@
+<view class='banner'>
+    <image class="dianApplicateBanner"  wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp/common/banner.jpg"></image>
+  </view>
+
+<view class="page">
+  <image class="sucICO" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/temp_suc.png"></image>
+  <text class="tips">您的快e贷申请已受理</text>
+  <!--view style="color:#0066b3;">
+    订单编号：{{orderNo}}
+    <text style='color:#fff;font-size:22rpx;padding:6rpx 8rpx;background:#0066b3;' bindtap='copyText' data-text="{{orderNo}}">复制</text>
+  </view-->
+</view>
+  
+<view style='width:90%;margin:0 auto;'>
+
+<view class="section">
+    <view class="weui-cells__title">
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_dksqxx.png"></image>
+      <text>贷款申请信息</text>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">订单编号</view>
+        </view>
+        <view class="weui-cell__bd">
+          {{orderNo}}
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">申请金额</view>
+        </view>
+        <view class="weui-cell__bd">
+          {{amount}}
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">申请期限</view>
+        </view>
+        <view class="weui-cell__bd">
+          {{term}}
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">申请日期</view>
+        </view>
+        <view class="weui-cell__bd">
+         {{date}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+
+    <view class="weui-cell__bd">
+      <button class="button-hover" style="width:50%;margin:30rpx auto;" type='perimery' bindtap='toDetail'>进度查询</button>
+    </view>
+     
+  </view>
+<view style="text-align:center;">
+      <navigator class="btn"  hover-class='none' open-type="switchTab" url='/pages/shop/index2'>返回主页</navigator>
+    </view>
+</view>
+
+

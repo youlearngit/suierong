@@ -1,0 +1,212 @@
+/* sub3/pages/ftAccountOpen/apply/naturalPeoplePage.wxss */
+page{
+  overflow-x:hidden;
+  background-color: #ffffff;
+  width: 100%;
+  height: 100%;
+}
+.body{
+  z-index: -2;
+  background-size:180% 100%;
+  background-repeat: no-repeat;
+  padding: 80rpx 30rpx 0rpx 30rpx;
+}
+.title{
+  font-family: SourceHanSansCN-Medium;
+  font-size: 34rpx;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx !important;
+}
+.collase{
+  width: 690rpx;
+}
+van-collapse-item{
+  border-radius: 30rpx !important;
+  margin-bottom: 30rpx !important;
+}
+.card{
+  padding: 10rpx 0rpx 20rpx 0rpx !important;
+  width: 690rpx !important;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%) !important;
+  box-shadow: 0 2rpx 24rpx 0 rgba(156,187,255,0.56) !important;
+  border-radius: 16rpx !important;
+  margin-bottom: 30rpx !important;
+}
+.card-content{
+  border-top: 0rpx !important;
+}
+.card-title{
+  margin: 10rpx 0rpx -60rpx 30rpx;
+  font-family: SourceHanSansCN-Medium;
+  font-size: 30rpx;
+  color: #1C294F;
+  letter-spacing: 0;
+}
+.card-title-bg{
+  width: 12rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  float: left;
+  position:relative;
+}
+.card-title-right{
+  font-family: SourceHanSansCN-Regular;
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  opacity: 0.28;
+  background: #EABD91;
+  border-radius: 23.5rpx;
+  position:relative;
+  bottom: 50rpx;
+  right: -420rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #b65e06;
+  letter-spacing: 0;
+}
+van-field{
+  margin-top: -20rpx !important;
+}
+
+.info-center-right{ 
+  margin-top: -30rpx !important;
+}
+.picker{
+  height: 70rpx !important;
+  padding-top: -30rpx !important;
+}
+.field{
+  position: relative !important;
+  top: -30rpx !important;
+  height: 100rpx !important;
+  background-color: blue !important;
+}
+.weui-input{
+  width: 600rpx !important;
+  height: 80rpx !important;
+  background: #F7FBFF !important;
+  border: 1rpx solid #D2DDFF !important;
+  border-radius: 10rpx;
+  padding-left: 20rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+}
+.label-input-style{
+  white-space:nowrap;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #1C294F !important;
+  letter-spacing: 0;
+}
+.weui-input-1{
+  height: 31rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+}
+.weui-input-2{
+  margin-right: 60rpx !important;
+  width: 600rpx !important;
+  height: 31rpx !important;
+  padding-right: 30rpx !important;
+  border-right: 1rpx #969799 solid !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+}
+.label-style{
+  margin-left: 30rpx;
+}
+.select-type{
+  width: 220rpx;
+}
+.info-margin-line-height-2{
+  padding: 25rpx 0 ;
+  height: 50rpx !important;
+  line-height: 50rpx !important;
+}
+.info-margin-buttom{
+  border-radius: 25rpx;
+  margin-top: 20rpx;
+}
+.info-margin-buttom-right{
+  text-align: right;
+}
+.info-margin-line-height{
+  height: 50rpx !important;
+  line-height: 50rpx !important;
+}
+.weui-input{
+  width: 600rpx !important;
+  height: 80rpx !important;
+  background: #F7FBFF !important;
+  border: 1rpx solid #D2DDFF !important;
+  border-radius: 10rpx;
+  padding-left: 20rpx !important;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 28rpx;
+}
+.picture{
+  width: 44rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  background-size: 100% 100%;
+  position: relative;
+  float: right;
+  top: -60rpx;
+  right: 30rpx;
+}
+.update-go{
+  width: 12rpx;
+  height: 20rpx;
+  background-size: 100% 100%;
+}
+.card-bottom{
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 26rpx;
+  color: #1677FF;
+  letter-spacing: 0;
+}
+.card-top-icon{
+  width: 18rpx;
+  height: 21rpx;
+  background-size: 100% 100%;
+}
+.message-icon{
+  margin-top: 20rpx !important
+}
+.top-z-index{
+  position: relative;
+  bottom: -0rpx;
+  right: -20rpx;
+  z-index: 10;
+}
+.information-select-right{
+  float: right;
+  margin-right: 30rpx;
+}
+radio {
+  transform:scale(0.6);
+  margin-right: -20rpx;
+
+}
+.btn-body{
+  width: 100%;
+  text-align: center;
+}
+/* 下一步按钮 */
+.btn{
+  margin: 60rpx 0 30rpx 0rpx;
+  width: 440rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  background-image: linear-gradient(0deg, #1677FF 0%, #7CB2FF 100%);
+  border-radius: 43px;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 34rpx;
+}

@@ -1,0 +1,29 @@
+<view class="bg">
+    <image class="icon-success"wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/bg_upgrade.png" mode="widthFix" style="width:100%"></image>
+</view>
+<button open-type="share" class="share" plain='true'>
+    <image class="icon-success"wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_upgrade_share.png" mode="widthFix" style="width:40rpx"></image>
+</button>
+<view class="company-box" hover-class="none" hover-stop-propagation="false">
+    <view class="a2b1">
+        <view class="a2b1c1">企业名称</view>
+        <view class="a2b1c3">
+            <input class="a2b1c4" type="text" placeholder="请输入客户名称" placeholder-style="" placeholder-class="input-placeholder" maxlength="30" focus="{{false}}" bindfocus="showBaseEnter" bindinput="searchEnter" value="{{enterpriseInfo.orgName}}" name="name"></input>
+            <scroll-view scroll-y class="enter-list" wx:if="{{showBaseEnter}}" style="text-align:left">
+                <view class="m1" wx:for="{{enterpriseCardInfo}}" bind:tap="chooseEnter" data-index="{{index}}">
+                    {{item.ORG_NAME}}
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="org-code" hover-class="none" hover-stop-propagation="false">
+        企业统一代码:  {{ enterpriseInfo.orgCode||''}}
+    </view>
+</view>
+<view class="footer">
+    <view class="title">是否同意升级随e贷?</view>
+    <view class="btn-box">
+        <navigator url='/pages/shop/scheme' open-type="switchTab" class="cancel">不同意</navigator>
+        <view class="confirm" bindtap='confirm'>同意</view>
+    </view>
+</view>

@@ -1,0 +1,226 @@
+/* pages/carLoans/apply/loan/index2.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+page {
+  background-color: #f6fbfe;
+  overflow: scroll
+}
+.body-background-img{
+  width: 100%;
+  height: 100%;
+  background-size: 120%;
+  background-position-y: -200rpx;
+  padding: 60rpx 20rpx 0rpx 20rpx ;
+}
+.top{
+  margin: 40rpx;
+}
+.top-title{
+  font-family: SourceHanSansSC-Bold;
+  font-size: 48rpx;
+  color: #1A3B77;
+  letter-spacing: 0;
+  font-weight: 900;
+}
+.top-label{
+  width: 160rpx;
+  height: 40rpx;
+  float: left;
+}
+.f2-1-img{
+  margin: 6rpx 10rpx 0rpx 0rpx;
+  width: 24rpx;
+  height: 24rpx;
+  float: left;
+}
+.f2-1-text{
+  opacity: 0.62;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 24rpx;
+  color: #1A3B77;
+  letter-spacing: 0.5px;
+}
+
+.form{
+  margin-top: 100rpx;
+  background-color: #ffffff;
+  line-height: 131rpx;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+  box-shadow: 0 2rpx 24rpx 0 rgba(156,187,255,0.56);
+  border-radius: 16rpx;
+}
+.weui-cell{
+  width: 96%;
+}
+.weui-cell__bd{
+  text-align:right;
+}
+.weui-label{
+  width: 240rpx;
+}
+.font-red{
+  color: red;
+}
+.sms-code{
+  background-color: #ffffff;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 28rpx;
+  color: #6580ED;
+  text-align: right;
+}
+.foot{
+  margin-top: 40rpx;
+}
+.action-text{
+  font-family: SourceHanSansSC-Regular;
+  font-size: 26rpx;
+  color: #666666;
+  letter-spacing: 0;
+  text-align: justify;
+  line-height: 40rpx;
+  margin-left: 20rpx;
+}
+.action-text-content{
+  color: #6580ED;
+  height: 80rpx;
+}
+.btn-submit{
+  margin-top: 60rpx;
+  margin-bottom: 0rpx;
+  width: 80%;
+  height: 90rpx;
+  padding-top: 10rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+  background:linear-gradient(to bottom, #8BA2FD,#3D5FE9);
+  box-shadow: 0 4px 12px 0 rgba(110,137,245,0.33);
+  border-radius: 40rpx;
+}
+
+.contaioner-content{
+  margin: 0px 25rpx;
+  height: 90%;
+  width: 93%;
+  overflow: scroll;
+}
+.contaioner-foot{
+  height: 10%;
+  box-shadow: 0 1px 12px 0 rgba(110,137,245,0.33);
+  padding-top: 30rpx;
+}
+.btn-submit1{
+  width: 80%;
+  height: 70rpx;
+  font-family: SourceHanSansSC-Regular;
+  font-size: 30rpx;
+  color: #FFFFFF;
+  text-align: center;
+  background:linear-gradient(to bottom, #8BA2FD,#3D5FE9);
+  box-shadow: 0 4px 12px 0 rgba(110,137,245,0.33);
+  border-radius: 40rpx;
+}
+radio {
+  transform:scale(0.7);
+  margin-top: -20rpx;
+}
+
+.page-height{
+  padding: 0rpx 0rpx;
+}
+.version{
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+  font-family:'Courier New', Courier, monospace;
+  text-align: right;
+}
+.title-img{
+  width: 700rpx;
+  height: 150rpx;
+  margin-top: 20rpx;
+}
+.title-big-strong{
+  font-family: 'SimHei';
+  font-weight: bold;
+  font-size: 80rpx;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.title-size-30{
+  text-align: center;
+  margin: 20rpx 0rpx 600rpx 0rpx;
+  font-weight: 400;
+  font-size: 30rpx;
+}
+.title-size-30-2{
+  text-align: center;
+  font-weight: 400;
+  font-size: 30rpx;
+}
+
+.title-size-30-1{
+  text-align: left;
+  margin: 20rpx 0rpx 900rpx 0rpx;
+  font-weight: 400;
+  font-size: 28rpx;
+}
+.title-bottom{
+  text-align: center;
+  font-weight: 900;
+  font-size: 30rpx;
+}
+.split{
+  margin-top: 220rpx;
+  border: 8rpx solid;
+  height: 10rpx;
+}
+.title-clean{
+  margin-top: 50rpx;
+  text-align: center;
+  font-size: 30rpx;
+  clear: both;
+  font-weight: 600;
+}
+.cont-content{
+  line-height: 50rpx;
+  width: 100%;
+  height: 100%;
+  padding: 0rpx 20rpx ;
+  margin-bottom: 150rpx;
+}
+.text-center{
+  text-align: center;
+}
+.text-family{
+  font-family: FangSong;
+}
+.font-size-40{
+  font-size: 40rpx;
+}
+.font-size-30{
+  font-size: 30rpx;
+}
+.text-weight-border{
+  font-weight: 400;
+  border-bottom: 1rpx solid ;
+}
+.text-border{
+  width: 80%;
+  text-align: left;
+  text-decoration: underline;
+}
+.smail-cont-text-content{
+  line-height: 40rpx;
+  text-align: left;
+  font-weight: 200;
+}
+.cont-qr-img{
+  width: 100rpx;
+  height:100rpx;
+  float: right;
+  margin-top: 100rpx;
+}
+

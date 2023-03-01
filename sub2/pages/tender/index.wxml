@@ -1,0 +1,109 @@
+<!-- pages/tenders/index.wxml -->
+<view class="bg-img"   wx:if='{{preffixUrl}}'style=" background-image: url({{preffixUrl}}/static/wechat/img/zm/zm_69.png);">
+    <view class="Nav" wx:if='{{preffixUrl}}' style="top:{{navTop}}px;border-radius:{{navHeight}}px;background-image: url({{preffixUrl}}/static/wechat/img/zm/zm_68.png);" bindtap="back">
+        <!-- <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_68.png" class="back" style="height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;"></image> -->
+    </view>
+    <view class="nav-txt" style="margin-top:{{navTxtHeight}}px">标票募集</view>
+    <view class="nav-txt1">标准化票据基础资产归集</view>
+    <view class="f2">
+        <swiper class="card-swiper" circular="true" autoplay="{{false}}" interval="1000" duration="500" bindchange="cardSwiper" indicator-dots="{{false}}">
+            <block wx:for="{{list}}" wx:key="{{index}}">
+                <swiper-item>
+                    <view class="swiper-item {{current==index?'cur-swiper':''}}">
+                        <view class="f21">
+                            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_73.png" mode="widthFix"></image>
+                            <view class="f211">{{item.productName}}</view>
+                        </view>
+                        <view class="f22" bindtap="todo" hover-class="button-hover" data-po="{{item.productNo}}" bindtap="todo">
+                            立即申请
+                        </view>
+                        <view class="f2326" hover-class="button-hover">{{item.endTime}}  结束募集</view>
+                        <view class="f23">
+                            <view class="f231">
+                                <view class="f2311" style="margin-left: 48rpx;">
+                                    面向{{item.holderType=='1'?'企业':'金融机构'}}
+                                </view>
+                                <view class="f2311" style="margin-left: 28rpx;">
+                                    {{item.draftType=='1'?'银票':'商票'}}
+                                </view>
+                            </view>
+                            <view class="f232">
+                                <view style="width:55%;">
+                                    <view style="display:flex;flex-dirction:row;align-items: flex-end;width:100%;justify-content: flex-end">
+                                        <view class="f2321">{{item.rateMin}}-{{item.rateMax}}</view>
+                                        <view class="f2322">%</view>
+                                    </view>
+                                    <view class="f2323" style="width:100%">预融资利率</view>
+                                </view>
+                                <view class="border"></view>
+                                <view style="width:45%">
+                                    <view style="display:flex;flex-dirction:row;align-items: flex-end;">
+                                        <view class="f2324">{{item.amount/100000000}}</view>
+                                        <view class="f2325">亿元</view>
+                                    </view>
+                                    <view class="f3233">预创设规模</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</view>
+<view class="all">全部产品</view>
+<block wx:for="{{list}}" wx:key="{{index}}">
+    <view class="card">
+        <view style="display:flex;flex-dirction:row;width:92%;margin-left:4%;border-bottom:2rpx solid #eeeeee;padding-bottom:10rpx;align-items: center;height:80rpx;">
+            <view class="cardtxt1">进行中</view>
+            <view class="cardtxt2">{{item.endTime}}</view>
+            <view class="cardtxt2">截止募集</view>
+        </view>
+        <view style="display:flex;flex-dirction:row;justify-content: space-between;align-items:center;margin-top:10rpx;">
+            <view style="width:70%;">
+                <view class="cardtxt3">{{item.productName}}</view>
+                <view class="f231" style="margin-top:10rpx;">
+                    <view class="f2311">面向{{item.holderType=='1'?'企业':'金融机构'}}</view>
+                    <view class="f2311">{{item.draftType=='1'?'银票':'商票'}}</view>
+                </view>
+            </view>
+            <view class="card-btn" bindtap="todo" data-po="{{item.productNo}}">立即申请</view>
+        </view>
+    </view>
+</block>
+<view class="card">
+    <view style="display:flex;flex-dirction:row;width:92%;margin-left:4%;padding-bottom:10rpx;align-items: center;padding-top:32rpx;">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_74.png" class="tip-img"></image>
+        <view class="tip">业务提示</view>
+    </view>
+    <view class="tip-con">
+        <view class="tip1">
+            1、标准化票据是人民银行推出的新型票据融资工具。存托机构将核心信用要素相似、期限相近的商业汇票归集组建成基础资产池，以基础资产池产生的现金流为偿付支持而创设的等分化受益凭证。
+        </view>
+        <view class="tip1">2、江苏银行作为经纪机构面向全市场为标票产品进行票据资产的募集，募集票据类型仅限电子银行承兑汇票和电子商业承兑汇票。</view>
+        <view class="tip1">
+            3、本募集功能仅作为融资需求登记与融资票据信息的采集，若您的企业资质以及票据符合拟发行产品的要求，我们会通知您进行下一步融资存托合作协议的签约。
+        </view>
+        <view class="tip1">4、票据资产募集方式分为有票募集和无票募集。</view>
+        <view class="tip1">
+            <view style="display:inline-block;font-weight:800;text-indent:2em;">有票募集：</view>
+            若您已持有票据，可选择此种方式。
+        </view>
+        <view class="tip2">
+            若您是企业持票人，可通过电子商业汇票系统（ECDS）按照指定路径与贴现利率向江苏银行提交贴现申请，我行系统在采集完票据信息后会自动退回票据，并及时将募集结果通知您。
+        </view>
+        <view class="tip2">
+            若您是金融机构持票人，可通过中国票据交易系统（CPES）按照指定路径与利率向江苏银行提交转贴现对话报价，我行系统在采集完票据信息后会自动退回票据，并及时将募集结果通知您。
+        </view>
+        <view class="tip1">
+            <view style="display:inline-block;font-weight:800;text-indent:2em;">无票募集：</view>
+            若您还没有持有票据，可登记您的联系方式与需求意向，并可将票据资产清单发送至指定邮箱，我们会及时与您联系。
+        </view>
+    </view>
+</view>
+<view class="foot">
+    <view class="foot-bor"></view>
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_70.png" class="foot-img"></image>
+    <view class="foot-bor"></view>
+</view>
+<view class="foottxt">企业银行</view>

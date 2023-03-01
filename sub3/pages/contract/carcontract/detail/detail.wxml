@@ -1,0 +1,328 @@
+
+<view class="contract-background-img">
+  <view class="box">
+    <view class="info">
+      <label>借款人姓名</label>
+      <text class="info-text">{{detail.cusName}}</text>
+    </view>
+    <view class="line-split"></view>
+    <view class="info">
+      <label>借款人证件号码</label>
+      <text class="info-text">{{detail.certCode}}</text>
+    </view>
+    <view class="line-split"></view>
+    <view class="info">
+      <label>申请贷款产品</label>
+      <text class="info-text">{{detail.prdName}}</text>
+    </view>
+    <view class="line-split"></view>
+    <view class="info">
+      <label>借款合同编号</label>
+      <text class="info-text">{{detail.contNo}}</text>
+    </view>
+    <view class="line-split"></view>
+    <view class="info">
+      <label>借款合同签约状态</label>
+      <text class="info-text">{{detail.contSigningStatusSpec}}</text>
+    </view>
+    <view class="line-split"></view>
+    <view class="info">
+      <label>签约人姓名</label>
+      <text class="info-text">{{guarContInfo.guarCusName}}</text>
+    </view>
+    <view class="line-split"></view>
+    <view class="info">
+      <label>签约人证件号码</label>
+      <text class="info-text">{{guarContInfo.guarCertCode}}</text>
+    </view>
+    <view class="line-split"></view>
+    <view class="info">
+      <label>保证合同编号</label>
+      <text class="info-text">{{guarContInfo.guarContNo}}</text>
+    </view>
+    <view class="line-split"></view>
+    <view class="info2">
+      <label>签约状态</label>
+      <text class="info-text">{{guarContInfo.guarContSigningStatus}}</text>
+    </view>
+  </view>
+  <view class="foot" wx:if="{{guarContInfo.guarContSigningStatus != '已签约'}}" >
+    <button class="btn-cancel" bindtap="cancel">返回</button>
+    <button class="btn-submit" bindtap="toContractPage">合同待签订</button>
+  </view> 
+  <view class="foot" wx:else>
+    <button class="btn-submit" style="width: 100%;" bindtap="readContract">查看合同</button>
+  </view>
+</view>
+<page-container show="{{dialogflag}}" round custom-style="height:95%;width:100%;padding-top:30rpx;">
+  <view class="contaioner-top">
+    <view class="top-left">连带责任保证书</view>
+    <view class="top-right" bindtap="cancel">取消</view>
+  </view>
+  <view class="contaioner-content">
+    <!-- 第一页 -->
+    <view class="page-height">
+      <view class="version">202201版</view>
+      <image class="title-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_jsyh.png"></image>
+      <view class="title-big-strong">连带责任保证书</view>
+      <view class="title-size-30">（线上版）</view>
+      <view class="title-bottom">江苏银行股份有限公司</view>
+    </view>
+    <view class="split"></view>
+    <!-- 第二页 -->
+    <view class="page-height">
+      <view class="text-center text-family font-size-40" style="margin-top: 100rpx;">连带责任保证书</view>
+      <view class="text-center text-family font-size-30">（线上版）</view>
+      <view style="text-align: right; font-weight: 100; font-size: 26rpx;">合同编号：<span class="text-border">{{guarContInfo.guarContNo}}</span></view>
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+        {{nbsp}}特别提醒:在签署本保证书前，江苏银行股份有限公司提醒您完整阅读本保证书及附件（如有）所有条款，明确了解、知悉己方的权利义务，特别提醒您关注本保证书中以黑体字、下划线标识的对您权益有重大利害关系的条款，请务必仔细阅读和理解，如对本保证书内容有任何疑问，或者无法准确理解相关条款，您应暂停签约并通过江苏银行股份有限公司客服及/或客户经理进行咨询，客服电话95319。
+        {{nbsp}}如您在江苏银行股份有限公司指定渠道（包括但不限于江苏银行随e融小程序等各类电子渠道，下同）以电子签名或在申请办理页面点击确认、勾选等方式接受本保证书，即表示您本人已知悉、理解并同意接受本保证书的所有条款内容，并愿意受此约束。本保证书以数据电文形式订立，您充分认同其效力。
+        <text class="smail-cont-text-content">
+        保证人：<text class="text-border">{{guarContInfo.guarCusName}}</text>\n
+        证件种类*：<text class="text-border" style="width: 100rpx;">身份证</text>\n
+        证件号码*：<text class="text-border">{{guarContInfo.guarCertCode}}</text>\n
+        通讯地址：<text class="text-border">{{guarContInfo.guarHouseAddrStreet}}</text>\n
+        电话：<text class="text-border">{{guarContInfo.guarMobilePhone}}</text>\n
+        传真：<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>\n
+        电子邮箱：<text class="text-border" decode='true'>{{nbsp}}/{{nbsp}}</text>\n
+       （*保证人为自然人时填写）\n\n
+       <text class="font-size-30" style="font-weight: 900;">致：</text><text class="text-border">{{detail.lenderName}}</text>\n
+        <!--债权人：<text class="text-border">{{detail.lenderName}}</text>\n
+        法定代表人/负责人：<text class="text-border">{{detail.loanLegalPerson}}</text>\n
+        通讯地址：<text class="text-border">{{detail.liveAddrStreet}}</text> -->
+        </text>
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第三页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+        <text class="smail-cont-text-content" decode='true'>
+
+
+          {{nbsp}}为保障贵行债权的实现，本保证人愿意为贵行与（以下简称“债务人”）于 <text class="text-border">{{dateList[0]}}</text>年  <text class="text-border">{{dateList[1]}}</text>月<text class="text-border">{{dateList[2]}}</text>日签订的金额为（币种）<text class="text-border">人民币</text>（大写）<text class="text-border">{{detail.countContAmt}}</text> ，合同编号为 <text class="text-border" style="  white-space: pre-line;word-break: break-all;">{{detail.contNo}}</text> 的（以下简称“主合同”）所形成的债权提供保证担保，本保证人现作出如下保证：\n
+        </text>{{nbsp}}第一条  主债权及保证方式
+        <text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}本保证人自愿无条件地且不可撤销地为贵行依据主合同而形成的<text style="font-size: 26rpx;">☑</text>全部债权/□本金（币种）<text class="text-border">人民币</text>（大写） <text class="text-border">{{detail.countContAmt}}</text> 以及对应利息、费用等债权（具体详见第二条保证范围）提供连带责任保证担保。\n
+        </text>{{nbsp}}第二条  保证范围<text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}本保证人在本保证书项下担保的范围包括但不限于：贵行与债务人在主合同项下的债权本金及按主合同约定计收的全部利息（包括罚息和复利）、以及债务人应当向贵行支付的手续费、违约金、赔偿金、税金和贵行为实现债权和担保权利而发生的费用（包括但不限于诉讼费、仲裁费、财产保全费、执行费、评估费、拍卖费、律师费、差旅费、公证费、公告费、送达费、鉴定费等）。
+        </text>{{nbsp}}第三条  保证期间<text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}本保证书的保证期间为自本保证书生效之日起至主合同项下债务履行期（包括展期、延期）届满之日后满三年之日止。若主合同项下债务分期履行，则每期债务保证期间均为自本保证书生效之日起至主合同项下最后一期债务履行期限届满之日后满三年之日止。若主合同项下债务被宣布提前到期的，保证期间至债务被宣布提前到期之日后满三年之日止。
+        </text>
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第四页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+
+
+        {{nbsp}}第四条  主合同的变更<text class="smail-cont-text-content" style="text-decoration: underline;" decode='true'>
+        {{nbsp}}本保证人确认，贵行与债务人对主合同条款的变更（包括但不限于债务展期或延期）均视为已事先征得本保证人同意，无须通知本保证人，本保证人同意对变更后主合同项下债务继续承担连带保证责任。但贵行与债务人协议增加债权本金金额的，除本保证人书面同意外，本保证人在原保证范围内继续承担连带保证责任。</text>\n
+        {{nbsp}}第五条  保证人的声明和保证\n
+          {{nbsp}}一、本保证人已全面认真阅读本保证书及贵行与债务人签订的主合同，应本保证人要求，贵行已就本保证书及主合同相应条款作了说明, 本保证人已经充分知悉、理解本保证书与主合同的全部内容，签署本保证书是本保证人真实意思表示。本保证人对主合同及本保证书的订立及履行可能产生的法律后果有充分认识，对所涉及有关本保证人的义务予以完全确认。<text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}二、本保证人确认对债务人的资产、债务、经营、信用、信誉等情况、是否具备签订相关主合同的主体资格和权限已充分了解。
+          {{nbsp}}三、本保证人主体资格符合相关法律法规、规范性文件要求。
+          {{nbsp}}四、本保证人有权签署本保证书并有能力履行本保证书项下义务。
+          {{nbsp}}五、本保证人签订并履行本保证书及其他相关文件现在或将来均不会违反法律法规、规范性文件，也不与本保证人签署的其他合同、协议或承担的义务相抵触。
+          {{nbsp}}六、本保证人承诺向贵行提供的各项资料真实、完整、准确，不存在虚假、误导性陈述或遗漏。
+          {{nbsp}}七、本保证人承诺未涉入可能对本保证人履行本保证书的能力产生不利影响的民事、刑事、行政诉讼或仲裁程序，亦未发生可能导致本保证人涉入该等诉讼程序或仲裁程序的事件或情形。
+          {{nbsp}}八、本保证人承诺本保证人重要资产未涉及强制执行、查封、扣押、留置、监管措施或被金融机构扣划存款，亦未发生可能导致涉及该等措施的事件或情形。
+        </text>
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第五页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+        <text class="smail-cont-text-content" decode='true'>
+
+
+        {{nbsp}}九、不存在其他影响贵行实现担保权利的情形。
+        </text>
+        {{nbsp}}十、除非有可靠、确定的相反证据，本保证人以电子数据形式提交、确认或签署的任何法律文件及贵行指定渠道生成、制作或保留的单据、凭证、记录等相关资料，均构成有效证明贵我双方之间权利义务关系的确定证据，本保证人对此不存在任何异议。\n
+        {{nbsp}}第六条  保证人的特别声明和保证\n
+        {{nbsp}}一、本保证人确认，不论债务人或其他第三方是否为主债权提供保证、抵押、质押、非典型担保等其他担保(以下简称“其他担保”)，不论上述其他担保何时成立、是否有效、贵行是否向其他担保人提出权利主张，也不论是否有第三方同意承担主合同项下的全部或部分债务，贵行均有权直接要求本保证人承担保证责任。\n
+        {{nbsp}}二、本保证人确认，无论贵行过去、现在或将来是否已经、将要或可能放弃（包括但不限于放弃抵押权或其他担保权利、放弃抵押权或其他担保权利的顺位）、变更（包括但不限于变更抵押权或其他担保权利的顺位、担保金额或范围）、减免债务人或任何第三方过去、现在或将来已经、将要或可能提供的其他担保，本保证人的保证责任均不因此而减少或免除，本保证人承诺仍然按照本保证书约定的保证范围承担保证责任，贵行有权在各项担保中自主选择实现担保的顺序。 <text class="smail-cont-text-content" decode='true'>
+        {{nbsp}}三、本保证人在本保证书项下的保证责任将随着债务人在主合同项下债务的减少而相应递减。但如果本保证人只对主合同项下部分债务（无论系采确定金额或固定比例之方式）提供保证，则本保证人同意，即使因债务人清偿、贵行实现其他担保权利或其他原因导致主合同项下债务部分消灭，本保证人仍应在本保证书约定的保证范围内对尚未清偿的债务承担连带保证责任。
+        {{nbsp}}四、如本保证人承担保证责任后主合同项下的主债务仍未获完全清偿，则本保证人承诺如向债务人或其他担保人主张（包括预先行使）代位权或追偿权，不应使贵行权益受到损害，并同意主合同项下主债务的清偿优先于本保证人代位权或追偿权的实现。如本保证人实现了上述权利，则应将所获款项优先用于清偿贵行尚未获偿的债权。</text>
+
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第六页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+        <text class="smail-cont-text-content" decode='true'>
+
+
+        {{nbsp}}五、本保证人承诺（包括本保证人的继承人、受让人、接管人）在本保证书项下的保证责任具有连续性，不受本保证人或债务人任何变更影响（包括但不限于分立、合并、重组，以租赁、承包等方式进行产权、经营权交易等）。如债务人在还清贵行全部债务前其主体资格终止存在，或债务人在清偿贵行债务后六个月内因被法院受理破产申请而导致债务人的前述还款行为无效/被撤销，或债务人在提前清偿贵行债务后一年内因被法院受理破产申请而导致债务人的前述还款行为无效/被撤销，本保证人仍应按约定承担本保证书项下的保证责任。</text>\n
+        {{nbsp}}六、如主合同被解除的，本保证人对主合同解除后债务人应承担的责任仍应承担本保证书项下的担保责任。如主合同被确认为无效或被撤销，则本保证人对于债务人因主合同无效或被撤销而产生的返还财产或赔偿损失等责任而形成的债务依法承担责任。\n
+        {{nbsp}}第七条  保证人的权利和义务<text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}一、本保证人同意，自愿按贵行要求提供相关文件资料（包括但不限于所有开户行账号、资产状况、生产经营活动、内部管理等资料）。
+          {{nbsp}}二、本保证人同意，监督债务人按照主合同约定使用借款，如果债务人改变借款用途，本保证人仍应承担保证责任。
+          {{nbsp}}三、未经贵行书面同意，本保证人不得擅自对外提供足以对本保证人财务状况或履行本保证书项下义务产生不利影响的担保或反担保。
+          {{nbsp}}四、若本保证人就本保证书与债务人签订反担保合同，该反担保合同不得侵害贵行的权益，且当本保证人因该反担保合同而与贵行在对债务人的债务追偿中处同一受偿顺序时，贵行应优先于本保证人获偿。
+          {{nbsp}}五、本保证人承诺如发生财务状况恶化、重大资产转让、涉及重大诉讼或仲裁纠纷、重要资产涉及强制执行、查封、扣押、留置、监管措施、被金融机构扣划存款或类似措施，或者发生其他对本保证人担保能力产生不利影响的其他事件，应立即书面通知贵行，保证能够履行保证责任，并提供贵行认可的新担保。</text>
+
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第七页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+        <text class="smail-cont-text-content" decode='true'>
+
+
+        {{nbsp}}六、根据法律法规、规范性文件规定及本保证书约定享有和承担的其他权利与义务。</text>\n
+        {{nbsp}}第八条  贵行的权利和义务<text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}一、贵行有权要求本保证人提供与本保证书项下保证有关的信息及文件资料。
+          {{nbsp}}二、贵行有权要求本保证人按照本保证书约定承担保证责任。
+          {{nbsp}}三、贵行依法将全部或部分主债权转让给第三人的，本保证人在原保证范围内继续承担连带保证责任。
+          {{nbsp}}四、如本保证人在贵行处负有数项债务（包括本保证书项下债务以及本保证人与贵行签订的其他合同项下所负债务），本保证人的给付不足以清偿全部债务的，贵行有权指定用于归还债务的顺序，本保证人对此知悉并认可。
+          {{nbsp}}五、贵行有权在其认为必要的时候以贵行的名义处理本保证人到期债权的求偿和追索事宜，并将由此得到的款项优先用于清偿本保证人对贵行的债务。
+          {{nbsp}}六、根据法律法规、规范性文件规定及本保证书约定享有和承担的其他权利与义务。 </text>\n
+        {{nbsp}}第九条  违约事件及处理\n
+        {{nbsp}}一、下列任一情形均构成本保证书项下违约事件：<text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}（一）债务人未按照主合同约定向贵行按期足额偿还债权本金、利息或发生主合同约定的其他违约事件；
+          {{nbsp}}（二）本保证人在本保证书中作出的声明和保证不真实、不完整、不准确、具有误导性，或本保证人违反作出的声明与保证；
+          {{nbsp}}（三）本保证人未及时履行保证责任及/或违反本保证书约定的其他义务；
+        </text>
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第八页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+        <text class="smail-cont-text-content" decode='true'>
+
+
+          {{nbsp}}（四）本保证人提供虚假材料或隐瞒重要事实；
+          {{nbsp}}（五）本保证人通过关联交易或其他方式逃废债务；
+          {{nbsp}}（六）本保证人出现不良信用记录或发生违反与贵行或江苏银行股份有限公司其他机构或第三人签署的其他合同等违约行为；
+          {{nbsp}}（七）本保证人经营出现严重困难，财务状况恶化，或发生其他对本保证人正常经营、财务状况产生重大不利影响的情形；
+          {{nbsp}}（八）本保证人发生重大事项，包括但不限于发生或涉嫌违法违规行为、重大资产转让、重大诉讼或仲裁纠纷、重要资产涉及强制执行措施、查封、扣押、留置、监管措施、被金融机构扣划存款或类似措施等；
+          {{nbsp}}（九）其他贵行合理认为对本保证人担保能力产生重大不利影响的情形。</text>\n
+          {{nbsp}} 二、如发生上述任一违约事件或法律法规规定贵行可行使担保权利的情形，贵行有权单独或一并行使下述权利：<text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}（一）要求本保证人限期纠正并采取补救措施；
+          {{nbsp}}（二）要求本保证人提供补充担保；
+          {{nbsp}}（三）宣布主债权提前到期，行使主合同项下贵行相应权利；
+          {{nbsp}}（四）要求本保证人向贵行赔偿损失；
+          {{nbsp}}（五）要求本保证人承担保证责任；</text>\n
+          {{nbsp}}（六）本保证人收到贵行书面通知后，应按贵行指定时间、币种、金额、结算方法、清偿顺序履行清偿责任，且承诺贵行有权从本保证人开立在贵行或江苏银行股份有限公司其他机构的所有银行账户中扣收全部担保金额，扣收款项为人民币而主合同项下业务为外币业务的，按扣收日贵行系统挂牌现汇卖出价折算还款金额，扣收款项为外币而主合同项下业务为人民币业务
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第九页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+
+
+        的，按扣收日贵行系统挂牌现汇买入价折算还款金额，本保证人有义务协助贵行办理，汇率风险由本保证人自行承担；<text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}（七）法律法规、规范性文件规定及本保证书约定的其他必要措施。</text>\n
+          {{nbsp}}第十条  反洗钱条款<text class="smail-cont-text-content" decode='true'>
+            {{nbsp}}一、本保证人承诺，办理本保证书项下业务是真实、合法的，未涉及洗钱、恐怖主义或其他非法目的，也未违反任何适用的关于经济制裁、贸易禁运和贸易管制等方面的法律法规和国际条约，并自愿接受反洗钱调查，及时提供相关信息，确保相关信息的准确性、真实性、完整性。
+            {{nbsp}}二、本保证人承诺，向贵行履行担保责任过程中所涉及的资金来源合法合规，不存在亦不涉嫌洗钱、恐怖融资、逃税、欺诈等非法活动。</text>\n
+            {{nbsp}}三、如贵行发现或有合理理由怀疑本保证人存在或涉嫌洗钱、恐怖融资或逃税等非法活动的，贵行可以采取包括但不限于暂停主合同项下借款支用、宣布借款提前到期、要求本保证人承担保证责任等必要的洗钱风险控制措施，对贵行因采取风险控制措施及因本保证人违反本条约定的反洗钱义务给贵行造成的损失，由本保证人承担相应赔偿责任。\n
+            {{nbsp}}第十一条  信息查询和使用\n
+            {{nbsp}}一、本保证人不可撤销地授权江苏银行股份有限公司自本保证书签署之日起至主合同项下债务清偿之日止，可通过包括但不限于国家行政机关、政府部门、业务管理机构、社会第三方数据平台、网络媒体等途径对本保证人有关的各类信息进行查询。本保证人知悉因提供上述非公开信息可能产生的法律后果。\n
+            {{nbsp}}二、本保证人在此不可撤销地承诺因违反本保证书约定义务时，贵行可以向征信机构、银行业协会报送本保
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第十页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+
+
+        证人违约失信信息，并且授权相关银行业协会可以通过适宜的方式对本保证人失信信息在银行业金融机构之间共享乃至向社会公示。
+        {{nbsp}}本保证人自愿接受贵行等银行业金融机构联合采取调减或停止授信、停止开立新的结算账户、停办法定代表人新的信用卡等联合失信、惩戒维权措施。
+        {{nbsp}}三、本保证人授权并同意贵行为催收和追索债务之目的，将本保证人的必要信息（如身份信息、联系信息、履约信息等）与贵行委托的合作机构、律师事务所等第三方机构进行共享。
+        {{nbsp}}第十二条  身份验证条款
+        {{nbsp}}一、本保证人通过贵行指定渠道签署法律文件的，需验证本保证人的密码、数字证书（如需）、短信验证码（如需）、指纹（如需）等信息，本保证人使用上述信息进行签署的法律文件均视为本保证人本人办理。本保证人签署法律文件时，贵行有权验证本保证人的密码和短信验证码等，贵行认为有必要的，还会通过人脸识别、视频或电话的方式对本保证人的身份进行核实。本保证人确认，贵行通过上述方式验证本保证人的身份，验证通过的，后续所有操作均视为本保证人本人的操作。
+        {{nbsp}}二、本保证人应当妥善保管密码、手机号码、数字证书、短信验证码等信息，并保持手机等通讯设备畅通。本保证人应当保证手机等通讯设备、个人电脑等的环境安全，并不向任何人泄露前述信息。对因本保证人手机或电脑环境安全、账号或密码等信息泄露造成的损失，由本保证人自行承担。若本保证人发现账号、密码等信息存在冒用风险，或者有他人冒用本保证人账号、密码等信息的，本保证人应当立即通知贵行要求暂停本业务。同时，本保证人应理解贵行对本保证人的要求采取行动需要合理时间，在此之前，贵行对已执行的指令及由此产的损失不承担任何责任。若本保证人与他人合谋或有其他不诚信的行为，或者不配合贵行调查情况时，则由本保证人承担由此造成的损失。
+        {{nbsp}}三、贵行承诺将根据法律法规、监管要求对本保证人资料承担保密义务，不得将收集到的本保证人相关信息提供给贵行以外的与本保证书项下贷款业务无关的第三方。
+        {{nbsp}}第十三条  通知与送达
+        {{nbsp}}一、本保证人确认本保证书文首处所列通讯地址、电话、传真、电子邮箱等为本保证人的有效送达地址。
+        {{nbsp}}二、向本保证人发出的通知在下述情况下应被视为送达：
+        {{nbsp}}（一）电子送达（包括短信、电子邮件、传真等），以贵行设备显示发送成功视为送达；      
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第十一页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+       <text class="smail-cont-text-content" decode='true'>
+
+        {{nbsp}}（二）专人送达，贵行当场在书面文件或送达回证上记明情况之日视为有效送达日；
+        {{nbsp}}（三）邮寄送达（包括特快专递、平信邮寄、挂号邮寄等），贵行投递之日后的第五个日历日或通知实际送达相关地址或通知被退回之日（以时间较前者为准）视为送达；</text>\n
+        {{nbsp}}（四）同时采用上述几种方式的，以其中最先到达对方者为准。\n
+        {{nbsp}}三、下列人员为贵行通知的签收人，包括：本人、亲属、上述送达地址所在小区、办公楼的物业管理人员、门卫、保安。<text class="smail-cont-text-content" decode='true'>
+        {{nbsp}}四、上述送达地址、送达方式及签收人适用范围：包括本保证书生效时起至债务履行完毕之日止，本保证人在履行本保证书过程中的各类通知、函件、附件、协议等文件以及本保证书发生纠纷时相关文件和法律文书的送达，包括在争议进入公证、仲裁、民事诉讼程序后的一审、二审、再审和执行程序（含处置抵押物等）等各个阶段相关文件和法律文书的送达。</text>\n
+       {{nbsp}}五、上述送达地址如有变更的，本保证人应自变更之日起3个工作日内书面通知贵行、人民法院、仲裁机构或公证机关等，收到书面变更通知前，贵行、人民法院、仲裁机构或公证机关等依据上述送达地址送达的通知均视为有效送达。 <text class="smail-cont-text-content" decode='true'>
+        {{nbsp}}六、如因本保证人提供或者确认的送达地址不正确、送达地址变更后未及时通知、被送达方或签收人拒绝签收等原因导致通知或文件未能被本保证人实际接收的，依据上述约定方式送达的通知或文件亦应视为有效送达，由此产生的风险由本保证人自行承担。
+        {{nbsp}}七、本保证书发生争议或纠纷进入仲裁/民事诉讼程序后，如本保证人应诉并直接向仲裁机构/法院提交送达地址确认书，该确认地址与本保证书确认的送达地址不一致的，以向仲裁机构/法院提交确认的送达地址为准（该送达地址适用本保证书约定的送达方式及送达的法律后果）。</text>\n
+        {{nbsp}}第十四条  法律适用及争议解决 <text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}一、本保证书的订立、效力、解释、履行及争议的解决均适用中华人民共和国法律（为本保证书目的，不含中华人民共和国香港特别行政区、澳门特别行政区及台湾地区的法律）。</text>
+          <text class="smail-cont-text-content" style="text-decoration: underline" decode='true'>
+            {{nbsp}}二、本保证书履行中如发生争议，双方可进行协商或调解；协商或调解不成的，按以下第A项规定的方式解决争议。
+            {{nbsp}}A.向贵行所在地人民法院提起诉讼。
+            {{nbsp}}B.向  / 仲裁委员会申请仲裁。
+            {{nbsp}}C.向本保证书签订地人民法院提起诉讼。</text>
+         
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第十二页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+       <text class="smail-cont-text-content" decode='true'>
+       
+       
+        {{nbsp}}三、在争议解决期间，本保证书中不涉及争议的条款仍须继续履行。</text>\n
+       {{nbsp}}第十五条  合同双方约定的其他事项<text class="smail-cont-text-content" decode='true'>
+        {{nbsp}}一、本保证书项下本金以外的利息、费用均为含税价格。
+        {{nbsp}}二、本保证书任何条款无效或部分无效，均不影响本保证书其他条款的有效性和可执行性，双方均应按照本保证书其他条款的约定继续履行。
+        {{nbsp}}三、贵行对任何违约或延误行为施以的任何宽容、宽限、优惠或延缓行使本保证书项下的任何权利，均不影响、损害或限制贵行依本保证书和法律法规而享有的一切权利、权益，也不应视为对本保证书项下相关权利、权益的放弃，亦不得视为对任何违反本保证书行为的许可或认可，也不影响、免除本保证人在本保证书项下应承担的任何义务。
+        {{nbsp}}四、贵行认为必要时，本保证书经公证机关公证后赋予强制执行效力。贵行可持有关公证文书向有管辖权的人民法院申请强制执行，本保证人对此放弃抗辩权。</text>
+        {{nbsp}}五、若贵行因业务需要须委托江苏银行股份有限公司其他机构履行本保证书项下权利及义务，本保证人对此表示认可。贵行授权的江苏银行股份有限公司其他机构有权行使本保证书项下全部权利，有权就本保证书项下纠纷向法院提起诉讼或提交仲裁机构裁决。<text class="smail-cont-text-content" decode='true'>
+          {{nbsp}}六、本保证书未尽事宜，按照相关法律法规、规范性文件及主合同的有关条款解释或办理。</text>\n
+          {{nbsp}}第十六条  合同的生效、变更、解除和终止\n
+          {{nbsp}}一、本保证人同意以数据电文形式签订本保证书，并不以此为由拒绝履行本保证书项下的义务，本保证书自本保证人电子签名或在申请办理页面点击确认、勾选之日起生效，未经贵行同意，本保证人不得否认本保证书项下债权债务关系或以任何方式撤回、撤销本保证书。
+      </text>
+      <image class="cont-qr-img" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+    <view class="split"></view>
+    <!-- 第十三页 -->
+    <view class="page-height">
+      <text class="cont-content title-size-30-1" decode='true' style="line-height: 40rpx;">
+       <text class="smail-cont-text-content" decode='true'>
+       
+       
+        {{nbsp}}二、本保证书自主合同项下全部借款本金、利息及一切相关费用全部清偿完毕之日终止。
+        {{nbsp}}(以下为签章处，无正文。) </text>\n\n
+        {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}保证人（电子签名）：<text class="text-border">{{guarContInfo.guarCusName}}</text>\n
+        {{nbsp}} {{nbsp}} {{nbsp}} {{nbsp}}合同签订日：<text class="text-border">{{detail.signDate}}</text>\n\n
+        <text class="smail-cont-text-content" decode='true'>{{nbsp}}注：本保证书包含数字证书签名信息，由客户在线签署，自动生成，并由中国金融认证中心（CFCA）提供签章服务。</text>
+
+         
+      </text>
+      <image class="cont-qr-img" style="margin-bottom: 50rpx;" src="{{preffixUrl}}/static/wechat/img/carloans/contract_qrcode.png"></image>
+    </view>
+  </view>
+  <view class="contaioner-foot">
+    <button class="cont-btn-submit" bindtap="goSubmit" style="{{backBtnName===0?'':'background:#999'}}">
+      {{backBtnName===0?'我已阅读并同意':'我已阅读并同意('+backBtnName+'s)'}}
+    </button>
+  </view>
+</page-container>

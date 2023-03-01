@@ -1,0 +1,102 @@
+<!--pages/message/notice.wxml-->
+<view class="f0">
+  2020年8月13日 15:02
+</view>
+<view class="f1">
+  <view class="f11">
+    <image class="f11img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-21008.png" mode="widthFix" style="width:55rpx;height:55rpx" />
+    <view class="f111">服务通知</view>
+  </view>
+  <view class="line"></view>
+  <view class="f12">
+    <view class="f12title">业务动态提醒</view>
+    <view class="f12content">
+      <view class="f12c">
+        <view class="f12c1">产品名称</view>
+        <view class="f12c2">经营随e贷</view>
+      </view>
+      <view class="f12c">
+        <view class="f12c1">订单时间</view>
+        <view class="f12c2">2020-08-13 14:58</view>
+      </view>
+      <view class="f12c">
+        <view class="f12c1">订单状态</view>
+        <view class="f12c2">您申请的经营随e贷已经审批成功！</view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="f13">
+    <view class="f131">查看详情</view>
+    <image class="f13icon" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-21009.png" mode="widthFix" style="width:36rpx;height:36rpx" />
+  </view>
+</view>
+
+<view class="f0">
+  2020年8月13日 15:02
+</view>
+<view class="f1">
+  <view class="f11">
+    <image class="f11img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-21008.png" mode="widthFix" style="width:55rpx;height:55rpx" />
+    <view class="f111">服务通知</view>
+  </view>
+  <view class="line"></view>
+  <view class="f12">
+    <view class="f12title">业务动态提醒</view>
+    <view class="f12content">
+      <view class="f12c">
+        <view class="f12c1">产品名称</view>
+        <view class="f12c2">经营随e贷</view>
+      </view>
+      <view class="f12c">
+        <view class="f12c1">订单时间</view>
+        <view class="f12c2">2020-08-13 14:58</view>
+      </view>
+      <view class="f12c">
+        <view class="f12c1">订单状态</view>
+        <view class="f12c2">您申请的经营随e贷已经审批成功！</view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="f13">
+    <view class="f131">查看详情</view>
+    <image class="f13icon" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-21009.png" mode="widthFix" style="width:36rpx;height:36rpx" />
+  </view>
+</view>
+
+<view class="f0">
+  2020年8月13日 15:02
+</view>
+<view class="f1">
+  <view class="f11">
+    <image class="f11img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-21008.png" mode="widthFix" style="width:55rpx;height:55rpx" />
+    <view class="f111">服务通知</view>
+  </view>
+  <view class="line"></view>
+  <view class="f12">
+    <view class="f12title">业务动态提醒</view>
+    <view class="f12content">
+      <view class="f12c">
+        <view class="f12c1">产品名称</view>
+        <view class="f12c2">经营随e贷</view>
+      </view>
+      <view class="f12c">
+        <view class="f12c1">订单时间</view>
+        <view class="f12c2">2020-08-13 14:58</view>
+      </view>
+      <view class="f12c">
+        <view class="f12c1">订单状态</view>
+        <view class="f12c2">您申请的经营随e贷已经审批成功！</view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="f13">
+    <view class="f131">查看详情</view>
+    <image class="f13icon" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-21009.png" mode="widthFix" style="width:36rpx;height:36rpx" />
+  </view>
+</view>
+<view class="" id="bottom" hover-class="none" hover-stop-propagation="false">
+    
+</view>

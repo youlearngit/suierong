@@ -1,0 +1,54 @@
+.dianDetBanner{display:block;width:100%;height:355rpx;}
+.dianDL{position:relative;display:block;width:80%;margin:40rpx auto;padding:40rpx 26rpx;line-height:1.6;font-size:26rpx;color:#333;border-radius:10rpx;background:#fff1e3;}
+.dianDt{position:absolute;top:-40rpx;left:10%;width:80%;height:40rpx;line-height:40rpx;padding:15rpx 0 25rpx;font-size:32rpx;color: #fff;text-align:center;vertical-align:middle;}
+.dianDt text{display:inline-block;position:relative;height:40rpx;z-index:10;}
+.dianDt .span{width:40rpx;height:40rpx;border-radius:40rpx;margin-right:80rpx;color:#ff6606;background:#fff;}
+.dianDtBg{position:absolute;top:0;left:0;width:100%;height:70rpx;z-index:1;}
+.dianDL .p{display:block;margin-bottom:10rpx;text-indent:2em;text-align:justify;}
+.detWarp{position:relative;height:1422rpx;}
+.detWarpBg{position:absolute;width:100%;height:100%;z-index:-1;}
+.dianStep{margin-top:590rpx;margin-left:170rpx;font-size:26rpx;color:#333;}
+.dianStep .s1{width:350rpx;margin-bottom:34rpx;}
+.dianStep .s2{width:400rpx;margin-bottom:60rpx;}
+.dianStep .s3{width:450rpx;margin-bottom:34rpx;}
+.dianStep .s4{width:500rpx;}
+
+   view.solarsystem{position:absolute;width:460rpx;height:900rpx;top:400rpx;right:0;list-style:none;transition:all 90ms ease-in;font-size:20rpx;overflow:hidden;z-index:-1}
+   
+    view.solarsystem view{display:block;position:absolute;border:1rpx solid #c4cafa}
+    view.solarsystem view span{color:#fff;position:absolute;width:20rpx;height:20rpx;border-radius:10rpx;}
+    view.solarsystem view.active{border-color:#6684f6}
+    view.solarsystem view.active span,view.solarsystem view.active.sun{transform:scale(1.3)}
+    view.solarsystem view.active.earth .moon,view.solarsystem view.active.sun span{border:none;box-shadow:none}
+    view.solarsystem view.sun{top:400rpx;right:-30rpx;width:60rpx;height:60rpx;border-radius:30rpx;background:#fc3;background-image:gradient(linear,left bottom,left top,color-stop(.22,#c90),color-stop(1,#ffdb70));border:none;box-shadow:0 0 50rpx #c90;box-shadow:0 0 30rpx #c90;z-index:100;transition:all .2s ease-in;}
+    
+    view.solarsystem view.mercury{width:200rpx;height:200rpx;border-radius:100rpx;top:330rpx;right:-100rpx;z-index:99;background-image:linear-gradient(to right,#ced8fb,#d6dffe);}
+    view.solarsystem view.mercury span{background:#b6bac5;top:10rpx;left:24rpx}
+
+    view.solarsystem view.venus{width:400rpx;height:400rpx;border-radius:200rpx;top:230rpx;right:-230rpx;z-index:98;background-image:linear-gradient(to right,#e0e6f6,#eaefff);}
+    view.solarsystem view.venus span{background:#bf8639;top:118rpx;left:5rpx}
+
+    view.solarsystem view.earth{width:600rpx;height:600rpx;border-radius:300rpx;top:130rpx;right:-300rpx;z-index:97; background-image:linear-gradient(to right,#e5e7fc,#eff4f7);}
+    view.solarsystem view.earth span{background:#0066b3;top:76rpx;left:76rpx}
+
+
+    view.solarsystem view.mars{width:800rpx;height:800rpx;border-radius:400rpx;top:30rpx;right:-400rpx;z-index:9;background-image:linear-gradient(to right,#faf8ff,#fcfbff);}
+    view.solarsystem view.mars span{background:#aa4200;top:200rpx;left:36rpx}
+
+    
+
+    view.solarsystem view{animation-iteration-count:infinite;animation-timing-function:linear;animation-name:orbit;}
+    view.solarsystem view.earth span{animation-iteration-count:infinite;animation-timing-function:linear;animation-name:moon;}
+    view.solarsystem view.mercury{animation-duration:2s;}
+    view.solarsystem view.venus{animation-duration:3s;}
+    view.solarsystem view.earth{animation-duration:4s;}
+    view.solarsystem view.mars{animation-duration:5s;}
+    view.solarsystem view.asteroids_meteorids{animation-duration:50s;}
+    
+    @keyframes orbit{from{transform:rotate(0)}
+        to{transform:rotate(360deg)}
+    }
+    @keyframes moon{from{transform:rotate(0)}
+        to{transform:rotate(360deg)}
+    }
+

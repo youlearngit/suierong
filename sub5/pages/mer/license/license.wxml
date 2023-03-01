@@ -1,0 +1,27 @@
+
+<view class="container">
+  <image class="bg" src="{{cdnMer}}/bg_apply.png" mode="widthFix"></image>
+
+  <view class="form_upload">
+    <view>
+      <image src="{{cdnMer}}/icon_titler.png" mode="heightFix"></image>
+      请上传营业执照
+    </view>
+    <view bindtap="chooseImage">
+      <image src="{{license || cdnMer+'/yezz.png'}}" mode="heightFix" />
+      <view>上传营业执照</view>
+    </view>
+    <view>
+      <view>
+        <image src="{{cdnMer}}/icon_tip.png" mode="widthFix"></image>
+        温馨提示
+      </view>
+      <view>您拍摄的证件照片将作为实名认证审核的影像资料，请拍摄时确保证件<text>边框完整，字体清晰，亮度均匀。</text></view>
+    </view>
+  </view>
+
+  <button class="btn_submit" bindtap="submit">确认提交</button>
+
+</view>
+
+<van-toast id="van-toast" />

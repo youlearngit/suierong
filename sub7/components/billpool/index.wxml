@@ -1,0 +1,12 @@
+<!--sub1/pages/quotaquery/index.wxml-->
+<image src="{{cndUrl}}/static/wechat/img/sui/billpool_bg.png" mode="widthFix" class="titleLogo"></image>
+<view class="qty_body">
+<view class="title">额度查询</view>
+<view class="bottom_line"><image src="{{cndUrl}}/static/wechat/img/sui/decorate_line.png" class="line" mode="widthFix"></image></view>
+
+</view>
+<!-- <view class="card">
+<view class="qt_card">
+  <image src="{{cndUrl}}/static/wechat/img/sui/billcard_bg2x.png" class="card_bg"></image>
+</view>
+</view> -->

@@ -1,0 +1,21 @@
+<view class="{{shareBox}}">
+    <view class='imagePathBox' hidden="{{hidePoster}}">
+        <image src="{{imagePath}}" class="shengcheng" mode="heightFix" style="top:{{top}};height:{{height}}" />
+    </view>
+    <view class="tools" hidden="{{hidePoster}}">
+        <view class="tb cancel" bindtap='showHide'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg" />
+            <block>取消</block>
+        </view>
+        <view class="tb shareToAPP">
+            <button open-type='share'>
+                <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg" />
+            </button>
+            <block>转发</block>
+        </view>
+        <view class="tb savePic" bindtap='baocun'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg" />
+            <view class="saveTxt">朋友圈</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,20 @@
+
+<template name="step_header">
+  <view class="step_header">
+    <image src="{{cdnMer}}/no{{step}}.png" mode="heightFix"></image>
+    <view>
+      <block wx:if="{{step==1}}">
+        <view><text>请进行身份认证</text></view>
+        <view>为保障您的信息安全，我们需要认证您的身份</view>
+      </block>
+      <block wx:if="{{step==2}}">
+        <view><text>请录入企业信息</text></view>
+        <view>请进行企业资质认证</view>
+      </block>
+      <block wx:if="{{step==3}}">
+        <view><text>请确认授权</text></view>
+        <view>填写您的申请信息和期限</view>
+      </block>      
+    </view>
+  </view>
+</template>

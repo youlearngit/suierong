@@ -1,0 +1,67 @@
+<view class="a1">
+    <!-- <image class="a1img" src="/assets/images/zm_2.png" mode="widthFix" lazy-load="false" binderror="" bindload="" /> -->
+    <image class="a1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_2.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+</view>
+<view class="a2">
+    <view class="a2Txt">上海自贸区、江苏自贸区、粤港澳大湾区自贸金融专属服务</view>
+</view>
+<view class="a3">
+    <image class="a3img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_21.png" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+</view>
+<view class=""></view>
+<form bindsubmit="register" report-submit='true'>
+    <view class="a4">
+        <view class="a4b1">
+            <view class="cu-list menu" bindtap="">
+                <view class="cu-item ">
+                    <view class="a4b1menu">企业名称</view>
+                    <input class="a4b1ipt" id="companyName" name="companyName" placeholder="必填"></input>
+                    <!-- <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" /> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="a4">
+        <view class="a4b1">
+            <view class="cu-list menu" bindtap="">
+                <view class="cu-item ">
+                    <view class="a4b1menu">联系人</view>
+                    <input class="a4b1ipt" id="userName" name="userName" placeholder="必填"></input>
+                    <!-- <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" /> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="a4">
+        <view class="a4b1">
+            <view class="cu-list menu" bindtap="">
+                <view class="cu-item ">
+                    <view class="a4b1menu" >联系电话</view>
+                    <input class="a4b1ipt" id="tel" name="tel" value="{{phone}}" placeholder="必填" style="width:400rpx" disabled='disabled' style="margin-left:40rpx"></input>
+
+                    <!-- <input name="orgName" id="orgName" value="{{ form.tel }}" bindblur='blur' bindinput="getOrgName" class="aTxt" type="text" disabled='disabled' /> -->
+                    <button class="mobbtn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber3" style="background-color:#fff;margin-top: 15rpx;border: none;border-radius: 0;align-items: center;">
+                        <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+                    </button>
+                    
+                    <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber3" class="amountC" >修改手机号</button> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="a4">
+        <view class="a4b1">
+            <view class="cu-list menu" bindtap="">
+                <view class="cu-item" style=" border-bottom: 0rpx;">
+                    <view class="a4b1menu">办公地址</view>
+                    <input class="a4b1ipt" id="address" name="address" placeholder="必填"></input>
+                    <!-- <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" /> -->
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="a5">
+        <!-- <view class="a5btn">点击分享</view> -->
+        <button class="a5btn1" formType="submit">立即注册</button>
+    </view>
+</form>

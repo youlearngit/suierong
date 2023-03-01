@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-cell": "/sub4/static/vant/weapp/cell/index",
+    "van-field": "/sub4/static/vant/weapp/field/index",
+    "van-popup": "/sub4/static/vant/weapp/popup/index",
+    "apply_empower": "./component/apply_empower",
+    "apply_picker": "./component/apply_picker",
+    "apply_radio": "./component/apply_radio",
+    "apply_search": "./component/apply_search",
+    "apply_search_icon": "./component/apply_search_icon"
+  }
+}

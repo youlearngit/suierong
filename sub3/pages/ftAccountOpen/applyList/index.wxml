@@ -1,0 +1,18 @@
+<view wx:if="{{hasDataFlag}}">
+  <view class="has-data-img" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/has_apply_data.png);"></view>
+  <view class="has-data-title-1">您还没有预约信息哦</view>
+  <view class="has-data-apply-btn" bindtap="toInfoPage" data-formStatus="0">预约开户</view>
+</view>
+<view wx:if="{{!hasDataFlag}}" class="has-body" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/pub_background.png);">
+  <view class="card" bindtap="toInfoPage" data-formStatus="{{item.yybh?'2':'1'}}" data-yyinfo="{{item}}" data-uid="{{item.uniqId}}" wx:for="{{resultItem}}" wx:key="key" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/item_card.png);">
+    <view class="jump" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/jump.png);"></view>
+   <view class="card-title">预约编号 <text class="">{{item.yybh ? item.yybh:'暂无'}}</text></view>
+   <view class="card-label">客户名称 <text class="card-value">{{item.custName ? item.custName : '暂无'}}</text></view>
+   <view class="card-label">账户名称 <text class="card-value">{{item.accountName ? item.accountName : '暂无'}}</text></view>
+   <view class="card-label">预约网点 <text class="card-value">{{item.netName ? item.netName : '暂无'}}</text></view>
+  </view>
+  <view class="float-buttom" wx:if="{{bookingStatus == false}}" data-formStatus="0" bindtap="toInfoPage">
+    <view class="add-apply" style="background-image: url({{preffixUrl}}/static/wechat/img/ftKaihu/add-icon.png);"></view>
+    <view class="add-title">新增开户</view>
+  </view>
+</view>

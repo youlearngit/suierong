@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tabs": "../../component/fu-tab/fu-tab"
+  },
+  "navigationBarTitleText": "撮合平台"
+}
+

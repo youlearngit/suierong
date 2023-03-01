@@ -1,0 +1,109 @@
+<view class="warp">
+  <view class="diyNav" style='height:{{navHeight}}px;top:{{navTop}}px;border-radius:{{navHeight}}px;'>
+    <view wx:if="{{pageFlag==1}}" class="backIndex" bindtap='indexpage'>
+      <image src="/pages/public/img/ico_ind.png"></image>
+    </view>
+    <view class="btnG" style='height:{{navHeight}}px;line-height:{{navHeight}}px;' wx:else>
+      <view class="backPage" bindtap='prePage'>
+        <image src="/pages/public/img/ico_back.png"></image>
+      </view>
+      <view class="backIndex" bindtap='indexpage'>
+        <image src="/pages/public/img/ico_ind.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="bg">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_ind.jpg"></image>
+  </view>
+
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 简 介</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">“人才贷”是江苏银行为经政府职能部门认定的人才个人或人才创办企业办理的用于其生产经营、市场拓展、技术升级等用途的授信业务。</text>
+    </view>
+  </view>
+
+  <view class="dianDL">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">产 品 特 点</text>
+    </view>
+    <view class="dianDd">
+
+      <view class="tedian">
+        <view class="tdImg"><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_rencai_t1.png"></image></view>
+        <view class="dzcp">
+          <h2>定制产品服务。</h2>
+          <text class="p">提供专属化、个性化、定制化的产品服务；</text>
+        </view>
+      </view>
+      <view class="tedian">
+        <view class="tdImg"><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_rencai_t2.png"></image></view>
+        <view class="dzcp">
+          <h2>优先审批通道。</h2>
+        <text class="p">开放绿色审批通道、设定专项审批流程、配置专门审批人员；</text>
+        </view>
+      </view>
+      <view class="tedian">
+        <view class="tdImg"><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_rencai_t3.png"></image></view>
+        <view class="dzcp">
+          <h2>满足多样需求。</h2>
+        <text class="p">涵盖了人才的企业经营、日常消费、信用卡等一揽子金融服务。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="dianDL" style="margin-bottom:140rpx;">
+    <view class="dianDt">
+      <image class="dianDtBg" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/rencai_title.png"></image>
+      <text class="">服 务 对 象</text>
+    </view>
+    <view class="dianDd">
+      <text class="p">经政府职能部门认定，被列入国家级、省级、市级或区县级人才项目计划的人才及其创办企业。</text>
+    </view>
+  </view>
+
+</view>
+
+<view class='fbuttom'>
+    <view class="btn" bindtap='showShare'>分<text>\t\t\t\t\t\t</text>享</view>
+  <view bindtap="apli" class="btn blu">立即申请</view>
+</view>
+
+<view class="{{shareBox}}">
+
+  <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengcheng'></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+  <view class="canvas-box">
+    <canvas style="width:750px;height:1216px;position:fixed;top:9999px" canvas-id="mycanvas" />
+  </view>
+  
+  <view class="tools">
+    <view class="tb cancel" bindtap='showHide'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg"></image>
+      <block>取消</block>
+    </view>
+    <view class="tb shareToAPP">
+      <button open-type='share'><image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg"></image></button>
+      <block>转发</block>
+    </view>
+    <view class="tb savePic" bindtap='baocun'>
+      <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg"></image>
+      <view class="saveTxt">朋友圈</view>
+    </view>
+  </view>
+</view>
+
+
+<view style='position:fixed;bottom:0;left:0;width:100%;height:50%;background:#fff;z-index:0;'></view>
+
+
+
+<my-login loginFlag="{{loginFlag}}" ></my-login>

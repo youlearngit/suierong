@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "tabs": "../../component/fund-supply-tab/fund-supply-tab",
+    "dialog": "../../component/dialog/index"
+  },
+  "navigationBarTitleText": "资金供给",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black"
+
+
+}
+

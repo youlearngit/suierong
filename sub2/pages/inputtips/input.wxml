@@ -1,0 +1,37 @@
+<view class="weui-cell" wx:if='{{mkData.length>0}}'>
+  <view class="weui-cell__hd" bindtap='select'>
+    <image class="icoGAdr" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_adr_gray.png"></image>{{result}}</view>
+  <view class="weui-cell__bd">
+    <input class="serInpt" bindinput="bindInput" value='{{keyword}}' placeholder="银行名称" />
+  </view>
+</view>
+<view class="weui-tab">
+  <!-- <view class="weui-navbar">
+    <block wx:for="{{tabs}}" wx:key="*this">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{item}}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view> -->
+  <view class="weui-tab__panel">
+    <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+      <view class="lists">
+        <view class="box" bindtap='goDetail' 
+          data-name='{{item.name}}' data-address='{{item.address}}' data-id='{{item.id}}' 
+          data-long='{{item.longitude}}' data-lat='{{item.latitude}}'  data-org_code="{{item.org_code}}" data-org_short_name="{{item.org_short_name}}"
+          wx:for='{{list}}' wx:key='key'>
+          <view class="h1">{{item.name}}
+          </view>
+          <view class="p">{{item.address}}
+          </view>
+          <image class="ico_nav" wx:if='{{preffixUrl}}'src="{{preffixUrl}}/static/wechat/img/ico_react.png"></image>
+           <span style='color:#f1bb00;' wx:if='{{!other}}'> {{item.distance}}米</span>
+        </view>
+      </view>
+      <view class="addmore" bindtap='pagger' wx:if='{{mkData.length>0}}'>{{more}}
+        <span class="arrow-down"  wx:if='{{more == "查看更多"}}'></span>
+      </view>
+    </view>
+  </view>
+</view>

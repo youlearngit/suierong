@@ -1,0 +1,38 @@
+<!--sub3/pages/bbx/technology.wxml-->
+<view class="technology" bindtap="getH5">
+  <image src="{{preffixUrl}}technology.jpg"></image>
+</view>
+  <view class="commissioner" wx:if="{{list}}" style="background-image: url({{preffixUrl}}zymp2.png);">
+   
+   <view class="commissioner_bottom">
+    <view class="headPortrait">
+      <image src="{{list.HEAD?list.HEAD:(preffixUrl+'avatar_default.png')}}"></image>
+    </view>
+    <view class="bottom_info">
+      <view class="info_top">
+        <view class="info_name">
+          {{list.STAFFNAME}}
+        </view>
+        <view class="info_type">
+          <image src="{{preffixUrl}}kjzctkpbq.png"></image>
+        </view>
+      </view>
+      <view class="info_bottom">
+        <view class="WORKUNIT">{{list.WORKUNIT}}</view>
+        <view class="bottom_zhong" style="margin-left: 20rpx;">|</view>
+        <view class="JOB" style="margin-left: 20rpx;">{{list.JOB}}</view>
+      </view>
+    </view>
+    <view class="bottom_phone" bindtap="phoneCall"  data-phone="{{list.TEL}}">
+      <image src="{{preffixUrl}}lxfstb.png"></image>
+    </view>
+   </view>
+   <navigator url="/sub3/pages/bbx/staff_list?location={{location_json}}&location2={{location2}}" hover-class="none" class="commissioner_top">
+    <view class="top_title">
+      查看更多服务专员
+    </view>
+    <view class="top_image">
+      <image src="{{preffixUrl}}tz2.png"></image>
+    </view>
+   </navigator>
+  </view>

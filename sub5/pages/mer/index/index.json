@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "my-login": "/component/login/index",
+    "share_poster": "/sub5/components/share_poster/share_poster",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index"
+  }
+}

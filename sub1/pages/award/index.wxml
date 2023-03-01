@@ -1,0 +1,485 @@
+<view class="a1">
+    <view class="a11">
+        <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="a12">
+        <view class="a121">
+            <view class="a1211">{{customerInfo.AMT_BEAN}}</view>
+            <view class="a1212">
+                <image class="a12122" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-12.png" mode="widthFix"></image>
+                <view class="a12121">累计获得苏银豆</view>
+            </view>
+        </view>
+        <view class="a121">
+            <view class="a1211">
+                <view style="width:100%;text-align:right">{{customerInfo.RMNG_BEAN}}</view>
+            </view>
+            <view class="a1212">
+                <image class="a12124" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-13.png" mode="widthFix"></image>
+                <view class="a12121">可提取苏银豆</view>
+            </view>
+        </view>
+    </view>
+    <view class="a13" bind:tap="showBeanBox" style="width:40%;">领取苏银豆</view>
+    <navigator url="/sub3/pages/myCouponConvert/index">
+        <view class="a13" style="width:40%;left:56%;">兑换优惠券</view>
+    </navigator>
+</view>
+<view class="b1">
+    <van-tabs active="{{active}}" bind:click="switchTab" sticky bind:disabled="onClickDisabled">
+        <view wx:if="{{empNo}}">
+            <van-tab title="我直接营销">
+                <view class="loading" wx:if="{{loading1}}">
+                    <van-loading size="30px" color="#1989fa" vertical>加载中...</van-loading>
+                </view>
+                <view wx:else>
+                    <view wx:if="{{shareMineList.length>0}}">
+                        <view style="height:20rpx"></view>
+                        <block wx:for="{{shareMineList}}">
+                            <view class="b11" bind:tap="showDetail" data-index="{{index}}" data-list="shareMineList">
+                                <view class="b111">{{totalNum1-index}}.</view>
+                                <image class="b112" wx:if="{{cndUrl}}" src="{{item.PHOTO}}" mode="widthFix"></image>
+                                <view class="b115">
+                                    <view class="b1151">{{item.APPLY_REAL_NAME}}</view>
+                                    <view class="b1152">{{item.APPLYTIME||item. CREATE_DATE}}</view>
+                                </view>
+                                <view class="b113">
+                                    <image class="b1131" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix"></image>
+                                    <view class="b1132">{{item.REWARD_CONTENT_REC||0}}</view>
+                                </view>
+                                <view class="b114" catch:tap="copyOrderNo" data-orderNo="{{item.ORDER_NO}}">
+                                    <image class="b1141" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-14.png" mode="widthFix"></image>
+                                    <view class="b1142">{{item.ORDER_NO}}</view>
+                                </view>
+                                <image class="b116 {{item.detail?'':'cc'}}" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-19.png" mode="widthFix"></image>
+                            </view>
+                            <view class="b12" style="max-height:{{item.height}};margin-bottom: {{item.height=='0rpx'?'0rpx':'10rpx'}};">
+                                <view class="b121"></view>
+                                <view class="b122">
+                                    <view class="b122m">
+                                        <view class="b1221">
+                                            {{item.UPDATETIME2||item.UPDATETIME3||item.APPLYTIME||item.CREATE_DATE}}
+                                        </view>
+                                        <view class="b1222" bind:tap="showResult" data-reason="{{item.STATUS||item.STATUS4}}">
+                                            {{item.STATUS||item.STATUS4}}
+                                        </view>
+                                        <view class="b1223">{{item.APPLY_TYPE_NAME}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="" wx:if="{{shareMineList.length<totalNum1}}">
+                            <view class="viewmore" wx:if="{{!searching1}}" bind:tap="showMore" data-type="1">
+                                查看更多
+                            </view>
+                            <view wx:else class="loading">
+                                <van-loading size="30px" color="#1989fa">加载中...</van-loading>
+                            </view>
+                        </view>
+                        <view style="height:60rpx"></view>
+                    </view>
+                    <view wx:else>
+                        <view class="b404">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-404.png" mode="widthFix"></image>
+                        </view>
+                        <view class="b4041">您还没有分享历史哦</view>
+                    </view>
+                </view>
+            </van-tab>
+            <van-tab title="我帮他人转介">
+                <view class="loading" wx:if="{{loading2}}">
+                    <van-loading size="30px" color="#1989fa" vertical>加载中...</van-loading>
+                </view>
+                <view wx:else>
+                    <view wx:if="{{shareEmpList.length>0}}">
+                        <view style="height:20rpx"></view>
+                        <block wx:for="{{shareEmpList}}">
+                            <view class="b11" bind:tap="showDetail" data-index="{{index}}" data-list="shareEmpList">
+                                <view class="b111">{{totalNum2-index}}.</view>
+                                <image class="b112" wx:if="{{cndUrl}}" src="{{item.PHOTO}}" mode="widthFix"></image>
+                                <view class="b115">
+                                    <view class="b1151">{{item.APPLY_REAL_NAME}}</view>
+                                    <view class="b1152">{{item.APPLYTIME||item. CREATE_DATE}}</view>
+                                </view>
+                                <view class="b113">
+                                    <image class="b1131" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix"></image>
+                                    <view class="b1132">
+                                        {{item.TYPE==="1"&&item.REWARD_CONTENT_REC?item.REWARD_CONTENT_REC:0}}
+                                    </view>
+                                </view>
+                                <view class="b114" catch:tap="copyOrderNo" data-orderNo="{{item.ORDER_NO}}">
+                                    <image class="b1141" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-14.png" mode="widthFix"></image>
+                                    <view class="b1142">{{item.ORDER_NO}}</view>
+                                </view>
+                                <image class="b116 {{item.detail?'':'cc'}}" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-19.png" mode="widthFix"></image>
+                            </view>
+                            <view class="b12" style="max-height:{{item.height}};margin-bottom: {{item.height=='0rpx'?'0rpx':'10rpx'}};">
+                                <view class="b121">
+                                    <view class="b1211">我转介{{item.TYPE==="2"?'落地':""}}给</view>
+                                    <view class="b1212">
+                                        {{item.TYPE==="1"?item.PLA_NAME:item.MANAGER_NAME}}
+                                    </view>
+                                </view>
+                                <view class="b122">
+                                    <view class="b122m">
+                                        <view class="b1221">
+                                            {{item.UPDATETIME2||item.UPDATETIME3||item.APPLYTIME||item.CREATE_DATE}}
+                                        </view>
+                                        <view class="b1222" bind:tap="showResult" data-reason="{{item.STATUS||item.STATUS4}}">
+                                            {{item.STATUS||item.STATUS4}}
+                                        </view>
+                                        <view class="b1223">{{item.APPLY_TYPE_NAME}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="" wx:if="{{shareEmpList.length<totalNum2}}">
+                            <view class="viewmore" wx:if="{{!searching2}}" bind:tap="showMore" data-type="2">
+                                查看更多
+                            </view>
+                            <view wx:else class="loading">
+                                <van-loading size="30px" color="#1989fa">加载中...</van-loading>
+                            </view>
+                        </view>
+                        <view style="height:60rpx"></view>
+                    </view>
+                    <view wx:else>
+                        <view class="b404">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-404.png" mode="widthFix"></image>
+                        </view>
+                        <view class="b4041">您还没有分享历史哦</view>
+                    </view>
+                </view>
+            </van-tab>
+            <van-tab title="他人推荐给我">
+                <view class="loading" wx:if="{{loading3}}">
+                    <van-loading size="30px" color="#1989fa" vertical>加载中...</van-loading>
+                </view>
+                <view wx:else>
+                    <view wx:if="{{otherShareList.length>0}}">
+                        <view style="height:20rpx"></view>
+                        <block wx:for="{{otherShareList}}">
+                            <view class="b11" bind:tap="showDetail" data-index="{{index}}" data-list="otherShareList">
+                                <view class="b111">{{totalNum3-index}}.</view>
+                                <image class="b112" wx:if="{{cndUrl}}" src="{{item.PHOTO}}" mode="widthFix"></image>
+                                <view class="b115">
+                                    <view class="b1151">{{item.APPLY_REAL_NAME}}</view>
+                                    <view class="b1152">{{item.APPLYTIME||item. CREATE_DATE}}</view>
+                                </view>
+                                <view class="b113">
+                                    <image class="b1131" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix"></image>
+                                    <view class="b1132">
+                                        {{item.TYPE==="1"&&item.REWARD_CONTENT_REC?item.REWARD_CONTENT_REC:0}}
+                                    </view>
+                                </view>
+                                <view class="b114" catch:tap="copyOrderNo" data-orderNo="{{item.ORDER_NO}}">
+                                    <image class="b1141" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-14.png" mode="widthFix"></image>
+                                    <view class="b1142">{{item.ORDER_NO}}</view>
+                                </view>
+                                <image class="b116 {{item.detail?'':'cc'}}" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-19.png" mode="widthFix"></image>
+                            </view>
+                            <view class="b12" style="max-height:{{item.height}};margin-bottom: {{item.height=='0rpx'?'0rpx':'10rpx'}};">
+                                <view class="b121">
+                                    <view class="b1212">
+                                        {{item.TYPE==="1"?item.SHARE_REAL_NAME||item.SHARER_NICE_NAME:item.PLA_NAME}}
+                                    </view>
+                                    <view class="b1211">{{item.TYPE==="2"?'转介落地':"转介"}}给我</view>
+                                </view>
+                                <view class="b122">
+                                    <view class="b122m">
+                                        <view class="b1221">
+                                            {{item.UPDATETIME2||item.UPDATETIME3||item.APPLYTIME||item.CREATE_DATE}}
+                                        </view>
+                                        <view class="b1222" bind:tap="showResult" data-reason="{{item.STATUS||item.STATUS3}}">
+                                            {{item.STATUS||item.STATUS3}}
+                                        </view>
+                                        <view class="b1223">{{item.APPLY_TYPE_NAME}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="" wx:if="{{otherShareList.length<totalNum3}}">
+                            <view class="viewmore" wx:if="{{!searching3}}" bind:tap="showMore" data-type="3">
+                                查看更多
+                            </view>
+                            <view wx:else class="loading">
+                                <van-loading size="30px" color="#1989fa">加载中...</van-loading>
+                            </view>
+                        </view>
+                        <view style="height:60rpx"></view>
+                    </view>
+                    <view wx:else>
+                        <view class="b404">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-404.png" mode="widthFix"></image>
+                        </view>
+                        <view class="b4041">您还没有分享历史哦</view>
+                    </view>
+                </view>
+            </van-tab>
+            <van-tab title="分享">
+                <view class="loading" wx:if="{{loading4}}">
+                    <van-loading size="30px" color="#1989fa" vertical>加载中...</van-loading>
+                </view>
+                <view wx:else>
+                    <view wx:if="{{shareList.length>0}}">
+                        <view style="height:20rpx"></view>
+                        <block wx:for="{{shareList}}">
+                            <view class="b11">
+                                <view class="b111">{{ totalNum4-index }}.</view>
+                                <image class="b112" wx:if="{{cndUrl}}" src="{{item.CLICK_PHOTO}}" mode="widthFix"></image>
+                                <view class="b115">
+                                    <view class="b1151">
+                                        {{item.REAL_NAME||item.CLICK_NICKNAME||"TA未注册"}}
+                                    </view>
+                                    <view class="b1152">{{item.APPLYTIME||item.CREATE_DATE}}</view>
+                                </view>
+                                <view class="b113">
+                                    <image class="b1131" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix"></image>
+                                    <view class="b1132">{{item.SHARE_AWARD||0}}</view>
+                                </view>
+                                <view class="b114">
+                                    <view class="b1223">{{item.APPLY_TYPE_NAME}}</view>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="" wx:if="{{shareList.length<totalNum4}}">
+                            <view class="viewmore" wx:if="{{!searching4}}" bind:tap="showMore" data-type="4">
+                                查看更多
+                            </view>
+                            <view wx:else class="loading">
+                                <van-loading size="30px" color="#1989fa">加载中...</van-loading>
+                            </view>
+                        </view>
+                        <view style="height:60rpx"></view>
+                    </view>
+                    <view wx:else>
+                        <view class="b404">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-404.png" mode="widthFix"></image>
+                        </view>
+                        <view class="b4041">您还没有分享历史哦</view>
+                    </view>
+                </view>
+            </van-tab>
+        </view>
+        <view wx:else>
+            <van-tab title="我直接营销" disabled="{{!hasIDInfo}}">
+                <view class="loading" wx:if="{{loading1}}">
+                    <van-loading size="30px" color="#1989fa" vertical>加载中...</van-loading>
+                </view>
+                <view wx:else>
+                    <view wx:if="{{shareMineList.length>0}}">
+                        <view style="height:20rpx"></view>
+                        <block wx:for="{{shareMineList}}">
+                            <view class="b11" bind:tap="showDetail" data-index="{{index}}" data-list="shareMineList">
+                                <view class="b111">{{totalNum1-index}}.</view>
+                                <image class="b112" wx:if="{{cndUrl}}" src="{{item.PHOTO}}" mode="widthFix"></image>
+                                <view class="b115">
+                                    <view class="b1151">{{item.APPLY_REAL_NAME}}</view>
+                                    <view class="b1152">{{item.APPLYTIME||item. CREATE_DATE}}</view>
+                                </view>
+                                <view class="b113">
+                                    <image class="b1131" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix"></image>
+                                    <view class="b1132">{{item.REWARD_CONTENT_REC||0}}</view>
+                                </view>
+                                <view class="b114" catch:tap="copyOrderNo" data-orderNo="{{item.ORDER_NO}}">
+                                    <image class="b1141" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-14.png" mode="widthFix"></image>
+                                    <view class="b1142">{{item.ORDER_NO}}</view>
+                                </view>
+                                <image class="b116 {{item.detail?'':'cc'}}" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-19.png" mode="widthFix"></image>
+                            </view>
+                            <view class="b12" style="max-height:{{item.height}};margin-bottom: {{item.height=='0rpx'?'0rpx':'10rpx'}};">
+                                <view class="b121"></view>
+                                <view class="b122">
+                                    <view class="b122m">
+                                        <view class="b1221">
+                                            {{item.UPDATETIME2||item.UPDATETIME3||item.APPLYTIME||item.CREATE_DATE}}
+                                        </view>
+                                        <view class="b1222" bind:tap="showResult" data-reason="{{item.STATUS||item.STATUS4}}">
+                                            {{item.STATUS||item.STATUS4}}
+                                        </view>
+                                        <view class="b1223">{{item.APPLY_TYPE_NAME}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="" wx:if="{{shareMineList.length<totalNum1}}">
+                            <view class="viewmore" wx:if="{{!searching1}}" bind:tap="showMore" data-type="1">
+                                查看更多
+                            </view>
+                            <view wx:else class="loading">
+                                <van-loading size="30px" color="#1989fa">加载中...</van-loading>
+                            </view>
+                        </view>
+                    </view>
+                    <view wx:else>
+                        <view class="b404">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-404.png" mode="widthFix"></image>
+                        </view>
+                        <view class="b4041">您还没有分享历史哦</view>
+                    </view>
+                    <view style="height:60rpx"></view>
+                </view>
+            </van-tab>
+            <van-tab title="我帮他人转介" disabled="{{!hasIDInfo}}">
+                <view class="loading" wx:if="{{loading2}}">
+                    <van-loading size="30px" color="#1989fa" vertical>加载中...</van-loading>
+                </view>
+                <view wx:else>
+                    <view wx:if="{{shareEmpList.length>0}}">
+                        <view style="height:20rpx"></view>
+                        <block wx:for="{{shareEmpList}}">
+                            <view class="b11" bind:tap="showDetail" data-index="{{index}}" data-list="shareEmpList">
+                                <view class="b111">{{totalNum2-index}}.</view>
+                                <image class="b112" wx:if="{{cndUrl}}" src="{{item.PHOTO}}" mode="widthFix"></image>
+                                <view class="b115">
+                                    <view class="b1151">{{item.APPLY_REAL_NAME}}</view>
+                                    <view class="b1152">{{item.APPLYTIME||item. CREATE_DATE}}</view>
+                                </view>
+                                <view class="b113">
+                                    <image class="b1131" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix"></image>
+                                    <view class="b1132">
+                                        {{item.TYPE==="1"&&item.REWARD_CONTENT_REC?item.REWARD_CONTENT_REC:0}}
+                                    </view>
+                                </view>
+                                <view class="b114" catch:tap="copyOrderNo" data-orderNo="{{item.ORDER_NO}}">
+                                    <image class="b1141" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-14.png" mode="widthFix"></image>
+                                    <view class="b1142">{{item.ORDER_NO}}</view>
+                                </view>
+                                <image class="b116 {{item.detail?'':'cc'}}" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-19.png" mode="widthFix"></image>
+                            </view>
+                            <view class="b12" style="max-height:{{item.height}};margin-bottom: {{item.height=='0rpx'?'0rpx':'10rpx'}};">
+                                <view class="b121">
+                                    <view class="b1211">我转介{{item.TYPE==="2"?'落地':""}}给</view>
+                                    <view class="b1212">
+                                        {{item.TYPE==="1"?item.PLA_NAME:item.MANAGER_NAME}}
+                                    </view>
+                                </view>
+                                <view class="b122">
+                                    <view class="b122m">
+                                        <view class="b1221">
+                                            {{item.UPDATETIME2||item.UPDATETIME3||item.APPLYTIME||item.CREATE_DATE}}
+                                        </view>
+                                        <view class="b1222" bind:tap="showResult" data-reason="{{item.STATUS||item.STATUS4}}">
+                                            {{item.STATUS||item.STATUS4}}
+                                        </view>
+                                        <view class="b1223">{{item.APPLY_TYPE_NAME}}</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="" wx:if="{{shareEmpList.length<totalNum2}}">
+                            <view class="viewmore" wx:if="{{!searching2}}" bind:tap="showMore" data-type="2">
+                                查看更多
+                            </view>
+                            <view wx:else class="loading">
+                                <van-loading size="30px" color="#1989fa">加载中...</van-loading>
+                            </view>
+                        </view>
+                        <view style="height:60rpx"></view>
+                    </view>
+                    <view wx:else>
+                        <view class="b404">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-404.png" mode="widthFix"></image>
+                        </view>
+                        <view class="b4041">您还没有分享历史哦</view>
+                    </view>
+                </view>
+            </van-tab>
+            <van-tab title="分享">
+                <view class="loading" wx:if="{{loading4}}">
+                    <van-loading size="30px" color="#1989fa" vertical>加载中...</van-loading>
+                </view>
+                <view wx:else>
+                    <view wx:if="{{shareList.length>0}}">
+                        <view style="height:20rpx"></view>
+                        <block wx:for="{{shareList}}">
+                            <view class="b11">
+                                <view class="b111">{{totalNum4-index}}.</view>
+                                <image class="b112" wx:if="{{cndUrl}}" src="{{item.CLICK_PHOTO}}" mode="widthFix"></image>
+                                <view class="b115">
+                                    <view class="b1151">
+                                        {{item.REAL_NAME||item.CLICK_NICKNAME||"TA未注册"}}
+                                    </view>
+                                    <view class="b1152">{{item.APPLYTIME||item.CREATE_DATE}}</view>
+                                </view>
+                                <view class="b113">
+                                    <image class="b1131" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-15.png" mode="widthFix"></image>
+                                    <view class="b1132">{{item.SHARE_AWARD||0}}</view>
+                                </view>
+                                <view class="b114">
+                                    <view class="b1223">{{item.APPLY_TYPE_NAME}}</view>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="" wx:if="{{shareList.length<totalNum4}}">
+                            <view class="viewmore" wx:if="{{!searching4}}" bind:tap="showMore" data-type="4">
+                                查看更多
+                            </view>
+                            <view wx:else class="loading">
+                                <van-loading size="30px" color="#1989fa">加载中...</van-loading>
+                            </view>
+                        </view>
+                        <view style="height:60rpx"></view>
+                    </view>
+                    <view wx:else>
+                        <view class="b404">
+                            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-404.png" mode="widthFix"></image>
+                        </view>
+                        <view class="b4041">您还没有分享历史哦</view>
+                    </view>
+                </view>
+            </van-tab>
+        </view>
+    </van-tabs>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose">
+    <view class="a2">
+        <view class="a21">活动规则</view>
+        <scroll-view class="a22" scroll-x="false" scroll-y="false" upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="" bindscroll="">
+            <view class="a221">
+                <view class="a222">活动时间</view>
+                <view class="a223">即日起至2020年12月31日。</view>
+            </view>
+            <view class="a221">
+                <view class="a222">转介方式</view>
+                <view class="a223">请至“随e贷”产品介绍页，通过海报分享朋友圈或微信聊天会话，待客户申请时系统自动识别您的推荐信息并给予奖励。</view>
+            </view>
+            <view class="a221">
+                <view class="a222">转介说明：</view>
+                <view class="a223">
+                    <view>1. 您邀请的客户需近一年内未在我行办理小微贷款业务。</view>
+                    <view>2. 客户只要成功提交业务申请，您即可获得50元苏银豆奖励；若客户业务审批通过，您可获得300元苏银豆奖励。</view>
+                    <view>3. 活动期间，您通过转介最多可获得1750元苏银豆奖励。</view>
+                </view>
+            </view>
+            <view class="a221">
+                <view class="a222">其它：</view>
+                <view class="a223">
+                    <view>1. 在活动期内，您邀请的客户若发起多次申请，不重复奖励；若您是我行小微企业客户，转介自己申请不予奖励。</view>
+                    <view>2. 奖励发放、兑换时需完成小程序身份认证。您可以到江苏银行手机银行苏银豆商城兑换相关商品。</view>
+                    <view wx:if="{{empNo}}">3. 我行员工转介活动规则详见行内发文。</view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="a23">
+            <view class="a231" bind:tap="onClose">我知道了</view>
+        </view>
+    </view>
+</van-popup>
+<van-popup show="{{ showBeanBox }}" bind:close="closeBeanBox" class="cc1">
+    <view class="c1">
+        <view class="c21">
+            <view class="c211">提取苏银豆</view>
+            <image wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/award/award-16.png" mode="widthFix" bind:tap="closeBeanBox"></image>
+        </view>
+        <view class="c22" wx:if="{{!submit}}">
+            <input class="c221" type="number" placeholder="请输入需要提取的苏银豆数量" bindinput="numInput" value="{{beansNum}}" placeholder-class="input-placeholder" />
+        </view>
+        <view class="c23" wx:else>
+            <view>{{getBeanDesc1}}</view>
+            <view>积分余额：{{getBeanDesc2}}</view>
+        </view>
+        <view class="a231" bindtap="getBeans" wx:if="{{!submit}}">确认</view>
+        <view class="a231" bindtap="closeBeanBox" wx:else>我知道了</view>
+    </view>
+</van-popup>

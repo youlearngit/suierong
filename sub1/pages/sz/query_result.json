@@ -1,0 +1,6 @@
+{
+    "usingComponents": {},
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "苏州征信贷 - 订单查询结果",
+    "enablePullDownRefresh": false
+}

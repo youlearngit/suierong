@@ -1,0 +1,155 @@
+<cu-custom isCustom="{{true}}" currentPage="{{currentPage}}">
+    <view slot="content">客户经理</view>
+</cu-custom>
+<image class="edit-icon" bind:tap="editProduct" wx:if='{{cndUrl&&ifSelf}}' src="{{cndUrl}}/static/wechat/img/sui/sui-{{edit?'2028':'2027'}}.png" mode="widthFix"></image>
+<view class="header"></view>
+<view class="card">
+    <image class="card-bg" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2029.png" mode="widthFix"></image>
+    <image wx:if="{{cardInfo.TEXT2=='1'}}" class="card-avatar" src="{{cardInfo.PHOTO2}}" mode="widthFix"></image>
+    <view class="card-avatar2" wx:if="{{cardInfo.TEXT2=='0'}}" hover-class="none" hover-stop-propagation="false">
+        <image src="{{cardInfo.PHOTO2}}" mode="widthFix"></image>
+    </view>
+    <view class="card-sub1" hover-class="none" hover-stop-propagation="false">
+        <view class="card-name">{{cardInfo.USERNAME||""}}</view>
+        <view class="card-number">{{empNo}}</view>
+    </view>
+    <view class="card-positon">{{cardInfo.TEXT1?cardInfo.TEXT1+cardInfo.POSITION:""}}</view>
+    <image class="talk-icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2030.png" mode="widthFix"></image>
+    <view class="talk" bind:tap="contact">留言</view>
+    <image class="call-icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2031.png" mode="widthFix"></image>
+    <view class="call" bind:tap="openPhoneDialog">电话联系</view>
+    <image class="share-icon" wx:if='{{cndUrl}}' bind:tap="showShare" src="{{cndUrl}}/static/wechat/img/sui/sui-2032.png" mode="widthFix"></image>
+</view>
+<view class="c-desc">
+    <view class="sub1">
+        <view class="d-name">{{cardInfo.TAG3}}</view>
+        <view class="d-title">个人标签</view>
+    </view>
+    <!-- <view class="sub2">
+        <view class="d-num">{{shareCount}}</view>
+        <view class="d-title">营销客户数</view>
+    </view> -->
+    <!-- <view class="sub2">
+        <view class="d-num-new">{{shareCount}}</view>
+        <view class="d-title-new">办理业务数</view>
+    </view> -->
+</view>
+<view class="c-desc2">
+    <view class="d-title2">服务简介</view>
+    <view class="d-content">{{cardInfo.PRO_FIELD}}</view>
+</view>
+<view class="myswiper">
+    <swiper class="" style="height: 110px;" indicator-dots="{{false}}" circular="true" autoplay interval="5000" duration="500"  indicator-color="#8799a3" indicator-active-color="#0081ff">
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub3/pages/bbx/home" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/bbx/banner.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub1/pages/share/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/banner_home_sui.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+         <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub1/pages/fund/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl&&fundConfig}}' src="{{cndUrl}}/static/wechat/img/fund/{{fundConfig.PAGE_URL}}" mode="widthFix" style="width:100%;border-radius:80rpx;"></image>
+            </navigator>
+        </swiper-item>
+         <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub1/pages/consumer/activity?empNo={{empNo}}" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui2-1093.png" mode="widthFix" style="width:100%;border-radius:80rpx;"></image>
+            </navigator>
+        </swiper-item>
+         <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub2/pages/qyBankRegister/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/zm/zm_107.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+    </swiper>
+</view>
+<product-box products="{{block1}}" edit="{{edit}}" bind:edit="editBlock" bind:moveUp="moveUpBlock" bind:moveDown="moveDownBlock" bind:delete="deleteBlock" data-id="1"></product-box>
+<product-box products="{{block2}}" edit="{{edit}}" bind:edit="editBlock" bind:moveUp="moveUpBlock" bind:moveDown="moveDownBlock" bind:delete="deleteBlock" data-id="2"></product-box>
+<product-box products="{{block3}}" edit="{{edit}}" bind:edit="editBlock" bind:moveUp="moveUpBlock" bind:moveDown="moveDownBlock" bind:delete="deleteBlock" data-id="3"></product-box>
+<product-box products="{{block4}}" edit="{{edit}}" bind:edit="editBlock" bind:moveUp="moveUpBlock" bind:moveDown="moveDownBlock" bind:delete="deleteBlock" data-id="4"></product-box>
+<product-box products="{{block5}}" edit="{{edit}}" bind:edit="editBlock" bind:moveUp="moveUpBlock" bind:moveDown="moveDownBlock" bind:delete="deleteBlock" data-id="5"></product-box>
+<product-box products="{{block6}}" edit="{{edit}}" bind:edit="editBlock" bind:moveUp="moveUpBlock" bind:moveDown="moveDownBlock" bind:delete="deleteBlock" data-id="6"></product-box>
+<view class="addp" wx:if="{{edit&&(blockNum<6)}}">
+    <view class="title">新增模块</view>
+    <image class="" src="{{cndUrl}}/static/wechat/img/sui/sui-2033.png" mode="widthFix" style="width:100%" bind:tap="addBlock"></image>
+</view>
+<view class="zh">
+    <view class="zh-title">综合服务</view>
+    <view class="zh-content">
+        <view class="zh-sub" wx:for="{{zh_products}}" bind:tap="skip" data-code="{{item.code}}">
+            <image wx:if='{{cndUrl&&item.code}}' src="{{cndUrl}}/static/wechat/img/sui/sui-{{item.code}}.png" mode="widthFix"></image>
+            <view class="sub-title">{{item.name}}</view>
+        </view>
+    </view>
+</view>
+<van-popup show="{{ showEditBox }}" bind:close="closePopUp" position="bottom">
+    <view class="t1">
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2034.png" bind:tap="closePopUp" mode="widthFix" style="width:40rpx;margin: 0 40rpx 0 0;"></image>
+        <view class="t11">
+            <view class="t111">
+                <input class="" value="{{editingBlock.name}}" type="text" placeholder="产品推荐" placeholder-style="" placeholder-class="input-placeholder" bindinput="productNameInput"></input>
+            </view>
+            <image class="t112" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2035.png" mode="widthFix" style="width:34rpx;margin: 0 10rpx;"></image>
+        </view>
+        <view class="t13" bind:tap="submitProductConfig">保存</view>
+    </view>
+    <view class="t2">
+        <view class="t21">
+            <view class="t211">当前已选</view>
+            <view class="t212">(最多选4个)</view>
+        </view>
+        <view class="t23">
+            <view class="t231" wx:for="{{editingBlock.detail}}">
+                {{item.name}}
+                <image src="{{cndUrl}}/static/wechat/img/sui/sui-2036.png" bind:tap="deleteProduct" data-id="{{index}}" mode="widthFix" style=""></image>
+            </view>
+        </view>
+    </view>
+    <view class="t3">
+        <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation style="height:50vh">
+            <view class="cu-item {{index==TabCur||(index==3&&TabCur==4)?'cur ':''}}" wx:for="{{tpyeArray}}" wx:key="index" bindtap='tabSelect' data-id="{{index}}">
+                {{item}}
+            </view>
+        </scroll-view>
+        <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:50vh">
+            <view class="t23" wx:if="{{showProducts}}" style="width:100%">
+                <view class="t231" wx:for="{{products[TabCur]}}" style="background:{{item.choosed?'#5F80ED':'white'}};color:{{item.choosed?'white':'#353b50'}}" bind:tap="addProduct" data-id="{{index}}">
+                    {{item.NAME}}
+                </view>
+            </view>
+            <view class="weui-loading__wrp" wx:else style="text-align:center">
+                <view class="weui-loading" />
+            </view>
+        </scroll-view>
+    </view>
+</van-popup>
+<my-poster shareBox="{{shareBox}}" bind:cancel="closePopUp" hidePoster="{{hidePoster}}" imagePath="{{imagePath}}"></my-poster>
+<canvas style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+<van-popup show="{{ showPosterBox }}" bind:close="closePopUp" position="bottom">
+    <view class="t7">欢迎体验,感谢分享。</view>
+    <view class="t4">海报模版</view>
+    <view class="t5">
+        <view class="t51" wx:for="{{posterImgs}}" bind:tap="choosePoster" data-id="{{index}}">
+            <image class="t54" src="{{cardInfo.PHOTO2}}" mode="widthFix" style="width:100%"></image>
+            <image src="{{item.img}}" mode="widthFix" style="width:100%"></image>
+            <view class="t53 {{posterIdselected==index?'t531':''}}" hover-class="none" hover-stop-propagation="false">
+                {{item.title}}
+            </view>
+            <image wx:if="{{posterIdselected==index&&cndUrl}}" class="t52" src="{{cndUrl}}/static/wechat/img/sui/sui-1076.png" mode="widthFix"></image>
+        </view>
+    </view>
+    <view class="t6" wx:if="{{posterIdselected==-1}}" style="opacity: 0.5;">请选择模版</view>
+    <view class="t6" bind:tap="createPoster" wx:if="{{posterIdselected!=-1&&imagePath!=''}}">
+        分享海报
+    </view>
+    <view class="t6" hover-class="none" hover-stop-propagation="false" wx:if="{{posterIdselected!=-1&&imagePath==''}}">
+        <image src="{{cndUrl}}/static/wechat/img/sui/loading.gif" mode="widthFix" style="width:40rpx;margin:0 10rpx"></image>
+        请稍等
+    </view>
+    <view style="height:30rpx"></view>
+</van-popup>
+<my-login loginFlag="{{loginFlag}}"></my-login>

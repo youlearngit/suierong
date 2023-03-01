@@ -1,0 +1,55 @@
+<!--pages/carLoans/order/index.wxml-->
+<view class="box">
+  <view wx:if="{{resultItems.length > 0}}">
+    <view class="items" wx:for='{{resultItems}}' wx:key="key"  wx:for-item='item'>
+    <view class="item">
+      <view class="item-top" bindtap="toBusinessPage" data-dataset="{{item}}">
+      <view class="item-top-left">
+        <view class="item-top-left-transno">订单编号 {{item.serno}}</view>
+        <view class="item-top-left-time">申请时间 {{item.applyDate}}</view>
+      </view>
+      <image wx:if="{{(item.applicationStatus != 1 && item.applicationStatus != 3) && (item.comfirmedStatus != '' && item.comfirmedStatus != '0')}}"
+       class="item-top-right-img image-common-size" src="{{preffixUrl}}/static/wechat/img/carloans/continue-apply.png"></image>
+    </view>
+    <view class="item-center" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/{{item.backgroundColor==0?'apply-fail-background.png':(item.backgroundColor == 1 ? 'apply-succes-background.png': 'apply-other-background.png')}})">
+      <view class="item-content-left">
+              <view class="item-content-label">产品名称</view>
+              <view class="item-content-value">{{item.prdName}}</view>
+            </view>
+            <text class="item-content-center"></text>
+            <view class="item-content-right">
+              <view class="item-content-label">申请状态</view>
+              <!-- 失败为红色字体#FF545F，通过蓝色字体#6580ED，其它状态绿色字体color:#41C99D -->
+              <view class="item-content-value2" style="{{item.backgroundColor==0?'color:#FF545F;':(item.backgroundColor == 1 ? 'color:#6580ED;': 'color:#41C99D') }}">
+                {{ item.statusText}}
+              </view>
+            </view>
+    </view>
+    <view class="item-foot" wx:if="{{item.applicationStatus != '3'}}">
+      <text class="item-foot-label">经办客户经理</text>
+      <image class="image-common-size item-foot-img" src="{{preffixUrl}}/static/wechat/img/carloans/order-manager-photo.png"></image>
+      <text class="item-foot-manage-info">{{item.chargeUsrName}}</text>
+      <image class="image-common-size item-foot-img" src="{{preffixUrl}}/static/wechat/img/carloans/order-manger-tel.png"></image>
+      <text class="item-foot-manage-info" bindtap="callPhone" data-dataset="{{item.chargeUsrTel}}">{{item.chargeUsrTel}}</text>
+    </view>
+    </view>
+    <!-- 查看合同签约 isEmortgageApp -->
+    <view class="search-info" wx-if="{{(item.applicationStatus == '6' && item.comfirmedStatus == '2' && item.isEmortgageApp == '0' )  || ((item.applicationStatus == '8' || item.applicationStatus == '9' || item.applicationStatus == '10') && item.isEmortgageApp == '1' && item.loanType  )}}" 
+        bindtap="toLoanPage" data-dataset="{{item}}" >
+        <image class="image-common-size search-info-img" src="{{preffixUrl}}/static/wechat/img/carloans/order-search-icon.png"></image>
+        <text></text>
+        <text class="search-info-text">{{(item.applicationStatus == '6' && item.comfirmedStatus == '2' && item.isEmortgageApp == '0' )  ? "合同待签订":"查看合同"}} </text>
+    </view>
+    <view class="search-info" wx:elif="{{item.applicationStatus == '7' || item.applicationStatus == '5' ||item.applicationStatus == '4' || (item.applicationStatus == '2' && item.comfirmedStatus == '1')}}" bindtap="toBusinessPage" data-dataset="{{item}}" >
+        <image class="image-common-size search-info-img" src="{{preffixUrl}}/static/wechat/img/carloans/order-waitng-icon.png"></image>
+        <!-- || item.applicationStatus == '4' -->
+        <text wx:if="{{(item.applicationStatus == '2' || item.applicationStatus == '4') && item.comfirmedStatus == '1'}}" class="search-info-text">信息待确认</text>
+        <text wx:elif="{{item.applicationStatus == '7' || item.applicationStatus == '5' || (item.applicationStatus == '4' && item.comfirmedStatus != '1')}}" class="search-info-text">查看申请</text>
+         <!-- <text wx:elif="{{item.applicationStatus == '7' || item.applicationStatus == '5' || item.applicationStatus == '4'}}" class="search-info-text">查看申请</text> -->
+    </view>
+  </view>
+  </view>
+  <view wx:else>
+      <view class="b4041">您还没有申请记录哦</view>
+  </view>
+</view>

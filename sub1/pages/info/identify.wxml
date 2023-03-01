@@ -1,0 +1,105 @@
+<view class="a2">
+  <!-- 已完成 -->
+  <block wx:if="{{showNon1}}">
+    <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <navigator class="cu-list menu" url="user_info?type=0&custinfo={{customerInfo2}}&dept=230004">
+          <view class="cu-item arrow">
+            <view class="content">
+              <view class="view-grey">个人信息</view>
+            </view>
+            <view class="action">
+              <view class="appr">已录入</view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </block>
+  <!-- 未完成 -->
+  <block wx:else>
+    <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <navigator class="cu-list menu" url="user_info?type=1&custinfo={{customerInfo2}}&dept=230004">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">个人信息</view>
+            </view>
+            <!-- <image class='addBtn' src="/assets/images/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="set_2"/> -->
+            <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </block>
+  <!-- 已完成 -->
+  <block wx:if="{{showNon3}}">
+    <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-list menu">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">人脸识别</view>
+            </view>
+            <view class="action">
+              <view class="appr" style="margin-right: 58rpx">已识别</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 未完成 -->
+  <block wx:else>
+    <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+      <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+        <view class="cu-list menu" bindtap="set_3">
+          <view class="cu-item ">
+            <view class="content">
+              <view class="view-grey">人脸识别</view>
+            </view>
+            <!-- <image class='addBtn' src="/assets/images/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="set_3"/> -->
+            <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<block wx:if="{{!status}}">
+    <!-- 已完成 -->
+    <view wx:if="{{showNon2}}">
+      <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+        <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+          <view class="cu-list menu" bindtap="identifyDetail">
+            <view class="cu-item arrow">
+              <view class="content">
+                <view class="view-grey">证件拍照</view>
+              </view>
+              <view class="action">
+                <view class="appr">已上传</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 未完成 -->
+    <view wx:else>
+      <view class="a2b2" hover-class="none" hover-stop-propagation="false">
+        <view class="a2b2c2" hover-class="none" hover-stop-propagation="false">
+          <view class="cu-list menu" bindtap="set_2">
+            <view class="cu-item">
+              <view class="content">
+                <view class="view-grey">证件拍照</view>
+              </view>
+              <!-- <image class='addBtn' src="/assets/images/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" bindtap="set_2"/> -->
+              <image class='addBtn' wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_9.png" mode="widthFix" lazy-load="false" binderror="" bindload="" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+</block>
+<block wx:else>
+</block>

@@ -1,0 +1,139 @@
+/* sub1/pages/cloud/index.wxss */
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+page {
+    background-color: #f0f0f0;
+}
+.f1 {
+    width: 100%;
+}
+
+.f2 {
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 30rpx 0 40rpx;
+}
+
+.f21 {
+    width: 90%;
+    /* padding: 40rpx 20rpx; */
+    margin: auto;
+    background-color: #ffffff;
+    font-family: Helvetica;
+    border-radius: 20rpx;
+    box-shadow: 1rpx 1rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.f211 {
+    font-family: Helvetica;
+    font-size: 25rpx;
+    color: #000000;
+    line-height: 36rpx;
+    letter-spacing: 1rpx;
+    padding: 30rpx 20rpx;
+}
+.f3 {
+    width: 100%;
+    background-color: white;
+}
+.f31 {
+    display: flex;
+    height: 182rpx;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.f31::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    bottom: 0;
+    height: 2rpx;
+    background-color: #eeeaea;
+}
+.ff::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    bottom: 0;
+    height: 0rpx;
+    background-color: #eeeaea;
+}
+
+.f311 {
+    width: 381rpx;
+    padding: 20rpx;
+    border: 1px solid #5093ff;
+}
+
+.f313 {
+    width: 2rpx;
+    height: 100.4rpx;
+    background-color: #eeeaea;
+    margin: 0 30rpx;
+}
+.f312 {
+    width: 170rpx;
+}
+.f312 image {
+    width: 100%;
+}
+
+.f3111 {
+    font-family: Helvetica;
+    font-size: 32rpx;
+    color: #5093ff;
+    text-align: center;
+}
+.f3112 {
+    font-family: Helvetica;
+    font-size: 20rpx;
+    color: #999999;
+    text-align: center;
+}
+
+.f4 {
+    padding: 40rpx 0;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    background-color: #f0f0f0;
+}
+
+.f41 {
+    width: 280rpx;
+    height: 80rpx;
+    background: #5093ff;
+    font-family: Helvetica;
+    font-size: 32rpx;
+    color: #ffffff;
+    line-height: 80rpx;
+    border-radius: 10rpx;
+    text-align: center;
+}
+
+.imagePathBox {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.shengcheng {
+    width: 72%;
+    z-index: 9999;
+    position: absolute;
+    left: 14%;
+    overflow: hidden;
+    top: 40%;
+    transform: translateY(-40%);
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.tools {
+    bottom: 50rpx;
+}

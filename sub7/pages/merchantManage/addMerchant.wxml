@@ -1,0 +1,39 @@
+<view class="container_content">
+  <image class="container_bg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/bg1_sh.png"></image>
+  <view class="text1" wx:if="{{info==1}}">修改商户详情</view>
+  <view class="text1" wx:else>{{shType==0?'填写商户信息':'商户信息详情'}}</view>
+  <view class="box">
+  <block wx:if="{{shType==1}}">
+    <image bindtap="editorEvent" data-message="editor" class="boxinnerimg" wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/order/sh_editorimg.png"></image>
+  </block>
+    <view class="row {{shType==0?'':'styleChange'}}">商户名</view>
+    <view class="row1 {{shType==0?'':'noborder'}}">
+      <input class="{{shType==0?'row1input':'inputChange'}}" disabled="{{shType1==0?'':true}}" type="text" placeholder="请输入商户名" placeholder-class="placeholderStyle" maxlength="20" value="{{listvalue.customerName}}" data-name="customerName" bindblur="funInput" bindtap="{{shType1==2?'uneditor':''}}"/>
+    </view>
+    <view class="row {{shType==0?'':'styleChange'}}">银行账号<text class="rowtext">丨选填</text></view>
+    <view class="row1 {{shType==0?'':'noborder'}}">
+      <input class="row1input" type="number" disabled="{{shType==0?'':true}}" placeholder="请输入银行账号" placeholder-class="placeholderStyle" value="{{listvalue.bankAccountNumber}}" data-name="bankAccountNumber" bindblur="funInput" maxlength="30" />
+    </view>
+    <view class="row {{shType==0?'':'styleChange'}}">联系人</view>
+    <view class="row1 {{shType==0?'':'noborder'}}">
+      <input class="row1input" type="text" disabled="{{shType1==0?'':true}}" placeholder="请输入姓名" placeholder-class="placeholderStyle" value="{{listvalue.linkman}}" data-name="linkman" bindblur="funInput" bindtap="{{shType1==2?'uneditor':''}}"/>
+    </view>
+    <view class="row {{shType==0?'':'styleChange'}}">联系方式</view>
+    <view class="row1 {{shType==0?'':'noborder'}}">
+      <input class="row1input" type="number" disabled="{{shType1==0?'':true}}" placeholder="请输入联系方式" placeholder-class="placeholderStyle" maxlength="11" value="{{listvalue.telephone}}" data-name="telephone" bindblur="funInput" bindtap="{{shType1==2?'uneditor':''}}"/>
+    </view>
+    <!-- <view class="row {{shType==0?'':'styleChange'}}">联系邮箱<text class="rowtext">丨选填</text></view> -->
+    <!-- <view class="row1 {{shType==0?'':'noborder'}}">
+      <input class="row1input" type="text" disabled="{{shType==0?'':true}}" placeholder="请输入邮箱地址" placeholder-class="placeholderStyle" value="{{listvalue.email}}" data-name="email" bindblur="funInput" />
+    </view> -->
+    <view class="row {{shType==0?'':'styleChange'}}">营销人员</view>
+    <view class="row1">
+      <input class="row1input" type="text" disabled="{{shType==0?'':true}}" placeholder="请输入姓名" placeholder-class="placeholderStyle" style="width:180rpx;" value="{{listvalue.seller}}" data-name="seller" bindblur="funInput" /> <text class="text2">|</text>
+      <input class="row1input" type="number" disabled="{{shType==0?'':true}}" placeholder="请输入手机号码" placeholder-class="placeholderStyle" maxlength="11" value="{{listvalue.sellerPhone}}" data-name="sellerPhone" bindblur="funInput" />
+    </view>
+  </view>
+  <view class="bottombox" wx:if="{{shType==0}}">
+    <view bindtap="cancle">取消</view>
+    <view bindtap="sureAdd">{{info==0?'确认新增':'确认修改'}}</view>
+  </view>
+</view>

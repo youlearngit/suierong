@@ -1,0 +1,9 @@
+{
+	"usingComponents": {
+		"my-login": "/component/login/index",
+        "cu-custom": "/component/cu-custom/cu-custom",
+		"my-poster": "/sub1/component/poster/index"
+	},
+	"navigationStyle": "custom",
+	"enablePullDownRefresh": false
+}

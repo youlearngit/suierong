@@ -1,0 +1,58 @@
+
+<view class="cs-top" wx:if="{{cndUrl}}" style=" background-image: url({{cndUrl}}/static/wechat/img/sui/manager_bg.png);">
+    <view class="cs-l">
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_location.png" class="cs-location" />
+        <text class="cs-txt">{{textData.name}}</text>
+    </view>
+    <view class="cs-search">
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_search.png" class="cs-searchIc" />
+        <input class="cs-input" placeholder="请输入客户经理姓名" name="info" placeholder-class="input-placeholder" bindinput="bindinput" />
+    </view>
+    <view class="cs-card">
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/manager_title.png" class="" mode="widthFix" style="width:100%" />
+    </view>
+</view>
+<view class="cs-picker">
+    <view class="picker-txt1" style="margin-left:5%;{{select==0?'color: #282828;':'color: #999999;'}}" data-id="0" bindtap="select">
+        推荐
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_down.png" class="picker-img" />
+        <view class="picker-select" wx:if="{{select==0}}"></view>
+    </view>
+    <view class="picker-txt" style="margin-left: 11%;{{select==1?'color: #282828;':'color: #999999;'}}" data-id="1" bindtap="select">
+        附近
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_down.png" class="picker-img" />
+        <view class="picker-select" wx:if="{{select==1}}"></view>
+    </view>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="picker-txt" style="margin-left: 11%;">
+        <view bindtap="select" data-id="2" style="{{select==2?'color: #282828;':'color: #999999;'}}">
+            地区
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_down.png" class="picker-img" />
+            <view class="picker-select" wx:if="{{select==2}}"></view>
+        </view>
+    </picker>
+</view>
+<block wx:for="{{list}}" wx:key="index">
+    <view class="cs-item" bindtap="contact" data-emp="{{item.EMP_NO||item.managerNo||item.USERID}}">
+        <image wx:if='{{cndUrl}}' src="{{(item.AVATAR_URL||item.PHOTO)?preffixUrl+'adviser/getAvatar?picId='+(item.AVATAR_URL||item.PHOTO):preffixUrl+'static/wechat/img/no_avator.png'}}" class="item-img" />
+        <view style="height:100%;">
+            <view style="font-family: PingFangSC-Medium;font-size: 30rpx;color: #282828;letter-spacing: 0;height:27%;margin-top: 19rpx;">
+                {{item.NAME||item.USERNAME}}
+            </view>
+            <view style="font-family: PingFangSC-Regular;font-size: 24rpx;color: #999999;height:20%;">
+                {{item.POSITION}}
+            </view>
+            <view style="height:40%;margin-top: 10rpx;">
+                <view  wx:for="{{item.TAGS}}"  style="padding: 2rpx 10rpx;border: 1px solid #5F80ED;border-radius: 6px;border-radius: 6px;font-family: PingFangSC-Regular;font-size: 24rpx;color: #5F80ED;display:inline-block;margin: 0 10rpx 0 0;">
+                    {{item}}
+                </view>
+            </view>
+        </view>
+        <view class="item-right-ic" wx:if="{{item.STATUS==true}}">已联络</view>
+        <view style="font-family: PingFangSC-Regular;font-size: 22rpx;color: #999999;position: absolute;bottom:24rpx;right:16rpx; ">
+            距离{{textData.distance}}
+        </view>
+    </view>
+</block>
+<view class="" style="height:30rpx" hover-class="none" hover-stop-propagation="false">
+</view>
+<my-login loginFlag="{{loginFlag}}"></my-login>

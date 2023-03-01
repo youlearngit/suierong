@@ -1,0 +1,76 @@
+<!--sub6/pages/toolkit/index.wxml-->
+<view class="home">
+
+  <view class="bg">
+    <image src="{{cndUrl}}/static/wechat/img/gjx/phjrbg.jpg"></image>
+  </view>
+  <view class="financialButton">
+    <!-- 债券融资产品 -->
+    <view class="button" bindtap="getObligatoryRight">
+      <!-- ObligatoryRight -->
+      <image src="{{cndUrl}}/static/wechat/img/gjx/djlj.png"></image>
+    </view>
+    <!-- 股权融资服务 -->
+    <view class="button" bindtap="getStockRights">
+      <!-- stockRights -->
+      <image src="{{cndUrl}}/static/wechat/img/gjx/djlj.png"></image>
+    </view>
+  </view>
+  <view class="financeAndTaxationBox">
+    <!-- 管家服务 -->
+    <view class="button" style="margin: 0 auto;" bindtap="getSteward">
+      <!-- steward -->
+      <image src="{{cndUrl}}/static/wechat/img/gjx/djlj.png"></image>
+    </view>
+  </view>
+  <view class="policyBox">
+    <!-- 科技创新券 -->
+    <view class="button" bindtap="getTechnology">
+      <!-- technology -->
+      <image src="{{cndUrl}}/static/wechat/img/gjx/djlj.png"></image>
+    </view>
+    <!-- 科技政策 -->
+    <view class="button" bindtap="getScience">
+      <!-- science -->
+      <image src="{{cndUrl}}/static/wechat/img/gjx/djlj.png"></image>
+    </view>
+
+    <!-- 跳转人才政策 -->
+    <view class="button" bindtap="getTalents">
+      <!-- talents -->
+      <image src="{{cndUrl}}/static/wechat/img/gjx/djlj.png"></image>
+    </view>
+  </view>
+  <view class="fx" bindtap="showShare">
+    <image src="{{cndUrl}}/static/wechat/img/gjx/fx.png"></image>
+  </view>
+ 
+  <my-login loginFlag="{{loginFlag}}" bind:onAuthUser="getAuthInfo"></my-login>
+  <canvas style="width: {{posterBoxWidth}}px;height: {{posterBoxHeight}}px;position:fixed;top:9999px;background-color:white" canvas-id="mycanvas" />
+  <view class="{{shareBox}}" wx:if="{{shareBox == 'shareBox on'}}">
+    <view class='imagePathBox'>
+    <image src="{{imagePath}}" class='shengchengs' ></image>
+  </view>
+  <view hidden="{{maskHidden}}" class="mask"></view>
+    <view class="tools">
+        <view class="tb cancel" bindtap='showHide'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_cancel.jpg" />
+            <block>取消</block>
+        </view>
+        <view class="tb shareToAPP">
+            <button open-type='share'>
+                <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_shareWX.jpg" />
+            </button>
+            <block>转发</block>
+        </view>
+        <view class="tb savePic" bindtap='baocun'>
+            <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_savepic.jpg" />
+            <view class="saveTxt">朋友圈</view>
+        </view>
+    </view>
+</view>
+ <!-- 人才专员 悬浮按钮 -->
+ <navigator url="/sub3/pages/bbx/staff_list?RCtype=1&location={{location_json}}" hover-class="none">
+		<image class="float_talent_btn" src="{{preffixUrls}}fwzy.png" mode="widthFix"></image>
+	</navigator>
+</view>

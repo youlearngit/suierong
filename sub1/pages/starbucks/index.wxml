@@ -1,0 +1,44 @@
+<view class="content">
+    <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/starbucks/bg.jpg" mode="widthFix" style="width:100%"></image>
+</view>
+<view class="apply">
+    <view class="btn1" bind:tap="getCoupon" style="opacity:{{couponNum.length===1?'0.4':'1'}}">
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/starbucks/btn_apply.png" mode="widthFix" style="width:100%"></image>
+    </view>
+    <view class="btn1" bind:tap="showCoupon">
+        <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/starbucks/btn_show.png" mode="widthFix" style="width:100%"></image>
+    </view>
+</view>
+<van-popup show="{{ showPopUp}}" bind:close="closePopUp">
+    <view class="popup">
+        <view class="popup-title">我的券码</view>
+        <view class="code-list" wx:for="{{couponNum}}" wx:key="{{item.CODE}}">
+            <view class="popup-content">{{item.CODE}}</view>
+            <view class="btn-copy" bind:tap="copyCoupon" data-code='{{item.CODE}}'>复制</view>
+        </view>
+        <image class="btn-cancel" bind:tap="closePopUp" src="{{cndUrl}}/static/wechat/img/award/award-16.png" mode="widthFix"></image>
+        <view class="tips1">
+            关注江苏银行信用卡微信公众号
+            <view class="triangle"></view>
+            底部菜单
+            <view class="" hover-class="none" hover-stop-propagation="false">【最热福利</view>
+            <view class="" hover-class="none" hover-stop-propagation="false">】</view>
+            <view class="triangle"></view>
+            星巴克优惠
+            <view class="triangle"></view>
+            领取并兑换星巴克满减抵用券
+        </view>
+        <view class="tips2">
+            <view>优惠券使用细则：</view>
+            <view>1.活动期间关注“江苏银行信用卡”微信公众号输入兑换码及手机号即可获取满30元减5元抵用券1张或满30元减10元抵用券1张，详细操作见活动海报页面。</view>
+            <view>
+                2.礼包权益将下发至用户填写的手机号账户中，请先使用兑换时输入的手机号注册星巴克星享俱乐部会员并登录星巴克APP或星巴克微信小程序，在“我的”内查看并使用，有效期为7天（添加至星享俱乐部账户时生效）。
+            </view>
+            <view>
+                3.可以在星巴克购买指定饮品或食品时，享受单笔订单满30元减5元或10元优惠，每个用户最多享受1次（同一账号、手机号、设备、或支付账号相同，即视为同一账户）。
+            </view>
+            <view>4.权益仅限中国大陆地区的指定星巴克门店、最新版星巴克App和微信小程序的啡快线上订餐服务。不可在如下渠道使用：专星送订餐。</view>
+            <view>5.兑换码使用问题，可联系客服4000182010。</view>
+        </view>
+    </view>
+</van-popup>

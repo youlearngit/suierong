@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-field": "/sub1/static/vant-weapp/field/index",
+    "van-radio": "/sub1/static/vant-weapp/radio/index",
+    "van-radio-group": "/sub1/static/vant-weapp/radio-group/index",
+    "van-popup": "/sub1/static/vant-weapp/popup/index",
+    "van-picker": "/sub1/static/vant-weapp/picker/index"
+  },
+  "navigationBarTitleText": "人才认证"
+}

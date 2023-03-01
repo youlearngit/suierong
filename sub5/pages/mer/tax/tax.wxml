@@ -1,0 +1,7 @@
+
+<block wx:if="{{url}}">
+  <web-view src="{{url}}"></web-view>
+</block>
+
+<van-dialog id="van-dialog" confirm-button-color="#415FCD" />
+<van-toast id="van-toast" />

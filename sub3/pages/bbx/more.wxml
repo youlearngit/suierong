@@ -1,0 +1,40 @@
+<cu-custom isCustom="{{true}}" currentPage="{{currentPage}}"></cu-custom>
+<view class="nav-header" hover-class="none" hover-stop-propagation="false">
+    <image class="talk-icon" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-2043.png" mode="widthFix" style="width:100%"></image>
+</view>
+<view class="VerticalBox" style="padding: {{130+CustomBar}}rpx 0;">
+    <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation style="height:calc(100vh - {{130+CustomBar}}rpx) ">
+        <view class="cu-item {{index==TabCur?'cur ':''}}" wx:for="{{tpyeArray}}" wx:key="index" bindtap='tabSelect' data-id="{{index}}">
+            {{item}}
+        </view>
+    </scroll-view>
+    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - {{130+CustomBar}}rpx)">
+        <view wx:if="{{showProducts}}">
+            <view class="padding-lr" wx:key="id">
+                <view class="cu-list menu-avatar ">
+                    <block wx:if="{{TabCur === 3 }}">
+                        <view class="zh-product" >
+                            <view class="producticonBox2" wx:for="{{products[TabCur]}}" bind:tap="skip" data-code='{{item.CODE}}'>
+                                <image class="producticonImg3" wx:if="{{cndUrl}}" src="{{cndUrl}}/static/wechat/img/sui/sui-{{item.CODE}}.png" mode="widthFix" lazy-load="{{true}}" />
+                                <view class="title2">{{item.NAME}}</view>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="cu-item" wx:for="{{products[TabCur]}}" wx:key="index" bindtap="skip" data-i='{{index}}'>
+                            <image class="producticonImg2" wx:if="{{cndUrl}}" src="{{item.URL}}" mode="widthFix" lazy-load="{{true}}" />
+                            <view class="cu-item-name">{{item.NAME}}</view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loading__wrp" wx:else style="text-align:center">
+            <view class="weui-loading" />
+        </view>
+        <view class="tip">
+          <image  style="width:399rpx;" src="{{preffixUrl}}more_illustration.png" mode="widthFix"   />
+          <view class="tipTxt">请选择您需要的{{tpyeArray[TabCur]}}吧~</view>
+        </view>
+    </scroll-view>
+</view>

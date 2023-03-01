@@ -1,0 +1,19 @@
+<cu-custom isCustom="{{true}}"  backPageSize="{{backPageSize}}">
+    <view slot="content">征信授权</view>
+</cu-custom>
+<view class="body-background-img" style="background-image: url({{preffixUrl}}/static/wechat/img/carloans/confirm_home1_background.png);background-color: #ffffff;">
+  <view class="content-1">
+    <!-- 成功的信息 -->
+    <view wx:if="{{status=='1'}}" class="content-body">
+      <image class="content-img" src="{{preffixUrl}}/static/wechat/img/carloans/apply-commint.png"/>
+      <view class="content-title">授权签署已成功！</view>
+    </view>
+    <!-- 失败的信息 -->
+    <view wx:if="{{status=='0'}}" class="content-body">
+      <image class="content-img" src="{{preffixUrl}}/static/wechat/img/carloans/apply-commint-fail.png"/>
+      <view class="content-title">授权签署失败！</view>
+      <view class="content-error-text">{{errorMsg}}</view>
+    </view>
+  </view>
+  <button class="btn-submit" bindtap="toAuthsPage" >查看我的授权</button>
+</view>

@@ -1,0 +1,11 @@
+
+function idxOf(array,item) {
+	return array.indexOf(item);
+}
+
+function inArr(array,item) {
+	return array.indexOf(item)>-1?true:false;
+}
+
+module.exports.idxOf = idxOf
+module.exports.inArr = inArr

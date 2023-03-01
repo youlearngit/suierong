@@ -1,0 +1,143 @@
+/* sub1/pages/cloud/regist.wxss */
+
+@import "/assets/styles/colorui/main.wxss";
+@import "/assets/styles/weui.wxss";
+@import "/assets/styles/colorui/animation.wxss";
+@import "/assets/styles/colorui/icon.wxss";
+
+
+.a1 {
+    width: 750rpx;
+    height: 290rpx;
+}
+
+.a1img {
+    width: 750rpx;
+    height: 290rpx;
+}
+.a2 {
+    text-align: center;
+    height: 93.9rpx;
+    background-color: #ffffff;
+}
+
+.a2Txt {
+    font-family: Helvetica;
+    font-size: 25rpx;
+    color: #000000;
+    padding-top: 29rpx;
+}
+
+.a3 {
+    height: 230.1rpx;
+    width: 682.8rpx;
+    margin-left: 33.6rpx;
+    margin-top: 46.2rpx;
+    margin-bottom: 46.2rpx;
+}
+
+.a3img {
+    height: 230.1rpx;
+    width: 682.8rpx;
+}
+
+.addBtn {
+    width: 62rpx;
+}
+.a4 {
+    width: 750rpx;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.a4b1 {
+    width: 750rpx;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+.cu-item {
+    border-bottom: 1rpx solid #dddddd;
+    width: 690rpx;
+    margin-left: 30rpx;
+}
+.a4b1Req {
+    font-family: Helvetica;
+    font-size: 26rpx;
+    color: #333333;
+    width: 53rpx;
+    height: 37rpx;
+}
+
+.a4b1menu {
+    font-family: Helvetica;
+    font-size: 30rpx;
+    color: #000000;
+    height: 42rpx;
+    width: 200rpx;
+}
+
+.a4b1ipt{
+    width: 500rpx;
+}
+
+.a5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 37.5rpx;
+}
+
+.a5btn {
+    background: #5093ff;
+
+    width: 293.8rpx;
+    height: 80rpx;
+
+    margin: 20rpx 20rpx;
+    border-radius: 10rpx;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Helvetica;
+    font-size: 32rpx;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 15rpx;
+}
+
+.a5btn1 {
+    background: #5093ff;
+
+    width: 293.8rpx;
+    height: 80rpx;
+
+    margin: 20rpx 20rpx;
+    border-radius: 10rpx;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Helvetica;
+    font-size: 32rpx;
+    color: #ffffff;
+    text-align: center;
+}
+
+.a5btn2 {
+    background: #5093ff;
+}
+
+.line {
+    height: 1rpx;
+    border-bottom: 1rpx solid #f0f3f7;
+    width: 630rpx;
+    margin-left: 30rpx;
+}
+
+.mobbtn::after {
+    border: none;
+    border-radius: 0;
+    align-items: center;
+  }

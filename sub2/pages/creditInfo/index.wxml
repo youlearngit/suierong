@@ -1,0 +1,15 @@
+<view class="container">
+    <image wx:if="{{preffixUrl}}" class="bg" mode="widthFix" style="width:100%" src="{{preffixUrl}}/static/wechat/credit/bj.png"></image>
+    <view class="apply">
+        <view bindtap="apply" class="buss">
+            <image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/img/1.png"></image>
+            <view class="title" style="margin-top:18rpx;">采集授权信息</view>
+        </view>
+    </view>
+    <view class="search">
+        <navigator url="../creditInfo/search" class="buss" hover-class="none">
+            <image wx:if="{{preffixUrl}}" mode="widthFix" src="{{preffixUrl}}/static/wechat/img/2.png"></image>
+            <view class="title">查看授权信息</view>
+        </navigator>
+    </view>
+</view>

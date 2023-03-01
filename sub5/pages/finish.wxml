@@ -1,0 +1,76 @@
+<!--sub4/pages/finish.wxml-->
+<view class="finish">
+  <view class="topcontainer" style="height:{{navHeight}}px;">
+    <view class="backIndex1" bindtap='getHome' style="top:{{menutop}}px">
+        <image mode="widthFix"src="/pages/public/img/ico_ind.png"></image>
+      </view>
+      <view style="position:absolute;top:{{menutop}}px;left:50%;transform: translate(-50%,0);">江苏银行随e融</view>  
+  </view>
+    <view class="contont" wx:if="{{start == 0}}">
+        <view class="ddImage">
+            <image src="{{preffixUrl}}/static/wechat/img/mer/dtbg.png"></image>
+        </view>
+        <view class="sl">
+            <image src="{{preffixUrl}}/static/wechat/img/mer/sl.gif"></image>
+        </view>
+        <view class="dtTitle">额度审批中，请耐心等待……</view>
+    </view>
+    <view class="contont" wx:if="{{start == 1}}">
+        <view class="await_image">
+            <image src="{{preffixUrl}}/static/wechat/img/mer/ddsh.png"></image>
+        </view>
+        <view class="aeaiy_official">
+            <text>
+                您已成功提交申请资料
+            </text>
+            <text>
+                审批结果稍后通过短信方式通知您
+            </text>
+            <text>
+                祝您生活愉快～
+            </text>
+        </view>
+       <view class="finish_botton">
+        <van-button bindtap="getHome" round type="info">关闭</van-button>
+       </view>
+    </view>
+    <view class="contont" wx:if="{{start == 2}}">
+        <view class="await_image">
+            <image src="{{preffixUrl}}/static/wechat/img/mer/spcg.png"></image>
+        </view>
+        <view class="aeaiy_official">
+            恭喜您，成功申请额度(元)
+        </view>
+        <view class="money">
+            {{money}}
+        </view>
+        <view class="finish_botton">
+            <van-button bindtap="getHome" round type="info">完成</van-button>
+        </view>
+        <view class="hink">
+            客户经理将在3个工作日内联系您
+        </view>
+    </view>
+    <view class="contont" wx:if="{{start == 3}}">
+        <view class="await_image">
+            <image src="{{preffixUrl}}/static/wechat/img/mer/sqsb.png"></image>
+        </view>
+        <view class="aeaiy_official">
+            抱歉，您暂未满足申请条件
+        </view>
+        <view class="rest">
+            <view class="rest_image">
+                <image src="{{preffixUrl}}/static/wechat/img/mer/app.png"></image>
+            </view>
+            <view class="rest_message">
+                <view class="message_title">关注江苏银行更多精彩讯息</view>
+                <view class="message_contont">
+                安全便捷的个性化服务
+                助您随时随地掌控自己的金融生活</view>
+            </view>
+        </view>
+        <view class="finish_botton">
+            <van-button bindtap="getHome" round type="info">关闭</van-button>
+        </view>
+    </view>
+</view>

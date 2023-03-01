@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "van-popup": "/sub9/static/vant/weapp/popup/index"
+  }
+}

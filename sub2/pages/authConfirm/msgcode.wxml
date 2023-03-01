@@ -1,0 +1,44 @@
+<view style="margin:5% 5% 2%;margin-left:2.2%">
+    <i-steps>
+        <i-step status="finish">
+            <view slot="title">身份验证</view>
+        </i-step>
+        <i-step status="finish">
+            <view slot="title">人脸识别</view>
+        </i-step>
+        <i-step status="process">
+            <view slot="title">短信验证</view>
+        </i-step>
+    </i-steps>
+</view>
+<view class="desc">信息仅用于您的个人身份认证和银行打款，江苏银行保障您的信息安全</view>
+<view style="width:90%;margin:auto">
+    <!-- 仅对于：对公授权处理展示样式 -->
+    <view class="title" wx:if="{{ (authType == '1' && business_type==3) || authType == '2'}}">接收短信手机号码为{{authInfo.AUTH_PHONE}}</view>
+
+     <!-- 仅对于：个人征信授权-个人零售、个人经营性，企业授权-个人经营性业务展示输入框 -->
+     <view class="title" wx:if="{{ (authType == '1' && business_type==2) || authType == '3'}}">请输入手机号码</view>
+     <view class="weui-cell weui-cell_input" style="line-height: 100rpx;margin-bottom: 100rpx;" wx:if="{{ (authType == '1' && business_type==2) || authType == '3'}}">
+        <view class='weui-cell__ft'>
+          <view class="phone-input">*</view>
+          <input class="msgInp2" placeholder="请填写手机号码" style="padding-top: 38rpx;" bindinput="phoneInput" type="number" maxlength="11"></input>
+        </view>
+      </view>
+
+    <view class="title">请输入短信验证码</view>
+    <view style="display:flex" class="msgbox">
+        <view style="width:600rpx">
+            <view class="phone-input">*</view>
+            <input class="msgInp" maxlength="6" bindinput="msgInput" type="number"/>
+        </view>
+        <view class="msgbtn">
+            <i-button bind:click="getMsgCodeBefore" inline type="primary" disabled="{{disabled}}">
+                {{codeMessage}}
+            </i-button>
+        </view>
+    </view>
+    <view class="bottom">
+        <button bindtap="navTo">下一步</button>
+    </view>
+    <i-toast id="toast"/>
+</view>

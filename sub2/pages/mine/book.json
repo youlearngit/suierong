@@ -1,0 +1,5 @@
+{
+  "usingComponents": {   "i-toast": "/sub2/dist/toast/index" },
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "预约"
+}

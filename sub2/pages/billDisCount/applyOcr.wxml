@@ -1,0 +1,166 @@
+<!-- sub2/pages/billDisCount/applyOcr.wxml -->
+
+
+<view class="wrapCommon" id='wrapCommon' animation="{{animation}}" style="width: 100%;">
+    <view class="card">
+    <!-- <view style="display:flex;flex-dirction:row;width:92%;margin-left:4%;padding-bottom:10rpx;align-items: center;padding-top:32rpx;">
+        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/zm_74.png" class="tip-img"></image>
+        <view class="tip">提示</view>
+    </view> -->
+    <view class="tip-con">
+        <view class="tip1">
+            1、请您上传营业执照和法人身份证件照片。
+        </view>
+        <view class="tip1">2、请确保您上传的照片清晰规范，系统会自动识别读取您的证照信息。</view>
+        <view class="tip1">
+            3、请核对系统识别的信息是否正确，您可对识别出的信息进行手工修改。
+        </view>
+        <view class="tip1">
+            4、如果识别失败，请您手工录入证照信息。
+        </view>
+    </view>
+</view>
+    <view class="{{pagescroll}}">
+        <image class="bg1" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen1.jpg" />
+        <image class="bg2" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_shen2.jpg" />
+        <image class="bg3" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_wei1.png" />
+        <view class="page__bd">
+            <form bindsubmit="upload" report-submit='true'>
+                <view class="section pr">
+                    <view class="weui-cells__title">
+                        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_qyxx.png" />
+                        <text>企业信息</text>
+                    </view>
+                    <view class="weui-cells weui-cells_after-title" hidden="{{flag_org_diy}}">
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">统一信用代码</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input name="RE_REGISTER_ID" value="{{gsInfo.RE_REGISTER_ID}}" class="weui-input" maxlength='18' placeholder="请输入社会信用代码" />
+                            </view>
+                        </view>
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">企业名称</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input name="RE_COMPANY_NAME" value="{{gsInfo.RE_COMPANY_NAME}}" class="weui-input" placeholder="请输入企业名称" />
+                            </view>
+                        </view>
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">注册资本</view>
+                            </view>
+                            <view class='weui-cell__bd '>
+                                <input value="{{gsInfo.RE_REGISTERED_CAPITAL}}" name="RE_REGISTERED_CAPITAL" class="weui-input" placeholder="请输入注册资本"></input>
+                            </view>
+                        </view>
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">法人名称</view>
+                            </view>
+                            <view class='weui-cell__bd '>
+                                <input placeholder="" value="{{gsInfo.RE_LEGAL_REPRESENTATIVE}}" name="RE_LEGAL_REPRESENTATIVE" class="weui-input" placeholder="请输入法人名称"></input>
+                            </view>
+                        </view>
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">企业所在地</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input value="{{gsInfo.RE_ADDRESS}}" name="RE_ADDRESS" class="weui-input" placeholder="请输入企业所在地"></input>
+                            </view>
+                        </view>
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">经营范围</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input value="{{gsInfo.RE_MANAGEMENT_SCOPE}}" name="RE_MANAGEMENT_SCOPE" class="weui-input" type="text" placeholder="请输入企业经营范围" />
+                            </view>
+                        </view>
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">客户渠道</view>
+                            </view>
+                            <view class='weui-cell__bd '>{{TERRACENAME}}</view>
+                        </view>
+                    </view>
+                    <view class="ocrBox">
+                        <view class="imgFlex">
+                            <image bindtap="getGS" id="yyzz" class="picID" wx:if='{{preffixUrl}}' src="{{imgs[0]}}" />
+                        </view>
+                    </view>
+                </view>
+                <view class="section" hidden="{{legal_flag}}">
+                    <view class="weui-cells__title">
+                        <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/apli_faren.png" />
+                        <text>法定代表人信息</text>
+                    </view>
+                    <view class="weui-cells weui-cells_after-title" hidden="{{flag_self_diy}}">
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">法定代表人姓名</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input value="{{idcard.name}}" name="RE_CUST_NAME" class="weui-input" placeholder="请输入法人姓名" />
+                            </view>
+                        </view>
+                        <view class="weui-cell weui-cell_input">
+                            <view class="weui-cell__hd">
+                                <view class="weui-label">身份证号码</view>
+                            </view>
+                            <view class="weui-cell__bd">
+                                <input value="{{idcard.number}}" name="RE_CUST_ID" maxlength="18" class="weui-input" type="idcard" placeholder="请输入身份证号码" />
+                            </view>
+                        </view>
+                    </view>
+                    <view class="section2">
+                        <view class="weui-cells__title"  bindtap="creatPhoto">
+                            <text style="padding-left: 56rpx;">身份证人像面</text>
+                        </view>
+                        <view class="ocrBox"  bindtap="creatPhoto">
+                                <image id="renxiang" class="picID" wx:if='{{preffixUrl}}' src="{{img.renxiang}}"></image>
+                        </view>
+                    </view>
+                    <view class="section2">
+                        <view class="weui-cells__title" >
+                            <text style="padding-left: 56rpx;">身份证国徽面</text>
+                        </view>
+                        <view class="ocrBox"  bindtap="creatPhoto">
+                                <image id="guohui" class="picID" wx:if='{{preffixUrl}}' src="{{img.guohui}}"></image>
+                        </view>
+                    </view>
+                </view>
+                
+                  <view class="button-sp-area">
+                <button class="saveBtns" formType="submit">绑定企业</button>
+                <button class="saveBtn" bindtap="CheckTicket" >下一步</button>
+
+            </view>
+            </form>
+        </view>
+    </view>
+</view>
+ <view wx:if="{{v==1}}">
+    <view class="camerabox" hidden="{{camera_flag}}">
+      <camera hidden="{{camera_flag}}" class="camera" mode="normal" device-position="back" flash="off" binderror="error">
+        <cover-view class="controls">
+          <cover-image class="img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}{{takephoto.coverImg}}" />
+        </cover-view>
+        <cover-view class="noticeTXT">{{takephoto.noticeTxt}}</cover-view>
+        <cover-view class="operat">
+          <cover-image class="clickBtn" id="{{takephoto.id}}" bindtap="takePhoto" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_take.png" />
+          <cover-image class="reTake" bindtap="reTake" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/ico_camera_cancel.png" />
+        </cover-view>
+      </camera>
+    </view>
+  </view>
+
+<view style="position: absolute;width:1px;height:1px;overflow:hidden;">
+    <canvas canvas-id="attendCanvasId" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+    <canvas canvas-id="attendCanvasId2" style="width:{{canvasWidth2}}px;height:{{canvasHeight2}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+    <canvas canvas-id="attendCanvasId3" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-9999px;bottom:-9999px;z-index:-100"></canvas>
+</view>
+  <i-toast id="toast" />

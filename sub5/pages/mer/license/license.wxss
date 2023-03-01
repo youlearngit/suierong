@@ -1,0 +1,161 @@
+/* by .scss */
+.container .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.form_submit, .form_upload {
+  width: 690rpx;
+  border-radius: 20rpx;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+  box-shadow: 0 2rpx 24rpx 0 #b3cbff;
+  box-sizing: border-box;
+  padding: 30rpx;
+}
+
+.form_submit .label_icon, .form_upload .label_icon {
+  display: flex;
+  align-items: center;
+}
+
+.form_submit .label_icon image, .form_upload .label_icon image {
+  margin-left: 6rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.form_submit .right_icon, .form_upload .right_icon {
+  border-left: 1rpx solid #E3E7F0;
+  padding-left: 16rpx;
+}
+
+.form_submit .right_icon image, .form_upload .right_icon image {
+  width: 38rpx;
+  height: 28rpx;
+}
+
+.btn_submit {
+  background: #415FCD;
+  box-shadow: 0 4rpx 8rpx 0 #8094de;
+  border-radius: 42rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 30rpx;
+  width: 450rpx;
+  height: 80rpx;
+}
+
+.btn_submit[disabled] {
+  background: #a0afe6 !important;
+  color: #FFFFFF !important;
+}
+
+.form_upload {
+  margin: 50rpx auto;
+  font-size: 24rpx;
+  color: #7C8BAC;
+}
+
+.form_upload > view:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #2C3750;
+}
+
+.form_upload > view:nth-of-type(1) image {
+  width: 10rpx;
+  height: 47rpx;
+  margin-left: -30rpx;
+  margin-right: 30rpx;
+}
+
+.form_upload > view:nth-of-type(3) {
+  background: #F7FBFF;
+  border: 1rpx solid #D2DDFF;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-top: 40rpx;
+  line-height: 38rpx;
+}
+
+.form_upload > view:nth-of-type(3) image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 8rpx;
+}
+
+.form_upload > view:nth-of-type(3) > view:nth-of-type(1) {
+  display: flex;
+  align-items: center;
+}
+
+.form_upload > view:nth-of-type(3) text {
+  color: #415FCD;
+}
+
+.form_dialog {
+  background: none !important;
+}
+
+.form_dialog .form_upload {
+  margin: 20rpx auto;
+}
+
+.agreement {
+  padding: 20rpx;
+  font-size: 30rpx;
+  color: #2C3750;
+}
+
+.agreement > view:nth-of-type(1) {
+  font-size: 34rpx;
+}
+
+.agreement > view:nth-of-type(2) {
+  margin: 40rpx auto;
+}
+
+.agreement > view:nth-of-type(2) > view {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 50rpx;
+}
+
+.agreement > view:nth-of-type(2) > view image {
+  width: 74rpx;
+  height: 78rpx;
+  margin-right: 10rpx;
+}
+
+.agreement .btn_submit {
+  width: 450rpx;
+}
+
+.agreement .btn_submit + view {
+  width: 380rpx;
+  margin: 30rpx auto;
+}
+
+.agreement .ckb {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.form_upload > view:nth-of-type(2) {
+  margin-top: 70rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form_upload > view:nth-of-type(2) image {
+  width: 308rpx;
+  height: 402rpx;
+}

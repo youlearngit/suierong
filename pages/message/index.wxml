@@ -1,0 +1,64 @@
+<!-- <view class="s0" style="padding: {{148+CustomBar}}rpx 0 24rpx;">
+    <view class="title" style="top:{{CustomBar}}rpx">
+        消息
+    </view>
+    <view class="s02">
+        <image class="s02img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20017.png" mode="widthFix" style="width:25rpx"></image>
+        <input placeholder="搜索" type="text" class="s02input" />
+    </view>
+</view> -->
+<!-- <navigator url="notice" class="s1">
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20016.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">服务通知</view>
+                <view class="s122">帮您第一时间掌控业务动态</view>
+            </view>
+            <image class="s1icon" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:19.6rpx"></image>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</navigator>
+<view class="s1" bind:tap="developing">
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20018.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">精彩活动</view>
+                <view class="s122">注随e融小程序，缤纷活动，福利来袭</view>
+            </view>
+            <image class="s1icon" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:19.6rpx"></image>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view> -->
+<view class="s1" bind:tap="contact">
+    <view class="notice" wx:if="{{unReadMsg!=''}}"></view>
+    <image class="s1img" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/icon_message.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">消息提醒</view>
+                <view class="s122">为您提供最贴心的线上服务</view>
+            </view>
+            <image class="s1icon" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:19.6rpx"></image>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</view>
+<!-- <navigator url="index2" class="s1">
+    <view class="notice1"></view>
+    <image class="s1img" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/assets/sui-20020.png" mode="widthFix" style="min-width:90rpx"></image>
+    <view class="s11">
+        <view class="s1right">
+            <view class="s12">
+                <view class="s121">苏银公告</view>
+                <view class="s122">为您提供随e融小程序的实时动态</view>
+            </view>
+            <image class="s1icon" wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:19.6rpx"></image>
+        </view>
+        <view class="s1line"></view>
+    </view>
+</navigator> -->
+<my-login loginFlag="{{loginFlag}}" ></my-login>

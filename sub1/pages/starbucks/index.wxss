@@ -1,0 +1,115 @@
+.content {
+  width: 100%;
+}
+
+.apply {
+  width: 100%;
+  position: absolute;
+  top: 950rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.btn1 {
+  width: 254rpx;
+  height: 75rpx;
+  /* background-color: #ec1c24; */
+  color: white;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 75rpx;
+  border-radius: 60rpx;
+  margin: 0 15rpx;
+}
+
+.popup {
+  width: 550rpx;
+  padding: 10rpx;
+  position: relative;
+}
+
+.popup-title {
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  color: black;
+  border-bottom: #eeeeee 1rpx solid;
+  margin: 0 0 12rpx;
+}
+.btn-cancel {
+  width: 34rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}
+.popup-content {
+  width: 100%;
+  text-align: center;
+  padding: 15rpx 0;
+  font-size: 32rpx;
+  color: #5d5e5e;
+}
+
+/* .btn-copy {
+	width: 200rpx;
+	height: 75rpx;
+	background-color: #ec1c24;
+	color: white;
+	font-size: 30rpx;
+	text-align: center;
+	line-height: 75rpx;
+	border-radius: 60rpx;
+	margin: 0 auto;
+} */
+
+.btn-copy {
+  width: 120rpx;
+  height: 55rpx;
+  background-color: #316f4c;
+  color: white;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: 55rpx;
+  border-radius: 60rpx;
+  margin: 0 auto;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-left-color: black;
+  margin: 7rpx;
+}
+
+.tips1 {
+  width: 500rpx;
+  padding: 10rpx;
+  font-size: 20rpx;
+  border: 1rpx #eeeeee solid;
+  border-radius: 5rpx;
+  margin: 10rpx auto 27rpx;
+  display: flex;
+  align-self: center;
+  flex-flow: row wrap;
+}
+
+.tips2 {
+  width: 500rpx;
+  font-size: 20rpx;
+  color: #4e4e4e;
+  margin: 0 auto 10rpx;
+}
+
+.van-popup {
+  border-radius: 16rpx;
+}
+
+.code-list {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}

@@ -1,0 +1,82 @@
+<!--sub3/pages/reservedAccChg/search.wxml-->
+<image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_bgn2.png" mode="widthFix" class="bgn" />
+<view class="seach_con">
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_tip1.png" mode="widthFix"
+    class="rac_tip1" />
+
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rec.png" mode="widthFix" class="rac_rec" />
+
+  <view class='searchTip'>信息查询</view>
+  <view class="search_txt">
+    <input placeholder="请输入查询内容" class="inputs" bindinput="inputTxt" />
+
+  </view>
+
+  <view class="search_txt1">请输入单位需要修改的账号信息</view>
+  <!-- <view class="search_txt1">输入单位的旧社会信用代码号、营业执照号或审批文号</view> -->
+</view>
+<view class="shop_choose" >
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/acc_location.png" mode="widthFix"
+      class="acc_location" catchtap="wdOpen"/>
+  <view class="search_txt2" catchtap="wdOpen">
+  
+    {{selectWd.JIGOMC==undefined?'请点击选择预约网点':selectWd.JIGOMC}}
+  </view>
+  <image src="{{preffixUrl}}/static/wechat/img/zm/acc_arw.png" class="acc_arw" mode="widthFix"  catchtap="wdOpen"/>
+  <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_search.png" mode="widthFix"
+      class="rac_search" catchtap="searchEd" />
+</view>
+<view class="search_res">
+  <view class="search_res1">
+    <image wx:if='{{preffixUrl}}' src="{{preffixUrl}}/static/wechat/img/zm/rac_rect.png" mode="widthFix"
+      class="rac_rect" />
+    <view class="search1_txt">{{accName}}</view>
+  
+  </view>
+
+  <view class="search_res2">
+    <view class="search_res2op">
+    </view>
+    <view class="search_res2txt">
+      在我行共有{{accList.length}}个账号
+    </view>
+    <view class="search_res2txt2" bindtap="allCheck">
+      全选
+    </view>
+  </view>
+
+  <view class="search_bor"></view>
+
+  <scroll-view scroll-y="true" class="scroll">
+    <van-checkbox-group value="{{ checkAcc }}" bind:change="onChange">
+
+    <block wx:for="{{accList}}" wx:key='index'>
+      <view class="list">
+        <view class="listTxt">账号{{index+1}} 丨 </view>
+    <!-- <view class="listTxt1">{{item}}</view> -->
+        <view class="listTxt1">{{item.zhangh}}</view>
+        <view class="listTxt1" style="width: 30%;font-size: 24rpx;">({{item.txt}})</view>
+        <!-- class="check" -->
+        <van-checkbox name="{{item.zhangh}}" checked-color='#6D7CFF' ></van-checkbox>
+      </view>
+    </block>
+    </van-checkbox-group>
+  </scroll-view>
+  <view bindtap="submit" class="submit">下一步</view>
+</view>
+
+<van-popup show="{{popupShow}}" position="center" custom-style="border-radius: 16rpx;padding:37rpx 41rpx 50rpx 41rpx;"
+  close-on-click-overlay bind:click-overlay="onPopupEvent">
+  <view class="popTxt">温馨提示</view>
+  <view class="popTxt1"></view>
+  <view class="popTxt2">多账号同时变更，仅能变更内容一致的字段。字段内容不一致的，仅能逐个账号变更。</view>
+  <view class="popTxt3">我知道了</view>
+
+</van-popup>
+<!-- padding:37rpx 41rpx 50rpx 41rpx; -->
+
+<van-popup show="{{popupShow1}}" position="center" custom-style="border-radius: 16rpx;width:100%;" close-on-click-overlay
+  bind:click-overlay="onPopupEvent1">
+  <van-picker columns="{{ columns }}" bind:change="onChangeWd" show-toolbar bind:cancel="onCancel"
+    bind:confirm="confirmWd" title="网点选择" />
+</van-popup>

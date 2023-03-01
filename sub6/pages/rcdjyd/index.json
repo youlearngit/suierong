@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-login": "/component/login/index",
+    "van-popup": "/sub6/static/vant-weapp/popup/index"
+  },
+  "navigationBarTitleText":"人才贷经营贷"
+}

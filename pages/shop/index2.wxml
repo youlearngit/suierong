@@ -1,0 +1,199 @@
+<view class="f1">
+    <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2001.png" mode="widthFix"></image>
+    <view class="f12" style="top:{{CustomBar}}rpx">江苏银行随e融</view>
+</view>
+<view class="f2" style="margin-top:{{CustomBar+78}}rpx">
+    <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2002-new.png" mode="widthFix" style="width:100%"></image>
+    <view class="f21">
+        <navigator url="/sub1/pages/consumer/index" class="f211" hover-class="none"></navigator>
+        <navigator url="/sub1/pages/sui/index" class="f211" hover-class="none"></navigator>
+    </view>
+</view>
+<view class="f3">
+    <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2003.png" mode="widthFix" style="width:100%" style="width:200rpx;padding: 0 0 0 28rpx;"></image>
+    <view class="f31" style="height: 30px;font-size: 26rpx;padding: 5rpx 0 0 ">
+        <swiper class="" vertical="true" style="height: 30px;" indicator-dots="{{false}}" circular="true" autoplay="{{true}}" interval="3000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
+            <swiper-item style='display: flex;align-items: center; margin:0 30rpx'>
+                <navigator class="" target="" url="/sub1/pages/consumer/index" hover-class="none" open-type="navigate">
+                    消费随e贷：随你做哪行，e样都能贷。
+                </navigator>
+            </swiper-item>
+            <swiper-item style='display: flex;align-items: center;margin:0 30rpx'>
+                <navigator class="" target="" url="/sub1/pages/sui/index" hover-class="none" open-type="navigate">
+                    经营随e贷，让您的融资不再难。
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- <view class="f31">
+        <van-notice-bar scrollable color="#333333" backgroundColor="#ffffff" text="1.消费随e贷：随你做哪行，e样都能贷，最高可贷30万。          2.经营随e贷，让您的融资不再难。" />
+    </view> -->
+</view>
+<view class="f4">
+    <view class="f51">
+        <view class="f511">产品业务</view>
+        <navigator url="/sub1/pages/shop/more?id=1" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="f42">
+        <navigator url="/sub1/pages/personal/index" class="f421">
+            <image class="f4211" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2004.png" mode="widthFix"></image>
+            <view class="f4212">个人业务</view>
+            <view class="f4213">随心而动 e享服务</view>
+        </navigator>
+        <navigator url="/sub1/pages/financial/index" class="f421">
+            <image class="f4211" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2005.png" mode="widthFix"></image>
+            <view class="f4212">企业金融</view>
+            <view class="f4213">融合创新 精益成长</view>
+        </navigator>
+    </view>
+</view>
+<view class="f4" >
+    <block wx:if="{{showRecentChat}}">
+        <view class="f51">
+            <view class="f511">客户经理</view>
+            <navigator class="f512" url="/sub1/pages/manager/index">
+                <view class="f5121">查看更多</view>
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+            </navigator>
+        </view>
+        <navigator url="/sub1/pages/shop/index?empNo={{contactInfo.empNo}}" class="f52">
+            <image class="f520" wx:if='{{cndUrl}}' src="{{contactInfo.PHOTO2?contactInfo.PHOTO2:preffixUrl + 'adviser/getAvatar?picId=' + contactInfo.PHOTO}}" mode="widthFix"></image>
+            <view class="f521">{{contactInfo.USERNAME}}</view>
+            <view class="f522">{{contactInfo.TEXT1}}</view>
+            <view class="f525">
+                <view class="f5251" wx:for="{{contactInfo.TAG2}}">{{item}}</view>
+            </view>
+            <view class="f523">已联络</view>
+        </navigator>
+    </block>
+    <block wx:else>
+        <view class="f51">
+            <view class="f511">客户经理</view>
+        </view>
+        <navigator url="/sub1/pages/manager/index" class="f52">
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-2006.png" mode="widthFix" style="width:100%;box-shadow: 0 3rpx 14rpx 0 rgba(191, 193, 218, 0.4);"></image>
+        </navigator>
+    </block>
+    <view class="video">
+      <view class="video1">
+        <view class="video2">
+          <view class="v1 v0">
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/shop_btn.png"></image>
+            演示体验专区
+          </view>
+          <navigator url="/pages/video/index">
+            <view class="v2 v0">
+            立即查看
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/shop_right.png"></image>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+</view>
+<view class="f4">
+    <view class="f51">
+        <view class="f511">综合服务</view>
+        <navigator url="/sub1/pages/shop/more?id=6" class="f512">
+            <view class="f5121">查看更多</view>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_310.png" mode="widthFix" style="width:17rpx"></image>
+        </navigator>
+    </view>
+    <view class="f43">
+        <navigator url="/sub2/pages/map/index" class="f431" style="width:40%">
+            <image class="f4311" wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui-CP001.png" mode="widthFix" style="width:60rpx"></image>
+            <view class="f4312">网点查询</view>
+            <view class="f4313">最近最贴心的服务</view>
+        </navigator>
+        <view class="f432"></view>
+        <navigator url="/sub10/pages/home/home" class="f431">
+            <image class="f4311" wx:if='{{cndUrl}}' src="/static/images/matchplatform.png" mode="widthFix" style="width:60rpx"></image>
+            <view class="f4312">撮合平台</view>
+            <view class="f4313">最贴心的服务</view>
+        </navigator>
+    </view>
+</view>
+<view class="myswiper">
+    <swiper class="square-dot" style="height: 250rpx;" indicator-dots="true" circular="true" autoplay interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
+      <swiper-item style='display: flex;align-items: center;' wx:if="{{showBless}}">
+            <navigator url="/sub9/pages/newYearBless/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/zm/ynhd.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+      <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub2/pages/greenFinanceZone/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/greenFinance/greenCredit_banner.png" mode="widthFix" bind:tap="greenCredit" style="width:100%;"></image>
+            </navigator>
+      </swiper-item>
+      <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub6/pages/announcement/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/gg/ggb.png" mode="widthFix" style="width:100%;border-radius: 76rpx;"></image>
+            </navigator>
+        </swiper-item>
+      <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub6/pages/toolkit/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/gjx/bqw.jpg" mode="widthFix" style="width:100%;border-radius: 76rpx;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;' bind:tap="getCode">
+            <view style="width:100%;position:relative" hover-class="none">
+                <!-- <view bind:tap="getCode" style="position:absolute;height:50%;width:40%;left:0;bottom:30rpx;z-index:999;" ></view> -->
+                <!-- <navigator url="/sub3/pages/salary/index" style="position:absolute;height:50%;width:60%;right:0; bottom:30rpx;z-index:999;" hover-class="none"></navigator> -->
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/banner_salary_home2.png" mode="widthFix" style="width:100%;"></image>
+            </view>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub3/pages/innovate/home" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/innovate/innovate_banner.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub3/pages/bbx/home" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/bbx/banner3.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub1/pages/share/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/banner_home_sui.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+        <!-- <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub1/pages/fund/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl&&fundConfig}}' src="{{cndUrl}}/static/wechat/img/fund/{{fundConfig.PAGE_URL}}" mode="widthFix" style="width:100%;border-radius:80rpx;"></image>
+            </navigator>
+        </swiper-item> -->
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub8/pages/agriculture/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/zssn/zssnbanner.png" mode="widthFix" style="width:100%;border-radius: 76rpx;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub1/pages/consumer/activity" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui2-1093.png" mode="widthFix" style="width:100%;border-radius:80rpx;"></image>
+            </navigator>
+        </swiper-item>
+        <!-- <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub2/pages/qyBankRegister/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/zm/zm_107.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item> -->
+        <swiper-item style='display: flex;align-items: center;'>
+            <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/new_banner.png" mode="widthFix" bind:tap="jumpToSkipurl" style="width:100%;"></image>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub3/pages/command/index" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/sui_jbgs.png" mode="widthFix" style="width:100%;"></image>
+            </navigator>
+        </swiper-item>
+        <swiper-item style='display: flex;align-items: center;'>
+            <navigator url="/sub7/pages/login/login" style="width:100%" hover-class="none">
+                <image wx:if='{{cndUrl}}' src="{{cndUrl}}/static/wechat/img/sui/ddgjpic_img.png" mode="widthFix" style="width:100%;border-radius:80rpx;"></image>
+            </navigator>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="bot">为你提供专业的 企业服务解决方案</view>
+<view class="" style="height:30rpx" />

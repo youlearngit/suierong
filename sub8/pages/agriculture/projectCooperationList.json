@@ -1,0 +1,6 @@
+{
+  "usingComponents": {"van-popup": "/sub8/static/vant/weapp/popup/index",
+    "van-tab": "/sub8/static/vant-weapp/tab/index",
+    "van-tabs": "/sub8/static/vant-weapp/tabs/index",
+    "van-datetime-picker": "/sub8/static/vant/weapp/datetime-picker/index"}
+}

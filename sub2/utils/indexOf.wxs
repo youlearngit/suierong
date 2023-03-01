@@ -1,0 +1,17 @@
+function fn(arr, arg) {
+    var result = {
+        indexOf: false,
+        toString: ''
+    }
+    result.indexOf = arr.indexOf(arg) > -1;
+    result.toString = arr.join(",");
+    return result;
+}
+
+function fn1(str) {
+    var result = str.split('');
+    // console.log(result)
+    return result
+}
+module.exports.fn = fn;
+module.exports.fn1 = fn1;

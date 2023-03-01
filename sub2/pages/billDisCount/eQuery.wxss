@@ -1,0 +1,139 @@
+/* sub2/pages/billDisCount/applyExtra.wxss */
+
+@import "/assets/styles/weui.wxss";
+page {
+    /* background-color: white;
+     */
+    background: white;
+}
+
+.bottom .saveBtn {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 40%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+.bottom .delBtn {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 40%;
+    background-color: white;
+    color: #ff0000;
+}
+
+.bottom .saveBtn2 {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 90%;
+    background-color: #16a8fa;
+    color: white;
+}
+
+.formInfo {
+    background: #FFFFFF;
+    /* border: 2rpx solid #E9EBF0; */
+    border-radius: 10rpx;
+    box-shadow: 0 4rpx 28rpx -2rpx rgba(123, 140, 170, 0.16);
+    padding: 5rpx;
+}
+
+.weui-select {
+    border-right: 0rpx solid #d9d9d9;
+}
+
+.weui-cell__bd {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-height: 150rpx;
+}
+
+.title {
+    margin: auto;
+    font-size: 34rpx;
+    margin-top: 40rpx;
+    margin-bottom: 10rpx;
+    margin-left: 5rpx;
+    font-weight: bold;
+    color: #0066b3;
+}
+
+.weui-label {
+    color: #0066b3;
+}
+
+.i-swipeout-demo-item {
+    border-bottom: #333 solid 1px;
+}
+
+.i-cell-padding {
+    padding: 5px 0px !important;
+    font-size: 14px;
+}
+
+.weui-label {
+    width: 110px;
+}
+
+.weui-cell_input {
+    height: 80rpx;
+    font-size: 28rpx;
+}
+
+.weui-cells:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 0rpx solid #D9D9D9;
+    color: #D9D9D9;
+}
+
+.weui-cells {
+    padding: 5px 15px;
+    height: 30rpx;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    margin-top: 0;
+}
+
+.bg1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 335rpx;
+    z-index: -1;
+}
+
+.bg2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vh;
+    height: 868rpx;
+    z-index: -1;
+}
+
+.bg3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vh;
+    height: 199rpx;
+    z-index: -1;
+}

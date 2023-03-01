@@ -1,0 +1,153 @@
+@import '/assets/styles/weui.wxss';
+
+page{
+	background-color: white;
+}
+.bottom button {
+    /* position: absolute; */
+    /* bottom: 5%; */
+	/* left: 5%; */
+    width: 80%;
+    background-color: #738BFF;
+	color: white;
+}
+
+.bottom2 button {
+    background-color: #16a8fa;
+	color: white;
+}
+
+
+.radio-group {
+display: flex;
+}
+
+.weui-select{
+	border-right: 0rpx solid #D9D9D9;
+}
+/* 自定义 radio 样式 */
+radio{
+    width: 70rpx;
+}
+ 
+radio .wx-radio-input{
+    border-radius: 50%; 
+    /* width: 85rpx;
+    height: 45rpx; */
+
+}
+ 
+/* 选中后的样式 （可根据设计稿需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked::before{
+    border-radius: 50%;
+    width: 70rpx; 
+    height: 70rpx; 
+    line-height: 70rpx;
+    text-align: center;
+    font-size: 35rpx; /* 对勾大小 26rpx */
+    color:#fff; /* 对勾颜色 */
+    background: #2facff;
+    border-color: #2facff;
+}
+
+.title{
+	/* width: 94%; */
+    margin: auto;
+    text-align: center;
+	font-size: 34rpx;
+	margin-top: 20rpx;
+	margin-bottom: 30rpx;
+	font-weight: bold;
+  /* color: #0066b3 */
+} 
+
+.qy .weui-cell weui-cell_input::before{
+	border-top:0rpx
+}
+
+
+.weui-input{
+    margin-left: 15rpx;
+
+}
+
+page {
+  background-color: white;
+}
+
+.bottom button {
+  /* position: absolute;
+    bottom: 5%;
+    left: 5%; */
+  width: 90%;
+  background-color: #2d8cf0;
+  color: white;
+}
+
+.desc {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  font-size: 21rpx;
+  background-color: #edf7fe;
+  padding: 5rpx;
+  border-radius: 10rpx;
+}
+
+.msgbtn button {
+  /* position: absolute;
+  top: 10%;
+  right: 10%; */
+  padding-left: 20rpx;
+  width: 200rpx;
+}
+.msgbtn {
+  margin-left: 30rpx;
+}
+
+.msgInp {
+  height: 80rpx;
+  padding-top: 30rpx;
+  /* text-align: center; */
+  border-bottom: 1px solid #dbdbdb;
+  font-size: 33rpx;
+  padding-left: 60rpx;
+}
+
+.weui-cell {
+  height: 100rpx;
+}
+
+.weui-select {
+  border-right: 0rpx solid #d9d9d9;
+}
+
+.title {
+  margin: auto;
+  font-size: 36rpx;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+  font-weight: bold;
+}
+
+.weui-label {
+  font-size: 33rpx;
+  width: 80px;
+}
+
+.ocrBox {
+  margin: auto;
+  height: auto;
+}
+
+.imgFlex {
+  display: flex;
+}
+
+.imgFlex image {
+  margin: auto;
+}
+
+.picID {
+  width: 70%;
+}

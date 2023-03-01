@@ -1,0 +1,53 @@
+<!-- sub2/pages/billDisCount/apply.wxml -->
+
+<view class="page">
+    <view class="weui-msg" style="padding-top:15rpx;">
+        <view>
+                        <image wx:if="{{cdnUrl}}" src="{{cdnUrl}}/static/wechat/img/zm/remoteIcon.png" mode="widthFix" style="width:300rpx;margin: 21px 40px 10px 0;"></image>
+
+            <!-- <image wx:if="{{preffixUrl}}" src="{{preffixUrl}}/static/wechat/img/sq_success.png" mode="widthFix" style="width:300rpx"></image> -->
+        </view>
+        <view class="weui-msg__text-area" style="margin: 10rpx 50rpx;color: grey;">
+           <view  style="font-size:32rpx;text-align: center;    padding-bottom: 12rpx;font-weight: 700;">
+业务提示</view>
+            <view  style="font-size:22rpx;text-align: left;">
+1.银行承兑汇票贴现额度是我行根据您企业的资质情况核定的银票贴现专用授信。您在我行申请办理银票贴现时，需先申请有效的贴现额度，并在额度内办理。</view>
+            <view  style="font-size:22rpx;text-align: left;">
+2.办理贴现业务须在我行开立结算账户。若您还没有我行结算账户，请先至江苏银行各网点申请开立。</view>
+            <view  style="font-size:22rpx;text-align: left;">
+
+3.电子银行承兑汇票的贴现需要通过您的网银发起。我行支持跨行贴现，您可以通过任一银行的网银按照指定的路径向我行发起贴现申请。</view>
+            <view  style="font-size:22rpx;text-align: left;">
+
+4.每个客户只能同时有一个有效的贴现额度。如果您在我行已有贴现额度，则暂时无法通过线上申请。您可以联系您的客户经理进行线下的额度提增。</view>
+            <view  style="font-size:22rpx;text-align: left;">
+
+5.额度有效期最长为一年，以最终审批结果为准。</view>
+            <view  style="font-size:22rpx;text-align: left;">
+
+6.在线申请的额度上限为3000万，以最终审批结果为准。</view>
+            <view  style="font-size:22rpx;text-align: left;">
+
+7.在您申请的过程中，我们需要您上传如营业执照、法定代表人身份证件等影像资料，请确保您上传的影像资料清晰规范，证照内容真实有效。</view>
+            <view  style="font-size:22rpx;text-align: left;">
+
+8.我们会通过外部数据对您录入的企业信息做一些必要的核查，以确认注册信息真实有效。</view>
+            <view  style="font-size:22rpx;text-align: left;">
+
+9.若您在申请过程中使用了虚假或者无效的信息资料，我行有权随时终止您的额度。
+</view>
+        </view>
+    </view>
+  
+    <view style="width:86%;margin:30rpx 7%">
+        <checkbox-group bindchange="handleChange" style="float:left;">        
+            <checkbox value="isChecked" checked="{{isCheck}}" />
+        </checkbox-group>
+    
+        <text style="color:#A6A6A6;font-size:30rpx;margin-left:5rpx">我已阅读，同意在江苏银行申请贴现额度</text>
+          <view  style="margin-top: 34rpx;bottom: 2%;display: flex;justify-content: center;align-items: center;">
+        <button bindtap="into" class="queding">确定</button>
+    </view>
+    </view>
+  
+</view>

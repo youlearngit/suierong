@@ -1,0 +1,30 @@
+
+<view class="plane">
+	<!-- <image class="bg" src="{{preffixUrl}}foreign_rate_apply_detail.png" mode="widthFix"></image> -->
+
+	<view class="illustration">
+		<image class="illustration-img" src="{{preffixUrl}}foregin_rate_illustration.png" mode="widthFix"></image>
+		<view class="illustration-tip">请前往江苏银行手机app进行操作</view>
+	</view>
+
+	<view class="title">
+		<image class="title-phone" src="{{preffixUrl}}mobilephone.png" mode="widthFix"></image>
+		具体操作步骤如下
+	</view>
+
+	<view class="steps">
+		<view>
+			<image src="{{preffixUrl}}procedure.png" mode="widthFix"></image>
+			应用商店下载或打开江苏银行手机银行
+		</view>
+		<view>
+			<image src="{{preffixUrl}}procedure.png" mode="widthFix"></image>
+			登录手机银行，点击下方“财富”按钮进入财富首页，点击财富页面中“结汇购汇”版块
+		</view>
+		<view>
+			<image src="{{preffixUrl}}procedure.png" mode="widthFix"></image>
+			进入“结汇购汇”首页按需要选择“实时购汇（结汇）”或“挂单购汇（结汇）”，按提示完成交易
+		</view>
+	</view>
+
+</view>
