@@ -1,6 +1,6 @@
 <!--sub1/pages/recommendationInvitation.wxml-->
 <view class="tjg">
-  <view style="color: #EF5247;">{{shareInfo.REAL_NAME||shareInfo.NICK_NAME}}</view>
+  <view style="color: #EF5247;">{{clerkInfo.USERNAME}}</view>
   <view>想邀请您成为Ta的推荐官</view>
 
 </view>

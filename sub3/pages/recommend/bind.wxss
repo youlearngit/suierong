@@ -26,7 +26,7 @@ left: 12%;
   left: 15%;
 }
 .information{
-width: 252rpx;
+width: 100%;
 height: 45rpx;
 font-family: SourceHanSansSC-Medium;
 font-size: 30rpx;
@@ -36,7 +36,7 @@ text-align: center;
 font-weight: 500;
 position: absolute;
 top: 600rpx;
-left: 33%;
+margin: 0 auto;
 
 }
 

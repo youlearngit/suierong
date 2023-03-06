@@ -95,12 +95,30 @@ Page({
 
   addRecommendInfo() {
     // wx.navigateTo({
-    //   url: '/sub3/pages/inviteFriend/inviteFriend'
+    //   url: '/sub3/pages/inviteFriend/inviteFriend?NICK_NAME='+'cc'
     // })
+   
     console.log('openid', this.data.customerInfo.OPEN_ID);
     console.log('当前用户员工号', this.data.shareInfo.USERID);
 
     console.log('推荐官手机号', this.data.customerInfo.TEL);
+
+    
+    if(typeof(this.data.customerInfo.TEL)=='undefined'){
+      return  wx.showModal({
+        title: '提示',
+        content: '请先授权绑定手机号',
+        showCancel: false,
+        confirmText: '确定',
+        success: (result) => {
+          if (result.confirm) {
+            wx.navigateTo({
+              url: '/sub1/pages/info/identify'
+            })
+          }
+        },
+      });
+    }
     addRecommendInfo(this.data.customerInfo.OPEN_ID,this.data.shareInfo.USERID,this.data.customerInfo.TEL)
       .then((res) => {
         console.log(res);
@@ -108,7 +126,7 @@ Page({
           bindStatus: true,
         });
         wx.navigateTo({
-          url: '/sub3/pages/inviteFriend/inviteFriend?NICK_NAME='+this.data.shareInfo.NICK_NAME
+          url: '/sub3/pages/inviteFriend/inviteFriend?NICK_NAME='+this.data.clerkInfo.USERNAME
         })
       })
       .catch((error) => {
