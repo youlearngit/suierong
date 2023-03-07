@@ -488,6 +488,10 @@
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
+
+  "usingComponents": {
+    "van-popup": "@vant/weapp/popup/index"
+  },
   "tabBar": {
     "color": "#9299A7",
     "selectedColor": "#4586E6",

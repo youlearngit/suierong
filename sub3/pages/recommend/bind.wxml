@@ -1,4 +1,22 @@
 <!--sub1/pages/recommendationInvitation.wxml-->
+
+
+
+<van-popup show="{{showBindPhone}}" close-on-click-overlay="false" round="true">
+
+  <view style="width: 650rpx;height: 300rpx;">
+    <view style="text-align: center;font-size: 35rpx;padding-top: 60rpx;">请先授权绑定手机号</view>
+
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber3" class="mobbtn" >
+     确定
+    </button>
+
+  </view>
+
+
+</van-popup>
+
+
 <view class="tjg">
   <view style="color: #EF5247;">{{clerkInfo.USERNAME}}</view>
   <view>想邀请您成为Ta的推荐官</view>
@@ -9,12 +27,12 @@
   <view class="avatar">
     <image class="" src="{{shareInfo.PHOTO}}" mode="widthFix" style="width:100%;border-radius: 50%;" lazy-load="false" binderror="" bindload=""></image>
   </view>
-<view>{{clerkInfo.USERNAME}}</view>
-<view style="font-size: 28rpx;">
-<text>{{clerkInfo.POSITION}}</text><text>｜</text><text>{{clerkInfo.ORG}}</text>
-</view>
+  <view>{{clerkInfo.USERNAME}}</view>
+  <view style="font-size: 28rpx;">
+    <text>{{clerkInfo.POSITION}}</text><text>｜</text><text>{{clerkInfo.ORG}}</text>
+  </view>
 </view>
 
 <view class="ljyq" bindtap="addRecommendInfo">
-<image src="../../static/images/join.png" mode="widthFix" style="width: 504rpx;height: 90rpx;"></image>
+  <image src="../../static/images/join.png" mode="widthFix" style="width: 504rpx;height: 90rpx;"></image>
 </view>

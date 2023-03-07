@@ -13,8 +13,36 @@ Page({
     sharerInfo: {},
     loading: false,
     clerkInfo:{},
-    customerInfo:{}
+    customerInfo:{},
+    showBindPhone:false
   },
+  async getPhoneNumber3(e) {
+    var that = this;
+    wx.showLoading({
+      title: '获取中...',
+    });
+  await api
+      .getPhoneNumber(e)
+      .then((phone) => {
+        console.log(phone);
+      })
+      .catch((err) => {
+        console.log('解密手机号错误', err);
+        wx.showToast({
+          title: err.msg,
+          icon: 'none',
+        });
+      
+      });
+    that.data.customerInfo = await User.getCustomerInfo();
+    console.log(that.data.customerInfo)
+    that.setData({
+      customerInfo: that.data.customerInfo,
+      showBindPhone: false,
+    });
+    wx.hideLoading();
+  },
+
   onLoad: async function (options) {
 
         // const sharerIntID = '1100123555';
@@ -102,22 +130,14 @@ Page({
     console.log('当前用户员工号', this.data.shareInfo.USERID);
 
     console.log('推荐官手机号', this.data.customerInfo.TEL);
-
+   
     
     if(typeof(this.data.customerInfo.TEL)=='undefined'){
-      return  wx.showModal({
-        title: '提示',
-        content: '请先授权绑定手机号',
-        showCancel: false,
-        confirmText: '确定',
-        success: (result) => {
-          if (result.confirm) {
-            wx.navigateTo({
-              url: '/sub1/pages/info/identify'
-            })
-          }
-        },
+
+    return  this.setData({
+        showBindPhone: true
       });
+    
     }
     addRecommendInfo(this.data.customerInfo.OPEN_ID,this.data.shareInfo.USERID,this.data.customerInfo.TEL)
       .then((res) => {

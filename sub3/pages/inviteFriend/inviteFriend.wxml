@@ -7,7 +7,7 @@
 </view>
 
 
-<navigator url="/sub3/pages/recommend/index">
+<navigator url="/sub1/pages/share/index">
 <view class="rule">
   <view>每户最高可获得</view>
 <view>26000苏银豆和500元利息券</view>

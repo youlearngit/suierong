@@ -47,3 +47,15 @@ margin: 0 auto;
   margin: 0 auto;
   padding-bottom: 8rpx;
 }
+
+.mobbtn{
+	background: none;
+	border: 0;
+	outline: 0;
+  text-align: center;
+  color: red;
+  padding-top: 30rpx;
+}
+.mobbtn::after {
+  border: none;
+}
