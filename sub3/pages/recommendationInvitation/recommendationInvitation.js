@@ -363,7 +363,7 @@ Page({
   onShareAppMessage(e) {
     console.log(e)
     console.log(app.globalData.int_id)
-    let imageUrl = this.data.cndUrl + '/static/wechat/img/rec/rec_poster.png';
+    let imageUrl = '../../static/images/rec_poster.png';
     let path = 'sub3/pages/recommend/bind?scene=' + app.globalData.int_id + 'a' + util.formatTime(new Date());
     console.log(path);
     console.log(imageUrl);
